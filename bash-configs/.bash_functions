@@ -26,3 +26,13 @@ idf_create_project(){
   touch $PROJECT_PATH/README.md && truncate -s 0 $PROJECT_PATH/README.md
   echo "# $1 - ESP IDF PROJECT " >> $PROJECT_PATH/README.md
 }
+
+# print formatted csv output
+csv() {
+  column -s, -t < $1 | less -#2 -N -S
+}
+
+# brightness for intel backlight
+set_brightness(){
+  sudo echo $1 > /sys/class/backlight/intel_backlight/brightness
+}

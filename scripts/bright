@@ -1,2 +1,0 @@
-#!/bin/bash
-sudo echo 2850 > /sys/class/backlight/intel_backlight/brightness
