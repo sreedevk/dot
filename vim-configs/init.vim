@@ -16,26 +16,29 @@ set runtimepath+=~/.vim,~/.vim/after
 
 call plug#begin('~/.vim/nvim/plugged')
 
+Plug 'bling/vim-airline'
+Plug 'dense-analysis/ale'
+Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/fzf.vim'
+Plug 'mattn/emmet-vim'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdTree'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'sheerun/vim-polyglot'
+Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/syntastic'
-Plug 'bling/vim-airline'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdTree'
-Plug 'easymotion/vim-easymotion'
-Plug 'mattn/emmet-vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-rhubarb'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
 filetype plugin indent on    " required
 syntax on
-colorscheme srcery-drk
+colorscheme gruvbox
 
 set tabstop=2
 set shiftwidth=2
@@ -47,12 +50,13 @@ set termguicolors
 set rnu " relative number option
 set ignorecase " ignore case while searching
 set linebreak " avoid breaking words while wrapping lines
-" set cursorline " highlight line under cusor
 set title " show window title as current file name
-" set lazyredraw " only redraw window when required
 set showmatch " enable highlighing matching paranthesis
 set hlsearch " enable search highlights
+set t_Co=256
 " set list " show trailing whitespaces
+" set lazyredraw " only redraw window when required
+set cursorline " highlight line under cusor
 
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
@@ -64,8 +68,6 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:user_emmet_expandabbr_key = '<C-a>,'
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
 let g:deoplete#enable_at_startup = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 0 
@@ -73,11 +75,17 @@ let g:NERDTreeWinSize=20
 let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint --type-check']
 let g:syntastic_typescript_tslint_args = "--config ~/.config/nvim/add_conf/tslint.json"
 let g:EasyMotion_smartcase = 1
+let g:gundo_prefer_python3 = 1
+let g:github_enterprise_urls = ['https://github.tunecore.co']
 " let g:airline#extensions#tabline#enabled = 1
 
 map <Leader> <Plug>(easymotion-prefix)
 
 nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-p> :FZF<CR>
+
+cmap <C-R>'           <C-R>=shellescape(getline('.'))<CR>
+cmap <C-R><C-R>' <C-R><C-R>=shellescape(getline('.'))<CR>
 
 noremap <up> <nop>
 noremap <down> <nop>

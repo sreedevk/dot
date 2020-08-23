@@ -1,5 +1,3 @@
-# Luke's config for the Zoomer Shell
-
 # Enable colors and change prompt:
 autoload -U colors && colors
 setopt PROMPT_SUBST
@@ -8,6 +6,7 @@ setopt interactivecomments
 function parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
+
 PS1='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$fg[yellow]%}$(parse_git_branch)%{$reset_color%} $%b '
 
 eval `ssh-agent -s` > /dev/null 2>&1
@@ -26,35 +25,20 @@ compinit
 _comp_options+=(globdots)		# Include hidden files.
 
 # vi mode
-bindkey -v
 export KEYTIMEOUT=1
 export EDITOR=nvim
 
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
+bindkey -v
 
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
+# Use vim keys in tab complete menu:
+bindkey -M menuselect '^H' vi-backward-char
+bindkey -M menuselect '^K' vi-up-line-or-history
+bindkey -M menuselect '^L' vi-forward-char
+bindkey -M menuselect '^J' vi-down-line-or-history
+
+bindkey "^A" vi-beginning-of-line
+bindkey "^E" vi-end-of-line
+
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
@@ -69,27 +53,46 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
-bindkey -v
 bindkey '^R' history-incremental-search-backward
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+bindkey '^x' edit-command-line
 export KEYTIMEOUT=1
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
+[ -f "$HOME/.zsh_env" ] && source "$HOME/.zsh_env"
+[ -f "$HOME/.bash_functions" ] && source "$HOME/.bash_functions"
 source $HOME/antigen.zsh
 
 # Load zsh-syntax-highlighting; should be last.
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+export PATH="$PATH:$HOME/scripts/:$HOME/.yarn/bin:$HOME/anaconda3/bin:$HOME/.rbenv/bin:$HOME/go/bin/"
 
-# antigen bundle nojhan/liquidprompt
+eval "$(rbenv init -)"
+
+antigen bundle nojhan/liquidprompt
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/sreedev/.sdkman"
 [[ -s "/home/sreedev/.sdkman/bin/sdkman-init.sh" ]] && source "/home/sreedev/.sdkman/bin/sdkman-init.sh"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/sreedev/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/sreedev/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/sreedev/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/sreedev/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+eval "$(direnv hook zsh)"
