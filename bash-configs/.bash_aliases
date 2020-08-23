@@ -24,19 +24,16 @@ alias odir='nautilus --no-desktop . &'
 alias reset_database='rake db:drop db:create db:migrate'
 alias gnometheme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias spid='ps aux | grep'
-alias ll='ls -alF --color="auto"'
-alias la='ls -A --color="auto"'
-alias l='ls -CF --color="auto"'
+alias ls='exa -lahr' # G -> grid
+# alias ll='ls -alF --color="auto"'
+# alias la='ls -A --color="auto"'
+# alias l='ls -CF --color="auto"'
 alias grep='grep --color="auto"'
 alias ccat='highlight --out-format=ansi'
 
 # INTERNET ALIASES
 alias yt='youtube-dl --add-metadata -ic'   # download youtube video
 alias yta='youtube-dl --add-metadata -xic' # download youtube audio
-
-# PYTHON ALIASES
-alias p3="python3"
-alias python="python3"
 
 # VIM ALIASES
 
@@ -53,5 +50,11 @@ alias smacs="emacs -nw"
 alias smac="emacs"
 
 # PSQL
-
 alias start_postgres="sudo pg_ctlcluster 11 main start"
+
+alias minecraft="java -jar ~/games/TLauncher-2.69.jar"
+alias vlc_stream_screen="vlc --no-video-deco --no-embedded-video --screen-fps=60 --screen-top=32 --screen-left=0 --screen-width=1920 --screen-height=1000 screen://"
+
+# ESP IDF
+
+alias init_idf=". $HOME/esp/esp-idf/export.sh"
