@@ -69,7 +69,7 @@ source $HOME/antigen.zsh
 # Load zsh-syntax-highlighting; should be last.
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 export PATH="$PATH:$HOME/scripts/:$HOME/.yarn/bin:$HOME/anaconda3/bin:$HOME/.rbenv/bin:$HOME/go/bin/"
-
+export TERM=xterm-256color
 eval "$(rbenv init -)"
 
 antigen bundle nojhan/liquidprompt
