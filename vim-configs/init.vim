@@ -107,3 +107,4 @@ command! -complete=file -nargs=1 T tabedit <args>
 command! NT NERDTree
 command! W w
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
+command! -nargs=0 Sw w !sudo tee % > /dev/null

@@ -25,6 +25,9 @@ idf_create_project(){
   [ -d $PROJECT_PATH/.git ] && rm -rf $PROJECT_PATH/.git
   touch $PROJECT_PATH/README.md && truncate -s 0 $PROJECT_PATH/README.md
   echo "# $1 - ESP IDF PROJECT " >> $PROJECT_PATH/README.md
+  cd $PROJECT_PATH
+  git init
+  mkdir components
 }
 
 # print formatted csv output
