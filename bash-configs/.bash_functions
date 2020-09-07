@@ -45,5 +45,5 @@ pisync(){
   PI_LOCAL_PATH="/home/sreedev/data/remote-rpi0w/"
   [ ! -z "$1" ] && PI_LOCAL_PATH="$1"
   [ ! -z "$2" ] && PI_REMOTE_PATH="$2"
-  rsync -av --progress $PI_LOCAL_PATH $PI_REMOTE_PATH
+  rsync -av --progress $PI_LOCAL_PATH $PI_REMOTE_PATH --delete
 }

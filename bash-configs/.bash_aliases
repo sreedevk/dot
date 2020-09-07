@@ -19,3 +19,4 @@ alias vlc_stream_screen="vlc --no-video-deco --no-embedded-video --screen-fps=60
 
 # ESP IDF
 alias init_idf=". $HOME/esp/esp-idf/export.sh"
+alias setup_idf="conda activate sys27 && init_idf"
