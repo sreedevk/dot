@@ -94,6 +94,7 @@ noremap <right> <nop>
 noremap <C-t> :tabnew <CR>
 nnoremap <leader>u :GundoToggle<CR>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR> 
+nnoremap <C-b> :Buffers<CR>
 
 silent! call airline#extensions#whitespace#disable()
 
