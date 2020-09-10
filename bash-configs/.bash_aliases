@@ -1,13 +1,8 @@
 # GIT ALIASES
 alias gst='git status'
-alias gco='git checkout'
-alias gitline='git log --pretty=oneline --graph --decorate --all'
-alias gd='git diff'
-alias gds='git diff --staged'
-alias glog='git log'
+alias gitree='git log --pretty=oneline --graph --decorate --all'
 
 # SYSTEM ALIASES
-alias gnometheme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias ls='exa -lhr' # G -> grid
 
 # INTERNET ALIASES

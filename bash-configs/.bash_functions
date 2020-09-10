@@ -47,3 +47,27 @@ pisync(){
   [ ! -z "$2" ] && PI_REMOTE_PATH="$2"
   rsync -av --progress $PI_LOCAL_PATH $PI_REMOTE_PATH --delete
 }
+
+aws_instances() {
+  AWS_FILTER="*"
+  OUTPUT_TYPE="table"
+  [ ! -z "$1" ] && AWS_FILTER="*$1*"
+  [ ! -z "$2" ] && OUTPUT_TYPE="$2"
+  aws ec2 describe-instances\
+    --query "Reservations[*].Instances[*].{InstanceID:InstanceId,PrivateIP:PrivateIpAddress,PublicIPAddr:PublicIp,Instance:Tags[?Key=='Name']|[0].Value}"\
+    --filter "Name=tag:Name,Values=$AWS_FILTER"\
+    --output "$OUTPUT_TYPE" 
+}
+
+# print_software_license_info(){
+#    #TBD
+# }
+
+# FZF MAGIC
+gco(){
+  git checkout $(git branch | fzf)
+}
+
+prockill(){
+  sudo kill -9 $(ps aux | fzf | awk '{print $2}')
+}
