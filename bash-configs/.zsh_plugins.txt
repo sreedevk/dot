@@ -1,0 +1,2 @@
+nojhan/liquidprompt
+zsh-users/zsh-syntax-highlighting
