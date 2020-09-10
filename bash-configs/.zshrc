@@ -17,6 +17,11 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
+# static loading (to be run when plugins updated)
+# antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+
+source ~/.zsh_plugins.sh
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -55,7 +60,7 @@ lfcd () {
 bindkey -s '^o' 'lfcd\n'
 bindkey '^R' history-incremental-search-backward
 
-# Edit line in vim with ctrl-e:
+# Edit line in vim with ctrl-x:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^x' edit-command-line
 export KEYTIMEOUT=1
@@ -64,17 +69,12 @@ export KEYTIMEOUT=1
 [ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
 [ -f "$HOME/.zsh_env" ] && source "$HOME/.zsh_env"
 [ -f "$HOME/.bash_functions" ] && source "$HOME/.bash_functions"
-source $HOME/antigen.zsh
 
 # Load zsh-syntax-highlighting; should be last.
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 export PATH="$PATH:$HOME/scripts/:$HOME/.yarn/bin:$HOME/anaconda3/bin:$HOME/.rbenv/bin:$HOME/go/bin/"
 export TERM=xterm-256color
 eval "$(rbenv init -)"
-
-antigen bundle nojhan/liquidprompt
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen apply
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
