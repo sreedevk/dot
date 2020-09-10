@@ -71,3 +71,8 @@ gco(){
 prockill(){
   sudo kill -9 $(ps aux | fzf | awk '{print $2}')
 }
+
+# zsh plugin update - antibody
+antibody_compile(){
+  antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+}
