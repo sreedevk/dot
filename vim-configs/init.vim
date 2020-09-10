@@ -84,6 +84,10 @@ map <Leader> <Plug>(easymotion-prefix)
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-p> :FZF<CR>
 
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gu :diffget //2<CR>
+nmap <leader>gs :G<CR>
+
 cmap <C-R>'           <C-R>=shellescape(getline('.'))<CR>
 cmap <C-R><C-R>' <C-R><C-R>=shellescape(getline('.'))<CR>
 
