@@ -57,6 +57,7 @@ lfcd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
+
 bindkey -s '^o' 'lfcd\n'
 bindkey '^R' history-incremental-search-backward
 
