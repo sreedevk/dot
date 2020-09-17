@@ -22,6 +22,7 @@ create_app(){
   declare -A template_remote_source
   template_remote_source[svelte]="git@github.com:sveltejs/template.git"
   template_remote_source[esp]="git@github.com:espressif/esp-idf-template.git"
+  template_remote_source[express]="https://github.com/sahat/hackathon-starter.git"
 
   # app specific inputs
   app_stack=$1
@@ -30,8 +31,8 @@ create_app(){
 
   # clone template repo locally
   local_template_path="$templates_container/${app_stack}_template"
-  [ ! -d "$templates_container" ] && mkdir $templates_container
-  [ ! -d "$app_template_path" ] && git clone $template_remote_source[$app_stack] "$local_template_path"
+  [ ! -d $templates_container ] && mkdir $templates_container
+  [ ! -d $app_template_path   ] && git clone $template_remote_source[$app_stack] $local_template_path
 
   # copy template to current directory
   cp -r $local_template_path $local_app_path
