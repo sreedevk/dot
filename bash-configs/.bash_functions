@@ -15,19 +15,43 @@ trash(){
   mv $1 ~/.trash/
 }
 
+# generate app from template
+create_app(){
+  # template sources
+  templates_container="$HOME/app_templates"
+  declare -A template_remote_source
+  template_remote_source[svelte]="git@github.com:sveltejs/template.git"
+  template_remote_source[esp]="git@github.com:espressif/esp-idf-template.git"
+
+  # app specific inputs
+  app_stack=$1
+  app_name=$2
+  local_app_path="$(pwd)/$app_name"
+
+  # clone template repo locally
+  local_template_path="$templates_container/${app_stack}_template"
+  [ ! -d "$templates_container" ] && mkdir $templates_container
+  [ ! -d "$app_template_path" ] && git clone $template_remote_source[$app_stack] "$local_template_path"
+
+  # copy template to current directory
+  cp -r $local_template_path $local_app_path
+
+  # post processing
+  rm -rf $local_app_path/.git
+  git init $local_app_path
+}
+
 # create new idf project from espressif template
-idf_create_project(){
-  IDF_TEMPLATE_PATH=$IDF_PATH/esp-idf-template/
-  PROJECT_PATH="$(pwd)/$1"
-  [ ! -d $IDF_TEMPLATE_PATH ] && git clone git@github.com:espressif/esp-idf-template.git $IDF_TEMPLATE_PATH
-  cp -r $IDF_TEMPLATE_PATH $PROJECT_PATH
-  sed -i "s/app-template/$1/g" $PROJECT_PATH/Makefile
-  [ -d $PROJECT_PATH/.git ] && rm -rf $PROJECT_PATH/.git
-  touch $PROJECT_PATH/README.md && truncate -s 0 $PROJECT_PATH/README.md
-  echo "# $1 - ESP IDF PROJECT " >> $PROJECT_PATH/README.md
-  cd $PROJECT_PATH
-  git init
-  mkdir components
+create_idf_app(){
+  idf_app_path="$(pwd)/$1"
+  create_app esp $1
+  sed -i "s/app-template/$1/g" "$idf_app_path/Makefile"
+  mkdir "$idf_app_path/components"
+}
+
+# svelte app
+create_svelte_app(){
+  create_app svelte $1
 }
 
 # print formatted csv output
@@ -59,9 +83,6 @@ aws_instances() {
     --output "$OUTPUT_TYPE" 
 }
 
-# print_software_license_info(){
-#    #TBD
-# }
 
 # FZF MAGIC
 gco(){
@@ -76,3 +97,6 @@ prockill(){
 antibody_compile(){
   antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 }
+
+
+
