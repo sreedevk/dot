@@ -30,8 +30,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-dadbod'
-Plug 'tpope/vim-rhubarb'
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
