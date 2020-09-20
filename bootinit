@@ -1,0 +1,2 @@
+sudo mount /dev/nvme0n1p4 ~/data
+sudo systemctl start docker

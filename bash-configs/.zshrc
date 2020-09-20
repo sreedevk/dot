@@ -67,9 +67,9 @@ bindkey '^x' edit-command-line
 export KEYTIMEOUT=1
 
 # Load aliases and shortcuts if existent.
-[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
+[ -f "$HOME/.zsh_aliases" ] && source "$HOME/.zsh_aliases"
 [ -f "$HOME/.zsh_env" ] && source "$HOME/.zsh_env"
-[ -f "$HOME/.bash_functions" ] && source "$HOME/.bash_functions"
+[ -f "$HOME/.zsh_funcs" ] && source "$HOME/.zsh_funcs"
 
 # Load zsh-syntax-highlighting; should be last.
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
