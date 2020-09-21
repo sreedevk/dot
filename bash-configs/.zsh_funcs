@@ -99,6 +99,19 @@ prockill(){
   sudo kill -9 $(ps aux | fzf | awk '{print $2}')
 }
 
+palette() {
+    local -a colors
+    for i in {000..255}; do
+        colors+=("%F{$i}$i%f")
+    done
+    print -cP $colors
+}
+
+printcc(){
+  local color="%F{$1}"
+  echo -E ${(qqqq)${(%)color}}
+}
+
 # zsh plugin update - antibody
 antibody_compile(){
   antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh

@@ -21,11 +21,27 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
+FZF_TAB_COMMAND=(
+    fzf
+    --ansi   # Enable ANSI color support, necessary for showing groups
+    --expect='$continuous_trigger,$print_query' # For continuous completion and print query
+    --color fg:124,bg:233,hl:202,fg+:214,bg+:52,hl+:231
+    --color info:52,prompt:196,spinner:208,pointer:196,marker:208
+    --nth=2,3 --delimiter='\x00'  # Don't search prefix
+    --layout=reverse --height='${FZF_TMUX_HEIGHT:=75%}'
+    --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
+    '--query=$query'   # $query will be expanded to query string at runtime.
+    '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
+    --print-query
+)
+
 # static loading (to be run when plugins updated)
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
-
 # Basic auto/tab complete:
 autoload -Uz compinit
+compinit
+source ~/.zsh_plugins.sh
+
 zstyle ':completion:*' menu select
 zstyle ':completion:complete:*:options' sort false
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm,cmd -w -w"
@@ -33,9 +49,9 @@ zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps -
 # give a preview of directory by exa when completing cd
 zstyle ':fzf-tab:complete:cd:*' extra-opts --preview=$extract'exa -1 --color=always $realpath'
 zstyle ':fzf-tab:*' continuous-trigger '/'
-compinit
+zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
 
-source ~/.zsh_plugins.sh
+
 
 # vi mode
 bindkey -v

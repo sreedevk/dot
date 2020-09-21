@@ -18,5 +18,3 @@ alias setup_idf="conda activate sys27 && init_idf"
 
 # tmuxinator
 alias mux='tmuxinator'
-
-alias loadzshplugs="antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh"
