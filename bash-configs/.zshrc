@@ -7,6 +7,17 @@ export EDITOR=nvim
 export PATH="$PATH:$HOME/scripts/:$HOME/.yarn/bin:$HOME/anaconda3/bin:$HOME/.rbenv/bin:$HOME/go/bin/"
 export TERM=xterm-256color
 export SDKMAN_DIR="$HOME/.sdkman"
+# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+#     --color=fg:#4d4d4c,bg:#eeeeee,hl:#d7005f
+#     --color=fg+:#4d4d4c,bg+:#e8e8e8,hl+:#d7005f
+#     --color=info:#4271ae,prompt:#8959a8,pointer:#d7005f
+#     --color=marker:#4271ae,spinner:#4271ae,header:#4271ae'
+# 
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color=dark
+--color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
+--color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
+'
 
 # Enable colors and change prompt:
 autoload -U colors && colors
@@ -59,8 +70,9 @@ bindkey -v
 bindkey "^A" vi-beginning-of-line
 bindkey "^E" vi-end-of-line
 
-echo -ne '\e[5 q'                # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+echo -ne '\e[2 q'                # Use beam shape cursor on startup.
+precmd() { echo -ne '\e[2 q' ;}  # Use beam shape cursor for each new prompt.
+
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
