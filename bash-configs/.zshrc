@@ -4,28 +4,17 @@
 
 export KEYTIMEOUT=1
 export EDITOR=nvim
-export PATH="$PATH:$HOME/scripts/:$HOME/.yarn/bin:$HOME/anaconda3/bin:$HOME/.rbenv/bin:$HOME/go/bin/"
+export PATH="$PATH:$HOME/.yarn/bin:$HOME/anaconda3/bin:$HOME/.rbenv/bin:$HOME/go/bin/:/opt/dbeaver/"
 export TERM=xterm-256color
-export SDKMAN_DIR="$HOME/.sdkman"
-# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-#     --color=fg:#4d4d4c,bg:#eeeeee,hl:#d7005f
-#     --color=fg+:#4d4d4c,bg+:#e8e8e8,hl+:#d7005f
-#     --color=info:#4271ae,prompt:#8959a8,pointer:#d7005f
-#     --color=marker:#4271ae,spinner:#4271ae,header:#4271ae'
-# 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=dark
 --color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
 --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
 '
-
 # Enable colors and change prompt:
 autoload -U colors && colors
 setopt PROMPT_SUBST
 setopt interactivecomments
-
-eval `ssh-agent -s` > /dev/null 2>&1
-ssh-add > /dev/null 2>&1
 
 # History in cache directory:
 HISTSIZE=10000
@@ -48,31 +37,21 @@ FZF_TAB_COMMAND=(
 
 # static loading (to be run when plugins updated)
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+
 # Basic auto/tab complete:
-autoload -Uz compinit
-compinit
 source ~/.zsh_plugins.sh
 
 zstyle ':completion:*' menu select
 zstyle ':completion:complete:*:options' sort false
-zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm,cmd -w -w"
+zstyle ':completion:*:*:*:*:processes' command "ps -aux $USER -o pid,user,comm,cmd -w -w"
 zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps --pid=$in[(w)1] -o cmd --no-headers -w -w' --preview-window=down:3:wrap
 # give a preview of directory by exa when completing cd
 zstyle ':fzf-tab:complete:cd:*' extra-opts --preview=$extract'exa -1 --color=always $realpath'
 zstyle ':fzf-tab:*' continuous-trigger '/'
 zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
 
-
-
-# vi mode
-bindkey -v
-
-bindkey "^A" vi-beginning-of-line
-bindkey "^E" vi-end-of-line
-
-echo -ne '\e[2 q'                # Use beam shape cursor on startup.
-precmd() { echo -ne '\e[2 q' ;}  # Use beam shape cursor for each new prompt.
-
+# echo -ne '\e[2 q'                # Use beam shape cursor on startup.
+# precmd() { echo -ne '\e[2 q' ;}  # Use beam shape cursor for each new prompt.
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
@@ -88,6 +67,9 @@ lfcd () {
 bindkey -s '^o' 'lfcd\n'
 bindkey '^R' history-incremental-search-backward
 
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+
 # Edit line in vim with ctrl-x:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^x' edit-command-line
@@ -100,9 +82,6 @@ bindkey '^x' edit-command-line
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 eval "$(rbenv init -)"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

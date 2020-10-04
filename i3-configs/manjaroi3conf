@@ -40,7 +40,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id rofi -lines 15 -show run
 bindsym $mod+d exec --no-startup-id "rofi -combi-modi window,drun,ssh -show combi -modi combi"
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
-bindsym $mod+Shift+d exec dmenu_run
+# bindsym $mod+Shift+d exec dmenu_run
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
@@ -289,7 +289,7 @@ exec --no-startup-id xfce4-power-manager
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 60 -locker blurlock
+# exec --no-startup-id xautolock -time 60 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
