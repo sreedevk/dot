@@ -31,6 +31,7 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'wfxr/minimap.vim'
 
 call plug#end()
 
@@ -65,17 +66,23 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let g:NERDTreeWinSize=20
+
 let g:user_emmet_expandabbr_key = '<C-a>,'
 let g:deoplete#enable_at_startup = 1
+
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 0 
-let g:NERDTreeWinSize=20
+let g:airline#extensions#fzf#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
+
 let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint --type-check']
 let g:syntastic_typescript_tslint_args = "--config ~/.config/nvim/add_conf/tslint.json"
+
 let g:EasyMotion_smartcase = 1
 let g:gundo_prefer_python3 = 1
 let g:github_enterprise_urls = ['https://github.tunecore.co']
-" let g:airline#extensions#tabline#enabled = 1
+let g:ale_c_parse_makefile = 1
 
 map <Leader> <Plug>(easymotion-prefix)
 
@@ -111,4 +118,4 @@ command! NT NERDTree
 command! W w
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 command! -nargs=0 Sw w !sudo tee % > /dev/null
-command! Pisync ! pisync
+command! Hexedit :%!hexdump -C

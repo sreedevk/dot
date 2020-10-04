@@ -117,5 +117,15 @@ antibody_compile(){
   antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 }
 
+load_cube_mx(){
+  export PATH="$PATH:$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/"
+}
 
+tmux_kill(){
+  tmux list-sessions | awk 'BEGIN{FS=":"}{print $1}' | fzf | xargs -n 1 tmux kill-session -t
+}
+
+# hexedit(){
+#   nvim -b -c "!hexdump -C " $1
+# }
 
