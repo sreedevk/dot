@@ -18,7 +18,7 @@ trash(){
 # generate app from template
 create_app(){
   # template sources
-  templates_container="$HOME/app_templates"
+  templates_container="$HOME/Templates"
   declare -A template_remote_source
   template_remote_source[svelte]="git@github.com:sveltejs/template.git"
   template_remote_source[esp]="git@github.com:espressif/esp-idf-template.git"
@@ -125,7 +125,46 @@ tmux_kill(){
   tmux list-sessions | awk 'BEGIN{FS=":"}{print $1}' | fzf | xargs -n 1 tmux kill-session -t
 }
 
-# hexedit(){
-#   nvim -b -c "!hexdump -C " $1
-# }
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
 
+setup_display(){
+  connected_displays=($(xrandr | grep -E '(^|\s)connected($|\s)' | awk '{print $1}'))
+  [[ "${#connected_displays[@]}" > "1" ]] && xrandr --output $connected_displays[1] --mode 1920x1080 --pos 1920x0 --rotate normal --output $connected_displays[2] --mode 1920x1080 --pos 0x0 --rotate normal
+}
+
+ix() {
+    local opts
+    local OPTIND
+    [ -f "$HOME/.netrc" ] && opts='-n'
+    while getopts ":hd:i:n:" x; do
+        case $x in
+            h) echo "ix [-d ID] [-i ID] [-n N] [opts]"; return;;
+            d) $echo curl $opts -X DELETE ix.io/$OPTARG; return;;
+            i) opts="$opts -X PUT"; local id="$OPTARG";;
+            n) opts="$opts -F read:1=$OPTARG";;
+        esac
+    done
+    shift $(($OPTIND - 1))
+    [ -t 0 ] && {
+        local filename="$1"
+        shift
+        [ "$filename" ] && {
+            curl $opts -F f:1=@"$filename" $* ix.io/$id
+            return
+        }
+        echo "^C to cancel, ^D to send."
+    }
+    curl $opts -F f:1='<-' $* ix.io/$id
+}
+
+zonetime(){
+  echo "$1: $(TZ=$1 date +'%m/%d/%Y %I:%M %p')"
+}

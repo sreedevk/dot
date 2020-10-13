@@ -15,8 +15,6 @@ set runtimepath+=~/.vim,~/.vim/after
 " source ~/.vimrc
 
 call plug#begin('~/.vim/nvim/plugged')
-
-Plug 'bling/vim-airline'
 Plug 'dense-analysis/ale'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf.vim'
@@ -28,11 +26,10 @@ Plug 'sheerun/vim-polyglot'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
+Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'wfxr/minimap.vim'
-
 call plug#end()
 
 filetype plugin indent on    " required
