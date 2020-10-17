@@ -32,7 +32,7 @@ create_app(){
   # clone template repo locally
   local_template_path="$templates_container/${app_stack}_template"
   [ ! -d $templates_container ] && mkdir $templates_container
-  [ ! -d $app_template_path   ] && git clone $template_remote_source[$app_stack] $local_template_path
+  [ ! -d $local_template_path   ] && git clone $template_remote_source[$app_stack] $local_template_path
 
   # copy template to current directory
   cp -r $local_template_path $local_app_path
@@ -167,4 +167,12 @@ ix() {
 
 zonetime(){
   echo "$1: $(TZ=$1 date +'%m/%d/%Y %I:%M %p')"
+}
+
+gists(){
+  gh gist edit $(gh gist list --secret | fzf | awk '{print $1}')
+}
+
+clear(){
+  printf "\e[H\e[2J"
 }
