@@ -176,3 +176,8 @@ gists(){
 clear(){
   printf "\e[H\e[2J"
 }
+
+devarchx11(){
+  nohup Xephyr -br -ac -noreset -screen 800x600 :1 >/dev/null 2>&1 &
+  DISPLAY=:1 ssh -Y devarch i3
+}
