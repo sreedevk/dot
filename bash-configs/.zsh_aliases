@@ -17,3 +17,4 @@ alias init_idf=". $HOME/esp/esp-idf/export.sh"
 
 # tmuxinator
 alias mux='tmuxinator'
+alias obliterate='shred -zvu -n 5'
