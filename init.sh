@@ -1,3 +1,9 @@
+# installing required utils
+if [[ "$(uname -r)" =~ "MANJARO" ]]
+then
+  pacman -S ranger alacritty
+fi
+
 # i3 config linking
 if [[ "$(uname -r)" =~ "MANJARO" ]]
 then
