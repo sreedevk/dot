@@ -30,3 +30,7 @@ case $SHELL in
   ln ./zsh/{.zsh_aliases,.zsh_funcs,.zsh_aliases,.zsh_plugins.sh,.zsh_plugins.txt} ~/
   ;;
 esac
+
+# copying scripts
+mkdir -p ~/.scripts/
+ln ./scripts/* ~/.scripts
