@@ -27,6 +27,7 @@
 # Remember that most features come with their corresponding colors,
 # see the README.
 
+LP_MARK="λ "
 # add time, jobs, load and battery
 LP_PS1="${LP_PS1_PREFIX}${LP_TIME}${LP_BATT}${LP_LOAD}${LP_JOBS}"
 # add user, host and permissions colon
