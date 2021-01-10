@@ -95,7 +95,7 @@ gco(){
   git checkout $(git branch | fzf)
 }
 
-prockill(){
+pk(){
   sudo kill -9 $(ps aux | fzf | awk '{print $2}')
 }
 
@@ -180,4 +180,8 @@ clear(){
 devarchx11(){
   nohup Xephyr -br -ac -noreset -screen 1920x1080 :1 >/dev/null 2>&1 &
   DISPLAY=:1 ssh -Y devarch i3
+}
+
+detach(){
+  nohup $1 >/dev/null 2>&1 &
 }
