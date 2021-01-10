@@ -1,9 +1,0 @@
-[Unit]
-Description=BootInitializer mounts drives and starts essential services.
-
-[Service]
-Type=simple
-ExecStart=/bin/bash /usr/bin/bootinit
-
-[Install]
-WantedBy=multi-user.target
