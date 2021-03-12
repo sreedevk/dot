@@ -185,3 +185,24 @@ devarchx11(){
 detach(){
   nohup $1 >/dev/null 2>&1 &
 }
+
+nvm() {
+  echo "Initializing nvm..."
+  unset -f nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  nvm "$@"
+}
+
+asdf() {
+  echo "Initializing asdf.."
+  unset -f asdf
+  . $HOME/.asdf/asdf.sh
+  asdf "$@"
+}
+
+init_idf() {
+  echo "Initializing ESP-IDF (ESPRESSIF)"
+  export ADF_PATH=~/esp/esp-adf
+  export IDF_PATH=~/esp/esp-idf
+  . $IDF_PATH/export.sh
+}
