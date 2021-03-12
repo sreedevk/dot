@@ -12,9 +12,9 @@ alias yta='youtube-dl --add-metadata -xic' # download youtube audio
 alias minecraft="java -jar ~/games/TLauncher-2.69.jar"
 alias vlc_stream_screen="vlc --no-video-deco --no-embedded-video --screen-fps=60 --screen-top=32 --screen-left=0 --screen-width=1920 --screen-height=1000 screen://"
 
-# ESP IDF
-alias init_idf=". $HOME/esp/esp-idf/export.sh"
-
 # tmuxinator
 alias mux='tmuxinator'
 alias obliterate='shred -zvu -n 5'
+
+alias vboxman='VBoxManage'
+alias vboxhl='VBoxHeadless'
