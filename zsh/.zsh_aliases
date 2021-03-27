@@ -1,7 +1,3 @@
-# GIT ALIASES
-alias gst='git status'
-alias gitree='git log --pretty=oneline --graph --decorate --all'
-
 # SYSTEM ALIASES
 alias ls='exa -lhr' # G -> grid
 
