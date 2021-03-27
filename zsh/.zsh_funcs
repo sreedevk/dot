@@ -90,11 +90,6 @@ tc-connect(){
   ssh -i ~/.ssh/tunecore1.pem "$2@$CONN_IP_ADDR"
 }
 
-# FZF MAGIC
-gco(){
-  git checkout $(git branch | fzf)
-}
-
 pk(){
   sudo kill -9 $(ps aux | fzf | awk '{print $2}')
 }
@@ -205,4 +200,8 @@ init_idf() {
   export ADF_PATH=~/esp/esp-adf
   export IDF_PATH=~/esp/esp-idf
   . $IDF_PATH/export.sh
+}
+
+idff() {
+  idf.py flash -b 921600 $@
 }

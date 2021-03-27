@@ -1,0 +1,28 @@
+[user]
+	email = sreedevpadmakumar@gmail.com
+	name = sreedev
+	signingkey = CA525D6BD5A1DE42
+[core]
+	attributesfile = /home/sreedev/.gitattributes
+  editor = nvim
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = master
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+  ui = true
+[alias]
+  st = status
+  co = checkout
+  br = branch
+  cm = commit
+  ca = commit --amend
+  cp = cherry-pick
+  cloner = clone --recursive
+[rerere]
+  enabled = false
+
