@@ -14,3 +14,6 @@ alias obliterate='shred -zvu -n 5'
 
 alias vboxman='VBoxManage'
 alias vboxhl='VBoxHeadless'
+
+alias dc='docker-compose'
+alias xo='xdg-open'
