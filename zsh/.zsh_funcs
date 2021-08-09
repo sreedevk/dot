@@ -15,6 +15,16 @@ trash(){
   mv $1 ~/.trash/
 }
 
+lfcd(){
+  tmp="$(mktemp)"
+  lf -last-dir-path="$tmp" "$@"
+  if [ -f "$tmp" ]; then
+    dir="$(cat "$tmp")"
+    rm -f "$tmp"
+    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+  fi
+}
+
 # generate app from template
 create_app(){
   # template sources
@@ -57,7 +67,7 @@ create_svelte_app(){
 
 # print formatted csv output
 csv() {
-  column -s, -t < $1 | less -#2 -N -S
+  column -s, -t < $1 | less -$2 -N -S
 }
 
 # brightness for intel backlight
@@ -181,12 +191,12 @@ detach(){
   nohup $1 >/dev/null 2>&1 &
 }
 
-nvm() {
-  echo "Initializing nvm..."
-  unset -f nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  nvm "$@"
-}
+# nvm() {
+#   echo "Initializing nvm..."
+#   unset -f nvm
+#   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#   nvm "$@"
+# }
 
 asdf() {
   echo "Initializing asdf.."
@@ -200,6 +210,10 @@ init_idf() {
   export ADF_PATH=~/esp/esp-adf
   export IDF_PATH=~/esp/esp-idf
   . $IDF_PATH/export.sh
+}
+
+keycode() {
+  xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
 idff() {
