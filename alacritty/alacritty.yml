@@ -34,3 +34,38 @@ colors:
 
 scrolling:
   multiplier: 5
+
+  # bell:
+  # animation: Linear
+  # duration: 100
+  # color: '#eeeeee'
+  # command: 
+  # program: bell
+       # args: ["Hello, World!"]
+  # Values for `animation`:
+  #   - Ease
+  #   - EaseOut
+  #   - EaseOutSine
+  #   - EaseOutQuad
+  #   - EaseOutCubic
+  #   - EaseOutQuart
+  #   - EaseOutQuint
+  #   - EaseOutExpo
+  #   - EaseOutCirc
+  #   - Linear
+
+  # Duration of the visual bell flash in milliseconds. A `duration` of `0` will
+  # disable the visual bell animation.
+
+  # Visual bell animation color.
+
+  # Bell Command
+  #
+  # This program is executed whenever the bell is rung.
+  #
+  # When set to `command: None`, no command will be executed.
+  #
+  # Example:
+  #   command:
+  #
+  #command: None
