@@ -1,15 +1,3 @@
-# disable wifi automatic transmission power management to avoid issues with linux kernel 5.4
-disable_wifi_powerman() {
-  if [ -z "$1" ]
-  then
-    WIFI_IFX=$1
-  else
-    WIFI_IFX="$(ip link show | grep 'wlp\|wlan' | sed 's/\://g' | awk '{print $2}')"
-  fi
-  sudo iwconfig $WIFI_IFX power off
-  unset WIFI_IFX
-}
-
 # move files to trash instead of removing
 trash(){
   mv $1 ~/.trash/
@@ -60,30 +48,12 @@ create_idf_app(){
   mkdir "$idf_app_path/components"
 }
 
-# svelte app
-create_svelte_app(){
-  create_app svelte $1
-}
-
 # print formatted csv output
 csv() {
   column -s, -t < $1 | less -$2 -N -S
 }
 
-# brightness for intel backlight
-set_brightness(){
-  sudo echo $1 > /sys/class/backlight/intel_backlight/brightness
-}
-
-pisync(){
-  PI_REMOTE_PATH="pi@rpi0w:/home/pi/remote/"
-  PI_LOCAL_PATH="/home/sreedev/data/remote-rpi0w/"
-  [ ! -z "$1" ] && PI_LOCAL_PATH="$1"
-  [ ! -z "$2" ] && PI_REMOTE_PATH="$2"
-  rsync -av --progress $PI_LOCAL_PATH $PI_REMOTE_PATH --delete
-}
-
-aws_instances() {
+aws-instances() {
   AWS_FILTER="*"
   OUTPUT_TYPE="table"
   [ ! -z "$1" ] && AWS_FILTER="*$1*"
@@ -94,7 +64,7 @@ aws_instances() {
     --output "$OUTPUT_TYPE" 
 }
 
-tc-connect(){
+aws-connect(){
   [ -z "$1" ] && echo "TC-CONNECT\nusage: tc-connect <instance-query> <username>" && return
   CONN_IP_ADDR="$(echo "$(aws_instances $1 json | jq -r '.[] | .[] | "\(.PrivateIP)\t\(.Instance)\t\(.InstanceID)\t\(.PublicIPAddr)"')" | fzf | awk '{print $1}')"
   ssh -i ~/.ssh/tunecore1.pem "$2@$CONN_IP_ADDR"
@@ -118,15 +88,11 @@ printcc(){
 }
 
 # zsh plugin update - antibody
-antibody_compile(){
+antibody-compile(){
   antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 }
 
-load_cube_mx(){
-  export PATH="$PATH:$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/"
-}
-
-tmux_kill(){
+tmux-kill(){
   tmux list-sessions | awk 'BEGIN{FS=":"}{print $1}' | fzf | xargs -n 1 tmux kill-session -t
 }
 
@@ -171,41 +137,26 @@ ix() {
 }
 
 zonetime(){
-  echo "$1: $(TZ=$1 date +'%m/%d/%Y %I:%M %p')"
+  echo "$(timedatectl list-timezones)" | fzf | read TZ
+  echo "$TZ : $(date +'%m/%d/%Y %I:%M %p')"
+  unset TZ
 }
 
-gists(){
-  gh gist edit $(gh gist list --secret | fzf | awk '{print $1}')
-}
-
+# for terminal emulators that don't offer clear command
 clear(){
   printf "\e[H\e[2J"
 }
 
-devarchx11(){
+sshx11(){
   nohup Xephyr -br -ac -noreset -screen 1920x1080 :1 >/dev/null 2>&1 &
-  DISPLAY=:1 ssh -Y devarch i3
+  DISPLAY=:1 ssh -Y $@ i3
 }
 
-detach(){
+detach-proc(){
   nohup $1 >/dev/null 2>&1 &
 }
 
-# nvm() {
-#   echo "Initializing nvm..."
-#   unset -f nvm
-#   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#   nvm "$@"
-# }
-
-asdf() {
-  echo "Initializing asdf.."
-  unset -f asdf
-  . $HOME/.asdf/asdf.sh
-  asdf "$@"
-}
-
-init_idf() {
+init-idf() {
   echo "Initializing ESP-IDF (ESPRESSIF)"
   export ADF_PATH=~/esp/esp-adf
   export IDF_PATH=~/esp/esp-idf
@@ -216,6 +167,10 @@ keycode() {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
-idff() {
-  idf.py flash -b 921600 $@
+init-apl() {
+  setxkbmap -layout us,apl -variant ,dyalog -option grp:switch
+}
+
+labs() {
+  cd "$HOME/data/labz/$@"
 }
