@@ -1,0 +1,12 @@
+elixir 1.12.2-otp-24
+erlang 24.0.5
+postgres 13.2
+nodejs 16.6.1
+haskell 9.0.1
+ruby 3.0.2
+clojure 1.10.3.943
+scala 3.0.1
+groovy 3.0.8
+java openjdk-17
+rust 1.54.0
+julia 1.6.2
