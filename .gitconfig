@@ -25,4 +25,3 @@
   cloner = clone --recursive
 [rerere]
   enabled = false
-
