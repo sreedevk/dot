@@ -30,7 +30,7 @@ colors:
     cyan:    '#8ec07c'
     white:   '#ebdbb2'
 
-# background_opacity: 0.4  # compositing required
+background_opacity: 0.7  # compositing required
 
 scrolling:
   multiplier: 5
