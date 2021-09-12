@@ -4,7 +4,7 @@ exec --no-startup-id zsh ~/.i3/autostart.sh
 exec xrandr --output eDP-1 --brightness 0.8 # set initial brightness
 exec --no-startup-id volumeicon
 
-default_border pixel 0 # no borders
+default_border pixel 0
 default_floating_border normal
 hide_edge_borders none
 font pango:Source Code Pro 9
@@ -164,7 +164,6 @@ for_window [title="File Transfer*"] floating enable
 for_window [class="fpakman"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Manjaro-hello"] floating enable
