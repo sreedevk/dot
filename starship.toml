@@ -1,0 +1,111 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+[line_break]
+disabled = true
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                         # The name of the module we are configuring is "character"
+success_symbol = "[λ](bold green)"  # The "success_symbol" is set to "➜" with color "bold green"
+error_symbol = "[λ](bold red)"
+
+[package]
+disabled = true
+
+[directory]
+truncation_length = 4
+truncate_to_repo = true
+truncation_symbol = "repo:"
+
+[username]
+format = "[── $user]($style)@"
+style_user = "bold blue"
+style_root = "bold red"
+show_always = true
+
+[git_branch]
+format = "[$branch]($style) "
+style = "bold yellow"
+
+[git_commit]
+disabled=true
+
+[git_state]
+disabled=true
+
+[git_status]
+disabled=true
+
+[hostname]
+format = "[$hostname]($style) in "
+style = "bold dimmed blue"
+trim_at = "-"
+ssh_only = false
+disabled = false
+
+[cmd_duration]
+min_time = 4
+show_milliseconds = false
+disabled = false
+style = "bold italic #87A752"
+
+[aws]
+disabled = true
+
+[ruby]
+disabled = true
+
+[conda]
+disabled = false
+truncation_length = 1
+format = 'via [$environment]($style) '
+style = 'green bold'
+ignore_base = true
+
+[elixir]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[crystal]
+disabled = true
+
+[java]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[julia]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[lua]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[openstack]
+disabled = true
+
+[php]
+disabled = true
+
+[purescript]
+disabled = true
+
+[python]
+disabled = true
+
+[rust]
+disabled = true
+
+[scala]
+disabled = true
+
+[vagrant]
+disabled = true
