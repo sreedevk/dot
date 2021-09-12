@@ -7,6 +7,9 @@ export EDITOR=nvim
 export TERMINFO=/usr/share/terminfo/
 export TERM="xterm-256color"
 export HISTFILE=~/.cache/zsh/history
+export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export NVM_DIR="$HOME/.nvm"
 
 # HISTORYFILE
 HISTSIZE=100
@@ -80,12 +83,9 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 eval "$(direnv hook zsh)"
-export NVM_DIR="$HOME/.nvm"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 # source /etc/bash_completion.d/climate_completion
 . $HOME/.asdf/asdf.sh
 
 # source /etc/bash_completion.d/climate_completion
+eval "$(starship init zsh)"
