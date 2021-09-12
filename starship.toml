@@ -13,9 +13,8 @@ error_symbol = "[λ](bold red)"
 disabled = true
 
 [directory]
-truncation_length = 4
+truncation_length = 1
 truncate_to_repo = true
-truncation_symbol = "repo:"
 
 [username]
 format = "[── $user]($style)@"
@@ -58,7 +57,7 @@ disabled = true
 [conda]
 disabled = false
 truncation_length = 1
-format = 'via [\[$environment\]]($style) '
+format = '[\[$environment\]]($style) '
 symbol = ""
 style = 'green bold'
 ignore_base = false
@@ -117,4 +116,7 @@ style = "bold green"
 description = "active tmux session count"
 when = "true"
 disabled = false
-format = "[($output⛰ )]($style) "
+format = "[-($output)-]($style) "
+
+[jobs]
+style = "bold red"
