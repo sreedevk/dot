@@ -13,3 +13,4 @@
 10. [Git](https://github.com/sreedevk/dot/blob/master/git/ "Version Control")
 11. [Polybar](https://github.com/sreedevk/dot/blob/master/polybar/ "Status Bar")
 12. [i3WM](https://github.com/sreedevk/dot/blob/master/i3/ "Window Manager")
+13. [Picom](https://github.com/sreedevk/dot/blob/master/i3/ "Compositor")
