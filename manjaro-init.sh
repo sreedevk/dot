@@ -12,16 +12,16 @@ echo "Please ensure that you've installed nvidia drivers + xorg-server"
 pacman --no-confirm -S arandr git curl zsh zsh-completions aws-cli boost boost-libs chromium clang cmake neovim emacs docker gawk gimp httpie hyperfine neofetch openssh rg fd 
 
 # install AUR manager
-mkdir -p $PKGREPOS
-pacman --no-confirm -S --needed base-devel $PKGREPOS
-git clone https://aur.archlinux.org/paru.git $PKGREPOS
-cd $PKGREPOS/paru
+mkdir -p "$PKGREPOS"
+pacman --no-confirm -S --needed base-devel "$PKGREPOS"
+git clone https://aur.archlinux.org/paru.git "$PKGREPOS"
+cd "$PKGREPOS/paru" || exit
 makepkg -si
-cd $HOME
+cd "$HOME" || exit
 
 # installing additional package manager
-git clone https://aur.archlinux.org/aura-bin.git $PKGREPOS
-cd $PKGREPOS/aura-bin
+git clone https://aur.archlinux.org/aura-bin.git "$PKGREPOS"
+cd "$PKGREPOS/aura-bin" || exit
 makepkg
 pacman -U aura*.tar.xz
 
