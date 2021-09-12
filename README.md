@@ -1,7 +1,7 @@
 ### This is a collection of my dot configuration files.
 
 #### Configurations
-1. [Dunst]((https://github.com/sreedevk/dot/tree/master/dunst "Notification Manager")
+1. [Dunst](https://github.com/sreedevk/dot/tree/master/dunst "Notification Manager")
 2. [Tmux](https://github.com/sreedevk/dot/tree/master/tmux "Terminal Multiplexer")
 3. [Neovim](https://github.com/sreedevk/dot/tree/master/neovim "Text Editor")
 4. [X](https://github.com/sreedevk/dot/tree/master/X "Display Server")
