@@ -16,12 +16,15 @@
 	status = auto
   ui = true
 [alias]
-  st = status
-  co = checkout
-  br = branch
-  cm = commit
-  ca = commit --amend
-  cp = cherry-pick
+  st     = status
+  co     = checkout
+  br     = branch
+  cb     = checkout -b
+  dfs    = diff --staged
+  cm     = commit
+  ca     = commit --amend
+  cp     = cherry-pick
   cloner = clone --recursive
 [rerere]
   enabled = false
+
