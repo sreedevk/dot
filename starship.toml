@@ -58,9 +58,10 @@ disabled = true
 [conda]
 disabled = false
 truncation_length = 1
-format = 'via [$environment]($style) '
+format = 'via [\[$environment\]]($style) '
+symbol = ""
 style = 'green bold'
-ignore_base = true
+ignore_base = false
 
 [elixir]
 disabled = true
@@ -109,3 +110,11 @@ disabled = true
 
 [vagrant]
 disabled = true
+
+[custom.tmux]
+command = "tmux ls | wc -l"
+style = "bold green"
+description = "active tmux session count"
+when = "true"
+disabled = false
+format = "[($output⛰ )]($style) "
