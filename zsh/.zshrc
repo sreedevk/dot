@@ -1,3 +1,5 @@
+# zmodload zsh/zprof
+
 export PATH="$PATH:$HOME/.yarn/bin:/opt/anaconda/bin:$HOME/go/bin/:/opt/dbeaver/:/opt/infrastructure/clojure/bin:/opt/kendryte-toolchain/bin:/opt/maixpy-ide/bin/:/opt/mruby/bin:/home/sreedev/.asdf/installs/rust/1.54.0/bin"
 
 # ENV VARIABLES
