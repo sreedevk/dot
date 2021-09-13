@@ -7,23 +7,25 @@ exec --no-startup-id volumeicon
 default_border pixel 0
 default_floating_border normal
 hide_edge_borders none
-font pango:Source Code Pro 9
+# font pango:Source Code Pro 9
+font pango:JetBrains Mono 9
 floating_modifier $mod
 
 bindsym $mod+Return exec "alacritty"
 bindsym $mod+KP_Enter exec "alacritty"
 
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec --no-startup-id rofi -lines 15 -show run
+# bindsym $mod+d exec --no-startup-id rofi -lines 15 -show run
+bindsym $mod+d exec --no-startup-id "rofi -combi-modi drun,run -show combi"
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-bindsym $mod+Ctrl+m exec alacritty -e 'alsamixer'
+# bindsym $mod+Ctrl+m exec alacritty -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
@@ -157,31 +159,31 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Skype"] $ws5
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
+for_window [title="alsamixer"] floating enable # border pixel 1
+for_window [class="calamares"] floating enable # border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="fpakman"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
+for_window [class="Galculator"] floating enable # border pixel 1
+for_window [class="GParted"] floating enable # border normal
 for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Lxappearance"] floating enable sticky enable # border normal
 for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [class="Manjaro Settings Manager"] floating enable # border normal
 for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Nitrogen"] floating enable sticky enable # border normal
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
 for_window [title="About Pale Moon"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
-for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="qt5ct"] floating enable sticky enable #  border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky # enable border normal
+for_window [class="Simple-scan"] floating enable # border normal
+for_window [class="(?i)System-config-printer.py"] floating enable #  border normal
+for_window [class="Skype"] floating enable #  border normal
+for_window [class="Timeset-gui"] floating enable # border normal
+for_window [class="(?i)virtualbox"] floating enable # border normal
 for_window [class="Xfburn"] floating enable
 
 # switch to workspace with urgent window automatically
