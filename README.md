@@ -14,3 +14,42 @@
 11. [Polybar](https://github.com/sreedevk/dot/blob/master/polybar/ "Status Bar")
 12. [i3WM](https://github.com/sreedevk/dot/blob/master/i3/ "Window Manager")
 13. [Picom](https://github.com/sreedevk/dot/blob/master/i3/ "Compositor")
+
+
+#### USING GNU/STOW TO AUTOMATE SETTING UP SYMBOLIC LINKS
+
+1. install gnu/stow which is available under the package name of stow in most distributions.
+
+    Arch / Arch Based (pacman)
+    ```bash
+      pacman -S stow
+    ```
+
+    Debian / Debian Based (apt)
+    ```bash
+      apt-get install stow
+    ```
+
+2. checkout to the `stow` branch on this repository && pull the latest code
+
+    ```bash
+      git checkout stow && git pull origin stow
+    ```
+
+3. run the stow command
+
+    ```bash
+      stow .
+    ```
+
+    OR 
+
+    ```bash
+      stow --dir=~/path/to/current/repo --target=~/
+    ```
+
+    OR 
+
+    ```bash
+      stow -d ~/path/to/current/repo -t ~/
+    ```
