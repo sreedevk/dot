@@ -1,19 +1,20 @@
 ### This is a collection of my dot configuration files.
 
 #### Configurations
-1. [Dunst](https://github.com/sreedevk/dot/tree/master/dunst "Notification Manager")
-2. [Tmux](https://github.com/sreedevk/dot/tree/master/tmux "Terminal Multiplexer")
-3. [Neovim](https://github.com/sreedevk/dot/tree/master/neovim "Text Editor")
-4. [X](https://github.com/sreedevk/dot/tree/master/X "Display Server")
-5. [Custom Shell Scripts](https://github.com/sreedevk/dot/tree/master/scripts "Utilities")
-6. [Zsh](https://github.com/sreedevk/dot/tree/master/zsh "Shell")
-7. [Asdf VM](https://github.com/sreedevk/dot/tree/master/asdf "Software Version Manager")
-8. [Alacritty](https://github.com/sreedevk/dot/tree/master/alacritty "Terminal Emulator")
-9. [Starship Prompt](https://github.com/sreedevk/dot/blob/master/starship/ "Shell Prompt")
-10. [Git](https://github.com/sreedevk/dot/blob/master/git/ "Version Control")
-11. [Polybar](https://github.com/sreedevk/dot/blob/master/polybar/ "Status Bar")
-12. [i3WM](https://github.com/sreedevk/dot/blob/master/i3/ "Window Manager")
-13. [Picom](https://github.com/sreedevk/dot/blob/master/i3/ "Compositor")
+1. [Dunst](https://github.com/sreedevk/dot/tree/master/.config/dunst "Notification Manager")
+2. [Tmux](https://github.com/sreedevk/dot/blob/master/.tmux.conf "Terminal Multiplexer")
+3. [Neovim](https://github.com/sreedevk/dot/tree/master/.config/nvim "Text Editor")
+4. [Xresources](https://github.com/sreedevk/dot/blob/master/.Xresources "Display Server")
+5. [Xmodmap](https://github.com/sreedevk/dot/blob/master/.Xmodmap "Custom Key Mapping")
+6. [Custom Shell Scripts](https://github.com/sreedevk/dot/tree/master/.scripts "Utilities")
+7. [Zsh](https://github.com/sreedevk/dot/blob/master/.zshrc "Shell")
+8. [Asdf VM](https://github.com/sreedevk/dot/blob/master/.tool-versions "Software Version Manager")
+9. [Alacritty](https://github.com/sreedevk/dot/tree/master/.config/alacritty "Terminal Emulator")
+10. [Starship Prompt](https://github.com/sreedevk/dot/blob/master/.config/starship.toml "Shell Prompt")
+11. [Git](https://github.com/sreedevk/dot/blob/master/.gitconfig "Version Control")
+12. [Polybar](https://github.com/sreedevk/dot/tree/master/.config/polybar "Status Bar")
+13. [i3WM](https://github.com/sreedevk/dot/tree/master/.i3 "Window Manager")
+14. [Picom](https://github.com/sreedevk/dot/blob/master/.config/picom.conf "Compositor")
 
 
 #### USING GNU/STOW TO AUTOMATE SETTING UP SYMBOLIC LINKS
