@@ -1,5 +1,6 @@
 \.git
 ^/.*\.org
 ^/.*\.md
+/docs/
 LICENSE
 
