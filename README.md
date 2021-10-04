@@ -1,4 +1,26 @@
-### This is a collection of my dot configuration files.
+## Linux + Utils Configuration Dotfiles
+
+This is a collection of my dot configuration files.
+The following is my setup, but you get most dotfiles to work with your OS/Setup with minor tweaks.
+
+##### My Setup
+
+``` text
+  ██████████████████  ████████   sreedev@devstation
+  ██████████████████  ████████   ------------------
+  ██████████████████  ████████   OS: Manjaro Linux x86_64
+  ██████████████████  ████████   Host: Dell Precision 5540
+  ████████            ████████   Kernel: 5.10
+  ████████  ████████  ████████   Shell: zsh
+  ████████  ████████  ████████   WM: i3
+  ████████  ████████  ████████   Terminal: alacritty
+  ████████  ████████  ████████   CPU: Intel i9-9880H (16) @ 4.800GHz
+  ████████  ████████  ████████   GPU: Intel CoffeeLake-H GT2 [UHD Graphics 630]
+  ████████  ████████  ████████   GPU: NVIDIA Quadro T2000 Mobile / Max-Q
+  ████████  ████████  ████████   Memory: 32GB
+  ████████  ████████  ████████
+  ████████  ████████  ████████
+```
 
 #### Configurations
 1. [Dunst](https://github.com/sreedevk/dot/tree/master/.config/dunst "Notification Manager")
@@ -17,9 +39,11 @@
 14. [Picom](https://github.com/sreedevk/dot/blob/master/.config/picom.conf "Compositor")
 
 
-#### USING GNU/STOW TO AUTOMATE SETTING UP SYMBOLIC LINKS
+#### Using GNU/Stow
 
-1. install gnu/stow which is available under the package name of stow in most distributions.
+GNU/Stow is a program that let's you manage dotfiles. This dotfiles repository is designed to work with stow.
+
+1. install GNU/stow which is available under the package name of stow in most distributions.
 
     Arch / Arch Based (pacman)
     ```bash
@@ -31,13 +55,7 @@
       apt-get install stow
     ```
 
-2. checkout to the `stow` branch on this repository && pull the latest code
-
-    ```bash
-      git checkout stow && git pull origin stow
-    ```
-
-3. run the stow command
+2. run the stow command
 
     ```bash
       stow .
@@ -54,3 +72,27 @@
     ```bash
       stow -d ~/path/to/current/repo -t ~/
     ```
+
+#### Requirements
+
+In order to make the dotfiles work as expected, the following programs are expected to be installed on your machine.
+
+1. [Alacritty](https://github.com/alacritty/alacritty)
+2. [Tmux](https://github.com/tmux/tmux)
+3. [Zsh](https://www.zsh.org/)
+  - [Antibody](https://getantibody.github.io/) -- Run `antibody-compile` when opening zsh for the first time
+  - [Starship Prompt](https://starship.rs/)
+  - [Direnv](https://direnv.net/)
+4. [i3](https://i3wm.org/)
+5. [GNU emacs](https://www.gnu.org/software/emacs/)
+6. [Neovim](https://neovim.io/)
+6. [Git](https://git-scm.com/)
+7. [Picom](https://github.com/yshui/picom)
+
+#### Recommendations
+
+To make life better, using the following tools are recommended.
+
+1. [Polybar](https://github.com/polybar/polybar)
+2. [Xmonad](https://xmonad.org/)
+3. [Xmobar](https://hackage.haskell.org/package/xmobar)
