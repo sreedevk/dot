@@ -22,7 +22,10 @@ The following is my setup, but you get most dotfiles to work with your OS/Setup 
   ████████  ████████  ████████
 ```
 
-#### Configurations
+### Documentation
+I have tried to document every single software resource setup & configuration process. Checkout [Documentation](https://github.com/sreedevk/dot/tree/master/docs)
+
+### Configurations
 1. [Dunst](https://github.com/sreedevk/dot/tree/master/.config/dunst "Notification Manager")
 2. [Tmux](https://github.com/sreedevk/dot/blob/master/.tmux.conf "Terminal Multiplexer")
 3. [Neovim](https://github.com/sreedevk/dot/tree/master/.config/nvim "Text Editor")
@@ -39,7 +42,7 @@ The following is my setup, but you get most dotfiles to work with your OS/Setup 
 14. [Picom](https://github.com/sreedevk/dot/blob/master/.config/picom.conf "Compositor")
 
 
-#### Using GNU/Stow
+### Using GNU/Stow
 
 GNU/Stow is a program that let's you manage dotfiles. This dotfiles repository is designed to work with stow.
 
@@ -73,7 +76,7 @@ GNU/Stow is a program that let's you manage dotfiles. This dotfiles repository i
       stow -d ~/path/to/current/repo -t ~/
     ```
 
-#### Requirements
+### Requirements
 
 In order to make the dotfiles work as expected, the following programs are expected to be installed on your machine.
 
@@ -89,7 +92,7 @@ In order to make the dotfiles work as expected, the following programs are expec
 6. [Git](https://git-scm.com/)
 7. [Picom](https://github.com/yshui/picom)
 
-#### Recommendations
+### Recommendations
 
 To make life better, using the following tools are recommended.
 
