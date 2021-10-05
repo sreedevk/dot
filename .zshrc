@@ -1,6 +1,16 @@
+# LOADS ZSH PROFILER
 # zmodload zsh/zprof
 
-export PATH="$PATH:$HOME/.yarn/bin:/opt/anaconda/bin:$HOME/go/bin/:/opt/dbeaver/:/opt/infrastructure/clojure/bin:/opt/kendryte-toolchain/bin:/opt/maixpy-ide/bin/:/opt/mruby/bin:/home/sreedev/.asdf/installs/rust/1.54.0/bin"
+# PATHS
+YARN_PATH="$HOME/.yarn/bin"
+CONDA_PATH="/opt/anaconda/bin"
+GO_PATH="$HOME/go/bin/"
+DBEAVER_PATH="/opt/dbeaver/"
+KENDRYTE_PATH="/opt/kendryte-toolchain/bin"
+MAIXPY_PATH="/opt/maixpy-ide/bin/"
+MRUBY_PATH="/opt/mruby/bin"
+DOOM_PATH="$HOME/.doomemacs.d/bin/"
+export PATH="$PATH:$YARN_PATH:$CONDA_PATH:$GO_PATH:$DBEAVER_PATH:$KENDRYTE_PATH:$MAIXPY_PATH:$MRUBY_PATH:$DOOM_PATH"
 
 # ENV VARIABLES
 export KEYTIMEOUT=1
@@ -11,26 +21,27 @@ export TERM="xterm-256color"
 export HISTFILE=~/.cache/zsh/history
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export NVM_DIR="$HOME/.nvm"
 
 # HISTORYFILE
 HISTSIZE=100
 SAVEHIST=100
 
+# NON INTERACTIVE MODE EARLY RETURN
+[[ $- != *i* ]] && return
+
 # ASDF AUTOCOMPLETE
 fpath=(${ASDF_DIR}/completions $fpath)
 
-
-# Autoload Modules
+# AUTOLOAD MODULES
 autoload -U colors && colors
 autoload -U compinit && compinit
 autoload edit-command-line; zle -N edit-command-line
 
-# set options
+# ZSH OPTS
 setopt PROMPT_SUBST
 setopt interactivecomments
 
-# static loading (to be run when plugins updated)
+# COMPILING / UPDATING ZSH PLUGINS
 # antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
 # LOAD ALIASES & FUNCTIONS
@@ -39,7 +50,7 @@ setopt interactivecomments
 # [ -f "/usr/share/zsh/manjaro-zsh-prompt" ] && source /usr/share/zsh/manjaro-zsh-prompt
 # [ -f "/usr/share/zsh/manjaro-zsh-config" ] && source /usr/share/zsh/manjaro-zsh-config
 
-# LOAD PLUGINS
+# LOAD COMPILED PLUGINS
 source ~/.zsh_plugins.sh
 
 export FZF_TAB_GROUP_COLORS=(
@@ -47,7 +58,6 @@ export FZF_TAB_GROUP_COLORS=(
     $'\033[38;5;100m' $'\033[38;5;98m' $'\033[91m' $'\033[38;5;80m' $'\033[92m' \
     $'\033[38;5;214m' $'\033[38;5;165m' $'\033[38;5;124m' $'\033[38;5;120m'
 )
-
 
 # group colors
 zstyle ':fzf-tab:*' group-colors $FZF_TAB_GROUP_COLORS
