@@ -6,20 +6,25 @@ The following is my setup, but you get most dotfiles to work with your OS/Setup 
 ##### My Setup
 
 ``` text
-  ██████████████████  ████████   sreedev@devstation
-  ██████████████████  ████████   ------------------
-  ██████████████████  ████████   OS: Manjaro Linux x86_64
-  ██████████████████  ████████   Host: Dell Precision 5540
-  ████████            ████████   Kernel: 5.10
-  ████████  ████████  ████████   Shell: zsh
-  ████████  ████████  ████████   WM: i3
-  ████████  ████████  ████████   Terminal: alacritty
-  ████████  ████████  ████████   CPU: Intel i9-9880H (16) @ 4.800GHz
-  ████████  ████████  ████████   GPU: Intel CoffeeLake-H GT2 [UHD Graphics 630]
-  ████████  ████████  ████████   GPU: NVIDIA Quadro T2000 Mobile / Max-Q
-  ████████  ████████  ████████   Memory: 32GB
-  ████████  ████████  ████████
-  ████████  ████████  ████████
+                   -`                    root@devstation
+                  .o+`                   ---------------
+                 `ooo/                   OS: Arch Linux x86_64
+                `+oooo:                  Host: Precision 5540
+               `+oooooo:                 Uptime: 16 hours, 57 mins
+               -+oooooo+:                Shell: zsh 5.8
+             `/:-:++oooo+:               CPU: Intel i9-9880H (16) @ 4.800GHz
+            `/++++/+++++++:              GPU: Intel CoffeeLake-H GT2 [UHD Graphics 630]
+           `/++++++++++++++:             GPU: NVIDIA Quadro T2000 Mobile / Max-Q
+          `/+++ooooooooooooo/`           Memory: 32GB
+         ./ooosssso++osssssso+`
+        .oossssso-````/ossssss+`
+       -osssssso.      :ssssssso.
+      :osssssss/        osssso+++.
+     /ossssssss/        +ssssooo/-
+   `/ossssso+/:-        -:/+osssso+-
+  `+sso+:-`                 `.-/+oso:
+ `++:.                           `-/+/
+ .`                                 `/
 ```
 
 ### Documentation
