@@ -11,8 +11,8 @@
 
 (setq display-line-numbers-type 'relative)
 
-(setq doom-font (font-spec :family "JetBrainsMono" :size 14)
-      doom-big-font (font-spec :family "JetBrainsMono" :size 36))
+(setq doom-font (font-spec :family "JetBrainsMono" :size 28)
+      doom-big-font (font-spec :family "JetBrainsMono" :size 42))
 
 (setq evil-escape-key-sequence "jj")
 (setq deft-directory "~/data/notes/"
