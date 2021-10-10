@@ -1,7 +1,7 @@
 [global]
     frame_width = 1
     frame_color = "#788388"
-    font = Source Code Pro 10
+    font = JetBrains Mono 10
     markup = yes
     allow_markup = yes
     # The format of the message.  Possible variables are:
@@ -47,8 +47,8 @@
     show_indicators = yes
     line_height = 2
     separator_height = 2
-    padding = 8
-    horizontal_padding = 10
+    padding = 12
+    horizontal_padding = 24
     startup_notification = false
     dmenu = /usr/bin/dmenu -p dunst:
     browser = brave
