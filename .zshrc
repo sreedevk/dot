@@ -53,14 +53,14 @@ setopt interactivecomments
 # LOAD ALIASES & FUNCTIONS
 [ -f "$HOME/.zsh/.zsh_aliases" ]   && source "$HOME/.zsh/.zsh_aliases"
 [ -f "$HOME/.zsh/.zsh_functions" ] && source "$HOME/.zsh/.zsh_functions"
-[ -f "$HOME/.zsh/.zsh_autoloads"]  && source "$HOME/.zsh/.zsh_autoloads"
-[ -f "$HOME/.zsh/.zsh_fzf"]        && source "$HOME/.zsh/.zsh_fzf"
+[ -f "$HOME/.zsh/.zsh_autoloads" ]  && source "$HOME/.zsh/.zsh_autoloads"
+[ -f "$HOME/.zsh/.zsh_fzf" ]        && source "$HOME/.zsh/.zsh_fzf"
 
 # ANTIBODY COMPILE ZSH
 # antibody bundle < ~/.zsh/.zsh_plugins.txt > ~/.zsh/.zsh_plugins.sh
 
 # LOAD COMPILED PLUGINS
-[ -f "$HOME/.zsh/.zsh_plugins.sh"] && source ~/.zsh_plugins.sh
+[ -f "$HOME/.zsh/.zsh_plugins.sh" ] && source ~/.zsh_plugins.sh
 
 # START STARSHIP PROMPT
 eval "$(starship init zsh)"
