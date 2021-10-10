@@ -30,26 +30,73 @@ The following is my setup, but you get most dotfiles to work with your OS/Setup 
 ### Documentation
 I have tried to document every single software resource setup & configuration process. Checkout [Documentation](https://github.com/sreedevk/dot/tree/master/docs)
 
-### Configurations
-1. [Dunst](https://github.com/sreedevk/dot/tree/master/.config/dunst "Notification Manager")
-2. [Tmux](https://github.com/sreedevk/dot/blob/master/.tmux.conf "Terminal Multiplexer")
-3. [Neovim](https://github.com/sreedevk/dot/tree/master/.config/nvim "Text Editor")
-4. [Xresources](https://github.com/sreedevk/dot/blob/master/.Xresources "Display Server")
-5. [Xmodmap](https://github.com/sreedevk/dot/blob/master/.Xmodmap "Custom Key Mapping")
-6. [Custom Shell Scripts](https://github.com/sreedevk/dot/tree/master/.scripts "Utilities")
-7. [Zsh](https://github.com/sreedevk/dot/blob/master/.zshrc "Shell")
-8. [Asdf VM](https://github.com/sreedevk/dot/blob/master/.tool-versions "Software Version Manager")
-9. [Alacritty](https://github.com/sreedevk/dot/tree/master/.config/alacritty "Terminal Emulator")
-10. [Starship Prompt](https://github.com/sreedevk/dot/blob/master/.config/starship.toml "Shell Prompt")
-11. [Git](https://github.com/sreedevk/dot/blob/master/.gitconfig "Version Control")
-12. [Polybar](https://github.com/sreedevk/dot/tree/master/.config/polybar "Status Bar")
-13. [i3WM](https://github.com/sreedevk/dot/tree/master/.i3 "Window Manager")
-14. [Picom](https://github.com/sreedevk/dot/blob/master/.config/picom.conf "Compositor")
+1. [i3wm](https://github.com/sreedevk/dot/tree/master/.i3 "Window Manager")
+   i3wm is a great & simple-to-setup tiling window manager. The dot project contains a decently functional configuration for i3wm.
+   Documentation: [i3 Docs](https://github.com/sreedevk/dot/blob/master/docs/i3wm.md)
+   Project: [i3 Project](https://i3wm.org/)
 
+2. [Alacritty](https://github.com/sreedevk/dot/tree/master/.config/alacritty "Terminal Emulator")
+   A fast, cross-platform, OpenGL terminal emulator. It just works. The configurations adds some transparency,
+   sets up fonts & sets default shell to zsh.
+   Documentation: [Alacritty Docs](https://github.com/sreedevk/dot/blob/master/docs/alacritty.md)
+   Project: [Alacritty Repo](https://github.com/alacritty/alacritty)
 
-### Using GNU/Stow
+3. [Zsh](https://github.com/sreedevk/dot/blob/master/.zshrc "Shell")
+   Best Interactive shell. The dot project adds an extensive set of customizations to the .zshrc.
+   Documentation: [Zsh Docs](https://github.com/sreedevk/dot/blob/master/docs/zsh.md)
+   Project: [Zsh Project](https://www.zsh.org/)
 
-GNU/Stow is a program that let's you manage dotfiles. This dotfiles repository is designed to work with stow.
+4. [Starship Prompt](https://github.com/sreedevk/dot/blob/master/.config/starship.toml "Shell Prompt")
+    Starship is a great shell prompt. It offers decent level of freedom to customize. It supports both zsh & bash.
+    Project: [Startship Project](https://starship.rs/)
+
+5. [Polybar](https://github.com/sreedevk/dot/tree/master/.config/polybar "Status Bar")
+   Polybar is a neat status bar your window manager. Thought there is a default polybar configuration available as a part
+   of the dot project. The default status bar that is a part of the i3wm configuration is [bumblee_status](https://github.com/tobi-wan-kenobi/bumblebee-status).
+   Project: [Polybar Repo](https://github.com/polybar/polybar)
+
+6. [Asdf VM](https://github.com/sreedevk/dot/blob/master/.tool-versions "Software Version Manager")
+   Asdf Version Manager is a universal version manager for all your programming languages / software. It allows you to install multiple versions of 
+   everything from Ruby to Postgresql to Docker.
+   Documentation: [ASDF VM Docs](https://github.com/sreedevk/dot/blob/master/docs/asdf.md)
+   Project: [ASDF VM](http://asdf-vm.com/)
+
+7. [Dunst](https://github.com/sreedevk/dot/tree/master/.config/dunst "Notification Manager")
+   Dunst is a notification daemon that runs as a service. Its commonly used with lightweight window managers.
+   Documentation: [Dunst Docs](https://github.com/sreedevk/dot/blob/master/docs/dunst.md)
+   Project: [Dunst Repo](https://github.com/dunst-project/dunst)
+
+8.  [Tmux](https://github.com/sreedevk/dot/blob/master/.tmux.conf "Terminal Multiplexer")
+    Tmux is a terminal multiplexer. Since Alacritty terminal emulator that is considered to be default in the dot project,
+    does not have a multi tab / tiling system, Tmux is highly recommended. The dot project adds some basic configuration
+    for tmux that makes it sane enought to be used.
+    Documentation: [Dunst Docs](https://github.com/sreedevk/dot/blob/master/docs/tmux.md)
+    Project: [Tmux Repo](https://github.com/tmux/tmux)
+
+9. [Neovim](https://github.com/sreedevk/dot/tree/master/.config/nvim "Text Editor")
+   Vim has always been my favorite editor. Neovim just made it better with lil bit of magic. The neovim 
+   config in the dot project is pretty straight forward with a limited number of plugins & keymaps.
+   Documentation: [Neovim Docs](https://github.com/sreedevk/dot/blob/master/docs/neovim.md)
+   Project: [Neovim Repo](https://github.com/neovim/neovim)
+
+10. [Emacs](https://github.com/sreedevk/dot/tree/master/.doom.d/ "Text Editor")
+   Emacs isn't exactly my goto editor, but I've found the doom emacs configuration to be quite useful & intuitive.
+   The dot projects uses chemacs2 to multi load configurations. By Default, the dot project installs doom emacs, spacemacs & a custom emacs config
+   with just doom themes & evil mode installed.
+   Documentation: [Emacs Docs](https://github.com/sreedevk/dot/blob/master/docs/emacs.md)
+   Project: [Emacs Project](https://www.gnu.org/software/emacs/)
+
+11. [Custom Shell Scripts](https://github.com/sreedevk/dot/tree/master/.scripts "Utilities")
+   Just a bunch of useful tools to make life in the terminal emulator / shell better.
+   Documentation: [Custom Script Docs](https://github.com/sreedevk/dot/blob/master/docs/scripts.md)
+
+12. [Git](https://github.com/sreedevk/dot/blob/master/.gitconfig "Version Control")
+13. [Picom](https://github.com/sreedevk/dot/blob/master/.config/picom.conf "Compositor")
+
+### Usage
+
+GNU/Stow is a program that let's you manage dotfiles using a repository like the dot project.
+The Dot project repository is designed to work with stow.
 
 1. Clone This Repository Recursively
 
