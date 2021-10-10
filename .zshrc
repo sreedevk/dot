@@ -1,5 +1,8 @@
+# TITLE: Zsh (Z Shell) Configuration
+# AUTHOR: Sreedev Kodichath
+
 # LOADS ZSH PROFILER
-# zmodload zsh/zprof
+## zmodload zsh/zprof
 
 # PATHS
 YARN_PATH="$HOME/.yarn/bin"
@@ -9,12 +12,13 @@ DBEAVER_PATH="/opt/dbeaver/"
 KENDRYTE_PATH="/opt/kendryte-toolchain/bin"
 MAIXPY_PATH="/opt/maixpy-ide/bin/"
 MRUBY_PATH="/opt/mruby/bin"
-DOOM_PATH="$HOME/.doomemacs.d/bin/"
+DOOM_PATH="$HOME/.doomacs.d/bin/"
 export PATH="$PATH:$YARN_PATH:$CONDA_PATH:$GO_PATH:$DBEAVER_PATH:$KENDRYTE_PATH:$MAIXPY_PATH:$MRUBY_PATH:$DOOM_PATH"
 
 # ENV VARIABLES
 export KEYTIMEOUT=1
 export GPG_TTY=$(tty)
+export VISUAL="emacsclient -c -a emacs"
 export EDITOR=nvim
 export TERMINFO=/usr/share/terminfo/
 export TERM="xterm-256color"
@@ -58,10 +62,10 @@ setopt interactivecomments
 [ -f "$HOME/.zsh/.zsh_fzf" ]        && source "$HOME/.zsh/.zsh_fzf"
 
 # ANTIBODY COMPILE ZSH
-# antibody bundle < ~/.zsh/.zsh_plugins.txt > ~/.zsh/.zsh_plugins.sh
+# antibody bundle < ~/.zsh/.zsh_plugins > ~/.zsh/.zsh_plugins.sh
 
 # LOAD COMPILED PLUGINS
-[ -f "$HOME/.zsh/.zsh_plugins.sh" ] && source ~/.zsh_plugins.sh
+[ -f "$HOME/.zsh/.zsh_plugins.sh" ] && source ~/.zsh/.zsh_plugins.sh
 
 # START STARSHIP PROMPT
 eval "$(starship init zsh)"

@@ -1,3 +1,6 @@
+# TITLE: Zsh Functions
+# AUTHOR: Sreedev Kodichath
+
 # move files to trash instead of removing
 trash(){
   mv $1 ~/.trash/
@@ -89,7 +92,7 @@ printcc(){
 
 # zsh plugin update - antibody
 antibody-compile(){
-  antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+  antibody bundle < ~/.zsh/.zsh_plugins > ~/.zsh/.zsh_plugins.sh
 }
 
 tmux-kill(){

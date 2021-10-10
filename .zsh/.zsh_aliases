@@ -1,32 +1,33 @@
-# SYSTEM ALIASES
-alias ls='exa -lhr --color=always --group-directories-first' # G -> grid
-alias la='exa -lahr --color=always --group-directories-first'
+# TITLE: ZSH (Z Shell) Aliases
+# AUTHOR: Sreedev Kodichath
+
+# Sys
+alias ls='ls --color=always'
+alias la='ls -a --color=always'
+alias ll='ls -l --color=always'
+alias lla='ls -la --color=always'
 alias lt='exa -aT --color=always --group-directories-first'
-
-alias vlc_stream_screen="vlc --no-video-deco --no-embedded-video --screen-fps=60 --screen-top=32 --screen-left=0 --screen-width=1920 --screen-height=1000 screen://"
-
-# tmuxinator
-alias mux='tmuxinator'
-
 alias obliterate='shred -zvu -n 5'
-
-alias vboxman='VBoxManage'
-alias vboxhl='VBoxHeadless'
-
-alias dc='docker-compose'
 alias xo='xdg-open'
-
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-
 alias jctl="journalctl -p 3 -xb"
 
+# Tmuxinator - Tmux Session Manager
+alias mux='tmuxinator'
+
+# VirtualBox
+alias vboxman='VBoxManage'
+alias vboxhl='VBoxHeadless'
+
+# Docker
+alias dc='docker-compose'
+
+# Term Bin
 alias tb="nc termbin.com 9999"
 
 # YouTube Downloader
-alias yt='youtube-dl --add-metadata -ic'   # download youtube video
-alias yta='youtube-dl --add-metadata -xic' # download youtube audio
 alias yta-aac="youtube-dl --extract-audio --audio-format aac "
 alias yta-best="youtube-dl --extract-audio --audio-format best "
 alias yta-flac="youtube-dl --extract-audio --audio-format flac "
