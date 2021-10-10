@@ -116,7 +116,7 @@ style = "bold green"
 description = "active tmux session count"
 when = "true"
 disabled = false
-format = "[-($output)-]($style) "
+format = "[tmux:($output)]($style) "
 
 [jobs]
 style = "bold red"
