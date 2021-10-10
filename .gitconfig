@@ -24,7 +24,7 @@
   cm     = commit
   ca     = commit --amend
   cp     = cherry-pick
-  cloner = clone --recursive
+  cl 	   = clone --recursive -j8
 [rerere]
   enabled = false
 
