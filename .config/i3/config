@@ -7,9 +7,8 @@
 set $mod Mod4
 
 # AutoStart Applications
-exec --no-startup-id zsh ~/.i3/autostart.sh
+exec --no-startup-id ~/.config/i3/autostart.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id xrandr --output eDP-1 --brightness 0.8
 exec --no-startup-id volumeicon
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id nm-applet
