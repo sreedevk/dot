@@ -51,6 +51,12 @@ I have tried to document every single software resource setup & configuration pr
 
 GNU/Stow is a program that let's you manage dotfiles. This dotfiles repository is designed to work with stow.
 
+1. Clone This Repository Recursively
+
+``` bash
+git clone --recursive -j3 https://github.com/sreedevk/dot 
+```
+
 1. install GNU/stow which is available under the package name of stow in most distributions.
 
     Arch / Arch Based (pacman)
