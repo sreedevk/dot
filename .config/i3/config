@@ -45,7 +45,7 @@ bar {
 bindsym $mod+Return            exec --no-startup-id "alacritty"
 bindsym $mod+KP_Enter          exec --no-startup-id "alacritty"
 bindsym $mod+d                 exec --no-startup-id "rofi -combi-modi drun,run -show combi -theme DarkBlue -font 'JetBrains Mono 24'"
-bindsym $mod+Ctrl+d  --release exec --no-startup-id "rofi -show drun -run-command 'sudo {cmd}'"
+bindsym $mod+Ctrl+d  --release exec --no-startup-id "rofi -show drun -theme docu -font 'JetBrains Mono 24' -run-command 'sudo {cmd}'"
 
 # Shortcuts - Common Applications
 bindsym $mod+F3                exec --no-startup-id "pcmanfm"
