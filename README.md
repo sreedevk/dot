@@ -1,4 +1,4 @@
-## Linux + Utils Configuration Dotfiles
+## The Dot Project
 
 This is a collection of my dot configuration files.
 The following is my setup, but you get most dotfiles to work with your OS/Setup with minor tweaks.
