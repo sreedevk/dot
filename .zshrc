@@ -39,8 +39,6 @@ bindkey '^R' history-incremental-search-backward
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^x' edit-command-line
-bindkey '^k' history-search-backward
-bindkey '^j' history-search-forward
 
 # ASDF AUTOCOMPLETE
 . $HOME/.asdf/asdf.sh
