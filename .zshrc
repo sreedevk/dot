@@ -39,6 +39,7 @@ bindkey '^k' history-search-backward
 bindkey '^j' history-search-forward
 
 # ASDF AUTOCOMPLETE
+. $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
 
 # AUTOLOAD MODULES
