@@ -2,5 +2,6 @@
 ^/.*\.org
 ^/.*\.md
 docs
+docs.*
 LICENSE
 
