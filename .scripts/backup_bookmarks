@@ -20,7 +20,9 @@ class DocGenerator
   end
 
   def gen_docs(bookmarks, documentation, level = 1)
-    return (documentation + generate_title(bookmarks['name'], level)) if (bookmarks['children'] || []).empty?
+    if (bookmarks['children'] || []).empty?
+      return (documentation + generate_title(bookmarks['name'], level, bookmarks['url']))
+    end
 
     bookmarks['children'].map do |child|
       documentation = gen_docs(child, documentation, level + 1)
@@ -29,8 +31,8 @@ class DocGenerator
     documentation
   end
 
-  def generate_title(key, level)
-    "#{' ' * level} #{'#' * level}  #{key}\n"
+  def generate_title(key, level, url = nil)
+    "#{' ' * level} #{url.nil? ? ('#' * level) + key : "[#{key}](#{url})"}\n"
   end
 
   def write_to_disk(bookmarks, docstring)
