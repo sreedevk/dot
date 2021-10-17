@@ -1,0 +1,53 @@
+#!/home/sreedev/.asdf/shims/ruby
+# frozen_string_literal: true
+
+require 'pry'
+require 'json'
+
+# Generate Bookmark Docs
+class DocGenerator
+  def init_docs
+    docs = <<-MDOCS
+      #  Sreedev's Web Browser Bookmarks
+      Just a collection of bookmarks
+    MDOCS
+
+    bookmarks_file = File.open("#{`echo ~`.strip}/.config/BraveSoftware/Brave-Browser/Default/Bookmarks", 'r')
+    bookmarks = JSON.parse(bookmarks_file.read)['roots']
+    bookmarks_file.close
+
+    [bookmarks, docs]
+  end
+
+  def gen_docs(bookmarks, documentation, level = 1)
+    return (documentation + generate_title(bookmarks['name'], level)) if (bookmarks['children'] || []).empty?
+
+    bookmarks['children'].map do |child|
+      documentation = gen_docs(child, documentation, level + 1)
+    end
+
+    documentation
+  end
+
+  def generate_title(key, level)
+    "#{' ' * level} #{'#' * level}  #{key}\n"
+  end
+
+  def write_to_disk(bookmarks, docstring)
+    # Bookmarks
+    bookmarks_file = File.open("#{`echo ~`.strip}/.bookmarks/marks", 'w+')
+    bookmarks_file.write("#{JSON.pretty_generate(bookmarks)}\n")
+    bookmarks_file.close
+    # Docs
+    docsfile = File.open("#{`echo ~`.strip}/.bookmarks/README.md", 'w+')
+    docsfile.write(docstring)
+    docsfile.close
+  end
+end
+
+dg              = DocGenerator.new
+bookmarks, docs = dg.init_docs
+docs            = dg.gen_docs(bookmarks['bookmark_bar'], docs)
+docs            = dg.gen_docs(bookmarks['other'], docs)
+docs            = dg.gen_docs(bookmarks['synced'], docs)
+dg.write_to_disk(bookmarks, docs)
