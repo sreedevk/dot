@@ -7,3 +7,6 @@
 [submodule ".emacs.d"]
 	path = .emacs.d
 	url = https://github.com/plexus/chemacs2.git
+[submodule ".bookmarks"]
+	path = .bookmarks
+	url = git@github.com:sreedevk/bookmarks.git
