@@ -1,16 +1,12 @@
 #!/home/sreedev/.asdf/shims/ruby
 # frozen_string_literal: true
 
-require 'pry'
 require 'json'
 
 # Generate Bookmark Docs
 class DocGenerator
   def init_docs
-    docs = <<-MDOCS
-      #  Sreedev's Web Browser Bookmarks
-      Just a collection of bookmarks
-    MDOCS
+    docs = "# Sreedev's Web Browser Bookmarks\n## A collection of Resource Links / Bookmarks\n"
 
     bookmarks_file = File.open("#{`echo ~`.strip}/.config/BraveSoftware/Brave-Browser/Default/Bookmarks", 'r')
     bookmarks = JSON.parse(bookmarks_file.read)['roots']
@@ -20,9 +16,10 @@ class DocGenerator
   end
 
   def gen_docs(bookmarks, documentation, level = 1)
-    if (bookmarks['children'] || []).empty?
-      return (documentation + generate_title(bookmarks['name'], level, bookmarks['url']))
-    end
+    return documentation if skip_doc?(bookmarks)
+
+    documentation += generate_title(bookmarks, level)
+    return documentation if (bookmarks['children'] || []).empty?
 
     bookmarks['children'].map do |child|
       documentation = gen_docs(child, documentation, level + 1)
@@ -31,8 +28,23 @@ class DocGenerator
     documentation
   end
 
-  def generate_title(key, level, url = nil)
-    "#{' ' * level} #{url.nil? ? ('#' * level) + key : "[#{key}](#{url})"}\n"
+  def skip_doc?(bookmarks)
+    in_blocklist?(bookmarks['name']) || blocked_pattern?(bookmarks['name']) || blocked_pattern?(bookmarks['url'])
+  end
+
+  def in_blocklist?(name)
+    %w[tunecore TL radio apps].include?(name)
+  end
+
+  def blocked_pattern?(name)
+    !name.to_s.match(/(pdf|google|file\:)/).nil?
+  end
+
+  def generate_title(bookmarks, level)
+    base = ' ' * level
+    return "#{base} #{'#' * level} #{bookmarks['name']}\n" if bookmarks['url'].nil?
+
+    base + "[#{bookmarks['name']}](#{bookmarks['url']})  \n"
   end
 
   def write_to_disk(bookmarks, docstring)
@@ -53,3 +65,5 @@ docs            = dg.gen_docs(bookmarks['bookmark_bar'], docs)
 docs            = dg.gen_docs(bookmarks['other'], docs)
 docs            = dg.gen_docs(bookmarks['synced'], docs)
 dg.write_to_disk(bookmarks, docs)
+
+puts system("cd ~/.bookmarks && git add . && git commit -m 'updated bookmarks' && git push origin main && cd -")
