@@ -43,3 +43,5 @@ shopt -s expand_aliases # expand aliases
 shopt -s checkwinsize # checks term size when bash regains control
 
 
+
+source /etc/bash_completion.d/climate_completion
