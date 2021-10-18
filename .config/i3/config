@@ -35,7 +35,7 @@ gaps outer -2
 
 bar {
 	position top
-  font pango:JetBrains Mono 8
+  font pango:JetBrains Mono Bold 9
   status_command bumblebee-status\
   -m nvidiagpu cpu2 memory battery datetimetz datetime nic\
   -p interval=1 datetimetz.timezone=America/New_York cpu2.colored=0 cpu2.layout="cpu2.cpuload"\
