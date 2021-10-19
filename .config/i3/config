@@ -35,11 +35,16 @@ gaps outer -2
 
 bar {
 	position top
-  font pango:JetBrains Mono Bold 9
+
+  # bumblebee status
   status_command bumblebee-status\
-  -m nvidiagpu cpu2 memory battery datetimetz datetime nic\
-  -p interval=1 datetimetz.timezone=America/New_York cpu2.colored=0 cpu2.layout="cpu2.cpuload"\
+  -m  weather nvidiagpu memory battery datetimetz datetime nic dunstctl\
+  -p  weather.location=Bangalore interval=1 datetimetz.timezone=America/New_York\
   -t iceberg-dark-powerline
+
+  # i3status
+  # font pango:JetBrains Mono Bold 9
+  # status_command i3status
 }
 
 # Shortcuts - Terminal + Access
