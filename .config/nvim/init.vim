@@ -33,6 +33,7 @@ call plug#begin('~/.vim/nvim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'bollu/vim-apl'
   Plug 'ayu-theme/ayu-vim'
+  Plug 'cseelus/vim-colors-lucid'
 call plug#end()
 
 filetype plugin indent on    " required
@@ -82,8 +83,7 @@ let g:gundo_prefer_python3 = 1
 let g:github_enterprise_urls = ['https://github.tunecore.co']
 let g:ale_c_parse_makefile = 1
 
-" let ayucolor="light"
-" let ayucolor="mirage"
+" ayucolor = light / mirage/ dark
 let ayucolor="dark"
 
 map <Leader> <Plug>(easymotion-prefix)
@@ -110,10 +110,10 @@ nnoremap <C-b> :Buffers<CR>
 " silent! call airline#extensions#whitespace#disable()
 
 inoremap jj <ESC>
+tnoremap jj <C-\><C-n>
+
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-
-tnoremap jj <C-\><C-n>
 
 command! -complete=file -nargs=1 T tabedit <args>
 command! NT NERDTree
@@ -123,7 +123,7 @@ command! -nargs=0 Sw w !sudo tee % > /dev/null
 command! Hexedit :%!hexdump -C
 command! -nargs=1 W3m !w3m <f-args>
 
-colorscheme ayu
+colorscheme lucid
 
 luafile ~/.config/nvim/statline.lua
 
