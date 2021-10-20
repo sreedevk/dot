@@ -51,9 +51,6 @@ autoload -U colors && colors
 autoload -U compinit && compinit
 autoload edit-command-line; zle -N edit-command-line
 
-# FIX COLOR SCHEME ISSUES IN SYNTAX HIGHLIGHTING
-ZSH_HIGHLIGHT_STYLES[comment]='none'
-
 # ZSH OPTS
 setopt PROMPT_SUBST
 setopt interactivecomments
@@ -69,6 +66,9 @@ setopt interactivecomments
 
 # LOAD COMPILED PLUGINS
 [ -f "$HOME/.zsh/.zsh_plugins.sh" ] && source ~/.zsh/.zsh_plugins.sh
+
+# FIX COLOR SCHEME ISSUES IN SYNTAX HIGHLIGHTING
+ZSH_HIGHLIGHT_STYLES[comment]='none'
 
 # START STARSHIP PROMPT
 eval "$(starship init zsh)"
