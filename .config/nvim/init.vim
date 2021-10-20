@@ -32,7 +32,7 @@ call plug#begin('~/.vim/nvim/plugged')
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-surround'
   Plug 'bollu/vim-apl'
-  Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'ayu-theme/ayu-vim'
 call plug#end()
 
 filetype plugin indent on    " required
@@ -74,7 +74,7 @@ let g:NERDTreeWinSize=20
 let g:user_emmet_expandabbr_key = '<C-a>,'
 let g:deoplete#enable_at_startup = 1
 
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 " let g:airline#extensions#whitespace#mixed_indent_algo = 0 
 " let g:airline#extensions#fzf#enabled = 1
 " let g:airline#extensions#tabline#enabled = 1
@@ -86,6 +86,10 @@ let g:EasyMotion_smartcase = 1
 let g:gundo_prefer_python3 = 1
 let g:github_enterprise_urls = ['https://github.tunecore.co']
 let g:ale_c_parse_makefile = 1
+
+" let ayucolor="light"
+" let ayucolor="mirage"
+let ayucolor="dark"
 
 map <Leader> <Plug>(easymotion-prefix)
 
@@ -124,7 +128,7 @@ command! -nargs=0 Sw w !sudo tee % > /dev/null
 command! Hexedit :%!hexdump -C
 command! -nargs=1 W3m !w3m <f-args>
 
-colorscheme dracula
+colorscheme ayu
 
 function! PresentationMode()
   set nonumber  
