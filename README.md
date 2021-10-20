@@ -4,28 +4,7 @@ This is a collection of my dot configuration files.
 The following is my setup, but you get most dotfiles to work with your OS/Setup with minor tweaks.
 
 ##### My Setup
-
-``` text
-                   -`                    root@devstation
-                  .o+`                   ---------------
-                 `ooo/                   OS: Arch Linux x86_64
-                `+oooo:                  Host: Precision 5540
-               `+oooooo:                 Uptime: 16 hours, 57 mins
-               -+oooooo+:                Shell: zsh 5.8
-             `/:-:++oooo+:               CPU: Intel i9-9880H (16) @ 4.800GHz
-            `/++++/+++++++:              GPU: Intel CoffeeLake-H GT2 [UHD Graphics 630]
-           `/++++++++++++++:             GPU: NVIDIA Quadro T2000 Mobile / Max-Q
-          `/+++ooooooooooooo/`           Memory: 32GB
-         ./ooosssso++osssssso+`
-        .oossssso-````/ossssss+`
-       -osssssso.      :ssssssso.
-      :osssssss/        osssso+++.
-     /ossssssss/        +ssssooo/-
-   `/ossssso+/:-        -:/+osssso+-
-  `+sso+:-`                 `.-/+oso:
- `++:.                           `-/+/
- .`                                 `/
-```
+<img src="https://user-images.githubusercontent.com/36154121/138073270-8558ad26-0439-4c41-bb1c-abccfd115f60.png" alt="drawing" width="500"/>
 
 ### Documentation
 I have tried to document every single software resource setup & configuration process. Checkout [Documentation](https://github.com/sreedevk/dot/tree/master/docs)
