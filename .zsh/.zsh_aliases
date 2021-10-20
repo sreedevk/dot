@@ -14,6 +14,9 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias jctl="journalctl -p 3 -xb"
 
+alias e="$EDITOR"
+alias v="$VISUAL"
+
 # Tmuxinator - Tmux Session Manager
 alias mux='tmuxinator'
 
