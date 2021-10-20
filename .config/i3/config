@@ -59,7 +59,7 @@ bindsym $mod+Shift+F3          exec --no-startup-id "pcmanfm_pkexec"
 bindsym $mod+Shift+d --release exec --no-startup-id "killall dunst; exec notify-send 'restart dunst'"
 
 # Shortcuts - Screenshots
-bindsym Print                  exec --no-startup-id "i3-scrot"
+bindsym Print                  exec --no-startup-id "flameshot gui"
 bindsym $mod+Print   --release exec --no-startup-id "i3-scrot -w"
 bindsym $mod+Shift+s --release exec --no-startup-id "i3-scrot -s"
 

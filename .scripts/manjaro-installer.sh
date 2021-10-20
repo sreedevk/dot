@@ -9,7 +9,7 @@ echo "DATADIR: $USER"
 echo "Please ensure that you've installed nvidia drivers + xorg-server"
 
 # install all official repository packages
-pacman --no-confirm -S arandr git curl zsh zsh-completions aws-cli boost boost-libs chromium clang cmake neovim emacs docker gawk gimp httpie hyperfine neofetch openssh rg fd 
+pacman --no-confirm -S arandr git curl zsh zsh-completions aws-cli boost boost-libs chromium clang cmake neovim emacs docker gawk gimp httpie hyperfine neofetch openssh rg fd flameshot
 
 # install AUR manager
 mkdir -p "$PKGREPOS"
