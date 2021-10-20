@@ -32,6 +32,7 @@ call plug#begin('~/.vim/nvim/plugged')
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-surround'
   Plug 'bollu/vim-apl'
+  Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 filetype plugin indent on    " required
@@ -123,7 +124,7 @@ command! -nargs=0 Sw w !sudo tee % > /dev/null
 command! Hexedit :%!hexdump -C
 command! -nargs=1 W3m !w3m <f-args>
 
-colorscheme gruvbox
+colorscheme dracula
 
 function! PresentationMode()
   set nonumber  
