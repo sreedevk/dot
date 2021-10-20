@@ -173,7 +173,7 @@ assign [class="Brave-browser"]             $ws2
 
 for_window [title="alsamixer"]      floating enable
 for_window [class="Nitrogen"]       floating enable sticky enable
-for_window [class="(?i)virtualbox"] fullscreen enable
+for_window [class="(?i)virtualbox"] floating enable
 for_window [urgent=latest] focus
 
 bindsym $mod+r mode "resize"
