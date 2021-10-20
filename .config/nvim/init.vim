@@ -28,7 +28,7 @@ call plug#begin('~/.vim/nvim/plugged')
   Plug 'sjl/gundo.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rails'
-  Plug 'itchyny/lightline.vim'
+  Plug 'hoob3rt/lualine.nvim'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-surround'
   Plug 'bollu/vim-apl'
@@ -124,6 +124,8 @@ command! Hexedit :%!hexdump -C
 command! -nargs=1 W3m !w3m <f-args>
 
 colorscheme ayu
+
+luafile ~/.config/nvim/statline.lua
 
 function! PresentationMode()
   set nonumber  
