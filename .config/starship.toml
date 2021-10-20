@@ -114,9 +114,11 @@ disabled = true
 command = "tmux ls | wc -l"
 style = "bold green"
 description = "active tmux session count"
-when = "true"
+when = "tmux ls"
 disabled = false
 format = "[tmux:($output)]($style) "
 
 [jobs]
+threshold = 1
+symbol = "+"
 style = "bold red"
