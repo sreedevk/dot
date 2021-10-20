@@ -74,11 +74,6 @@ let g:NERDTreeWinSize=20
 let g:user_emmet_expandabbr_key = '<C-a>,'
 let g:deoplete#enable_at_startup = 1
 
-let g:airline_powerline_fonts = 1
-" let g:airline#extensions#whitespace#mixed_indent_algo = 0 
-" let g:airline#extensions#fzf#enabled = 1
-" let g:airline#extensions#tabline#enabled = 1
-
 let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint --type-check']
 let g:syntastic_typescript_tslint_args = "--config ~/.config/nvim/add_conf/tslint.json"
 
