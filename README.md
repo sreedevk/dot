@@ -138,6 +138,8 @@ To make life better, using the following tools are recommended.
 3. [Xmobar](https://hackage.haskell.org/package/xmobar)
 
 ### Screenshots
+![2021-10-21_05-34](https://user-images.githubusercontent.com/36154121/138188807-e1739df8-4b3d-4a45-be21-9e56da21e152.png)
+
 ![2021-10-11-003706_3840x2160_scrot](https://user-images.githubusercontent.com/36154121/136709891-82ea7c1b-217c-4e5c-a1ab-f1270a8baf71.png)
 
 ![2021-10-11-004313_3840x2160_scrot](https://user-images.githubusercontent.com/36154121/136710015-eb8eb325-f3be-42fa-9da5-3ca4cf5eb8c0.png)
