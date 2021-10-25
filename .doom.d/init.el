@@ -16,7 +16,7 @@
        ;; indent-guides                ; highlighted indent columns
        (ligatures +extra)              ; ligatures and symbols to make your code pretty again
        ;; minimap                      ; show a map of the code on the side
-       modeline                        ; snazzy, Atom-inspired modeline, plus API
+       ;; modeline                        ; snazzy, Atom-inspired modeline, plus API
        ophints                         ; highlight the region an operation acts on
        (popup
         +all
@@ -72,8 +72,8 @@
        (magit +forge)    ; a git porcelain for Emacs
        ;; make           ; run make tasks from Emacs
        ;; pass           ; password manager for nerds
-       pdf               ; pdf enhancements
-       rgb
+       ;; pdf               ; pdf enhancements
+       ;; rgb
        ;; taskrunner     ; taskrunner for all your projects
        ;; terraform      ; infrastructure as code
        ;; tmux           ; an API for interacting with tmux
@@ -85,27 +85,27 @@
        cc                ; C > C++ == 1
        crystal           ; ruby at the speed of c
        common-lisp
-       clojure
+       ;; clojure
        data              ; config/data formats
-       elixir            ; erlang done right
-       elm               ; care for a cup of TEA?
+       ;; elixir            ; erlang done right
+       ;; elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
-       (ess +lsp)
-       erlang            ; an elegant language for a more civilized age
+       ;; (ess +lsp)
+       ;; erlang            ; an elegant language for a more civilized age
        (go +lsp)
        (haskell +lsp)    ; a language that's lazier than I am
        json              ; At least it ain't XML
        javascript        ; all(hope(abandon(ye(who(enter(here))))))
-       (julia +lsp)             ; a better, faster MATLAB
+       (julia +lsp)      ; a better, faster MATLAB
        ;; kotlin
-       lsp
-       (latex
-        +latexmk
-        +cdlatex
-        +fold)           ; writing papers in Emacs has never been so fun
+       ;; lsp
+       ;; (latex
+       ;;  +latexmk
+       ;;  +cdlatex
+       ;;  +fold)           ; writing papers in Emacs has never been so fun
        lua               ; one-based indices? one-based indices
        markdown          ; writing docs for people to ignore
-       ocaml             ; an objective camel
+       ;; ocaml             ; an objective camel
        (org
         +roam2
         +brain
@@ -117,19 +117,19 @@
         ;; +pandoc
         +journal)        ; organize your plain life in plain text
        ;; php            ; perl's insecure younger brother
-       python            ; beautiful is better than ugly
-       purescript        ; javascript but functional
+       ;; python            ; beautiful is better than ugly
+       ;; purescript        ; javascript but functional
        ;; qt             ; the 'cutest' gui framework ever
-       (ruby             ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-        ;;+rails
-        )
+       ;; (ruby             ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       ;; +rails
+       ;; )
        (rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
-       racket
-       raku
-       scala
-       (sh +lsp)         ; she sells {ba,z,fi}sh shells on the C xor
-       web               ; the tubes
-       (yaml +lsp)       ; JSON, but readable
+       ;; racket
+       ;; raku
+       ;; scala
+       ;; (sh +lsp)         ; she sells {ba,z,fi}sh shells on the C xor
+       ;; web               ; the tubes
+       ;; (yaml +lsp)       ; JSON, but readable
 
        :email
        ;;(mu4e +org +gmail)
