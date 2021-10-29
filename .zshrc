@@ -21,7 +21,7 @@ export PATH="$PATH:$YARN_PATH:$CONDA_PATH:$GO_PATH:$DBEAVER_PATH:$KENDRYTE_PATH:
 # ENV VARIABLES
 export KEYTIMEOUT=1
 export GPG_TTY=$(tty)
-export VISUAL="neovide"
+export VISUAL="nvim"
 export EDITOR=nvim
 export TERMINFO=/usr/share/terminfo/
 export TERM="xterm-256color"
