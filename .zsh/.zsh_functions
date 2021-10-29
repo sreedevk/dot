@@ -33,15 +33,6 @@ create_app(){
   git init $local_app_path
 }
 
-# create new idf project from espressif template
-create_idf_app(){
-  idf_app_path="$(pwd)/$1"
-  create_app esp $1
-  sed -i "s/app-template/$1/g" "$idf_app_path/Makefile"
-  mkdir "$idf_app_path/components"
-}
-
-# print formatted csv output
 csv() {
   column -s, -t < $1 | less -$2 -N -S
 }
@@ -75,12 +66,6 @@ palette() {
     print -cP $colors
 }
 
-printcc(){
-  local color="%F{$1}"
-  echo -E ${(qqqq)${(%)color}}
-}
-
-# zsh plugin update - antibody
 antibody-compile(){
   antibody bundle < ~/.zsh/.zsh_plugins > ~/.zsh/.zsh_plugins.sh
 }
@@ -162,8 +147,4 @@ keycode() {
 
 init-apl() {
   setxkbmap -layout us,apl -variant ,dyalog -option grp:switch
-}
-
-labs() {
-  cd "$HOME/data/labz/$@"
 }
