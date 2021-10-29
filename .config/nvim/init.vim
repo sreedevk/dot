@@ -11,7 +11,6 @@
 " AUTHOR: SREEDEV KODICHATH
 
 set runtimepath+=~/.vim,~/.vim/after
-source ~/.config/nvim/plug-config/coc.vim
 
 call plug#begin('~/.vim/nvim/plugged')
   Plug 'dense-analysis/ale'
@@ -127,8 +126,7 @@ command! Rg Telescope live_grep
 
 colorscheme ayu
 
-luafile ~/.config/nvim/plug-config/statline.lua
-luafile ~/.config/nvim/plug-config/telescope_config.lua
+luafile ~/.config/nvim/lua/init.lua
 
 function! PresentationMode()
   set nonumber  
