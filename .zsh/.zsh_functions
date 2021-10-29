@@ -137,7 +137,7 @@ zonetime(){
 
 # for terminal emulators that don't offer clear command
 clear(){
-  printf "\e[H\e[2J"
+  echo -en "\x1b[2J\x1b[1;1H"
 }
 
 sshx11(){
