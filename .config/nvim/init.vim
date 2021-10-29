@@ -67,16 +67,14 @@ autocmd CursorHold * checktime
 
 let mapleader = ";"
 
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
 let g:NERDTreeWinSize=20
 
 let g:user_emmet_expandabbr_key = '<C-a>,'
-let g:deoplete#enable_at_startup = 1
 
 let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint --type-check']
-let g:syntastic_typescript_tslint_args = "--config ~/.config/nvim/add_conf/tslint.json"
 
 let g:EasyMotion_smartcase = 1
 let g:gundo_prefer_python3 = 1
