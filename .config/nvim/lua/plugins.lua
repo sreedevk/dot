@@ -9,7 +9,7 @@ return require('packer').startup(function()
     config = 'vim.cmd[[ALEEnable]]'
   }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use { 'easymotion/vim-easymotion' }
+  use { 'phaazon/hop.nvim', as = 'hop', config = function() require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' } end }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'mattn/emmet-vim' }
   use { 'scrooloose/syntastic' } 
@@ -25,6 +25,6 @@ return require('packer').startup(function()
   use { 'bollu/vim-apl' }
   use { 'ayu-theme/ayu-vim' }
   use { 'cseelus/vim-colors-lucid' }
-  use {'dracula/vim', as = 'dracula' }
+  use { 'dracula/vim', as = 'dracula' }
   use { 'neovim/nvim-lspconfig' }
 end)
