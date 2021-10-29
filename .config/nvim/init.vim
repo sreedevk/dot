@@ -10,9 +10,6 @@
 "      ░                           ░        
 " AUTHOR: SREEDEV KODICHATH
 
-" set packpath+=~/.vim
-" source ~/.vimrc
-
 set runtimepath+=~/.vim,~/.vim/after
 source ~/.config/nvim/plug-config/coc.vim
 
@@ -68,6 +65,8 @@ autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 autocmd CursorHold * checktime
 
+let mapleader = ";"
+
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
@@ -106,7 +105,7 @@ noremap <left> <nop>
 noremap <right> <nop>
 
 noremap <C-t> :tabnew <CR>
-nnoremap <C-b> :Buffers<CR>
+nnoremap <C-b> :Telescope buffers<CR>
 nnoremap <leader>u :GundoToggle<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR> 
@@ -130,7 +129,8 @@ command! Rg Telescope live_grep
 
 colorscheme ayu
 
-luafile ~/.config/nvim/statline.lua
+luafile ~/.config/nvim/plug-config/statline.lua
+luafile ~/.config/nvim/plug-config/telescope_config.lua
 
 function! PresentationMode()
   set nonumber  
