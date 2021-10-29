@@ -19,7 +19,8 @@ source ~/.config/nvim/plug-config/coc.vim
 call plug#begin('~/.vim/nvim/plugged')
   Plug 'dense-analysis/ale'
   Plug 'easymotion/vim-easymotion'
-  Plug 'junegunn/fzf.vim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
   Plug 'mattn/emmet-vim'
   Plug 'scrooloose/syntastic'
   Plug 'scrooloose/nerdTree'
@@ -89,7 +90,7 @@ let ayucolor="dark"
 map <Leader> <Plug>(easymotion-prefix)
 
 nmap <C-n> :NERDTreeToggle<CR>
-nmap <C-p> :FZF<CR>
+nmap <C-p> :Telescope find_files<CR>
 
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
@@ -98,14 +99,17 @@ nmap <leader>gs :G<CR>
 cmap <C-R>'           <C-R>=shellescape(getline('.'))<CR>
 cmap <C-R><C-R>' <C-R><C-R>=shellescape(getline('.'))<CR>
 
+" disable arrow keys
 noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
+
 noremap <C-t> :tabnew <CR>
-nnoremap <leader>u :GundoToggle<CR>
-nnoremap <silent> <Leader>v :NERDTreeFind<CR> 
 nnoremap <C-b> :Buffers<CR>
+nnoremap <leader>u :GundoToggle<CR>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR> 
 
 " silent! call airline#extensions#whitespace#disable()
 
@@ -122,6 +126,7 @@ command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | 
 command! -nargs=0 Sw w !sudo tee % > /dev/null
 command! Hexedit :%!hexdump -C
 command! -nargs=1 W3m !w3m <f-args>
+command! Rg Telescope live_grep
 
 colorscheme ayu
 
