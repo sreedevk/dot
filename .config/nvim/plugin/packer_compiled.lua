@@ -81,10 +81,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/ayu-vim"
   },
-  ["coc.nvim"] = {
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/coc.nvim"
-  },
   dracula = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/dracula"
