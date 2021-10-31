@@ -4,7 +4,6 @@ vim.opt.shiftwidth    = 2
 vim.opt.expandtab     = true
 vim.opt.clipboard     = 'unnamedplus'
 vim.opt.number        = true
-vim.opt.autoread      = true
 vim.opt.incsearch     = true
 vim.opt.termguicolors = true
 vim.opt.rnu           = true               -- relative line number
@@ -35,6 +34,9 @@ vim.g['EasyMotion_smartcase']          = 1
 vim.g['gundo_prefer_python3']          = 1
 vim.g['ale_c_parse_makefile']          = 1
 vim.g['ale_c_parse_makefile']          = 1
+vim.g['syntastic_typescript_checkers'] = { 'tsuquyomi', 'tslint --type-check' }
+vim.g['githb_enterprise_urls']         = { 'https://github.tunecore.co' }
 
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {on_visual = false}')
 vim.cmd('language en_US.utf-8')
+vim.cmd('autocmd CursorHold * checktime')
