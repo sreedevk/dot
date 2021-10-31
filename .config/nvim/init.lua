@@ -11,13 +11,7 @@
 -- AUTHOR: SREEDEV KODICHATH
 
 require('plugins')
-
--- LOAD COLORSCHEME
--- ayucolor = light / mirage / dark
-vim.g['ayucolor'] = 'dark'
-vim.cmd 'colorscheme ayu' 
-
--- PLUGINS, OPTIONS & CUSTOM COMMANDS
+require('colors')
 require('_telescope')
 require('status')
 require('opts')
