@@ -1,7 +1,7 @@
 ## The Dot Project
 
 This is a collection of my dot configuration files.
-The following is my setup, but you get most dotfiles to work with your OS/Setup with minor tweaks.
+The following is my setup, but you can get most dotfiles to work with your OS/Setup with minor tweaks.
 
 ##### My Setup
 <img src="https://user-images.githubusercontent.com/36154121/138073270-8558ad26-0439-4c41-bb1c-abccfd115f60.png" alt="drawing" width="500"/>
