@@ -106,6 +106,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nerdTree"
   },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
@@ -121,10 +125,6 @@ _G.packer_plugins = {
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/plenary.nvim"
-  },
-  syntastic = {
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/syntastic"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -145,10 +145,6 @@ _G.packer_plugins = {
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/vim-fugitive"
-  },
-  ["vim-polyglot"] = {
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/vim-polyglot"
   },
   ["vim-rails"] = {
     loaded = true,
@@ -180,6 +176,8 @@ vim.cmd [[au FileType html ++once lua require("packer.load")({'ale'}, { ft = "ht
 vim.cmd [[au FileType zsh ++once lua require("packer.load")({'ale'}, { ft = "zsh" }, _G.packer_plugins)]]
 vim.cmd [[au FileType bash ++once lua require("packer.load")({'ale'}, { ft = "bash" }, _G.packer_plugins)]]
 vim.cmd [[au FileType c ++once lua require("packer.load")({'ale'}, { ft = "c" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'ale'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType ruby ++once lua require("packer.load")({'ale'}, { ft = "ruby" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'ale'}, { ft = "markdown" }, _G.packer_plugins)]]
 vim.cmd [[au FileType vim ++once lua require("packer.load")({'ale'}, { ft = "vim" }, _G.packer_plugins)]]
 vim.cmd [[au FileType tex ++once lua require("packer.load")({'ale'}, { ft = "tex" }, _G.packer_plugins)]]
