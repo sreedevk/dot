@@ -13,7 +13,7 @@ vim.opt.title         = true               -- show window title as current file 
 vim.opt.showmatch     = true               -- enable highlighing matching paranthesis
 vim.opt.hlsearch      = true               -- enable search highlights
 vim.opt.list          = false              -- show trailing whitespaces
-vim.opt.lazyredraw    = false              -- only redraw window when required
+vim.opt.lazyredraw    = true               -- only redraw window when required
 vim.opt.cursorline    = true               -- highlight line under cusor
 vim.opt.inccommand    = 'nosplit'          -- shows search and replace changes live
 vim.opt.updatetime    = 750
@@ -40,3 +40,10 @@ vim.g['githb_enterprise_urls']         = { 'https://github.tunecore.co' }
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {on_visual = false}')
 vim.cmd('language en_US.utf-8')
 vim.cmd('autocmd CursorHold * checktime')
+
+-- disable auto commenting
+-- vim.cmd 'au BufEnter * set fo-=c fo-=r fo-=o'
+
+-- Treesitter config
+local ts = require 'nvim-treesitter.configs'
+ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
