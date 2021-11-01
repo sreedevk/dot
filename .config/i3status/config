@@ -1,5 +1,5 @@
-# It is important that this file is edited as UTF-8.
-# The following line should contain a sharp s: ß
+# TITLE: i3status configuration
+# AUTHOR: Sreedev Kodichath
 
 general {
         colors = true

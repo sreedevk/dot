@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# TITLE: i3wm Autostart Script
+# DESCRIPTION: This script will setup displays automatically when i3wm startsup
+
 connected_displays=( $(xrandr | grep -E '(^|\s)connected($|\s)' | awk '{print $1}') )
 port_display="${connected_displays[1]}"
 dock_display="${connected_displays[2]}"
