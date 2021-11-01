@@ -29,48 +29,43 @@ I have tried to document every single software resource setup & configuration pr
     Starship is a great shell prompt. It offers decent level of freedom to customize. It supports both zsh & bash.
     Project: [Startship Project](https://starship.rs/)
 
-5. [Polybar](https://github.com/sreedevk/dot/tree/master/.config/polybar "Status Bar")
-   Polybar is a neat status bar your window manager. Thought there is a default polybar configuration available as a part
-   of the dot project. The default status bar that is a part of the i3wm configuration is [bumblee_status](https://github.com/tobi-wan-kenobi/bumblebee-status).
-   Project: [Polybar Repo](https://github.com/polybar/polybar)
-
-6. [Asdf VM](https://github.com/sreedevk/dot/blob/master/.tool-versions "Software Version Manager")
+7. [Asdf VM](https://github.com/sreedevk/dot/blob/master/.tool-versions "Software Version Manager")
    Asdf Version Manager is a universal version manager for all your programming languages / software. It allows you to install multiple versions of 
    everything from Ruby to Postgresql to Docker.
    Documentation: [ASDF VM Docs](https://github.com/sreedevk/dot/blob/master/docs/asdf.md)
    Project: [ASDF VM](http://asdf-vm.com/)
 
-7. [Dunst](https://github.com/sreedevk/dot/tree/master/.config/dunst "Notification Manager")
+8. [Dunst](https://github.com/sreedevk/dot/tree/master/.config/dunst "Notification Manager")
    Dunst is a notification daemon that runs as a service. Its commonly used with lightweight window managers.
    Documentation: [Dunst Docs](https://github.com/sreedevk/dot/blob/master/docs/dunst.md)
    Project: [Dunst Repo](https://github.com/dunst-project/dunst)
 
-8.  [Tmux](https://github.com/sreedevk/dot/blob/master/.tmux.conf "Terminal Multiplexer")
+9.  [Tmux](https://github.com/sreedevk/dot/blob/master/.tmux.conf "Terminal Multiplexer")
     Tmux is a terminal multiplexer. Since Alacritty terminal emulator that is considered to be default in the dot project,
     does not have a multi tab / tiling system, Tmux is highly recommended. The dot project adds some basic configuration
     for tmux that makes it sane enought to be used.
     Documentation: [Dunst Docs](https://github.com/sreedevk/dot/blob/master/docs/tmux.md)
     Project: [Tmux Repo](https://github.com/tmux/tmux)
 
-9. [Neovim](https://github.com/sreedevk/dot/tree/master/.config/nvim "Text Editor")
+10. [Neovim](https://github.com/sreedevk/dot/tree/master/.config/nvim "Text Editor")
    Vim has always been my favorite editor. Neovim just made it better with lil bit of magic. The neovim 
    config in the dot project is pretty straight forward with a limited number of plugins & keymaps.
    Documentation: [Neovim Docs](https://github.com/sreedevk/dot/blob/master/docs/neovim.md)
    Project: [Neovim Repo](https://github.com/neovim/neovim)
 
-10. [Emacs](https://github.com/sreedevk/dot/tree/master/.doom.d/ "Text Editor")
+11. [Emacs](https://github.com/sreedevk/dot/tree/master/.doom.d/ "Text Editor")
    Emacs isn't exactly my goto editor, but I've found the doom emacs configuration to be quite useful & intuitive.
    The dot projects uses chemacs2 to multi load configurations. By Default, the dot project installs doom emacs, spacemacs & a custom emacs config
    with just doom themes & evil mode installed.
    Documentation: [Emacs Docs](https://github.com/sreedevk/dot/blob/master/docs/emacs.md)
    Project: [Emacs Project](https://www.gnu.org/software/emacs/)
 
-11. [Custom Shell Scripts](https://github.com/sreedevk/dot/tree/master/.scripts "Utilities")
+12. [Custom Shell Scripts](https://github.com/sreedevk/dot/tree/master/.scripts "Utilities")
    Just a bunch of useful tools to make life in the terminal emulator / shell better.
    Documentation: [Custom Script Docs](https://github.com/sreedevk/dot/blob/master/docs/scripts.md)
 
-12. [Git](https://github.com/sreedevk/dot/blob/master/.gitconfig "Version Control")
-13. [Picom](https://github.com/sreedevk/dot/blob/master/.config/picom.conf "Compositor")
+13. [Git](https://github.com/sreedevk/dot/blob/master/.gitconfig "Version Control")
+14. [Picom](https://github.com/sreedevk/dot/blob/master/.config/picom.conf "Compositor")
 
 ### Usage
 
