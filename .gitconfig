@@ -27,4 +27,5 @@
   cl 	   = clone --recursive -j8
 [rerere]
   enabled = false
-
+[advice]
+  detachedHead = false

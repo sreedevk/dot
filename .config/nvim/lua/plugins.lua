@@ -40,4 +40,5 @@ return require('packer').startup(function()
   use { 'dracula/vim', as = 'dracula' }
   use { 'cseelus/vim-colors-lucid' }
   use { 'neovim/nvim-lspconfig' }
+  use { 'williamboman/nvim-lsp-installer' }
 end)
