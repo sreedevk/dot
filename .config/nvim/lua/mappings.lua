@@ -16,6 +16,7 @@ map('n', '<Leader>f', "<cmd>HopChar1<CR>", {})
 -- Telescope
 map('n', '<C-p>', "<cmd>Telescope find_files<CR>")
 map('n', '<C-b>', "<cmd>Telescope buffers<CR>")
+map('n', '<C-s>', "<cmd>Telescope<CR>")
 map('n', '<leader>fg', "<cmd>Telescope live_grep<CR>")
 
 -- Diff
