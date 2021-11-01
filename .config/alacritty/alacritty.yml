@@ -1,3 +1,6 @@
+# TITLE: Alacritty Terminal Emulator Configuration
+# AUTHOR: Sreedev Kodichath
+
 window:
   decorations: none
 
