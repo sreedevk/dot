@@ -22,7 +22,7 @@ vim.opt.splitright    = true               -- Put new windows right of current
 vim.opt.completeopt   = 'menuone,noinsert,noselect'
 
 vim.wo.signcolumn = 'number'
-vim.wo.wrap       = false
+vim.wo.wrap       = true
 
 vim.g.mapleader                        = ';'
 vim.g['NERDTreeWinSize']               = 20
