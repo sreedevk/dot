@@ -47,5 +47,5 @@ Xft.rgba: rgb
 
 !{{{ Xcursor theme
 Xcursor.theme: Breeze-Obsidian
-Xcursor.size: 16
+Xcursor.size: 36
 !}}}
