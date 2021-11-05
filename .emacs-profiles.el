@@ -1,3 +1,3 @@
-(("doomemacs" . ((user-emacs-directory . "~/.doomacs.d")))
- ("customacs" . ((user-emacs-directory . "~/.customacs.d")))
- ("spacemacs" . ((user-emacs-directory . "~/.spacemacs.d"))))
+(("doomemacs" . ((user-emacs-directory . "~/.emacs-distros/.doomemacs.d")))
+ ("customacs" . ((user-emacs-directory . "~/.emacs-distros/.custom.d")))
+ ("spacemacs" . ((user-emacs-directory . "~/.emacs-distros/.spacemacs.d"))))
