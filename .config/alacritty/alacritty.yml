@@ -166,4 +166,4 @@ schemes:
       white:   '#dfdfdf'
 
 # OPTS: tokyo-night, tokyo-night-storm, gotham, cyberpunk-neon, doom-one
-colors: *cyberpunk-neon
+colors: *tokyo-night
