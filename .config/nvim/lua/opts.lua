@@ -46,4 +46,13 @@ vim.cmd('autocmd CursorHold * checktime')
 
 -- Treesitter config
 local ts = require 'nvim-treesitter.configs'
-ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
+ts.setup {
+  ensure_installed = "maintained",
+  highlight = {
+    additional_vim_regex_highlighting = true,
+    enable = true
+  },
+  indent = {
+    enable = false
+  }
+}

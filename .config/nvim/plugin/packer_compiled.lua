@@ -69,24 +69,15 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ale = {
-    commands = { "ALEEnable" },
-    config = { "vim.cmd[[ALEEnable]]" },
-    loaded = false,
-    needs_bufread = true,
-    only_cond = false,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/opt/ale",
-    url = "https://github.com/dense-analysis/ale"
-  },
   ["ayu-vim"] = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/ayu-vim",
     url = "https://github.com/ayu-theme/ayu-vim"
   },
-  dracula = {
+  ["coc.nvim"] = {
     loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/dracula",
-    url = "https://github.com/dracula/vim"
+    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/coc.nvim",
+    url = "https://github.com/neoclide/coc.nvim"
   },
   ["emmet-vim"] = {
     loaded = true,
@@ -114,16 +105,6 @@ _G.packer_plugins = {
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nerdTree",
     url = "https://github.com/scrooloose/nerdTree"
   },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
-  },
-  ["nvim-lspconfig"] = {
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
-    url = "https://github.com/neovim/nvim-lspconfig"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -144,30 +125,10 @@ _G.packer_plugins = {
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["vim-apl"] = {
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/vim-apl",
-    url = "https://github.com/bollu/vim-apl"
-  },
-  ["vim-colors-lucid"] = {
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/vim-colors-lucid",
-    url = "https://github.com/cseelus/vim-colors-lucid"
-  },
-  ["vim-endwise"] = {
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/vim-endwise",
-    url = "https://github.com/tpope/vim-endwise"
-  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-rails"] = {
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/vim-rails",
-    url = "https://github.com/tpope/vim-rails"
   },
   ["vim-surround"] = {
     loaded = true,
@@ -181,31 +142,6 @@ time([[Defining packer_plugins]], false)
 time([[Config for hop]], true)
 try_loadstring("\27LJ\1\2U\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0", "config", "hop")
 time([[Config for hop]], false)
-
--- Command lazy-loads
-time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file ALEEnable lua require("packer.load")({'ale'}, { cmd = "ALEEnable", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-time([[Defining lazy-load commands]], false)
-
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType cmake ++once lua require("packer.load")({'ale'}, { ft = "cmake" }, _G.packer_plugins)]]
-vim.cmd [[au FileType html ++once lua require("packer.load")({'ale'}, { ft = "html" }, _G.packer_plugins)]]
-vim.cmd [[au FileType zsh ++once lua require("packer.load")({'ale'}, { ft = "zsh" }, _G.packer_plugins)]]
-vim.cmd [[au FileType bash ++once lua require("packer.load")({'ale'}, { ft = "bash" }, _G.packer_plugins)]]
-vim.cmd [[au FileType c ++once lua require("packer.load")({'ale'}, { ft = "c" }, _G.packer_plugins)]]
-vim.cmd [[au FileType rust ++once lua require("packer.load")({'ale'}, { ft = "rust" }, _G.packer_plugins)]]
-vim.cmd [[au FileType ruby ++once lua require("packer.load")({'ale'}, { ft = "ruby" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'ale'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType vim ++once lua require("packer.load")({'ale'}, { ft = "vim" }, _G.packer_plugins)]]
-vim.cmd [[au FileType tex ++once lua require("packer.load")({'ale'}, { ft = "tex" }, _G.packer_plugins)]]
-vim.cmd [[au FileType sh ++once lua require("packer.load")({'ale'}, { ft = "sh" }, _G.packer_plugins)]]
-vim.cmd [[au FileType cpp ++once lua require("packer.load")({'ale'}, { ft = "cpp" }, _G.packer_plugins)]]
-vim.cmd [[au FileType racket ++once lua require("packer.load")({'ale'}, { ft = "racket" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
-vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

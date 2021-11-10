@@ -1,44 +1,28 @@
 vim.cmd('packadd packer.nvim')
 
 return require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
-  use {
-    'dense-analysis/ale',
-    ft = {
-      'sh',
-      'zsh',
-      'bash',
-      'c',
-      'cpp',
-      'cmake',
-      'html',
-      'markdown',
-      'racket',
-      'vim',
-      'tex',
-      'ruby',
-      'rust'
-    },
-    cmd = 'ALEEnable',
-    config = 'vim.cmd[[ALEEnable]]'
-  }
+  use { 'wbthomason/packer.nvim' }  -- plugin manager
+  use { 'mattn/emmet-vim' }         -- html emmets
+  use { 'scrooloose/nerdTree' }     -- project filetree
+  use { 'sjl/gundo.vim' }           -- undo tree
+  use { 'tpope/vim-surround' }      -- ysiw
+  use { 'hoob3rt/lualine.nvim' }    -- statusline
+  use { 'tpope/vim-fugitive' }      -- git
+  use { 'psliwka/vim-smoothie' }    -- smooth scrolling
+
+  -- colorschemes
+  use { 'ayu-theme/ayu-vim' }
+  use { 'ghifarit53/tokyonight-vim' }
+
+  -- Language Server + Intellisense
+  use { 'neoclide/coc.nvim', branch = 'release' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+  -- Fzf
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+
+  -- EasyMotion
   use { 'phaazon/hop.nvim', as = 'hop', config = function()
     require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' } 
   end }
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use { 'mattn/emmet-vim' }
-  use { 'scrooloose/nerdTree' }
-  use { 'sjl/gundo.vim' }
-  use { 'tpope/vim-fugitive' }
-  use { 'tpope/vim-rails' }
-  use { 'hoob3rt/lualine.nvim' }
-  use { 'tpope/vim-endwise' }
-  use { 'tpope/vim-surround' }
-  use { 'bollu/vim-apl' }
-  use { 'ayu-theme/ayu-vim' }
-  use { 'dracula/vim', as = 'dracula' }
-  use { 'cseelus/vim-colors-lucid' }
-  use { 'neovim/nvim-lspconfig' }
-  use { 'williamboman/nvim-lsp-installer' }
 end)
