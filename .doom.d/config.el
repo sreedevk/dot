@@ -4,7 +4,7 @@
       user-mail-address "sreedevpadmakumar@gmail.com")
 
 ;; THEME
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-acario-dark)
 
 (setq org-directory "~/org/"
       org-roam-directory "~/org/roam")
