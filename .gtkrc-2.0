@@ -5,7 +5,7 @@ include "/home/sreedev/.gtkrc-2.0.mine"
 gtk-theme-name="gtk-master"
 gtk-icon-theme-name="Dracula"
 gtk-font-name="JetBrainsMono 11"
-gtk-cursor-theme-name="xcursor-breeze"
+gtk-cursor-theme-name="xcursor-breeze-snow"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
