@@ -22,13 +22,14 @@ font:
     family: Jetbrains Mono
     style: Italic
 
-
+draw_bold_text_with_bright_colors: true
 background_opacity: 0.7  # compositing required
 custom_cursor_colors: true
 
 scrolling:
   multiplier: 5
 
+# ColorSchemes
 
 schemes:
   tokyo-night: &tokyo-night
@@ -105,6 +106,7 @@ schemes:
       magenta: '0x888ba5'
       cyan: '0x599caa'
       white: '0xd3ebe9'
+
   cyberpunk-neon: &cyberpunk-neon
     primary:
       background: "0x000b1e"
@@ -133,6 +135,35 @@ schemes:
       magenta: "0x711c91"
       cyan:    "0x0abdc6"
       white:   "0xd7d7d5"
-    
-# OPTS: tokyo-night, tokyo-night-storm, gotham, cyberpunk-neon
-colors: *tokyo-night
+
+  doom-one: &doom-one
+    primary:
+      background: '#282c34'
+      foreground: '#bbc2cf'
+    cursor:
+      text: CellBackground
+      cursor: '#528bff'
+    selection:
+      text: CellForeground
+      background: '#3e4451'
+    normal:
+      black:   '#1c1f24'
+      red:     '#ff6c6b'
+      green:   '#98be65'
+      yellow:  '#da8548'
+      blue:    '#51afef'
+      magenta: '#c678dd'
+      cyan:    '#5699af'
+      white:   '#202328'
+    bright:
+      black:   '#5b6268'
+      red:     '#da8548'
+      green:   '#4db5bd'
+      yellow:  '#ecbe7b'
+      blue:    '#2257a0'
+      magenta: '#a9a1e1'
+      cyan:    '#46d9ff'
+      white:   '#dfdfdf'
+
+# OPTS: tokyo-night, tokyo-night-storm, gotham, cyberpunk-neon, doom-one
+colors: *cyberpunk-neon
