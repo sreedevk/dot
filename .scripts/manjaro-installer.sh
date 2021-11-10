@@ -2,14 +2,17 @@ export HOME="/home/$USER"
 export DATADIR="$HOME/data"
 export PKGREPOS=$DATADIR/repositories
 
-echo "USER: $USER"
-echo "HOME: $USER"
-echo "DATADIR: $USER"
+echo "##################################################"
+echo "######## MANJARO POST INSTALLATION SCRIPT ########"
+echo "##################################################"
 
+echo "USER: $USER"
+echo "HOME: $HOME"
+echo "DATADIR: $DATADIR"
 echo "Please ensure that you've installed nvidia drivers + xorg-server"
 
 # install all official repository packages
-pacman --no-confirm -S arandr git curl zsh zsh-completions aws-cli boost boost-libs chromium clang cmake neovim emacs docker gawk gimp httpie hyperfine neofetch openssh rg fd flameshot
+pacman --needed --ask 4 -Sy - < "${0:a:h}/pkglist.txt"
 
 # install AUR manager
 mkdir -p "$PKGREPOS"
@@ -18,12 +21,6 @@ git clone https://aur.archlinux.org/paru.git "$PKGREPOS"
 cd "$PKGREPOS/paru" || exit
 makepkg -si
 cd "$HOME" || exit
-
-# installing additional package manager
-git clone https://aur.archlinux.org/aura-bin.git "$PKGREPOS"
-cd "$PKGREPOS/aura-bin" || exit
-makepkg
-pacman -U aura*.tar.xz
 
 # install all AUR packages
 paru -S asciinema antibody community/brave-browser bumblebee-status-git 
