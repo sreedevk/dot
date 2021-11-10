@@ -1,4 +1,4 @@
-Xft.dpi: 192
+Xft.dpi: 96
 URxvt.font: xft:FiraMono-Regular:size=10
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
@@ -47,5 +47,5 @@ Xft.rgba: rgb
 
 !{{{ Xcursor theme
 Xcursor.theme: Breeze-Obsidian
-Xcursor.size: 36
+Xcursor.size: 28
 !}}}
