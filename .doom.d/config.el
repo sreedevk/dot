@@ -4,7 +4,7 @@
       user-mail-address "sreedevpadmakumar@gmail.com")
 
 ;; THEME
-(setq doom-theme 'doom-laserwave)
+(setq doom-theme 'doom-dracula)
 
 (setq org-directory "~/org/"
       org-roam-directory "~/org/roam")
@@ -41,4 +41,5 @@
 
 ;; SLIGHTLY BETTER DEFAULT BUFFER NAMES
 (setq doom-fallback-buffer-name "► Doom"
-      +doom-dashboard-name "► Doom")
+      +doom-dashboard-name "► Doom"
+      doom-fallback-buffer "*dashboard*")
