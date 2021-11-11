@@ -1,5 +1,7 @@
 ## The Dot Project
 
+![kitty_tmux_etc](https://user-images.githubusercontent.com/36154121/141363332-3d83b093-4710-4303-8b77-8324fcd72122.png)
+
 This is a collection of my dot configuration files.
 The following is my setup, but you can get most dotfiles to work with your OS/Setup with minor tweaks.
 
