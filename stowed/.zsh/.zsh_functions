@@ -33,10 +33,12 @@ create_app(){
   git init $local_app_path
 }
 
+# beautiful CSVs
 csv() {
   column -s, -t < $1 | less -$2 -N -S
 }
 
+# aws-cli helper to list ec2 instances as a table
 aws-instances() {
   AWS_FILTER="*"
   OUTPUT_TYPE="table"
@@ -48,16 +50,19 @@ aws-instances() {
     --output "$OUTPUT_TYPE" 
 }
 
+# aws-cli helper to ssh into ec2 instances
 aws-connect(){
   [ -z "$1" ] && echo "TC-CONNECT\nusage: tc-connect <instance-query> <username>" && return
   CONN_IP_ADDR="$(echo "$(aws-instances $1 json | jq -r '.[] | .[] | "\(.PrivateIP)\t\(.Instance)\t\(.InstanceID)\t\(.PublicIPAddr)"')" | fzf | awk '{print $1}')"
   ssh -i ~/.ssh/tunecore1.pem "$2@$CONN_IP_ADDR"
 }
 
+# process filter & kill
 pk(){
   sudo kill -9 $(ps aux | fzf | awk '{print $2}')
 }
 
+# print terminal emulator color palette
 palette() {
     local -a colors
     for i in {000..255}; do
@@ -66,14 +71,17 @@ palette() {
     print -cP $colors
 }
 
+# compile plugins after change in .zsh_plugins
 antibody-compile(){
   antibody bundle < ~/.zsh/.zsh_plugins > ~/.zsh/.zsh_plugins.sh
 }
 
+# filter & kill active tmux sessions
 tmux-kill(){
   tmux list-sessions | awk 'BEGIN{FS=":"}{print $1}' | fzf | xargs -n 1 tmux kill-session -t
 }
 
+# change directories in style
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
@@ -84,11 +92,7 @@ lfcd () {
     fi
 }
 
-setup_display(){
-  connected_displays=($(xrandr | grep -E '(^|\s)connected($|\s)' | awk '{print $1}'))
-  [[ "${#connected_displays[@]}" > "1" ]] && xrandr --output $connected_displays[1] --mode 1920x1080 --pos 1920x0 --rotate normal --output $connected_displays[2] --mode 1920x1080 --pos 0x0 --rotate normal
-}
-
+# ix.io pastebin
 ix() {
     local opts
     local OPTIND
@@ -114,26 +118,30 @@ ix() {
     curl $opts -F f:1='<-' $* ix.io/$id
 }
 
+# Time Elsewhere
 zonetime(){
   echo "$(timedatectl list-timezones)" | fzf | read TZ
   echo "$TZ : $(date +'%m/%d/%Y %I:%M %p')"
   unset TZ
 }
 
-# for terminal emulators that don't offer clear command
+# Fast Clear
 clear(){
   echo -en "\x1b[2J\x1b[1;1H"
 }
 
+# Stream Xorg Session Over SSH & Render on Xephyr
 sshx11(){
   nohup Xephyr -br -ac -noreset -screen 1920x1080 :1 >/dev/null 2>&1 &
   DISPLAY=:1 ssh -Y $@ i3
 }
 
+# Start & Detach Process
 detach-proc(){
   nohup $1 >/dev/null 2>&1 &
 }
 
+# Espressif ESP-IDF Initialization
 init-idf() {
   echo "Initializing ESP-IDF (ESPRESSIF)"
   export ADF_PATH=~/esp/esp-adf
@@ -141,10 +149,12 @@ init-idf() {
   . $IDF_PATH/export.sh
 }
 
+# Find Keycode
 keycode() {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
+# APL Keyboard - Alt + Key
 init-apl() {
   setxkbmap -layout us,apl -variant ,dyalog -option grp:switch
 }
