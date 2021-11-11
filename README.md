@@ -1,9 +1,11 @@
 ## The Dot Project
 
-![kitty_tmux_etc](https://user-images.githubusercontent.com/36154121/141363332-3d83b093-4710-4303-8b77-8324fcd72122.png)
-
 This is a collection of my dot configuration files.
-The following is my setup, but you can get most dotfiles to work with your OS/Setup with minor tweaks.
+
+  Kitty + Tmux + Glances   |  Neovim
+:-------------------------:|:-------------------------:
+![](https://user-images.githubusercontent.com/36154121/141363332-3d83b093-4710-4303-8b77-8324fcd72122.png) | ![](https://user-images.githubusercontent.com/36154121/141366992-83190c45-d918-47fa-9d22-61eb8f40e008.png)
+
 
 ##### My Setup
 <img src="https://user-images.githubusercontent.com/36154121/138073270-8558ad26-0439-4c41-bb1c-abccfd115f60.png" alt="drawing" width="500"/>
