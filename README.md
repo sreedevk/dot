@@ -30,5 +30,6 @@ This is a collection of my dot configuration files.
 When using GNU stow, please ensure that you have removed all current configurations from your system. Stow will not overwrite existing files.
 
 ### Documentation
+
 Checkout the project documentation & application specific configuration [here](https://github.com/sreedevk/dot/blob/master/wiki/).
 

@@ -1,2 +1,1 @@
-# Neovim Configuration / Setup
-
+## The Dot Project Wiki - Neovim Configuration
