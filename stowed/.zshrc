@@ -71,6 +71,3 @@ setopt interactivecomments
 
 # FIX COLOR SCHEME ISSUES IN SYNTAX HIGHLIGHTING
 ZSH_HIGHLIGHT_STYLES[comment]='none'
-
-# START STARSHIP PROMPT
-eval "$(starship init zsh)"

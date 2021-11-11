@@ -4,6 +4,9 @@ eval "$(direnv hook zsh)"
 # ASDF VM COMPLETIONS
 . $HOME/.asdf/asdf.sh
 
+# START STARSHIP PROMPT
+eval "$(starship init zsh)"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
