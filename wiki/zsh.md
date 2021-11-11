@@ -1,2 +1,2 @@
-# ZSH Configuration / Setup
+## The Dot Project Wiki - Zsh Configuration
 
