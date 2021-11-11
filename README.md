@@ -11,7 +11,7 @@ This is a collection of my dot configuration files.
 :-------------------------:|:-------------------------:
  ![](https://user-images.githubusercontent.com/36154121/141369711-0cf70be3-fd4e-4c52-8e58-d9e7be77d26e.png)| ![](https://user-images.githubusercontent.com/36154121/141370031-b43bbe2f-19aa-419b-bc19-536d120f8ce9.png)
 
-### Usage
+### Installation
 
 1. Clone the repository
 
@@ -23,6 +23,20 @@ This is a collection of my dot configuration files.
 
 ```bash
   $ cd ~/.dot && stow stowed
+```
+
+### Updating
+
+1. cd into the `~/.dot` directory
+
+```bash
+  $ cd ~/.dot && git pull origin master
+```
+
+2. Restow
+
+```bash
+  $ stow -R stowed
 ```
 
 ### Troubleshooting
