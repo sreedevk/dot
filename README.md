@@ -7,6 +7,11 @@ This is a collection of my dot configuration files.
 ![](https://user-images.githubusercontent.com/36154121/141363332-3d83b093-4710-4303-8b77-8324fcd72122.png) | ![](https://user-images.githubusercontent.com/36154121/141366992-83190c45-d918-47fa-9d22-61eb8f40e008.png)
 
 
+  Doom Emacs               |  Spacemacs
+:-------------------------:|:-------------------------:
+ ![](https://user-images.githubusercontent.com/36154121/141369711-0cf70be3-fd4e-4c52-8e58-d9e7be77d26e.png)| ![](https://user-images.githubusercontent.com/36154121/141370031-b43bbe2f-19aa-419b-bc19-536d120f8ce9.png)
+
+
 ##### My Setup
 <img src="https://user-images.githubusercontent.com/36154121/138073270-8558ad26-0439-4c41-bb1c-abccfd115f60.png" alt="drawing" width="500"/>
 
