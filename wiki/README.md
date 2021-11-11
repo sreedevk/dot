@@ -1,4 +1,4 @@
-## Documentation for Using Sreedev's Dotfiles
+## The Dot Project Wiki
 
 ### Index
 1. [Emacs](https://github.com/sreedevk/dot/blob/master/docs/emacs.md)
