@@ -9,6 +9,7 @@ return require('packer').startup(function()
   use 'hoob3rt/lualine.nvim'   -- statusline
   use 'tpope/vim-fugitive'     -- git
   use 'psliwka/vim-smoothie'   -- smooth scrolling
+  use 'tpope/vim-rails'        -- rails support
 
   -- colorschemes
   use 'ayu-theme/ayu-vim'
