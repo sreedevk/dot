@@ -17,6 +17,7 @@ return require('packer').startup(function()
 
   -- Language Server + Intellisense
   use 'neovim/nvim-lspconfig'
+  use 'sheerun/vim-polyglot'
   use { 'neoclide/coc.nvim', branch = 'release' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
