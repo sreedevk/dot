@@ -38,6 +38,7 @@ case $1 in
     ;;
   unmount-partition)
     unmountPartition $2
+    ;;
   *)
     help
     ;;
