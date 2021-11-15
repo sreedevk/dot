@@ -1,4 +1,4 @@
--- COMMANDS
+-- PLUGIN / INBUILD COMMAND MAPPINGS
 vim.cmd(
   [[
     command! -complete=file -nargs=1 T tabedit <args>
@@ -6,6 +6,16 @@ vim.cmd(
     command! -nargs=0 Sw w !sudo tee % > /dev/null
     command! Filetypes Telescope filetypes
     command! W w
+    command! Wq wq
+    command! WQ wq
+    command! wQ wq
+    command! Q q
+  ]]
+)
+
+-- CUSTOM COMMANDS
+vim.cmd(
+  [[
     command! PresentationMode lua require('funk').presentation_mode()
     command! RemoveComments lua require('funk').remove_comments()
   ]]
