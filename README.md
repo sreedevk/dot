@@ -13,6 +13,29 @@ This is a collection of my dot configuration files.
 
 ### Installation
 
+#### Using The Dot Project script (Recommended)
+
+The Dot Project script for installation is only available for arch linux at the moment.
+Please use the manual method until the script becomes available for other distros.
+
+NOTE: DO NOT RUN THE DOT PROJECT SCRIPT WITH SUDO. YOU WILL BE PROMPTED FOR SU PERMISSIONS IF REQUIRED. 
+
+##### Arch Linux
+
+1. Clone the repository
+
+```bash
+  $ git clone https://github.com/sreedevk/dot ~/.dot
+```
+
+2. Run the Dot Project Installer
+
+```bash
+  $ ~/.dot/installer/arch/base.sh
+```
+
+#### Manual Installation
+
 1. Clone the repository
 
 ```bash
@@ -38,6 +61,9 @@ This is a collection of my dot configuration files.
 ```bash
   $ stow -R stowed
 ```
+
+NOTE: Dependency errors after manually installing are to be expected.
+The dependencies will have to be installed manually too.
 
 ### Troubleshooting
 
