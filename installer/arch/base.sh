@@ -35,7 +35,7 @@ echo "DATADIR: $DATADIR"
 
 # BASE SETUP
 sudo pacman --noconfirm -Syy --needed \
-  base-devel openssh stow zsh starship emacs neovim
+  base-devel openssh stow zsh starship emacs neovim tmux
 
 # AUR PACKAGE MANAGER SETUP
 mkdir -p "$PKGREPOS"
@@ -69,5 +69,11 @@ $HOME/.emacs-distros/doom-emacs/bin/doom install
 # NEOVIM SETUP
 mkdir -p "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 rm -rf "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-git clone --depth 1 https://github.com/wbthomason/packer.nvim $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 nvim --headless +PackerInstall +q
+
+# TMUX SETUP
+rm -rf "$HOME/.tmux"
+mkdir -p "$HOME/.tmux/plugins/tpm"
+git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+tmux source "$HOME/.tmux.conf"
