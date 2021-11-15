@@ -39,9 +39,6 @@ cd "$PKGREPOS/paru" || exit
 makepkg -si
 cd "$HOME" || exit
 
-# Installing Base dependencies
-sudo pacman --noconfirm -Syy git curl
-
 # Installing Language Dependencies + ASDF
 git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.8.1
 asdf plugin add nodejs
