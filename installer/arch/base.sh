@@ -19,11 +19,13 @@
 
 export HOME="/home/$USER"
 export DATADIR="$HOME/data"
-export PKGREPOS=$DATADIR/repositories
+export PKGREPOS="$DATADIR/repositories"
 
-echo "##################################################"
-echo "######## MANJARO POST INSTALLATION SCRIPT ########"
-echo "##################################################"
+echo "/__   \ |__   ___     /   \___ | |_    / _ \_ __ ___ (_) ___  ___| |_  "
+echo "  / /\/ '_ \ / _ \   / /\ / _ \| __|  / /_)/ '__/ _ \| |/ _ \/ __| __| "
+echo " / /  | | | |  __/  / /_// (_) | |_  / ___/| | | (_) | |  __/ (__| |_  "
+echo " \/   |_| |_|\___| /___,' \___/ \__| \/    |_|  \___// |\___|\___|\__| "
+echo "                                                    |__/               "
 
 echo "DO NOT RUN THE SCRIPT WITH SUDO. SUDO WILL BE INVOKED WHEN REQUIRED."
 
@@ -31,36 +33,35 @@ echo "USER: $USER"
 echo "HOME: $HOME"
 echo "DATADIR: $DATADIR"
 
-# install AUR manager
+# BASE SETUP
+sudo pacman --noconfirm -Syy --needed \
+  base-devel openssh stow zsh starship emacs neovim
+
+# AUR PACKAGE MANAGER SETUP
 mkdir -p "$PKGREPOS"
-sudo pacman --noconfirm -S --needed base-devel
 git clone https://aur.archlinux.org/paru.git "$PKGREPOS/paru"
 cd "$PKGREPOS/paru" || exit
 makepkg -si
 cd "$HOME" || exit
 
-# Setup Dotfiles
-sudo pacman --noconfirm -Syy stow
+# DOTFILES SETUP
 git clone https://github.com/sreedevk/dot $HOME/.dot
 stow --adopt $HOME/.dot/stowed/
 
-# Installing Language Dependencies + ASDF
+# ASDF SETUP
 git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.8.1
 asdf plugin add nodejs
 asdf install
 
-# Zsh Installation + Dependencies
-sudo pacman --noconfirm -Syy zsh starship
+# ZSH SETUP
 paru --noconfirm -S antibody
 antibody bundle < $HOME/.zsh/.zsh_plugins > $HOME/.zsh/.zsh_plugins.sh
 
-# Installing Emacs + Chemacs + Doom Emacs
-sudo pacman --noconfirm -Syy emacs
+# EMACS SETUP
 git clone https://github.com/plexus/chemacs2.git $HOME/.emacs.d
 $HOME/.emacs-distros/doom-emacs/bin/doom install
 
 
-# Installing Neovim + Packer + Deps
-sudo pacman --noconfirm -Syy neovim
+# NEOVIM SETUP
 git clone --depth 1 https://github.com/wbthomason/packer.nvim $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
 nvim --headless +PackerInstall +q
