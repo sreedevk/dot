@@ -33,7 +33,7 @@ echo "DATADIR: $DATADIR"
 
 # install AUR manager
 mkdir -p "$PKGREPOS"
-sudo pacman --noconfirm -S --needed base-devel "$PKGREPOS"
+sudo pacman --noconfirm -S --needed base-devel
 git clone https://aur.archlinux.org/paru.git "$PKGREPOS/paru"
 cd "$PKGREPOS/paru" || exit
 makepkg -si
