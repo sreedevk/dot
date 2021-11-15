@@ -39,16 +39,19 @@ sudo pacman --noconfirm -Syy --needed \
 
 # AUR PACKAGE MANAGER SETUP
 mkdir -p "$PKGREPOS"
+rm -rf "$PKGREPOS/paru"
 git clone https://aur.archlinux.org/paru.git "$PKGREPOS/paru"
 cd "$PKGREPOS/paru" || exit
 makepkg -si
 cd "$HOME" || exit
 
 # DOTFILES SETUP
+rm -rf "$HOME/.dot"
 git clone https://github.com/sreedevk/dot $HOME/.dot
 stow --adopt $HOME/.dot/stowed/
 
 # ASDF SETUP
+rm -rf "$HOME/.asdf"
 git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.8.1
 asdf plugin add nodejs
 asdf install
@@ -58,10 +61,13 @@ paru --noconfirm -S antibody
 antibody bundle < $HOME/.zsh/.zsh_plugins > $HOME/.zsh/.zsh_plugins.sh
 
 # EMACS SETUP
+rm -rf "$HOME/.emacs.d"
 git clone https://github.com/plexus/chemacs2.git $HOME/.emacs.d
 $HOME/.emacs-distros/doom-emacs/bin/doom install
 
 
 # NEOVIM SETUP
+mkdir -p "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
+rm -rf "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 git clone --depth 1 https://github.com/wbthomason/packer.nvim $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
 nvim --headless +PackerInstall +q
