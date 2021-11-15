@@ -8,7 +8,6 @@ vim.cmd(
     command! W w
     command! Wq wq
     command! WQ wq
-    command! wQ wq
     command! Q q
   ]]
 )
