@@ -70,12 +70,11 @@ git clone https://github.com/plexus/chemacs2.git $HOME/.emacs.d
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs-distros/doom-emacs
 $HOME/.emacs-distros/doom-emacs/bin/doom install
 
-
 # NEOVIM SETUP
 mkdir -p "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 rm -rf "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 git clone --depth 1 https://github.com/wbthomason/packer.nvim "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-nvim --headless +PackerInstall +q
+nvim +PackerInstall +q
 
 # TMUX SETUP
 rm -rf "$HOME/.tmux"
