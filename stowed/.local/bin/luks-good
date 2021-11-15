@@ -1,0 +1,44 @@
+#!/usr/bin/sh
+
+help() {
+  echo "luks-good: (L)inux (U)nified (K)ey (S)etup Helper Functions"
+  echo "Usage:"
+  echo "luks-good create-partition </dev/sdX1>"
+  echo "luks-good mount-partition </dev/sdX1> /mnt"
+  echo "luks-good umount-partition </dev/sdX1>"
+}
+
+createPartition() {
+  echo "creating partition on $1"
+  # sudo cryptsetup -v -y -c aes-xts-plain64 -s 512 -h sha512 -i 5000 --use-random luksFormat /dev/sdb1
+  # v - verbose
+  # y - confirm password
+  # s - keysize
+  # h - hash
+
+  # sudo cryptsetup luksOpen /dev/sda1 datadevenc
+  # sudo mkfs.ext4 /dev/mapper/datadevenc
+}
+
+unmountPartition() {
+  sudo cryptsetup close $1
+}
+
+mountPartition() {
+  echo "mounting partition on $1 at $2"
+  # sudo mount 
+}
+
+case $1 in
+  create-partition)
+    createPartition $2
+    ;;
+  mount-partition)
+    mountPartition $2 $3
+    ;;
+  unmount-partition)
+    unmountPartition $2
+  *)
+    help
+    ;;
+esac
