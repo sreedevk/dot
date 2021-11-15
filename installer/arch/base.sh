@@ -55,6 +55,8 @@ cd "$HOME" || exit
 # ASDF SETUP
 rm -rf "$HOME/.asdf"
 git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.8.1
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 asdf plugin add nodejs
 asdf install
 
