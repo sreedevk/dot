@@ -47,3 +47,6 @@ When using GNU stow, please ensure that you have removed all current configurati
 
 Checkout the project documentation & application specific configuration [here](https://github.com/sreedevk/dot/blob/master/wiki/).
 
+
+### Roadmap
+1. Implement `luks-good` LUKS helper script functions
