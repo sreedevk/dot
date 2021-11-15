@@ -48,7 +48,9 @@ cd "$HOME" || exit
 # DOTFILES SETUP
 rm -rf "$HOME/.dot"
 git clone https://github.com/sreedevk/dot $HOME/.dot
-stow --adopt $HOME/.dot/stowed/
+cd "$HOME/.dot/"|| exit 
+stow --adopt stowed
+cd "$HOME" || exit
 
 # ASDF SETUP
 rm -rf "$HOME/.asdf"
@@ -63,6 +65,7 @@ antibody bundle < $HOME/.zsh/.zsh_plugins > $HOME/.zsh/.zsh_plugins.sh
 # EMACS SETUP
 rm -rf "$HOME/.emacs.d"
 git clone https://github.com/plexus/chemacs2.git $HOME/.emacs.d
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs-distros/doom-emacs
 $HOME/.emacs-distros/doom-emacs/bin/doom install
 
 
