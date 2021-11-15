@@ -33,11 +33,16 @@ echo "DATADIR: $DATADIR"
 
 # install AUR manager
 mkdir -p "$PKGREPOS"
-sudo pacman --no-confirm -S --needed base-devel "$PKGREPOS"
+sudo pacman --noconfirm -S --needed base-devel "$PKGREPOS"
 git clone https://aur.archlinux.org/paru.git "$PKGREPOS/paru"
 cd "$PKGREPOS/paru" || exit
 makepkg -si
 cd "$HOME" || exit
+
+# Setup Dotfiles
+sudo pacman --noconfirm -Syy stow
+git clone https://github.com/sreedevk/dot $HOME/.dot
+stow --adopt $HOME/.dot/stowed/
 
 # Installing Language Dependencies + ASDF
 git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.8.1
