@@ -17,12 +17,21 @@
 # WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+RED=$(tput setaf 4)
+YELLOW=$(tput setaf 5)
+NC=$(tput sgr0) # No Color
+
 help() {
   echo "luks-good: (L)inux (U)nified (K)ey (S)etup Helper Functions"
+  echo 
   echo "Usage:"
-  echo "luks-good create-partition </dev/sdX1>"
-  echo "luks-good mount-partition </dev/sdX1> /mnt"
-  echo "luks-good umount-partition </dev/sdX1>"
+  echo "luks-good [command] [opts]"
+  echo 
+  echo "Commands:"
+  printf "%s\t\t%s\n" "create-partition ${RED}/dev/sdX1${NC}" "formats /dev/sdX1 to a LUKS encrypted partition" 
+  printf "%s\t\t%s\n" "mount-partition ${RED}/dev/sdX1 ${YELLOW}/mnt${NC}" "mounts LUKS encrypted partition /dev/sdX1 to /mnt" 
+  printf "%s\t\t%s\n" "umount-partition ${RED}/dev/sdX1${NC}" "unmounts LUKS encrypted parition" 
+  printf "%s\t\t\t\t%s\n" "list-partitions" "lists all LUKS encrypted partitions" 
 }
 
 createPartition() {
