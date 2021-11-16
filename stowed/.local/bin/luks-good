@@ -36,23 +36,25 @@ help() {
 
 createPartition() {
   echo "creating partition on $1"
-  # sudo cryptsetup -v -y -c aes-xts-plain64 -s 512 -h sha512 -i 5000 --use-random luksFormat /dev/sdb1
-  # v - verbose
-  # y - confirm password
-  # s - keysize
-  # h - hash
-
-  # sudo cryptsetup luksOpen /dev/sda1 datadevenc
-  # sudo mkfs.ext4 /dev/mapper/datadevenc
+  # v - verbose | y - confirm password | s - keysize | h - hash
+  sudo cryptsetup -v -y -c aes-xts-plain64 -s 512 -h sha512 -i 5000 --use-random luksFormat $1
+  # TODO: Ensure that there is no existing mapper label called datadevenc
+  sudo cryptsetup luksOpen $1 datadevenc
+  sudo mkfs.ext4 /dev/mapper/datadevenc
+  sudo cryptsetup close /dev/mapper/datadevenc
 }
 
 unmountPartition() {
-  sudo cryptsetup close $1
+  # TODO: Take Device location & convert it to mapper label
+  # sudo umount $1
+  # sudo cryptsetup close $1
 }
 
 mountPartition() {
   echo "mounting partition on $1 at $2"
-  # sudo mount 
+  # TODO: Accept Custom Labels
+  sudo cryptsetup open $1 datadevenc
+  sudo mount /dev/mapper/datadevenc $2
 }
 
 case $1 in
