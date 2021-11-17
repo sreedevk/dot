@@ -17,5 +17,6 @@ vim.cmd(
   [[
     command! PresentationMode lua require('funk').presentation_mode()
     command! RemoveComments lua require('funk').remove_comments()
+    command! Projects lua require'telescope'.extensions.project.project{}
   ]]
 )
