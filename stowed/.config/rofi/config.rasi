@@ -1,0 +1,31 @@
+configuration {
+    kb-mode-complete:               "";
+    kb-row-up:                      "Up,Control+k";
+    kb-row-down:                    "Down,Control+j";
+    kb-accept-entry:                "Control+m,Return,KP_Enter";
+    terminal:                       "alacritty";
+    kb-remove-to-eol:               "Control+Shift+e";
+    kb-mode-next:                   "Shift+Right,Control+Tab,Control+l";
+    kb-mode-previous:               "Shift+Left,Control+Shift+Tab,Control+h";
+    kb-remove-char-back:            "BackSpace";
+    modi:                           [window,run,ssh];
+    combi-modi:                     [drun,run,ssh,keys,filebrowser];
+    display-combi:                  true;
+    font:                           "JetBrainsMono 28";
+    theme:                          "Arc-Dark";
+    show-icons:                     false;
+    /*	ssh-client: "ssh";*/
+    /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
+
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+
+    filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+    }
+}
+
+
