@@ -12,4 +12,8 @@ function M.remove_comments()
   vim.cmd([[:g/\v^\s*(#|\/\/)/d]])
 end
 
+function M.neovim_config()
+  vim.cmd([[:e ~/.config/nvim]])
+end
+
 return M
