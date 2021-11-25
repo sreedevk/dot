@@ -36,6 +36,7 @@ vim.g['ale_c_parse_makefile']          = 1
 vim.g['ale_c_parse_makefile']          = 1
 vim.g['syntastic_typescript_checkers'] = { 'tsuquyomi', 'tslint --type-check' }
 vim.g['githb_enterprise_urls']         = { 'https://github.tunecore.co' }
+vim.g['coc_node_path']                 = "~/.asdf/shims/node"
 
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {on_visual = false}')
 vim.cmd('language en_US.utf-8')
