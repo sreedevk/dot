@@ -9,11 +9,11 @@ set $mod Mod4
 # AutoStart Applications
 exec --no-startup-id ~/.config/i3/autostart.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id volumeicon
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
+exec --no-startup-id nm-applet
+exec --no-startup-id volumeicon
 exec_always --no-startup-id fix_xcursor
 
 # UX + Design Config
@@ -30,21 +30,10 @@ smart_borders on
 gaps inner 14
 gaps outer -2
 
-# Status Bar
-# exec_always --no-startup-id ~/.i3/polybar.sh &
-
 bar {
-	position top
-
-  # bumblebee status
-  status_command bumblebee-status\
-  -m  weather nvidiagpu memory battery datetimetz datetime nic dunstctl\
-  -p  weather.location=Bangalore interval=1 datetimetz.timezone=America/New_York\
-  -t iceberg-dark-powerline
-
-  # i3status
-  # font pango:JetBrains Mono Bold 9
-  # status_command i3status
+  position top
+  status_command i3blocks
+  font pango:JetBrains Mono 10
 }
 
 # Shortcuts - Terminal + Access

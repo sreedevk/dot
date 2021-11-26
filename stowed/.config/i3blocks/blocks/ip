@@ -1,0 +1,7 @@
+#!/bin/sh
+WIRELESS_INTERFACE=$(cat /proc/net/wireless | tail -n 1 | awk '{print $1}' | tr -d :)
+IP_ADDR="$(ip -f inet addr show $WIRELESS_INTERFACE | awk '/inet / {print $2}')"
+
+echo "$WIRELESS_INTERFACE: $IP_ADDR"
+
+exit 0
