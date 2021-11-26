@@ -1,6 +1,12 @@
 ## The Dot Project
 
-This is a collection of my dot configuration files.
+This is a collection of my dot configuration files. The goal of this project is to make a very minimal & self contained configuration repository for Arch 
+(& Arch Based) Linux Installations. Usage of external plugins have been kept to a very minimum.
+
+### What's in the box?
+Truck loads of configurations, bash scripts, development tools & plugins. Checkout the Wiki directory on the project to learn more about each software configured under the dot project. There is also an installer included with the project (WIP).
+
+### Screenshots
 
   Alacritty + Tmux           |  Neovim
   :-------------------------:|:-------------------------:
