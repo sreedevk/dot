@@ -1,17 +1,19 @@
-# [weather]
-# command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
-# interval=3600
-# color=#A4C2F4
+[weather]
+command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+min_width=350
+align=center
+interval=3600
+color=#A4C2F4
 
 [gpu]
 command=~/.config/i3blocks/blocks/gpu
-min_width=500
+min_width=600
 align=center
 interval=10
 
 [battery]
 command=~/.config/i3blocks/blocks/battery
-min_width=300
+min_width=400
 align=center
 interval=500
 
@@ -32,3 +34,8 @@ command=~/.config/i3blocks/blocks/ip
 interval=60
 min_width=450
 align=center
+
+[dnd]
+command=~/.config/i3blocks/blocks/dnd
+interval=5
+color=#FF0000
