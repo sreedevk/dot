@@ -2,9 +2,8 @@
 
 This is a collection of my dot configuration files.
 
-  Kitty + Tmux + Glances   |  Neovim
-:-------------------------:|:-------------------------:
-![](https://user-images.githubusercontent.com/36154121/141363332-3d83b093-4710-4303-8b77-8324fcd72122.png) | ![](https://user-images.githubusercontent.com/36154121/141366992-83190c45-d918-47fa-9d22-61eb8f40e008.png)
+  Alacritty + Tmux + Glances   |  Neovim
+![](https://user-images.githubusercontent.com/36154121/143617161-58ff0acd-b755-4409-8b92-6b739d343252.png) | ![](https://user-images.githubusercontent.com/36154121/141366992-83190c45-d918-47fa-9d22-61eb8f40e008.png)
 
 
   Doom Emacs               |  Spacemacs
