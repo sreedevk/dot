@@ -12,3 +12,4 @@ rust 1.54.0
 julia 1.6.2
 rebar 3.16.1
 elasticsearch 7.15.2
+lazydocker 0.12
