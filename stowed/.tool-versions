@@ -13,3 +13,4 @@ julia 1.6.2
 rebar 3.16.1
 elasticsearch 7.15.2
 lazydocker 0.12
+crystal 1.2.2
