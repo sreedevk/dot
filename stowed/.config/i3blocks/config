@@ -7,9 +7,15 @@ color=#A4C2F4
 
 [gpu]
 command=~/.config/i3blocks/blocks/gpu
-min_width=600
+min_width=550
 align=center
 interval=10
+
+[memory]
+command=~/.config/i3blocks/blocks/memory
+min_width=300
+align=center
+interval=15
 
 [battery]
 command=~/.config/i3blocks/blocks/battery
