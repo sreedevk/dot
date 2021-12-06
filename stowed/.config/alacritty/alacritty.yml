@@ -4,8 +4,8 @@
 window:
   decorations: none
   padding:
-    x: 0
-    y: 0
+    x: 5
+    y: 5
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
