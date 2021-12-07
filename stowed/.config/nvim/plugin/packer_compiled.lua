@@ -105,20 +105,10 @@ _G.packer_plugins = {
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nerdTree",
     url = "https://github.com/scrooloose/nerdTree"
   },
-  ["nvim-lspconfig"] = {
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
-    url = "https://github.com/neovim/nvim-lspconfig"
-  },
   ["nvim-luapad"] = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nvim-luapad",
     url = "https://github.com/rafcamlet/nvim-luapad"
-  },
-  ["nvim-treesitter"] = {
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["octo.nvim"] = {
     config = { "\27LJ\1\0022\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\tocto\frequire\0" },

@@ -16,10 +16,10 @@ return require('packer').startup(function()
   use 'ghifarit53/tokyonight-vim'
 
   -- Language Server + Intellisense
-  use 'neovim/nvim-lspconfig'
+  -- use 'neovim/nvim-lspconfig'
+  -- use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'sheerun/vim-polyglot'
   use { 'neoclide/coc.nvim', branch = 'release' }
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- Fzf
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-project.nvim' } }
