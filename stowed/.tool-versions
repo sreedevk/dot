@@ -1,4 +1,4 @@
-elixir 1.12.2-otp-24
+elixir 1.13.0-otp-24
 erlang 24.0.5
 postgres 13.2
 nodejs 16.6.1
@@ -14,3 +14,4 @@ rebar 3.16.1
 elasticsearch 7.15.2
 lazydocker 0.12
 crystal 1.2.2
+leiningen 2.9.7

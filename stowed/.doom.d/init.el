@@ -124,7 +124,7 @@
        ;; racket
        ;; raku
        ;; ocaml             ; an objective camel
-       ;; clojure
+       clojure
        ;; (ess +lsp)
        ;; elm               ; care for a cup of TEA?
        ;; kotlin
