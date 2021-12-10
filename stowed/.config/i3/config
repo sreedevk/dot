@@ -37,8 +37,8 @@ bar {
 }
 
 # Shortcuts - Terminal + Access
-bindsym $mod+Return            exec --no-startup-id "alacritty"
-bindsym $mod+KP_Enter          exec --no-startup-id "alacritty"
+bindsym $mod+Return            exec --no-startup-id "kitty"
+bindsym $mod+KP_Enter          exec --no-startup-id "kitty"
 bindsym $mod+d                 exec --no-startup-id "rofi -show combi"
 
 # Shortcuts - Common Applications
