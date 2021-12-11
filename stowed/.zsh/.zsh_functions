@@ -154,6 +154,11 @@ keycode() {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
+# disable NMI Watchdog
+disable_nmi_watchdog() {
+  sudo sysctl kernel.nmi_watchdog=0
+}
+
 # APL Keyboard - Alt + Key
 init-apl() {
   setxkbmap -layout us,apl -variant ,dyalog -option grp:switch
