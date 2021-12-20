@@ -13,7 +13,7 @@ return require('packer').startup(function()
 
   -- colorschemes
   use 'ayu-theme/ayu-vim'
-  use 'ghifarit53/tokyonight-vim'
+  use 'folke/tokyonight.nvim'
 
   -- Language Server + Intellisense
   -- use 'neovim/nvim-lspconfig'
