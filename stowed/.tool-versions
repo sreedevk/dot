@@ -15,3 +15,4 @@ elasticsearch 7.15.2
 lazydocker 0.12
 crystal 1.2.2
 leiningen 2.9.7
+gradle 7.3.2
