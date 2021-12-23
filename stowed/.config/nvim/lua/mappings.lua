@@ -45,3 +45,7 @@ map('i', '<C-j>', 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', {expr = true})
 map('i', '<C-k>', 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', {expr = true})
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
+
+-- QuickFixList
+map('n', '<C-k>', '<cmd>copen<CR>')
+map('n', '<leader>p', '"_dP')
