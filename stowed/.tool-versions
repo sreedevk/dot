@@ -16,3 +16,5 @@ lazydocker 0.12
 crystal 1.2.2
 leiningen 2.9.7
 gradle 7.3.2
+gleam 0.18.2
+maven 3.8.4
