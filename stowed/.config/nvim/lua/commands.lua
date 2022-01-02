@@ -3,6 +3,7 @@ vim.cmd(
   [[
     command! -complete=file -nargs=1 T tabedit <args>
     command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
+    command! Resource source ~/.config/nvim/init.lua
     command! -nargs=0 Sw w !sudo tee % > /dev/null
     command! Filetypes Telescope filetypes
     command! W w
