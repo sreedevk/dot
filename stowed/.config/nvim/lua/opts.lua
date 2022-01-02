@@ -16,6 +16,7 @@ vim.opt.list          = false              -- show trailing whitespaces
 vim.opt.lazyredraw    = true               -- only redraw window when required
 vim.opt.cursorline    = true               -- highlight line under cusor
 vim.opt.inccommand    = 'nosplit'          -- shows search and replace changes live
+vim.opt.autoindent    = true
 vim.opt.updatetime    = 750
 vim.opt.splitbelow    = true               -- Put new windows below current
 vim.opt.splitright    = true               -- Put new windows right of current
@@ -34,7 +35,6 @@ vim.g['EasyMotion_smartcase']          = 1
 vim.g['gundo_prefer_python3']          = 1
 vim.g['ale_c_parse_makefile']          = 1
 vim.g['ale_c_parse_makefile']          = 1
-vim.g['syntastic_typescript_checkers'] = { 'tsuquyomi', 'tslint --type-check' }
 vim.g['githb_enterprise_urls']         = { 'https://github.tunecore.co' }
 vim.g['coc_node_path']                 = "~/.asdf/shims/node"
 

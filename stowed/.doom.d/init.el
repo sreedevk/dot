@@ -74,17 +74,18 @@
        ;; pass           ; password manager for nerds
        ;; pdf            ; pdf enhancements
        ;; rgb
-       ;; taskrunner     ; taskrunner for all your projects
+       taskrunner     ; taskrunner for all your projects
        ;; terraform      ; infrastructure as code
-       ;; tmux           ; an API for interacting with tmux
+       tmux           ; an API for interacting with tmux
        ;; ansible
-       ;; debugger
+       debugger
 
        :lang
        assembly
        cc                ; C > C++ == 1
        crystal           ; ruby at the speed of c
        common-lisp
+       clojure
        data              ; config/data formats
        elixir            ; erlang done right
        emacs-lisp        ; drown in parentheses
@@ -106,29 +107,28 @@
         +dragndrop       ; drag n drop images into orgs
         +pretty          ; unicode symbols
         +present         ; presentation
-        ;; +hugo         ; hugo blogging
+        +hugo            ; hugo blogging
         +gnuplot
-        ;; +pandoc
+        +pandoc
         +journal)        ; organize your plain life in plain text
        python            ; beautiful is better than ugly
        purescript        ; javascript but functional
-       qt             ; the 'cutest' gui framework ever
+       qt                ; the 'cutest' gui framework ever
        (ruby             ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
         +rails)
        (rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        scala
        web               ; the tubes
        (yaml +lsp)       ; JSON, but readable
-       ;; php            ; perl's insecure younger brother
-       ;; (sh +lsp)         ; she sells {ba,z,fi}sh shells on the C xor
+       php               ; perl's insecure younger brother
+       (sh +lsp)         ; she sells {ba,z,fi}sh shells on the C xor
        ;; racket
        ;; raku
-       ;; ocaml             ; an objective camel
-       clojure
+       ocaml             ; an objective camel
        ;; (ess +lsp)
-       ;; elm               ; care for a cup of TEA?
-       ;; kotlin
-       ;; lsp
+       elm               ; care for a cup of TEA?
+       kotlin
+       lsp
 
        :email
        ;;(mu4e +org +gmail)

@@ -10,11 +10,11 @@
 --      ░                           ░        
 -- AUTHOR: SREEDEV KODICHATH
 
+require('opts')
 require('plugins')
 require('colors')
 require('_telescope')
 require('status')
-require('opts')
 require('mappings')
-require('commands')
 require('funk')
+require('commands')

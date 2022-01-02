@@ -58,7 +58,7 @@ disabled = true
 disabled = true
 
 [conda]
-disabled = false
+disabled = true
 truncation_length = 1
 format = '[\[$environment\]]($style) '
 symbol = ""

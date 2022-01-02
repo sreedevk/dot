@@ -5,39 +5,39 @@ return require('packer').startup(function()
   use 'mattn/emmet-vim'        -- html emmets
   use 'scrooloose/nerdTree'    -- project filetree
   use 'sjl/gundo.vim'          -- undo tree
-  use 'tpope/vim-surround'     -- ysiw
   use 'hoob3rt/lualine.nvim'   -- statusline
   use 'tpope/vim-fugitive'     -- git
-  use 'psliwka/vim-smoothie'   -- smooth scrolling
   use 'tpope/vim-rails'        -- rails support
-
-  -- colorschemes
-  use 'ayu-theme/ayu-vim'
-  use 'folke/tokyonight.nvim'
+  use 'tpope/vim-surround'     -- ysiw
+  use 'folke/tokyonight.nvim'  -- colorscheme
 
   -- Language Server + Intellisense
-  use 'sheerun/vim-polyglot'
+  use { 'sheerun/vim-polyglot' }
   use { 'neoclide/coc.nvim', branch = 'release' }
-
-  -- use 'neovim/nvim-lspconfig'
-  -- use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'nvim-treesitter/playground' }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
+    config=function()
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = "maintained",
+        highlight = {
+          enabled = true,
+          additional_vim_regex_highlighting = true
+        },
+        indent = { enabled = false }
+      }
+    end
+  }
 
   -- Fzf
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-project.nvim' } }
-  use {'pwntester/octo.nvim', config=function()
-    require"octo".setup()
-  end}
+  use { 'nvim-telescope/telescope.nvim',
+    requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-project.nvim' }
+  }
 
   -- EasyMotion
   use {
-    'phaazon/hop.nvim',
-    as = 'hop',
+    'phaazon/hop.nvim', as = 'hop',
     config = function()
       require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   }
-
-  -- VimDev
-  use 'rafcamlet/nvim-luapad'
-
 end)
