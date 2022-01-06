@@ -1,7 +1,7 @@
 [user]
 	email = sreedevpadmakumar@gmail.com
 	name = sreedev
-	signingkey = CA525D6BD5A1DE42
+	signingkey = F2D006638E49CD45
 [core]
 	attributesfile = /home/sreedev/.gitattributes
   editor = nvim
