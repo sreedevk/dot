@@ -3,6 +3,9 @@
 # ┴  ╚╩╝╩ ╩
 # AUTHOR: SREEDEV KODICHATH
 
+# terminal
+set $term alacritty
+
 # Setup Key Definitions
 set $mod Mod4
 
@@ -37,8 +40,8 @@ bar {
 }
 
 # Shortcuts - Terminal + Access
-bindsym $mod+Return            exec --no-startup-id "kitty"
-bindsym $mod+KP_Enter          exec --no-startup-id "kitty"
+bindsym $mod+Return            exec --no-startup-id $term
+bindsym $mod+KP_Enter          exec --no-startup-id $term
 bindsym $mod+d                 exec --no-startup-id "rofi -show combi"
 
 # Shortcuts - Common Applications
