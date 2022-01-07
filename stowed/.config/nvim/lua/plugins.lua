@@ -12,7 +12,6 @@ return require('packer').startup(function()
   use 'folke/tokyonight.nvim'  -- colorscheme
 
   -- Language Server + Intellisense
-  use { 'tpope/vim-fireplace' }
   use { 'sheerun/vim-polyglot' }
   use { 'neoclide/coc.nvim', branch = 'release' }
   use { 'nvim-treesitter/playground' }
