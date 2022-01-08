@@ -38,25 +38,6 @@ csv() {
   column -s, -t < $1 | less -$2 -N -S
 }
 
-# aws-cli helper to list ec2 instances as a table
-aws-instances() {
-  AWS_FILTER="*"
-  OUTPUT_TYPE="table"
-  [ ! -z "$1" ] && AWS_FILTER="*$1*"
-  [ ! -z "$2" ] && OUTPUT_TYPE="$2"
-  aws ec2 describe-instances\
-    --query "Reservations[*].Instances[*].{InstanceID:InstanceId,PrivateIP:PrivateIpAddress,PublicIPAddr:PublicIp,Instance:Tags[?Key=='Name']|[0].Value}"\
-    --filter "Name=tag:Name,Values=$AWS_FILTER"\
-    --output "$OUTPUT_TYPE" 
-}
-
-# aws-cli helper to ssh into ec2 instances
-aws-connect(){
-  [ -z "$1" ] && echo "TC-CONNECT\nusage: tc-connect <instance-query> <username>" && return
-  CONN_IP_ADDR="$(echo "$(aws-instances $1 json | jq -r '.[] | .[] | "\(.PrivateIP)\t\(.Instance)\t\(.InstanceID)\t\(.PublicIPAddr)"')" | fzf | awk '{print $1}')"
-  ssh -i ~/.ssh/tunecore1.pem "$2@$CONN_IP_ADDR"
-}
-
 # process filter & kill
 pk(){
   sudo kill -9 $(ps aux | fzf | awk '{print $2}')
