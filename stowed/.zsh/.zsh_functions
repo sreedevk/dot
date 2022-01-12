@@ -144,3 +144,7 @@ disable_nmi_watchdog() {
 init-apl() {
   setxkbmap -layout us,apl -variant ,dyalog -option grp:switch
 }
+
+firefox-gpu() {
+  Exec=MOZ_X11_EGL=1 prime-run /usr/lib/firefox/firefox %u
+}
