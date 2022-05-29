@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh sreedev@devbox -D 1337 -C -q -N
