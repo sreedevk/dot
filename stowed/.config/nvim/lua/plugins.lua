@@ -17,19 +17,6 @@ return require('packer').startup(function()
   -- Language Server + Intellisense
   use { 'sheerun/vim-polyglot' }
   use { 'neoclide/coc.nvim', branch = 'release' }
-  use { 'nvim-treesitter/playground' }
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
-    config=function()
-      require('nvim-treesitter.configs').setup {
-        ensure_installed = "maintained",
-        highlight = {
-          enabled = true,
-          additional_vim_regex_highlighting = true
-        },
-        indent = { enabled = false }
-      }
-    end
-  }
 
   -- Fzf
   use { 'nvim-telescope/telescope.nvim',
