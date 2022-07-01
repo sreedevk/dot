@@ -36,7 +36,7 @@ min_width=450
 align=center
 
 [localtime]
-command=date '+%d/%m/%Y %I:%M:%S %p %Z'
+command=TZ=Asia/Kolkata date '+%d/%m/%Y %I:%M:%S %p %Z'
 interval=1
 min_width=450
 align=center
