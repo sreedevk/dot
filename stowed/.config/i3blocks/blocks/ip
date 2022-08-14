@@ -1,7 +1,5 @@
 #!/bin/sh
-WIRELESS_INTERFACE=$(cat /proc/net/wireless | tail -n 1 | awk '{print $1}' | tr -d :)
-IP_ADDR="$(ip -f inet addr show $WIRELESS_INTERFACE | awk '/inet / {print $2}')"
 
-echo "$WIRELESS_INTERFACE: $IP_ADDR"
+echo "$(ip link show | grep "state UP" | awk '{print $2}' | tr -d : | awk 'xor(/^enp/,/^wlp/)' | xargs -i ip -f inet addr show {} | awk '/inet / {print $9 ": " $2}' | xargs)"
 
 exit 0
