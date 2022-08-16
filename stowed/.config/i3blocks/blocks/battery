@@ -4,6 +4,6 @@ BATTERY_PERCENTAGE=$(upower -e | grep BAT0 | xargs -Ix upower -i x | grep percen
 BATTERY_STATUS=$(upower -e | grep BAT0 | xargs -Ix upower -i x | grep state | awk '{print $2}')
 BATTERY_INFO="$BATTERY_PERCENTAGE $BATTERY_STATUS"
 
-echo "BAT: $BATTERY_INFO"
+echo " BAT: $BATTERY_INFO "
 
 exit 0

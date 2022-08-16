@@ -26,5 +26,5 @@ if [ ${#connected_displays[@]} -gt 1 ]; then
     --output "${connected_displays[0]}" --scale 2x2 --mode 1920x1080 --pos 3840x0 --rotate normal \
     --output "${connected_displays[1]}" --scale 2x2 --mode 1920x1080 --pos 0x0 --rotate normal --rate 120
 else
-    xrandr --output eDP-1 --scale 2x2 --mode 1920x1080 --pos 0x0 --rotate normal
+    xrandr --output ${connected_displays[0]} --mode 1920x1080 --scale 2x2 --pos 0x0 --rotate normal
 fi

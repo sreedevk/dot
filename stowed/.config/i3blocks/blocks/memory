@@ -1,6 +1,6 @@
 #!/bin/sh
 MEMORY_CONSUMPTION="$(free -mh | grep Mem  | awk '{print $3"/"$2}')"
 
-echo "Mem: $MEMORY_CONSUMPTION"
+echo " Mem: $MEMORY_CONSUMPTION "
 
 exit 0
