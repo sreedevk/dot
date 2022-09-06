@@ -1,2 +1,2 @@
 #!/bin/sh
-ssh sreedev@devbox -D 1337 -C -q -N
+ssh virtdev@tcm -D 1337 -C -q -N

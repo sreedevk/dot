@@ -148,3 +148,10 @@ init-apl() {
 firefox-gpu() {
   Exec=MOZ_X11_EGL=1 prime-run /usr/lib/firefox/firefox %u
 }
+
+tcm() {
+  ip="$(VBoxManage guestproperty enumerate tcm | grep IP | awk '{print $4}' | sed 's/\,$//' | head -n1)"
+  oldip="$(cat ~/.ssh/config | grep -a1 "Host tcm" | grep HostName)"
+  sed -i "s/$oldip/  HostName $ip/g" $HOME/.ssh/config
+  ssh tcm
+}
