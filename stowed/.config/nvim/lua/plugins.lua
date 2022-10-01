@@ -14,6 +14,29 @@ return require('packer').startup(function()
   -- Language Server + Intellisense
   use { 'sheerun/vim-polyglot' }
   use { 'neoclide/coc.nvim', branch = 'release' }
+  use { 'nvim-treesitter/nvim-treesitter',
+    run = function()
+      require('nvim-treesitter.install').update({ with_sync = true }) 
+    end,
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = "all",
+        sync_install     = false,
+        auto_install     = true,
+        highlight        = { enable = true },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "gnn",
+            node_incremental = "grn",
+            scope_incremental = "grc",
+            node_decremental = "grm",
+          },
+        },
+        indent = { enable = true }
+      }
+    end
+  }
 
   -- Fzf
   use { 'nvim-telescope/telescope.nvim',
