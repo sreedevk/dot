@@ -3,6 +3,7 @@ export FZF_TAB_GROUP_COLORS=(
     $'\033[38;5;100m' $'\033[38;5;98m' $'\033[91m' $'\033[38;5;80m' $'\033[92m' \
     $'\033[38;5;214m' $'\033[38;5;165m' $'\033[38;5;124m' $'\033[38;5;120m'
 )
+export FZF_DEFAULT_OPTS='--multi --no-height --extended'
 
 # group colors
 zstyle ':fzf-tab:*' group-colors $FZF_TAB_GROUP_COLORS

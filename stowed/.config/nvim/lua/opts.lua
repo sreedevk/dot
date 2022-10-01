@@ -3,6 +3,7 @@ vim.opt.tabstop       = 2
 vim.opt.shiftwidth    = 2
 vim.opt.expandtab     = true
 vim.opt.clipboard     = 'unnamedplus'
+vim.opt.winbar        = '%f'
 vim.opt.number        = true
 vim.opt.incsearch     = true
 vim.opt.termguicolors = true

@@ -11,9 +11,6 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'     -- ysiw
   use 'folke/tokyonight.nvim'  -- colorscheme
 
-  -- Note Taking
-  use 'dhruvasagar/vim-dotoo'
-
   -- Language Server + Intellisense
   use { 'sheerun/vim-polyglot' }
   use { 'neoclide/coc.nvim', branch = 'release' }
