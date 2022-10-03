@@ -1,2 +1,0 @@
-#!/bin/sh
-ssh virtdev@tcm -D 1337 -C -q -N
