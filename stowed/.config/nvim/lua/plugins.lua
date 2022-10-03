@@ -3,13 +3,43 @@ vim.cmd('packadd packer.nvim')
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- plugin manager
   use 'mattn/emmet-vim'        -- html emmets
-  use 'scrooloose/nerdTree'    -- project filetree
   use 'sjl/gundo.vim'          -- undo tree
   use 'hoob3rt/lualine.nvim'   -- statusline
   use 'tpope/vim-fugitive'     -- git
   use 'tpope/vim-rails'        -- rails support
   use 'tpope/vim-surround'     -- ysiw
   use 'folke/tokyonight.nvim'  -- colorscheme
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require("indent_blankline").setup {
+        show_current_context = true,
+        show_current_context_start = true,
+      }
+    end
+  }
+
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = { 'kyazdani42/nvim-web-devicons' }, -- optional, for file icons
+    tag = 'nightly', -- optional, updated every week. (see issue #1193)
+    config = function()
+      require("nvim-tree").setup({
+        view = {
+          width = 30,
+          mappings = {
+            list = {
+              { key = "u", action = "dir_up" },
+            },
+          },
+        },
+        renderer = {
+          group_empty = true,
+        },
+      })
+    end
+  }
+
 
   -- Language Server + Intellisense
   use { 'sheerun/vim-polyglot' }
