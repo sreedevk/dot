@@ -27,10 +27,6 @@ vim.wo.signcolumn = 'number'
 vim.wo.wrap       = true
 
 vim.g.mapleader                        = ';'
-vim.g['NERDTreeWinSize']               = 20
-vim.g['NERDTreeAutoDeleteBuffer']      = 1
-vim.g['NERDTreeMinimalUI']             = 1
-vim.g['NERDTreeDirArrows']             = 1
 vim.g['user_emmet_expandabbr_key']     = '<C-a>,'
 vim.g['EasyMotion_smartcase']          = 1
 vim.g['gundo_prefer_python3']          = 1
@@ -39,6 +35,8 @@ vim.g['ale_c_parse_makefile']          = 1
 vim.g['githb_enterprise_urls']         = { 'https://github.tunecore.co' }
 vim.g['coc_node_path']                 = "~/.asdf/shims/node"
 vim.g.polyglot_disabled                = { "autoindent", "sensible" }
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {on_visual = false}')
 vim.cmd('language en_US.utf-8')

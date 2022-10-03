@@ -4,9 +4,9 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- Nerdtree
-map('n', '<C-n>', '<cmd>NERDTreeToggle<CR>')
-map('n', '<Leader>v', '<cmd>NERDTreeFind<CR>')
+-- Tree
+map('n', '<C-n>', "<cmd>NvimTreeToggle<CR>")
+map('n', '<Leader>v', "<cmd>NvimTreeFindFile<CR>")
 
 -- Hop
 map('n', '<Leader>l', "<cmd>HopLine<CR>", {})
