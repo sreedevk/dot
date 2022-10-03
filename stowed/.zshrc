@@ -67,6 +67,7 @@ setopt interactivecomments
 [ -f "$HOME/.zsh/.zsh_functions" ] && source "$HOME/.zsh/.zsh_functions"
 [ -f "$HOME/.zsh/.zsh_autoloads" ] && source "$HOME/.zsh/.zsh_autoloads"
 [ -f "$HOME/.zsh/.zsh_fzf" ]       && source "$HOME/.zsh/.zsh_fzf"
+[[ ! -r /home/sreedev/.opam/opam-init/init.zsh ]] || source /home/sreedev/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # ANTIBODY COMPILE ZSH
 # antibody bundle < ~/.zsh/.zsh_plugins > ~/.zsh/.zsh_plugins.sh
@@ -76,3 +77,8 @@ setopt interactivecomments
 
 # FIX COLOR SCHEME ISSUES IN SYNTAX HIGHLIGHTING
 ZSH_HIGHLIGHT_STYLES[comment]='none'
+
+# >>>> Vagrant command completion (start)
+fpath=(/opt/vagrant/embedded/gems/2.3.0/gems/vagrant-2.3.0/contrib/zsh $fpath)
+compinit
+# <<<<  Vagrant command completion (end)
