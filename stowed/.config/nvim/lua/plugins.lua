@@ -30,6 +30,7 @@ return require('packer').startup(function()
           mappings = {
             list = {
               { key = "u", action = "dir_up" },
+              { key = "T", action = "tabnew" },
             },
           },
         },
