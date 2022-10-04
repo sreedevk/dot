@@ -9,6 +9,7 @@ return require('packer').startup(function()
   use 'tpope/vim-rails'        -- rails support
   use 'tpope/vim-surround'     -- ysiw
   use 'folke/tokyonight.nvim'  -- colorscheme
+  use 'dhruvasagar/vim-table-mode'
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()

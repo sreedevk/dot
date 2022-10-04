@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+waspc_datadir=/home/sreedev/.local/share/wasp/data /home/sreedev/.local/share/wasp/wasp-bin "$@"
