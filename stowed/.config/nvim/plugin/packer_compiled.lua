@@ -102,13 +102,13 @@ _G.packer_plugins = {
     url = "https://github.com/hoob3rt/lualine.nvim"
   },
   ["nvim-tree.lua"] = {
-    config = { "\27LJ\2\nÖ\1\0\0\a\0\r\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\t\0005\3\3\0005\4\6\0004\5\3\0005\6\4\0>\6\1\0055\6\5\0>\6\2\5=\5\a\4=\4\b\3=\3\n\0025\3\v\0=\3\f\2B\0\2\1K\0\1\0\rrenderer\1\0\1\16group_empty\2\tview\1\0\0\rmappings\tlist\1\0\0\1\0\2\vaction\vtabnew\bkey\6T\1\0\2\vaction\vdir_up\bkey\6u\1\0\1\nwidth\3\30\nsetup\14nvim-tree\frequire\0" },
+    config = { "\27LJ\2\nó\1\0\0\a\0\14\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\3\0005\4\a\0004\5\4\0005\6\4\0>\6\1\0055\6\5\0>\6\2\0055\6\6\0>\6\3\5=\5\b\4=\4\t\3=\3\v\0025\3\f\0=\3\r\2B\0\2\1K\0\1\0\rrenderer\1\0\1\16group_empty\2\tview\1\0\0\rmappings\tlist\1\0\0\1\0\2\vaction\5\bkey\n<C-t>\1\0\2\vaction\vtabnew\bkey\6T\1\0\2\vaction\vdir_up\bkey\6u\1\0\1\nwidth\3\30\nsetup\14nvim-tree\frequire\0" },
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\nÃ\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\vindent\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\4\22scope_incremental\bgrc\19init_selection\bgnn\21node_decremental\bgrm\21node_incremental\bgrn\1\0\1\venable\2\14highlight\1\0\1\venable\2\1\0\3\21ensure_installed\ball\17auto_install\2\17sync_install\1\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\nÃ\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\vindent\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\4\21node_incremental\bgrn\22scope_incremental\bgrc\19init_selection\bgnn\21node_decremental\bgrm\1\0\1\venable\2\14highlight\1\0\1\venable\2\1\0\3\17auto_install\2\17sync_install\1\21ensure_installed\ball\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -166,18 +166,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\nÃ\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\vindent\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\4\21node_incremental\bgrn\22scope_incremental\bgrc\19init_selection\bgnn\21node_decremental\bgrm\1\0\1\venable\2\14highlight\1\0\1\venable\2\1\0\3\17auto_install\2\17sync_install\1\21ensure_installed\ball\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\nó\1\0\0\a\0\14\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\3\0005\4\a\0004\5\4\0005\6\4\0>\6\1\0055\6\5\0>\6\2\0055\6\6\0>\6\3\5=\5\b\4=\4\t\3=\3\v\0025\3\f\0=\3\r\2B\0\2\1K\0\1\0\rrenderer\1\0\1\16group_empty\2\tview\1\0\0\rmappings\tlist\1\0\0\1\0\2\vaction\5\bkey\n<C-t>\1\0\2\vaction\vtabnew\bkey\6T\1\0\2\vaction\vdir_up\bkey\6u\1\0\1\nwidth\3\30\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
 try_loadstring("\27LJ\2\nw\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\31show_current_context_start\2\25show_current_context\2\nsetup\21indent_blankline\frequire\0", "config", "indent-blankline.nvim")
 time([[Config for indent-blankline.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\nÃ\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0005\4\a\0=\4\b\3=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\vindent\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\4\22scope_incremental\bgrc\19init_selection\bgnn\21node_decremental\bgrm\21node_incremental\bgrn\1\0\1\venable\2\14highlight\1\0\1\venable\2\1\0\3\21ensure_installed\ball\17auto_install\2\17sync_install\1\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\nÖ\1\0\0\a\0\r\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\t\0005\3\3\0005\4\6\0004\5\3\0005\6\4\0>\6\1\0055\6\5\0>\6\2\5=\5\a\4=\4\b\3=\3\n\0025\3\v\0=\3\f\2B\0\2\1K\0\1\0\rrenderer\1\0\1\16group_empty\2\tview\1\0\0\rmappings\tlist\1\0\0\1\0\2\vaction\vtabnew\bkey\6T\1\0\2\vaction\vdir_up\bkey\6u\1\0\1\nwidth\3\30\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
 -- Config for: hop
 time([[Config for hop]], true)
 try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0", "config", "hop")

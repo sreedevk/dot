@@ -31,6 +31,7 @@ return require('packer').startup(function()
             list = {
               { key = "u", action = "dir_up" },
               { key = "T", action = "tabnew" },
+              { key = "<C-t>", action = "" }
             },
           },
         },
@@ -47,7 +48,7 @@ return require('packer').startup(function()
   use { 'neoclide/coc.nvim', branch = 'release' }
   use { 'nvim-treesitter/nvim-treesitter',
     run = function()
-      require('nvim-treesitter.install').update({ with_sync = true }) 
+      require('nvim-treesitter.install').update({ with_sync = true })
     end,
     config = function()
       require('nvim-treesitter.configs').setup {
