@@ -41,8 +41,9 @@ map('i', 'jj', "<ESC>")
 map('t', 'jj', "<C-\\><C-n>")
 
 -- Menu Nav
-map('i', '<C-j>', 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', {expr = true})
-map('i', '<C-k>', 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', {expr = true})
+map('i', '<C-j>', 'coc#pum#visible() ? coc#pum#next(1) : "\\<C-j>"', {expr = true})
+map('i', '<C-k>', 'coc#pum#visible() ? coc#pum#prev(1) : "\\<C-k>"', {expr = true})
+map('i', '<CR>', 'coc#pum#visible() ? coc#pum#confirm() : "\\<CR>"', {expr = true})
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 
