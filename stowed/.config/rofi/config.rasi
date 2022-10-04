@@ -8,12 +8,12 @@ configuration {
     kb-mode-next:                   "Shift+Right,Control+Tab,Control+l";
     kb-mode-previous:               "Shift+Left,Control+Shift+Tab,Control+h";
     kb-remove-char-back:            "BackSpace";
-    modi:                           [window,run,ssh];
+    modi:                           [window,run,ssh,filebrowser];
     combi-modi:                     [drun,run,ssh,keys,filebrowser];
-    font:                           "JetBrainsMono 28";
+    font:                           "JetBrainsMono 32";
     show-icons:                     false;
-    /*	ssh-client: "ssh";*/
-    /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
+    ssh-client:                     "ssh";
+    ssh-command:                    "{terminal} -e {ssh-client} {host} [-p {port}]";
 
     timeout {
         action: "kb-cancel";
@@ -24,6 +24,8 @@ configuration {
       directories-first: true;
       sorting-method:    "name";
     }
+
+    element-icon { size: 2.65ch; }
 }
 
 @theme "Arc-Dark"
