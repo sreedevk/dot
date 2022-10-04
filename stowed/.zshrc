@@ -77,8 +77,3 @@ setopt interactivecomments
 
 # FIX COLOR SCHEME ISSUES IN SYNTAX HIGHLIGHTING
 ZSH_HIGHLIGHT_STYLES[comment]='none'
-
-# >>>> Vagrant command completion (start)
-fpath=(/opt/vagrant/embedded/gems/2.3.0/gems/vagrant-2.3.0/contrib/zsh $fpath)
-compinit
-# <<<<  Vagrant command completion (end)
