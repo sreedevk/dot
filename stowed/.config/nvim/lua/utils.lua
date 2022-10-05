@@ -13,7 +13,8 @@ function M.remove_comments()
 end
 
 function M.neovim_config()
-  vim.cmd([[:e ~/.config/nvim]])
+  vim.cmd([[:cd ~/.config/nvim]])
+  vim.cmd([[:e .]])
 end
 
 return M

@@ -1,9 +1,8 @@
 vim.cmd('packadd packer.nvim')
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- plugin manager
   use 'mattn/emmet-vim'        -- html emmets
-  use 'sjl/gundo.vim'          -- undo tree
   use 'hoob3rt/lualine.nvim'   -- statusline
   use 'tpope/vim-fugitive'     -- git
   use 'tpope/vim-rails'        -- rails support
@@ -15,7 +14,16 @@ return require('packer').startup(function()
     config = function()
       require("indent_blankline").setup {
         show_current_context = true,
-        show_current_context_start = true,
+        show_current_context_start = false,
+      }
+    end
+  }
+
+  use {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup {
+        map_cr = false
       }
     end
   }
@@ -24,25 +32,7 @@ return require('packer').startup(function()
     'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' }, -- optional, for file icons
     tag = 'nightly', -- optional, updated every week. (see issue #1193)
-    config = function()
-      require("nvim-tree").setup({
-        view = {
-          width = 30,
-          mappings = {
-            list = {
-              { key = "u", action = "dir_up" },
-              { key = "T", action = "tabnew" },
-              { key = "<C-t>", action = "" }
-            },
-          },
-        },
-        renderer = {
-          group_empty = true,
-        },
-      })
-    end
   }
-
 
   -- Language Server + Intellisense
   use { 'sheerun/vim-polyglot' }
@@ -50,24 +40,6 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter',
     run = function()
       require('nvim-treesitter.install').update({ with_sync = true })
-    end,
-    config = function()
-      require('nvim-treesitter.configs').setup {
-        ensure_installed = "all",
-        sync_install     = false,
-        auto_install     = true,
-        highlight        = { enable = true },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
-          },
-        },
-        indent = { enable = true }
-      }
     end
   }
 
@@ -84,3 +56,5 @@ return require('packer').startup(function()
     end
   }
 end)
+
+

@@ -16,9 +16,10 @@ vim.cmd(
 -- CUSTOM COMMANDS
 vim.cmd(
   [[
-    command! PresentationMode lua require('funk').presentation_mode()
-    command! RemoveComments lua require('funk').remove_comments()
+    command! PresentationMode lua require('utils').presentation_mode()
+    command! RemoveComments lua require('utils').remove_comments()
     command! Projects lua require'telescope'.extensions.project.project{}
-    command! NeovimConfig lua require('funk').neovim_config()
+    command! NeovimConfig lua require('utils').neovim_config()
+    command! TermToggle lua require('utils').term_toggle()
   ]]
 )

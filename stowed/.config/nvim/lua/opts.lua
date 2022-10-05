@@ -26,13 +26,13 @@ vim.opt.completeopt   = 'menuone,noinsert,noselect'
 vim.wo.signcolumn = 'number'
 vim.wo.wrap       = true
 
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader                        = ';'
 vim.g['user_emmet_expandabbr_key']     = '<C-a>,'
-vim.g['EasyMotion_smartcase']          = 1
 vim.g['gundo_prefer_python3']          = 1
 vim.g['ale_c_parse_makefile']          = 1
 vim.g['ale_c_parse_makefile']          = 1
-vim.g['githb_enterprise_urls']         = { 'https://github.tunecore.co' }
 vim.g['coc_node_path']                 = "~/.asdf/shims/node"
 vim.g.polyglot_disabled                = { "autoindent", "sensible" }
 vim.g.loaded = 1
@@ -42,8 +42,6 @@ vim.cmd('au TextYankPost * lua vim.highlight.on_yank {on_visual = false}')
 vim.cmd('language en_US.utf-8')
 vim.cmd('autocmd CursorHold * checktime')
 vim.cmd('autocmd BufEnter *.heex :setlocal filetype=eelixir')
-vim.cmd('autocmd BufNewFile,BufEnter *.org set ft=dotoo')
-
 
 -- disable auto commenting
 -- vim.cmd 'au BufEnter * set fo-=c fo-=r fo-=o'
