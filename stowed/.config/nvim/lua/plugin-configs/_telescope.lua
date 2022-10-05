@@ -9,7 +9,4 @@ require('telescope').setup{
     }
   },
   pickers = {},
-  extensions = {
-    project = { hidden_files = true }
-  }
 }
