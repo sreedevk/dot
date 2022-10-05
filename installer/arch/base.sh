@@ -34,10 +34,12 @@ echo "HOME: $HOME"
 echo "DATADIR: $DATADIR"
 
 # BASE SETUP
+echo "PACMAN INSTALL: base-devel openssh stow zsh starship neovim tmux"
 sudo pacman --noconfirm -Syy --needed \
-  base-devel openssh stow zsh starship emacs neovim tmux
+  base-devel openssh stow zsh starship neovim tmux
 
 # AUR PACKAGE MANAGER SETUP
+echo "INSTALLING AUR PACKAGE MANAGER PARU"
 mkdir -p "$PKGREPOS"
 rm -rf "$PKGREPOS/paru"
 git clone https://aur.archlinux.org/paru.git "$PKGREPOS/paru"
@@ -45,14 +47,8 @@ cd "$PKGREPOS/paru" || exit
 makepkg -si
 cd "$HOME" || exit
 
-# DOTFILES SETUP
-rm -rf "$HOME/.dot"
-git clone https://github.com/sreedevk/dot $HOME/.dot
-cd "$HOME/.dot/"|| exit 
-stow --adopt stowed
-cd "$HOME" || exit
-
 # ASDF SETUP
+echo "INSTALLING ASDF MULTI VERSION MANAGER"
 rm -rf "$HOME/.asdf"
 git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.8.1
 . $HOME/.asdf/asdf.sh
@@ -61,23 +57,19 @@ asdf plugin add nodejs
 asdf install
 
 # ZSH SETUP
+echo "INSTALLING ANTIBODY - ZSH PLUGIN MANAGER"
 paru --noconfirm -S antibody
 antibody bundle < $HOME/.zsh/.zsh_plugins > $HOME/.zsh/.zsh_plugins.sh
 
-# EMACS SETUP
-rm -rf "$HOME/.emacs.d"
-git clone https://github.com/plexus/chemacs2.git $HOME/.emacs.d
-git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs-distros/doom-emacs
-$HOME/.emacs-distros/doom-emacs/bin/doom install
-
 # NEOVIM SETUP
+echo "INSTALL NEOVIM PLUGIN MANAGER - PACKER"
 mkdir -p "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 rm -rf "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 git clone --depth 1 https://github.com/wbthomason/packer.nvim "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 nvim +PackerInstall +q
 
 # TMUX SETUP
+echo "INSTALLING TMUX PLUGIN MANAGER"
+paru --noconfirm -S tmux-plugin-manager
 rm -rf "$HOME/.tmux"
-mkdir -p "$HOME/.tmux/plugins/tpm"
-git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 tmux source "$HOME/.tmux.conf"
