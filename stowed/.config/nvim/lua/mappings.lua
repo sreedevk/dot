@@ -33,9 +33,6 @@ map('', '<right>', "<nop>")
 -- Tabs
 map('n', '<C-t>', "<cmd>tabnew<CR>")
 
--- Gundo
-map('n', '<leader>u', "<cmd>GundoToggle<CR>")
-
 -- Easy Escape
 map('i', 'jj', "<ESC>")
 map('t', 'jj', "<C-\\><C-n>")

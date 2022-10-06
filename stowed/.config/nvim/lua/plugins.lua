@@ -7,8 +7,10 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'     -- git
   use 'tpope/vim-rails'        -- rails support
   use 'tpope/vim-surround'     -- ysiw
-  use 'folke/tokyonight.nvim'  -- colorscheme
+  use { 'rose-pine/neovim', as = 'rose-pine' }
+  use 'Shatur/neovim-ayu'
   use 'dhruvasagar/vim-table-mode'
+
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
@@ -54,6 +56,11 @@ return require('packer').startup(function(use)
     config = function()
       require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
     end
+  }
+
+  use {
+    'jedrzejboczar/possession.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
   }
 end)
 
