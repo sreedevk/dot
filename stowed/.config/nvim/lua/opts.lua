@@ -38,6 +38,11 @@ vim.g.polyglot_disabled                = { "autoindent", "sensible" }
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- neovide
+vim.g.neovide_transparency = 0.9
+vim.g.neovide_floating_blur_amount_x = 2.0
+vim.g.neovide_floating_blur_amount_y = 2.0
+
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {on_visual = false}')
 vim.cmd('language en_US.utf-8')
 vim.cmd('autocmd CursorHold * checktime')
