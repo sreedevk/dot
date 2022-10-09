@@ -25,6 +25,8 @@
   ca     = commit --amend
   cp     = cherry-pick
   cl 	   = clone --recursive -j8
+  wta    = worktree add
+  wtr    = worktree remove
 [rerere]
   enabled = false
 [advice]
