@@ -14,15 +14,21 @@ nvim_tree.setup {
       },
     },
   },
+  actions = {
+    open_file = {
+      quit_on_open = false
+    }
+  },
   renderer = {
     group_empty = false,
   },
   live_filter = {
     prefix = "[FILTER]: ",
-    always_show_folders = false,
+    always_show_folders = true,
   },
   create_in_closed_folder = true,
   prefer_startup_root = true,
   sync_root_with_cwd = true,
-  respect_buf_cwd = true,
+  hijack_cursor = true,
+  respect_buf_cwd = false,
 }

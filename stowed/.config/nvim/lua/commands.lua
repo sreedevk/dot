@@ -20,6 +20,5 @@ vim.cmd(
     command! RemoveComments lua require('utils').remove_comments()
     command! Projects lua require'telescope'.extensions.project.project{}
     command! NeovimConfig lua require('utils').neovim_config()
-    command! TermToggle lua require('utils').term_toggle()
   ]]
 )

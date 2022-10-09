@@ -47,6 +47,3 @@ vim.cmd('au TextYankPost * lua vim.highlight.on_yank {on_visual = false}')
 vim.cmd('language en_US.utf-8')
 vim.cmd('autocmd CursorHold * checktime')
 vim.cmd('autocmd BufEnter *.heex :setlocal filetype=eelixir')
-
--- disable auto commenting
--- vim.cmd 'au BufEnter * set fo-=c fo-=r fo-=o'
