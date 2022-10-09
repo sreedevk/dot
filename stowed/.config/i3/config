@@ -42,8 +42,8 @@ bar {
 # Shortcuts - Terminal + Access
 bindsym $mod+Return            exec --no-startup-id $term
 bindsym $mod+KP_Enter          exec --no-startup-id $term
-bindsym $mod+d                 exec --no-startup-id "rofi -show combi"
-bindsym $mod+b                 exec --no-startup-id "rofi -show window"
+bindsym $mod+d                 exec --no-startup-id "rofi -show combi -combi-modes 'run,window,ssh' -modes combi"
+bindsym $mod+Tab               exec --no-startup-id "rofi -show window"
 
 # Shortcuts - Common Applications
 bindsym $mod+F3                exec --no-startup-id "pcmanfm"
