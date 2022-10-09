@@ -4,6 +4,8 @@ This is a collection of my dot configuration files. The goal of this project is 
 (& Arch Based) Linux Installations. Usage of external plugins have been kept to a very minimum.
 </p>
 
+![2022-10-08_22-53](https://user-images.githubusercontent.com/36154121/194735490-70844e0a-587a-4f9c-bf34-b54521095aa1.png)
+
 ### What's in the box?
 Configurations For
 - Neovim - Written Entirely in Lua
