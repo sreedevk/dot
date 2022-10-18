@@ -21,6 +21,8 @@ connected_displays=( $(xrandr | grep -E '(^|\s)connected($|\s)' | awk '{print $1
 port_display="${connected_displays[1]}"
 dock_display="${connected_displays[2]}"
 
+setxkbmap -layout us,apl -variant,dyalog -option grp:lswitch
+
 if [ ${#connected_displays[@]} -gt 1 ]; then
   xrandr                                                                                          \
     --output "${connected_displays[0]}" --scale 2x2 --mode 1920x1080 --pos 5600x0 --rotate normal \
