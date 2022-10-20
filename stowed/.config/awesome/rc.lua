@@ -232,7 +232,7 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-  awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
+  awful.key({ modkey }, "s",      hotkeys_popup.show_help,
     {description="show help", group="awesome"}),
   awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
     {description = "view previous", group = "tag"}),
@@ -253,7 +253,7 @@ globalkeys = gears.table.join(
     end,
     {description = "focus previous by index", group = "client"}
   ),
-  awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+  awful.key({ modkey }, "w", function () mymainmenu:show() end,
     {description = "show main menu", group = "awesome"}),
 
   -- Layout manipulation
@@ -277,11 +277,13 @@ globalkeys = gears.table.join(
     {description = "go back", group = "client"}),
 
   -- Standard program
-  awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+  awful.key({ modkey }, "d", function() awful.spawn("rofi -show combi -combi-modes 'run,window,ssh' -modes combi") end,
+    {description = "open app launcher", group = "launcher" }),
+  awful.key({ modkey }, "Return", function () awful.spawn(terminal) end,
     {description = "open a terminal", group = "launcher"}),
   awful.key({ modkey, "Control" }, "r", awesome.restart,
     {description = "reload awesome", group = "awesome"}),
-  awful.key({ modkey, "Shift"   }, "q", awesome.quit,
+  awful.key({ modkey, "Control" }, "q", awesome.quit,
     {description = "quit awesome", group = "awesome"}),
 
   awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -314,7 +316,7 @@ globalkeys = gears.table.join(
     {description = "restore minimized", group = "client"}),
 
   -- Prompt
-  awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+  awful.key({ modkey }, "r",     function () awful.screen.focused().mypromptbox:run() end,
     {description = "run prompt", group = "launcher"}),
 
   awful.key({ modkey }, "x",
@@ -339,7 +341,7 @@ clientkeys = gears.table.join(
       c:raise()
     end,
     {description = "toggle fullscreen", group = "client"}),
-  awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+  awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill() end,
     {description = "close", group = "client"}),
   awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
     {description = "toggle floating", group = "client"}),
