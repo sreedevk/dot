@@ -49,10 +49,15 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(os.getenv("HOME") .. "/.config/awesome/theme.lua")
 
+-- modkey
+modkey = "Mod4"
+
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
+
+awful.spawn.with_shell("~/.config/awesome/autostart.sh")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -166,7 +171,7 @@ awful.screen.connect_for_each_screen(function(s)
   -- Each screen has its own tag table.
   local names = { "main", "www", "gfx", "slack", "im", "6", "7", "8", "9" }
   local l = awful.layout.suit
-  local layouts = { l.floating, l.tile, l.floating, l.fair, l.max, l.floating, l.tile.left, l.floating, l.floating }
+  local layouts = { l.spiral, l.spiral, l.spiral, l.spiral, l.spiral, l.spiral, l.spiral, l.spiral, l.spiral }
   awful.tag(names, s, layouts)
 
   -- Create a promptbox for each screen
@@ -346,11 +351,10 @@ clientkeys = gears.table.join(
     {description = "toggle keep on top", group = "client"}),
   awful.key({ modkey,           }, "n",
     function (c)
-      -- The client currently has the input focus, so it cannot be
-      -- minimized, since minimized clients can't have the focus.
       c.minimized = true
     end ,
     {description = "minimize", group = "client"}),
+
   awful.key({ modkey,           }, "m",
     function (c)
       c.maximized = not c.maximized
@@ -472,6 +476,7 @@ awful.rules.rules = {
       "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
       "Wpa_gui",
       "veromix",
+      "pavucontrol",
       "xtightvncviewer"},
 
     -- Note that the name property shown in xprop might be set slightly after creation of the client
