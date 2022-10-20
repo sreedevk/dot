@@ -38,7 +38,7 @@ setup-display() {
       --output "${connected_displays[0]}" --scale 2x2 --mode 1920x1080 --pos 5600x0 --rotate normal \
       --output "${connected_displays[1]}" --scale 2x2 --mode 2560x1440 --pos 0x0 --rotate normal --rate 120
       else
-        xrandr --output ${connected_displays[0]} --mode 1920x1080 --scale 2x2 --pos 0x0 --rotate normal
+        xrandr --output ${connected_displays[0]} --mode 1920x1080 --scale 1.3x1.3 --pos 0x0 --rotate normal
   fi
 }
 
