@@ -10,7 +10,7 @@ configuration {
     kb-remove-char-back:            "BackSpace";
     modi:                           [window,run,ssh,filebrowser];
     combi-modi:                     [drun,run,ssh,keys,filebrowser];
-    font:                           "JetBrainsMono 32";
+    font:                           "JetBrainsMono 24";
     show-icons:                     false;
     ssh-client:                     "ssh";
     ssh-command:                    "{terminal} -e {ssh-client} {host} [-p {port}]";
@@ -24,8 +24,6 @@ configuration {
       directories-first: true;
       sorting-method:    "name";
     }
-
-    element-icon { size: 2.65ch; }
 }
 
 @theme "Arc-Dark"
