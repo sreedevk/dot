@@ -6,33 +6,6 @@ trash(){
   mv $1 ~/.trash/
 }
 
-# generate app from template
-create_app(){
-  # template sources
-  templates_container="$HOME/Templates"
-  declare -A template_remote_source
-  template_remote_source[svelte]="git@github.com:sveltejs/template.git"
-  template_remote_source[esp]="git@github.com:espressif/esp-idf-template.git"
-  template_remote_source[express]="https://github.com/sahat/hackathon-starter.git"
-
-  # app specific inputs
-  app_stack=$1
-  app_name=$2
-  local_app_path="$(pwd)/$app_name"
-
-  # clone template repo locally
-  local_template_path="$templates_container/${app_stack}_template"
-  [ ! -d $templates_container ] && mkdir $templates_container
-  [ ! -d $local_template_path   ] && git clone $template_remote_source[$app_stack] $local_template_path
-
-  # copy template to current directory
-  cp -r $local_template_path $local_app_path
-
-  # post processing
-  rm -rf $local_app_path/.git
-  git init $local_app_path
-}
-
 # beautiful CSVs
 csv() {
   column -s, -t < $1 | less -$2 -N -S
@@ -145,14 +118,19 @@ init-apl() {
   setxkbmap -layout us,apl -variant ,dyalog -option grp:switch
 }
 
-firefox-gpu() {
-  Exec=MOZ_X11_EGL=1 prime-run /usr/lib/firefox/firefox %u
+vm-start() {
+  machine="$(VBoxManage list vms | fzf | awk '{gsub(/"/, "", $1); print $1}')"
+  VBoxManage startvm $machine --type headless
 }
 
-tcm_ip() {
-  VBoxManage guestproperty enumerate tcm | grep IP | awk '{print $4}' | sed 's/\,$//' | head -n1
+vm-tunnel() {
+  machine="$(VBoxManage list vms | fzf | awk '{gsub(/"/, "", $1); print $1}')"
+  ip="$(VBoxManage guestproperty enumerate $machine | grep IP | awk '{print $4}' | sed 's/\,$//' | head -n1)"
+  abduco -n vm-tun ssh $1@$ip -D 1337 -C -q -N -v
 }
 
-tcm() {
-  ssh virtdev@$(tcm_ip)
+vm-connect() {
+  machine="$(VBoxManage list vms | fzf | awk '{gsub(/"/, "", $1); print $1}')"
+  ip="$(VBoxManage guestproperty enumerate $machine | grep IP | awk '{print $4}' | sed 's/\,$//' | head -n1)"
+  ssh $1@$ip
 }
