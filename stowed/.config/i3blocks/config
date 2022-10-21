@@ -33,7 +33,6 @@ align=center
 command=~/.config/i3blocks/blocks/localtime
 interval=1
 align=center
-min_width=280
 
 [ip]
 command=~/.config/i3blocks/blocks/ip
