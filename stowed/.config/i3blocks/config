@@ -7,7 +7,6 @@
 
 [gpu]
 command=~/.config/i3blocks/blocks/gpu
-min_width=550
 align=center
 interval=10
 
@@ -19,33 +18,27 @@ interval=10
 
 [memory]
 command=~/.config/i3blocks/blocks/memory
-min_width=100
 align=center
 interval=15
 
 [battery]
 command=~/.config/i3blocks/blocks/battery
-min_width=200
 align=center
 interval=500
 
-[roamingtime]
-command=TZ=America/New_York date '+%d/%m/%Y %I:%M:%S %p %Z'
+[remotetime]
+command=~/.config/i3blocks/blocks/remotetime
 interval=1
-min_width=450
 align=center
-padding=30
 
 [localtime]
-command=TZ=Asia/Kolkata date '+%d/%m/%Y %I:%M:%S %p %Z'
+command=~/.config/i3blocks/blocks/localtime
 interval=1
-min_width=450
 align=center
 
 [ip]
 command=~/.config/i3blocks/blocks/ip
 interval=60
-min_width=450
 align=center
 
 [dnd]

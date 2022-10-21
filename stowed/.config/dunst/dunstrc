@@ -2,9 +2,9 @@
 # AUTHOR: Sreedev Kodichath
 
 [global]
-    frame_width = 1
+    frame_width = 0
     frame_color = "#788388"
-    font = JetBrains Mono 10
+    font = JetBrains Mono 6
     markup = yes
     allow_markup = yes
     format = "%a\n<b>%s</b>\n%b\n%p"
@@ -15,7 +15,7 @@
     show_age_threshold = 60
     word_wrap = yes
     ignore_newline = no
-    geometry = "600x5-50+50"
+    geometry = "300x2-30+20"
     shrink = yes
     transparency = 40
     idle_threshold = 120 
@@ -25,16 +25,16 @@
     sticky_history = yes
     history_length = 10
     show_indicators = yes
-    line_height = 2
-    separator_height = 2
-    padding = 12
-    horizontal_padding = 24
+    line_height = 1
+    separator_height = 1
+    padding = 8
+    horizontal_padding = 8
     startup_notification = false
     dmenu = /usr/bin/dmenu -p dunst:
     browser = brave
     icon_position = left
     icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
-    max_icon_size=32
+    max_icon_size=16
 
 [shortcuts]
     close = ctrl+space
