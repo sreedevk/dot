@@ -13,4 +13,9 @@ stowed/.config/ranger
 stowed/.config/gh
 stowed/.config/Slack
 stowed/.config/dconf
-
+stowed/.config/QtProject.conf
+stowed/.config/VirtualBox
+stowed/.config/gtk-4.0
+stowed/.config/tmuxinator
+stowed/.config/neofetch
+stowed/.config/kitty
