@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo " $(date '+%d/%m/%Y %I:%M:%S %p %Z') "
+exit 0
