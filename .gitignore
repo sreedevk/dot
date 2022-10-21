@@ -6,3 +6,5 @@ stowed/.config/mimeapps.list
 stowed/.config/pulse
 stowed/.config/coc
 stowed/.config/volumeicon
+stowed/.config/.bundle
+stowed/.config/pavucontrol.ini
