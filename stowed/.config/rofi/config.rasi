@@ -24,8 +24,6 @@ configuration {
       directories-first: true;
       sorting-method:    "name";
     }
-
-    element-icon { size: 2.65ch; }
 }
 
 @theme "Arc-Dark"

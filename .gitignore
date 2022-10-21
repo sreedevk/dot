@@ -1,3 +1,10 @@
 stowed/.config/awesome/wallpapers/*.png
 stowed/.config/awesome/wallpapers/*.jpg
 stowed/.local/bin
+stowed/.config/BraveSoftware
+stowed/.config/mimeapps.list
+stowed/.config/pulse
+stowed/.config/coc
+stowed/.config/volumeicon
+stowed/.config/.bundle
+stowed/.config/pavucontrol.ini
