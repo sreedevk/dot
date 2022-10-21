@@ -24,14 +24,13 @@ command=~/.config/i3blocks/blocks/battery
 align=center
 interval=500
 
-[roamingtime]
-command=TZ=America/New_York date '+%d/%m/%Y %I:%M:%S %p %Z'
+[remotetime]
+command=~/.config/i3blocks/blocks/remotetime
 interval=1
 align=center
-min_width=280
 
 [localtime]
-command=TZ=Asia/Kolkata date '+%d/%m/%Y %I:%M:%S %p %Z'
+command=~/.config/i3blocks/blocks/localtime
 interval=1
 align=center
 min_width=280

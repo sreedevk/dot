@@ -23,20 +23,20 @@ exec_always --no-startup-id fix_xcursor
 default_border pixel 0
 hide_edge_borders none
 default_floating_border normal
-font pango:JetBrains Mono 9
+font pango:JetBrains Mono 5
 floating_modifier $mod
 focus_follows_mouse yes
 workspace_auto_back_and_forth no
  
 smart_gaps on
 smart_borders on
-gaps inner 14
+gaps inner 4
 gaps outer -2
 
 bar {
   position top
   status_command i3blocks
-  font pango:JetBrains Mono 9
+  font pango:JetBrains Mono 5
 }
 
 # Shortcuts - Terminal + Access
@@ -165,7 +165,6 @@ assign [class="Brave-browser"]             $ws2
 
 for_window [title="alsamixer"]      floating enable
 for_window [class="Nitrogen"]       floating enable sticky enable
-for_window [class="(?i)virtualbox"] floating enable
 for_window [urgent=latest] focus
 for_window [class=".*"] border pixel 0
 
