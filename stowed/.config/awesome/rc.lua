@@ -268,8 +268,6 @@ globalkeys = gears.table.join(
   awful.key({ modkey,           }, "k",
     function () awful.client.focus.byidx(-1) end,
     {description = "focus previous by index", group = "client"}),
-  awful.key({ modkey }, "w", function () mymainmenu:show() end,
-    {description = "show main menu", group = "awesome"}),
 
   -- Layout manipulation
   awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1) end,
@@ -390,7 +388,7 @@ clientkeys = gears.table.join(
       c:raise()
     end ,
     {description = "(un)maximize vertically", group = "client"}),
-  awful.key({ modkey, "Shift"   }, "m",
+  awful.key({ modkey }, "w",
     function (c)
       c.maximized_horizontal = not c.maximized_horizontal
       c:raise()
