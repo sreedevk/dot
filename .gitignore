@@ -1,10 +1,17 @@
-stowed/.config/awesome/wallpapers/*.png
-stowed/.config/awesome/wallpapers/*.jpg
+# Ignore
+stowed/.config/
 stowed/.local/bin
-stowed/.config/BraveSoftware
-stowed/.config/mimeapps.list
-stowed/.config/pulse
-stowed/.config/coc
-stowed/.config/volumeicon
-stowed/.config/.bundle
-stowed/.config/pavucontrol.ini
+
+# Allow
+!stowed/.config/alacritty
+!stowed/.config/awesome
+!stowed/.config/dunst
+!stowed/.config/i3
+!stowed/.config/i3blocks
+!stowed/.config/i3status
+!stowed/.config/kitty
+!stowed/.config/starship.toml
+!stowed/.config/rofi
+!stowed/.config/picom.conf
+!stowed/.config/nvim
+!stowed/.config/polybar

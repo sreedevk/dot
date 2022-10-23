@@ -134,3 +134,7 @@ vm-connect() {
   ip="$(VBoxManage guestproperty enumerate $machine | grep IP | awk '{print $4}' | sed 's/\,$//' | head -n1)"
   ssh $1@$ip
 }
+
+rpi4-connect() {
+  ssh $1@"$(nmap -sP 192.168.1.0/24 | grep rpi4b | awk '{print $6}' | sed "s/(//g; s/)//g")"
+}
