@@ -8,6 +8,7 @@ vim.opt.number        = true
 vim.opt.incsearch     = true
 vim.opt.termguicolors = true
 vim.opt.rnu           = true               -- relative line number
+vim.opt.mouse         = ''
 vim.opt.ignorecase    = true               -- ignore case while searching
 vim.opt.linebreak     = true               -- avoid breaking words while wrapping lines
 vim.opt.title         = true               -- show window title as current file name
