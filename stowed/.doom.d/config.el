@@ -45,3 +45,6 @@
                    "h" #'hl-line-mode))
 
 (delete-selection-mode 1)
+
+(evil-global-set-key 'motion "j" 'evil-next-visual-line)
+(evil-global-set-key 'motion "k" 'evil-previous-visual-line)
