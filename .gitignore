@@ -1,6 +1,7 @@
 # Ignore
-stowed/.config/
-stowed/.local/bin
+stowed/.local/bin/*
+stowed/.config/*
+stowed/.config/awesome/wallpapers/*
 
 # Allow
 !stowed/.config/alacritty
