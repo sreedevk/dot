@@ -8,15 +8,15 @@ local ensure_packer = function()
 	end
 	return false
 end
-local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
--- import packer safely
+local packer_bootstrap = ensure_packer()
+
 local status, packer = pcall(require, "packer")
 if not status then
 	return
 end
 
-return require('packer').startup(function(use)
+return packer.startup(function(use)
   use 'wbthomason/packer.nvim' -- plugin manager
   use 'mattn/emmet-vim'        -- html emmets
   use 'hoob3rt/lualine.nvim'   -- statusline
@@ -96,4 +96,8 @@ return require('packer').startup(function(use)
   }
 
   use 'christoomey/vim-tmux-navigator'
+
+  if packer_bootstrap then
+    require("packer").sync()
+  end
 end)
