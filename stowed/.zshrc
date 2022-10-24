@@ -26,6 +26,7 @@ export KEYTIMEOUT=1
 export GPG_TTY=$(tty)
 export VISUAL="nvim"
 export EDITOR=nvim
+export TERM=xterm-256color
 export TERMINFO=/usr/share/terminfo/
 export HISTFILE=~/.cache/zsh/history
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
