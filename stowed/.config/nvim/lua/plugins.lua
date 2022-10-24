@@ -27,7 +27,6 @@ return packer.startup(function(use)
   use 'Shatur/neovim-ayu'
   use 'dhruvasagar/vim-table-mode'
 
-  -- lsp config (begin)
   use 'neovim/nvim-lspconfig'
   use { 'williamboman/mason.nvim',
     config = function()
@@ -36,6 +35,7 @@ return packer.startup(function(use)
   }
   use 'williamboman/mason-lspconfig.nvim'
 
+  use 'rafcamlet/nvim-luapad'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
@@ -44,8 +44,6 @@ return packer.startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/cmp-nvim-lsp'
   use { "glepnir/lspsaga.nvim", branch = "main" }
-
-  -- lsp config (end)
 
   use {
     'lukas-reineke/indent-blankline.nvim',
@@ -73,8 +71,6 @@ return packer.startup(function(use)
     tag = 'nightly', -- optional, updated every week. (see issue #1193)
   }
 
-  -- Language Server + Intellisense
-  -- use { 'sheerun/vim-polyglot' }
   use { 'nvim-treesitter/nvim-treesitter',
     run = function()
       require('nvim-treesitter.install').update({ with_sync = true })
