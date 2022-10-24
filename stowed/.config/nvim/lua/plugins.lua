@@ -11,6 +11,23 @@ return require('packer').startup(function(use)
   use 'Shatur/neovim-ayu'
   use 'dhruvasagar/vim-table-mode'
 
+  -- lsp config (begin)
+  use 'neovim/nvim-lspconfig'
+  use { 'williamboman/mason.nvim',
+    config = function()
+      require("mason").setup()
+    end
+  }
+
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'hrsh7th/cmp-nvim-lsp'
+
+  -- lsp config (end)
+
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
@@ -37,7 +54,6 @@ return require('packer').startup(function(use)
 
   -- Language Server + Intellisense
   use { 'sheerun/vim-polyglot' }
-  use { 'neoclide/coc.nvim', branch = 'release' }
   use { 'nvim-treesitter/nvim-treesitter',
     run = function()
       require('nvim-treesitter.install').update({ with_sync = true })
@@ -46,7 +62,10 @@ return require('packer').startup(function(use)
 
   -- Fzf
   use { 'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-project.nvim' }
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-project.nvim'
+    }
   }
 
   -- EasyMotion
