@@ -5,6 +5,7 @@
 [core]
 	attributesfile = /home/sreedev/.gitattributes
   editor = nvim
+  pager = delta
 [commit]
 	gpgsign = true
 [init]
@@ -36,3 +37,14 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[interactive]
+  diffFilter = delta --color-only
+[add.interactive]
+  useBuiltin = false # required for git 2.37.0
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
