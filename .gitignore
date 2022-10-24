@@ -11,6 +11,7 @@ stowed/.config/awesome/wallpapers/*
 !stowed/.config/i3blocks
 !stowed/.config/i3status
 !stowed/.config/kitty
+!stowed/.config/ranger
 !stowed/.config/starship.toml
 !stowed/.config/rofi
 !stowed/.config/picom.conf
