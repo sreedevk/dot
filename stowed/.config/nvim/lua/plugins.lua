@@ -95,8 +95,5 @@ return require('packer').startup(function(use)
     end
   }
 
-  use {
-    'jedrzejboczar/possession.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-  }
+  use 'christoomey/vim-tmux-navigator'
 end)
