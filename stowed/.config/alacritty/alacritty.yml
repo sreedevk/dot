@@ -16,6 +16,7 @@ shell:
   args:
     - --login
 font:
+  size: 22
   normal:
     family: JetBrains Mono
     style: Regular
