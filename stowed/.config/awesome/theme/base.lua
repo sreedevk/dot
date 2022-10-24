@@ -116,6 +116,16 @@ theme.layout_cornerne = themes_path.."default/layouts/cornernew.png"
 theme.layout_cornersw = themes_path.."default/layouts/cornersww.png"
 theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
 
+-- notifications
+theme.notification_icon_size = 64
+theme.notification_max_width = 600
+theme.notification_max_height = 150
+theme.notification_margin = 20
+theme.notification_border_width = 0
+theme.notification_border_color = "#1a2a2e"
+theme.notification_bg = "#ffc1e3"
+theme.notification_fg = "#000000"
+
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(
     theme.menu_height, theme.bg_focus, theme.fg_focus

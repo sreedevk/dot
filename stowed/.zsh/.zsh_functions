@@ -131,7 +131,7 @@ vm-tunnel() {
 
 vm-connect() {
   machine="$(VBoxManage list vms | fzf | awk '{gsub(/"/, "", $1); print $1}')"
-  ip="$(VBoxManage guestproperty enumerate $machine | grep IP | awk '{print $4}' | sed 's/\,$//' | head -n1)"
+  ip="$(VBoxManage guestproperty enumerate $machine | grep IP | grep-ip | head -n1)"
   ssh $1@$ip
 }
 
