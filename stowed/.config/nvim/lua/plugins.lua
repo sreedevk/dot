@@ -74,7 +74,7 @@ return packer.startup(function(use)
   }
 
   -- Language Server + Intellisense
-  use { 'sheerun/vim-polyglot' }
+  -- use { 'sheerun/vim-polyglot' }
   use { 'nvim-treesitter/nvim-treesitter',
     run = function()
       require('nvim-treesitter.install').update({ with_sync = true })

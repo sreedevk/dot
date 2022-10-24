@@ -34,7 +34,6 @@ vim.g['user_emmet_expandabbr_key']     = '<C-a>,'
 vim.g['gundo_prefer_python3']          = 1
 vim.g['ale_c_parse_makefile']          = 1
 vim.g['ale_c_parse_makefile']          = 1
-vim.g.polyglot_disabled                = { "autoindent", "sensible" }
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
