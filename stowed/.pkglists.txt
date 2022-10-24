@@ -84,6 +84,7 @@ docker-compose 2.12.2-1
 dosfstools 4.2-2
 double-conversion 3.2.1-1
 dracula-gtk-theme v3.0-2
+duf 0.8.1-2
 duktape 2.7.0-4
 dunst 1.9.0-1
 e2fsprogs 1.46.5-4
