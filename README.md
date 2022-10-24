@@ -17,11 +17,7 @@ Configurations For
 - Picom Compositor
 - Rofi Application Switcher
 
-### Installation
-
-You can either choose to install stow & link all the configurations to appropriate locations (NOT RECOMMENDED) or individually link configurations for specific applications. (RECOMMENDED)
-
-#### Installing Configrations For Individual Applications
+#### Usage
 First, you need to clone the repository. (you can choose to clone to a different location)
 
 ```bash
