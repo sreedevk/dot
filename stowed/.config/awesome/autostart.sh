@@ -42,5 +42,11 @@ setup-display() {
   fi
 }
 
+setup-picom() {
+  pkill picom
+  picom -b
+}
+
 setup-keyboard
 setup-display
+setup-picom
