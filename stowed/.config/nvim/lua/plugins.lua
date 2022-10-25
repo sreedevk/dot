@@ -23,6 +23,7 @@ return packer.startup(function(use)
   use 'tpope/vim-fugitive'     -- git
   use 'tpope/vim-rails'        -- rails support
   use 'tpope/vim-surround'     -- ysiw
+  use 'tpope/vim-obsession'
   use { 'rose-pine/neovim', as = 'rose-pine' }
   use 'Shatur/neovim-ayu'
   use 'dhruvasagar/vim-table-mode'
