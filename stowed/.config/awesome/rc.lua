@@ -467,81 +467,48 @@ root.keys(globalkeys)
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
-  -- All clients will match this rule.
-  { rule = { },
-    properties = { border_width = beautiful.border_width,
-      border_color = beautiful.border_normal,
-      focus = awful.client.focus.filter,
-      raise = true,
-      keys = clientkeys,
-      buttons = clientbuttons,
-      screen = awful.screen.preferred,
-      placement = awful.placement.no_overlap+awful.placement.no_offscreen
-    }
-  },
-
-  -- Floating clients.
-  { rule_any = {
-    instance = {
-      "DTA",  -- Firefox addon DownThemAll.
-      "copyq",  -- Includes session name in class.
-      "pinentry",
-    },
-    class = {
-      "Arandr",
-      "Blueman-manager",
-      "Gpick",
-      "Kruler",
-      "MessageWin",  -- kalarm.
-      "Sxiv",
-      "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
-      "Wpa_gui",
-      "veromix",
-      "pavucontrol",
-      "xtightvncviewer"},
-
-    -- Note that the name property shown in xprop might be set slightly after creation of the client
-    -- and the name shown there might not match defined rules here.
-    name = {
-      "Event Tester",  -- xev.
-    },
-    role = {
-      "AlarmWindow",  -- Thunderbird's calendar.
-      "ConfigManager",  -- Thunderbird's about:config.
-      "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
-    }
-  }, properties = { floating = true }},
+  {
+    rule_any = {
+      instance = { "DTA", "copyq", "pinentry" },
+      class = {
+        "Arandr",
+        "Blueman-manager",
+        "Gpick",
+        "Kruler",
+        "MessageWin",  -- kalarm.
+        "Sxiv",
+        "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+        "Wpa_gui",
+        "veromix",
+        "pavucontrol",
+        "xtightvncviewer"
+      },
+      name = { "Event Tester" },
+      role = { "AlarmWindow", "ConfigManager", "pop-up" }
+    }, properties = { floating = true }},
 
   -- Add titlebars to normal clients and dialogs
   {
-    rule_any = {type = { "normal", "dialog" } }, properties = { titlebars_enabled = false }
+    rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = false }
   },
-
-  -- Set Firefox to always map on the tag named "2" on screen 1.
+  
+  -- tag assignment
   { rule = { class = "Firefox" }, properties = { screen = 1, tag = "www" } },
   { rule = { class = "Brave-browser" }, properties = { screen = 1, tag = "www" } },
   { rule = { class = "Slack" }, properties = { screen = 1, tag = "slack" } },
 }
 -- }}}
 
--- {{{ Signals
--- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
-  -- Set the windows at the slave,
-  -- i.e. put it at the end of others instead of setting it master.
-  -- if not awesome.startup then awful.client.setslave(c) end
-
   if awesome.startup
     and not c.size_hints.user_position
     and not c.size_hints.program_position then
-    -- Prevent clients from being unreachable after screen count changes.
     awful.placement.no_offscreen(c)
   end
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
-  -- buttons for the titlebar
   local buttons = gears.table.join(
     awful.button({ }, 1, function()
       c:emit_signal("request::activate", "titlebar", {raise = true})
