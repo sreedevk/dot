@@ -131,6 +131,22 @@ vm-tunnel() {
 
 vm-connect() {
   machine="$(VBoxManage list vms | fzf | awk '{gsub(/"/, "", $1); print $1}')"
-  ip="$(VBoxManage guestproperty enumerate $machine | grep IP | awk '{print $4}' | sed 's/\,$//' | head -n1)"
+  ip="$(VBoxManage guestproperty enumerate $machine | grep IP | grep-ip | head -n1)"
   ssh $1@$ip
+}
+
+grep-ip() {
+  text="$(cat < /dev/stdin)"
+  echo "$(echo $text | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"
+}
+
+lan-connect() {
+  host="$(ip addr | grep -v 'host lo' | grep -E 'inet\s' | grep-ip | head -n 1)"
+  nwork=$(ipcalc $host | grep Network | grep-ip)
+  remote="$(nmap -sP $nwork/24 | grep 'Nmap scan report' | fzf | grep-ip)"
+  echo "username [leave empty if $USER]: "
+  read username
+  [[ -z "$username" ]] && username=$USER
+  echo "ssh $username@$remote"
+  ssh $username@$remote
 }

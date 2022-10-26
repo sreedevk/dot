@@ -47,13 +47,13 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(os.getenv("HOME") .. "/.config/awesome/theme.lua")
+beautiful.init(os.getenv("HOME") .. "/.config/awesome/theme/base.lua")
 
 -- modkey
 modkey = "Mod4"
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
+terminal = "kitty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -242,20 +242,32 @@ globalkeys = gears.table.join(
     {description = "view next", group = "tag"}),
   awful.key({ modkey }, "Escape", awful.tag.history.restore,
     {description = "go back", group = "tag"}),
+  awful.key({ modkey, "Shift" }, "s",
+    function()
+      awful.spawn("scrot -s " .. os.getenv("HOME") .. "/Pictures/screenshots/")
+    end,
+    {description="Screenshot", group="awesome"}),
   awful.key({}, "XF86MonBrightnessUp",
-    function() os.execute("xbacklight -inc 5") end,
+    function() os.execute("brightnessctl set +1%") end,
     {description = "+5", group = "hotkeys"}),
   awful.key({}, "XF86MonBrightnessDown",
-    function() os.execute("xbacklight -dec 5") end,
+    function() os.execute("brightnessctl set 1%-") end,
     {description = "-5%", group = "hotkeys"}),
+  awful.key({}, "XF86AudioRaiseVolume",
+    function() os.execute("pactl set-sink-volume 0 +5%") end,
+    {description = "+5", group = "hotkeys"}),
+  awful.key({}, "XF86AudioLowerVolume",
+    function() os.execute("pactl set-sink-volume 0 -5%") end,
+    {description = "+5", group = "hotkeys"}),
+  awful.key({}, "XF86AudioMute",
+    function() os.execute("pactl set-sink-mute 0 toggle") end,
+    {description = "+5", group = "hotkeys"}),
   awful.key({ modkey,           }, "j",
     function () awful.client.focus.byidx(1) end,
     {description = "focus next by index", group = "client"}),
   awful.key({ modkey,           }, "k",
     function () awful.client.focus.byidx(-1) end,
     {description = "focus previous by index", group = "client"}),
-  awful.key({ modkey }, "w", function () mymainmenu:show() end,
-    {description = "show main menu", group = "awesome"}),
 
   -- Layout manipulation
   awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1) end,
@@ -282,11 +294,14 @@ globalkeys = gears.table.join(
     {description = "open app launcher", group = "launcher" }),
   awful.key({ modkey }, "Return", function () awful.spawn(terminal) end,
     {description = "open a terminal", group = "launcher"}),
-  awful.key({ modkey, "Control" }, "r", awesome.restart,
+  awful.key({ modkey }, "KP_Enter", function () awful.spawn(terminal) end,
+    {description = "open a terminal", group = "launcher"}),
+  awful.key({ modkey, "Shift" }, "r", awesome.restart,
     {description = "reload awesome", group = "awesome"}),
   awful.key({ modkey, "Control" }, "q", awesome.quit,
     {description = "quit awesome", group = "awesome"}),
-
+  awful.key({ modkey }, "Tab", function() awful.spawn("rofi -show window") end,
+    {description = "Switch Windows", group = "awesome"}),
   awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
     {description = "increase master width factor", group = "layout"}),
   awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
@@ -330,9 +345,12 @@ globalkeys = gears.table.join(
       }
     end,
     {description = "lua execute prompt", group = "awesome"}),
-  -- Menubar
-  awful.key({ modkey }, "p", function() menubar.show() end,
-    {description = "show the menubar", group = "launcher"})
+
+  awful.key({ modkey }, "p", function() os.execute("pkill picom") end,
+    { description = "kill picom", group = "awesome" }),
+
+  awful.key({ modkey, "Shift" }, "p", function() awful.spawn("picom -b") end,
+    { description = "start picom", group = "awesome" })
 )
 
 clientkeys = gears.table.join(
@@ -342,9 +360,9 @@ clientkeys = gears.table.join(
       c:raise()
     end,
     {description = "toggle fullscreen", group = "client"}),
-  awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill() end,
+  awful.key({ modkey, "Shift"   }, "q",      function (c) c:kill() end,
     {description = "close", group = "client"}),
-  awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
+  awful.key({ modkey, "Shift" }, "space",  awful.client.floating.toggle                     ,
     {description = "toggle floating", group = "client"}),
   awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
     {description = "move to master", group = "client"}),
@@ -355,7 +373,7 @@ clientkeys = gears.table.join(
   awful.key({ modkey,           }, "n",
     function (c)
       c.minimized = true
-    end ,
+    end,
     {description = "minimize", group = "client"}),
 
   awful.key({ modkey,           }, "m",
@@ -370,7 +388,7 @@ clientkeys = gears.table.join(
       c:raise()
     end ,
     {description = "(un)maximize vertically", group = "client"}),
-  awful.key({ modkey, "Shift"   }, "m",
+  awful.key({ modkey }, "w",
     function (c)
       c.maximized_horizontal = not c.maximized_horizontal
       c:raise()
@@ -495,13 +513,14 @@ awful.rules.rules = {
   }, properties = { floating = true }},
 
   -- Add titlebars to normal clients and dialogs
-  { rule_any = {type = { "normal", "dialog" }
-  }, properties = { titlebars_enabled = false }
+  {
+    rule_any = {type = { "normal", "dialog" } }, properties = { titlebars_enabled = false }
   },
 
   -- Set Firefox to always map on the tag named "2" on screen 1.
-  -- { rule = { class = "Firefox" },
-  --   properties = { screen = 1, tag = "2" } },
+  { rule = { class = "Firefox" }, properties = { screen = 1, tag = "www" } },
+  { rule = { class = "Brave-browser" }, properties = { screen = 1, tag = "www" } },
+  { rule = { class = "Slack" }, properties = { screen = 1, tag = "slack" } },
 }
 -- }}}
 

@@ -1,3 +1,19 @@
-stowed/.config/awesome/wallpapers/*.png
-stowed/.config/awesome/wallpapers/*.jpg
-stowed/.local/bin
+# Ignore
+stowed/.local/bin/*
+stowed/.config/*
+stowed/.config/awesome/wallpapers/*
+
+# Allow
+!stowed/.config/alacritty
+!stowed/.config/awesome
+!stowed/.config/dunst
+!stowed/.config/i3
+!stowed/.config/i3blocks
+!stowed/.config/i3status
+!stowed/.config/kitty
+!stowed/.config/ranger
+!stowed/.config/starship.toml
+!stowed/.config/rofi
+!stowed/.config/picom.conf
+!stowed/.config/nvim
+!stowed/.config/polybar
