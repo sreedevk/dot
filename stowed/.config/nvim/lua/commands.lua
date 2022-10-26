@@ -1,33 +1,22 @@
 -- PLUGIN / INBUILD COMMAND MAPPINGS
-vim.cmd(
-  [[
-    command! -complete=file -nargs=1 T tabedit <args>
-    command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
-    command! Resource source ~/.config/nvim/init.lua
-    command! -nargs=0 Sw w !sudo tee % > /dev/null
-    command! Filetypes Telescope filetypes
-    command! W w
-    command! Wq wq
-    command! WQ wq
-    command! Q q
-  ]]
-)
+local api = vim.api
 
-vim.cmd(
-  [[ 
-    augroup packer_user_config
-      autocmd!
-      autocmd BufWritePost plugins.lua source <afile> | PackerSync
-    augroup end
-  ]]
-)
+api.nvim_create_augroup("packer_user_config", { clear = true })
+api.nvim_create_autocmd("BufWritePost", {
+  command = "source <afile> | PackerSync",
+  group = "packer_user_config",
+  pattern = "plugins.lua"
+})
 
--- CUSTOM COMMANDS
-vim.cmd(
-  [[
-    command! PresentationMode lua require('utils').presentation_mode()
-    command! RemoveComments lua require('utils').remove_comments()
-    command! Projects lua require'telescope'.extensions.project.project{}
-    command! NeovimConfig lua require('utils').neovim_config()
-  ]]
+api.nvim_create_user_command('W', 'w', {})
+api.nvim_create_user_command('Wq', 'wq', {})
+api.nvim_create_user_command('WQ', 'wq', {})
+api.nvim_create_user_command('Q', 'q', {})
+api.nvim_create_user_command('Filetypes', 'Telescope filetypes', {})
+api.nvim_create_user_command('Resource', 'source ~/.config/nvim/init.lua', {})
+api.nvim_create_user_command('T', 'tabedit <args>', { nargs = 1, complete = "file" })
+api.nvim_create_user_command(
+  'WipeReg',
+  'for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor',
+  {}
 )
