@@ -1,6 +1,5 @@
 # [weather]
 # command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
-# min_width=350
 # align=left
 # interval=3600
 # color=#A4C2F4
@@ -12,7 +11,6 @@ interval=10
 
 [cpu]
 command=~/.config/i3blocks/blocks/cpu
-min_width=100
 align=center
 interval=10
 

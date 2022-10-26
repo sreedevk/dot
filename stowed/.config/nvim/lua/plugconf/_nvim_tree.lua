@@ -21,6 +21,14 @@ nvim_tree.setup {
   },
   renderer = {
     group_empty = false,
+    icons = {
+      show = {
+        file = false,
+        folder = false,
+        folder_arrow = false,
+        git = true
+      }
+    }
   },
   live_filter = {
     prefix = "[FILTER]: ",

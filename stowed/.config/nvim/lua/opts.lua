@@ -8,6 +8,7 @@ vim.opt.number        = true
 vim.opt.incsearch     = true
 vim.opt.termguicolors = true
 vim.opt.rnu           = true               -- relative line number
+vim.opt.mouse         = ''
 vim.opt.ignorecase    = true               -- ignore case while searching
 vim.opt.linebreak     = true               -- avoid breaking words while wrapping lines
 vim.opt.title         = true               -- show window title as current file name
@@ -33,8 +34,6 @@ vim.g['user_emmet_expandabbr_key']     = '<C-a>,'
 vim.g['gundo_prefer_python3']          = 1
 vim.g['ale_c_parse_makefile']          = 1
 vim.g['ale_c_parse_makefile']          = 1
-vim.g['coc_node_path']                 = "~/.asdf/shims/node"
-vim.g.polyglot_disabled                = { "autoindent", "sensible" }
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 

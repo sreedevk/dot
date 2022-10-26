@@ -5,6 +5,9 @@ end
 
 nvim_treesitter_config.setup {
   ensure_installed = "all",
+  autotag = {
+    enable = true
+  },
   sync_install     = false,
   auto_install     = true,
   highlight        = { enable = true },

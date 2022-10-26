@@ -4,7 +4,7 @@ This is a collection of my dot configuration files. The goal of this project is 
 (& Arch Based) Linux Installations. Usage of external plugins have been kept to a very minimum.
 </p>
 
-![2022-10-08_22-53](https://user-images.githubusercontent.com/36154121/194735490-70844e0a-587a-4f9c-bf34-b54521095aa1.png)
+![Screenshot](https://github.com/sreedevk/dot/blob/main/screenshots/_001.png?raw=true)
 
 ### What's in the box?
 Configurations For
@@ -17,16 +17,15 @@ Configurations For
 - Picom Compositor
 - Rofi Application Switcher
 
-### Installation
-
-You can either choose to install stow & link all the configurations to appropriate locations (NOT RECOMMENDED) or individually link configurations for specific applications. (RECOMMENDED)
-
-#### Installing Configrations For Individual Applications
+#### Usage
 First, you need to clone the repository. (you can choose to clone to a different location)
 
 ```bash
   $ git clone https://github.com/sreedevk/dot ~/.dot
 ```
+<details>
+<summary><b><u>Neovim</u></b></summary>
+
 ##### Neovim
 The dot project has a very elaborate neovim config written entirely in lua. The Neovim config on the dot project is aimed to serve developers. You may want to use a different config if you don't use neovim for coding / software development.
 
@@ -51,21 +50,26 @@ stowed/.config/nvim
 │   ├── status.lua                      -- Neovim Status Line
 │   └── _telescope.lua                  -- Neovim Telescope Configration
 └── plugin
-    └── packer_compiled.lua             -- Packer Compiled Plugins
+└── packer_compiled.lua             -- Packer Compiled Plugins
 ```
 
 ###### Linking Configs
 
 ```bash
-  # Remove Existing Config!!
-  $ rm -rf ~/.config/nvim/
+# Remove Existing Config!!
+$ rm -rf ~/.config/nvim/
 
-  # link dot project neovim config
-  $ ln -s ~/.dot/stowed/.config/nvim ~/.config/nvim/
+# link dot project neovim config
+$ ln -s ~/.dot/stowed/.config/nvim ~/.config/nvim/
 ```
 
 ###### Installing Neovim Plugins
 On first startup after linking configs, run :PackerInstall to install all the plugin dependencies
+
+</details>
+
+<details>
+  <summary><b><u>Tmux</u></b></summary>
 
 ##### Tmux
 Fancy tmux setup with multiline status bars & vim key bindings.
@@ -94,6 +98,12 @@ Fancy tmux setup with multiline status bars & vim key bindings.
 
 ###### Installing Tmux Plugins
 On first startup after linking configs, Press prefix + I (capital i, as in Install) to fetch the tmux plugin dependencies.
+</details>
+
+<details>
+  <summary>
+    <b><u>ZShell + Starship Prompt + Antibody</u></b>
+  </summary>
 
 ##### ZShell + Starship Prompt + Antibody
 Lightweight but functional ZShell setup with Starship prompt & Antibody Plugin Manager
@@ -128,6 +138,13 @@ stowed/.zsh
 ###### Installing ZShell Plugins
 On first startup, run `antibody-compile` to download and compile zsh plugins
 
+</details>
+
+<details>
+  <summary>
+    <b><u>Bash</u></b>
+  </summary>
+
 ##### Bash
 Bash config on the dot project is very basic & minimal.
 
@@ -147,6 +164,12 @@ stowed/.bashrc
   ln -s ~/.dot/stowed/.bashrc ~/.bashrc
   ln -s ~/.dot/stowed/.profile ~/.profile
 ```
+</details>
+
+<details>
+  <summary>
+    <b><u>i3wm + i3blocks + i3status + Picom</u></b>
+  </summary>
 
 ##### i3wm + i3blocks + i3status + Picom
 The dot project has a detailed self-contained functional i3wm setup
@@ -194,6 +217,13 @@ stowed/.config/i3blocks
 
 Restart your existing i3wm session to use the dot project i3wm config.
 
+</details>
+
+<details>
+  <summary>
+    <b><u>Alacritty</u></b>
+  </summary>
+
 ##### Alacritty
 Minimal config for Alacritty terminal with Tokyonight theme.
 
@@ -211,6 +241,14 @@ Minimal config for Alacritty terminal with Tokyonight theme.
 ```
 Alacritty will apply the changes as soon as the new config is linked.
 
+
+</details>
+
+<details>
+  <summary>
+    <b><u>Rofi</u></b>
+  </summary>
+
 ##### Rofi
 Rofi Application Launcher
 
@@ -226,6 +264,9 @@ Rofi Application Launcher
   $ ln -s ~/.dot/stowed/.config/rofi ~/.config/rofi
 ```
 The new configs will be automatically applied on next launch of Rofi
+
+
+</details>
 
 #### Installing All Configurations
 1. Clone the repository
@@ -250,10 +291,3 @@ The new configs will be automatically applied on next launch of Rofi
 ### Troubleshooting
 
 When using GNU stow, please ensure that you have removed all current configurations from your system. Stow will not overwrite existing files.
-
-### Screenshots
-
-  Alacritty + Tmux           |  Neovim
-  :-------------------------:|:-------------------------:
-  ![](https://user-images.githubusercontent.com/36154121/143617161-58ff0acd-b755-4409-8b92-6b739d343252.png) | ![](https://user-images.githubusercontent.com/36154121/141366992-83190c45-d918-47fa-9d22-61eb8f40e008.png)
-

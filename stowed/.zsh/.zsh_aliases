@@ -22,6 +22,7 @@ alias v="$VISUAL"
 
 # Tmuxinator - Tmux Session Manager
 alias mux='tmuxinator'
+alias tmux='TERM=screen-256color-bce tmux'
 
 # VirtualBox
 alias vboxman='VBoxManage'

@@ -57,7 +57,6 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
-
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
@@ -97,7 +96,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = os.getenv("HOME") .. "/.config/awesome/wallpapers/Aid2Esai.jpg"
+theme.wallpaper = os.getenv("HOME") .. "/.config/awesome/wallpapers/halo.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
@@ -116,6 +115,16 @@ theme.layout_cornernw = themes_path.."default/layouts/cornernww.png"
 theme.layout_cornerne = themes_path.."default/layouts/cornernew.png"
 theme.layout_cornersw = themes_path.."default/layouts/cornersww.png"
 theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
+
+-- notifications
+theme.notification_icon_size = 64
+theme.notification_max_width = 600
+theme.notification_max_height = 150
+theme.notification_margin = 20
+theme.notification_border_width = 0
+theme.notification_border_color = "#1a2a2e"
+theme.notification_bg = "#ffc1e3"
+theme.notification_fg = "#000000"
 
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(
