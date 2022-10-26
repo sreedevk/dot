@@ -3,4 +3,9 @@
 CPU_TEMPERATURES="$(sensors -u | grep input | grep temp | awk '{print $2}')"
 AVERAGE_CPU_TEMPERATURE="$(echo $CPU_TEMPERATURES | jq -s 'add / length | round')"
 
-echo "CPU: $AVERAGE_CPU_TEMPERATUREºC"
+ERROR=`echo ${AVERAGE_CPU_TEMPERATURE} | grep -ic ERROR`
+if [ ${ERROR} -eq 0 ]
+then
+  echo "CPU: $AVERAGE_CPU_TEMPERATUREºC"
+fi
+
