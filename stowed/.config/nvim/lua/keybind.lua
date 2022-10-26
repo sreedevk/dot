@@ -1,5 +1,5 @@
 local function map(mode, lhs, rhs, opts)
-  local options = {noremap = true}
+  local options = { noremap = true }
   if opts then options = vim.tbl_extend('force', options, opts) end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
@@ -44,3 +44,6 @@ map('n', 'N', 'Nzzzv')
 -- QuickFixList
 map('n', '<C-k>', '<cmd>copen<CR>')
 map('n', '<leader>p', '"_dP')
+
+-- formatting
+map('n', '<leader>ff', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>')
