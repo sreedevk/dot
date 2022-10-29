@@ -8,6 +8,7 @@ api.nvim_create_autocmd("BufWritePost", {
   pattern = "plugins.lua"
 })
 
+api.nvim_create_user_command('NeovimConfig', 'e ~/.config/nvim', {})
 api.nvim_create_user_command('W', 'w', {})
 api.nvim_create_user_command('Wq', 'wq', {})
 api.nvim_create_user_command('WQ', 'wq', {})
