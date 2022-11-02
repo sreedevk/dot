@@ -17,34 +17,38 @@ if not status then
 end
 
 return packer.startup(function(use)
-  use 'wbthomason/packer.nvim' -- plugin manager
-  use 'mattn/emmet-vim'        -- html emmets
-  use 'hoob3rt/lualine.nvim'   -- statusline
-  use 'tpope/vim-fugitive'     -- git
-  use 'tpope/vim-rails'        -- rails support
-  use 'tpope/vim-surround'     -- ysiw
+  use 'wbthomason/packer.nvim'
+  use 'mattn/emmet-vim'
+  use 'hoob3rt/lualine.nvim'
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-surround'
   use 'tpope/vim-obsession'
-  use { 'rose-pine/neovim', as = 'rose-pine' }
-  use 'Shatur/neovim-ayu'
+  use 'tpope/vim-rails'
+  use 'tpope/vim-dadbod'
   use 'dhruvasagar/vim-table-mode'
-
-  use 'neovim/nvim-lspconfig'
-  use { 'williamboman/mason.nvim',
-    config = function()
-      require("mason").setup()
-    end
-  }
   use 'williamboman/mason-lspconfig.nvim'
-
+  use 'neovim/nvim-lspconfig'
   use 'rafcamlet/nvim-luapad'
   use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
-  use 'hrsh7th/cmp-nvim-lsp'
+  use 'windwp/nvim-ts-autotag'
+  use 'christoomey/vim-tmux-navigator'
+
+  use { 'echasnovski/mini.nvim', branch = 'stable' }
+  use { 'rose-pine/neovim', as = 'rose-pine' }
   use { "glepnir/lspsaga.nvim", branch = "main" }
+  use { 'kyazdani42/nvim-tree.lua', tag = 'nightly', }
+
+  use { 'williamboman/mason.nvim',
+    config = function()
+      require("mason").setup()
+    end
+  }
 
   use {
     'lukas-reineke/indent-blankline.nvim',
@@ -65,20 +69,12 @@ return packer.startup(function(use)
     end
   }
 
-  use 'windwp/nvim-ts-autotag'
-
-  use {
-    'kyazdani42/nvim-tree.lua',
-    tag = 'nightly', -- optional, updated every week. (see issue #1193)
-  }
-
   use { 'nvim-treesitter/nvim-treesitter',
     run = function()
       require('nvim-treesitter.install').update({ with_sync = true })
     end
   }
 
-  -- Fzf
   use { 'nvim-telescope/telescope.nvim',
     requires = {
       'nvim-lua/plenary.nvim',
@@ -86,15 +82,12 @@ return packer.startup(function(use)
     }
   }
 
-  -- EasyMotion
   use {
     'phaazon/hop.nvim', as = 'hop',
     config = function()
       require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   }
-
-  use 'christoomey/vim-tmux-navigator'
 
   if packer_bootstrap then
     require("packer").sync()

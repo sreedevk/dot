@@ -49,12 +49,10 @@ lspconfig["solargraph"].setup({ capabilities = capabilities, on_attach = on_atta
 lspconfig["clojure_lsp"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["elixirls"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["erlangls"].setup({ capabilities = capabilities, on_attach = on_attach, })
-lspconfig["gopls"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["hls"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["julials"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["texlab"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["marksman"].setup({ capabilities = capabilities, on_attach = on_attach, })
-lspconfig["ocamllsp"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["pyright"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["sqlls"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["svelte"].setup({ capabilities = capabilities, on_attach = on_attach, })
@@ -63,7 +61,6 @@ lspconfig["graphql"].setup({ capabilities = capabilities, on_attach = on_attach,
 lspconfig["dockerls"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["denols"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["clangd"].setup({ capabilities = capabilities, on_attach = on_attach, })
-lspconfig["asm_lsp"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["sumneko_lua"].setup({
   capabilities = capabilities,
   on_attach = on_attach,

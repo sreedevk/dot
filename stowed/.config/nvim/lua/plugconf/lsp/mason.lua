@@ -19,11 +19,9 @@ mason_lspconfig.setup({
     "solargraph",
     "clojure_lsp",
     "elixirls",
-    "gopls",
     "julials",
     "texlab",
     "marksman",
-    "ocamllsp",
     "pyright",
     "sqlls",
     "svelte",
@@ -32,6 +30,5 @@ mason_lspconfig.setup({
     "dockerls",
     "denols",
     "clangd",
-    "asm_lsp"
   }
 })
