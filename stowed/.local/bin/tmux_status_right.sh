@@ -2,7 +2,7 @@
 
 # TIME
 LOCAL_TIME=$(date '+%d/%m/%Y %I:%M:%S %p %Z')
-OFFSHORE_TIME=$(TZ=America/New_York date '+%d/%m/%Y %I:%M:%S %p %Z') 
+OFFSHORE_TIME=$(TZ=Asia/Kolkata date '+%d/%m/%Y %I:%M:%S %p %Z') 
 
 # WIRELESS
 WIRELESS_INTERFACE=$(cat /proc/net/wireless | tail -n 1 | awk '{print $1}' | tr -d :)
