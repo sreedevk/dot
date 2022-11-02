@@ -1,7 +1,12 @@
 (doom! :input
+       ;; bidi
+       ;; chinese
+       ;; japanese
+
        :completion
-       company
-       vertico
+       (company +auto)
+       (vertico +icons)
+
        :ui
        deft
        doom
@@ -21,7 +26,9 @@
        workspaces
 
        :editor
-       (evil +everywhere)
+       (evil
+        +everywhere
+        +commands)
        file-templates
        fold
        (format +onsave)
@@ -32,7 +39,9 @@
        word-wrap
 
        :emacs
-       dired
+       (dired
+        +ranger
+        +icons)
        electric
        ibuffer
        undo

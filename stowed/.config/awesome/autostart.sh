@@ -25,7 +25,7 @@ run() {
 }
 
 setup-keyboard() {
-  setxkbmap -layout us,apl -variant ,dyalog -option grp:lswitch
+  setxkbmap -layout us,apl -variant ,dyalog -option grp:switch
 }
 
 setup-display() {
