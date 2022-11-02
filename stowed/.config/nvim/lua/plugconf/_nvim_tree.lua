@@ -16,7 +16,7 @@ nvim_tree.setup {
   },
   actions = {
     open_file = {
-      quit_on_open = false
+      quit_on_open = true
     }
   },
   renderer = {
@@ -35,8 +35,12 @@ nvim_tree.setup {
     always_show_folders = true,
   },
   create_in_closed_folder = true,
-  prefer_startup_root = true,
-  sync_root_with_cwd = true,
+  prefer_startup_root = false,
+  sync_root_with_cwd = false,
   hijack_cursor = true,
-  respect_buf_cwd = false,
+  respect_buf_cwd = true,
+  update_focused_file = {
+    enable = false,
+    update_root = false
+  }
 }
