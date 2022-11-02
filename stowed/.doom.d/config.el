@@ -19,8 +19,7 @@
 
 (setq calendar-date-style 'iso)
 (setq display-line-numbers-type 'relative)
-;; (setq evil-escape-key-sequence "jj")
-(define-key evil-insert-state-map (kbd "jj") 'evil-normal-state)
+(setq evil-escape-key-sequence "jj")
 (setq display-time-mode 1)
 (setq treemacs-width 30)
 (setq auto-save-default t)
