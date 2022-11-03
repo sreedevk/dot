@@ -11,24 +11,12 @@ end
 mason_lspconfig.setup({
   ensure_installed = {
     "tsserver",
-    "html",
-    "cssls",
-    "tailwindcss",
     "sumneko_lua",
     "rust_analyzer",
     "solargraph",
     "clojure_lsp",
     "elixirls",
-    "julials",
-    "texlab",
-    "marksman",
-    "pyright",
     "sqlls",
-    "svelte",
-    "rescriptls",
-    "graphql",
-    "dockerls",
-    "denols",
     "clangd",
   }
 })
