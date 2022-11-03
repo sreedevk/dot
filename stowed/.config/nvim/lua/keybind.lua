@@ -5,8 +5,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Tree
-map('n', '<C-n>', "<cmd>NvimTreeToggle<CR>")
-map('n', '<Leader>v', "<cmd>NvimTreeFindFile<CR>")
+map('n', '<C-n>', "<cmd>NeoTreeRevealToggle<CR>")
 
 -- Hop
 map('n', '<Leader>l', "<cmd>HopLine<CR>", {})
