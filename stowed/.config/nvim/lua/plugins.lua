@@ -74,6 +74,7 @@ return packer.startup(function(use)
     "windwp/nvim-autopairs",
     config = function()
       require("nvim-autopairs").setup {
+        check_ts = true,
         map_cr = false
       }
     end
