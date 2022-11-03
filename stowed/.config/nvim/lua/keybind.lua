@@ -6,6 +6,9 @@ end
 
 -- Tree
 map('n', '<C-n>', "<cmd>NeoTreeRevealToggle<CR>")
+map('n', '<Leader>t', "<cmd>ToggleTerm<CR>")
+map('n', '<Leader>w', "<cmd>w<CR>")
+map('n', '<Leader>h', "<cmd>noh<CR>")
 
 -- Hop
 map('n', '<Leader>l', "<cmd>HopLine<CR>", {})
@@ -33,7 +36,6 @@ map('', '<right>', "<nop>")
 map('n', '<C-t>', "<cmd>tabnew<CR>")
 
 -- Easy Escape
-map('i', 'jj', "<ESC>")
 map('t', 'jj', "<C-\\><C-n>")
 
 -- Menu Nav
