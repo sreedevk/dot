@@ -39,8 +39,10 @@ return packer.startup(function(use)
   use 'windwp/nvim-ts-autotag'
   use 'christoomey/vim-tmux-navigator'
   use 'nvim-lua/plenary.nvim'
+  use 'norcalli/nvim-colorizer.lua'
   use { 'rose-pine/neovim', as = 'rose-pine' }
   use { "glepnir/lspsaga.nvim", branch = "main" }
+  use {'jdhao/better-escape.vim', event = 'InsertEnter'}
 
   use {
     "nvim-neo-tree/neo-tree.nvim",
@@ -51,7 +53,6 @@ return packer.startup(function(use)
       "MunifTanjim/nui.nvim",
     }
   }
-
 
   use { 'williamboman/mason.nvim',
     config = function()
@@ -92,9 +93,28 @@ return packer.startup(function(use)
   }
 
   use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function ()
+      require'alpha'.setup(require'alpha.themes.startify'.config)
+    end
+  }
+
+  use {
     'phaazon/hop.nvim', as = 'hop',
     config = function()
       require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
+
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
+
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup()
     end
   }
 
