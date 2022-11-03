@@ -5,12 +5,23 @@ end
 
 nvim_treesitter_config.setup {
   ensure_installed = "all",
-  autotag = {
-    enable = true
+  autotag = { enable = true },
+  sync_install = false,
+  auto_install = true,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false
   },
-  sync_install     = false,
-  auto_install     = true,
-  highlight        = { enable = true },
+  content_commentstring = {
+    enable = true,
+    enable_autocmd = false
+  },
+  rainbow = {
+    enable = true,
+    disable = { "html" },
+    extended_mode = false,
+    max_file_lines = nil
+  },
   incremental_selection = {
     enable = true,
     keymaps = {
