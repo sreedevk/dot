@@ -20,11 +20,13 @@ map('n', '<C-p>', "<cmd>Telescope find_files<CR>")
 map('n', '<C-b>', "<cmd>Telescope buffers<CR>")
 map('n', '<C-s>', "<cmd>Telescope<CR>")
 map('n', '<leader>fg', "<cmd>Telescope live_grep<CR>")
+map('n', '<leader>pp', ":lua require'telescope'.extensions.project.project{}<CR>")
 
--- Diff
-map('n', '<Leader>gh', "<cmd>diffget //3<CR>")
-map('n', '<Leader>gu', "<cmd>diffget //2<CR>")
-map('n', '<Leader>gs', "<cmd>G<CR>")
+-- Aerial
+map('n', '<leader>cv', "<cmd>AerialToggle<CR>")
+
+-- Bufferline
+map('n', '<leader>bp', "<cmd>BufferLinePick<CR>")
 
 -- Arrows
 map('', '<up>', "<nop>")
@@ -44,7 +46,7 @@ map('n', 'N', 'Nzzzv')
 
 -- QuickFixList
 map('n', '<C-k>', '<cmd>copen<CR>')
-map('n', '<leader>p', '"_dP')
+map('v', '<leader>p', '"_dP')
 
 -- formatting
 map('n', '<leader>ff', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>')
