@@ -25,10 +25,6 @@ map('n', '<leader>pp', ":lua require'telescope'.extensions.project.project{}<CR>
 -- Aerial
 map('n', '<leader>cv', "<cmd>AerialToggle<CR>")
 
--- Bufferline
-map('n', '<leader>bp', "<cmd>BufferLinePick<CR>")
-map('n', '<leader>bd', "<cmd>bd<CR>")
-
 -- Arrows
 map('', '<up>', "<nop>")
 map('', '<down>', "<nop>")

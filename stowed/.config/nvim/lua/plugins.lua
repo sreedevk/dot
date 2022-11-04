@@ -51,12 +51,6 @@ return packer.startup({
     }
 
     use {
-      'akinsho/bufferline.nvim',
-      tag = "v3.*",
-      requires = 'kyazdani42/nvim-web-devicons'
-    }
-
-    use {
       "nvim-neo-tree/neo-tree.nvim",
       branch = "v2.x",
       requires = {
