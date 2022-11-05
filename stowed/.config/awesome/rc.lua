@@ -241,7 +241,7 @@ globalkeys = gears.table.join(
   -- app launcher
   awful.key(
     { modkey }, "d",
-    function() awful.spawn("rofi -show combi -combi-modes 'run,window,ssh' -modes combi") end,
+    function() awful.spawn("rofi -show combi") end,
     { description = "open app launcher", group = "launcher" }
   ),
 

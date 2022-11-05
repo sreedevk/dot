@@ -8,8 +8,8 @@ function M.presentation_mode()
 end
 
 function M.remove_comments()
-  vim.cmd([[:g/\v^(#|\/\/)/d]])
-  vim.cmd([[:g/\v^\s*(#|\/\/)/d]])
+  vim.cmd([[:g/\v^(#|\/\/|\-\-)/d]])
+  vim.cmd([[:g/\v^\s*(#|\/\/|\-\-)/d]])
 end
 
 function M.neovim_config()
