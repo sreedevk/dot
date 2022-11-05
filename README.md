@@ -1,7 +1,6 @@
 <h1 align="center">The Dot Project</h1>
 <p align="center">
-This is a collection of my dot configuration files. The goal of this project is to make a very minimal & self contained configuration repository for Arch 
-(& Arch Based) Linux Installations. Usage of external plugins have been kept to a very minimum.
+This is a collection of my dot configuration files.
 </p>
 
 ![Screenshot](https://github.com/sreedevk/dot/blob/main/screenshots/_001.png?raw=true)
