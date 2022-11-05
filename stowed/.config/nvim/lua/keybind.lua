@@ -6,6 +6,7 @@ end
 
 -- Tree
 map('n', '<C-n>', "<cmd>NeoTreeRevealToggle<CR>")
+map('n', '<Leader>git', "<cmd>Neotree git_status<CR>")
 
 -- convenience
 map('n', '<Leader>w', "<cmd>w<CR>")
@@ -24,11 +25,11 @@ map('n', '<Leader>f', "<cmd>HopChar1<CR>", {})
 map('n', '<C-p>', "<cmd>Telescope find_files<CR>")
 map('n', '<C-b>', "<cmd>Telescope buffers<CR>")
 map('n', '<C-s>', "<cmd>Telescope<CR>")
-map('n', '<leader>fg', "<cmd>Telescope live_grep<CR>")
-map('n', '<leader>pp', ":lua require'telescope'.extensions.project.project{}<CR>")
+map('n', '<Leader>fg', "<cmd>Telescope live_grep<CR>")
+map('n', '<Leader>pp', ":lua require'telescope'.extensions.project.project{}<CR>")
 
 -- Aerial
-map('n', '<leader>cv', "<cmd>AerialToggle<CR>")
+map('n', '<Leader>cv', "<cmd>AerialToggle<CR>")
 
 -- Arrows
 map('', '<up>', "<nop>")
@@ -48,7 +49,7 @@ map('n', 'N', 'Nzzzv')
 
 -- QuickFixList
 map('n', '<C-k>', '<cmd>copen<CR>')
-map('v', '<leader>p', '"_dP')
+map('v', '<Leader>p', '"_dP')
 
 -- formatting
-map('n', '<leader>ff', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>')
+map('n', '<Leader>ff', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>')
