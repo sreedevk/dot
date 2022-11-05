@@ -6,9 +6,14 @@ end
 
 -- Tree
 map('n', '<C-n>', "<cmd>NeoTreeRevealToggle<CR>")
-map('n', '<Leader>t', "<cmd>ToggleTerm<CR>")
+
+-- convenience
 map('n', '<Leader>w', "<cmd>w<CR>")
 map('n', '<Leader>h', "<cmd>noh<CR>")
+
+-- terminal
+map('n', '<Leader>t', "<cmd>ToggleTerm<CR>")
+map('n', '<Leader>ft', "<cmd>ToggleTerm direction=float<CR>")
 
 -- Hop
 map('n', '<Leader>l', "<cmd>HopLine<CR>", {})
