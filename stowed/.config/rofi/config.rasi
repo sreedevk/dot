@@ -5,11 +5,14 @@ configuration {
     kb-accept-entry:                "Control+m,Return,KP_Enter";
     terminal:                       "alacritty";
     kb-remove-to-eol:               "Control+Shift+e";
-    kb-mode-next:                   "Shift+Right,Control+Tab,Control+l";
-    kb-mode-previous:               "Shift+Left,Control+Shift+Tab,Control+h";
+    kb-mode-next:                   "Control+l";
+    kb-mode-previous:               "Control+h";
     kb-remove-char-back:            "BackSpace";
-    modi:                           [window,run,ssh,filebrowser];
-    combi-modi:                     [drun,run,ssh,keys,filebrowser];
+    modi:                           [drun,window,run,ssh,combi];
+    display-drun:                   "";
+    display-run:                    "";
+    display-window:                 "";
+    combi-modi:                     [drun,run,ssh,keys];
     font:                           "JetBrainsMono 18";
     show-icons:                     false;
     ssh-client:                     "ssh";
@@ -57,11 +60,11 @@ configuration {
     border:           0;
     border-radius: 6;
     border-color: @bordercolor;
-    padding:          5;
+    padding:          10;
 }
 #mainbox {
     border:  0;
-    padding: 5;
+    padding: 10;
 }
 #message {
     border:       1px dash 0px 0px ;
