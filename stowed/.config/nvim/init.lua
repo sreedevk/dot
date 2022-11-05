@@ -17,3 +17,7 @@ require('utils')      -- custom util lua functions
 require('commands')   -- custom nvim commands
 require('keybind')    -- keybindings
 require('icons')    -- keybindings
+
+if vim.g.neovide == true then
+  require("neovide")
+end
