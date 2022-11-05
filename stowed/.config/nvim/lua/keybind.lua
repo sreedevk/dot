@@ -14,7 +14,7 @@ map('n', '<Leader>h', "<cmd>noh<CR>")
 
 -- terminal
 map('n', '<Leader>t', "<cmd>ToggleTerm<CR>")
-map('n', '<Leader>ft', "<cmd>ToggleTerm direction=float<CR>")
+map('n', '<Leader>tf', "<cmd>ToggleTerm direction=float<CR>")
 
 -- Hop
 map('n', '<Leader>l', "<cmd>HopLine<CR>", {})

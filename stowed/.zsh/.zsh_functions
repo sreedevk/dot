@@ -144,12 +144,30 @@ grep-ip() {
   echo "$(echo $text | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"
 }
 
-lan-connect() {
+lan-scan() {
   host="$(ip addr | grep -v 'host lo' | grep -E 'inet\s' | grep-ip | head -n 1)"
   nwork=$(ipcalc $host | grep Network | grep-ip)
-  remote="$(nmap -sP $nwork/24 | grep 'Nmap scan report' | fzf | grep-ip)"
+  echo "$(nmap -sP $nwork/24 | grep 'Nmap scan report' | fzf | grep-ip)"
+}
+
+lan-connect() {
+  remote="$(lan-scan)"
   echo "username [leave empty if $USER]: "
   read username
   [[ -z "$username" ]] && username=$USER
   ssh $username@$remote
+}
+
+# This function copies tranmission downloads from rpi4b to local
+transmission-sync() {
+  remote="$(lan-scan)"
+  echo "username [leave empty if $USER]: "
+  read username
+  [[ -z "$username" ]] && username=$USER
+  echo "rsync -r $username@$remote:/home/$username/downloads/ $HOME/Downloads/"
+  rsync -r "$username@$remote:/home/$username/downloads/" "$HOME/Downloads/"
+}
+
+keys() {
+  xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
