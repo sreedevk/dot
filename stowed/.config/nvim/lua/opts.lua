@@ -37,7 +37,7 @@ vim.g['ale_c_parse_makefile']          = 1
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.better_escape_shortcut = 'jj'
-vim.g.better_escape_interval = 200
+vim.g.better_escape_interval = 400
 
 -- neovide
 vim.g.neovide_transparency = 0.9
