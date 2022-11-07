@@ -10,6 +10,7 @@ map('n', '<Leader>git', "<cmd>Neotree git_status<CR>")
 
 -- convenience
 map('n', '<Leader>w', "<cmd>w<CR>")
+map('n', '<Leader>q', "<cmd>j<CR>")
 map('n', '<Leader>h', "<cmd>noh<CR>")
 
 -- terminal

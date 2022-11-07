@@ -132,7 +132,7 @@ vm-tunnel() {
 vm-connect() {
   machine="$(VBoxManage list vms | fzf | awk '{gsub(/"/, "", $1); print $1}')"
   ip="$(VBoxManage guestproperty enumerate $machine | grep IP | grep-ip | head -n1)"
-  if [ -z "$1"]; then
+  if [ -z "$1" ]; then
     ssh $USER@$ip
   else
     ssh $1@$ip
@@ -156,6 +156,15 @@ lan-connect() {
   read username
   [[ -z "$username" ]] && username=$USER
   ssh $username@$remote
+}
+
+lan-x11() {
+  remote="$(lan-scan)"
+  echo "username [leave empty if $USER]: "
+  read username
+  [[ -z "$username" ]] && username=$USER
+  nohup Xephyr -br -ac -noreset -screen 800×480 -resizeable :1 >/dev/null 2>&1 &
+  DISPLAY=:1 ssh -Y $username@$remote
 }
 
 # This function copies tranmission downloads from rpi4b to local
