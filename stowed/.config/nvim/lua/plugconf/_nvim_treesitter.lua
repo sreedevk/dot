@@ -1,4 +1,4 @@
-local status_ok, nvim_treesitter_config = pcall(require, 'nvim-treesitter.configs')
+local status_ok, nvim_treesitter_config = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
   return
 end
@@ -33,3 +33,8 @@ nvim_treesitter_config.setup {
   },
   indent = { enable = true }
 }
+
+local nvim_treesitter_install_ok, nvim_treesitter_install = pcall(require, "nvim-treesitter.install")
+if nvim_treesitter_install_ok then
+  nvim_treesitter_install.update({ with_sync = true })
+end

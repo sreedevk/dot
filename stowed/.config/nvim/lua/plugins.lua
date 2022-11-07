@@ -18,35 +18,37 @@ end
 
 return packer.startup({
   function(use)
-    use 'wbthomason/packer.nvim'
-    use 'mattn/emmet-vim'
-    use 'hoob3rt/lualine.nvim'
-    use 'tpope/vim-fugitive'
-    use 'tpope/vim-surround'
-    use 'tpope/vim-rails'
-    use 'tpope/vim-dadbod'
-    use 'dhruvasagar/vim-table-mode'
-    use 'williamboman/mason-lspconfig.nvim'
-    use 'neovim/nvim-lspconfig'
-    use 'rafcamlet/nvim-luapad'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/cmp-calc'
-    use 'L3MON4D3/LuaSnip'
-    use 'saadparwaiz1/cmp_luasnip'
-    use 'windwp/nvim-ts-autotag'
-    use 'christoomey/vim-tmux-navigator'
-    use 'nvim-lua/plenary.nvim'
-    use 'norcalli/nvim-colorizer.lua'
-    use { 'rose-pine/neovim', as = 'rose-pine' }
+    use "wbthomason/packer.nvim"
+    use "mattn/emmet-vim"
+    use "hoob3rt/lualine.nvim"
+    use "tpope/vim-fugitive"
+    use "tpope/vim-surround"
+    use "tpope/vim-rails"
+    use "tpope/vim-dadbod"
+    use "dhruvasagar/vim-table-mode"
+    use "williamboman/mason-lspconfig.nvim"
+    use "neovim/nvim-lspconfig"
+    use "rafcamlet/nvim-luapad"
+    use "hrsh7th/nvim-cmp"
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-cmdline"
+    use "hrsh7th/cmp-calc"
+    use "L3MON4D3/LuaSnip"
+    use "saadparwaiz1/cmp_luasnip"
+    use "windwp/nvim-ts-autotag"
+    use "christoomey/vim-tmux-navigator"
+    use "nvim-lua/plenary.nvim"
+    use "nathom/filetype.nvim"
+    use "norcalli/nvim-colorizer.lua"
+    use "nvim-treesitter/nvim-treesitter"
+    use { "rose-pine/neovim", as = "rose-pine" }
     use { "glepnir/lspsaga.nvim", branch = "main" }
-    use {'jdhao/better-escape.vim', event = 'InsertEnter'}
+    use { "jdhao/better-escape.vim", event = "InsertEnter" }
 
     use {
-      'stevearc/aerial.nvim',
+      "stevearc/aerial.nvim",
       config = function() require('aerial').setup() end
     }
 
@@ -60,14 +62,14 @@ return packer.startup({
       }
     }
 
-    use { 'williamboman/mason.nvim',
+    use { "williamboman/mason.nvim",
       config = function()
         require("mason").setup()
       end
     }
 
     use {
-      'lukas-reineke/indent-blankline.nvim',
+      "lukas-reineke/indent-blankline.nvim",
       config = function()
         require("indent_blankline").setup {
           show_current_context = true,
@@ -86,13 +88,8 @@ return packer.startup({
       end
     }
 
-    use { 'nvim-treesitter/nvim-treesitter',
-      run = function()
-        require('nvim-treesitter.install').update({ with_sync = true })
-      end
-    }
-
-    use { 'nvim-telescope/telescope.nvim',
+    use {
+      "nvim-telescope/telescope.nvim",
       requires = {
         'nvim-lua/plenary.nvim',
         'nvim-telescope/telescope-project.nvim'
@@ -100,14 +97,14 @@ return packer.startup({
     }
 
     use {
-      'goolord/alpha-nvim',
-      requires = { 'kyazdani42/nvim-web-devicons' }
+      "goolord/alpha-nvim",
+      requires = { "kyazdani42/nvim-web-devicons" }
     }
 
     use {
-      'phaazon/hop.nvim', as = 'hop',
+      "phaazon/hop.nvim", as = "hop",
       config = function()
-        require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
+        require('hop').setup { keys = "etovxqpdygfblzhckisuran" }
       end
     }
 
