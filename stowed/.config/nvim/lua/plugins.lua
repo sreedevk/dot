@@ -16,9 +16,12 @@ if not status then
   return
 end
 
+pcall(require, "impatient")
+
 return packer.startup({
   function(use)
     use "wbthomason/packer.nvim"
+    use "lewis6991/impatient.nvim"
     use "mattn/emmet-vim"
     use "hoob3rt/lualine.nvim"
     use "tpope/vim-fugitive"
