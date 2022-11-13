@@ -40,10 +40,12 @@ modkey     = "Mod4"
 terminal   = "kitty"
 editor     = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
+clipboard_manager = "copyq"
 
 -- Autorun
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
 awful.spawn.with_shell("~/.config/polybar/launch.sh")
+awful.spawn.with_shell(clipboard_manager)
 
 awful.layout.layouts = {
   awful.layout.suit.floating,

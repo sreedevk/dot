@@ -16,6 +16,7 @@ alias fgrep='fgrep --color=auto'
 alias jctl="journalctl -p 3 -xb"
 alias macs="emacsclient -c -a 'emacs'"
 alias nvide="WINIT_X11_SCALE_FACTOR=1.2 neovide --multigrid"
+alias lg="lazygit"
 
 alias e="$EDITOR"
 alias v="$VISUAL"
