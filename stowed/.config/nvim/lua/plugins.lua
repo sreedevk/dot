@@ -46,6 +46,7 @@ return packer.startup({
     use "nathom/filetype.nvim"
     use "norcalli/nvim-colorizer.lua"
     use "nvim-treesitter/nvim-treesitter"
+    -- use "Shatur/neovim-session-manager"
     use { "rose-pine/neovim", as = "rose-pine" }
     use { "glepnir/lspsaga.nvim", branch = "main" }
     use { "jdhao/better-escape.vim", event = "InsertEnter" }
@@ -53,6 +54,13 @@ return packer.startup({
     use {
       "stevearc/aerial.nvim",
       config = function() require('aerial').setup() end
+    }
+
+    use {
+      "ggandor/leap.nvim",
+      config = function()
+        require('leap').add_default_mappings()
+      end
     }
 
     use {
@@ -104,16 +112,9 @@ return packer.startup({
       requires = { "kyazdani42/nvim-web-devicons" }
     }
 
-    use {
-      "phaazon/hop.nvim", as = "hop",
-      config = function()
-        require('hop').setup { keys = "etovxqpdygfblzhckisuran" }
-      end
-    }
-
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
       require("toggleterm").setup()
-    end}
+    end }
 
     use {
       "folke/which-key.nvim",
