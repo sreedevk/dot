@@ -7,6 +7,7 @@ end
 -- Tree
 map('n', '<C-n>', "<cmd>NeoTreeRevealToggle<CR>")
 map('n', '<Leader>git', "<cmd>Neotree git_status<CR>")
+map('n', '<Leader>gg', "<cmd>LazyGit<CR>")
 
 -- convenience
 map('n', '<Leader>w', "<cmd>w<CR>")
@@ -37,7 +38,7 @@ map('', '<right>', "<nop>")
 map('n', '<C-t>', "<cmd>tabnew<CR>")
 
 -- Easy Escape
-map('t', 'jj', "<C-\\><C-n>")
+map('t', '<Leader>jj', "<C-\\><C-n>")
 
 -- Menu Nav
 map('n', 'n', 'nzzzv')

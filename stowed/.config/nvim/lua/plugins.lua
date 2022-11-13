@@ -46,6 +46,7 @@ return packer.startup({
     use "nathom/filetype.nvim"
     use "norcalli/nvim-colorizer.lua"
     use "nvim-treesitter/nvim-treesitter"
+    use "kdheepak/lazygit.nvim"
     -- use "Shatur/neovim-session-manager"
     use { "rose-pine/neovim", as = "rose-pine" }
     use { "glepnir/lspsaga.nvim", branch = "main" }
