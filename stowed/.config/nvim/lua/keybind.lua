@@ -17,11 +17,6 @@ map('n', '<Leader>h', "<cmd>noh<CR>")
 map('n', '<Leader>t', "<cmd>ToggleTerm<CR>")
 map('n', '<Leader>tf', "<cmd>ToggleTerm direction=float<CR>")
 
--- Hop
-map('n', '<Leader>l', "<cmd>HopLine<CR>", {})
-map('n', '<Leader>s', "<cmd>HopPattern<CR>", {})
-map('n', '<Leader>f', "<cmd>HopChar1<CR>", {})
-
 -- Telescope
 map('n', '<C-p>', "<cmd>Telescope find_files<CR>")
 map('n', '<C-b>', "<cmd>Telescope buffers<CR>")
