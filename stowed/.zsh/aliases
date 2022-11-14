@@ -2,7 +2,7 @@
 # AUTHOR: Sreedev Kodichath
 
 # Sys
-alias ls='ls --color=always'
+alias ls='exa --color=always'
 alias la='exa -a --color=always'
 alias ll='exa -l --color=always'
 alias lla='exa -la --color=always'
