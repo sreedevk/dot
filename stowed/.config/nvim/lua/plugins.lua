@@ -27,11 +27,9 @@ return packer.startup({
     use "tpope/vim-fugitive"
     use "tpope/vim-surround"
     use "tpope/vim-rails"
-    use "tpope/vim-dadbod"
     use "dhruvasagar/vim-table-mode"
     use "williamboman/mason-lspconfig.nvim"
     use "neovim/nvim-lspconfig"
-    use "rafcamlet/nvim-luapad"
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-buffer"
@@ -41,20 +39,20 @@ return packer.startup({
     use "L3MON4D3/LuaSnip"
     use "saadparwaiz1/cmp_luasnip"
     use "windwp/nvim-ts-autotag"
-    use "christoomey/vim-tmux-navigator"
     use "nvim-lua/plenary.nvim"
     use "nathom/filetype.nvim"
     use "norcalli/nvim-colorizer.lua"
     use "nvim-treesitter/nvim-treesitter"
     use "kdheepak/lazygit.nvim"
-    -- use "Shatur/neovim-session-manager"
     use { "rose-pine/neovim", as = "rose-pine" }
     use { "glepnir/lspsaga.nvim", branch = "main" }
     use { "jdhao/better-escape.vim", event = "InsertEnter" }
 
     use {
       "stevearc/aerial.nvim",
-      config = function() require('aerial').setup() end
+      config = function()
+        require('aerial').setup()
+      end
     }
 
     use {
@@ -69,7 +67,7 @@ return packer.startup({
       branch = "v2.x",
       requires = {
         "nvim-lua/plenary.nvim",
-        "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+        "kyazdani42/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
       }
     }
@@ -77,16 +75,6 @@ return packer.startup({
     use { "williamboman/mason.nvim",
       config = function()
         require("mason").setup()
-      end
-    }
-
-    use {
-      "lukas-reineke/indent-blankline.nvim",
-      config = function()
-        require("indent_blankline").setup {
-          show_current_context = true,
-          show_current_context_start = false,
-        }
       end
     }
 
@@ -113,14 +101,32 @@ return packer.startup({
       requires = { "kyazdani42/nvim-web-devicons" }
     }
 
-    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-      require("toggleterm").setup()
-    end }
+    use {
+      "akinsho/toggleterm.nvim",
+      tag = '*',
+      config = function()
+        require("toggleterm").setup()
+      end
+    }
 
     use {
       "folke/which-key.nvim",
       config = function()
         require("which-key").setup()
+      end
+    }
+
+    use {
+      "echasnovski/mini.comment",
+      config = function()
+        require("mini.comment").setup()
+      end
+    }
+
+    use {
+      "echasnovski/mini.indentscope",
+      config = function()
+        require("mini.indentscope").setup()
       end
     }
 
