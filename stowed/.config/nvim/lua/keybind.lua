@@ -11,7 +11,7 @@ map('n', '<Leader>gg', "<cmd>LazyGit<CR>")
 
 -- convenience
 map('n', '<Leader>w', "<cmd>w<CR>")
-map('n', '<Leader>q', "<cmd>j<CR>")
+map('n', '<Leader>q', "<cmd>wqa<CR>")
 map('n', '<Leader>h', "<cmd>noh<CR>")
 
 -- terminal
