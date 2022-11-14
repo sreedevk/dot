@@ -51,6 +51,7 @@ lspconfig["elixirls"].setup({ capabilities = capabilities, on_attach = on_attach
 lspconfig["erlangls"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["hls"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["julials"].setup({ capabilities = capabilities, on_attach = on_attach, })
+lspconfig["gopls"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["texlab"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["marksman"].setup({ capabilities = capabilities, on_attach = on_attach, })
 lspconfig["pyright"].setup({ capabilities = capabilities, on_attach = on_attach, })

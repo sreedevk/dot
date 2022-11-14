@@ -18,5 +18,6 @@ mason_lspconfig.setup({
     "elixirls",
     "sqlls",
     "clangd",
+    "gopls"
   }
 })
