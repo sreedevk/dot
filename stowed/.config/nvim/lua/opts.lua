@@ -23,7 +23,7 @@ vim.opt.updatetime    = 750
 vim.opt.splitbelow    = true               -- Put new windows below current
 vim.opt.splitright    = true               -- Put new windows right of current
 vim.opt.completeopt   = 'menuone,noinsert,noselect'
-vim.opt.undofile      = true
+vim.opt.undofile      = false
 
 vim.wo.signcolumn = 'number'
 vim.wo.wrap       = true

@@ -5,8 +5,8 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Tree
-map('n', '<C-n>', "<cmd>NeoTreeRevealToggle<CR>")
 map('n', '<Leader>git', "<cmd>Neotree git_status<CR>")
+map('n', '<C-n>', "<cmd>NeoTreeRevealToggle<CR>")
 map('n', '<Leader>gg', "<cmd>LazyGit<CR>")
 
 -- convenience
@@ -27,6 +27,18 @@ map('n', '<Leader>pp', ":lua require'telescope'.extensions.project.project{}<CR>
 
 -- Aerial
 map('n', '<Leader>cv', "<cmd>AerialToggle<CR>")
+
+-- move nvim
+map('n', '<A-j>', '<cmd>MoveLine(1)<CR>')
+map('n', '<A-k>', '<cmd>MoveLine(-1)<CR>')
+map('n', '<A-h>', '<cmd>MoveHChar(-1)<CR>')
+map('n', '<A-l>', '<cmd>MoveHChar(1)<CR>')
+
+-- Visual-mode commands
+map('v', '<A-j>', '<cmd>MoveBlock(1)<CR>')
+map('v', '<A-k>', '<cmd>MoveBlock(-1)<CR>')
+map('v', '<A-h>', '<cmd>MoveHBlock(-1)<CR>')
+map('v', '<A-l>', '<cmd>MoveHBlock(1)<CR>')
 
 -- Arrows
 map('', '<up>', "<nop>")
