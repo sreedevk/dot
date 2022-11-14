@@ -49,6 +49,9 @@ map('', '<right>', "<nop>")
 -- Tabs
 map('n', '<C-t>', "<cmd>tabnew<CR>")
 
+-- Undo Tree
+map('n', '<Leader>u', "<cmd>UndotreeToggle<CR>")
+
 -- Easy Escape
 map('t', '<Leader>jj', "<C-\\><C-n>")
 

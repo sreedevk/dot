@@ -44,7 +44,8 @@ return packer.startup({
     use "norcalli/nvim-colorizer.lua"
     use "nvim-treesitter/nvim-treesitter"
     use "kdheepak/lazygit.nvim"
-    use 'fedepujol/move.nvim'
+    use "fedepujol/move.nvim"
+    use "mbbill/undotree"
     use { "rose-pine/neovim", as = "rose-pine" }
     use { "glepnir/lspsaga.nvim", branch = "main" }
     use { "jdhao/better-escape.vim", event = "InsertEnter" }
