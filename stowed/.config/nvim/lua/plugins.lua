@@ -130,6 +130,12 @@ return packer.startup({
       end
     }
 
+    use{ 'anuvyklack/pretty-fold.nvim',
+      config = function()
+        require('pretty-fold').setup()
+      end
+    }
+
     if packer_bootstrap then
       require("packer").sync()
     end
