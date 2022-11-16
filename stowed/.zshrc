@@ -7,20 +7,12 @@
 # PATHS
 YARN_PATH="$HOME/.yarn/bin"
 CONDA_PATH="/opt/anaconda/bin"
-DBEAVER_PATH="/opt/dbeaver/"
 KENDRYTE_PATH="/opt/kendryte-toolchain/bin"
-MAIXPY_PATH="/opt/maixpy-ide/bin/"
-MRUBY_PATH="/opt/mruby/bin"
-DOOM_PATH="$HOME/.emacs-distros/doom-emacs/bin" 
 CARGO_PATH="$HOME/.cargo/bin"
 LOCAL_BIN_PATH="$HOME/.local/bin"
-CUSTOM_SCRIPTS_PATH=$HOME/.scripts
-SNAP_PATH=/snap/bin
-RPI0W_TOOLCHAIN_PATH=/opt/rpi0w-toolchain/bin
-SURREAL_DB_PATH="$HOME/.surrealdb"
 
 export GOPATH="$HOME/go"
-export PATH="$PATH:$YARN_PATH:$CONDA_PATH:$DBEAVER_PATH:$KENDRYTE_PATH:$MAIXPY_PATH:$MRUBY_PATH:$DOOM_PATH:$CARGO_PATH:$CUSTOM_SCRIPTS_PATH:$SNAP_PATH:$LOCAL_BIN_PATH:$RPI0W_TOOLCHAIN_PATH:$SURREAL_DB_PATH:$GOPATH:$GOPATH/bin"
+export PATH="$PATH:$YARN_PATH:$CONDA_PATH:$KENDRYTE_PATH:$CARGO_PATH:$LOCAL_BIN_PATH:$GOPATH:$GOPATH/bin"
 
 # ENV VARIABLES
 export KEYTIMEOUT=1
@@ -69,7 +61,7 @@ setopt interactivecomments
 [[ ! -r /home/sreedev/.opam/opam-init/init.zsh ]] || source /home/sreedev/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # ANTIBODY COMPILE ZSH
-# antibody bundle < ~/.zsh/.zsh_plugins > ~/.zsh/.zsh_plugins.sh
+# antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
 
 # LOAD COMPILED PLUGINS
 [ -f "$HOME/.zsh/plugins.sh" ] && source ~/.zsh/plugins.sh
