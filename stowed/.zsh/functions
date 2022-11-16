@@ -27,7 +27,7 @@ palette() {
 
 # compile plugins after change in .zsh_plugins
 antibody-compile(){
-  antibody bundle < ~/.zsh/.zsh_plugins > ~/.zsh/.zsh_plugins.sh
+  antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
 }
 
 # filter & kill active tmux sessions
