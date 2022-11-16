@@ -12,6 +12,7 @@ eval "$(starship init zsh)"
 
 # ZOXIDE - MODERN CD
 eval "$(zoxide init zsh)"
+eval "$(luarocks path --bin)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

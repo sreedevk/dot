@@ -74,7 +74,8 @@ return packer.startup({
       }
     }
 
-    use { "williamboman/mason.nvim",
+    use {
+      "williamboman/mason.nvim",
       config = function()
         require("mason").setup()
       end
@@ -132,7 +133,7 @@ return packer.startup({
       end
     }
 
-    use{ 'anuvyklack/pretty-fold.nvim',
+    use { 'anuvyklack/pretty-fold.nvim',
       config = function()
         require('pretty-fold').setup()
       end
