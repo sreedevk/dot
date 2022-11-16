@@ -60,7 +60,6 @@ setopt interactivecomments
 [ -f "$HOME/.zsh/functions" ] && source "$HOME/.zsh/functions"
 [ -f "$HOME/.zsh/autoloads" ] && source "$HOME/.zsh/autoloads"
 [ -f "$HOME/.zsh/fzf" ]       && source "$HOME/.zsh/fzf"
-[[ ! -r /home/sreedev/.opam/opam-init/init.zsh ]] || source /home/sreedev/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # ANTIBODY COMPILE ZSH
 # antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
