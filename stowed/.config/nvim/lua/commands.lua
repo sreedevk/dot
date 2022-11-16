@@ -1,4 +1,3 @@
--- PLUGIN / INBUILD COMMAND MAPPINGS
 local api = vim.api
 
 api.nvim_create_augroup("packer_user_config", { clear = true })
