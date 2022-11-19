@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/bash
 
 command="naughty = require(\"naughty\")
 if naughty.is_suspended() then

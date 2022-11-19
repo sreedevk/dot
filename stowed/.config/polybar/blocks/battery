@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 BATTERY_PERCENTAGE=$(upower -e | grep BAT0 | xargs -Ix upower -i x | grep percentage | awk '{print $2}')
 BATTERY_STATUS=$(upower -e | grep BAT0 | xargs -Ix upower -i x | grep state | awk '{print $2}')

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 MEMORY_CONSUMPTION="$(free -mh | grep Mem  | awk '{print $3}')"
 
 echo "Mem: $MEMORY_CONSUMPTION"

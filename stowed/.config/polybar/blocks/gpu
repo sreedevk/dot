@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 GPU_INFO=$(nvidia-smi -q)
 PRODUCT_NAME="$(awk '/Product Name/ {print $4FS$5}' <<< $GPU_INFO)"
