@@ -21,11 +21,11 @@ pcall(require, "impatient")
 return packer.startup({
   function(use)
     use "wbthomason/packer.nvim"
-    use "lewis6991/impatient.nvim"
     use "mattn/emmet-vim"
     use "hoob3rt/lualine.nvim"
     use "tpope/vim-fugitive"
     use "tpope/vim-surround"
+    use "vim-ruby/vim-ruby"
     use "tpope/vim-rails"
     use "dhruvasagar/vim-table-mode"
     use "williamboman/mason-lspconfig.nvim"
@@ -41,7 +41,6 @@ return packer.startup({
     use "windwp/nvim-ts-autotag"
     use "nvim-lua/plenary.nvim"
     use "nathom/filetype.nvim"
-    use "norcalli/nvim-colorizer.lua"
     use "nvim-treesitter/nvim-treesitter"
     use "kdheepak/lazygit.nvim"
     use "fedepujol/move.nvim"
@@ -123,19 +122,6 @@ return packer.startup({
       "echasnovski/mini.comment",
       config = function()
         require("mini.comment").setup()
-      end
-    }
-
-    use {
-      "echasnovski/mini.indentscope",
-      config = function()
-        require("mini.indentscope").setup()
-      end
-    }
-
-    use { 'anuvyklack/pretty-fold.nvim',
-      config = function()
-        require('pretty-fold').setup()
       end
     }
 

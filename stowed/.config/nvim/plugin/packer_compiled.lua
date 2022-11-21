@@ -137,11 +137,6 @@ _G.packer_plugins = {
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/filetype.nvim",
     url = "https://github.com/nathom/filetype.nvim"
   },
-  ["impatient.nvim"] = {
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/impatient.nvim",
-    url = "https://github.com/lewis6991/impatient.nvim"
-  },
   ["lazygit.nvim"] = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
@@ -180,12 +175,6 @@ _G.packer_plugins = {
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/mini.comment",
     url = "https://github.com/echasnovski/mini.comment"
   },
-  ["mini.indentscope"] = {
-    config = { "\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\21mini.indentscope\frequire\0" },
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/mini.indentscope",
-    url = "https://github.com/echasnovski/mini.indentscope"
-  },
   ["move.nvim"] = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/move.nvim",
@@ -202,7 +191,7 @@ _G.packer_plugins = {
     url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-autopairs"] = {
-    config = { "\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\vmap_cr\1\rcheck_ts\2\nsetup\19nvim-autopairs\frequire\0" },
+    config = { "\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\rcheck_ts\2\vmap_cr\1\nsetup\19nvim-autopairs\frequire\0" },
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
@@ -211,11 +200,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-colorizer.lua"] = {
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
-    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -246,12 +230,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["pretty-fold.nvim"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16pretty-fold\frequire\0" },
-    loaded = true,
-    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/pretty-fold.nvim",
-    url = "https://github.com/anuvyklack/pretty-fold.nvim"
   },
   ["rose-pine"] = {
     loaded = true,
@@ -289,6 +267,11 @@ _G.packer_plugins = {
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/vim-rails",
     url = "https://github.com/tpope/vim-rails"
   },
+  ["vim-ruby"] = {
+    loaded = true,
+    path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/vim-ruby",
+    url = "https://github.com/vim-ruby/vim-ruby"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/sreedev/.local/share/nvim/site/pack/packer/start/vim-surround",
@@ -316,10 +299,10 @@ time([[Config for toggleterm.nvim]], false)
 time([[Config for aerial.nvim]], true)
 try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vaerial\frequire\0", "config", "aerial.nvim")
 time([[Config for aerial.nvim]], false)
--- Config for: mason.nvim
-time([[Config for mason.nvim]], true)
-try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0", "config", "mason.nvim")
-time([[Config for mason.nvim]], false)
+-- Config for: mini.comment
+time([[Config for mini.comment]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17mini.comment\frequire\0", "config", "mini.comment")
+time([[Config for mini.comment]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
@@ -328,22 +311,14 @@ time([[Config for which-key.nvim]], false)
 time([[Config for leap.nvim]], true)
 try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\25add_default_mappings\tleap\frequire\0", "config", "leap.nvim")
 time([[Config for leap.nvim]], false)
--- Config for: pretty-fold.nvim
-time([[Config for pretty-fold.nvim]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16pretty-fold\frequire\0", "config", "pretty-fold.nvim")
-time([[Config for pretty-fold.nvim]], false)
--- Config for: mini.indentscope
-time([[Config for mini.indentscope]], true)
-try_loadstring("\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\21mini.indentscope\frequire\0", "config", "mini.indentscope")
-time([[Config for mini.indentscope]], false)
--- Config for: mini.comment
-time([[Config for mini.comment]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17mini.comment\frequire\0", "config", "mini.comment")
-time([[Config for mini.comment]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\vmap_cr\1\rcheck_ts\2\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\rcheck_ts\2\vmap_cr\1\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
 time([[Config for nvim-autopairs]], false)
+-- Config for: mason.nvim
+time([[Config for mason.nvim]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0", "config", "mason.nvim")
+time([[Config for mason.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
