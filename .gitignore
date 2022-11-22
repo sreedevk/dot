@@ -4,6 +4,9 @@ stowed/.config/*
 stowed/.config/awesome/wallpapers/*
 stowed/.emacs.d/elpa
 stowed/.emacs.d/eln-cache
+stowed/.emacs.d/projectile*
+stowed/.emacs.d/transient/*
+stowed/.emacs.d/*~
 
 # Allow
 !stowed/.config/alacritty
