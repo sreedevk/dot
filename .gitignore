@@ -2,6 +2,8 @@
 stowed/.local/bin/*
 stowed/.config/*
 stowed/.config/awesome/wallpapers/*
+stowed/.emacs.d/elpa
+stowed/.emacs.d/eln-cache
 
 # Allow
 !stowed/.config/alacritty
