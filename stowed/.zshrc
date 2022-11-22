@@ -33,15 +33,6 @@ SAVEHIST=100
 # NON INTERACTIVE MODE EARLY RETURN
 [[ $- != *i* ]] && return
 
-# KEY BINDINGS
-bindkey -s '^o' 'lfcd\n'
-bindkey '^R' history-incremental-search-backward
-bindkey '^A' beginning-of-line
-bindkey '^E' end-of-line
-bindkey '^x' edit-command-line
-bindkey '^k' up-line-or-history
-bindkey '^j' down-line-or-history
-
 # ASDF AUTOCOMPLETE
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
@@ -60,6 +51,13 @@ setopt interactivecomments
 [ -f "$HOME/.zsh/functions" ] && source "$HOME/.zsh/functions"
 [ -f "$HOME/.zsh/autoloads" ] && source "$HOME/.zsh/autoloads"
 [ -f "$HOME/.zsh/fzf" ]       && source "$HOME/.zsh/fzf"
+
+# KEY BINDINGS
+bindkey -s '^o' 'lfcd\n'
+bindkey '^R' history-incremental-search-backward
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^x' edit-command-line
 
 # ANTIBODY COMPILE ZSH
 # antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
