@@ -10,13 +10,9 @@
 --      ░                           ░
 -- AUTHOR: SREEDEV KODICHATH
 
-require('plugins')    -- installed plugins
-require('plugconf')   -- plugin specific configs
-require('opts')       -- vim global opts
-require('utils')      -- custom util lua functions
-require('commands')   -- custom nvim commands
-require('keybind')    -- keybindings
-
-if vim.g.neovide == true then
-  require("neovide")
-end
+require('plugins')
+require('plugconf')
+require('opts')
+require('commands')
+require('keybind')
+require("neovide")

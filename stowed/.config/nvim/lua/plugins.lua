@@ -1,18 +1,5 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-    vim.cmd([[packadd packer.nvim]])
-    return true
-  end
-  return false
-end
-
-local packer_bootstrap = ensure_packer()
-
-local status, packer = pcall(require, "packer")
-if not status then
+local packer_status, packer = pcall(require, "packer")
+if not packer_status then
   return
 end
 
@@ -23,8 +10,8 @@ return packer.startup({
     use "hoob3rt/lualine.nvim"
     use "tpope/vim-fugitive"
     use "tpope/vim-surround"
-    use "vim-ruby/vim-ruby"
     use "tpope/vim-rails"
+    use "vim-ruby/vim-ruby"
     use "dhruvasagar/vim-table-mode"
     use "windwp/nvim-ts-autotag"
     use "nvim-lua/plenary.nvim"
@@ -130,9 +117,6 @@ return packer.startup({
       end
     }
 
-    if packer_bootstrap then
-      require("packer").sync()
-    end
   end,
   config = {
     display = {

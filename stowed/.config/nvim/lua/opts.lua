@@ -40,8 +40,3 @@ vim.g.loaded                       = 1
 vim.g.loaded_netrwPlugin           = 1
 vim.g.better_escape_shortcut       = 'jj'
 vim.g.better_escape_interval       = 400
-
-vim.cmd('au TextYankPost * lua vim.highlight.on_yank {on_visual = false}')
-vim.cmd('language en_US.utf-8')
-vim.cmd('autocmd CursorHold * checktime')
-vim.cmd('autocmd BufEnter *.heex :setlocal filetype=eelixir')
