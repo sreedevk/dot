@@ -11,7 +11,6 @@
 (load-theme 'wombat)
 (column-number-mode)
 (global-display-line-numbers-mode t)
-(setq display-line-numbers 'relative)
 
 (dolist (mode '(org-mode-hook
 		term-mode-hook
@@ -154,6 +153,8 @@
   (when (file-directory-p "~/Data/repositories")
     (setq projectile-project-search-path '("~/Data/repositories")))
   (setq projectile-switch-project-action #'projectile-dired))
+
+(setq display-line-numbers 'relative)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

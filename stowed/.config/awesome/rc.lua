@@ -169,13 +169,13 @@ globalkeys = gears.table.join(
   -- Brightness
   awful.key(
     {}, "XF86MonBrightnessUp",
-    function() os.execute("brightnessctl set +1%") end,
+    function() os.execute("brightnessctl set +5%") end,
     { description = "Brightness +", group = "hotkeys" }
   ),
 
   awful.key(
     {}, "XF86MonBrightnessDown",
-    function() os.execute("brightnessctl set 1%-") end,
+    function() os.execute("brightnessctl set 5%-") end,
     { description = "Brightness -", group = "hotkeys" }
   ),
 
