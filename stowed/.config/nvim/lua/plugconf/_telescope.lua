@@ -1,4 +1,9 @@
-require('telescope').setup{
+local tscope_ok, tscope = pcall(require, 'telescope')
+if not tscope_ok then
+  return
+end
+
+tscope.setup{
   defaults = {
     mappings = {
       i = {
@@ -8,5 +13,4 @@ require('telescope').setup{
       }
     }
   },
-  pickers = {},
 }

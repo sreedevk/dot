@@ -22,7 +22,7 @@ map('n', '<Leader>tf', "<cmd>ToggleTerm direction=float<CR>")
 map('n', '<C-p>', "<cmd>Telescope find_files<CR>")
 map('n', '<C-b>', "<cmd>Telescope buffers<CR>")
 map('n', '<C-s>', "<cmd>Telescope<CR>")
-map('n', '<Leader>fg', "<cmd>Telescope live_grep<CR>")
+map('n', '<Leader>rg', "<cmd>Telescope live_grep<CR>")
 map('n', '<Leader>pp', ":lua require'telescope'.extensions.project.project{}<CR>")
 
 -- Aerial
@@ -58,9 +58,6 @@ map('t', '<Leader>jj', "<C-\\><C-n>")
 -- Menu Nav
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
-
--- QuickFixList
-map('n', '<C-k>', '<cmd>copen<CR>')
 map('v', '<Leader>p', '"_dP')
 
 -- formatting
