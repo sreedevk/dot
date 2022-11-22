@@ -16,8 +16,6 @@ if not status then
   return
 end
 
-pcall(require, "impatient")
-
 return packer.startup({
   function(use)
     use "wbthomason/packer.nvim"
@@ -28,16 +26,6 @@ return packer.startup({
     use "vim-ruby/vim-ruby"
     use "tpope/vim-rails"
     use "dhruvasagar/vim-table-mode"
-    use "williamboman/mason-lspconfig.nvim"
-    use "neovim/nvim-lspconfig"
-    use "hrsh7th/nvim-cmp"
-    use "hrsh7th/cmp-nvim-lsp"
-    use "hrsh7th/cmp-buffer"
-    use "hrsh7th/cmp-path"
-    use "hrsh7th/cmp-cmdline"
-    use "hrsh7th/cmp-calc"
-    use "L3MON4D3/LuaSnip"
-    use "saadparwaiz1/cmp_luasnip"
     use "windwp/nvim-ts-autotag"
     use "nvim-lua/plenary.nvim"
     use "nathom/filetype.nvim"
@@ -48,6 +36,30 @@ return packer.startup({
     use { "rose-pine/neovim", as = "rose-pine" }
     use { "glepnir/lspsaga.nvim", branch = "main" }
     use { "jdhao/better-escape.vim", event = "InsertEnter" }
+
+    use {
+      'VonHeikemen/lsp-zero.nvim',
+      requires = {
+        -- LSP Support
+        {'neovim/nvim-lspconfig'},
+        {'williamboman/mason.nvim'},
+        {'williamboman/mason-lspconfig.nvim'},
+
+        -- Autocompletion
+        {'hrsh7th/nvim-cmp'},
+        {'hrsh7th/cmp-buffer'},
+        {'hrsh7th/cmp-path'},
+        {'saadparwaiz1/cmp_luasnip'},
+        {'hrsh7th/cmp-nvim-lsp'},
+        {'hrsh7th/cmp-nvim-lua'},
+        { "hrsh7th/cmp-cmdline" },
+        { "hrsh7th/cmp-calc" },
+
+        -- Snippets
+        {'L3MON4D3/LuaSnip'},
+        {'rafamadriz/friendly-snippets'},
+      }
+    }
 
     use {
       "stevearc/aerial.nvim",
@@ -71,13 +83,6 @@ return packer.startup({
         "kyazdani42/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
       }
-    }
-
-    use {
-      "williamboman/mason.nvim",
-      config = function()
-        require("mason").setup()
-      end
     }
 
     use {
