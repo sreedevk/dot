@@ -46,6 +46,10 @@ lfcd () {
     fi
 }
 
+xplrcd() {
+  cd "$(xplr)"
+}
+
 # ix.io pastebin
 ix() {
     local opts
