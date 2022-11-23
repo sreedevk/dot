@@ -21,4 +21,5 @@ stowed/.emacs.d/*~
 !stowed/.config/rofi
 !stowed/.config/picom.conf
 !stowed/.config/nvim
+!stowed/.config/doom
 !stowed/.config/polybar
