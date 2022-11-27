@@ -19,12 +19,13 @@
 
 (setq calendar-date-style 'iso)
 (setq display-line-numbers-type 'relative)
-(setq evil-escape-key-sequence "jj")
 (setq display-time-mode 1)
 (setq treemacs-width 30)
 (setq auto-save-default t)
 (setq confirm-kill-emacs nil)
 (setq doom-scratch-initial-major-mode 'lisp-interaction-mode)
+(setq-default evil-escape-key-sequence "jj")
+(setq-default evil-escape-delay 0.5)
 
 (setq doom-fallback-buffer-name "► Doom"
       +doom-dashboard-name "► Doom"
@@ -47,3 +48,7 @@
 
 (evil-global-set-key 'motion "j" 'evil-next-visual-line)
 (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+
+(set-frame-parameter (selected-frame) 'alpha '(85 . 50))
+(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
+(setq which-key-idle-delay 0.8)
