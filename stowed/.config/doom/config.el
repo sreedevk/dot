@@ -7,7 +7,17 @@
       user-mail-address "sreedevpadmakumar@gmail.com")
 
 (setq doom-theme 'doom-ayu-dark
-      doom-font (font-spec :family "JetBrainsMono" :size 16 :weight 'bold))
+      doom-font (font-spec :family "JetBrainsMono" :size 16)
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono" :size 16)
+      doom-big-font (font-spec :family "JetBrainsMono" :size 24))
+
+(after! doom-themes
+  (setq doom-themes-enable-bold t)
+  (setq doom-themes-enable-italic t))
+
+(custom-set-faces!
+  '(font-lock-comm :slant italic)
+  '(font-lock-keyword-face :slant italic))
 
 (setq org-directory "~/Data/org")
 (setq org-agenda-files "~/Data/org/agenda")
