@@ -7,8 +7,8 @@
       user-mail-address "sreedevpadmakumar@gmail.com")
 
 (setq doom-theme 'doom-ayu-dark
-      doom-font (font-spec :family "JetBrainsMono" :size 16)
-      doom-variable-pitch-font (font-spec :family "JetBrainsMono" :size 16)
+      doom-font (font-spec :family "JetBrainsMono" :size 18)
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono" :size 18)
       doom-big-font (font-spec :family "JetBrainsMono" :size 24))
 
 (after! doom-themes
@@ -40,6 +40,8 @@
 (setq doom-fallback-buffer-name "► Doom"
       +doom-dashboard-name "► Doom"
       doom-fallback-buffer "*dashboard*")
+
+(display-time-mode 1)
 
 (map! "C-c a" #'emmet-expand-line)
 (map! :leader
