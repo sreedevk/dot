@@ -1,10 +1,12 @@
-local theme_ok, theme = pcall(require, "rose-pine")
+local theme_ok, theme = pcall(require, 'nightfox')
 if not theme_ok then
   return
 end
 
 theme.setup({
-  disable_background = true,
+  options = {
+    transparent = true,
+  }
 })
 
-vim.cmd('colorscheme rose-pine')
+vim.cmd('colorscheme terafox')
