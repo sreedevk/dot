@@ -18,6 +18,7 @@ alias macs="emacsclient -c -a 'emacs'"
 alias nvide="WINIT_X11_SCALE_FACTOR=1.2 neovide --multigrid"
 alias lg="lazygit"
 alias t="tmux"
+alias clock="tty-clock -csSb -C3"
 
 alias e="$EDITOR"
 alias v="$VISUAL"
