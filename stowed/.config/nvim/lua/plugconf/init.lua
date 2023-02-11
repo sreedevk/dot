@@ -1,4 +1,5 @@
 require("plugconf/_telescope")
+require("plugconf/_telescope_file_browser")
 require("plugconf/_lualine")
 require("plugconf/_theme")
 require("plugconf/_neotree")

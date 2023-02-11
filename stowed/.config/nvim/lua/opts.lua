@@ -40,3 +40,5 @@ vim.g.loaded                       = 1
 vim.g.loaded_netrwPlugin           = 1
 vim.g.better_escape_shortcut       = 'jj'
 vim.g.better_escape_interval       = 400
+
+vim.api.nvim_set_hl(0, "CursorLine", { default = true, blend = 50 })

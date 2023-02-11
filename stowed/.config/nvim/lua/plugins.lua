@@ -55,6 +55,13 @@ return packer.startup({
     }
 
     use {
+      "folke/zen-mode.nvim",
+      config = function()
+        require('zen-mode').setup()
+      end
+    }
+
+    use {
       'ggandor/leap.nvim',
       config = function()
         require('leap').add_default_mappings()
@@ -88,6 +95,8 @@ return packer.startup({
         'nvim-telescope/telescope-project.nvim'
       }
     }
+
+    use { 'nvim-telescope/telescope-file-browser.nvim' }
 
     use {
       'goolord/alpha-nvim',

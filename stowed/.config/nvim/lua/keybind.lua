@@ -37,8 +37,14 @@ map('', '<right>', "<nop>")
 -- Tabs
 map('n', '<C-t>', "<cmd>tabnew<CR>")
 
+-- Zen Mode
+map('n', '<Leader>z', '<cmd>ZenMode<CR>')
+
 -- Undo Tree
 map('n', '<Leader>u', "<cmd>UndotreeToggle<CR>")
+
+-- File Browser
+map('n', '<Leader>fb', "<cmd>Telescope file_browser<CR>")
 
 -- Easy Escape
 map('t', '<Leader>jj', "<C-\\><C-n>")
