@@ -5,7 +5,7 @@ end
 
 theme.setup({
   options = {
-    transparent = false,
+    transparent = true,
   }
 })
 

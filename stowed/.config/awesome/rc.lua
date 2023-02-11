@@ -36,10 +36,10 @@ end
 
 beautiful.init(os.getenv("HOME") .. "/.config/awesome/theme/base.lua")
 
-modkey     = "Mod4"
-terminal   = "kitty"
-editor     = os.getenv("EDITOR") or "nvim"
-editor_cmd = terminal .. " -e " .. editor
+modkey            = "Mod4"
+terminal          = "kitty"
+editor            = os.getenv("EDITOR") or "nvim"
+editor_cmd        = terminal .. " -e " .. editor
 clipboard_manager = "copyq"
 
 -- Autorun
@@ -314,12 +314,12 @@ globalkeys = gears.table.join(
     { description = "decrease the number of columns", group = "layout" }
   ),
 
-  awful.key({ modkey }, "space",
+  awful.key({ modkey }, "]",
     function() awful.layout.inc(1) end,
     { description = "select next", group = "layout" }
   ),
   awful.key(
-    { modkey, "Shift" }, "space",
+    { modkey }, "[",
     function() awful.layout.inc(-1) end,
     { description = "select previous", group = "layout" }
   ),
@@ -361,7 +361,7 @@ clientkeys = gears.table.join(
   ),
 
   awful.key(
-    { modkey, "Shift" }, "space",
+    { modkey }, "space",
     awful.client.floating.toggle,
     { description = "toggle floating", group = "client" }
   ),
