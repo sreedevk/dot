@@ -54,5 +54,7 @@ map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 map('v', '<Leader>p', '"_dP')
 
--- formatting
+-- lsp
 map('n', '<Leader>ff', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>')
+map('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<CR>')
+
