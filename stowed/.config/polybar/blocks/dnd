@@ -1,9 +1,3 @@
 #!/usr/bin/sh
 
-command="naughty = require(\"naughty\")
-if naughty.is_suspended() then
-  return \"DND\"
-end"
-
-result=$(echo $command | awesome-client)
-echo $result | grep -o "DND"
+[[ "$(dunstctl is-paused)" == "true" ]] && echo "DND" 
