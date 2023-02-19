@@ -23,6 +23,19 @@ return packer.startup({
     use { 'glepnir/lspsaga.nvim', branch = 'main' }
     use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
 
+    use({
+      "utilyre/barbecue.nvim",
+      tag = "*",
+      requires = {
+        "SmiteshP/nvim-navic",
+        "nvim-tree/nvim-web-devicons",
+      },
+      after = "nvim-web-devicons", -- keep this if you're using NvChad
+      config = function()
+        require("barbecue").setup()
+      end,
+    })
+
     use {
       'VonHeikemen/lsp-zero.nvim',
       requires = {
