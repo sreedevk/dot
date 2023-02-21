@@ -1,7 +1,7 @@
 require("plugconf/_telescope")
 require("plugconf/_telescope_file_browser")
-require("plugconf/_lualine")
 require("plugconf/_theme")
+require("plugconf/_lualine")
 require("plugconf/_neotree")
 require("plugconf/_alpha")
 require("plugconf/_nvim_cmp")

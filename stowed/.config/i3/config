@@ -6,6 +6,10 @@
 # terminal
 set $term kitty
 
+# Application Launcher
+set $app_launcher "rofi -show combi -combi-modes 'run,window,ssh' -modes combi"
+set $window_switcher "rofi -show window"
+
 # Setup Key Definitions
 set $mod Mod4
 
@@ -38,8 +42,8 @@ gaps outer -2
 # Shortcuts - Terminal + Access
 bindsym $mod+Return            exec --no-startup-id $term
 bindsym $mod+KP_Enter          exec --no-startup-id $term
-bindsym $mod+d                 exec --no-startup-id "rofi -show combi -combi-modes 'run,window,ssh' -modes combi"
-bindsym $mod+Tab               exec --no-startup-id "rofi -show window"
+bindsym $mod+d                 exec --no-startup-id $app_launcher
+bindsym $mod+Tab               exec --no-startup-id $window_switcher
 
 # Brightness
 bindsym XF86MonBrightnessUp    exec --no-startup-id "brightnessctl set +10%"

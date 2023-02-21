@@ -22,7 +22,6 @@ alias ta="tmux a"
 alias clock="tty-clock -csSb -C3"
 
 alias e="$EDITOR"
-alias v="$VISUAL"
 
 # Tmuxinator - Tmux Session Manager
 alias mux='tmuxinator'
