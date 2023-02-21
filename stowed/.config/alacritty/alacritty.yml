@@ -16,15 +16,15 @@ shell:
   args:
     - --login
 font:
-  size: 22
+  size: 20
   normal:
-    family: JetBrains Mono
+    family: Fira Code
     style: Regular
   bold:
-    family: JetBrains Mono
+    family: Fira Code
     style: Bold
   italic:
-    family: Jetbrains Mono
+    family: Fira Code
     style: Italic
 
 draw_bold_text_with_bright_colors: true

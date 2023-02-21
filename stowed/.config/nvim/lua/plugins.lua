@@ -24,6 +24,13 @@ return packer.startup({
     use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
 
     use({
+      'petertriho/nvim-scrollbar',
+      config = function()
+        require("scrollbar").setup()
+      end
+    })
+
+    use({
       "utilyre/barbecue.nvim",
       tag = "*",
       requires = {
@@ -137,7 +144,6 @@ return packer.startup({
         require('mini.comment').setup()
       end
     }
-
   end,
   config = {
     display = {
