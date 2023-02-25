@@ -17,7 +17,6 @@ return packer.startup({
     use 'nvim-lua/plenary.nvim'
     use 'nathom/filetype.nvim'
     use 'nvim-treesitter/nvim-treesitter'
-    use 'kdheepak/lazygit.nvim'
     use 'mbbill/undotree'
     use 'ggandor/flit.nvim'
     use 'EdenEast/nightfox.nvim'
