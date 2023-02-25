@@ -54,6 +54,11 @@ map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 map('v', '<Leader>p', '"_dP')
 
+-- Notes
+map('n', '<Leader>no', "<cmd>Neorg workspace notes<CR>")
+map('n', '<Leader>nr', "<cmd>Neorg return<CR>")
+map('n', '<Leader>di', "<cmd>Neorg journal<CR>")
+
 -- lsp
 map('n', '<Leader>ff', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>')
 map('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<CR>')
