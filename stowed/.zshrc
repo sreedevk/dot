@@ -37,6 +37,7 @@ SAVEHIST=100
 # ASDF AUTOCOMPLETE
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
+fpath+=~/.zfunc
 
 # AUTOLOAD MODULES
 autoload -U colors && colors

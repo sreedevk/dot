@@ -19,9 +19,17 @@ return packer.startup({
     use 'nvim-treesitter/nvim-treesitter'
     use 'kdheepak/lazygit.nvim'
     use 'mbbill/undotree'
+    use 'ggandor/flit.nvim'
     use 'EdenEast/nightfox.nvim'
     use { 'glepnir/lspsaga.nvim', branch = 'main' }
     use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
+
+    use {
+      "nvim-neorg/neorg",
+      requires = { "nvim-lua/plenary.nvim",
+        "nvim-neorg/neorg-telescope"
+      },
+    }
 
     use({
       'petertriho/nvim-scrollbar',
