@@ -5,29 +5,40 @@ end
 
 neorg.setup {
   load = {
-    ["core.norg.concealer"] = {},
-    ["core.clipboard.code-blocks"] = {},
-    ["core.keybinds"] = {
+    ["core.norg.concealer"]         = {},
+    ["core.presenter"]              = {
+      config = {
+        zen_mode = "zen-mode"
+      }
+    },
+    ["core.promo"]                  = {},
+    ["core.clipboard.code-blocks"]  = {},
+    ["core.keybinds"]               = {
       config = {
         neorg_leader = ";"
       }
     },
-    ["core.looking-glass"] = {},
-    ["core.norg.esupports.hop"] = {},
+    ["core.looking-glass"]          = {},
+    ["core.norg.esupports.hop"]     = {},
     ["core.norg.esupports.metagen"] = {},
-    ["core.norg.esupports.indent"] = {},
-    ["core.norg.qol.toc"] = {},
-    ["core.norg.qol.todo_items"] = {},
-    ["core.upgrade"] = {},
-    ["core.tangle"] = {},
-    ["core.norg.dirman"] = {
+    ["core.norg.esupports.indent"]  = {},
+    ["core.norg.qol.toc"]           = {},
+    ["core.norg.qol.todo_items"]    = {},
+    ["core.upgrade"]                = {},
+    ["core.tangle"]                 = {},
+    ["core.norg.completion"]        = {
+      config = {
+        engine = "nvim-cmp"
+      }
+    },
+    ["core.norg.dirman"]            = {
       config = {
         workspaces = {
           notes = "~/Data/notebook/"
         },
       },
     },
-    ["core.norg.journal"] = {
+    ["core.norg.journal"]           = {
       config = {
         strategy = "flat",
         workspace = "notes",
