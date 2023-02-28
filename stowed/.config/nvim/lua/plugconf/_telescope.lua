@@ -3,7 +3,7 @@ if not tscope_ok then
   return
 end
 
-tscope.setup{
+tscope.setup {
   defaults = {
     mappings = {
       i = {

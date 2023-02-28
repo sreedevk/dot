@@ -1,12 +1,12 @@
 local lualine_ok, lualine = pcall(require, "lualine")
 if not lualine_ok then
- return
+  return
 end
 
 lualine.setup {
   options = {
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''}
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' }
   },
   sections = {
     lualine_a = {

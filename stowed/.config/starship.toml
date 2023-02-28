@@ -105,7 +105,7 @@ disabled = true
 disabled = true
 
 [rust]
-disabled = true
+disabled = false
 
 [scala]
 disabled = true

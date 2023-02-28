@@ -61,4 +61,3 @@ map('n', '<Leader>di', "<cmd>Neorg journal<CR>")
 -- lsp
 map('n', '<Leader>ff', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>')
 map('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<CR>')
-
