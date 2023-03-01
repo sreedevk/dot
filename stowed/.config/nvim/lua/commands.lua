@@ -12,14 +12,39 @@ api.nvim_create_user_command(
   {}
 )
 
-local yankGrp = api.nvim_create_augroup("YankHighlight", { clear = true })
-api.nvim_create_autocmd("TextYankPost", {
-  command = "silent! lua vim.highlight.on_yank()",
-  group = yankGrp,
-})
+local helpers_ok, helpers = pcall(require, "helpers")
+if not helpers_ok then
+  return
+end
 
-vim.cmd [[
-  au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
-  au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=heex
-  au BufRead,BufNewFile mix.lock set filetype=elixir
-]]
+local auto_commands = {
+  open_folds = {
+    {
+      { "BufReadPost", "FileReadPost" },
+      "*",
+      "normal zR"
+    }
+  },
+  yank_highlight = {
+    { "TextYankPost", "*", "silent! lua vim.highlight.on_yank()" }
+  },
+  eex_corrections = {
+    {
+      { "BufRead", "BufNewFile" },
+      { "*.ex",    "*.exs" },
+      "set filetype=elixir"
+    },
+    {
+      { "BufRead", "BufNewFile" },
+      { "*.eex",   "*.heex",    "*.leex", "*.sface", "*.lexs" },
+      "set filetype=heex"
+    },
+    {
+      { "BufRead", "BufNewFile" },
+      "mix.lock",
+      "set filetype=elixir"
+    }
+  }
+}
+
+helpers.create_augroups(auto_commands)
