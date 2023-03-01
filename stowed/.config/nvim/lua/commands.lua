@@ -18,13 +18,6 @@ if not helpers_ok then
 end
 
 local auto_commands = {
-  open_folds = {
-    {
-      { "BufReadPost", "FileReadPost" },
-      "*",
-      "normal zR"
-    }
-  },
   yank_highlight = {
     { "TextYankPost", "*", "silent! lua vim.highlight.on_yank()" }
   },

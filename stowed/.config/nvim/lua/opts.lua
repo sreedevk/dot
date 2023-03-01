@@ -30,6 +30,7 @@ vim.opt.completeopt                = 'menuone,noinsert,noselect'
 vim.opt.undofile                   = false
 vim.opt.foldmethod                 = "expr"
 vim.opt.foldexpr                   = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable                 = false
 
 vim.wo.signcolumn                  = 'number'
 vim.wo.wrap                        = true
