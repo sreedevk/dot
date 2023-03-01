@@ -10,9 +10,7 @@ return packer.startup({
     use 'hoob3rt/lualine.nvim'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-surround'
-    use 'tpope/vim-rails'
     use 'tpope/vim-characterize'
-    use 'vim-ruby/vim-ruby'
     use 'windwp/nvim-ts-autotag'
     use 'nvim-lua/plenary.nvim'
     use 'nathom/filetype.nvim'
@@ -22,6 +20,13 @@ return packer.startup({
     use 'EdenEast/nightfox.nvim'
     use { 'glepnir/lspsaga.nvim', branch = 'main' }
     use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
+
+    use {
+      "utilyre/barbecue.nvim",
+      requires = {
+        "SmiteshP/nvim-navic",
+      }
+    }
 
     use {
       "nvim-neorg/neorg",
@@ -37,18 +42,6 @@ return packer.startup({
       end
     })
 
-    use({
-      "utilyre/barbecue.nvim",
-      tag = "*",
-      requires = {
-        "SmiteshP/nvim-navic",
-        "nvim-tree/nvim-web-devicons",
-      },
-      after = "nvim-web-devicons", -- keep this if you're using NvChad
-      config = function()
-        require("barbecue").setup()
-      end,
-    })
 
     use {
       'VonHeikemen/lsp-zero.nvim',
