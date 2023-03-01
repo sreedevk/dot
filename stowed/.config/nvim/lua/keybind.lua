@@ -22,6 +22,8 @@ map('n', '<C-p>', "<cmd>Telescope find_files<CR>")
 map('n', '<C-b>', "<cmd>Telescope buffers<CR>")
 map('n', '<C-s>', "<cmd>Telescope<CR>")
 map('n', '<Leader>rg', "<cmd>Telescope live_grep<CR>")
+map('n', '<Leader>rg', "<cmd>Telescope live_grep<CR>")
+map('n', '<Leader>gr', "<cmd>Telescope grep_string<CR>")
 map('n', '<Leader>pp', ":lua require'telescope'.extensions.project.project{}<CR>")
 
 -- Aerial
