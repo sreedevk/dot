@@ -11,11 +11,6 @@ csv() {
   column -s, -t < $1 | less -$2 -N -S
 }
 
-# process filter & kill
-pk(){
-  sudo kill -9 $(ps aux | fzf | awk '{print $2}')
-}
-
 # print terminal emulator color palette
 palette() {
     local -a colors
@@ -44,10 +39,6 @@ lfcd () {
         rm -f "$tmp"
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
-}
-
-xplrcd() {
-  cd "$(xplr)"
 }
 
 # ix.io pastebin
@@ -88,23 +79,9 @@ clear(){
   echo -en "\x1b[2J\x1b[1;1H"
 }
 
-# Stream Xorg Session Over SSH & Render on Xephyr
-sshx11(){
-  nohup Xephyr -br -ac -noreset -screen 1920x1080 :1 >/dev/null 2>&1 &
-  DISPLAY=:1 ssh -Y $@ i3
-}
-
 # Start & Detach Process
 detach-proc(){
   nohup $1 >/dev/null 2>&1 &
-}
-
-# Espressif ESP-IDF Initialization
-init-idf() {
-  echo "Initializing ESP-IDF (ESPRESSIF)"
-  export ADF_PATH=~/esp/esp-adf
-  export IDF_PATH=~/esp/esp-idf
-  . $IDF_PATH/export.sh
 }
 
 # Find Keycode
@@ -160,27 +137,4 @@ lan-connect() {
   read username
   [[ -z "$username" ]] && username=$USER
   ssh $username@$remote
-}
-
-lan-x11() {
-  remote="$(lan-scan)"
-  echo "username [leave empty if $USER]: "
-  read username
-  [[ -z "$username" ]] && username=$USER
-  nohup Xephyr -br -ac -noreset -screen 800×480 -resizeable :1 >/dev/null 2>&1 &
-  DISPLAY=:1 ssh -Y $username@$remote
-}
-
-# This function copies tranmission downloads from rpi4b to local
-transmission-sync() {
-  remote="$(lan-scan)"
-  echo "username [leave empty if $USER]: "
-  read username
-  [[ -z "$username" ]] && username=$USER
-  echo "rsync -r $username@$remote:/home/$username/downloads/ $HOME/Downloads/"
-  rsync -r "$username@$remote:/home/$username/downloads/" "$HOME/Downloads/"
-}
-
-keys() {
-  xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }

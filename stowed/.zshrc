@@ -5,15 +5,9 @@
 ## zmodload zsh/zprof
 
 # PATHS
-YARN_PATH="$HOME/.yarn/bin"
-CONDA_PATH="/opt/anaconda/bin"
-KENDRYTE_PATH="/opt/kendryte-toolchain/bin"
-CARGO_PATH="$HOME/.cargo/bin"
-LOCAL_BIN_PATH="$HOME/.local/bin"
-ROSWELL_PATH="$HOME/.roswell/bin"
-
+LOCAL_BIN_PATH="$HOME/.local/bin/**/*"
 export GOPATH="$HOME/go"
-export PATH="$PATH:$YARN_PATH:$CONDA_PATH:$KENDRYTE_PATH:$CARGO_PATH:$LOCAL_BIN_PATH:$GOPATH:$ROSWELL_PATH:$GOPATH/bin"
+export PATH="$PATH:$LOCAL_BIN_PATH:$GOPATH/bin/"
 
 # ENV VARIABLES
 export KEYTIMEOUT=1
@@ -55,7 +49,7 @@ setopt interactivecomments
 [ -f "$HOME/.zsh/fzf" ]       && source "$HOME/.zsh/fzf"
 
 # KEY BINDINGS
-bindkey -s '^o' 'xplrcd\n'
+bindkey -s '^o' 'lfcd\n'
 bindkey '^R' history-incremental-search-backward
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
