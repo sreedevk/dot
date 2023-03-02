@@ -22,16 +22,16 @@ return packer.startup({
     use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
 
     use {
-      "utilyre/barbecue.nvim",
+      'utilyre/barbecue.nvim',
       requires = {
-        "SmiteshP/nvim-navic",
+        'SmiteshP/nvim-navic',
       }
     }
 
     use {
-      "nvim-neorg/neorg",
-      requires = { "nvim-lua/plenary.nvim",
-        "nvim-neorg/neorg-telescope"
+      'nvim-neorg/neorg',
+      requires = { 'nvim-lua/plenary.nvim',
+        'nvim-neorg/neorg-telescope'
       },
     }
 
@@ -41,7 +41,6 @@ return packer.startup({
         require("scrollbar").setup()
       end
     })
-
 
     use {
       'VonHeikemen/lsp-zero.nvim',
@@ -75,7 +74,7 @@ return packer.startup({
     }
 
     use {
-      "folke/zen-mode.nvim",
+      'folke/zen-mode.nvim',
       config = function()
         require('zen-mode').setup()
       end
@@ -90,7 +89,7 @@ return packer.startup({
 
     use {
       'nvim-neo-tree/neo-tree.nvim',
-      branch = "v2.x",
+      branch = 'v2.x',
       requires = {
         'nvim-lua/plenary.nvim',
         'kyazdani42/nvim-web-devicons',
@@ -152,5 +151,4 @@ return packer.startup({
       end
     }
   }
-}
-)
+})
