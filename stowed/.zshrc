@@ -5,9 +5,10 @@
 ## zmodload zsh/zprof
 
 # PATHS
-LOCAL_BIN_PATH="$HOME/.local/bin/**/*"
+LOCAL_BIN_PATH="$HOME/.local/bin"
+LOCAL_BIN_SUB_PATH="$HOME/.local/bin/**/*"
 export GOPATH="$HOME/go"
-export PATH="$PATH:$LOCAL_BIN_PATH:$GOPATH/bin/"
+export PATH="$PATH:$LOCAL_BIN_PATH:$LOCAL_BIN_SUB_PATH:$GOPATH/bin/"
 
 # ENV VARIABLES
 export KEYTIMEOUT=1
