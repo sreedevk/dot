@@ -22,6 +22,13 @@ return packer.startup({
     use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
 
     use {
+      'glacambre/firenvim',
+      run = function()
+        vim.fn['firenvim#install'](0)
+      end
+    }
+
+    use {
       'utilyre/barbecue.nvim',
       requires = {
         'SmiteshP/nvim-navic',
