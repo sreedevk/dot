@@ -1,3 +1,8 @@
+# ASDF AUTOCOMPLETE
+. $HOME/.asdf/asdf.sh
+fpath=(${ASDF_DIR}/completions $fpath)
+fpath+=~/.zfunc
+
 # DIRENV LOAD
 eval "$(direnv hook zsh)"
 
@@ -10,3 +15,4 @@ eval "$(starship init zsh)"
 # ZOXIDE - MODERN CD
 eval "$(zoxide init zsh)"
 eval "$(luarocks path --bin)"
+eval "$(atuin init zsh --disable-up-arrow)"

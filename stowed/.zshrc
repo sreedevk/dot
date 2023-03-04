@@ -29,10 +29,11 @@ SAVEHIST=100
 # NON INTERACTIVE MODE EARLY RETURN
 [[ $- != *i* ]] && return
 
-# ASDF AUTOCOMPLETE
-. $HOME/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
-fpath+=~/.zfunc
+# LOAD ALIASES & FUNCTIONS
+[ -f "$HOME/.zsh/aliases" ]   && source "$HOME/.zsh/aliases"
+[ -f "$HOME/.zsh/functions" ] && source "$HOME/.zsh/functions"
+[ -f "$HOME/.zsh/autoloads" ] && source "$HOME/.zsh/autoloads"
+[ -f "$HOME/.zsh/fzf" ]       && source "$HOME/.zsh/fzf"
 
 # AUTOLOAD MODULES
 autoload -U colors && colors
@@ -43,15 +44,9 @@ autoload edit-command-line; zle -N edit-command-line
 setopt PROMPT_SUBST
 setopt interactivecomments
 
-# LOAD ALIASES & FUNCTIONS
-[ -f "$HOME/.zsh/aliases" ]   && source "$HOME/.zsh/aliases"
-[ -f "$HOME/.zsh/functions" ] && source "$HOME/.zsh/functions"
-[ -f "$HOME/.zsh/autoloads" ] && source "$HOME/.zsh/autoloads"
-[ -f "$HOME/.zsh/fzf" ]       && source "$HOME/.zsh/fzf"
-
 # KEY BINDINGS
 bindkey -s '^o' 'lfcd\n'
-bindkey '^R' history-incremental-search-backward
+# bindkey '^R' history-incremental-search-backward
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^x' edit-command-line
