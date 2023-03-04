@@ -46,10 +46,12 @@ setopt interactivecomments
 
 # KEY BINDINGS
 bindkey -s '^o' 'lfcd\n'
-# bindkey '^R' history-incremental-search-backward
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^x' edit-command-line
+
+# REVERSE SEARCH (ENABLE IF ATUIN IS NOT INSTALLED)
+# bindkey '^R' history-incremental-search-backward
 
 # ANTIBODY COMPILE ZSH
 # antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
