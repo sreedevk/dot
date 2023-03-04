@@ -24,3 +24,5 @@ stowed/.emacs.d/*~
 !stowed/.config/doom
 !stowed/.config/polybar
 !stowed/.config/zellij
+!stowed/.config/nushell/env.nu
+!stowed/.config/nushell/config.nu
