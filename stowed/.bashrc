@@ -27,14 +27,19 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Vim Bindings
+# VIM BINDINGS
 set -o vi
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 
+# AUTOLOAD STARSHIP 
 eval "$(starship init bash)"
 
-# Shopt
+# AUTOLOAD ASDF VM
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
+
+# SHOPT
 shopt -s autocd # change to named directory
 shopt -s cdspell # autocorrects cd misspellings
 shopt -s cmdhist # save multi-line commands in history as single line
