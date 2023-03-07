@@ -21,6 +21,13 @@ local auto_commands = {
   yank_highlight = {
     { "TextYankPost", "*", "silent! lua vim.highlight.on_yank()" }
   },
+  notes = {
+    {
+      { "BufRead", "BufNewFile" },
+      ".norg",
+      "silent! TableModeEnable"
+    }
+  },
   eex_corrections = {
     {
       { "BufRead", "BufNewFile" },
