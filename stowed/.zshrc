@@ -11,10 +11,15 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$LOCAL_BIN_PATH:$LOCAL_BIN_SUB_PATH:$GOPATH/bin/"
 
 # ENV VARIABLES
-export KEYTIMEOUT=1
-export GPG_TTY=$(tty)
 export VISUAL="nvim"
 export EDITOR=nvim
+export READER="zathura"
+export TERMINAL="kitty"
+export BROWSER="brave"
+
+# BETTER TERM
+export KEYTIMEOUT=1
+export GPG_TTY=$(tty)
 export TERM=xterm-256color
 export TERMINFO=/usr/share/terminfo/
 export HISTFILE=~/.cache/zsh/history
@@ -29,16 +34,22 @@ SAVEHIST=100
 # NON INTERACTIVE MODE EARLY RETURN
 [[ $- != *i* ]] && return
 
+# BEAM CURSOR
+echo -ne '\e[5 q'
+
+# AUTOLOAD MODULES
+autoload -U colors && colors
+autoload -U compinit && compinit
+autoload edit-command-line
+
+zle -N edit-command-line
+
 # LOAD ALIASES & FUNCTIONS
 [ -f "$HOME/.zsh/aliases" ]   && source "$HOME/.zsh/aliases"
 [ -f "$HOME/.zsh/functions" ] && source "$HOME/.zsh/functions"
 [ -f "$HOME/.zsh/autoloads" ] && source "$HOME/.zsh/autoloads"
 [ -f "$HOME/.zsh/fzf" ]       && source "$HOME/.zsh/fzf"
-
-# AUTOLOAD MODULES
-autoload -U colors && colors
-autoload -U compinit && compinit
-autoload edit-command-line; zle -N edit-command-line
+[ -f "$HOME/.zsh/vi" ]       && source "$HOME/.zsh/vi"
 
 # ZSH OPTS
 setopt PROMPT_SUBST

@@ -62,7 +62,7 @@ map('n', ']p', '<cmd>bnext<CR>')
 map('n', '[p', '<cmd>bprev<CR>')
 
 -- Notes
-map('n', '<Leader>no', "<cmd>Neorg workspace notes<CR>")
+map('n', '<Leader>no', "<cmd>Neorg index<CR>")
 map('n', '<Leader>nr', "<cmd>Neorg return<CR>")
 map('n', '<Leader>di', "<cmd>Neorg journal<CR>")
 map('n', '<Leader>tm', "<cmd>TableModeToggle<CR>")
