@@ -1,32 +1,33 @@
 [user]
-	email = sreedevpadmakumar@gmail.com
-	name = sreedev
-	signingkey = F2D006638E49CD45
+  email = sreedevpadmakumar@gmail.com
+  name = sreedev
+  signingkey = F2D006638E49CD45
 [core]
-	attributesfile = /home/sreedev/.gitattributes
+  attributesfile = /home/sreedev/.gitattributes
   editor = nvim
   pager = delta
 [commit]
-	gpgsign = true
+  gpgsign = true
 [init]
-	defaultBranch = master
+  defaultBranch = master
 [color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
   ui = true
 [alias]
   a      = add
   st     = status
   co     = checkout
+  lg     = log --decorate --oneline --graph
   br     = branch
   cb     = checkout -b
   dfs    = diff --staged
   cm     = commit -m
   ca     = commit --amend
   cp     = cherry-pick
-  cl 	   = clone --recursive -j8
+  cl     = clone --recursive -j8
   wta    = worktree add
   wtr    = worktree remove
 [rerere]
@@ -34,10 +35,10 @@
 [advice]
   detachedHead = false
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [interactive]
   diffFilter = delta --color-only
 [add.interactive]
