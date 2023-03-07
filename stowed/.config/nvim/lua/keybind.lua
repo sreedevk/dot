@@ -16,7 +16,7 @@ map('n', '<Leader>lz', "<cmd>Lazy<CR>")
 
 -- convenience
 map('n', '<Leader>w', "<cmd>w<CR>")
-map('n', '<Leader>q', "<cmd>wqa<CR>")
+map('n', '<Leader>q', "<cmd>q<CR>")
 map('n', '<Leader>h', "<cmd>noh<CR>")
 map('v', '<Leader>p', '"_dP')
 
@@ -49,9 +49,6 @@ map('n', '<Leader>z', '<cmd>ZenMode<CR>')
 
 -- Undo Tree
 map('n', '<Leader>u', "<cmd>UndotreeToggle<CR>")
-
--- File Browser
-map('n', '<Leader>fb', "<cmd>Telescope file_browser<CR>")
 
 -- Easy Escape
 map('t', '<Leader>jj', "<C-\\><C-n>")
