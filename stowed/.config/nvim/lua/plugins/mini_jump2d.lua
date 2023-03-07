@@ -1,5 +1,8 @@
 return {
   'echasnovski/mini.jump2d',
+  keys = {
+    { "S" }
+  },
   config = function()
     require('mini.jump2d').setup({
       spotter = nil,

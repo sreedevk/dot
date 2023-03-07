@@ -4,6 +4,12 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-neorg/neorg-telescope'
   },
+  keys = {
+    { '<Leader>no', '<cmd>Neorg workspace notes<CR>', desc = 'notes open' },
+    { '<Leader>nr', '<cmd>Neorg return<CR>', desc = 'notes return' },
+    { '<Leader>di', '<cmd>Neorg journal<CR>', desc = 'journal' }
+  },
+  ft = { '*.norg' },
   config = function()
     require('neorg').setup {
       load = {

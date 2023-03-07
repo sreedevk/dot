@@ -8,7 +8,12 @@ return {
   'nvim-lua/plenary.nvim',
   'nathom/filetype.nvim',
   'mbbill/undotree',
-  'dhruvasagar/vim-table-mode',
+  {
+    'dhruvasagar/vim-table-mode',
+    keys = {
+      { '<Leader>tm', "<cmd>TableModeToggle<CR>", desc = "table mode" }
+    }
+  },
   {
     'glepnir/lspsaga.nvim',
     branch = 'main'
@@ -25,12 +30,18 @@ return {
   },
   {
     'stevearc/aerial.nvim',
+    keys = {
+      { '<Leader>cv', '<cmd>AerialToggle<CR>', desc = "aerial toggle" }
+    },
     config = function()
       require('aerial').setup()
     end
   },
   {
     'folke/zen-mode.nvim',
+    keys = {
+      { '<Leader>z', '<cmd>ZenMode<CR>', desc = "zen mode" }
+    },
     config = function()
       require('zen-mode').setup()
     end
@@ -47,6 +58,10 @@ return {
   {
     'akinsho/toggleterm.nvim',
     version = '*',
+    keys = {
+      { '<Leader>t',  "<cmd>ToggleTerm<CR>" },
+      { '<Leader>tf', "<cmd>ToggleTerm direction=float<CR>" }
+    },
     config = function()
       require('toggleterm').setup()
     end
