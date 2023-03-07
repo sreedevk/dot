@@ -16,8 +16,8 @@ return packer.startup({
     use 'nathom/filetype.nvim'
     use 'nvim-treesitter/nvim-treesitter'
     use 'mbbill/undotree'
-    use 'ggandor/flit.nvim'
     use 'EdenEast/nightfox.nvim'
+    use 'dhruvasagar/vim-table-mode'
     use { 'glepnir/lspsaga.nvim', branch = 'main' }
     use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
 

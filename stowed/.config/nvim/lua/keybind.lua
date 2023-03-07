@@ -12,6 +12,7 @@ map('n', '<C-n>', "<cmd>NeoTreeRevealToggle<CR>")
 map('n', '<Leader>w', "<cmd>w<CR>")
 map('n', '<Leader>q', "<cmd>wqa<CR>")
 map('n', '<Leader>h', "<cmd>noh<CR>")
+map('v', '<Leader>p', '"_dP')
 
 -- terminal
 map('n', '<Leader>t', "<cmd>ToggleTerm<CR>")
@@ -52,12 +53,12 @@ map('t', '<Leader>jj', "<C-\\><C-n>")
 -- Menu Nav
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
-map('v', '<Leader>p', '"_dP')
 
 -- Notes
 map('n', '<Leader>no', "<cmd>Neorg workspace notes<CR>")
 map('n', '<Leader>nr', "<cmd>Neorg return<CR>")
 map('n', '<Leader>di', "<cmd>Neorg journal<CR>")
+map('n', '<Leader>tm', "<cmd>TableModeToggle<CR>")
 
 -- lsp
 map('n', '<Leader>ff', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>')
