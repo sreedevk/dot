@@ -145,6 +145,13 @@ return packer.startup({
         require('mini.comment').setup()
       end
     }
+
+    use {
+      'echasnovski/mini.move',
+      config = function()
+        require('mini.move').setup()
+      end
+    }
   end,
   config = {
     display = {
