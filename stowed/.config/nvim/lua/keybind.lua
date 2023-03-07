@@ -54,6 +54,10 @@ map('t', '<Leader>jj', "<C-\\><C-n>")
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 
+-- Easy Buffer Nav
+map('n', ']p', '<cmd>bnext<CR>')
+map('n', '[p', '<cmd>bprev<CR>')
+
 -- Notes
 map('n', '<Leader>no', "<cmd>Neorg workspace notes<CR>")
 map('n', '<Leader>nr', "<cmd>Neorg return<CR>")
