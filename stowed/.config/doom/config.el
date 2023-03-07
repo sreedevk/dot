@@ -15,12 +15,35 @@
   (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t))
 
+(setq org-roam-directory "~/Data/notes/roam")
+(after! org-roam
+  (map! :leader
+        :prefix "n"
+        :desc "org-roam" "l" #'org-roam
+        :desc "org-roam-insert" "i" #'org-roam-insert
+        :desc "org-roam-switch-to-buffer" "b" #'org-roam-switch-to-buffer
+        :desc "org-roam-find-file" "f" #'org-roam-find-file
+        :desc "org-roam-show-graph" "g" #'org-roam-graph
+        :desc "org-roam-insert" "i" #'org-roam-insert
+        :desc "org-roam-capture" "c" #'org-roam-capture))
+
+(use-package deft
+  :after org
+  :bind
+  ("C-c n d" . deft)
+  :custom
+  (deft-recursive t)
+  (deft-use-filter-string-for-filename t)
+  (deft-default-extension "org")
+  (deft-directory "~/Data/notes/roam/"))
+
+
+(setq org-directory "~/Data/notes")
+(setq org-agenda-files "~/Data/notes/agenda")
+
 (custom-set-faces!
   '(font-lock-comm :slant italic)
   '(font-lock-keyword-face :slant italic))
-
-(setq org-directory "~/Data/org")
-(setq org-agenda-files "~/Data/org/agenda")
 
 (setq text-scale-mode-step 1.05)
 (setq-default line-spacing 1)
