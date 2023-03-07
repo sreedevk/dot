@@ -20,7 +20,7 @@ return {
         after_jump = nil,
       },
       mappings = {
-        start_jumping = 'S',
+        start_jumping = 's',
       },
     })
   end
