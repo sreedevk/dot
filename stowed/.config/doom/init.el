@@ -57,7 +57,7 @@
 
        :tools
        debugger
-       direnv
+       ;; direnv
        docker
        editorconfig
        (eval +overlay)
@@ -107,12 +107,9 @@
        ;;nix
        ocaml
        (org
-        +roam2
-        +brain
-        +dragndrop
+        +roam
         +pretty
         +present
-        +hugo
         +gnuplot
         +pandoc
         +journal)
