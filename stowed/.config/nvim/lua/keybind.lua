@@ -5,8 +5,14 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Tree
-map('n', '<Leader>git', "<cmd>Neotree git_status<CR>")
+map('n', '<Leader>git', "<cmd>Git<CR>")
+map('n', '<Leader>gst', "<cmd>Neotree git_status<CR>")
+map('n', '<Leader>glg', "<cmd>Git log --oneline --decorate --graph<CR>")
+map('n', '<Leader>glo', "<cmd>Git log")
 map('n', '<C-n>', "<cmd>Neotree reveal toggle<CR>")
+
+-- Lazy
+map('n', '<Leader>lz', "<cmd>Lazy<CR>")
 
 -- convenience
 map('n', '<Leader>w', "<cmd>w<CR>")
