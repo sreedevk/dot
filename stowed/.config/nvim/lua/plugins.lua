@@ -18,6 +18,10 @@ return packer.startup({
     use 'mbbill/undotree'
     use 'EdenEast/nightfox.nvim'
     use 'dhruvasagar/vim-table-mode'
+    use 'nvim-telescope/telescope-file-browser.nvim'
+    use 'echasnovski/mini.jump'
+    use 'echasnovski/mini.jump2d'
+
     use { 'glepnir/lspsaga.nvim', branch = 'main' }
     use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
 
@@ -88,13 +92,6 @@ return packer.startup({
     }
 
     use {
-      'ggandor/leap.nvim',
-      config = function()
-        require('leap').add_default_mappings()
-      end
-    }
-
-    use {
       'nvim-neo-tree/neo-tree.nvim',
       branch = 'v2.x',
       requires = {
@@ -121,8 +118,6 @@ return packer.startup({
         'nvim-telescope/telescope-project.nvim'
       }
     }
-
-    use { 'nvim-telescope/telescope-file-browser.nvim' }
 
     use {
       'goolord/alpha-nvim',
