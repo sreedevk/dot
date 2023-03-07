@@ -5,6 +5,10 @@ return {
     'nvim-lua/plenary.nvim',
     'MunifTanjim/nui.nvim',
   },
+  keys = {
+    { "<C-n>", "<cmd>NeoTreeRevealToggle<CR>", desc="neotree" },
+    { "<Leader>git", "<cmd>Neotree git_status<CR>", desc="neotree-git" }
+  },
   config = function()
     require('neo-tree').setup(
       {
