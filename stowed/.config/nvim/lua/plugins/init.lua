@@ -1,5 +1,4 @@
 return {
-  'wbthomason/packer.nvim',
   'mattn/emmet-vim',
   'tpope/vim-fugitive',
   'tpope/vim-surround',
