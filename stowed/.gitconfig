@@ -17,12 +17,13 @@
 	status = auto
   ui = true
 [alias]
+  a      = add
   st     = status
   co     = checkout
   br     = branch
   cb     = checkout -b
   dfs    = diff --staged
-  cm     = commit
+  cm     = commit -m
   ca     = commit --amend
   cp     = cherry-pick
   cl 	   = clone --recursive -j8
