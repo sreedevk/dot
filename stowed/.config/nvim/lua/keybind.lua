@@ -6,7 +6,7 @@ end
 
 -- Tree
 map('n', '<Leader>git', "<cmd>Neotree git_status<CR>")
-map('n', '<C-n>', "<cmd>NeoTreeRevealToggle<CR>")
+map('n', '<C-n>', "<cmd>Neotree reveal toggle<CR>")
 
 -- convenience
 map('n', '<Leader>w', "<cmd>w<CR>")
