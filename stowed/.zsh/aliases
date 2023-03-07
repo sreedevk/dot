@@ -26,6 +26,9 @@ alias e="$EDITOR"
 alias mux='tmuxinator'
 alias tmux='TERM=screen-256color-bce tmux'
 
+# git
+alias g='git'
+
 # VirtualBox
 alias vboxman='VBoxManage'
 alias vboxhl='VBoxHeadless'
