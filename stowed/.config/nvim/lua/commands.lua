@@ -1,4 +1,5 @@
 local api = vim.api
+local helpers = require("helpers")
 
 api.nvim_create_user_command('W', 'w', {})
 api.nvim_create_user_command('Wq', 'wq', {})
@@ -11,11 +12,6 @@ api.nvim_create_user_command(
   'for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor',
   {}
 )
-
-local helpers_ok, helpers = pcall(require, "helpers")
-if not helpers_ok then
-  return
-end
 
 local auto_commands = {
   yank_highlight = {

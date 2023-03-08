@@ -6,7 +6,10 @@ return {
   'windwp/nvim-ts-autotag',
   'nvim-lua/plenary.nvim',
   'nathom/filetype.nvim',
-  'mbbill/undotree',
+  {
+    'mbbill/undotree',
+    cmd = "UndotreeToggle"
+  },
   {
     'dhruvasagar/vim-table-mode',
     cmd = "TableModeToggle"
@@ -41,6 +44,7 @@ return {
   },
   {
     'windwp/nvim-autopairs',
+    event = 'InsertEnter',
     config = function()
       require('nvim-autopairs').setup {
         check_ts = true,
