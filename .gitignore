@@ -26,3 +26,4 @@ stowed/.emacs.d/*~
 !stowed/.config/zellij
 !stowed/.config/nushell/env.nu
 !stowed/.config/nushell/config.nu
+!stowed/.config/fastfetch/
