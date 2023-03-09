@@ -18,6 +18,9 @@ export TERM="xterm-256color"
 export HISTFILE=~/.cache/zsh/history
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export HISTFILESIZE=10000
+export HISTSIZE=500
+export HISTCONTROL=erasedups:ignoredups:ignorespace
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -26,6 +29,10 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 set -o vi
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
+bind -m vi-insert 'Control-a: beginning-of-line'
+bind -m vi-insert 'Control-e: end-of-line'
+bind -m vi-insert 'Control-k: previous-history'
+bind -m vi-insert 'Control-j: next-history'
 
 # AUTOLOAD ASDF VM
 . "$HOME/.asdf/asdf.sh"
@@ -65,6 +72,10 @@ alias lg="lazygit"
 alias t="tmux"
 alias ta="tmux a"
 alias clock="tty-clock -csSb -C3"
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -iv"
+alias mkdir="mkdir -p"
 
 # FZF CONFIG
 export FZF_TAB_GROUP_COLORS=(
