@@ -26,7 +26,7 @@ map('n', '<Leader>tf', "<cmd>ToggleTerm direction=float<CR>")
 
 -- Telescope
 map('n', '<C-p>', "<cmd>Telescope find_files<CR>")
-map('n', '<Leader>b', "<cmd>Telescope buffers<CR>")
+map('n', '<Leader>bl', "<cmd>Telescope buffers<CR>")
 map('n', '<C-s>', "<cmd>Telescope<CR>")
 map('n', '<Leader>rg', "<cmd>Telescope live_grep<CR>")
 map('n', '<Leader>gr', "<cmd>Telescope grep_string<CR>")
@@ -58,8 +58,8 @@ map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 
 -- Easy Buffer Nav
-map('n', ']p', '<cmd>bnext<CR>')
-map('n', '[p', '<cmd>bprev<CR>')
+map('n', '<Leader>bb', '<cmd>bnext<CR>')
+map('n', '<Leader>bB', '<cmd>bprev<CR>')
 
 -- Notes
 map('n', '<Leader>no', "<cmd>Neorg index<CR>")
