@@ -24,6 +24,7 @@ vim.opt.showmatch                  = true
 vim.opt.hlsearch                   = true
 vim.opt.list                       = false
 vim.opt.lazyredraw                 = true
+vim.opt.cursorcolumn               = true
 vim.opt.cursorline                 = true
 vim.opt.inccommand                 = 'nosplit'
 vim.opt.autoindent                 = true
