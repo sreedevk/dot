@@ -18,7 +18,6 @@ map('n', '<Leader>lz', "<cmd>Lazy<CR>")
 map('n', '<Leader>w', "<cmd>w<CR>")
 map('n', '<Leader>q', "<cmd>q<CR>")
 map('n', '<Leader>h', "<cmd>noh<CR>")
-map('v', '<Leader>p', '"_dP')
 
 -- terminal
 map('n', '<Leader>t', "<cmd>ToggleTerm<CR>")
