@@ -9,23 +9,23 @@ return {
   config = function()
     require('neorg').setup {
       load = {
-            ["core.norg.concealer"]     = {},
-            ["core.presenter"]          = { config = { zen_mode = "zen-mode" } },
-            ["core.promo"]              = {},
-            ["core.clipboard.code-blocks"] = {},
-            ["core.keybinds"]           = { config = { neorg_leader = ";" } },
-            ["core.looking-glass"]      = {},
-            ["core.norg.esupports.hop"] = {},
-            ["core.norg.esupports.metagen"] = {},
-            ["core.norg.esupports.indent"] = {},
-            ["core.norg.qol.toc"]       = {},
-            ["core.itero"]              = {},
-            ["core.norg.qol.todo_items"] = {},
-            ["core.upgrade"]            = {},
-            ["core.export"]             = {},
-            ["core.tangle"]             = {},
-            ["core.norg.completion"]    = { config = { engine = "nvim-cmp" } },
-            ["core.norg.dirman"]        = {
+        ["core.norg.concealer"]         = {},
+        ["core.presenter"]              = { config = { zen_mode = "zen-mode" } },
+        ["core.promo"]                  = {},
+        ["core.clipboard.code-blocks"]  = {},
+        ["core.keybinds"]               = { config = { neorg_leader = ";" } },
+        ["core.looking-glass"]          = {},
+        ["core.norg.esupports.hop"]     = {},
+        ["core.norg.esupports.metagen"] = {},
+        ["core.norg.esupports.indent"]  = {},
+        ["core.norg.qol.toc"]           = {},
+        ["core.itero"]                  = {},
+        ["core.norg.qol.todo_items"]    = {},
+        ["core.upgrade"]                = {},
+        ["core.export"]                 = {},
+        ["core.tangle"]                 = {},
+        ["core.norg.completion"]        = { config = { engine = "nvim-cmp" } },
+        ["core.norg.dirman"]            = {
           config = {
             workspaces = {
               notes = "~/Data/notebook/"
@@ -33,13 +33,13 @@ return {
             default_workspace = "notes"
           },
         },
-            ["core.norg.journal"]       = {
+        ["core.norg.journal"]           = {
           config = {
             strategy = "flat",
             workspace = "notes",
           }
         },
-            ["core.integrations.telescope"] = {}
+        ["core.integrations.telescope"] = {}
       },
     }
 

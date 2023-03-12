@@ -7,9 +7,9 @@
       user-mail-address "sreedevpadmakumar@gmail.com")
 
 (setq doom-theme 'doom-ayu-dark
-      doom-font (font-spec :family "JetBrainsMono" :size 18)
-      doom-variable-pitch-font (font-spec :family "JetBrainsMono" :size 18)
-      doom-big-font (font-spec :family "JetBrainsMono" :size 24))
+      doom-font (font-spec :family "Iosevka Nerd Font" :size 18)
+      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 18)
+      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 24))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t)

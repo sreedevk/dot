@@ -89,3 +89,5 @@ export FZF_DEFAULT_OPTS="
  --color=fg+:#908caa,hl+:#908caa
  --color=info:#9ccfd8,prompt:#f6c177,pointer:#c4a7e7
  --color=marker:#ebbcba,spinner:#eb6f92,header:#ebbcba"
+
+eval "$(command -v fastfetch)"

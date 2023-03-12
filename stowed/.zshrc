@@ -95,3 +95,5 @@ if [ "$TERM" = "linux" ]; then
   # get rid of artifacts
   clear
 fi
+
+eval "$(command -v fastfetch)"

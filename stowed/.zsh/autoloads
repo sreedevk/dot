@@ -1,18 +1,40 @@
-# ASDF AUTOCOMPLETE
-. $HOME/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
+# ASDF AUTOLOADS
+if [ -f "$HOME/.asdf/asdf.sh" ]; then
+  # ASDF INITIALIZATION
+  . $HOME/.asdf/asdf.sh
+
+  # ASDF AUTOCOMPLETIONS
+  fpath=(${ASDF_DIR}/completions $fpath)
+
+  # ASDF JAVA INITIALIZATIONS
+  [ -f "$HOME/.asdf/plugins/java/set-java-home.zsh" ] && . ~/.asdf/plugins/java/set-java-home.zsh
+fi
+
 fpath+=~/.zfunc
 
 # DIRENV LOAD
-eval "$(direnv hook zsh)"
+if command -v direnv &> /dev/null
+then
+  eval "$(direnv hook zsh)"
+fi
 
-# ASDF Java Initializations
-[ -f "$HOME/.asdf/plugins/java/set-java-home.zsh" ] && . ~/.asdf/plugins/java/set-java-home.zsh
 
 # START STARSHIP PROMPT
-eval "$(starship init zsh)"
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
 
 # ZOXIDE - MODERN CD
-eval "$(zoxide init zsh)"
-eval "$(luarocks path --bin)"
-eval "$(atuin init zsh --disable-up-arrow)"
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
+# LUAROCKS AUTOLOAD
+if command -v luarocks &> /dev/null; then
+  eval "$(luarocks path --bin)"
+fi
+
+# ATUIN - BETTER HISTORY LOOKUP
+if command -v atuin &> /dev/null; then
+  eval "$(atuin init zsh --disable-up-arrow)"
+fi

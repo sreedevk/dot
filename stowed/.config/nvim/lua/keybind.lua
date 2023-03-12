@@ -70,3 +70,6 @@ map('n', '<Leader>tm', "<cmd>TableModeToggle<CR>")
 -- lsp
 map('n', '<Leader>ff', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>')
 map('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<CR>')
+
+-- Venn
+map('n', '<leader>v', ":lua require('helpers').toggle_venn()<CR>")
