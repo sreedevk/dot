@@ -1,5 +1,6 @@
 return {
   'VonHeikemen/lsp-zero.nvim',
+  branch = "v2.x",
   dependencies = {
     { 'neovim/nvim-lspconfig' },
     { 'williamboman/mason.nvim' },
@@ -7,16 +8,12 @@ return {
     { 'hrsh7th/nvim-cmp' },
     { 'hrsh7th/cmp-buffer' },
     { 'hrsh7th/cmp-path' },
-    { 'saadparwaiz1/cmp_luasnip' },
     { 'hrsh7th/cmp-nvim-lsp' },
-    { 'hrsh7th/cmp-nvim-lua' },
-    { 'hrsh7th/cmp-cmdline' },
-    { 'hrsh7th/cmp-calc' },
     { 'L3MON4D3/LuaSnip' },
     { 'rafamadriz/friendly-snippets' },
   },
   config = function()
-    local luasnip = require("luasnip")
+    local luasnip = require('luasnip')
     local cmp = require('cmp')
 
     cmp.setup({
@@ -38,14 +35,16 @@ return {
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
-        { name = "path" },
-        { name = "calc" }
+        { name = "path" }
       }),
     })
 
-    local lsp_zero = require("lsp-zero")
-    lsp_zero.preset("recommended")
-    lsp_zero.nvim_workspace()
+    local lsp_zero = require("lsp-zero").preset({})
+    lsp_zero.on_attach(function(_client, bufnr)
+      lsp_zero.default_keymaps({ buffer = bufnr })
+    end)
+
+    require('lspconfig').lua_ls.setup(lsp_zero.nvim_lua_ls())
     lsp_zero.setup()
   end
 }

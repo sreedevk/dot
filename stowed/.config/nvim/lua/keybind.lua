@@ -5,11 +5,10 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Tree
-map('n', '<Leader>git', "<cmd>Git<CR>")
-map('n', '<Leader>gst', "<cmd>Neotree git_status<CR>")
+map('n', '<Leader>gi', "<cmd>Git<CR>")
+map('n', '<Leader>gs', "<cmd>Neotree git_status<CR>")
 map('n', '<Leader>glg', "<cmd>Git log --oneline --decorate --graph<CR>")
-map('n', '<Leader>glo', "<cmd>Git log")
-map('n', '<C-n>', "<cmd>Neotree reveal toggle<CR>")
+map('n', '<Leader>glo', "<cmd>Git log<CR>")
 
 -- Lazy
 map('n', '<Leader>lz', "<cmd>Lazy<CR>")
@@ -18,9 +17,10 @@ map('n', '<Leader>lz', "<cmd>Lazy<CR>")
 map('n', '<Leader>w', "<cmd>w<CR>")
 map('n', '<Leader>q', "<cmd>q<CR>")
 map('n', '<Leader>h', "<cmd>noh<CR>")
+map('n', '<C-n>', "<cmd>Neotree reveal toggle<CR>")
 
 -- terminal
-map('n', '<Leader>t', "<cmd>ToggleTerm<CR>")
+map('n', '<Leader>tr', "<cmd>ToggleTerm<CR>")
 map('n', '<Leader>tf', "<cmd>ToggleTerm direction=float<CR>")
 
 -- Telescope
@@ -69,7 +69,6 @@ map('n', '<Leader>tm', "<cmd>TableModeToggle<CR>")
 
 -- lsp
 map('n', '<Leader>ff', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>')
-map('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<CR>')
 
 -- Venn
 map('n', '<leader>v', ":lua require('helpers').toggle_venn()<CR>")
