@@ -88,11 +88,5 @@ return {
     config = function()
       require('mini.comment').setup()
     end
-  },
-  {
-    'echasnovski/mini.move',
-    config = function()
-      require('mini.move').setup()
-    end
   }
 }

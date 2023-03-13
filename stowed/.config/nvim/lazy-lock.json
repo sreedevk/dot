@@ -18,7 +18,6 @@
   "mini.comment": { "branch": "main", "commit": "8828ce512395ea86dffb1eabc9242a7a3dd1040d" },
   "mini.jump": { "branch": "main", "commit": "534552990149fff923e672add3e89dc6aee813df" },
   "mini.jump2d": { "branch": "main", "commit": "6faffb99f9c9c695f8bba0137b836ea4458298ec" },
-  "mini.move": { "branch": "main", "commit": "a38aa45c35d499ea303aeaba0ce3a1c492cfed3e" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "205184aa0e0f08e8a1249d9bb37b45bae85f01b9" },
   "neorg": { "branch": "main", "commit": "c2680e67a0aeeb9b0ef6f4d008228de63d14e46b" },
   "neorg-telescope": { "branch": "main", "commit": "9deacda7abbfe09cd80ba86d0eefad514cda0b11" },
