@@ -1,5 +1,4 @@
 return {
-  'mattn/emmet-vim',
   'tpope/vim-fugitive',
   'tpope/vim-surround',
   'tpope/vim-characterize',
