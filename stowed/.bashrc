@@ -39,11 +39,25 @@ bind -m vi-insert 'Control-j: next-history'
 . "$HOME/.asdf/completions/asdf.bash"
 
 # AUTOLOADS 
-eval "$(starship init bash)"
-eval "$(zoxide init bash)"
-eval "$(luarocks path --bin)"
-eval "$(atuin init bash --disable-up-arrow)"
-eval "$(direnv hook bash)"
+if [ -f "$(command -v starship)" ]; then
+  eval "$(starship init bash)"
+fi
+
+if [ -f "$(command -v zoxide)" ]; then
+  eval "$(zoxide init bash)"
+fi
+
+if [ -f "$(command -v luarocks)" ]; then
+  eval "$(luarocks path --bin)"
+fi
+
+if [ -f "$(command -v atuin)" ]; then
+  eval "$(atuin init bash --disable-up-arrow)"
+fi
+
+if [ -f "$(command -v direnv)" ]; then
+  eval "$(direnv hook bash)"
+fi
 
 # SHOPT
 shopt -s autocd # change to named directory
