@@ -64,11 +64,12 @@ map('n', '<Leader>bB', '<cmd>bprev<CR>')
 -- Notes
 map('n', '<Leader>no', "<cmd>Neorg index<CR>")
 map('n', '<Leader>nr', "<cmd>Neorg return<CR>")
-map('n', '<Leader>di', "<cmd>Neorg journal<CR>")
+map('n', '<Leader>nj', "<cmd>Neorg journal<CR>")
 map('n', '<Leader>tm', "<cmd>TableModeToggle<CR>")
-
--- lsp
-map('n', '<Leader>ff', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>')
 
 -- Venn
 map('n', '<leader>v', ":lua require('helpers').toggle_venn()<CR>")
+
+-- Move
+map('v', '<M-j>', ":m '>+1<CR>gv=gv")
+map('v', '<M-k>', ":m '<-2<CR>gv=gv")
