@@ -38,3 +38,8 @@ fi
 if command -v atuin &> /dev/null; then
   eval "$(atuin init zsh --disable-up-arrow)"
 fi
+
+# HASKELL AUTOLOADS
+if [ -f "$HOME/.ghcup/env" ]; then
+  source "$HOME/.ghcup/env"
+fi
