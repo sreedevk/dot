@@ -11,10 +11,11 @@ if vim.g.neovide == true then
   vim.g.neovide_padding_right = 0
   vim.g.neovide_padding_left = 0
   vim.g.neovide_hide_mouse_when_typing = true
-  vim.g.neovide_scale_factor = 1.2
+  vim.g.neovide_scale_factor = 1.0
 
   local map = require('helpers').map
 
   map('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor+0.1<CR>')
   map('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor-0.1<CR>')
+  map('n', '<C-0>', '<cmd>lua vim.g.neovide_scale_factor=1.0<CR>')
 end
