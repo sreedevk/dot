@@ -80,4 +80,4 @@ map('v', '<M-k>', ":m '<-2<CR>gv=gv")
 map('n', '<Leader>x', "<cmd>! chmod +x %<CR>")
 
 -- spell check
-map('n', '<Leader>sk', '<cmd>spell!<CR>')
+map('n', '<Leader>sk', '<cmd>set spell!<CR>')
