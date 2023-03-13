@@ -4,13 +4,13 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- Tree
+-- git
 map('n', '<Leader>gi', "<cmd>Git<CR>")
 map('n', '<Leader>gs', "<cmd>Neotree git_status<CR>")
 map('n', '<Leader>glg', "<cmd>Git log --oneline --decorate --graph<CR>")
 map('n', '<Leader>glo', "<cmd>Git log<CR>")
 
--- Lazy
+-- lazy
 map('n', '<Leader>lz', "<cmd>Lazy<CR>")
 
 -- convenience
@@ -23,7 +23,7 @@ map('n', '<C-n>', "<cmd>Neotree reveal toggle<CR>")
 map('n', '<Leader>tr', "<cmd>ToggleTerm<CR>")
 map('n', '<Leader>tf', "<cmd>ToggleTerm direction=float<CR>")
 
--- Telescope
+-- telescope
 map('n', '<C-p>', "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>")
 map('n', '<Leader>fb', "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>")
 map('n', '<Leader>bl', "<cmd>Telescope buffers<CR>")
@@ -32,44 +32,49 @@ map('n', '<Leader>rg', "<cmd>Telescope live_grep<CR>")
 map('n', '<Leader>gr', "<cmd>Telescope grep_string<CR>")
 map('n', '<Leader>pp', ":lua require'telescope'.extensions.project.project{}<CR>")
 
--- Aerial
+-- aerial
 map('n', '<Leader>cv', "<cmd>AerialToggle<CR>")
 
--- Arrows
+-- disable arrows
 map('', '<up>', "<nop>")
 map('', '<down>', "<nop>")
 map('', '<left>', "<nop>")
 map('', '<right>', "<nop>")
 
--- Tabs
+-- tab nav
 map('n', '<C-t>', "<cmd>tabnew<CR>")
 
--- Zen Mode
+-- zen mode 
 map('n', '<Leader>z', '<cmd>ZenMode<CR>')
 
--- Undo Tree
+-- undo tree
 map('n', '<Leader>u', "<cmd>UndotreeToggle<CR>")
 
--- Easy Escape
+-- easy escape
 map('t', '<Leader>jj', "<C-\\><C-n>")
 
--- Menu Nav
+-- search nav
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 
--- Easy Buffer Nav
+-- buffer nav
+map('n', '<C-d>', "<C-d>zz")
+map('n', '<C-u>', "<C-u>zz")
+
+-- buffer switch
 map('n', '<Leader>bb', '<cmd>bnext<CR>')
 map('n', '<Leader>bB', '<cmd>bprev<CR>')
 
--- Notes
+-- notes
 map('n', '<Leader>no', "<cmd>Neorg index<CR>")
 map('n', '<Leader>nr', "<cmd>Neorg return<CR>")
 map('n', '<Leader>nj', "<cmd>Neorg journal<CR>")
 map('n', '<Leader>tm', "<cmd>TableModeToggle<CR>")
-
--- Venn
 map('n', '<leader>v', ":lua require('helpers').toggle_venn()<CR>")
 
 -- Move
 map('v', '<M-j>', ":m '>+1<CR>gv=gv")
 map('v', '<M-k>', ":m '<-2<CR>gv=gv")
+
+-- Utils
+map('n', '<Leader>x', "<cmd>! chmod +x %<CR>")
