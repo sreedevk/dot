@@ -138,3 +138,15 @@ lan-connect() {
   [[ -z "$username" ]] && username=$USER
   ssh $username@$remote
 }
+
+tlist() {
+  tmuxinator list | tail -n 1 | awk -v OFS="\n" '$1=$1' | fzf
+}
+
+tstart() {
+  tmuxinator start "$(tlist)"
+}
+
+tstop() {
+  tmuxinator stop "$(tlist)"
+}
