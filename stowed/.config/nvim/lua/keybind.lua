@@ -1,8 +1,4 @@
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then options = vim.tbl_extend('force', options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local map = require('helpers').map
 
 -- git
 map('n', '<Leader>gi', "<cmd>Git<CR>")
@@ -30,7 +26,6 @@ map('n', '<Leader>bl', "<cmd>Telescope buffers<CR>")
 map('n', '<C-s>', "<cmd>Telescope<CR>")
 map('n', '<Leader>rg', "<cmd>Telescope live_grep<CR>")
 map('n', '<Leader>gr', "<cmd>Telescope grep_string<CR>")
-map('n', '<Leader>pp', ":lua require'telescope'.extensions.project.project{}<CR>")
 
 -- aerial
 map('n', '<Leader>cv', "<cmd>Lspsaga outline<CR>")
@@ -78,3 +73,6 @@ map('v', '<M-k>', ":m '<-2<CR>gv=gv")
 
 -- Utils
 map('n', '<Leader>x', "<cmd>! chmod +x %<CR>")
+
+-- spell check
+map('n', '<Leader>sk', '<cmd>spell!<CR>')
