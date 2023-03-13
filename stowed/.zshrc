@@ -96,4 +96,9 @@ if [ "$TERM" = "linux" ]; then
   clear
 fi
 
-eval "$(command -v fastfetch)"
+if [ -f "$(command -v fastfetch)" ]; then
+  echo "\n"
+  fastfetch
+  echo "\n"
+fi
+

@@ -16,7 +16,7 @@ shell:
   args:
     - --login
 font:
-  size: 20
+  size: 16
   normal:
     family: JetBrainsMono
     style: Regular
@@ -236,4 +236,4 @@ schemes:
       white:   '0xf8f8ff'
 
 # OPTS: tokyo-night, tokyo-night-storm, gotham, cyberpunk-neon, doom-one, rose-pine
-colors: *cyberpunk-neon
+colors: *tokyo-night
