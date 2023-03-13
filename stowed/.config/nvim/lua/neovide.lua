@@ -4,9 +4,17 @@ if vim.g.neovide == true then
   vim.g.neovide_floating_blur_amount_y = 2.0
   vim.g.neovide_profiler               = false
   vim.g.neovide_cursor_antialiasing    = true
-  --   vim.g.neovide_scale_factor            = 1.0
-  --   vim.g.neovide_refresh_rate            = 120
-  --   vim.g.neovide_fullscreen              = true
-  --   vim.g.neovide_cursor_animation_length = 0.05
-  --   vim.g.neovide_cursor_trail_size       = 0.8
+  vim.o.guifont = "Iosevka Nerd Font:h19"
+  vim.g.neovide_fullscreen              = true
+  vim.g.neovide_padding_top = 0
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_padding_right = 0
+  vim.g.neovide_padding_left = 0
+  vim.g.neovide_hide_mouse_when_typing = true
+  vim.g.neovide_scale_factor = 1.2
+
+  local map = require('helpers').map
+
+  map('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor+0.1<CR>')
+  map('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor-0.1<CR>')
 end
