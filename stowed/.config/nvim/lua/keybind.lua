@@ -15,7 +15,10 @@ map('n', '<Leader>lz', "<cmd>Lazy<CR>")
 map('n', '<Leader>w', "<cmd>w<CR>")
 map('n', '<Leader>q', "<cmd>q<CR>")
 map('n', '<Leader>h', "<cmd>noh<CR>")
+
+-- Neotree
 map('n', '<C-n>', "<cmd>Neotree reveal toggle<CR>")
+map('n', '<Leader>cd', "<cmd>lua vim.cmd('cd ' .. vim.fn.expand('%:p:h'))<CR>")
 
 -- terminal
 map('n', '<Leader>tr', "<cmd>ToggleTerm<CR>")
@@ -41,7 +44,7 @@ map('', '<right>', "<nop>")
 -- tab nav
 map('n', '<C-t>', "<cmd>tabnew<CR>")
 
--- zen mode 
+-- zen mode
 map('n', '<Leader>z', '<cmd>ZenMode<CR>')
 
 -- undo tree
