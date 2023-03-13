@@ -2,9 +2,13 @@ return {
   'tpope/vim-fugitive',
   'tpope/vim-surround',
   'tpope/vim-characterize',
-  'windwp/nvim-ts-autotag',
-  'nvim-lua/plenary.nvim',
   'nathom/filetype.nvim',
+  {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup({})
+    end
+  },
   {
     'mbbill/undotree',
     cmd = "UndotreeToggle"
@@ -30,10 +34,6 @@ return {
     cmd = "TableModeToggle"
   },
   {
-    'glepnir/lspsaga.nvim',
-    branch = 'main'
-  },
-  {
     'jdhao/better-escape.vim',
     event = 'InsertEnter'
   },
@@ -41,13 +41,6 @@ return {
     'petertriho/nvim-scrollbar',
     config = function()
       require('scrollbar').setup()
-    end
-  },
-  {
-    'stevearc/aerial.nvim',
-    cmd = "AerialToggle",
-    config = function()
-      require('aerial').setup()
     end
   },
   {

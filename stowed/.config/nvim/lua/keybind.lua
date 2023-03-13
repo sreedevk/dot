@@ -33,7 +33,7 @@ map('n', '<Leader>gr', "<cmd>Telescope grep_string<CR>")
 map('n', '<Leader>pp', ":lua require'telescope'.extensions.project.project{}<CR>")
 
 -- aerial
-map('n', '<Leader>cv', "<cmd>AerialToggle<CR>")
+map('n', '<Leader>cv', "<cmd>Lspsaga outline<CR>")
 
 -- disable arrows
 map('', '<up>', "<nop>")
@@ -70,7 +70,7 @@ map('n', '<Leader>no', "<cmd>Neorg index<CR>")
 map('n', '<Leader>nr', "<cmd>Neorg return<CR>")
 map('n', '<Leader>nj', "<cmd>Neorg journal<CR>")
 map('n', '<Leader>tm', "<cmd>TableModeToggle<CR>")
-map('n', '<leader>v', ":lua require('helpers').toggle_venn()<CR>")
+map('n', '<leader>ve', ":lua require('helpers').toggle_venn()<CR>")
 
 -- Move
 map('v', '<M-j>', ":m '>+1<CR>gv=gv")
