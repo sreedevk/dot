@@ -42,6 +42,7 @@ vim.opt.pumheight                  = 10
 vim.opt.winblend                   = 10
 vim.opt.listchars                  = 'extends:…,precedes:…,nbsp:␣'
 vim.opt.list                       = true
+vim.opt.scrolloff                  = 10
 
 vim.wo.signcolumn                  = 'number'
 vim.wo.wrap                        = true
@@ -49,7 +50,6 @@ vim.wo.wrap                        = true
 vim.g.loaded                       = 1
 vim.g.loaded_netrwPlugin           = 1
 vim.g.mapleader                    = ';'
-vim.g['user_emmet_expandabbr_key'] = '<C-a>,'
 vim.g.loaded                       = 1
 vim.g.loaded_netrwPlugin           = 1
 vim.g.better_escape_shortcut       = 'jj'
