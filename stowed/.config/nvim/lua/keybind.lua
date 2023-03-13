@@ -70,7 +70,7 @@ map('n', '<Leader>no', "<cmd>Neorg index<CR>")
 map('n', '<Leader>nr', "<cmd>Neorg return<CR>")
 map('n', '<Leader>nj', "<cmd>Neorg journal<CR>")
 map('n', '<Leader>tm', "<cmd>TableModeToggle<CR>")
-map('n', '<leader>ve', ":lua require('helpers').toggle_venn()<CR>")
+map('n', '<leader>ve', "<cmd>ToggleVenn<CR>")
 
 -- Move
 map('v', '<M-j>', ":m '>+1<CR>gv=gv")

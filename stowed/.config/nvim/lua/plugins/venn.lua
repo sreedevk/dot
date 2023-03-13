@@ -1,1 +1,0 @@
-return { 'jbyuki/venn.nvim' }
