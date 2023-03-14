@@ -78,3 +78,6 @@ map('n', '<Leader>x', "<cmd>! chmod +x %<CR>")
 
 -- spell check
 map('n', '<Leader>sk', '<cmd>set spell!<CR>')
+
+-- run project commands
+map('n', '<Leader>rn', '<cmd>Run<CR>')
