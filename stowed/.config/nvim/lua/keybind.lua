@@ -66,9 +66,6 @@ map('n', '<Leader>bb', '<cmd>bnext<CR>')
 map('n', '<Leader>bB', '<cmd>bprev<CR>')
 
 -- notes
-map('n', '<Leader>no', "<cmd>Neorg index<CR>")
-map('n', '<Leader>nr', "<cmd>Neorg return<CR>")
-map('n', '<Leader>nj', "<cmd>Neorg journal<CR>")
 map('n', '<Leader>tm', "<cmd>TableModeToggle<CR>")
 map('n', '<leader>ve', "<cmd>ToggleVenn<CR>")
 

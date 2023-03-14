@@ -15,7 +15,7 @@
   (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t))
 
-(setq org-roam-directory "~/Data/notes/roam")
+(setq org-roam-directory "~/Data/notebook/roam")
 (after! org-roam
   (map! :leader
         :prefix "n"
@@ -35,11 +35,11 @@
   (deft-recursive t)
   (deft-use-filter-string-for-filename t)
   (deft-default-extension "org")
-  (deft-directory "~/Data/notes/roam/"))
+  (deft-directory "~/Data/notesbook/roam/"))
 
 
-(setq org-directory "~/Data/notes")
-(setq org-agenda-files "~/Data/notes/agenda")
+(setq org-directory "~/Data/notebook")
+(setq org-agenda-files "~/Data/notebook/agenda")
 
 (custom-set-faces!
   '(font-lock-comm :slant italic)
