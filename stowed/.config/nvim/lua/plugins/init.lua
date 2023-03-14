@@ -9,6 +9,7 @@ return {
   { 'mbbill/undotree',            cmd = "UndotreeToggle" },
   { 'jdhao/better-escape.vim',    event = 'InsertEnter' },
   { "tpope/vim-tbone",            cmd = { "Tmux", "Tyank", "Tput", "Twrite", "Tattach" } },
+  { 'rafcamlet/nvim-luapad',      cmd = { "Luapad", "LuaRun" } },
 
   {
     "j-hui/fidget.nvim",
