@@ -20,7 +20,7 @@ local auto_commands = {
   notes = {
     {
       { "BufRead", "BufNewFile" },
-      ".norg",
+      { "*.norg",  "*.org" },
       "silent! TableModeEnable"
     }
   },
