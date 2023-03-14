@@ -51,7 +51,7 @@ map('n', '<Leader>z', '<cmd>ZenMode<CR>')
 map('n', '<Leader>u', "<cmd>UndotreeToggle<CR>")
 
 -- easy escape
-map('t', '<Leader>jj', "<C-\\><C-n>")
+map('t', 'jj', "<C-\\><C-n>")
 
 -- search nav
 map('n', 'n', 'nzzzv')
