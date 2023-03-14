@@ -9,37 +9,23 @@
 (setq doom-theme 'doom-ayu-dark
       doom-font (font-spec :family "Iosevka Nerd Font" :size 18)
       doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 18)
-      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 24))
+      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 28))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t))
 
 (setq org-roam-directory "~/Data/notebook/roam")
-(after! org-roam
-  (map! :leader
-        :prefix "n"
-        :desc "org-roam" "l" #'org-roam
-        :desc "org-roam-insert" "i" #'org-roam-insert
-        :desc "org-roam-switch-to-buffer" "b" #'org-roam-switch-to-buffer
-        :desc "org-roam-find-file" "f" #'org-roam-find-file
-        :desc "org-roam-show-graph" "g" #'org-roam-graph
-        :desc "org-roam-insert" "i" #'org-roam-insert
-        :desc "org-roam-capture" "c" #'org-roam-capture))
-
-(use-package deft
-  :after org
-  :bind
-  ("C-c n d" . deft)
-  :custom
-  (deft-recursive t)
-  (deft-use-filter-string-for-filename t)
-  (deft-default-extension "org")
-  (deft-directory "~/Data/notesbook/roam/"))
-
-
 (setq org-directory "~/Data/notebook")
-(setq org-agenda-files "~/Data/notebook/agenda")
+(setq org-agenda-files "~/Data/notebook/agenda.org")
+
+(setq deft-directory "~/Data/notebook"
+      deft-extensions '("org", "txt", "md")
+      deft-recursive t)
+
+(setq org-journal-date-prefix "#+TITLE:"
+      org-journal-time-prefix "* "
+      org-journal-file-format "%Y-%m-%d.org")
 
 (custom-set-faces!
   '(font-lock-comm :slant italic)
