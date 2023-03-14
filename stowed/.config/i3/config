@@ -44,6 +44,7 @@ bindsym $mod+Return            exec --no-startup-id $term
 bindsym $mod+KP_Enter          exec --no-startup-id $term
 bindsym $mod+d                 exec --no-startup-id $app_launcher
 bindsym $mod+Tab               exec --no-startup-id $window_switcher
+bindsym Ctrl+space             exec --no-startup-id "dunstctl close-all"
 
 # Brightness
 bindsym XF86MonBrightnessUp    exec --no-startup-id "brightnessctl set +10%"
