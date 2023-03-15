@@ -112,7 +112,7 @@
        ;;nix
        (ocaml +lsp)
        (org
-        +roam
+        +roam2
         +pretty
         +present
         +gnuplot
