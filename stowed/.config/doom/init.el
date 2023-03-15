@@ -12,18 +12,20 @@
        doom
        doom-dashboard
        hl-todo
-       (ligatures +extra)
+       (ligatures +extra +fira +hasklig +iosevka +pragmata-pro)
        modeline
+       minimap
        neotree
        ophints
-       (popup +defaults)
+       (popup +all +defaults)
        tabs
-       treemacs
+       (treemacs +lsp)
        unicode
        (vc-gutter +pretty)
        vi-tilde-fringe
        window-select
        workspaces
+       zen
 
        :editor
        (evil
@@ -50,6 +52,8 @@
        :term
        eshell
        vterm
+       term
+       shell
 
        :checkers
        syntax
@@ -57,8 +61,8 @@
 
        :tools
        debugger
-       ;; direnv
-       docker
+       direnv
+       (docker +lsp)
        editorconfig
        (eval +overlay)
        gist
@@ -72,6 +76,7 @@
        tmux
        tree-sitter
        upload
+       (pass +auth)
 
        :os
        (:if IS-MAC macos)
@@ -95,17 +100,17 @@
        (haskell +lsp)
        json
        (java +lsp)
-       javascript
-       julia
+       (javascript +lsp)
+       (julia +lsp)
        ;;kotlin
-       latex
+       (latex +latexmk +cdlatex +fold +lsp)
        ;;lean
        ;;ledger
-       lua
-       markdown
+       (lua +fennel +moonscript)
+       (markdown +grip)
        ;;nim
        ;;nix
-       ocaml
+       (ocaml +lsp)
        (org
         +roam
         +pretty
@@ -114,24 +119,25 @@
         +pandoc
         +journal)
        ;;php
-       ;;purescript
+       (purescript +lsp)
        python
        ;;qt
        ;;racket
        ;;rak
        ;;rest
        ;;rst
-       (ruby +rails)
+       (ruby +lsp +rails)
        (rust +lsp)
-       scala
+       ;; scala
        (scheme +guile)
-       sh
+       sml
+       (sh +lsp)
        ;;solidity
        ;;swift
        ;;terra
-       web
+       (web +lsp)
        yaml
-       zig
+       (zig +lsp)
 
        :email
        ;;(mu4e +org +gmail)
@@ -143,8 +149,8 @@
        ;;emms
        ;;everywhere
        ;;irc
-       ;;(rss +org)
-       ;;twitter
+       (rss +org)
+       twitter
 
        :config
        (default +bindings +smartparens))
