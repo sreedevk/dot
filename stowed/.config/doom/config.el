@@ -9,7 +9,7 @@
 (setq doom-theme 'doom-ayu-dark
       doom-font (font-spec :family "Iosevka Nerd Font" :size 18)
       doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 18)
-      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 28))
+      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 24))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t)
@@ -52,7 +52,7 @@
 
 (display-time-mode 1)
 
-(map! "C-c a" #'emmet-expand-line)
+(map! "C-c C-a" #'emmet-expand-line)
 (map! :leader
       (:prefix-map ("=" . "calc")
                    "=" #'calc-dispatch

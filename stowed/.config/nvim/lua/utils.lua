@@ -5,7 +5,7 @@ function M.prun()
   local term  = require('toggleterm.terminal').Terminal
   local command = vim.fn.input("cmd: ", "", "command")
   command = string.gsub(command, '%%', vim.fn.expand('%'))
-  local cmdterm = term:new({ cmd = command, hidden = true })
+  local cmdterm = term:new({ cmd = command, hidden = false })
   cmdterm:toggle()
 end
 
@@ -14,7 +14,7 @@ function M.arun()
   local term  = require('toggleterm.terminal').Terminal
   local command = vim.fn.input("async cmd: ", "", "command")
   command = string.gsub(command, '%%', vim.fn.expand('%'))
-  local cmdterm = term:new({ cmd = command, hidden = true })
+  local cmdterm = term:new({ cmd = command, hidden = false })
   cmdterm:spawn()
 end
 
