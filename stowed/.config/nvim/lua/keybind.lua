@@ -5,7 +5,7 @@ map('n', '<Leader>gi', "<cmd>Git<CR>")
 map('n', '<Leader>gs', "<cmd>Neotree git_status<CR>")
 map('n', '<Leader>glg', "<cmd>Git log --oneline --decorate --graph<CR>")
 map('n', '<Leader>glo', "<cmd>Git log<CR>")
-map('n', '<Leader>gps', "<cmd>Git push<CR>")
+map('n', '<Leader>gpu', "<cmd>Git push<CR>")
 map('n', '<Leader>gpl', "<cmd>Git pull<CR>")
 
 -- lazy
