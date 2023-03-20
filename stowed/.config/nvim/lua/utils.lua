@@ -3,7 +3,7 @@ local M = {}
 -- run command in toggle term
 function M.prun()
   local term  = require('toggleterm.terminal').Terminal
-  local command = vim.fn.input("cmd: ", "", "command")
+  local command = vim.fn.input("cmd: ", "", "file")
   command = string.gsub(command, '%%', vim.fn.expand('%'))
   local cmdterm = term:new({ cmd = command, hidden = false })
   cmdterm:toggle()
@@ -12,7 +12,7 @@ end
 -- run command asynchronously
 function M.arun()
   local term  = require('toggleterm.terminal').Terminal
-  local command = vim.fn.input("async cmd: ", "", "command")
+  local command = vim.fn.input("async cmd: ", "", "file")
   command = string.gsub(command, '%%', vim.fn.expand('%'))
   local cmdterm = term:new({ cmd = command, hidden = false })
   cmdterm:spawn()
