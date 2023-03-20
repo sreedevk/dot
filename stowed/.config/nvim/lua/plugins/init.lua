@@ -4,6 +4,7 @@ return {
   'tpope/vim-characterize',
   'nathom/filetype.nvim',
   'jbyuki/venn.nvim',
+  'mattn/emmet-vim',
 
   { 'dhruvasagar/vim-table-mode', cmd = "TableModeToggle" },
   { 'mbbill/undotree',            cmd = "UndotreeToggle" },

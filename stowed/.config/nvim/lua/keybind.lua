@@ -25,7 +25,7 @@ map('n', '<Leader>tr', "<cmd>ToggleTerm<CR>")
 map('n', '<Leader>tf', "<cmd>ToggleTerm direction=float<CR>")
 
 -- telescope
-map('n', '<C-p>', "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>")
+map('n', '<C-p>', "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files <CR>")
 map('n', '<Leader>fb', "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>")
 map('n', '<Leader>bl', "<cmd>Telescope buffers<CR>")
 map('n', '<C-s>', "<cmd>Telescope<CR>")
