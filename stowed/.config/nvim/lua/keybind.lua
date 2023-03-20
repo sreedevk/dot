@@ -60,6 +60,7 @@ map('n', 'N', 'Nzzzv')
 -- buffer nav
 map('n', '<C-d>', "<C-d>zz")
 map('n', '<C-u>', "<C-u>zz")
+map('n', '<Leader>bd', "<cmd>bd<CR>")
 
 -- buffer switch
 map('n', '<Leader>bb', '<cmd>bnext<CR>')
