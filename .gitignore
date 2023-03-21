@@ -2,6 +2,11 @@
 stowed/.local/bin/*
 stowed/.config/*
 stowed/.config/awesome/wallpapers/*
+stowed/.emacs.d/elpa
+stowed/.emacs.d/eln-cache
+stowed/.emacs.d/projectile*
+stowed/.emacs.d/transient/*
+stowed/.emacs.d/*~
 
 # Allow
 !stowed/.config/alacritty
@@ -16,4 +21,9 @@ stowed/.config/awesome/wallpapers/*
 !stowed/.config/rofi
 !stowed/.config/picom.conf
 !stowed/.config/nvim
+!stowed/.config/doom
 !stowed/.config/polybar
+!stowed/.config/zellij
+!stowed/.config/nushell/env.nu
+!stowed/.config/nushell/config.nu
+!stowed/.config/fastfetch/

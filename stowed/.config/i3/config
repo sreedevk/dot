@@ -4,13 +4,18 @@
 # AUTHOR: SREEDEV KODICHATH
 
 # terminal
-set $term alacritty
+set $term kitty
+
+# Application Launcher
+set $app_launcher "rofi -show combi -combi-modes 'run,window,ssh' -modes combi"
+set $window_switcher "rofi -show window"
 
 # Setup Key Definitions
 set $mod Mod4
 
 # AutoStart Applications
 exec --no-startup-id ~/.config/i3/autostart.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 
@@ -28,21 +33,22 @@ smart_borders on
 gaps inner 4
 gaps outer -2
 
-bar {
-  position top
-  status_command i3blocks
-  font pango:JetBrains Mono 5
-}
+# bar {
+#   position top
+#   status_command i3blocks
+#   font pango:JetBrains Mono 5
+# }
 
 # Shortcuts - Terminal + Access
 bindsym $mod+Return            exec --no-startup-id $term
 bindsym $mod+KP_Enter          exec --no-startup-id $term
-bindsym $mod+d                 exec --no-startup-id "rofi -show combi -combi-modes 'run,window,ssh' -modes combi"
-bindsym $mod+Tab               exec --no-startup-id "rofi -show window"
+bindsym $mod+d                 exec --no-startup-id $app_launcher
+bindsym $mod+Tab               exec --no-startup-id $window_switcher
+bindsym Ctrl+space             exec --no-startup-id "dunstctl close-all"
 
 # Brightness
-bindsym XF86MonBrightnessUp    exec --no-startup-id "brightnessctl set +1%"
-bindsym XF86MonBrightnessDown  exec --no-startup-id "brightnessctl set 1%-"
+bindsym XF86MonBrightnessUp    exec --no-startup-id "brightnessctl set +10%"
+bindsym XF86MonBrightnessDown  exec --no-startup-id "brightnessctl set 10%-"
 
 # Volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
@@ -52,9 +58,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym $mod+Shift+d --release exec --no-startup-id "killall dunst; exec notify-send 'restart dunst'"
 
 # Shortcuts - Screenshots
-bindsym Print                  exec --no-startup-id "flameshot gui"
-bindsym $mod+Print   --release exec --no-startup-id "i3-scrot -w"
-bindsym $mod+Shift+s --release exec --no-startup-id "i3-scrot -s"
+bindsym Print                  exec --no-startup-id "maim -i $(xdotool getactivewindow) ~/Pictures/screenshots/$(date +%s).png"
+bindsym $mod+Ctrl+s   --release exec --no-startup-id "maim -s -d 0.2 ~/Pictures/screenshots/$(date +%s).png"
+bindsym $mod+Shift+s --release exec --no-startup-id "maim -s -d 0.2 | xclip -selection clipboard -t image/png"
 
 # Shortcuts - Audio
 bindsym $mod+Ctrl+m            exec --no-startup-id "pavucontrol"
@@ -67,8 +73,8 @@ bindsym $mod+Ctrl+x  --release exec --no-startup-id "xkill"
 bindsym $mod+Shift+q kill
 
 # Shortcuts - UX + Design
-bindsym $mod+t               exec --no-startup-id "pkill picom"
-bindsym $mod+Ctrl+t          exec --no-startup-id "picom -b"
+bindsym $mod+p               exec --no-startup-id "pkill picom"
+bindsym $mod+Shift+p          exec --no-startup-id "picom -b"
 
 bindsym $mod+j               focus left
 bindsym $mod+k               focus down
@@ -124,11 +130,11 @@ mode "$mode_system" {
 bindsym $mod+9 exec --no-startup-id blurlock
 
 # Workspace Control
-set $ws1 1:SYS
-set $ws2 2:WWW
-set $ws3 3:GFX
-set $ws4 4:SLACK
-set $ws5 5:TEAMS
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8

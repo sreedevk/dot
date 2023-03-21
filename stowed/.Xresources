@@ -44,8 +44,3 @@ Xft.rgba: rgb
 *color7:  #bfbaac
 *color15: #fdf6e3
 !}}}
-
-!{{{ Xcursor theme
-Xcursor.theme: Xcursor Xcursor
-Xcursor.size: 12
-!}}}

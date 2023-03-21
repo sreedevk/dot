@@ -5,20 +5,14 @@ export FZF_TAB_GROUP_COLORS=(
 )
 export FZF_DEFAULT_OPTS="
  --multi --no-height --extended
- --color=fg:#e0def4,bg:#1f1d2e,hl:#6e6a86
- --color=fg+:#908caa,bg+:#191724,hl+:#908caa
+ --color=fg:#e0def4,hl:#6e6a86
+ --color=fg+:#908caa,hl+:#908caa
  --color=info:#9ccfd8,prompt:#f6c177,pointer:#c4a7e7
  --color=marker:#ebbcba,spinner:#eb6f92,header:#ebbcba"
 
-# group colors
 zstyle ':fzf-tab:*' group-colors $FZF_TAB_GROUP_COLORS
-# fzf completions
 zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
 zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# preview directory's content with exa when completing cd
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
-# switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'

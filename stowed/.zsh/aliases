@@ -7,7 +7,6 @@ alias la='exa -a --color=always'
 alias ll='exa -l --color=always'
 alias lla='exa -la --color=always'
 alias lt='exa -aT --color=always --group-directories-first'
-alias sl='ls'
 alias obliterate='shred -zvu -n 5'
 alias xo='xdg-open'
 alias grep='grep --color=auto'
@@ -15,16 +14,19 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias jctl="journalctl -p 3 -xb"
 alias macs="emacsclient -c -a 'emacs'"
-alias nvide="WINIT_X11_SCALE_FACTOR=1.2 neovide --multigrid"
 alias lg="lazygit"
 alias t="tmux"
+alias ta="tmux a"
+alias clock="tty-clock -csSb -C3"
 
 alias e="$EDITOR"
-alias v="$VISUAL"
 
 # Tmuxinator - Tmux Session Manager
 alias mux='tmuxinator'
 alias tmux='TERM=screen-256color-bce tmux'
+
+# git
+alias g='git'
 
 # VirtualBox
 alias vboxman='VBoxManage'

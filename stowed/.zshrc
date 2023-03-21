@@ -5,20 +5,21 @@
 ## zmodload zsh/zprof
 
 # PATHS
-YARN_PATH="$HOME/.yarn/bin"
-CONDA_PATH="/opt/anaconda/bin"
-KENDRYTE_PATH="/opt/kendryte-toolchain/bin"
-CARGO_PATH="$HOME/.cargo/bin"
 LOCAL_BIN_PATH="$HOME/.local/bin"
-
+LOCAL_BIN_SUB_PATH="$HOME/.local/bin/**/*"
 export GOPATH="$HOME/go"
-export PATH="$PATH:$YARN_PATH:$CONDA_PATH:$KENDRYTE_PATH:$CARGO_PATH:$LOCAL_BIN_PATH:$GOPATH:$GOPATH/bin"
+export PATH="$PATH:$LOCAL_BIN_PATH:$LOCAL_BIN_SUB_PATH:$GOPATH/bin/"
 
 # ENV VARIABLES
-export KEYTIMEOUT=1
-export GPG_TTY=$(tty)
 export VISUAL="nvim"
 export EDITOR=nvim
+export READER="zathura"
+export TERMINAL="kitty"
+export BROWSER="brave"
+
+# BETTER TERM
+export KEYTIMEOUT=1
+export GPG_TTY=$(tty)
 export TERM=xterm-256color
 export TERMINFO=/usr/share/terminfo/
 export HISTFILE=~/.cache/zsh/history
@@ -33,33 +34,35 @@ SAVEHIST=100
 # NON INTERACTIVE MODE EARLY RETURN
 [[ $- != *i* ]] && return
 
-# KEY BINDINGS
-bindkey -s '^o' 'lfcd\n'
-bindkey '^R' history-incremental-search-backward
-bindkey '^A' beginning-of-line
-bindkey '^E' end-of-line
-bindkey '^x' edit-command-line
-bindkey '^k' up-line-or-history
-bindkey '^j' down-line-or-history
-
-# ASDF AUTOCOMPLETE
-. $HOME/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
+# BEAM CURSOR
+echo -ne '\e[5 q'
 
 # AUTOLOAD MODULES
 autoload -U colors && colors
 autoload -U compinit && compinit
-autoload edit-command-line; zle -N edit-command-line
+autoload edit-command-line
 
-# ZSH OPTS
-setopt PROMPT_SUBST
-setopt interactivecomments
+zle -N edit-command-line
 
 # LOAD ALIASES & FUNCTIONS
 [ -f "$HOME/.zsh/aliases" ]   && source "$HOME/.zsh/aliases"
 [ -f "$HOME/.zsh/functions" ] && source "$HOME/.zsh/functions"
 [ -f "$HOME/.zsh/autoloads" ] && source "$HOME/.zsh/autoloads"
 [ -f "$HOME/.zsh/fzf" ]       && source "$HOME/.zsh/fzf"
+[ -f "$HOME/.zsh/vi" ]       && source "$HOME/.zsh/vi"
+
+# ZSH OPTS
+setopt PROMPT_SUBST
+setopt interactivecomments
+
+# KEY BINDINGS
+bindkey -s '^o' 'lfcd\n'
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^x' edit-command-line
+
+# REVERSE SEARCH (ENABLE IF ATUIN IS NOT INSTALLED)
+# bindkey '^R' history-incremental-search-backward
 
 # ANTIBODY COMPILE ZSH
 # antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
@@ -92,3 +95,10 @@ if [ "$TERM" = "linux" ]; then
   # get rid of artifacts
   clear
 fi
+
+if [ -f "$(command -v fastfetch)" ]; then
+  echo "\n"
+  fastfetch
+  echo "\n"
+fi
+

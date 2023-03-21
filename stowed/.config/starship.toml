@@ -39,7 +39,7 @@ disabled=true
 disabled=true
 
 [hostname]
-format = "[$hostname]($style) in "
+format = "[$hostname]($style) "
 style = "bold dimmed blue"
 trim_at = "-"
 ssh_only = false
