@@ -34,9 +34,6 @@ SAVEHIST=100
 # NON INTERACTIVE MODE EARLY RETURN
 [[ $- != *i* ]] && return
 
-# BEAM CURSOR
-echo -ne '\e[5 q'
-
 # AUTOLOAD MODULES
 autoload -U colors && colors
 autoload -U compinit && compinit
@@ -49,7 +46,6 @@ zle -N edit-command-line
 [ -f "$HOME/.zsh/functions" ] && source "$HOME/.zsh/functions"
 [ -f "$HOME/.zsh/autoloads" ] && source "$HOME/.zsh/autoloads"
 [ -f "$HOME/.zsh/fzf" ]       && source "$HOME/.zsh/fzf"
-[ -f "$HOME/.zsh/vi" ]       && source "$HOME/.zsh/vi"
 
 # ZSH OPTS
 setopt PROMPT_SUBST
@@ -72,29 +68,6 @@ bindkey '^x' edit-command-line
 
 # FIX COLOR SCHEME ISSUES IN SYNTAX HIGHLIGHTING
 ZSH_HIGHLIGHT_STYLES[comment]='none'
-
-if [ "$TERM" = "linux" ]; then
-  /bin/echo -e "
-  \e]P0403c58
-  \e]P1ea6f91
-  \e]P29bced7
-  \e]P3f1ca93
-  \e]P434738e
-  \e]P5c3a5e6
-  \e]P6eabbb9
-  \e]P7faebd7
-  \e]P86f6e85
-  \e]P9ea6f91
-  \e]PA9bced7
-  \e]PBf1ca93
-  \e]PC34738e
-  \e]PDc3a5e6
-  \e]PEeabbb9
-  \e]PFffffff
-  "
-  # get rid of artifacts
-  clear
-fi
 
 if [ -f "$(command -v fastfetch)" ]; then
   echo "\n"
