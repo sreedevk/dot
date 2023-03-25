@@ -7,6 +7,6 @@ return {
       }
     })
 
-    vim.cmd('colorscheme terafox')
+    vim.cmd('colorscheme carbonfox')
   end
 }

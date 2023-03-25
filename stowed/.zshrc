@@ -56,9 +56,7 @@ bindkey -s '^o' 'lfcd\n'
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^x' edit-command-line
-
-# REVERSE SEARCH (ENABLE IF ATUIN IS NOT INSTALLED)
-# bindkey '^R' history-incremental-search-backward
+bindkey -s '^R' 'shist\n'
 
 # ANTIBODY COMPILE ZSH
 # antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh

@@ -10,8 +10,6 @@ if [ -f "$HOME/.asdf/asdf.sh" ]; then
   [ -f "$HOME/.asdf/plugins/java/set-java-home.zsh" ] && . ~/.asdf/plugins/java/set-java-home.zsh
 fi
 
-fpath+=~/.zfunc
-
 # DIRENV LOAD
 if command -v direnv &> /dev/null
 then
@@ -32,11 +30,6 @@ fi
 # LUAROCKS AUTOLOAD
 if command -v luarocks &> /dev/null; then
   eval "$(luarocks path --bin)"
-fi
-
-# ATUIN - BETTER HISTORY LOOKUP
-if command -v atuin &> /dev/null; then
-  eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
 # HASKELL AUTOLOADS
