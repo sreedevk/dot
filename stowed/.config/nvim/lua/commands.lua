@@ -7,7 +7,7 @@ api.nvim_create_user_command('WQ', 'wq', {})
 api.nvim_create_user_command('Q', 'q', {})
 api.nvim_create_user_command('Filetypes', 'Telescope filetypes', {})
 api.nvim_create_user_command('ToggleVenn', ":lua require('utils').toggle_venn()", {})
-api.nvim_create_user_command('Run', ":lua require('utils').prun()", {})
+api.nvim_create_user_command('CmdRun', ":lua require('utils').prun()", {})
 api.nvim_create_user_command(
   'WipeReg',
   'for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor',

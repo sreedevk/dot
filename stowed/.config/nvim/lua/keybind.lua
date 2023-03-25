@@ -81,5 +81,5 @@ map('n', '<Leader>x', "<cmd>! chmod +x %<CR>")
 map('n', '<Leader>sk', '<cmd>set spell!<CR>')
 
 -- run project commands / repl
-map('n', '<Leader>rn', '<cmd>Run<CR>')
+map('n', '<Leader>rn', '<cmd>CmdRun<CR>')
 map('v', '<Leader>rs', ":'>ToggleTermSendVisualLine<CR>gv=gv")
