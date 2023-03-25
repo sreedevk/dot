@@ -83,3 +83,15 @@ map('n', '<Leader>sk', '<cmd>set spell!<CR>')
 -- run project commands / repl
 map('n', '<Leader>rn', '<cmd>CmdRun<CR>')
 map('v', '<Leader>rs', ":'>ToggleTermSendVisualLine<CR>gv=gv")
+
+-- Debugging
+map('n', '<F5>', ':lua require("dap").continue()<CR>')
+map('n', '<F10>', ':lua require("dap").step_over()<CR>')
+map('n', '<F11>', ':lua require("dap").step_into()<CR>')
+map('n', '<F12>', ':lua require("dap").step_out()<CR>')
+map('n', '<Leader>dB', ':lua require("dap").toggle_breakpoint(vim.fn.input("Breakpoint Condition: "))<CR>')
+map('n', '<Leader>dbp', ':lua require("dap").toggle_breakpoint()<CR>')
+map('n', '<Leader>dlp', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("log point message: "))<CR>')
+map('n', '<Leader>drp', ':lua require("dap").repl.open()<CR>')
+map('n', '<Leader>duo', ':lua require("dapui").open()<CR>')
+map('n', '<Leader>duc', ':lua require("dapui").close()<CR>')
