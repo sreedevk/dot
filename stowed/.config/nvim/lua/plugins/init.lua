@@ -13,6 +13,19 @@ return {
   { 'rafcamlet/nvim-luapad',      cmd = { "Luapad", "LuaRun" } },
 
   {
+    'norcalli/nvim-colorizer.lua',
+    cmd = {
+      'ColorizerAttachToBuffer',
+      'ColorizerDetachFromBuffer',
+      'ColorizerReloadAllBuffers',
+      'ColorizerToggle'
+    },
+    config = function()
+      require('colorizer').setup()
+    end
+  },
+
+  {
     "j-hui/fidget.nvim",
     config = function()
       require("fidget").setup({})

@@ -12,7 +12,7 @@ csv() {
 }
 
 # print terminal emulator color palette
-palette() {
+color256() {
     local -a colors
     for i in {000..255}; do
         colors+=("%F{$i}$i%f")
@@ -39,6 +39,10 @@ lfcd () {
         rm -f "$tmp"
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
+}
+
+shist () {
+  eval "$(cat $HISTFILE | uniq | fzf)"
 }
 
 # ix.io pastebin
