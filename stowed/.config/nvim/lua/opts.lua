@@ -41,7 +41,6 @@ vim.opt.pumblend             = 10
 vim.opt.pumheight            = 10
 vim.opt.winblend             = 10
 vim.opt.listchars            = 'extends:…,precedes:…,nbsp:␣'
-vim.opt.list                 = true
 vim.opt.scrolloff            = 10
 vim.opt.conceallevel         = 2
 vim.opt.concealcursor        = 'nc'
