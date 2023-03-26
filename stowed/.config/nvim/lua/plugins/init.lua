@@ -78,15 +78,6 @@ return {
   },
 
   {
-    "folke/which-key.nvim",
-    config = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-      require("which-key").setup()
-    end
-  },
-
-  {
     'echasnovski/mini.comment',
     config = function()
       require('mini.comment').setup()
