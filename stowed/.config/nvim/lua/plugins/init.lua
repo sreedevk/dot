@@ -5,6 +5,7 @@ return {
   'nathom/filetype.nvim',
   'jbyuki/venn.nvim',
   'mattn/emmet-vim',
+  { 'chrisbra/csv.vim', ft="csv" },
 
   { 'dhruvasagar/vim-table-mode', cmd = "TableModeToggle" },
   { 'mbbill/undotree',            cmd = "UndotreeToggle" },
