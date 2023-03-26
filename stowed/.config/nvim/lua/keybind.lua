@@ -82,7 +82,7 @@ map('n', '<Leader>sk', '<cmd>set spell!<CR>')
 
 -- run project commands / repl
 map('n', '<Leader>rn', '<cmd>CmdRun<CR>')
-map('v', '<Leader>rs', ":'>ToggleTermSendVisualLine<CR>gv=gv")
+map('v', '<Leader>rs', ":'>ToggleTermSendVisualLine<CR>")
 
 -- Debugging
 map('n', '<F5>', ':lua require("dap").continue()<CR>')
