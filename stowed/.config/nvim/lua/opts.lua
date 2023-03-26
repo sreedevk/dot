@@ -42,8 +42,6 @@ vim.opt.pumheight            = 10
 vim.opt.winblend             = 10
 vim.opt.listchars            = 'extends:…,precedes:…,nbsp:␣'
 vim.opt.scrolloff            = 10
-vim.opt.conceallevel         = 2
-vim.opt.concealcursor        = 'nc'
 
 vim.wo.signcolumn            = 'number'
 vim.wo.wrap                  = true
@@ -56,4 +54,5 @@ vim.g.loaded_netrwPlugin     = 1
 vim.g.better_escape_shortcut = 'jj'
 vim.g.better_escape_interval = 400
 vim.g.user_emmet_leader_key  = "<C-a>"
+
 vim.api.nvim_set_hl(0, "CursorLine", { default = true, blend = 50 })

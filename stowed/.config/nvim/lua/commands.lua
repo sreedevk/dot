@@ -25,6 +25,13 @@ local auto_commands = {
       "silent! TableModeEnable"
     }
   },
+  csv_filetypes = {
+    {
+      { "BufRead", "BufNewFile" },
+      { "*.csv", "*.CSV" },
+      "set filetype=csv"
+    }
+  },
   eex_corrections = {
     {
       { "BufRead", "BufNewFile" },
