@@ -26,6 +26,16 @@ return {
   },
 
   {
+    "tversteeg/registers.nvim",
+    name = "registers",
+    keys = {
+      { "\"",    mode = { "n", "v" } },
+      { "<C-R>", mode = "i" }
+    },
+    cmd = "Registers",
+  },
+
+  {
     "j-hui/fidget.nvim",
     config = function()
       require("fidget").setup({})
