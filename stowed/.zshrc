@@ -34,11 +34,6 @@ SAVEHIST=100
 # NON INTERACTIVE MODE EARLY RETURN
 [[ $- != *i* ]] && return
 
-# AUTOLOAD MODULES
-autoload -U colors && colors
-autoload -U compinit && compinit
-autoload edit-command-line
-
 zle -N edit-command-line
 
 # LOAD ALIASES & FUNCTIONS
@@ -46,6 +41,11 @@ zle -N edit-command-line
 [ -f "$HOME/.zsh/functions" ] && source "$HOME/.zsh/functions"
 [ -f "$HOME/.zsh/autoloads" ] && source "$HOME/.zsh/autoloads"
 [ -f "$HOME/.zsh/fzf" ]       && source "$HOME/.zsh/fzf"
+
+# AUTOLOAD MODULES
+autoload -U colors && colors
+autoload -U compinit && compinit
+autoload edit-command-line
 
 # ZSH OPTS
 setopt PROMPT_SUBST

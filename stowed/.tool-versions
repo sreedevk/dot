@@ -1,6 +1,6 @@
 java openjdk-17
 nodejs 19.7.0
-rust 1.67.1
+rust 1.68.1
 ruby 3.2.1
 erlang 25.2.1
 elixir 1.14.3-otp-25
