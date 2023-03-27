@@ -2,3 +2,4 @@
 
 (package! emmet-mode)
 (package! cider)
+(package! ledger-mode)

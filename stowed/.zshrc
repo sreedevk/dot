@@ -56,7 +56,7 @@ bindkey -s '^o' 'lfcd\n'
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^x' edit-command-line
-bindkey -s '^R' 'shist\n'
+bindkey '^R' history-incremental-search-backward
 
 # ANTIBODY COMPILE ZSH
 # antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh

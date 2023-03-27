@@ -41,10 +41,6 @@ lfcd () {
     fi
 }
 
-shist () {
-  eval "$(cat $HISTFILE | uniq | fzf)"
-}
-
 # ix.io pastebin
 ix() {
     local opts
