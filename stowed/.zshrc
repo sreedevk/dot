@@ -72,4 +72,3 @@ if [ -f "$(command -v fastfetch)" ]; then
   fastfetch
   echo "\n"
 fi
-

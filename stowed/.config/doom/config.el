@@ -17,7 +17,9 @@
 
 (setq org-roam-directory "~/Data/notebook/roam")
 (setq org-directory "~/Data/notebook")
-(setq org-agenda-files "~/Data/notebook/agenda.org")
+
+(after! org
+  (setq org-agenda-files '("~/Data/notebook/agenda.org")))
 
 (setq deft-directory "~/Data/notebook"
       deft-extensions '("org", "txt", "md")

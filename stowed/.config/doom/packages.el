@@ -3,3 +3,4 @@
 (package! emmet-mode)
 (package! cider)
 (package! ledger-mode)
+(package! org-present)
