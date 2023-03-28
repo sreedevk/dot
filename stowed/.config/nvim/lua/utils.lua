@@ -18,6 +18,17 @@ function M.arun()
   cmdterm:spawn()
 end
 
+-- empty swap
+function M.emptyswap()
+  local swap_dir = vim.fn.expand('$HOME') .. '/.local/state/nvim/swap/'
+  local files = vim.fn.glob(swap_dir .. '*.swp', false, true)
+  for _, file in ipairs(files) do
+    os.remove(file)
+  end
+
+  print('deleted ' .. #files .. ' swap files')
+end
+
 -- venn.nvim: enable or disable keymappings
 function M.toggle_venn()
   local venn_enabled = vim.inspect(vim.b.venn_enabled)
