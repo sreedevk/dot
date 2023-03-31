@@ -63,6 +63,7 @@ map('n', '<Leader>tu', "<cmd>UndotreeToggle<CR>")
 map('n', '<Leader>tr', "<cmd>ToggleTerm<CR>")
 map('n', '<Leader>tf', "<cmd>ToggleTerm direction=float<CR>")
 map('n', '<Leader>tz', '<cmd>ZenMode<CR>')
+map('n', '<Leader>tdq', '<cmd>TroubleToggle quickfix<CR>')
 
 -- alt toggle
 map('n', '<Leader>z', '<cmd>ZenMode<CR>')

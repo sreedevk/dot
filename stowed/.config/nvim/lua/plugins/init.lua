@@ -67,6 +67,15 @@ return {
   },
 
   {
+    'folke/twilight.nvim',
+    cmd = { "ZenMode", "Twilight", "TwilightEnable", "TwilightDisable" },
+    dependencies = { 'folke/zen-mode.nvim' },
+    config = function()
+      require('twilight').setup()
+    end
+  },
+
+  {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     config = function()
