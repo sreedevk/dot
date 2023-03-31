@@ -53,7 +53,7 @@ return {
         ["<cr>"] = "RET",
         ["<tab>"] = "TAB"
       },
-      ignore_missing = true,
+      ignore_missing = false,
       show_help = false,
     })
   end

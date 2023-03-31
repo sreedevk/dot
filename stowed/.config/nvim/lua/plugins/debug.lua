@@ -1,6 +1,7 @@
 return {
   {
     'mfussenegger/nvim-dap',
+    event = "InsertEnter",
     config = function()
       local dap = require('dap')
       dap.adapters.lldb = {
@@ -27,6 +28,7 @@ return {
       dap.configurations.rust = dap.configurations.cpp
     end
   },
+
   {
     'rcarriga/nvim-dap-ui',
     dependencies = { 'mfussenegger/nvim-dap' },
@@ -34,7 +36,13 @@ return {
       require("dapui").setup()
     end
   },
-  { 'simrat39/rust-tools.nvim', dependencies = { 'mfussenegger/nvim-dap' } },
+
+  {
+    'simrat39/rust-tools.nvim',
+    dependencies = { 'mfussenegger/nvim-dap' },
+    ft = { "rs", "toml" }
+  },
+
   {
     'theHamsta/nvim-dap-virtual-text',
     dependencies = { 'mfussenegger/nvim-dap' },
@@ -42,5 +50,4 @@ return {
       require("nvim-dap-virtual-text").setup()
     end
   },
-  'nvim-telescope/telescope-dap.nvim'
 }
