@@ -25,6 +25,17 @@
       deft-extensions '("org", "txt", "md")
       deft-recursive t)
 
+(use-package! websocket
+  :after org-roam)
+
+(use-package! org-roam-ui
+  :after org-roam
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
+
 (setq org-journal-date-prefix "#+TITLE:"
       org-journal-time-prefix "* "
       org-journal-file-format "%Y-%m-%d.org")
@@ -75,3 +86,20 @@
 (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
 (add-to-list 'default-frame-alist '(alpha . (85 . 50)))
 (setq which-key-idle-delay 0.8)
+
+(after! visual-fill-column
+  (setq visual-fill-column-width 110
+        visual-fill-column-center-text t))
+
+(defun my/org-present-start ()
+  ;; Center the presentation and wrap lines
+  (visual-fill-column-mode 1)
+  (visual-line-mode 1))
+
+(defun my/org-present-end ()
+  ;; Stop centering the document
+  (visual-fill-column-mode 0)
+  (visual-line-mode 0))
+
+(add-hook 'org-present-mode-hook 'my/org-present-start)
+(add-hook 'org-present-mode-quit-hook 'my/org-present-end)

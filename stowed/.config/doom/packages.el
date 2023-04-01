@@ -2,5 +2,7 @@
 
 (package! emmet-mode)
 (package! cider)
-(package! ledger-mode)
+(unpin! org-roam)
+(package! org-roam-ui)
 (package! org-present)
+(package! visual-fill-column)

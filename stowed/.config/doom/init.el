@@ -105,7 +105,7 @@
        ;;kotlin
        (latex +latexmk +cdlatex +fold +lsp)
        ;;lean
-       ;;ledger
+       ledger
        (lua +fennel +moonscript)
        (markdown +grip)
        ;;nim
