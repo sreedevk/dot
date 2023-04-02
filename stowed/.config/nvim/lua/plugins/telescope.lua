@@ -3,6 +3,11 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-file-browser.nvim',
+    'LinArcX/telescope-env.nvim',
+    {
+      'nvim-telescope/telescope-frecency.nvim',
+      dependencies = { "kkharji/sqlite.lua" }
+    }
   },
   cmd = "Telescope",
   config = function()
@@ -33,5 +38,7 @@ return {
     }
 
     telescope.load_extension "file_browser"
+    telescope.load_extension "frecency"
+    telescope.load_extension "env"
   end
 }

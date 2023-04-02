@@ -11,7 +11,7 @@
 -- AUTHOR: SREEDEV KODICHATH
 
 require('opts')
-require('plugman')
+require('pack')
 require('commands')
 require('debugger')
 require('keybind')

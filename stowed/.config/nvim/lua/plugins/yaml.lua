@@ -1,5 +1,6 @@
 return {
   "cuducos/yaml.nvim",
+  lazy = true,
   ft = { "yaml" },
   cmd = {
     "YAMLView",
