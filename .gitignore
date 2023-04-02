@@ -27,3 +27,4 @@ stowed/.emacs.d/*~
 !stowed/.config/nushell/env.nu
 !stowed/.config/nushell/config.nu
 !stowed/.config/fastfetch/
+!stowed/.config/cronjobs/
