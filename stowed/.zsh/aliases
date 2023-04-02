@@ -15,8 +15,6 @@ alias fgrep='fgrep --color=auto'
 alias jctl="journalctl -p 3 -xb"
 alias macs="emacsclient -c -a 'emacs'"
 alias lg="lazygit"
-alias t="tmux"
-alias ta="tmux a"
 alias clock="tty-clock -csSb -C3"
 
 alias e="$EDITOR"
@@ -24,6 +22,8 @@ alias e="$EDITOR"
 # Tmuxinator - Tmux Session Manager
 alias mux='tmuxinator'
 alias tmux='TERM=screen-256color-bce tmux'
+alias t="tmux"
+alias ta="tmux a"
 
 # git
 alias g='git'

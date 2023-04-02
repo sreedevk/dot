@@ -1,17 +1,37 @@
 return {
   'VonHeikemen/lsp-zero.nvim',
   branch = "v2.x",
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "BufReadPost", "BufAdd", "BufNewFile" },
   dependencies = {
-    { 'neovim/nvim-lspconfig' },
-    { 'williamboman/mason.nvim' },
-    { 'williamboman/mason-lspconfig.nvim' },
-    { 'hrsh7th/nvim-cmp' },
-    { 'hrsh7th/cmp-buffer' },
-    { 'hrsh7th/cmp-path' },
-    { 'hrsh7th/cmp-nvim-lsp' },
-    { 'L3MON4D3/LuaSnip' },
-    { 'rafamadriz/friendly-snippets' },
+    'neovim/nvim-lspconfig',
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-nvim-lsp',
+    'ray-x/cmp-treesitter',
+    'L3MON4D3/LuaSnip',
+    'rafamadriz/friendly-snippets',
+    {
+      'glepnir/lspsaga.nvim',
+      cmd = "Lspsaga",
+      dependencies = {
+        { "nvim-tree/nvim-web-devicons" },
+        { "nvim-treesitter/nvim-treesitter" }
+      },
+      config = function()
+        require("lspsaga").setup({
+          lightbulb = {
+            enable = false,
+            enable_in_insert = false,
+            sign = false,
+            sign_priority = 40,
+            virtual_text = false,
+          },
+        })
+      end,
+    }
   },
   config = function()
     local luasnip = require('luasnip')
@@ -34,16 +54,16 @@ return {
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp", priority = 8 },
-        { name = "luasnip", priority = 7 },
-        { name = "buffer", priority = 7 },
-        { name = "path", priority = 6 }
+        { name = "luasnip",  priority = 7 },
+        { name = "buffer",   priority = 7 },
+        { name = "path",     priority = 6 }
       }),
     })
 
     local lsp = require('lsp-zero')
 
     lsp.preset("recommended")
-    lsp.on_attach(function(client, bufnr)
+    lsp.on_attach(function(_, bufnr)
       local opts = { buffer = bufnr, remap = false }
       vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
       vim.keymap.set("n", "K", "<cmd>Lspsaga peek_definition<CR>", opts)

@@ -1,5 +1,6 @@
 return {
   'JellyApple102/easyread.nvim',
+  lazy = true,
   cmd = { 'EasyreadToggle', 'EasyreadSaccadeInterval', 'EasyreadSaccadeReset', 'EasyreadUpdateWhileInsert' },
   config = function()
     require('easyread').setup {

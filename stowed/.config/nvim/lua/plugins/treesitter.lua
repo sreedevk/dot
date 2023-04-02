@@ -1,9 +1,12 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
-    'windwp/nvim-ts-autotag',
+    'windwp/nvim-ts-autotag'
   },
   config = function()
+    vim.api.nvim_set_option_value("foldmethod", "expr", {})
+    vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
+
     require('nvim-treesitter.configs').setup({
       ensure_installed = {
         "c", "elixir", "ruby", "lua", "rust", "json", "cpp",
@@ -15,7 +18,16 @@ return {
         filetypes = { "html" },
       },
       sync_install = false,
+      ignore_install = { "comment" },
       auto_install = true,
+      incremental_selection = { enable = false },
+      indent = { enable = true },
+      playground = {
+        enable = true,
+        disable = {},
+        updatetime = 50, -- Debounced time for highlighting nodes in the playground from source code
+        persist_queries = true, -- Whether the query persists across vim sessions
+      },
       highlight = {
         enable = true,
         disable = function(_lang, buf)
@@ -25,19 +37,7 @@ return {
             return true
           end
         end,
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "gnn", -- set to `false` to disable one of the mappings
-          node_incremental = "grn",
-          scope_incremental = "grc",
-          node_decremental = "grm",
-        },
-      },
-      indent = {
-        enable = true
-      },
+      }
     })
   end
 }

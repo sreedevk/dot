@@ -3,7 +3,12 @@ return {
   config = function()
     require('nightfox').setup({
       options = {
-        transparent = false,
+        transparent = true,
+        styles = {
+          comments = "italic",
+          keywords = "bold",
+          types = "italic,bold",
+        }
       }
     })
 

@@ -8,13 +8,19 @@ map('n', '<Leader>glo', "<cmd>Git log<CR>")
 map('n', '<Leader>gpu', "<cmd>Git push<CR>")
 map('n', '<Leader>gpl', "<cmd>Git pull<CR>")
 
+-- inc/dev
+map("n", "+", "<C-a>")
+map("n", "-", "<C-x>")
+
 -- lazy
 map('n', '<Leader>l', "<cmd>Lazy<CR>")
 
 -- convenience
 map('n', '<Leader>w', "<cmd>w<CR>")
+map('n', '<Leader>sw', "<cmd>execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<cr>")
 map('n', '<Leader>q', "<cmd>q<CR>")
 map('n', '<Leader>h', "<cmd>noh<CR>")
+map("n", "<esc>", "<cmd>noh<cr>")
 map('t', 'jj', "<C-\\><C-n>")
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
@@ -23,6 +29,7 @@ map('n', '<C-u>', "<C-u>zz")
 map('v', '<M-j>', ":m '>+1<CR>gv=gv")
 map('v', '<M-k>', ":m '<-2<CR>gv=gv")
 map('n', '<Leader>x', "<cmd>! chmod +x %<CR>")
+map("n", "<leader><leader>s", "<cmd>%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
 -- Neotree
 map('n', '<C-n>', "<cmd>Neotree reveal toggle<CR>")
@@ -45,9 +52,11 @@ map('', '<up>', "<nop>")
 map('', '<down>', "<nop>")
 map('', '<left>', "<nop>")
 map('', '<right>', "<nop>")
+map("n", "Q", "<nop>")
 
 -- Tabs
 map('n', '<C-t>', "<cmd>tabnew<CR>")
+map("n", "<Leader>ca", "<cmd>tabonly<cr>")
 
 -- buffers
 map('n', '<Leader>bl', "<cmd>Telescope buffers<CR>")

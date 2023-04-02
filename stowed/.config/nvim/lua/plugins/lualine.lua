@@ -1,5 +1,7 @@
 return {
   'hoob3rt/lualine.nvim',
+  lazy = true,
+  event = { "BufReadPost", "BufAdd", "BufNewFile" },
   config = function()
     require('lualine').setup {
       sections = {
