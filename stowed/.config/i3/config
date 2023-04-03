@@ -7,7 +7,7 @@
 set $term kitty
 
 # Application Launcher
-set $app_launcher "rofi -show combi -combi-modes 'run,window,ssh' -modes combi"
+set $app_launcher "rofi -show drun"
 set $window_switcher "rofi -show window"
 
 # Setup Key Definitions
