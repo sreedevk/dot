@@ -16,7 +16,8 @@ stowed/.zshenv
 !stowed/.config/i3
 !stowed/.config/i3blocks
 !stowed/.config/i3status
-!stowed/.config/kitty
+!stowed/.config/kitty/kitty.conf
+!stowed/.config/kitty/current-theme.conf
 !stowed/.config/ranger
 !stowed/.config/starship.toml
 !stowed/.config/rofi
