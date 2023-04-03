@@ -18,7 +18,7 @@ return {
 
   {
     'chrisbra/csv.vim',
-    laxy = true,
+    lazy = true,
     ft = "csv"
   },
 
