@@ -3,6 +3,8 @@ return {
   config = function()
     require('nightfox').setup({
       options = {
+        compile_path = vim.fn.stdpath("cache") .. "/nightfox",
+        compile_file_suffix = "_compiled", -- Compiled file suffix
         transparent = true,
         styles = {
           comments = "italic",
@@ -12,6 +14,6 @@ return {
       }
     })
 
-    vim.cmd('colorscheme carbonfox')
+    vim.cmd('colorscheme duskfox')
   end
 }
