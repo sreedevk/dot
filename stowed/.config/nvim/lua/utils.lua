@@ -9,6 +9,50 @@ function M.prun()
   cmdterm:toggle()
 end
 
+function M.fetchjson()
+  local url    = vim.fn.expand('<cWORD>')
+  local handle = io.popen('curl '.. url)
+
+  if handle == nil then
+    print('Error: Failed to load httpie')
+    return
+  end
+
+  local response = handle:read('*a')
+  handle:close()
+
+  if response == '' then
+    print('Error: Failed to fetch URL')
+    return
+  end
+
+  local jq_cmd = string.format([[echo '%s' | jq]], response)
+  local jq_handle = io.popen(jq_cmd)
+  local formatted_json = ""
+  local lines = {}
+
+  if jq_handle ~= nil then
+    formatted_json = jq_handle:read("*a")
+    jq_handle:close()
+    for line in string.gmatch(formatted_json, "[^\r\n]+") do
+      table.insert(lines, line)
+    end
+  else
+    lines = { response }
+  end
+
+  vim.cmd('vsplit')
+
+  local win = vim.api.nvim_get_current_win()
+  local buf = vim.api.nvim_create_buf(false, true)
+
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+  vim.api.nvim_buf_set_option(buf, 'filetype', 'json')
+  vim.api.nvim_win_set_buf(win, buf)
+
+  print('Success: Fetched URL')
+end
+
 -- run command asynchronously
 function M.arun()
   local term    = require('toggleterm.terminal').Terminal
