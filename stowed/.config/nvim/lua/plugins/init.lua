@@ -4,6 +4,7 @@ return {
   'nathom/filetype.nvim',
   'jbyuki/venn.nvim',
   'mattn/emmet-vim',
+  'chrisbra/unicode.vim',
 
   {
     'tpope/vim-fugitive',

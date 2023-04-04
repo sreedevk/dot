@@ -4,7 +4,7 @@
 # AUTHOR: SREEDEV KODICHATH
 
 # terminal
-set $term kitty
+set $term alacritty
 
 # Application Launcher
 set $app_launcher "rofi -show drun"
