@@ -20,7 +20,7 @@ env:
   TERM: xterm-256color
 
 import:
-  - ~/.config/alacritty/themes/catppuccin/catppuccin-mocha.yml
+  - ~/.config/alacritty/themes/ayu_dark.yaml
 
 mouse_bindings:
   - { action: PasteSelection, mouse: Middle }
