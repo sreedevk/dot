@@ -10,7 +10,7 @@ stowed/.emacs.d/*~
 stowed/.zshenv
 
 # Allow
-!stowed/.config/alacritty
+!stowed/.config/alacritty/alacritty.yml
 !stowed/.config/awesome
 !stowed/.config/dunst
 !stowed/.config/i3
