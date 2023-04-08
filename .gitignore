@@ -30,3 +30,4 @@ stowed/.zshenv
 !stowed/.config/nushell/config.nu
 !stowed/.config/fastfetch/
 !stowed/.config/cronjobs/
+!stowed/.config/sxiv/

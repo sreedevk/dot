@@ -22,7 +22,7 @@ exec        --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-ag
 default_border pixel 0
 hide_edge_borders none
 default_floating_border normal
-font pango:JetBrains Mono 5
+font pango:Iosevka Nerd Font 5
 floating_modifier $mod
 focus_follows_mouse yes
 workspace_auto_back_and_forth no
@@ -171,7 +171,6 @@ assign [class="Microsoft Teams - Preview"] $ws5
 assign [class="Brave-browser"]             $ws2
 
 for_window [title="alsamixer"]      floating enable
-for_window [class="Nitrogen"]       floating enable sticky enable
 for_window [urgent=latest] focus
 for_window [class=".*"] border pixel 0
 for_window [class="Pavucontrol"] floating enable sticky enable resize set 800 500
