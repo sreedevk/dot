@@ -20,7 +20,7 @@ while read -r file; do
 		# Open the file in GIMP
 		"e") if type gimp > /dev/null 2>&1; then setsid -f gimp "$file"; else notify-send "Gimp is not installed!"; fi ;;
 		# Set the file as wallpaper
-		"w") if type feh > /dev/null 2>&1; then feh --bg-scale --no-fehbg "$file" && notify-send "$file set as wallpaper"; else notify-send "Feh is not installed!";  fi ;;
+		"w") feh --bg-scale "$file" && notify-send "$file set as wallpaper" ;;
 		# Copy the file to wallpapers folder
 		"W") cp -n "$file" "$wallpapersloc" && notify-send "$file copied to $wallpapersloc" || notify-send "$file already exists" ;;
     "l")

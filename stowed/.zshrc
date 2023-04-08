@@ -5,15 +5,11 @@
 ## zmodload zsh/zprof
 
 # PATHS
-LOCAL_BIN_PATH="$HOME/.local/bin"
-LOCAL_BIN_SUB_PATH="$HOME/.local/bin/**/*"
-OPT_BIN="/opt/bin/"
-export GOPATH="$HOME/go"
-export PATH="$PATH:$LOCAL_BIN_PATH:$LOCAL_BIN_SUB_PATH:$GOPATH/bin/:$OPT_BIN"
+export PATH="$PATH:$HOME/.local/bin"
 
 # ENV VARIABLES
 export VISUAL="nvim"
-export EDITOR=nvim
+export EDITOR="nvim"
 export READER="zathura"
 export TERMINAL="kitty"
 export BROWSER="brave"
