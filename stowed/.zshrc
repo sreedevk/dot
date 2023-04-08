@@ -7,8 +7,9 @@
 # PATHS
 LOCAL_BIN_PATH="$HOME/.local/bin"
 LOCAL_BIN_SUB_PATH="$HOME/.local/bin/**/*"
+OPT_BIN="/opt/bin/"
 export GOPATH="$HOME/go"
-export PATH="$PATH:$LOCAL_BIN_PATH:$LOCAL_BIN_SUB_PATH:$GOPATH/bin/"
+export PATH="$PATH:$LOCAL_BIN_PATH:$LOCAL_BIN_SUB_PATH:$GOPATH/bin/:$OPT_BIN"
 
 # ENV VARIABLES
 export VISUAL="nvim"
