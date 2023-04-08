@@ -1,11 +1,13 @@
 return {
   'EdenEast/nightfox.nvim',
+  lazy = true,
+  event = "VeryLazy",
   config = function()
     require('nightfox').setup({
       options = {
         compile_path = vim.fn.stdpath("cache") .. "/nightfox",
         compile_file_suffix = "_compiled", -- Compiled file suffix
-        transparent = true,
+        transparent = false,
         styles = {
           comments = "italic",
           keywords = "bold",
@@ -14,6 +16,6 @@ return {
       }
     })
 
-    vim.cmd('colorscheme duskfox')
+    vim.cmd('colorscheme terafox')
   end
 }

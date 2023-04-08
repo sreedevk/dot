@@ -12,27 +12,29 @@ return {
   cmd = "Telescope",
   config = function()
     local telescope = require("telescope")
+    local t_actions = require("telescope.actions")
     telescope.setup {
+      pickers = {
+        find_files = {
+          hidden = false,
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        }
+      },
       extensions = {
         file_browser = {
-          theme = 'ivy',
           hijack_netrw = false,
-          mappings = {
-                ["i"] = {
-                  ["<C-k>"] = require('telescope.actions').move_selection_previous,
-                  ["<C-j>"] = require('telescope.actions').move_selection_next,
-                  ["<esc>"] = require('telescope.actions').close,
-            }
-          }
         }
       },
       defaults = {
         mappings = {
+          n = {
+            ["q"] = t_actions.close,
+          },
           i = {
-                ["<C-k>"] = require('telescope.actions').move_selection_previous,
-                ["<C-j>"] = require('telescope.actions').move_selection_next,
-                ["<esc>"] = require('telescope.actions').close,
-          }
+            ["<C-k>"] = t_actions.move_selection_previous,
+            ["<C-j>"] = t_actions.move_selection_next,
+            ["<esc>"] = t_actions.close,
+          },
         }
       },
     }
