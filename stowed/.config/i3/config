@@ -16,7 +16,6 @@ set $mod Mod4
 # AutoStart Applications
 exec        --no-startup-id ~/.config/i3/autostart.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec        --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # UX + Design Config
 default_border pixel 0

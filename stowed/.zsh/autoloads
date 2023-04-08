@@ -1,3 +1,5 @@
+#!/usr/bin/zsh
+
 # ASDF AUTOLOADS
 if [ -f "$HOME/.asdf/asdf.sh" ]; then
   # ASDF INITIALIZATION
@@ -35,4 +37,12 @@ fi
 # HASKELL AUTOLOADS
 if [ -f "$HOME/.ghcup/env" ]; then
   source "$HOME/.ghcup/env"
+fi
+
+if [ -f "$HOME/.cargo/env" ]; then
+  source "$HOME/.cargo/env"
+fi
+
+if command -v go &> /dev/null; then
+  eval "$(go env)"
 fi
