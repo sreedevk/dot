@@ -29,7 +29,7 @@ map('n', '<C-u>', "<C-u>zz")
 map('v', '<M-j>', ":m '>+1<CR>gv=gv")
 map('v', '<M-k>', ":m '<-2<CR>gv=gv")
 map('n', '<Leader>x', "<cmd>! chmod +x %<CR>")
-map("n", "<leader><leader>s", "<cmd>%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+map("n", "<leader><leader>s", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
 
 -- Neotree
 map('n', '<C-n>', "<cmd>Neotree reveal toggle<CR>")
