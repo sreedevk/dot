@@ -1,7 +1,6 @@
 return {
   'tpope/vim-surround',
   'tpope/vim-characterize',
-  'nathom/filetype.nvim',
   'jbyuki/venn.nvim',
   'mattn/emmet-vim',
   'chrisbra/unicode.vim',

@@ -13,7 +13,6 @@
   "easyread.nvim": { "branch": "main", "commit": "f367eaad214bf60f54ff6f94cf250a5970eb21e6" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "fidget.nvim": { "branch": "main", "commit": "0ba1e16d07627532b6cae915cc992ecac249fb97" },
-  "filetype.nvim": { "branch": "main", "commit": "b522628a45a17d58fc0073ffd64f9dc9530a8027" },
   "friendly-snippets": { "branch": "main", "commit": "8d91ba2dc2421a54981115f61b914974f938fa77" },
   "lazy.nvim": { "branch": "main", "commit": "57cce98dfdb2f2dd05a0567d89811e6d0505e13b" },
   "lsp-zero.nvim": { "branch": "v2.x", "commit": "87f25b378ab5f7da19c6dd38d9c415750334b338" },
