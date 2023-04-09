@@ -33,6 +33,9 @@ SAVEHIST=100
 
 zle -N edit-command-line
 
+# LOAD COMPILED PLUGINS
+[ -f "$HOME/.zsh/plugins.sh" ] && source ~/.zsh/plugins.sh
+
 # LOAD ALIASES & FUNCTIONS
 [ -f "$HOME/.zsh/aliases" ]   && source "$HOME/.zsh/aliases"
 [ -f "$HOME/.zsh/functions" ] && source "$HOME/.zsh/functions"
@@ -57,9 +60,6 @@ bindkey '^R' history-incremental-search-backward
 
 # ANTIBODY COMPILE ZSH
 # antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
-
-# LOAD COMPILED PLUGINS
-[ -f "$HOME/.zsh/plugins.sh" ] && source ~/.zsh/plugins.sh
 
 # FIX COLOR SCHEME ISSUES IN SYNTAX HIGHLIGHTING
 ZSH_HIGHLIGHT_STYLES[comment]='none'
