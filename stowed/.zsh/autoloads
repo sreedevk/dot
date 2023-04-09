@@ -15,34 +15,34 @@ fi
 # DIRENV LOAD
 if command -v direnv &> /dev/null
 then
-  eval "$(direnv hook zsh)"
+  _evalcache direnv hook zsh
 fi
 
 
 # START STARSHIP PROMPT
 if command -v starship &> /dev/null; then
-  eval "$(starship init zsh)"
+  _evalcache starship init zsh
 fi
 
 # ZOXIDE - MODERN CD
 if command -v zoxide &> /dev/null; then
-  eval "$(zoxide init zsh)"
+  _evalcache zoxide init zsh
 fi
 
 # LUAROCKS AUTOLOAD
 if command -v luarocks &> /dev/null; then
-  eval "$(luarocks path --bin)"
+  _evalcache luarocks path --bin
 fi
 
 # HASKELL AUTOLOADS
 if [ -f "$HOME/.ghcup/env" ]; then
-  source "$HOME/.ghcup/env"
+  _evalcache "$HOME/.ghcup/env"
 fi
 
 if [ -f "$HOME/.cargo/env" ]; then
-  source "$HOME/.cargo/env"
+  . $HOME/.cargo/env
 fi
 
 if command -v go &> /dev/null; then
-  eval "$(go env)"
+  _evalcache go env
 fi
