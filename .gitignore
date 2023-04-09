@@ -31,3 +31,5 @@ stowed/.zshenv
 !stowed/.config/fastfetch/
 !stowed/.config/cronjobs/
 !stowed/.config/sxiv/
+!stowed/.config/lf/
+!stowed/.config/newsboat
