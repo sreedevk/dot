@@ -34,7 +34,7 @@ gaps outer -2
 # bar {
 #   position top
 #   status_command i3blocks
-#   font pango:JetBrains Mono 5
+#   font pango:Iosevka Nerd Font 5
 # }
 
 # Shortcuts - Terminal + Access
@@ -54,7 +54,7 @@ bindsym XF86AudioLowerVolume   exec --no-startup-id pactl set-sink-volume $(pact
 bindsym XF86AudioMute          exec --no-startup-id pactl set-sink-mute $(pactl info | grep 'Default Sink' | awk '{print $3}') toggle
 
 # Shortcuts - Dunst
-bindsym $mod+Shift+d --release exec --no-startup-id "killall dunst; exec notify-send 'restart dunst'"
+bindsym $mod+Shift+d --release exec --no-startup-id "killall dunst; exec notify-send -a dunst 'restart'"
 
 # Shortcuts - Screenshots
 bindsym Print                   exec --no-startup-id "maim -i $(xdotool getactivewindow) ~/Pictures/screenshots/$(date +%s).png"
@@ -105,8 +105,8 @@ bindsym $mod+Ctrl+s          sticky toggle
 bindsym $mod+a               focus parent
 bindsym $mod+Shift+minus     move scratchpad
 bindsym $mod+minus           scratchpad show
-bindsym $mod+h               split h; exec --no-startup-id notify-send "Tiling Horizontally"
-bindsym $mod+v               split v; exec --no-startup-id notify-send "Tiling Vertically"
+bindsym $mod+h               split h; exec --no-startup-id notify-send -a i3wm "Tiling Horizontally"
+bindsym $mod+v               split v; exec --no-startup-id notify-send -a i3wm "Tiling Vertically"
 bindsym $mod+f               fullscreen toggle
 
 bindsym $mod+Ctrl+semicolon  workspace next
