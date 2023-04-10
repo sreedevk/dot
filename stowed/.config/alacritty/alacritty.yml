@@ -42,4 +42,4 @@ window:
   opacity: 0.95  # compositing required
   padding:
     x: 5
-    y: 10
+    y: 1
