@@ -1,4 +1,5 @@
 (doom! :input
+       layout
        ;; bidi
        ;; chinese
        ;; japanese
@@ -23,27 +24,24 @@
        unicode
        (vc-gutter +pretty)
        vi-tilde-fringe
-       window-select
+       (window-select +switch-window +numbers)
        workspaces
        zen
 
        :editor
-       (evil
-        +everywhere
-        +commands)
+       (evil +everywhere +commands)
        file-templates
        fold
        (format +onsave)
        lispy
        multiple-cursors
+       parinfer
        rotate-text
        snippets
        word-wrap
 
        :emacs
-       (dired
-        +ranger
-        +icons)
+       (dired +ranger +icons)
        electric
        ibuffer
        undo
@@ -66,13 +64,11 @@
        editorconfig
        (eval +overlay)
        gist
-       lookup
-       lsp
-       magit
+       (lookup +dictionary +docsets +offline)
+       (lsp +peek +eglot)
+       (magit +forge)
        make
        pdf
-       rgb
-       taskrunner
        tmux
        tree-sitter
        upload
@@ -146,9 +142,9 @@
 
        :app
        calendar
-       ;;emms
+       emms
        ;;everywhere
-       ;;irc
+       irc
        (rss +org)
        twitter
 
