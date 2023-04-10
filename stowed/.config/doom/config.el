@@ -6,10 +6,10 @@
 (setq user-full-name "Sreedev Kodichath"
       user-mail-address "sreedevpadmakumar@gmail.com")
 
-(setq doom-theme 'doom-ayu-dark
-      doom-font (font-spec :family "Iosevka Nerd Font" :size 18)
+(setq doom-theme 'doom-pine
+      doom-font (font-spec :family "Iosevka Nerd Font" :size 17)
       doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 18)
-      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 24))
+      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 26))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t)
