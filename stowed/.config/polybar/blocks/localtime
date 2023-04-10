@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo "$(date '+%d/%m/%Y %a %I:%M:%S %p %Z' | tr '[a-z]' '[A-Z]')"
+echo -e $(date +"%a %B %d %l:%M %p"| sed 's/  / /g')
 exit 0

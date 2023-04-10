@@ -25,6 +25,9 @@ import:
 mouse_bindings:
   - { action: PasteSelection, mouse: Middle }
 
+selection:
+  save_to_clipboard: false
+
 scrolling:
   multiplier: 5
 
@@ -34,7 +37,8 @@ shell:
   program: /usr/bin/zsh
 
 window:
-  decorations: none
+  decorations: full
+  history: 10000
   opacity: 0.95  # compositing required
   padding:
     x: 5
