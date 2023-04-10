@@ -49,6 +49,9 @@ autoload edit-command-line
 
 # ZSH OPTS
 setopt PROMPT_SUBST
+setopt AUTOCD
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS
 setopt interactivecomments
 
 # KEY BINDINGS
