@@ -4,12 +4,13 @@
 ;; sync' after modifying this file!
 
 (setq user-full-name "Sreedev Kodichath"
-      user-mail-address "sreedevpadmakumar@gmail.com")
+      user-mail-address (rot13 "ferrqricnqznxhzne@tznvy.pbz"))
 
 (setq doom-theme 'doom-pine
       doom-font (font-spec :family "Iosevka Nerd Font" :size 17)
       doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 18)
       doom-big-font (font-spec :family "Iosevka Nerd Font" :size 26))
+
 
 (after! doom-themes
   (setq doom-themes-enable-bold t)
@@ -78,8 +79,6 @@
                    "v" 'git-gutter-mode
                    "h" #'hl-line-mode))
 
-(delete-selection-mode 1)
-
 (evil-global-set-key 'motion "j" 'evil-next-visual-line)
 (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
 
@@ -91,15 +90,21 @@
   (setq visual-fill-column-width 110
         visual-fill-column-center-text t))
 
-(defun my/org-present-start ()
-  ;; Center the presentation and wrap lines
-  (visual-fill-column-mode 1)
-  (visual-line-mode 1))
-
-(defun my/org-present-end ()
-  ;; Stop centering the document
-  (visual-fill-column-mode 0)
-  (visual-line-mode 0))
-
-(add-hook 'org-present-mode-hook 'my/org-present-start)
-(add-hook 'org-present-mode-quit-hook 'my/org-present-end)
+(eval-after-load "org-present"
+  '(progn
+     (add-hook 'org-present-mode-hook
+               (lambda ()
+                 (visual-fill-column-mode 1)
+                 (visual-line-mode 1)
+                 (org-present-big)
+                 (org-display-inline-images)
+                 (org-present-hide-cursor)
+                 (org-present-read-only)))
+     (add-hook 'org-present-mode-quit-hook
+               (lambda ()
+                 (visual-fill-column-mode 0)
+                 (visual-line-mode 0)
+                 (org-present-small)
+                 (org-remove-inline-images)
+                 (org-present-show-cursor)
+                 (org-present-read-write)))))
