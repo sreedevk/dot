@@ -38,8 +38,7 @@ shell:
 
 window:
   decorations: full
-  history: 10000
-  opacity: 0.95  # compositing required
+  opacity: 0.75  # compositing required
   padding:
     x: 5
     y: 1
