@@ -28,7 +28,7 @@ config.bold_brightens_ansi_colors   = true
 config.automatically_reload_config  = true
 
 config.inactive_pane_hsb            = { saturation = 1.0, brightness = 1.0 }
-config.window_background_opacity    = 1.0
+config.window_background_opacity    = 0.65
 config.window_close_confirmation    = "NeverPrompt"
 config.window_frame                 = {
   active_titlebar_bg = "#090909",

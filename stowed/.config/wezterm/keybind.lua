@@ -16,11 +16,6 @@ return {
       }),
     },
     {
-      key = "q",
-      mods = "CTRL",
-      action = wezterm.action({ CloseCurrentPane = { confirm = false } }),
-    },
-    {
       key = "h",
       mods = "CTRL|SHIFT",
       action = wezterm.action({ ActivatePaneDirection = "Left" }),
@@ -65,11 +60,6 @@ return {
       key = "t",
       mods = "CTRL",
       action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }),
-    },
-    {
-      key = "w",
-      mods = "CTRL",
-      action = wezterm.action({ CloseCurrentTab = { confirm = false } }),
     },
     {
       key = "Tab",
