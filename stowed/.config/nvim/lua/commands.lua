@@ -1,55 +1,59 @@
 local api = vim.api
-local helpers = require("helpers")
+local autocmd = api.nvim_create_autocmd
+local usercmd = api.nvim_create_user_command
 
-api.nvim_create_user_command('W', 'w', {})
-api.nvim_create_user_command('Wq', 'wq', {})
-api.nvim_create_user_command('WQ', 'wq', {})
-api.nvim_create_user_command('Q', 'q', {})
-api.nvim_create_user_command('Filetypes', 'Telescope filetypes', {})
-api.nvim_create_user_command('ToggleVenn', ":lua require('utils').toggle_venn()", {})
-api.nvim_create_user_command('CmdRun', ":lua require('utils').prun()", {})
-api.nvim_create_user_command('EmptySwap', ":lua require('utils').emptyswap()", {})
-api.nvim_create_user_command(
+usercmd('W', 'w', {})
+usercmd('Wq', 'wq', {})
+usercmd('WQ', 'wq', {})
+usercmd('Q', 'q', {})
+usercmd('Filetypes', 'Telescope filetypes', {})
+usercmd('ToggleVenn', ":lua require('utils').toggle_venn()", {})
+usercmd('CmdRun', ":lua require('utils').prun()", {})
+usercmd('EmptySwap', ":lua require('utils').emptyswap()", {})
+usercmd(
   'WipeReg',
   'for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor',
   {}
 )
 
-local auto_commands = {
-  yank_highlight = {
-    { "TextYankPost", "*", "silent! lua vim.highlight.on_yank()" }
-  },
-  notes = {
-    {
-      { "BufRead", "BufNewFile" },
-      { "*.norg",  "*.org" },
-      "silent! TableModeEnable"
-    }
-  },
-  csv_filetypes = {
-    {
-      { "BufRead", "BufNewFile" },
-      { "*.csv", "*.CSV" },
-      "set filetype=csv"
-    }
-  },
-  eex_corrections = {
-    {
-      { "BufRead", "BufNewFile" },
-      { "*.ex",    "*.exs" },
-      "set filetype=elixir"
-    },
-    {
-      { "BufRead", "BufNewFile" },
-      { "*.eex",   "*.heex",    "*.leex", "*.sface", "*.lexs" },
-      "set filetype=heex"
-    },
-    {
-      { "BufRead", "BufNewFile" },
-      "mix.lock",
-      "set filetype=elixir"
-    }
-  }
-}
+autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.opt_local_buflisted = false
+  end
+})
 
-helpers.create_augroups(auto_commands)
+autocmd("TextYankPost", {
+  pattern = "*",
+  command = "silent! lua vim.highlight.on_yank()"
+})
+
+autocmd({"BufRead", "BufNewFile"}, {
+  pattern = { "*.norg",  "*.org" },
+  command = "silent! TableModeEnable"
+})
+
+autocmd({"BufRead", "BufNewFile"}, {
+  pattern = { "*.norg",  "*.org" },
+  command = "silent! TableModeEnable"
+})
+
+autocmd({"BufRead", "BufNewFile"}, {
+  pattern = { "*.csv", "*.CSV" },
+  command = "set filetype=csv"
+})
+
+autocmd({"BufRead", "BufNewFile"}, {
+  pattern = { "*.ex", "*.exs" },
+  command = "set filetype=elixir"
+})
+
+autocmd({"BufRead", "BufNewFile"}, {
+  pattern = { "*.eex", "*.heex", "*.leex", "*.sface", "*.lexs" },
+  command = "set filetype=heex"
+})
+
+autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "mix.lock",
+  command = "set filetype=elixir"
+})
