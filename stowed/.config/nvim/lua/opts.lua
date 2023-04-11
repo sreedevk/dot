@@ -10,7 +10,7 @@ vim.opt.clipboard            = 'unnamedplus'
 vim.opt.breakat              = [[\ \	;:,!?]]
 vim.opt.breakindentopt       = "shift:2,min:20"
 vim.opt.winbar               = '%f'
-vim.opt.cmdheight            = 1
+vim.opt.cmdheight            = 0
 vim.opt.cmdwinheight         = 5
 vim.opt.incsearch            = true
 vim.opt.infercase            = true
@@ -54,11 +54,12 @@ vim.opt.listchars            = 'extends:…,precedes:…,nbsp:␣'
 vim.opt.scrolloff            = 10
 vim.opt.shortmess            = "aoOTIcF"
 vim.opt.showcmd              = false
-vim.opt.showtabline          = 2
+vim.opt.showtabline          = 1
 vim.opt.splitright           = true
 vim.opt.synmaxcol            = 500
+vim.opt.laststatus           = 3
 
-vim.wo.signcolumn            = 'number'
+vim.wo.signcolumn            = 'yes'
 vim.wo.wrap                  = true
 
 vim.g.loaded                 = 1

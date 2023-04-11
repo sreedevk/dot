@@ -16,6 +16,7 @@ map("n", "-", "<C-x>")
 map('n', '<Leader>l', "<cmd>Lazy<CR>")
 
 -- convenience
+map('n', ',', ":")
 map('n', '<Leader>w', "<cmd>w<CR>")
 map('n', '<Leader>sw', "<cmd>execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<cr>")
 map('n', '<Leader>q', "<cmd>q<CR>")

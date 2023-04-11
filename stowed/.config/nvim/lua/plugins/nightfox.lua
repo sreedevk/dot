@@ -14,6 +14,6 @@ return {
       }
     })
 
-    vim.cmd('colorscheme terafox')
+    vim.cmd('colorscheme duskfox')
   end
 }

@@ -5,7 +5,7 @@
 ## zmodload zsh/zprof
 
 # PATHS
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/bin:/opt/bin"
 
 # ENV VARIABLES
 export VISUAL="nvim"
