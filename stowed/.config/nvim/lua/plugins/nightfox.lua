@@ -5,7 +5,7 @@ return {
       options = {
         compile_path = vim.fn.stdpath("cache") .. "/nightfox",
         compile_file_suffix = "_compiled", -- Compiled file suffix
-        transparent = false,
+        transparent = true,
         styles = {
           comments = "italic",
           keywords = "bold",
