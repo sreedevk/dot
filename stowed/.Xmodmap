@@ -1,6 +1,0 @@
-clear Lock
-remove Control = Control_L
-keysym Control_L = Caps_Lock
-keycode 66 = Control_L
-add Lock = Caps_Lock
-add Control = Control_L
