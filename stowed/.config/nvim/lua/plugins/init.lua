@@ -193,4 +193,16 @@ return {
     event = { "CursorHold", "CursorHoldI" },
     dependencies = "nvim-lua/plenary.nvim",
   },
+
+  {
+    'mvllow/modes.nvim',
+    tag = 'v0.2.0',
+    lazy = true,
+    event = "BufReadPost",
+    config = function()
+      require('modes').setup({
+        line_opacity = 0.30
+      })
+    end
+  }
 }
