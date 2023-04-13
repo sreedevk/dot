@@ -5,5 +5,5 @@ export QT_SCALE_FACTOR=1
 export WINIT_X11_SCALE_FACTOR=1
 
 ~/.fehbg &
+pkill picom && picom -b &
 setxkbmap -layout us,apl -variant ,dyalog -option grp:switch -option caps:ctrl_modifier
-pkill picom && picom -b

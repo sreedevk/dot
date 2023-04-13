@@ -34,3 +34,4 @@ stowed/.zshenv
 !stowed/.config/lf/
 !stowed/.config/newsboat
 !stowed/.config/wezterm
+!stowed/.config/systemd
