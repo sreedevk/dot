@@ -65,12 +65,6 @@ bindkey '^E' end-of-line
 bindkey '^x' edit-command-line
 bindkey '^R' history-incremental-search-backward
 
-# ANTIBODY COMPILE ZSH
-# antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
-
-# FIX COLOR SCHEME ISSUES IN SYNTAX HIGHLIGHTING
-# ZSH_HIGHLIGHT_STYLES[comment]='none'
-
 if [ -f "$(command -v fastfetch)" ]; then
   echo "\n"
   fastfetch
