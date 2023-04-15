@@ -9,7 +9,7 @@
 [commit]
   gpgsign = true
 [init]
-  defaultBranch = master
+  defaultBranch = main
 [color]
   branch = auto
   diff = auto
@@ -18,16 +18,19 @@
   ui = true
 [alias]
   a      = add
-  st     = status
-  co     = checkout
-  lg     = log --decorate --oneline --graph
+  ap     = add --patch
   br     = branch
-  cb     = checkout -b
-  dfs    = diff --staged
-  cm     = commit -m
   ca     = commit --amend
-  cp     = cherry-pick
+  cb     = checkout -b
   cl     = clone --recursive -j8
+  cm     = commit -m
+  co     = checkout
+  cp     = cherry-pick
+  dfs    = diff --staged
+  l      = log
+  lg     = log --decorate --oneline --graph
+  s      = status
+  st     = status
   wta    = worktree add
   wtr    = worktree remove
 [rerere]
