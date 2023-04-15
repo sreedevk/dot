@@ -28,32 +28,45 @@ autocmd("TextYankPost", {
   command = "silent! lua vim.highlight.on_yank()"
 })
 
-autocmd({"BufRead", "BufNewFile"}, {
-  pattern = { "*.norg",  "*.org" },
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.norg", "*.org" },
   command = "silent! TableModeEnable"
 })
 
-autocmd({"BufRead", "BufNewFile"}, {
-  pattern = { "*.norg",  "*.org" },
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.norg", "*.org" },
   command = "silent! TableModeEnable"
 })
 
-autocmd({"BufRead", "BufNewFile"}, {
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.csv", "*.CSV" },
   command = "set filetype=csv"
 })
 
-autocmd({"BufRead", "BufNewFile"}, {
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.ex", "*.exs" },
   command = "set filetype=elixir"
 })
 
-autocmd({"BufRead", "BufNewFile"}, {
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.eex", "*.heex", "*.leex", "*.sface", "*.lexs" },
   command = "set filetype=heex"
 })
 
-autocmd({"BufRead", "BufNewFile"}, {
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "mix.lock",
   command = "set filetype=elixir"
+})
+
+
+autocmd("FileType", {
+  pattern = {
+    "qf", "help", "man", "notify", "nofile",
+    "lspinfo", "terminal", "prompt", "toggleterm",
+    "startuptime", "tsplayground", "PlenaryTestPopup"
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.api.nvim_buf_set_keymap(event.buf, "n", "q", "<CMD>close<CR>", { silent = true })
+  end,
 })
