@@ -34,13 +34,13 @@ SAVEHIST=100
 zle -N edit-command-line
 
 # LOAD COMPILED PLUGINS
+[ -f "$HOME/.zsh/plugin-opts.sh" ]  && source ~/.zsh/plugin-opts.sh
 [ -f "$HOME/.zsh/plugins.sh" ] && source ~/.zsh/plugins.sh
 
 # LOAD ALIASES & FUNCTIONS
 [ -f "$HOME/.zsh/aliases" ]   && source "$HOME/.zsh/aliases"
 [ -f "$HOME/.zsh/functions" ] && source "$HOME/.zsh/functions"
 [ -f "$HOME/.zsh/autoloads" ] && source "$HOME/.zsh/autoloads"
-[ -f "$HOME/.zsh/fzf" ]       && source "$HOME/.zsh/fzf"
 
 # AUTOLOAD MODULES
 autoload -U colors && colors
@@ -53,6 +53,9 @@ setopt AUTOCD
 setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt interactivecomments
+
+# Set VI mode
+set -o vi
 
 # KEY BINDINGS
 bindkey -s '^o' 'lfcd\n'
