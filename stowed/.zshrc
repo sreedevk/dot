@@ -35,6 +35,7 @@ zle -N edit-command-line
 
 # LOAD COMPILED PLUGINS
 [ -f "$HOME/.zsh/plugin-opts.sh" ]  && source ~/.zsh/plugin-opts.sh
+[ ! -f "$HOME/.zsh/plugins.sh" ] && antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
 [ -f "$HOME/.zsh/plugins.sh" ] && source ~/.zsh/plugins.sh
 
 # LOAD ALIASES & FUNCTIONS
@@ -68,7 +69,7 @@ bindkey '^R' history-incremental-search-backward
 # antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
 
 # FIX COLOR SCHEME ISSUES IN SYNTAX HIGHLIGHTING
-ZSH_HIGHLIGHT_STYLES[comment]='none'
+# ZSH_HIGHLIGHT_STYLES[comment]='none'
 
 if [ -f "$(command -v fastfetch)" ]; then
   echo "\n"
