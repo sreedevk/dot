@@ -64,7 +64,7 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^x' edit-command-line
 bindkey '^R' history-incremental-search-backward
-bindkey '^\t' autosuggest-accept
+bindkey '^[[Z' autosuggest-accept
 
 if [ -f "$(command -v fastfetch)" ]; then
   echo "\n"
