@@ -1,5 +1,7 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  lazy = true,
+  event = "BufReadPost",
   dependencies = {
     'windwp/nvim-ts-autotag'
   },
