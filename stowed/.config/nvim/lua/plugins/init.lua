@@ -4,6 +4,7 @@ return {
   'jbyuki/venn.nvim',
   'mattn/emmet-vim',
   'chrisbra/unicode.vim',
+  'tpope/vim-repeat',
 
   {
     'tpope/vim-fugitive',
@@ -175,23 +176,10 @@ return {
   },
 
   {
-    'echasnovski/mini.jump',
-    config = function()
-      require('mini.jump').setup({
-        mappings = { forward = 'f', backward = 'F', forward_till = 't', backward_till = 'T', repeat_jump = '' },
-        delay = {
-          highlight = 250,
-          idle_stop = 10000000,
-        },
-      })
+    'AckslD/nvim-trevJ.lua',
+    config = function ()
+      require("trevj").setup()
     end
-  },
-
-  {
-    "monaqa/dial.nvim",
-    lazy = true,
-    event = { "CursorHold", "CursorHoldI" },
-    dependencies = "nvim-lua/plenary.nvim",
   },
 
   {

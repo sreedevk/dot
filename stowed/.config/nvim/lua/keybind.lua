@@ -13,11 +13,11 @@ map("n", "+", "<C-a>")
 map("n", "-", "<C-x>")
 
 -- lazy
-map('n', '<Leader>l', "<cmd>Lazy<CR>")
+map('n', '<Leader>lz', "<cmd>Lazy<CR>")
 
 -- convenience
 map('n', ',', ":")
-map('n', '<Leader>w', "<cmd>w<CR>")
+map('n', '<Leader>fs', "<cmd>w<CR>")
 map('n', '<Leader>sw', "<cmd>execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<cr>")
 map('n', '<Leader>q', "<cmd>q<CR>")
 map('n', '<Leader>h', "<cmd>noh<CR>")
@@ -94,3 +94,16 @@ map('n', '<Leader>dlp', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.inp
 map('n', '<Leader>drp', ':lua require("dap").repl.open()<CR>')
 map('n', '<Leader>duo', ':lua require("dapui").open()<CR>')
 map('n', '<Leader>duc', ':lua require("dapui").close()<CR>')
+
+-- persistence
+map('n', '<leader>sl', [[<cmd>lua require("persistence").load()<cr>]])
+map("n", "<leader>so", [[<cmd>lua require("persistence").load()<cr>]])
+map("n", "<leader>sd", [[<cmd>lua require("persistence").stop()<cr>]])
+
+-- hop
+map('n', 'S', "<cmd>HopChar1<cr>")
+map('n', '<Leader>ll', "<cmd>HopLine<cr>")
+map('n', '<Leader>w', "<cmd>HopWordCurrentLine<cr>")
+
+-- trevj
+map('n', '<Leader>j', [[<cmd>lua require("trevj").format_at_cursor()<cr>]])

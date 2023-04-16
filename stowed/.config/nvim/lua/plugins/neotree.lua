@@ -1,12 +1,10 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
-  lazy = true,
   branch = 'v2.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'MunifTanjim/nui.nvim',
   },
-  cmd = "Neotree",
   config = function()
     require('neo-tree').setup(
       {
@@ -123,7 +121,7 @@ return {
           },
           follow_current_file = true,
           group_empty_dirs = false,
-          hijack_netrw_behavior = "open_default",
+          hijack_netrw_behavior = "open_current",
           use_libuv_file_watcher = true,
           window = {
             mappings = {
