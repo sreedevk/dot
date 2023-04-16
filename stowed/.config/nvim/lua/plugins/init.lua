@@ -170,6 +170,11 @@ return {
 
   {
     'echasnovski/mini.comment',
+    lazy = true,
+    keys = {
+      "gcE",
+      { "gc", mode = "v" }
+    },
     config = function()
       require('mini.comment').setup()
     end
@@ -177,7 +182,9 @@ return {
 
   {
     'AckslD/nvim-trevJ.lua',
-    config = function ()
+    lazy = true,
+    keys = { "<Leader>j" },
+    config = function()
       require("trevj").setup()
     end
   },
