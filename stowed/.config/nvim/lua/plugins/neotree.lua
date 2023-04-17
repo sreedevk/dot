@@ -3,32 +3,32 @@ return {
   branch = 'v2.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
+    'nvim-tree/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
   },
   config = function()
+    vim.g.neo_tree_remove_legacy_commands = 1
     require('neo-tree').setup(
       {
         close_if_last_window = true,
         popup_border_style = "rounded",
         enable_git_status = true,
         enable_diagnostics = false,
-        sort_case_insensitive = false, -- used when sorting files and directories in the tree
+        sort_case_insensitive = false,
         open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
         default_component_configs = {
           container = { enable_character_fade = true },
           indent = {
             indent_size = 2,
             padding = 1,
-            -- indent guides
             with_markers = true,
             indent_marker = "│",
             last_indent_marker = "└",
-            highlight = "NeoTreeIndentMarker",
-            -- expander config, needed for nesting files
-            with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+            with_expanders = nil,
             expander_collapsed = "",
             expander_expanded = "",
             expander_highlight = "NeoTreeExpander",
+            highlight = "NeoTreeIndentMarker"
           },
           icon = {
             folder_closed = "",
@@ -48,12 +48,10 @@ return {
           },
           git_status = {
             symbols = {
-              -- Change type
-              added     = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
-              modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-              deleted   = "✖", -- this can only be used in the git_status source
-              renamed   = "", -- this can only be used in the git_status source
-              -- Status type
+              added     = "✚",
+              modified  = "",
+              deleted   = "✖",
+              renamed   = "",
               untracked = "",
               ignored   = "",
               unstaged  = "",
@@ -109,7 +107,7 @@ return {
         nesting_rules = {},
         filesystem = {
           filtered_items = {
-            visible = false,
+            visible = true,
             hide_dotfiles = false,
             hide_gitignored = true,
             hide_hidden = true,
@@ -134,13 +132,18 @@ return {
               ["<c-x>"] = "clear_filter",
               ["[g"] = "prev_git_modified",
               ["]g"] = "next_git_modified",
-            }
+            },
+            fuzzy_finder_mappings = {
+              ["<down>"] = "move_cursor_down",
+              ["<C-j>"] = "move_cursor_down",
+              ["<up>"] = "move_cursor_up",
+              ["<C-k>"] = "move_cursor_up",
+            },
           }
         },
         buffers = {
-          follow_current_file = true, -- This will find and focus the file in the active buffer every
-          -- time the current file is changed while the tree is open.
-          group_empty_dirs = true,    -- when true, empty folders will be grouped together
+          follow_current_file = true,
+          group_empty_dirs = true,
           show_unloaded = true,
           window = {
             mappings = {
