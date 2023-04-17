@@ -59,7 +59,7 @@ vim.opt.showtabline          = 1
 vim.opt.splitright           = true
 vim.opt.synmaxcol            = 500
 vim.opt.laststatus           = 3
-vim.opt.swapfile           = true
+vim.opt.swapfile             = true
 
 vim.wo.signcolumn            = 'yes'
 vim.wo.wrap                  = true
