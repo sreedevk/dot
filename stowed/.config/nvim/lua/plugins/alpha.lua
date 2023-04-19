@@ -70,6 +70,7 @@ return {
     local buttons = {
       type = "group",
       val = {
+        button("e", "New File", ":enew<cr>"),
         button("l", "Last Session", "<cmd>lua require('persistence').load({last=true})<cr>"),
         button(".", "Frecency / MRU", ":Telescope frecency<CR>"),
         button("f", "Find Files", ":Telescope find_files<CR>"),
