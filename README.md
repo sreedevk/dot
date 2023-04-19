@@ -27,6 +27,7 @@ neovim splash  | neovim term
 - Starship
 - Picom
 - Vim
+- Gitconfig (with delta pager)
 
 ## Install
 
