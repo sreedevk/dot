@@ -83,7 +83,7 @@
 (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
 
 (setq fancy-splash-image (concat doom-user-dir "emacs.png"))
-(setq +doom-dashboard-banner-padding '(8 . 5))
+(setq +doom-dashboard-banner-padding '(8 . 3))
 
 (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
 (add-to-list 'default-frame-alist '(alpha . (85 . 50)))
