@@ -6,7 +6,7 @@
 (setq user-full-name "Sreedev Kodichath"
       user-mail-address (rot13 "ferrqricnqznxhzne@tznvy.pbz"))
 
-(setq doom-theme 'doom-pine
+(setq doom-theme 'doom-tokyo-night
       doom-font (font-spec :family "Iosevka Nerd Font" :size 17)
       doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 18)
       doom-big-font (font-spec :family "Iosevka Nerd Font" :size 26))
@@ -81,6 +81,9 @@
 
 (evil-global-set-key 'motion "j" 'evil-next-visual-line)
 (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+
+(setq fancy-splash-image (concat doom-user-dir "emacs.png"))
+(setq +doom-dashboard-banner-padding '(8 . 5))
 
 (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
 (add-to-list 'default-frame-alist '(alpha . (85 . 50)))

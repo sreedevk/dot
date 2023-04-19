@@ -7,9 +7,8 @@ add_newline = false
 [line_break]
 disabled = true
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]                         # The name of the module we are configuring is "character"
-success_symbol = "[λ](bold green)"  # The "success_symbol" is set to "➜" with color "bold green"
+[character]
+success_symbol = "[λ](bold green)"
 error_symbol = "[λ](bold red)"
 
 [package]
@@ -47,7 +46,7 @@ disabled = false
 
 [cmd_duration]
 min_time = 4
-show_milliseconds = false
+show_milliseconds = true
 disabled = false
 style = "bold italic #87A752"
 
@@ -120,6 +119,9 @@ description = "active tmux session count"
 when = "tmux ls"
 disabled = false
 format = "[tmux:($output)]($style) "
+
+[golang]
+disabled = true
 
 [jobs]
 threshold = 1
