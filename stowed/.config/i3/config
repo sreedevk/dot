@@ -31,12 +31,6 @@ smart_borders on
 gaps inner 4
 gaps outer -2
 
-# bar {
-#   position top
-#   status_command i3blocks
-#   font pango:Iosevka Nerd Font 5
-# }
-
 # Shortcuts - Terminal + Access
 bindsym $mod+Return            exec --no-startup-id $term
 bindsym $mod+KP_Enter          exec --no-startup-id $term
@@ -81,10 +75,10 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-msg exit"
 
 # Shortcuts - Focus
-bindsym $mod+j               focus left
-bindsym $mod+k               focus down
-bindsym $mod+l               focus up
-bindsym $mod+semicolon       focus right
+bindsym $mod+h               focus left
+bindsym $mod+j               focus down
+bindsym $mod+k               focus up
+bindsym $mod+l               focus right
 
 # Shortcuts - Move
 bindsym $mod+Shift+j         move left
@@ -105,8 +99,8 @@ bindsym $mod+Ctrl+s          sticky toggle
 bindsym $mod+a               focus parent
 bindsym $mod+Shift+minus     move scratchpad
 bindsym $mod+minus           scratchpad show
-bindsym $mod+h               split h; exec --no-startup-id notify-send -a i3wm "Tiling Horizontally"
-bindsym $mod+v               split v; exec --no-startup-id notify-send -a i3wm "Tiling Vertically"
+bindsym $mod+backslash       split h; exec --no-startup-id notify-send -a i3wm "Tiling Horizontally"
+bindsym $mod+Shift+backslash split v; exec --no-startup-id notify-send -a i3wm "Tiling Vertically"
 bindsym $mod+f               fullscreen toggle
 
 bindsym $mod+Ctrl+semicolon  workspace next
