@@ -3,14 +3,14 @@
 This is a collection of my dot configuration files.
 </p>
 
-nvim/htop/nvtop/gping             |  emacs/cava/fastfetch
+clock/cava/emacs/htop/nvtop/polybar |  emacs/cava/fastfetch
 :-------------------------:|:-------------------------:
-![](https://user-images.githubusercontent.com/36154121/235287804-6d598ca0-338a-45be-97a2-65152a4e9b80.png) | ![](https://user-images.githubusercontent.com/36154121/233089940-3fc9e930-8324-4880-8441-104d982f47f6.png)
-
+![](https://user-images.githubusercontent.com/36154121/235316665-956d1b72-08d1-48b0-a94f-6495b229a489.png) | ![](https://user-images.githubusercontent.com/36154121/235316978-acd0ebdb-b88d-4964-a264-00cfde426210.png)
 
 neovim splash  | neovim term
 :-------------------------:|:-------------------------:
-![](https://user-images.githubusercontent.com/36154121/227813180-6c8f47f0-527d-4960-b026-4819f7d7408f.png) | ![](https://user-images.githubusercontent.com/36154121/227813186-cc60f943-f31a-4e4f-baca-56dfd1cc827d.png)
+![](https://user-images.githubusercontent.com/36154121/235316773-c9df3bb9-7eca-4927-a193-b729c7a57cec.png) | ![](https://user-images.githubusercontent.com/36154121/235316809-34b8bb75-1a70-4cad-bc5f-f50830c2d1d1.png)
+
 
 ### What's in the box?
 - Neovim
