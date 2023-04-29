@@ -25,5 +25,3 @@ if [ ${#connected_displays[@]} -gt 1 ]; then
 else
     xrandr --output ${connected_displays[0]} --mode 1920x1080 --pos 0x0 --rotate normal --rate 120
 fi
-
-pkill picom && picom -b
