@@ -5,7 +5,8 @@ This is a collection of my dot configuration files.
 
 nvim/htop/nvtop/gping             |  emacs/cava/fastfetch
 :-------------------------:|:-------------------------:
-![](https://user-images.githubusercontent.com/36154121/227813168-5db141ee-e4c6-4ad1-a830-af5672ac8cd9.png)  |  ![](https://user-images.githubusercontent.com/36154121/233089940-3fc9e930-8324-4880-8441-104d982f47f6.png)
+![](https://user-images.githubusercontent.com/36154121/235287804-6d598ca0-338a-45be-97a2-65152a4e9b80.png) | ![](https://user-images.githubusercontent.com/36154121/233089940-3fc9e930-8324-4880-8441-104d982f47f6.png)
+
 
 neovim splash  | neovim term
 :-------------------------:|:-------------------------:
