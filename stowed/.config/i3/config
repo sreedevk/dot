@@ -53,7 +53,7 @@ floating_modifier $mod
 focus_follows_mouse yes
 workspace_auto_back_and_forth no
  
-smart_gaps on
+smart_gaps off
 smart_borders on
 gaps inner 4
 gaps outer -2
@@ -180,9 +180,9 @@ client.background        $base
 assign [class="Slack"]                     $ws4
 assign [class="Brave-browser"]             $ws2
 
-for_window [urgent=latest] focus
-for_window [class="Pavucontrol"] floating enable enable resize set 800 500
-for_window [window_role="pop-up"] floating enable
+for_window [urgent=latest]             focus
+for_window [class="Pavucontrol"]       floating enable enable resize set 800 500
+for_window [window_role="pop-up"]      floating enable
 for_window [window_role="task_dialog"] floating enable
 
 bindsym $mod+r mode "resize"
