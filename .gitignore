@@ -36,3 +36,4 @@ stowed/.zshenv
 !stowed/.config/wezterm
 !stowed/.config/systemd
 !stowed/.config/htop
+!stowed/.config/gh/config.yml
