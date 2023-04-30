@@ -13,6 +13,7 @@ return {
   config = function()
     local telescope = require("telescope")
     local t_actions = require("telescope.actions")
+    local fb_actions = telescope.extensions.file_browser.actions
     telescope.setup {
       pickers = {
         find_files = {
@@ -22,6 +23,7 @@ return {
       },
       extensions = {
         file_browser = {
+          theme = "ivy",
           hijack_netrw = false,
         }
       },
