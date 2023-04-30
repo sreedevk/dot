@@ -51,6 +51,9 @@ return {
     local lspkind = require('lspkind')
 
     cmp.setup({
+      experimental = {
+        ghost_text = true
+      },
       formatting = {
         format = lspkind.cmp_format(),
       },
