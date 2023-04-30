@@ -105,3 +105,4 @@ export FZF_DEFAULT_OPTS="
  --color=marker:#ebbcba,spinner:#eb6f92,header:#ebbcba"
 
 eval "$(command -v fastfetch)"
+. "$HOME/.cargo/env"
