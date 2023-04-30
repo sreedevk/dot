@@ -132,8 +132,8 @@ bindsym $mod+Shift+backslash split h; exec --no-startup-id notify-send -a i3wm "
 bindsym $mod+backslash       split v; exec --no-startup-id notify-send -a i3wm "Tiling Vertically"
 bindsym $mod+f               fullscreen toggle
 
-bindsym $mod+Ctrl+h          workspace next
-bindsym $mod+Ctrl+l          workspace prev
+bindsym $mod+Ctrl+l          workspace next
+bindsym $mod+Ctrl+h          workspace prev
 
 # Workspace Control
 set $ws1 1
