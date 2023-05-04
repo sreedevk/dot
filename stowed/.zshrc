@@ -71,3 +71,4 @@ if [ -f "$(command -v fastfetch)" ]; then
   fastfetch
   echo "\n"
 fi
+export PATH=$PATH:/home/sreedev/.spicetify
