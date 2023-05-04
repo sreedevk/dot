@@ -106,4 +106,4 @@ map('n', '<Leader>ll', "<cmd>HopLine<cr>")
 map('n', '<Leader>w', "<cmd>HopWordCurrentLine<cr>")
 
 -- trevj
-map('n', '<Leader>j', [[<cmd>lua require("trevj").format_at_cursor()<cr>]])
+map('n', '<Leader>j', [[<cmd>lua require('treesj').toggle()<cr>]])
