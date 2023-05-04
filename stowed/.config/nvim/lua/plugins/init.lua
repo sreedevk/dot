@@ -5,7 +5,7 @@ return {
   'mattn/emmet-vim',
   'chrisbra/unicode.vim',
   'tpope/vim-repeat',
-
+  'kevinhwang91/nvim-bqf',
   {
     'tpope/vim-fugitive',
     lazy = true,
@@ -185,12 +185,12 @@ return {
   },
 
   {
-    'AckslD/nvim-trevJ.lua',
-    lazy = true,
-    keys = { "<Leader>j" },
+    'Wansmer/treesj',
+    keys = { '<leader>j' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
-      require("trevj").setup()
-    end
+      require('treesj').setup({})
+    end,
   },
 
   {
