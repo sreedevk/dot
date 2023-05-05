@@ -35,13 +35,13 @@ zle -N edit-command-line
 
 # LOAD COMPILED PLUGINS
 [ -f "$HOME/.zsh/plugin-opts.sh" ]  && source ~/.zsh/plugin-opts.sh
-[ ! -f "$HOME/.zsh/plugins.sh" ] && antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
-[ -f "$HOME/.zsh/plugins.sh" ] && source ~/.zsh/plugins.sh
+[ ! -f "$HOME/.zsh/plugins.sh" ]    && antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
+[ -f "$HOME/.zsh/plugins.sh" ]      && source ~/.zsh/plugins.sh
 
 # LOAD ALIASES & FUNCTIONS
-[ -f "$HOME/.zsh/aliases" ]   && source "$HOME/.zsh/aliases"
-[ -f "$HOME/.zsh/functions" ] && source "$HOME/.zsh/functions"
-[ -f "$HOME/.zsh/autoloads" ] && source "$HOME/.zsh/autoloads"
+[ -f "$HOME/.zsh/aliases.sh" ]   && source "$HOME/.zsh/aliases.sh"
+[ -f "$HOME/.zsh/functions.sh" ] && source "$HOME/.zsh/functions.sh"
+[ -f "$HOME/.zsh/autoloads.sh" ] && source "$HOME/.zsh/autoloads.sh"
 
 # AUTOLOAD MODULES
 autoload -U colors && colors
