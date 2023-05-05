@@ -3,7 +3,7 @@
   "accelerated-jk.nvim": { "branch": "main", "commit": "8fb5dad4ccc1811766cebf16b544038aeeb7806f" },
   "alpha-nvim": { "branch": "main", "commit": "447b821d22b0c1e80494638f84cb00ff696f4ef6" },
   "better-escape.vim": { "branch": "master", "commit": "6b16a45a839727977277f6ab11bded63e9ed86bb" },
-  "catppuccin": { "branch": "main", "commit": "a7e279d6e019f35dd042670f00748b602fff5568" },
+  "catppuccin": { "branch": "main", "commit": "af8390217cb0b3b714dfd30ebd09264cf33a37be" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "0e6b2ed705ddcff9738ec4ea838141654f12eeef" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
