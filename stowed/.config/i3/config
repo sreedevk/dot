@@ -7,7 +7,7 @@
 set $term alacritty
 
 # Application Launcher
-set $app_launcher "rofi -show drun"
+set $app_launcher    "rofi -show drun"
 set $window_switcher "rofi -show window"
 
 # Setup Key Definitions
@@ -45,18 +45,17 @@ set $mantle    #1e2030
 set $crust     #181926
 
 # UX + Design Config
-default_border pixel 1
-hide_edge_borders smart
-default_floating_border pixel 0
-font pango:Iosevka Nerd Font 6
-floating_modifier $mod
-focus_follows_mouse yes
+default_border                pixel 1
+hide_edge_borders             smart
+default_floating_border       pixel 0
+font                          pango:Iosevka Nerd Font 6
+floating_modifier             $mod
+focus_follows_mouse           yes
 workspace_auto_back_and_forth no
- 
-smart_gaps off
-smart_borders on
-gaps inner 2
-gaps outer 0
+smart_gaps                    off
+smart_borders                 on
+gaps                          inner 2
+gaps                          outer 0
 
 # Shortcuts - Terminal + Access
 bindsym $mod+Return            exec --no-startup-id $term
@@ -81,12 +80,12 @@ bindsym XF86AudioNext          exec --no-startup-id playerctl next
 bindsym $mod+Shift+d --release exec --no-startup-id "killall dunst; exec notify-send -a dunst 'restart'"
 
 # Shortcuts - Screenshots
-bindsym Print                   exec --no-startup-id "maim -i $(xdotool getactivewindow) ~/Pictures/screenshots/$(date +%s).png"
-bindsym $mod+Ctrl+s   --release exec --no-startup-id "maim -s -d 0.2 ~/Pictures/screenshots/$(date +%s).png"
-bindsym $mod+Shift+s  --release exec --no-startup-id "maim -s -d 0.2 | xclip -selection clipboard -t image/png"
+bindsym Print                  exec --no-startup-id "maim -i $(xdotool getactivewindow) ~/Pictures/screenshots/$(date +%s).png"
+bindsym $mod+Ctrl+s  --release exec --no-startup-id "maim -s -d 0.2 ~/Pictures/screenshots/$(date +%s).png"
+bindsym $mod+Shift+s --release exec --no-startup-id "maim -s -d 0.2 | xclip -selection clipboard -t image/png"
 
 # Shortcuts - Audio
-bindsym $mod+Ctrl+m            exec --no-startup-id "pavucontrol"
+bindsym $mod+Shift+a            exec --no-startup-id "pavucontrol"
 
 # Shortcuts - Notifications
 bindsym $mod+n       --release exec --no-startup-id "dunstctl set-paused toggle"
@@ -96,13 +95,13 @@ bindsym $mod+Ctrl+x  --release exec --no-startup-id "xkill"
 bindsym $mod+Shift+q kill
 
 # Shortcuts - UX + Design
-bindsym $mod+p                exec --no-startup-id "pkill picom"
-bindsym $mod+Shift+p          exec --no-startup-id "picom -b"
+bindsym $mod+p                 exec --no-startup-id "pkill picom"
+bindsym $mod+Shift+p           exec --no-startup-id "picom -b"
 
 # Shortcuts - Entry & Exit
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-msg exit"
+bindsym $mod+Shift+c         reload
+bindsym $mod+Shift+r         restart
+bindsym $mod+Shift+e         exec "i3-msg exit"
 
 # Shortcuts - Focus
 bindsym $mod+h               focus left
@@ -117,20 +116,20 @@ bindsym $mod+Shift+k         move up
 bindsym $mod+Shift+l         move right
 
 # Bar Mode Toggle
-bindsym $mod+m                 exec --no-startup-id polybar-msg cmd toggle
+bindsym $mod+m               exec --no-startup-id polybar-msg cmd toggle
 
 # Layouts
 bindsym $mod+s               layout stacking
 bindsym $mod+w               layout tabbed
 bindsym $mod+e               layout toggle split
+bindsym $mod+f               fullscreen toggle
+bindsym $mod+a               focus parent
 bindsym $mod+Shift+space     floating toggle
 bindsym $mod+Ctrl+s          sticky toggle
-bindsym $mod+a               focus parent
 bindsym $mod+Shift+minus     move scratchpad
 bindsym $mod+minus           scratchpad show
 bindsym $mod+Shift+backslash split h; exec --no-startup-id notify-send -a i3wm "Tiling Horizontally"
 bindsym $mod+backslash       split v; exec --no-startup-id notify-send -a i3wm "Tiling Vertically"
-bindsym $mod+f               fullscreen toggle
 
 bindsym $mod+Ctrl+l          workspace next
 bindsym $mod+Ctrl+h          workspace prev
