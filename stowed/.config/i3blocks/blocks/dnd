@@ -1,4 +1,0 @@
-#!/bin/sh
-
-[[ "$(dunstctl is-paused)" == "true" ]] && echo " DND "
-

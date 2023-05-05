@@ -1,5 +1,0 @@
-#!/bin/sh
-
-echo " $(ip link show | grep "state UP" | awk '{print $2}' | tr -d : | awk 'xor(/^enp/,/^wlp/,/^wlan/)' | xargs -i ip -f inet addr show {} | awk '/inet / {print $9 ": " $2}' | xargs) "
-
-exit 0
