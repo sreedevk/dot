@@ -184,7 +184,7 @@ assign [class="Slack"]                     $ws4
 assign [class="Brave-browser"]             $ws2
 
 for_window [urgent=latest]             focus
-for_window [class="Pavucontrol"]       floating enable enable resize set 800 500
+for_window [class="Pavucontrol"]       floating enable resize set 800 500
 for_window [window_role="pop-up"]      floating enable
 for_window [window_role="task_dialog"] floating enable
 
