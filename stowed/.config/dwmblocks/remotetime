@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo " $(TZ=Asia/Kolkata date '+%d/%m/%Y %I:%M:%S %p %Z') "
+exit 0
