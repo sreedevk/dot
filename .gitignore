@@ -37,3 +37,4 @@ stowed/.zshenv
 !stowed/.config/systemd
 !stowed/.config/htop
 !stowed/.config/gh/config.yml
+!stowed/.config/dwmblocks

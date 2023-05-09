@@ -1,0 +1,6 @@
+#!/bin/sh
+
+CPU_TEMPERATURES="$(sensors -u 2> /dev/null | grep input | grep temp | awk '{print $2}')"
+AVERAGE_CPU_TEMPERATURE="$(echo $CPU_TEMPERATURES | jq -s 'add / length | round')"
+
+echo "$AVERAGE_CPU_TEMPERATURE°C"

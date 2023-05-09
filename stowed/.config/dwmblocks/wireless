@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ESSID="$(iwgetid | cut -f 2- -d ' ' | cut -f 2- -d ':' | sed 's/\"//g')"
+IPADDR="$(ip addr show wlan0 | grep inet | head -n1 | awk '{print $2}')"
+echo "$ESSID $IPADDR"
