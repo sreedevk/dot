@@ -5,3 +5,5 @@ sudo pacman -S --noconfirm \
   ttf-firacode-nerd ttf-font-awesome brightnessctl picom dmenu odt2txt chafa lynx \
   mediainfo pdftoppm atool odt2txt irssi playerctl
 
+
+sudo aura -A autotiling
