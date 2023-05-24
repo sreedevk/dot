@@ -79,7 +79,7 @@ bindsym XF86AudioPrev          exec --no-startup-id playerctl previous
 bindsym XF86AudioNext          exec --no-startup-id playerctl next
 
 # Shortcuts - Dunst
-bindsym $mod+Shift+d --release exec --no-startup-id "killall dunst; exec notify-send -a dunst 'restart'"
+bindsym $mod+Shift+d --release exec --no-startup-id "killall dunst && exec notify-send -a dunst 'restart'"
 
 # Shortcuts - Screenshots
 bindsym Print                  exec --no-startup-id "maim -i $(xdotool getactivewindow) ~/Pictures/screenshots/$(date +%s).png"
