@@ -38,3 +38,4 @@ stowed/.zshenv
 !stowed/.config/htop
 !stowed/.config/gh/config.yml
 !stowed/.config/dwmblocks
+!stowed/.config/btop
