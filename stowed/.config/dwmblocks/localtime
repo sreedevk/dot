@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo -e "$(date +"%a %B %d %Y %l:%M:%S %p"| sed 's/  / /g')"
+echo -e "$(date +"%a %B %d %Y %l:%M:%S %p %Z"| sed 's/  / /g')"
 exit 0
