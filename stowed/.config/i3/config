@@ -17,6 +17,7 @@ set $mod Mod4
 exec        --no-startup-id ~/.config/i3/autostart.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
+exec_always --no-startup-id feh --no-fehbg --bg-fill '/home/sreedev/.config/wallpapers/bg.png'  
 
 # Colors
 set $rosewater #f4dbd6
