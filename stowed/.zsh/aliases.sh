@@ -49,3 +49,6 @@ alias yta-opus="youtube-dl --extract-audio --audio-format opus "
 alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
+
+# Keyboard Layout
+alias kbl="setxkbmap -layout us,apl -variant ,dyalog -option grp:switch -option caps:ctrl_modifier"
