@@ -112,6 +112,7 @@ return {
   {
     "j-hui/fidget.nvim",
     lazy = true,
+    tag = 'legacy',
     event = "BufReadPost",
     config = function()
       require("fidget").setup({
