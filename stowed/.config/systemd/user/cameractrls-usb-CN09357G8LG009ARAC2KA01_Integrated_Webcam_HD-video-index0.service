@@ -1,0 +1,9 @@
+[Unit]
+Description=Restore usb-CN09357G8LG009ARAC2KA01_Integrated_Webcam_HD-video-index0 controls
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/python3.11/site-packages/CameraCtrls/cameractrls.py -d /dev/v4l/by-id/usb-CN09357G8LG009ARAC2KA01_Integrated_Webcam_HD-video-index0 -c brightness=-3,saturation=68,gamma=137,gain=3,backlight_compensation=0,exposure_dynamic_framerate=1,pixelformat=MJPG,card=Integrated_Webcam_HD: Integrate,driver=uvcvideo,path=/dev/v4l/by-id/usb-CN09357G8LG009ARAC2KA01_Integrated_Webcam_HD-video-index0,real_path=/dev/video0,resolution=640x480,fps=30
+
+[Install]
+WantedBy=graphical-session.target

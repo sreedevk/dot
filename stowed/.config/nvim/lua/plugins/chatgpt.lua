@@ -1,16 +1,16 @@
 return {
   "jackMort/ChatGPT.nvim",
-  cmd = {
-    "ChatGPT",
-    "ChatGPTActAs",
-    "ChatGPTEditWithInstructions",
-    "ChatGPTRun",
-    "ChatGPTCompleteCode",
-  },
+  event = "VeryLazy",
+  -- cmd = {
+  --   "ChatGPT",
+  --   "ChatGPTActAs",
+  --   "ChatGPTEditWithInstructions",
+  --   "ChatGPTRun",
+  --   "ChatGPTCompleteCode",
+  -- },
   config = function()
     require("chatgpt").setup(
       {
-        api_key_cmd = "cat ~/.config/secrets/gpt.txt",
         yank_register = "+",
         edit_with_instructions = {
           diff = false,
