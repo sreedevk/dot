@@ -23,7 +23,7 @@ return {
     "preservim/vim-markdown",
   },
   opts = {
-    dir          = "~/Data/notebook/obsidian",  -- no need to call 'vim.fn.expand' here
+    dir          = "~/Data/notebook/obsidian/vault/",  -- no need to call 'vim.fn.expand' here
     notes_subdir = "notes",
     log_level    = vim.log.levels.INFO,
     daily_notes = {
