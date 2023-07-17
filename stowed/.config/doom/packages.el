@@ -6,3 +6,4 @@
 (package! org-roam-ui)
 (package! org-present)
 (package! visual-fill-column)
+(package! ef-themes)
