@@ -19,3 +19,4 @@ deno 1.32.1
 leiningen 2.9.9
 babashka 1.3.178
 julia 1.9.0
+racket 8.9
