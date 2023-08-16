@@ -18,11 +18,11 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-ragtag'
+Plug 'vim-ruby/vim-ruby'
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -96,9 +96,18 @@ noremap <C-t> :tabnew <CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR> 
 nnoremap <Leader>w :w!<CR>
+nnoremap <Leader>fs :w!<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>h :noh<CR>
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+vnoremap <M-j> :m '>+1<CR>gv=gv
+vnoremap <M-k> :m '<-2<CR>gv=gv
+nnoremap <Leader>x <cmd>! chmod +x %<CR>
+nnoremap <leader><leader>s :%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left> 
+nnoremap <Leader>ca <cmd>tabonly<CR>
 
 silent! call airline#extensions#whitespace#disable()
 
