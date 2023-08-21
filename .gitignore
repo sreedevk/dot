@@ -10,6 +10,7 @@ stowed/.emacs.d/*~
 stowed/.zshenv
 stowed/.config/systemd/user/cameractrls-usb-CN09357G8LG009ARAC2KA01_Integrated_Webcam_HD-video-index0.path
 stowed/.config/systemd/user/cameractrls-usb-CN09357G8LG009ARAC2KA01_Integrated_Webcam_HD-video-index0.service
+!stowed/.config/nvim/lazy-lock.json
 
 # Allow
 !stowed/.config/alacritty/alacritty.yml
