@@ -16,12 +16,6 @@ return {
     'L3MON4D3/LuaSnip',
     'rafamadriz/friendly-snippets',
     {
-      "zbirenbaum/copilot-cmp",
-      config = function()
-        require("copilot_cmp").setup()
-      end
-    },
-    {
       'glepnir/lspsaga.nvim',
       cmd = "Lspsaga",
       dependencies = {
@@ -79,7 +73,6 @@ return {
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp", priority = 8, group_index = 2 },
-        { name = "copilot",  priority = 9, group_index = 2 },
         { name = "luasnip",  priority = 7, group_index = 2 },
         { name = "buffer",   priority = 7, group_index = 2 },
         { name = "path",     priority = 6, group_index = 2 }
