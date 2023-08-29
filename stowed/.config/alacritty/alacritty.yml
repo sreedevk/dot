@@ -39,6 +39,13 @@ shell:
     - --login
   program: /usr/bin/zsh
 
+key_bindings:
+  - { key: U, mods: Alt, action: ScrollPageUp, mode: ~Alt }
+  - { key: D, mods: Alt, action: ScrollPageDown, mode: ~Alt }
+  - { key: Escape, mods: Control, action: ToggleViMode }
+  - { key: I, mods: None, action: ToggleViMode, mode: Vi }
+  - { key: Return, mods: None, action: ToggleViMode, mode: Vi }
+
 window:
   decorations: full
   opacity: 0.75  # compositing required
