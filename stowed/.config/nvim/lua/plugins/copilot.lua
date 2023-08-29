@@ -1,8 +1,6 @@
 return {
   {
     "zbirenbaum/copilot.lua",
-    lazy = true,
-    cmd = { 'Copilot' },
     config = function()
       require('copilot').setup({
         panel = {
@@ -48,5 +46,5 @@ return {
       })
     end
 
-  }, 
+  },
 }

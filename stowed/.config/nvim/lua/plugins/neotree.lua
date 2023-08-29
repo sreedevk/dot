@@ -14,7 +14,7 @@ return {
         popup_border_style = "rounded",
         enable_git_status = true,
         enable_diagnostics = false,
-        sort_case_insensitive = false,
+        sort_case_insensitive = true,
         open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
         default_component_configs = {
           container = { enable_character_fade = true },
