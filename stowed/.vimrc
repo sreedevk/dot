@@ -105,6 +105,19 @@ nnoremap <Leader>h :noh<CR>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 
+" git
+nnoremap <Leader>gi :Git<CR>
+nnoremap <Leader>glg :Git log --oneline --decorate --graph<CR>
+nnoremap <Leader>glo :Git log<CR>
+nnoremap <Leader>gpu :Git push<CR>
+nnoremap <Leader>gpl :Git pull<CR>
+
+" buffers
+nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>bb :bnext<CR>
+nnoremap <Leader>bB :bprev<CR>
+
+nnoremap <Leader>sw :execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<CR>
 vnoremap <M-j> :m '>+1<CR>gv=gv
 vnoremap <M-k> :m '<-2<CR>gv=gv
 nnoremap <Leader>x <cmd>! chmod +x %<CR>
