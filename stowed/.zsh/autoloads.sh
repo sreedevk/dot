@@ -36,7 +36,7 @@ fi
 
 # HASKELL AUTOLOADS
 if [ -f "$HOME/.ghcup/env" ]; then
-   . $HOME/.ghcup/env
+   source $HOME/.ghcup/env
 fi
 
 if [ -f "$HOME/.cargo/env" ]; then
