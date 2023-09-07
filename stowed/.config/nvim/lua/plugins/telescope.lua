@@ -2,7 +2,6 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope-file-browser.nvim',
     'LinArcX/telescope-env.nvim',
     {
       'nvim-telescope/telescope-frecency.nvim',
@@ -13,7 +12,6 @@ return {
   config = function()
     local telescope = require("telescope")
     local t_actions = require("telescope.actions")
-    local fb_actions = telescope.extensions.file_browser.actions
     telescope.setup {
       pickers = {
         find_files = {
@@ -41,7 +39,6 @@ return {
       },
     }
 
-    telescope.load_extension "file_browser"
     telescope.load_extension "frecency"
     telescope.load_extension "env"
   end
