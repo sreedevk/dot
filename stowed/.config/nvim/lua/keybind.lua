@@ -99,10 +99,5 @@ map('n', '<leader>sl', [[<cmd>lua require("persistence").load({last=true})<cr>]]
 map("n", "<leader>so", [[<cmd>lua require("persistence").load()<cr>]])
 map("n", "<leader>sd", [[<cmd>lua require("persistence").stop()<cr>]])
 
--- hop
-map('n', 'S', "<cmd>HopChar1<cr>")
-map('n', '<Leader>ll', "<cmd>HopLine<cr>")
-map('n', '<Leader>w', "<cmd>HopWordCurrentLine<cr>")
-
 -- trevj
 map('n', '<Leader>j', [[<cmd>lua require('treesj').toggle()<cr>]])
