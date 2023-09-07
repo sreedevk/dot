@@ -41,13 +41,6 @@ return {
     lazy = true,
     cmd = { "Tmux", "Tyank", "Tput", "Twrite", "Tattach" }
   },
-
-  {
-    'rafcamlet/nvim-luapad',
-    lazy = true,
-    cmd = { "Luapad", "LuaRun" },
-  },
-
   {
     'norcalli/nvim-colorizer.lua',
     lazy = true,
@@ -79,18 +72,6 @@ return {
       "DiffviewRefresh",
     },
   },
-
-  {
-    "tversteeg/registers.nvim",
-    name = "registers",
-    lazy = true,
-    keys = {
-      { "\"",    mode = { "n", "v" } },
-      { "<C-R>", mode = "i" }
-    },
-    cmd = "Registers",
-  },
-
   {
     'rainbowhxch/accelerated-jk.nvim',
     lazy = true,
@@ -194,16 +175,4 @@ return {
       require('treesj').setup({})
     end,
   },
-
-  {
-    'mvllow/modes.nvim',
-    tag = 'v0.2.0',
-    lazy = true,
-    event = "BufReadPost",
-    config = function()
-      require('modes').setup({
-        line_opacity = 0.30
-      })
-    end
-  }
 }
