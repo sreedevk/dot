@@ -67,15 +67,6 @@ return {
     },
   },
   {
-    'rainbowhxch/accelerated-jk.nvim',
-    lazy = true,
-    event = "VeryLazy",
-    config = function()
-      require('accelerated-jk').setup()
-    end
-  },
-
-  {
     "folke/todo-comments.nvim",
     lazy = true,
     event = "BufReadPost",
