@@ -1,12 +1,6 @@
 local map = require('helpers').map
 
 -- git
-map('n', '<Leader>gi', "<cmd>Git<CR>")
-map('n', '<Leader>gs', "<cmd>Neotree git_status<CR>")
-map('n', '<Leader>glg', "<cmd>Git log --oneline --decorate --graph<CR>")
-map('n', '<Leader>glo', "<cmd>Git log<CR>")
-map('n', '<Leader>gpu', "<cmd>Git push<CR>")
-map('n', '<Leader>gpl', "<cmd>Git pull<CR>")
 
 -- inc/dev
 map("n", "+", "<C-a>")
@@ -31,6 +25,10 @@ map('v', '<M-j>', ":m '>+1<CR>gv=gv")
 map('v', '<M-k>', ":m '<-2<CR>gv=gv")
 map('n', '<Leader>x', "<cmd>! chmod +x %<CR>")
 map("n", "<leader><leader>s", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
+
+-- diffview
+map('n', '<Leader>dvo', "<cmd>DiffviewOpen<CR>")
+map('n', '<Leader>dvc', "<cmd>DiffviewClose<CR>")
 
 -- Neotree
 map('n', '<C-n>', "<cmd>Neotree reveal toggle<CR>")
