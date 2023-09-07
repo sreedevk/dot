@@ -1,6 +1,7 @@
 local map = require('helpers').map
 
 -- git
+map("n", "<Leader>gi", "<cmd>Neogit<CR>")
 
 -- inc/dev
 map("n", "+", "<C-a>")

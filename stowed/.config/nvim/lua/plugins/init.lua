@@ -8,6 +8,11 @@ return {
   'tpope/vim-repeat',
   'kevinhwang91/nvim-bqf',
   {
+    'tpope/vim-fugitive',
+    lazy = true,
+    cmd = { "Git" }
+  },
+  {
     'chrisbra/csv.vim',
     lazy = true,
     ft = "csv"
