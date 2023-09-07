@@ -6,6 +6,8 @@ return {
     "sindrets/diffview.nvim",        -- optional
     "ibhagwan/fzf-lua",              -- optional
   },
+  lazy = true,
+  cmd = "Neogit",
   config = function()
     local neogit = require("neogit")
 
