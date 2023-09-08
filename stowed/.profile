@@ -5,5 +5,5 @@ export QT_SCALE_FACTOR=0.6
 export WINIT_X11_SCALE_FACTOR=1
 
 ~/.fehbg &
-picom -b
+picom --experimental-backends --backend glx -b
 setxkbmap -layout us,apl -variant ,dyalog -option grp:switch -option caps:ctrl_modifier
