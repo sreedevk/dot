@@ -5,7 +5,7 @@ if vim.g.neovide == true then
   vim.g.neovide_profiler               = false
   vim.g.neovide_cursor_antialiasing    = true
   vim.o.guifont                        = "Iosevka Nerd Font:h19"
-  vim.g.neovide_fullscreen             = true
+  vim.g.neovide_fullscreen             = false
   vim.g.neovide_padding_top            = 0
   vim.g.neovide_padding_bottom         = 0
   vim.g.neovide_padding_right          = 0
