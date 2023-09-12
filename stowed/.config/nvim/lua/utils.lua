@@ -1,14 +1,6 @@
 local M = {}
 
 -- run command in toggle term
-function M.prun()
-  local term    = require('toggleterm.terminal').Terminal
-  local command = vim.fn.input("cmd: ", "", "file")
-  command       = string.gsub(command, '%%', vim.fn.expand('%'))
-  local cmdterm = term:new({ cmd = command, hidden = false })
-  cmdterm:toggle()
-end
-
 function M.fetchjson()
   local url    = vim.fn.expand('<cWORD>')
   local handle = io.popen('curl '.. url)
