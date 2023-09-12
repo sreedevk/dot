@@ -79,7 +79,6 @@ map('n', '<Leader>z', '<cmd>ZenMode<CR>')
 map('n', '<Leader>u', "<cmd>UndotreeToggle<CR>")
 
 -- Run Command
-map('n', '<Leader>rn', '<cmd>CmdRun<CR>')
 map('v', '<Leader>rs', ":'>ToggleTermSendVisualLine<CR>")
 
 -- debugging
@@ -101,3 +100,7 @@ map("n", "<leader>sd", [[<cmd>lua require("persistence").stop()<cr>]])
 
 -- trevj
 map('n', '<Leader>j', [[<cmd>lua require('treesj').toggle()<cr>]])
+
+-- task runner
+map('n', '<Leader>rn', [[<cmd>OverseerRun<cr>]])
+map('n', '<Leader>ro', [[<cmd>OverseerToggle<cr>]])
