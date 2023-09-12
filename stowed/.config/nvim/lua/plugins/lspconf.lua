@@ -52,7 +52,7 @@ return {
 
     cmp.setup({
       experimental = {
-        ghost_text = true
+        ghost_text = false
       },
       formatting = {
         format = lspkind.cmp_format(),
