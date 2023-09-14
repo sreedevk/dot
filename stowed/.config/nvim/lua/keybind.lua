@@ -44,14 +44,11 @@ map('n', '<Leader>rg', "<cmd>Telescope live_grep<CR>")
 map('n', '<C-s>', "<cmd>Telescope<CR>")
 map('n', '<Leader>gr', "<cmd>Telescope grep_string<CR>")
 
+-- TODO: LSPSAGA
 -- LSP/TS
 map('n', '<Leader>cv', "<cmd>Lspsaga outline<CR>")
 
 -- chadmode: no arrow keys
-map('', '<up>', "<nop>")
-map('', '<down>', "<nop>")
-map('', '<left>', "<nop>")
-map('', '<right>', "<nop>")
 map("n", "Q", "<nop>")
 
 -- Tabs
