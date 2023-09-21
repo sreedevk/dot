@@ -1,5 +1,33 @@
 #!/bin/sh
 
-ESSID="$(iwgetid | cut -f 2- -d ' ' | cut -f 2- -d ':' | sed 's/\"//g')"
-IPADDR="$(ip addr show wlan0 | grep inet | head -n1 | awk '{print $2}')"
-echo "$ESSID $IPADDR"
+output=""
+count=0
+
+# Loop over all up network interfaces except 'lo'
+for iface in $(ip -o link show | awk -F ': ' '$2 != "lo" {print $2}'); do
+    # Get the IP address associated with this interface
+    ip_address=$(ip -o -4 addr list $iface | awk '{print $4}' | cut -d/ -f1)
+
+    # Skip interfaces with no IP address
+    if [ -z "$ip_address" ]; then
+        continue
+    fi
+
+    # Get the ESSID if wireless
+    essid=$(iwconfig $iface 2>/dev/null | grep 'ESSID' | awk -F '"' '{print $2}')
+
+    # Build the output string
+    if [ $count -gt 0 ]; then
+        output+=" | "
+    fi
+    
+    if [ -z "$essid" ]; then
+        output+="$iface $ip_address"
+    else
+        output+="$iface <${essid}> $ip_address"
+    fi
+    
+    ((count++))
+done
+
+echo "$output"
