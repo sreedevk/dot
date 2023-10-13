@@ -1,5 +1,6 @@
 # Ignore
 stowed/.local/bin/*
+stowed/.local
 stowed/.config/*
 stowed/.config/awesome/wallpapers/*
 stowed/.emacs.d/elpa
