@@ -14,7 +14,6 @@ set $window_switcher "rofi -show window"
 set $mod Mod4
 
 # AutoStart Applications
-exec        --no-startup-id ~/.config/i3/autostart.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
 
