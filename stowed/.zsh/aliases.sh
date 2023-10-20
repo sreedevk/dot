@@ -4,8 +4,8 @@
 # Sys
 alias ls='eza --color=always'
 alias la='eza -a --color=always'
-alias ll='eza -l --color=always'
-alias lla='eza -la --color=always'
+alias ll='eza -l --icons --color=always'
+alias lla='eza -la --icons --color=always'
 alias lt='eza -aT --color=always --group-directories-first'
 alias obliterate='shred -zvu -n 5'
 alias xo='xdg-open'
@@ -26,6 +26,9 @@ alias mux='tmuxinator'
 alias tmux='TERM=screen-256color-bce tmux'
 alias t="tmux"
 alias ta="tmux a"
+
+# zellij
+alias zl='zellij'
 
 # git
 alias g='git'
