@@ -28,6 +28,7 @@ vim.opt.title                = true
 vim.opt.showmatch            = true
 vim.opt.hlsearch             = true
 vim.opt.list                 = false
+vim.opt.matchpairs           = {"(:)", "{:}", "[:]", "<:>"}
 vim.opt.lazyredraw           = true
 vim.opt.cursorcolumn         = false
 vim.opt.cursorline           = true
