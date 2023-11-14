@@ -13,7 +13,7 @@ return {
       ensure_installed = {
         "c", "elixir", "ruby", "lua", "rust", "json", "cpp",
         "eex", "heex", "org", "typescript", "go", "yaml", "html",
-        "markdown", "markdown_inline", "ocaml", "haskell"
+        "markdown", "markdown_inline", "ocaml", "haskell", "ledger"
       },
       autotag = {
         enable = true,

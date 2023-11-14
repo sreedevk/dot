@@ -160,4 +160,9 @@ return {
       require('treesj').setup({})
     end,
   },
+
+  {
+    'ledger/vim-ledger',
+    ft = { 'ledger', 'journal' },
+  }
 }
