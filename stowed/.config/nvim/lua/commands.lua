@@ -48,6 +48,11 @@ autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.journal", "*.prices", "*.ledger" },
+  command = "set filetype=ledger"
+})
+
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.eex", "*.heex", "*.leex", "*.sface", "*.lexs" },
   command = "set filetype=heex"
 })
