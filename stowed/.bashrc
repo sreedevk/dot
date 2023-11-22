@@ -90,6 +90,7 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -iv"
 alias mkdir="mkdir -p"
+alias tree='eza -aT --color=always --group-directories-first'
 
 # FZF CONFIG
 export FZF_TAB_GROUP_COLORS=(
