@@ -8,7 +8,7 @@
 
 (setq doom-theme 'doom-tokyo-night
       doom-font (font-spec :family "Iosevka NF" :size 17)
-      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 18)
+      doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 18)
       doom-big-font (font-spec :family "Iosevka NF" :size 26))
 
 
