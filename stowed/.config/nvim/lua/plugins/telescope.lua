@@ -3,6 +3,7 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'LinArcX/telescope-env.nvim',
+    'ahmedkhalf/project.nvim',
     {
       'nvim-telescope/telescope-frecency.nvim',
       dependencies = { "kkharji/sqlite.lua" }
@@ -41,5 +42,6 @@ return {
 
     telescope.load_extension "frecency"
     telescope.load_extension "env"
+    telescope.load_extension "projects"
   end
 }
