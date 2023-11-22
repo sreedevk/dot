@@ -18,6 +18,7 @@ alias lg="lazygit"
 alias clock="tty-clock -csSb -C3"
 alias xcd='cd "$(xplr --print-pwd-as-result)"'
 alias bd='cd ..'
+alias tree='eza -aT --color=always --group-directories-first'
 
 alias e="$EDITOR"
 
