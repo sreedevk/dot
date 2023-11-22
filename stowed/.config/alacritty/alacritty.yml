@@ -9,13 +9,13 @@ cursor:
 
 font:
   bold:
-    family: Iosevka Nerd Font
+    family: Iosevka NF
     style: Bold
   italic:
-    family: Iosevka Nerd Font
+    family: Iosevka NF
     style: Italic
   normal:
-    family: Iosevka Nerd Font
+    family: Iosevka NF
     style: Regular
   size: 16
 
