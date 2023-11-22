@@ -6,4 +6,4 @@ export WINIT_X11_SCALE_FACTOR=1
 
 ~/.fehbg &
 setxkbmap -layout us,apl -variant ,dyalog -option grp:switch -option caps:ctrl_modifier
-picom -b
+# picom -b

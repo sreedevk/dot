@@ -27,6 +27,7 @@
   co     = checkout
   cp     = cherry-pick
   dfs    = diff --staged
+  df     = diff
   l      = log
   lg     = log --decorate --oneline --graph
   s      = status
