@@ -1,17 +1,13 @@
 return {
   'tpope/vim-surround',
   'tpope/vim-characterize',
+  'tpope/vim-fugitive',
   'tpope/vim-rails',
   'jbyuki/venn.nvim',
   'mattn/emmet-vim',
   'chrisbra/unicode.vim',
   'tpope/vim-repeat',
   'kevinhwang91/nvim-bqf',
-  {
-    'tpope/vim-fugitive',
-    lazy = true,
-    cmd = { "Git" }
-  },
   {
     'chrisbra/csv.vim',
     lazy = true,

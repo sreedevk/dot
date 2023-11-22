@@ -8,7 +8,7 @@ local dpi                                       = xresources.apply_dpi
 local gfs                                       = require("gears.filesystem")
 local themes_path                               = gfs.get_themes_dir()
 local theme                                     = {}
-theme.font                                      = "Iosevka Nerd Font 9"
+theme.font                                      = "Iosevka NF 9"
 
 theme.bg_normal                                 = "#222222"
 theme.bg_focus                                  = "#535d6c"
