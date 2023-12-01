@@ -70,6 +70,7 @@ vim.g.loaded_netrwPlugin     = 1
 vim.g.mapleader              = ';'
 vim.g.loaded                 = 1
 vim.g.loaded_netrwPlugin     = 1
+vim.g.loaded_matchparen      = 0
 vim.g.better_escape_shortcut = 'jj'
 vim.g.better_escape_interval = 400
 vim.g.user_emmet_leader_key  = "<C-c>"
