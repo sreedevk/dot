@@ -1,6 +1,12 @@
 return {
   'Wansmer/sibling-swap.nvim',
   dependencies = { 'nvim-treesitter' },
+  keys = {
+    { '<C-.>', mode = "n" },
+    { '<C-,>', mode = "n" },
+    { '<Leader>.', mode = "n" },
+    { '<Leader>,', mode = "n" },
+  },
   config = function()
     require('sibling-swap').setup({
       allowed_separators = {
