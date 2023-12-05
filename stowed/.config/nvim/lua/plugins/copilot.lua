@@ -14,7 +14,7 @@ return {
             open = "<M-CR>"
           },
           layout = {
-            position = "bottom", -- | top | left | right
+            position = "right", -- | top | left | right
             ratio = 0.4
           },
         },
@@ -33,7 +33,7 @@ return {
         },
         filetypes = {
           yaml = false,
-          markdown = false,
+          markdown = true,
           help = false,
           gitcommit = false,
           gitrebase = false,

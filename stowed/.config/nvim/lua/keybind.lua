@@ -91,7 +91,7 @@ map('n', '<Leader>duo', ':lua require("dapui").open()<CR>')
 map('n', '<Leader>duc', ':lua require("dapui").close()<CR>')
 
 -- persistence
-map('n', '<leader>sl', [[<cmd>lua require("persistence").load({last=true})<cr>]])
+map('n', '<leader>sp', [[<cmd>lua require("persistence").load({last=true})<cr>]])
 map("n", "<leader>so", [[<cmd>lua require("persistence").load()<cr>]])
 map("n", "<leader>sd", [[<cmd>lua require("persistence").stop()<cr>]])
 
