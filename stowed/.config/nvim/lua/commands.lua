@@ -53,6 +53,11 @@ autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.envrc" },
+  command = "set filetype=bash"
+})
+
+autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.eex", "*.heex", "*.leex", "*.sface", "*.lexs" },
   command = "set filetype=heex"
 })
