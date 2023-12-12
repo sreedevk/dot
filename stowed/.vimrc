@@ -38,6 +38,7 @@ Plug 'mileszs/ack.vim'
 Plug 'jceb/vim-orgmode'
 Plug 'github/copilot.vim'
 Plug 'jdhao/better-escape.vim'
+Plug 'chrisbra/csv.vim'
 
 call plug#end()
 
