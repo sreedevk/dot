@@ -37,6 +37,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mileszs/ack.vim'
 Plug 'jceb/vim-orgmode'
 Plug 'github/copilot.vim'
+Plug 'jdhao/better-escape.vim'
 
 call plug#end()
 
@@ -46,10 +47,17 @@ colorscheme ayu
 
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
+set breakat=[[\ \	;:,!?]]
 set clipboard=unnamedplus
+set breakindentopt=shift:2,min:20
+set breakindent
+set jumpoptions=stack
+set smartindent
 set number
 set expandtab
 set incsearch
+set infercase
 set termguicolors
 set encoding=utf-8
 set nobackup
@@ -61,7 +69,10 @@ set linebreak
 set title " show window title as current file name
 set showmatch " enable highlighing matching paranthesis
 set hlsearch " enable search highlights
+set matchpairs=(:),{:},[:],<:>
 set list " show trailing whitespaces
+set ruler
+set cursorline
 
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
@@ -70,10 +81,12 @@ autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 let mapleader = ";"
+let g:better_escape_shortcut = 'jj'
+let g:better_escape_interval = 400
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-let g:user_emmet_expandabbr_key = '<C-a>,'
+let g:user_emmet_expandabbr_key = '<C-c>,'
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:deoplete#enable_at_startup = 1
@@ -116,7 +129,12 @@ nnoremap <Leader>gpl :Git pull<CR>
 nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>bb :bnext<CR>
 nnoremap <Leader>bB :bprev<CR>
+nnoremap <Leader>bl :CtrlPBuffer<CR>
 
+" spell
+nnoremap <Leader>ts :setlocal spell!<CR>
+
+" utils
 nnoremap <Leader>sw :execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<CR>
 vnoremap <M-j> :m '>+1<CR>gv=gv
 vnoremap <M-k> :m '<-2<CR>gv=gv
@@ -126,7 +144,6 @@ nnoremap <Leader>ca <cmd>tabonly<CR>
 
 silent! call airline#extensions#whitespace#disable()
 
-inoremap jj <ESC>
 inoremap <expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
 inoremap <expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
