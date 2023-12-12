@@ -43,3 +43,6 @@ stowed/.config/nvim/lazy-lock.json
 !stowed/.config/gh/config.yml
 !stowed/.config/dwmblocks
 !stowed/.config/btop/btop.conf
+!stowed/.config/hypr/
+!stowed/.config/waybar
+!stowed/.config/wofi
