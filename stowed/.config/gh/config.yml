@@ -6,3 +6,4 @@ aliases:
     vr: repo view --web
     vp: pr view --web
 browser:
+version: "1"
