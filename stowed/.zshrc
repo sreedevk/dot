@@ -35,6 +35,9 @@ export MANROFFOPT="-c"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export LANG=en_US.UTF-8
 
+# TIMEZONE
+export TZ='America/New_York'
+
 # HISTORYFILE
 HISTSIZE=100
 SAVEHIST=100
