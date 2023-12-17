@@ -14,7 +14,6 @@ return {
     'hrsh7th/cmp-nvim-lsp',
     'ray-x/cmp-treesitter',
     'L3MON4D3/LuaSnip',
-    'rafamadriz/friendly-snippets',
     {
       'glepnir/lspsaga.nvim',
       cmd = "Lspsaga",
