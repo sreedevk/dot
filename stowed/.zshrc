@@ -74,6 +74,9 @@ set -o vi
 
 # KEY BINDINGS
 bindkey -s '^o' 'lfcd\n'
+bindkey -s '^[l' 'ls\n'
+bindkey -s '^[k' 'cd ..\n'
+bindkey -s '^[j' 'cd -\n'
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^x' edit-command-line
