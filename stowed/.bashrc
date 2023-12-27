@@ -69,11 +69,11 @@ shopt -s expand_aliases # expand aliases
 shopt -s checkwinsize # checks term size when bash regains control
 
 # ALIASES
-alias ls='exa --color=always'
-alias la='exa -a --color=always'
-alias ll='exa -l --color=always'
-alias lla='exa -la --color=always'
-alias lt='exa -aT --color=always --group-directories-first'
+alias ls='eza --color=always'
+alias la='eza -a --color=always'
+alias ll='eza -l --color=always'
+alias lla='eza -la --color=always'
+alias lt='eza -aT --color=always --group-directories-first'
 alias obliterate='shred -zvu -n 5'
 alias xo='xdg-open'
 alias grep='grep --color=auto'
