@@ -27,6 +27,7 @@ alias mux='tmuxinator'
 alias tmux='TERM=screen-256color-bce tmux'
 alias t="tmux"
 alias ta="tmux a"
+alias zmux="zellij"
 
 # zellij
 alias zl='zellij'
