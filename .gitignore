@@ -15,6 +15,7 @@ stowed/.config/nvim/lazy-lock.json
 
 # Allow
 !stowed/.config/alacritty/alacritty.yml
+!stowed/.config/alacritty/alacritty.toml
 !stowed/.config/awesome
 !stowed/.config/dunst
 !stowed/.config/i3

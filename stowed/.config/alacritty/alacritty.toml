@@ -1,0 +1,77 @@
+import = ["/home/sreedev/.config/alacritty/themes/ayu_dark.toml"]
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[cursor]
+unfocused_hollow = false
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 16
+
+[font.bold]
+family = "Iosevka NF"
+style = "Bold"
+
+[font.italic]
+family = "Iosevka NF"
+style = "Italic"
+
+[font.normal]
+family = "Iosevka NF"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "U"
+mode = "~Alt"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "D"
+mode = "~Alt"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Escape"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "I"
+mode = "Vi"
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Return"
+mode = "Vi"
+mods = "None"
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[scrolling]
+multiplier = 5
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[shell]
+args = ["--login"]
+program = "/usr/bin/zsh"
+
+[window]
+decorations = "full"
+opacity = 0.75
+
+[window.padding]
+x = 5
+y = 5
