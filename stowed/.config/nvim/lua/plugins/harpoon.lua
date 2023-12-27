@@ -8,9 +8,7 @@ return {
 
     vim.keymap.set("n", "<Leader>fa", function() harpoon:list():append() end)
     vim.keymap.set("n", "<Leader>fl", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-    vim.keymap.set("n", "<Leader>f1", function() harpoon:list():select(1) end)
-    vim.keymap.set("n", "<Leader>f2", function() harpoon:list():select(2) end)
-    vim.keymap.set("n", "<Leader>f3", function() harpoon:list():select(3) end)
-    vim.keymap.set("n", "<Leader>f4", function() harpoon:list():select(4) end)
+    vim.keymap.set("n", "<Leader>fo", function() harpoon:list():prev() end)
+    vim.keymap.set("n", "<Leader>fi", function() harpoon:list():next() end)
   end
 }

@@ -8,6 +8,8 @@ return {
   'chrisbra/unicode.vim',
   'tpope/vim-repeat',
   'kevinhwang91/nvim-bqf',
+  'famiu/bufdelete.nvim',
+
   {
     'chrisbra/csv.vim',
     lazy = true,
