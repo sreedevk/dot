@@ -3,7 +3,6 @@ return {
   'tpope/vim-characterize',
   'tpope/vim-fugitive',
   'tpope/vim-rails',
-  'jbyuki/venn.nvim',
   'mattn/emmet-vim',
   'chrisbra/unicode.vim',
   'tpope/vim-repeat',
