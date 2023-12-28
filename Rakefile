@@ -5,6 +5,6 @@ namespace :packages do
     sh("pacman -Qe > ~/.dot/.pkglists.txt")
 
     # backup cargo packages
-    sh("cargo install --list | grep ':' | sed 's/://g' | tee ~/.dot/.cargo_pkglists.txt")
+    sh("cargo install --list | grep ':' | sed 's/://g' > ~/.dot/.cargo_pkglists.txt")
   end
 end
