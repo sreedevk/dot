@@ -43,6 +43,7 @@ map('n', '<Leader>rg', "<cmd>Telescope live_grep<CR>")
 -- telescope
 map('n', '<C-s>', "<cmd>Telescope<CR>")
 map('n', '<Leader>gr', "<cmd>Telescope grep_string<CR>")
+map('n', '<leader>fw', "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') })<CR>")
 
 -- TODO: LSPSAGA
 -- LSP/TS
