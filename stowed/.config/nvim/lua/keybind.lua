@@ -34,24 +34,16 @@ map('n', '<Leader>dvc', "<cmd>DiffviewClose<CR>")
 -- Neotree
 map('n', '<C-n>', "<cmd>Neotree reveal toggle<CR>")
 
--- File/Dir Nav
+-- telescope
 map('n', '<Leader>cd', "<cmd>lua vim.cmd('cd ' .. vim.fn.expand('%:p:h'))<CR>")
 map('n', '<C-p>', "<cmd>Telescope git_files<CR>")
 map('n', '<Leader>p', "<cmd>Telescope find_files<CR>")
-map('n', '<Leader>fb', "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>")
+map('n', '<C-s>', "<cmd>Telescope<CR>")
+map('n', '<leader>fw', "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') })<CR>")
 map('n', '<Leader>rg', "<cmd>Telescope live_grep<CR>")
 
--- telescope
-map('n', '<C-s>', "<cmd>Telescope<CR>")
-map('n', '<Leader>gr', "<cmd>Telescope grep_string<CR>")
-map('n', '<leader>fw', "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') })<CR>")
-
--- TODO: LSPSAGA
--- LSP/TS
+-- lspsaga
 map('n', '<Leader>cv', "<cmd>Lspsaga outline<CR>")
-
--- chadmode: no arrow keys
-map("n", "Q", "<nop>")
 
 -- Tabs
 map('n', '<C-t>', "<cmd>tabnew<CR>")
@@ -65,13 +57,11 @@ map('n', '<Leader>bB', '<cmd>bprev<CR>')
 
 -- toggle
 map('n', '<Leader>tm', "<cmd>TableModeToggle<CR>")
-map('n', '<leader>tv', "<cmd>ToggleVenn<CR>")
 map('n', '<leader>ts', "<cmd>set spell!<CR>")
-map('n', '<Leader>tu', "<cmd>UndotreeToggle<CR>")
 map('n', '<Leader>tr', "<cmd>ToggleTerm<CR>")
 map('n', '<Leader>tf', "<cmd>ToggleTerm direction=float<CR>")
 map('n', '<Leader>tz', '<cmd>ZenMode<CR>')
-map('n', '<Leader>tdq', '<cmd>TroubleToggle quickfix<CR>')
+map('n', '<Leader>tt', '<cmd>TroubleToggle quickfix<CR>')
 
 -- alt toggle
 map('n', '<Leader>z', '<cmd>ZenMode<CR>')
