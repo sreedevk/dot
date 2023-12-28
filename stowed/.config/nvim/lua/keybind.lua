@@ -37,6 +37,7 @@ map('n', '<C-n>', "<cmd>Neotree reveal toggle<CR>")
 -- File/Dir Nav
 map('n', '<Leader>cd', "<cmd>lua vim.cmd('cd ' .. vim.fn.expand('%:p:h'))<CR>")
 map('n', '<C-p>', "<cmd>Telescope git_files<CR>")
+map('n', '<Leader>p', "<cmd>Telescope find_files<CR>")
 map('n', '<Leader>fb', "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>")
 map('n', '<Leader>rg', "<cmd>Telescope live_grep<CR>")
 
