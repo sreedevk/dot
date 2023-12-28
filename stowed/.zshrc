@@ -27,13 +27,16 @@ export XDG_VIDEOS_DIR="$HOME/Media/videos"
 # BETTER TERM
 export KEYTIMEOUT=1
 export GPG_TTY=$(tty)
-export TERM=xterm-256color
 export TERMINFO=/usr/share/terminfo/
 export HISTFILE=~/.cache/zsh/history
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export MANROFFOPT="-c"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export LANG=en_US.UTF-8
+
+if [ -z "$TMUX" ]; then
+    export TERM=xterm-256color
+fi
 
 # TIMEZONE
 export TZ='America/New_York'
