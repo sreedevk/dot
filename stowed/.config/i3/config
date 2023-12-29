@@ -15,7 +15,7 @@ set $mod Mod4
 
 # AutoStart Applications
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec --no-startup-id autotiling
+exec_always --no-startup-id autotiling
 
 # Disable Screen Blanking
 exec --no-startup-id xset s off
