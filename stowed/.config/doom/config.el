@@ -16,13 +16,13 @@
   (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t))
 
-(setq org-roam-directory "~/Data/notebook/roam")
-(setq org-directory "~/Data/notebook")
+(setq org-roam-directory "~/Data/notebook/org/roam")
+(setq org-directory "~/Data/notebook/org")
 
 (after! org
-  (setq org-agenda-files '("~/Data/notebook/agenda.org")))
+  (setq org-agenda-files '("~/Data/notebook/org/agenda.org")))
 
-(setq deft-directory "~/Data/notebook"
+(setq deft-directory "~/Data/notebook/org"
       deft-extensions '("org", "txt", "md")
       deft-recursive t)
 
