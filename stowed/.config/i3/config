@@ -16,6 +16,7 @@ set $mod Mod4
 # AutoStart Applications
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
+exec_always --no-startup-id picom -b
 
 # Disable Screen Blanking
 exec --no-startup-id xset s off
@@ -68,6 +69,9 @@ bindsym $mod+d                 exec --no-startup-id $app_launcher
 bindsym $mod+Ctrl+d            exec --no-startup-id "dmenu_run"
 bindsym $mod+Tab               exec --no-startup-id $window_switcher
 bindsym Ctrl+space             exec --no-startup-id "dunstctl close-all"
+
+# Power Management
+bindsym $mod+Shift+period      exec --no-startup-id "systemctl suspend"
 
 # Brightness
 bindsym XF86MonBrightnessUp    exec --no-startup-id "brightnessctl set +10%"
