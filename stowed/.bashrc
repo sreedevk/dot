@@ -51,10 +51,6 @@ if [ -f "$(command -v luarocks)" ]; then
   eval "$(luarocks path --bin)"
 fi
 
-if [ -f "$(command -v atuin)" ]; then
-  eval "$(atuin init bash --disable-up-arrow)"
-fi
-
 if [ -f "$(command -v direnv)" ]; then
   eval "$(direnv hook bash)"
 fi
