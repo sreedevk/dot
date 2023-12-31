@@ -1,4 +1,3 @@
-atuin v17.1.0
 bingrep v0.11.0
 blaze-ssh v0.0.4
 cargo-update v13.3.0
