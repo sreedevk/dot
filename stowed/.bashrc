@@ -2,11 +2,8 @@
 # AUTHOR: Sreedev Kodichath
 
 # PATHS
-LOCAL_BIN_PATH="$HOME/.local/bin"
-LOCAL_BIN_SUB_PATH="$HOME/.local/bin/**/*"
-
 export GOPATH="$HOME/go"
-export PATH="$PATH:$LOCAL_BIN_PATH:$LOCAL_BIN_SUB_PATH:$GOPATH"
+export PATH="$PATH:$GOPATH"
 
 # ENV VARIABLES
 export KEYTIMEOUT=1
@@ -15,7 +12,7 @@ export VISUAL=neovide
 export EDITOR=nvim
 export TERMINFO=/usr/share/terminfo/
 export TERM="xterm-256color"
-export HISTFILE=~/.cache/zsh/history
+export HISTFILE=~/.cache/bash/history
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export HISTFILESIZE=10000
@@ -77,8 +74,6 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias jctl="journalctl -p 3 -xb"
 alias macs="emacsclient -c -a 'emacs'"
-alias nvide="WINIT_X11_SCALE_FACTOR=1.2 neovide --multigrid"
-alias lg="lazygit"
 alias t="tmux"
 alias ta="tmux a"
 alias clock="tty-clock -csSb -C3"
@@ -101,4 +96,6 @@ export FZF_DEFAULT_OPTS="
  --color=info:#9ccfd8,prompt:#f6c177,pointer:#c4a7e7
  --color=marker:#ebbcba,spinner:#eb6f92,header:#ebbcba"
 
+echo "\n"
 eval "$(command -v fastfetch)"
+echo "\n"
