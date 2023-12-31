@@ -3,31 +3,13 @@
 
 # move files to trash instead of removing
 trash(){
+  mkdir -p ~/.trash
   mv $1 ~/.trash/
-}
-
-# beautiful CSVs
-csv() {
-  column -s, -t < $1 | less -$2 -N -S
-}
-
-# print terminal emulator color palette
-color256() {
-    local -a colors
-    for i in {000..255}; do
-        colors+=("%F{$i}$i%f")
-    done
-    print -cP $colors
 }
 
 # compile plugins after change in .zsh_plugins
 antibody-compile(){
   antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
-}
-
-# filter & kill active tmux sessions
-tmux-kill(){
-  tmux list-sessions | awk 'BEGIN{FS=":"}{print $1}' | fzf | xargs -n 1 tmux kill-session -t
 }
 
 # change directories in style
@@ -67,23 +49,6 @@ ix() {
     curl $opts -F f:1='<-' $* ix.io/$id
 }
 
-# Time Elsewhere
-zonetime(){
-  echo "$(timedatectl list-timezones)" | fzf | read TZ
-  echo "$TZ : $(date +'%m/%d/%Y %I:%M %p')"
-  unset TZ
-}
-
-# Fast Clear
-clear(){
-  echo -en "\x1b[2J\x1b[1;1H"
-}
-
-# Start & Detach Process
-detach-proc(){
-  nohup $1 >/dev/null 2>&1 &
-}
-
 # Find Keycode
 keycode() {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
@@ -97,56 +62,4 @@ disable_nmi_watchdog() {
 # APL Keyboard - Alt + Key
 init-apl() {
   setxkbmap -layout us,apl -variant ,dyalog -option grp:switch
-}
-
-vm-start() {
-  machine="$(VBoxManage list vms | fzf | awk '{gsub(/"/, "", $1); print $1}')"
-  VBoxManage startvm $machine --type headless
-}
-
-vm-tunnel() {
-  machine="$(VBoxManage list vms | fzf | awk '{gsub(/"/, "", $1); print $1}')"
-  ip="$(VBoxManage guestproperty enumerate $machine | grep IP | grep-ip | head -n1)"
-  abduco -n vm-tun ssh $1@$ip -D 1337 -C -q -N -v
-}
-
-vm-connect() {
-  machine="$(VBoxManage list vms | fzf | awk '{gsub(/"/, "", $1); print $1}')"
-  ip="$(VBoxManage guestproperty enumerate $machine | grep IP | grep-ip | head -n1)"
-  if [ -z "$1" ]; then
-    ssh $USER@$ip
-  else
-    ssh $1@$ip
-  fi
-}
-
-grep-ip() {
-  text="$(cat < /dev/stdin)"
-  echo "$(echo $text | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"
-}
-
-lan-scan() {
-  host="$(ip addr | grep -v 'host lo' | grep -E 'inet\s' | grep-ip | head -n 1)"
-  nwork=$(ipcalc $host | grep Network | grep-ip)
-  echo "$(nmap -sP $nwork/24 | grep 'Nmap scan report' | fzf | grep-ip)"
-}
-
-lan-connect() {
-  remote="$(lan-scan)"
-  echo "username [leave empty if $USER]: "
-  read username
-  [[ -z "$username" ]] && username=$USER
-  ssh $username@$remote
-}
-
-tlist() {
-  tmuxinator list | tail -n 1 | awk -v OFS="\n" '$1=$1' | fzf
-}
-
-tstart() {
-  tmuxinator start "$(tlist)"
-}
-
-tstop() {
-  tmuxinator stop "$(tlist)"
 }
