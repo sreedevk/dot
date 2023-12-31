@@ -53,7 +53,6 @@ set breakat=[[\ \	;:,!?]]
 set clipboard=unnamedplus
 set breakindentopt=shift:2,min:20
 set breakindent
-set jumpoptions=stack
 set smartindent
 set number
 set expandtab
