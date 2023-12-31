@@ -20,6 +20,11 @@ alias xcd='cd "$(xplr --print-pwd-as-result)"'
 alias bd='cd ..'
 alias tree='eza -aT --color=always --group-directories-first'
 
+# Safe Opts
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -iv"
+
 alias e="$EDITOR"
 
 # Tmuxinator - Tmux Session Manager
