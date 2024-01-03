@@ -1,12 +1,11 @@
 return {
   {
     "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
     event = "InsertEnter",
     config = function()
       require('copilot').setup({
         panel = {
-          enabled = true,
+          enabled = false,
           auto_refresh = true,
           keymap = {
             jump_prev = "[[",
@@ -43,7 +42,7 @@ return {
           svn = false,
           cvs = false,
         },
-        copilot_node_command = 'node', -- Node.js version must be > 16.x
+        copilot_node_command = 'node',
         server_opts_overrides = {},
       })
     end
