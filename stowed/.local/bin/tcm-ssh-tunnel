@@ -1,2 +1,0 @@
-#!/bin/sh
-ssh virtdev@"$(VBoxManage guestproperty enumerate tcm | grep IP | awk '{print $4}' | sed 's/\,$//' | head -n1)" -D 1337 -C -q -N -v
