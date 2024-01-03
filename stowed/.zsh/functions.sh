@@ -3,8 +3,8 @@
 
 # move files to trash instead of removing
 trash(){
-  mkdir -p ~/.trash
-  mv $1 ~/.trash/
+  mkdir -p /tmp/trash
+  mv $1 /tmp/trash
 }
 
 # compile plugins after change in .zsh_plugins
