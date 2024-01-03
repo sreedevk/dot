@@ -8,6 +8,7 @@ dufs v0.38.0
 hx v0.5.0
 mdbook v0.4.36
 pueue v3.3.2
+rx v0.5.2 (https//github.com/cloudhead/rx?tag=v0.5.2#d15032a5)
 sccache v0.7.4
 sea-orm-cli v0.12.10
 wasm-pack v0.12.1
