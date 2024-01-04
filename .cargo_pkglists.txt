@@ -1,14 +1,9 @@
 bingrep v0.11.0
 blaze-ssh v0.0.4
 cargo-update v13.3.0
-csvlens v0.4.0
+csvlens v0.5.0
 deduplicator v0.2.1
 diesel_cli v2.1.1
-dufs v0.38.0
-hx v0.5.0
-mdbook v0.4.36
-pueue v3.3.2
-rx v0.5.2 (https//github.com/cloudhead/rx?tag=v0.5.2#d15032a5)
-sccache v0.7.4
+hx v0.6.0
 sea-orm-cli v0.12.10
 wasm-pack v0.12.1
