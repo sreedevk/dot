@@ -2,22 +2,14 @@
 
 # ASDF AUTOLOADS
 if [ -f "$HOME/.asdf/asdf.sh" ]; then
-  # ASDF INITIALIZATION
   . $HOME/.asdf/asdf.sh
-
-  # ASDF AUTOCOMPLETIONS
   fpath=(${ASDF_DIR}/completions $fpath)
-
-  # ASDF JAVA INITIALIZATIONS
-  [ -f "$HOME/.asdf/plugins/java/set-java-home.zsh" ] && . ~/.asdf/plugins/java/set-java-home.zsh
 fi
 
 # DIRENV LOAD
-if command -v direnv &> /dev/null
-then
+if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
 fi
-
 
 # START STARSHIP PROMPT
 if command -v starship &> /dev/null; then
@@ -39,10 +31,12 @@ if [ -f "$HOME/.ghcup/env" ]; then
    source $HOME/.ghcup/env
 fi
 
+# RUST AUTOLOADS
 if [ -f "$HOME/.cargo/env" ]; then
   . $HOME/.cargo/env
 fi
 
+# GOLANG AUTOLOADS
 if command -v go &> /dev/null; then
   eval "$(go env)"
 fi
