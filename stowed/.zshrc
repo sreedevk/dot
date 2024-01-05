@@ -28,8 +28,6 @@ export XDG_VIDEOS_DIR="$HOME/Media/videos"
 export KEYTIMEOUT=1
 export GPG_TTY=$(tty)
 export TERMINFO=/usr/share/terminfo/
-export HISTFILE=~/.cache/zsh/history
-export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export MANROFFOPT="-c"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export LANG=en_US.UTF-8
@@ -42,8 +40,10 @@ fi
 export TZ='America/New_York'
 
 # HISTORYFILE
-HISTSIZE=100
-SAVEHIST=100
+export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
+export HISTFILE=~/.cache/zsh/history
+export HISTSIZE=1000
+export SAVEHIST=1000
 
 # NON INTERACTIVE MODE EARLY RETURN
 [[ $- != *i* ]] && return
@@ -92,7 +92,6 @@ bindkey -s '^[j' 'cd -\n'
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^x' edit-command-line
-bindkey '^R' history-incremental-search-backward
 bindkey '^[[Z' autosuggest-accept
 
 if [ -f "$(command -v fastfetch)" ]; then
