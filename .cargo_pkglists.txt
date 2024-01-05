@@ -4,6 +4,8 @@ cargo-update v13.3.0
 csvlens v0.5.0
 deduplicator v0.2.1
 diesel_cli v2.1.1
+grex v1.4.4
 hx v0.6.0
 sea-orm-cli v0.12.10
+tock v1.0.1
 wasm-pack v0.12.1
