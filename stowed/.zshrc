@@ -8,21 +8,11 @@
 export PATH="$PATH:$HOME/.local/bin:/opt/bin"
 
 # ENV VARIABLES
-export VISUAL="nvim"
+export VISUAL="neovide"
 export EDITOR="nvim"
 export READER="zathura"
 export TERMINAL="alacritty"
 export BROWSER="brave"
-
-# XDG DIRECTORIES
-export XDG_DESKTOP_DIR="$HOME/Desktop"
-export XDG_DOWNLOAD_DIR="$HOME/Downloads"
-export XDG_TEMPLATES_DIR="$HOME/Templates"
-export XDG_PUBLICSHARE_DIR="$HOME/Public"
-export XDG_DOCUMENTS_DIR="$HOME/Documents"
-export XDG_MUSIC_DIR="$HOME/Media/music"
-export XDG_PICTURES_DIR="$HOME/Media/images"
-export XDG_VIDEOS_DIR="$HOME/Media/videos"
 
 # BETTER TERM
 export KEYTIMEOUT=1
@@ -78,7 +68,6 @@ setopt nomatch
 setopt notify
 setopt sharehistory
 setopt appendhistory
-
 unsetopt beep
 
 # Set VI mode
@@ -86,9 +75,6 @@ set -o vi
 
 # KEY BINDINGS
 bindkey -s '^o' 'lfcd\n'
-bindkey -s '^[l' 'ls\n'
-bindkey -s '^[k' 'cd ..\n'
-bindkey -s '^[j' 'cd -\n'
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^x' edit-command-line
