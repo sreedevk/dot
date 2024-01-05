@@ -31,12 +31,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'mbbill/undotree'
-Plug 'srcery-colors/srcery-vim'
 Plug 'ayu-theme/ayu-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mileszs/ack.vim'
-Plug 'jceb/vim-orgmode'
-Plug 'github/copilot.vim'
 Plug 'jdhao/better-escape.vim'
 Plug 'chrisbra/csv.vim'
 
@@ -96,7 +91,6 @@ let g:NERDTreeWinSize=20
 let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint --type-check']
 let g:syntastic_typescript_tslint_args = "--config ~/.config/nvim/add_conf/tslint.json"
 let g:EasyMotion_smartcase = 1
-let g:copilot_no_tab_map = v:true
 " let g:airline#extensions#tabline#enabled = 1
 
 map <Leader> <Plug>(easymotion-prefix)
@@ -147,9 +141,6 @@ silent! call airline#extensions#whitespace#disable()
 inoremap <expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
 inoremap <expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-
-imap <silent><script><expr> <C-e> copilot#Accept("\<CR>")
 
 tnoremap jj <C-\><C-n>
 
