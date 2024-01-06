@@ -1,13 +1,27 @@
-https://hnrss.org/frontpage
-https://martinfowler.com/feed.atom
-https://os.phil-opp.com/rss.xml
-https://zachholman.com/atom.xml
-http://blog.acolyer.org/feed/
-http://www.jeffgeerling.com/blog.xml
-https://drewdevault.com/blog/index.xml
-https://suckless.org/atom.xml
-https://audioboom.com/channels/2399216.rss
-https://www.kalzumeus.com/feed/articles/
-http://tenderlovemaking.com/atom.xml
-https://prose.sh/rss
-https://aphyr.com/posts.atom
+# 
+https://hnrss.org/frontpage                   "~Hacker News"
+https://small-tech.org/index.xml              "~Small Tech Foundation"
+https://os.phil-opp.com/rss.xml               "~Writing an OS in Rust"
+https://suckless.org/atom.xml                 "~Suckless Software Foundation"
+https://audioboom.com/channels/2399216.rss    "~No Such Thing as Fish"
+https://prose.sh/rss                          "~Prose Blogging Platform"
+
+# People
+https://stallman.org//rss/rss.xml             "~RMS"
+http://blog.acolyer.org/feed/                 "~Adrian Colyer"
+https://martinfowler.com/feed.atom            "~Martin Fowler"
+https://zachholman.com/atom.xml               "~Zach Holman"
+http://www.jeffgeerling.com/blog.xml          "~Jeff Geerling"
+https://drewdevault.com/blog/index.xml        "~Drew Devault"
+http://tenderlovemaking.com/atom.xml          "~Aaron Patterson"
+https://lukesmith.xyz/index.xml               "~Luke Smith"
+https://blog.tomasino.org/index.xml           "~James Tomasino"
+https://www.kalzumeus.com/feed/articles/      "~Patrick McKenzie"
+https://aphyr.com/posts.atom                  "~Kyle Kingsbury (jepson.io)"
+
+# YouTube
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YT)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "~Brodie Robertson (YT)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "~Mental Outlaw (YT)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA "~Firebase (YT)"
+
