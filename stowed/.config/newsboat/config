@@ -1,20 +1,40 @@
-#show-read-feeds no
-auto-reload yes
+# ---- OPTS
+auto-reload               yes
+reload-time               80
+reload-threads            8
+download-retries          4
+prepopulate-query-feeds   yes
+show-read-feeds           no
+feed-sort-order           unreadarticlecount-asc
+save-path                 ~/.local/share/newsboat/saved
+browser                   brave
+text-width                80
+confirm-exit              no
+cleanup-on-quit           no
+external-url-viewer       "urlscan -dc -r 'brave {}'"
 
-external-url-viewer "urlscan -dc -r 'brave {}'"
+# ---- THEME
+color listnormal          default default
+color listnormal_unread   default default
+color listfocus           black yellow
+color listfocus_unread    black yellow
+color info                black yellow
+color article             default default
 
-bind-key j down
+# ---- TITLE FORMATS
+articlelist-title-format    "— [%T]—— (%u unread, %t total)—— %>—— (%U)— "
+datetime-format             "%b %d %H:%M"
+feedlist-title-format       "— [%u feeds with new articles]—— %>—— (%N %V)— "
+
+# ---- KEYBINDINGS
+bind-key S save
 bind-key k up
-bind-key j next articlelist
-bind-key k prev articlelist
-bind-key J next-feed articlelist
-bind-key K prev-feed articlelist
+bind-key j down
 bind-key G end
-bind-key g home
 bind-key d pagedown
 bind-key u pageup
-bind-key l open
-bind-key h quit
+bind-key o open
+bind-key q quit
 bind-key a toggle-article-read
 bind-key n next-unread
 bind-key N prev-unread
@@ -22,14 +42,6 @@ bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
 
-color listnormal cyan default
-color listfocus black yellow standout bold
-color listnormal_unread blue default
-color listfocus_unread yellow default bold
-color info red black bold
-color article white default bold
-
-browser brave
 macro , open-in-browser
 macro a set browser "yt-dlp --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser brave
 macro A set browser "setsid -f mpv -vo null" ; open-in-browser ; set browser brave
