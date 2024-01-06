@@ -1,8 +1,25 @@
 # TITLE: Starship Shell Prompt Configuration (Minimalist)
 # AUTHOR: Sreedev Kodichath
 
+"$schema" = 'https://starship.rs/config-schema.json'
+
 # Don't print a new line at the start of the prompt
 add_newline = false
+scan_timeout = 10
+
+format = """
+$os\
+$username\
+$hostname\
+$localip\
+$directory\
+$status\
+$gitbranch\
+$custom\
+$cmd_duration\
+$jobs\
+$character\
+"""
 
 [line_break]
 disabled = true
@@ -10,17 +27,28 @@ disabled = true
 [character]
 success_symbol = "[λ](bold green)"
 error_symbol = "[λ](bold red)"
+vimcmd_symbol = "[λ](bold purple)"
 
-[package]
-disabled = true
+[localip]
+ssh_only = true
+
+[os]
+style = "bold purple"
+disabled = false
+
+[os.symbols]
+Arch = "   "
 
 [directory]
-truncation_length = 1
+truncation_length = 2
 truncate_to_repo = true
+read_only = ' 🔒'
+read_only_style = 'bold dimmed red'
+truncation_symbol = ''
 
 [username]
 format = "[── $user]($style)@"
-style_user = "bold blue"
+style_user = "bold purple"
 style_root = "bold red"
 show_always = true
 
@@ -28,18 +56,9 @@ show_always = true
 format = "[$branch]($style) "
 style = "bold yellow"
 
-[git_commit]
-disabled=true
-
-[git_state]
-disabled=true
-
-[git_status]
-disabled=true
-
 [hostname]
 format = "[$hostname]($style) "
-style = "bold dimmed blue"
+style = "bold dimmed purple"
 trim_at = "-"
 ssh_only = false
 disabled = false
@@ -50,78 +69,13 @@ show_milliseconds = true
 disabled = false
 style = "bold italic #87A752"
 
-[aws]
-disabled = true
-
-[ruby]
-disabled = true
-
-[conda]
-disabled = true
-truncation_length = 1
-format = '[\[$environment\]]($style) '
-symbol = ""
-style = 'green bold'
-ignore_base = false
-
-[elixir]
-disabled = true
-
-[nodejs]
-disabled = true
-
-[crystal]
-disabled = true
-
-[java]
-disabled = true
-
-[kotlin]
-disabled = true
-
-[julia]
-disabled = true
-
-[kubernetes]
-disabled = true
-
-[lua]
-disabled = true
-
-[ocaml]
-disabled = true
-
-[openstack]
-disabled = true
-
-[php]
-disabled = true
-
-[purescript]
-disabled = true
-
-[python]
-disabled = true
-
-[rust]
-disabled = true
-
-[scala]
-disabled = true
-
-[vagrant]
-disabled = true
-
 [custom.tmux]
 command = "tmux ls | wc -l"
-style = "bold green"
+style = "bold yellow"
 description = "active tmux session count"
 when = "tmux ls"
 disabled = false
 format = "[tmux:($output)]($style) "
-
-[golang]
-disabled = true
 
 [jobs]
 threshold = 1
