@@ -14,7 +14,7 @@ $hostname\
 $localip\
 $directory\
 $status\
-$gitbranch\
+$git_branch\
 $custom\
 $cmd_duration\
 $jobs\
@@ -53,8 +53,8 @@ style_root = "bold red"
 show_always = true
 
 [git_branch]
-format = "[$branch]($style) "
-style = "bold yellow"
+format = "[» $branch]($style) "
+style = "bold italic green"
 
 [hostname]
 format = "[$hostname]($style) "
