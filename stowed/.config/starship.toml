@@ -64,10 +64,11 @@ ssh_only = false
 disabled = false
 
 [cmd_duration]
+format = "[$duration ]($style)"
 min_time = 4
 show_milliseconds = true
 disabled = false
-style = "bold italic #87A752"
+style = "bold italic blue"
 
 [custom.tmux]
 command = "tmux ls | wc -l"
