@@ -44,3 +44,4 @@ stowed/.config/nvim/lazy-lock.json
 !stowed/.config/dwmblocks
 !stowed/.config/btop/btop.conf
 !stowed/.taskrc
+!stowed/.config/atuin
