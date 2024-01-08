@@ -42,7 +42,7 @@ if command -v go &> /dev/null; then
 fi
 
 if command -v atuin &> /dev/null; then
-  zvm_after_init_commands+=('eval "$(atuin init zsh)"')
+  zvm_after_init_commands+=('eval "$(atuin init zsh --disable-up-arrow)"')
 fi
 
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
