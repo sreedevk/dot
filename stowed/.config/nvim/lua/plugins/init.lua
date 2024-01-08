@@ -162,5 +162,12 @@ return {
   {
     'ledger/vim-ledger',
     ft = { 'ledger', 'journal' },
+  },
+
+  {
+    "tiagovla/scope.nvim",
+    config = function ()
+      require("scope").setup()
+    end
   }
 }
