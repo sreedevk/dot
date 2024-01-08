@@ -1,6 +1,9 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
-  branch = 'v2.x',
+  branch = 'v3.x',
+  lazy = true,
+  cmd = { "Neotree" },
+  keys = { "<C-n>" },
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons',
@@ -117,7 +120,9 @@ return {
             never_show = {},
             never_show_by_pattern = {},
           },
-          follow_current_file = true,
+          follow_current_file = {
+            enabled = true
+          },
           group_empty_dirs = false,
           hijack_netrw_behavior = "open_current",
           use_libuv_file_watcher = true,
@@ -142,7 +147,9 @@ return {
           }
         },
         buffers = {
-          follow_current_file = true,
+          follow_current_file = {
+            enabled = true
+          },
           group_empty_dirs = true,
           show_unloaded = true,
           window = {
