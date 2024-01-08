@@ -32,7 +32,7 @@ map('n', '<Leader>dvo', "<cmd>DiffviewOpen<CR>")
 map('n', '<Leader>dvc', "<cmd>DiffviewClose<CR>")
 
 -- Neotree
-map('n', '<C-n>', "<cmd>Neotree reveal toggle<CR>")
+map('n', '<C-n>', "<cmd>Neotree filesystem toggle<CR>")
 
 -- telescope
 map('n', '<Leader>cd', "<cmd>lua vim.cmd('cd ' .. vim.fn.expand('%:p:h'))<CR>")

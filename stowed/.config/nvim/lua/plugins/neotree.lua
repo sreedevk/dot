@@ -1,9 +1,6 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
   branch = 'v3.x',
-  lazy = true,
-  cmd = { "Neotree" },
-  keys = { "<C-n>" },
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons',
