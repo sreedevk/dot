@@ -41,8 +41,8 @@ if command -v go &> /dev/null; then
   eval "$(go env)"
 fi
 
-if command -v mcfly &> /dev/null; then
-  zvm_after_init_commands+=('eval "$(mcfly init zsh)"')
+if command -v atuin &> /dev/null; then
+  zvm_after_init_commands+=('eval "$(atuin init zsh)"')
 fi
 
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
