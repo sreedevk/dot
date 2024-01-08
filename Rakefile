@@ -7,4 +7,16 @@ namespace :packages do
     # backup cargo packages
     sh("cargo install --list | grep ':' | sed 's/://g' > ~/.dot/.cargo_pkglists.txt")
   end
+
+  desc "install deps"
+  task :restore do
+    puts "Installing pacman dependencies"
+    sh("pacman -S - < ~/.dot/.pkglists.txt")
+    `cat ~/.dot/.cargo_pkglists.txt`
+      .lines
+      .lazy
+      .map(&:strip)
+      .map  {|pkg| pkg.split(' ')[0] }
+      .each {|pkg| sh("cargo install #{pkg}") }
+  end
 end
