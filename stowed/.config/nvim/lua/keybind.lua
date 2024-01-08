@@ -36,8 +36,8 @@ map('n', '<C-n>', "<cmd>Neotree reveal toggle<CR>")
 
 -- telescope
 map('n', '<Leader>cd', "<cmd>lua vim.cmd('cd ' .. vim.fn.expand('%:p:h'))<CR>")
-map('n', '<C-p>', "<cmd>Telescope git_files<CR>")
-map('n', '<Leader>p', "<cmd>Telescope find_files<CR>")
+map('n', '<C-p>', "<cmd>Telescope find_files<CR>")
+map('n', '<Leader>p', "<cmd>Telescope git_files<CR>")
 map('n', '<C-s>', "<cmd>Telescope<CR>")
 map('n', '<leader>fw', "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') })<CR>")
 map('n', '<Leader>rg', "<cmd>Telescope live_grep<CR>")
