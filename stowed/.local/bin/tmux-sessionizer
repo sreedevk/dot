@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+# This script is an improved version of The Primeagen's tmux sessionizer
+# https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer.
+#
+# The following are the changes from the primeagen's original version:
+# 1. use fd instead of find (performance improvement)
+# 2. allows integration with global tmuxinator session configs.
+#      if a tmuxinator session exists in ~/.config/tmuxinator/<project>.yml, 
+#      and the project directory name matches the name of .yml file, then tmuxinator
+#      is invoked instead of tmux.
+
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
