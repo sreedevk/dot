@@ -9,7 +9,7 @@ return {
   'tpope/vim-repeat',
   'kevinhwang91/nvim-bqf',
   'famiu/bufdelete.nvim',
-
+  'nanotee/zoxide.vim',
   {
     'chrisbra/csv.vim',
     lazy = true,
