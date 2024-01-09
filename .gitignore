@@ -1,16 +1,6 @@
 # Ignore
-stowed/.local/bin/*
-stowed/.local
 stowed/.config/*
-stowed/.config/awesome/wallpapers/*
-stowed/.emacs.d/elpa
-stowed/.emacs.d/eln-cache
-stowed/.emacs.d/projectile*
-stowed/.emacs.d/transient/*
-stowed/.emacs.d/*~
 stowed/.zshenv
-stowed/.config/systemd/user/cameractrls-usb-CN09357G8LG009ARAC2KA01_Integrated_Webcam_HD-video-index0.path
-stowed/.config/systemd/user/cameractrls-usb-CN09357G8LG009ARAC2KA01_Integrated_Webcam_HD-video-index0.service
 stowed/.config/nvim/lazy-lock.json
 
 # Allow
@@ -18,29 +8,18 @@ stowed/.config/nvim/lazy-lock.json
 !stowed/.config/awesome
 !stowed/.config/dunst
 !stowed/.config/i3
-!stowed/.config/i3blocks
-!stowed/.config/i3status
-!stowed/.config/kitty/kitty.conf
-!stowed/.config/kitty/current-theme.conf
-!stowed/.config/ranger
 !stowed/.config/starship.toml
 !stowed/.config/rofi
 !stowed/.config/picom.conf
 !stowed/.config/nvim
 !stowed/.config/doom
 !stowed/.config/polybar
-!stowed/.config/zellij
-!stowed/.config/nushell/env.nu
-!stowed/.config/nushell/config.nu
 !stowed/.config/fastfetch/
-!stowed/.config/cronjobs/
 !stowed/.config/sxiv/
 !stowed/.config/lf/
 !stowed/.config/newsboat
-!stowed/.config/wezterm
 !stowed/.config/systemd
 !stowed/.config/htop
-!stowed/.config/gh/config.yml
 !stowed/.config/dwmblocks
 !stowed/.config/btop/btop.conf
 !stowed/.taskrc
