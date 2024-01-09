@@ -14,7 +14,7 @@ selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-  if [[ -f "~/.config/tmuxinator/${selected_name}.yml" ]]; then
+  if [[ -f "$HOME/.config/tmuxinator/${selected_name}.yml" ]]; then
     tmuxinator start $selected_name
   else
     tmux new-session -s $selected_name -c $selected
@@ -24,7 +24,7 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
 fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
-  if [[ -f "~/.config/tmuxinator/${selected_name}.yml" ]]; then
+  if [[ -f "$HOME/.config/tmuxinator/${selected_name}.yml" ]]; then
     tmuxinator start $selected_name
   else
     tmux new-session -ds $selected_name -c $selected
