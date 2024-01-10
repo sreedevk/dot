@@ -16,6 +16,9 @@ alias jctl="journalctl -p 3 -xb"
 alias macs="emacsclient -c -a 'emacs'"
 alias clock="tty-clock -csSbt -C3"
 
+# Taskwarrior
+alias tt="taskwarrior-tui"
+
 # Safe Opts
 alias cp="cp -i"
 alias mv="mv -i"
