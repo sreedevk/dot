@@ -1,0 +1,85 @@
+categories:
+    - name: Podcasts
+      desc: Podcasts
+      subscriptions:
+        - name: No Such Thing As a Fish
+          desc: ""
+          url: https://audioboom.com/channels/2399216.rss
+    - name: Tech
+      desc: Software & Tech
+      subscriptions:
+        - name: Small Tech Foundation
+          desc: ""
+          url: https://small-tech.org/index.xml
+        - name: HackerNews
+          desc: HackerNews Frontpage
+          url: https://hnrss.org/frontpage
+        - name: Suckless
+          desc: Suckless Feed
+          url: https://suckless.org/atom.xml
+        - name: Prose
+          desc: Prose Hacker Blog
+          url: https://prose.sh/rss
+        - name: Writing an OS in Rust
+          desc: ""
+          url: https://os.phil-opp.com/rss.xml
+    - name: People
+      desc: People in Software & Tech
+      subscriptions:
+        - name: Aaron Patterson
+          desc: ""
+          url: http://tenderlovemaking.com/atom.xml
+        - name: RMS
+          desc: ""
+          url: https://stallman.org//rss/rss.xml
+        - name: Martin Fowler
+          desc: Martin Fowler's Blog
+          url: https://martinfowler.com/feed.atom
+        - name: Zach Holman
+          desc: Zach Holman's Blog
+          url: https://zachholman.com/atom.xml
+        - name: Jeff Geerling
+          desc: Jeff Geerling's Blog
+          url: http://www.jeffgeerling.com/blog.xml
+        - name: Drew Devault
+          desc: Drew Devault's Blog
+          url: https://drewdevault.com/blog/index.xml
+        - name: The Morning Paper
+          desc: By Adrian Colyer
+          url: http://blog.acolyer.org/feed/
+        - name: Luke Smith
+          desc: ""
+          url: https://lukesmith.xyz/index.xml
+        - name: James Tomasino
+          desc: ""
+          url: https://blog.tomasino.org/index.xml
+        - name: Patrick McKenzie
+          desc: ""
+          url: https://www.kalzumeus.com/feed/articles/
+        - name: Kyle Kingsbury (jepson.io)
+          desc: ""
+          url: https://aphyr.com/posts.atom
+    - name: YouTube
+      desc: YouTube Channels
+      subscriptions:
+        - name: Tsoding Daily
+          desc: Alexey Kutepov
+          url: https://www.youtube.com/feeds/videos.xml?channel_id=UCrqM0Ym_NbK1fqeQG2VIohg
+        - name: Luke Smith (YT)
+          desc: ""
+          url: https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA
+        - name: Brodie Robertson (YT)
+          desc: ""
+          url: https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA
+        - name: Mental Outlaw (YT)
+          desc: ""
+          url: https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA
+        - name: Firebase
+          desc: ""
+          url: https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA
+    - name: News
+      desc: News from around the world
+      subscriptions:
+        - name: Wired
+          desc: News from the wired team
+          url: https://www.wired.com/feed/rss
