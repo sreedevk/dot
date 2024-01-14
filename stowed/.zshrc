@@ -21,6 +21,7 @@ export TERMINFO=/usr/share/terminfo/
 export MANROFFOPT="-c"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export LANG=en_US.UTF-8
+export WORDCHARS=${WORDCHARS/\/}
 
 if [ -z "$TMUX" ]; then
     export TERM=xterm-256color
