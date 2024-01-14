@@ -17,7 +17,7 @@ brightnessctl 0.5.1-2
 btop 1.3.0-2
 catppuccin-gtk-theme-macchiato 0.7.1-1
 cmake 3.28.1-1
-dbeaver 23.3.1-1
+dbeaver 23.3.2-1
 dbus-broker 35-2
 dbus-broker-units 35-2
 dhcpcd 10.0.6-1
@@ -25,7 +25,7 @@ direnv 2.33.0-1
 discord 0.0.40-1
 docker 1:24.0.7-1
 docker-buildx 0.12.1-1
-docker-compose 2.23.3-1
+docker-compose 2.24.0-1
 doctl 1.102.0-1
 duf 0.8.1-2
 dunst 1.9.2-1
@@ -44,8 +44,9 @@ firefox 121.0.1-1
 flatpak 1:1.15.6-1
 fprintd 1.94.2-2
 fuse2 2.9.9-4
+fwup v1.9.1.r0.g91fbf8c-1
 fwupd 1.9.11-1
-fzf 0.44.1-1
+fzf 0.45.0-1
 gdb 13.2-1
 gimp 2.10.36-3
 git 2.43.0-1
@@ -100,6 +101,7 @@ mariadb-clients 11.2.2-1
 mdp 1.0.15-2
 mesa-utils 9.0.0-3
 mesa-vdpau 1:23.3.3-1
+minicom 2.9-1
 mpv 1:0.37.0-1
 nasm 2.16.01-1
 ncdu 2.3-1
@@ -120,6 +122,7 @@ nvtop 3.0.2-1
 obs-studio 30.0.2-1
 opencl-nvidia 545.29.06-1
 openssh 9.6p1-1
+openssh-askpass 2.1.0-4
 openssl-1.1 1.1.1.w-1
 opentabletdriver 0.6.4.0-2
 openvpn 2.6.8-1
@@ -135,6 +138,7 @@ playerctl 2.4.1-3
 polkit-qt6 0.175.0-1
 polybar 3.7.1-1
 postgresql-libs 16.1-4
+python-pyserial 3.5-5
 qflipper 1.3.3-1
 raylib 5.0-1
 reflector 2023-1
@@ -148,6 +152,7 @@ slack-desktop 4.35.131-1
 sof-firmware 2023.12-1
 sof-tools 2023.12-1
 spotify-launcher 0.5.3-1
+squashfs-tools 4.6.1-1
 sshfs 3.7.3-1
 starship 1.17.1-1
 stow 2.3.1-3
