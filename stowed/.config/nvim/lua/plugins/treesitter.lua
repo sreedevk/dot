@@ -14,7 +14,7 @@ return {
         "c", "elixir", "ruby", "lua", "rust", "json", "cpp",
         "clojure", "python", "javascript", "bash", "eex", "heex",
         "org", "typescript", "go", "yaml", "html", "markdown",
-        "markdown_inline", "ocaml", "haskell", "ledger", "help"
+        "markdown_inline", "ocaml", "haskell", "ledger"
       },
       autotag = {
         enable = true,
