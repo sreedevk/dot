@@ -9,6 +9,6 @@ return {
     "TroubleRefresh",
   },
   config = function()
-    require("trouble").setup({})
+    require("trouble").setup({ icons = false })
   end
 }
