@@ -14,7 +14,7 @@ return {
         "c", "elixir", "ruby", "lua", "rust", "json", "cpp",
         "clojure", "python", "javascript", "bash", "eex", "heex",
         "org", "typescript", "go", "yaml", "html", "markdown",
-        "markdown_inline", "ocaml", "haskell", "ledger"
+        "markdown_inline", "ocaml", "haskell", "ledger", "help"
       },
       autotag = {
         enable = true,
@@ -33,6 +33,7 @@ return {
       },
       highlight = {
         enable = true,
+        additional_vim_regex_highlighting = false,
         disable = function(_, buf)
           local max_filesize = 40000000
           local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
