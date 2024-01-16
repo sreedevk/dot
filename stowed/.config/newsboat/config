@@ -1,25 +1,20 @@
 # ---- OPTS
-auto-reload               yes
-reload-time               80
-reload-threads            8
-download-retries          4
-prepopulate-query-feeds   yes
-show-read-feeds           no
-feed-sort-order           unreadarticlecount-asc
-save-path                 ~/.local/share/newsboat/saved
-browser                   brave
-text-width                80
-confirm-exit              no
-cleanup-on-quit           no
-external-url-viewer       "urlscan -dc -r 'brave {}'"
-
-# ---- THEME
-color listnormal          default default
-color listnormal_unread   default default
-color listfocus           black yellow
-color listfocus_unread    black yellow
-color info                black yellow
-color article             default default
+always-display-description  true
+auto-reload                 yes
+browser                     brave
+cleanup-on-quit             no
+confirm-exit                no
+download-full-page          yes
+download-retries            4
+external-url-viewer         "urlscan -dc -r 'brave {}'"
+feed-sort-order             unreadarticlecount-asc
+prepopulate-query-feeds     yes
+reload-threads              8
+reload-time                 80
+save-path                   ~/.local/share/newsboat/saved
+scrolloff                   11
+show-read-feeds             no
+text-width                  80
 
 # ---- TITLE FORMATS
 articlelist-title-format    "— [%T]—— (%u unread, %t total)—— %>—— (%U)— "
@@ -27,21 +22,33 @@ datetime-format             "%b %d %H:%M"
 feedlist-title-format       "— [%u feeds with new articles]—— %>—— (%N %V)— "
 
 # ---- KEYBINDINGS
-bind-key S save
-bind-key k up
-bind-key j down
-bind-key G end
-bind-key d pagedown
-bind-key u pageup
-bind-key o open
-bind-key q quit
-bind-key a toggle-article-read
-bind-key n next-unread
-bind-key N prev-unread
-bind-key D pb-download
-bind-key U show-urls
-bind-key x pb-delete
+bind-key D       pb-download
+bind-key G       end
+bind-key N       prev-unread
+bind-key S       save
+bind-key U       show-urls
+bind-key a       toggle-article-read
+bind-key d       pagedown
+bind-key f       goto-url
+bind-key g       home
+bind-key j       down
+bind-key k       up
+bind-key n       next-unread
+bind-key o       open-in-browser
+bind-key q       quit
+bind-key s       save
+bind-key u       pageup
+bind-key x       pb-delete
 
+# notification
+notify-format "newsboat: Reload Complete, %f unread feeds (%n unread articles total)"
+notify-program "notify-send"
+notify-always no
+notify-screen no
+notify-xterm yes
+notify-beep no
+
+# Macros
 macro , open-in-browser
 macro a set browser "yt-dlp --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser brave
 macro A set browser "setsid -f mpv -vo null" ; open-in-browser ; set browser brave
@@ -50,8 +57,14 @@ macro w set browser "brave" ; open-in-browser ; set browser brave
 macro c set browser "echo %u | xclip -r -sel c" ; open-in-browser ; set browser brave
 macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser brave
 
-highlight all "---.*---" yellow
-highlight feedlist ".*(0/0))" black
+# ---- THEME
+color listnormal        cyan default
+color listfocus         black yellow standout bold
+color listnormal_unread blue default
+color listfocus_unread  yellow default bold
+color info              red black bold
+color article           white default bold
+
 highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
 highlight article "(^Link:.*|^Date:.*)" default default
 highlight article "https?://[^ ]+" green default
