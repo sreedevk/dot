@@ -1,10 +1,15 @@
-# 
+# Blogs
 https://hnrss.org/frontpage                   "~Hacker News"
 https://small-tech.org/index.xml              "~Small Tech Foundation"
 https://os.phil-opp.com/rss.xml               "~Writing an OS in Rust"
 https://suckless.org/atom.xml                 "~Suckless Software Foundation"
 https://audioboom.com/channels/2399216.rss    "~No Such Thing as Fish"
 https://prose.sh/rss                          "~Prose Blogging Platform"
+
+# News
+https://news.yahoo.com/rssfeeds               "~Yahoo News"
+https://finance.yahoo.com/rss/                "~Yahoo Finance"
+https://www.wired.com/feed/rss                "~Wired"
 
 # People
 https://stallman.org//rss/rss.xml             "~RMS"

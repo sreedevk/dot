@@ -80,6 +80,12 @@ categories:
     - name: News
       desc: News from around the world
       subscriptions:
+        - name: Yahoo News
+          desc: ""
+          url: https://news.yahoo.com/rssfeeds
+        - name: Yahoo Finance
+          desc: ""
+          url: https://finance.yahoo.com/rss/
         - name: Wired
           desc: News from the wired team
           url: https://www.wired.com/feed/rss
