@@ -138,10 +138,6 @@ nnoremap <Leader>ca <cmd>tabonly<CR>
 
 silent! call airline#extensions#whitespace#disable()
 
-inoremap <expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
-inoremap <expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 tnoremap jj <C-\><C-n>
 
 command! -complete=file -nargs=1 T tabedit <args>
