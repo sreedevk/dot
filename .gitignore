@@ -24,4 +24,5 @@ stowed/.config/nvim/lazy-lock.json
 !stowed/.config/btop/btop.conf
 !stowed/.taskrc
 !stowed/.config/autorandr
-!stowed/.config/goread
+!stowed/.config/cava
+
