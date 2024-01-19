@@ -23,6 +23,7 @@ https://lukesmith.xyz/index.xml               "~Luke Smith"
 https://blog.tomasino.org/index.xml           "~James Tomasino"
 https://www.kalzumeus.com/feed/articles/      "~Patrick McKenzie"
 https://aphyr.com/posts.atom                  "~Kyle Kingsbury (jepson.io)"
+https://feeds.feedburner.com/tpope            "~Tim Pope"
 
 # YouTube
 https://www.youtube.com/feeds/videos.xml?channel_id=UCrqM0Ym_NbK1fqeQG2VIohg  "~Tsoding Daily (YT)"
@@ -31,3 +32,8 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "~B
 https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "~Mental Outlaw (YT)"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA "~Firebase (YT)"
 
+# Reddit
+https://www.reddit.com/r/indianstreetbets/.rss  "~Indian Street Bets (Reddit)"
+https://www.reddit.com/r/neovim/.rss            "~Neovim (Reddit)"
+https://www.reddit.com/r/torrents/.rss          "~Torrents (Reddit)"
+https://www.reddit.com/r/newyorkcity/.rss       "~New York City (Reddit)"
