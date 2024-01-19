@@ -2,14 +2,14 @@ bingrep v0.11.0
 blaze-ssh v0.0.4
 cargo-generate v0.19.0
 cargo-update v13.3.0
-csvlens v0.5.0
+csvlens v0.6.0
 deduplicator v0.2.1
 diesel_cli v2.1.1
 grex v1.4.4
 hx v0.6.0
 mdbook v0.4.36
 paru v1.11.0
-sea-orm-cli v0.12.10
+sea-orm-cli v0.12.11
 tock v1.0.1
 uiua v0.7.1
 wasm-pack v0.12.1
