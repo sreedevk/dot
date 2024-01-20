@@ -1,39 +1,38 @@
-# Blogs
-https://hnrss.org/frontpage                   "~Hacker News"
-https://small-tech.org/index.xml              "~Small Tech Foundation"
-https://os.phil-opp.com/rss.xml               "~Writing an OS in Rust"
-https://suckless.org/atom.xml                 "~Suckless Software Foundation"
-https://audioboom.com/channels/2399216.rss    "~No Such Thing as Fish"
-https://prose.sh/rss                          "~Prose Blogging Platform"
+# Aggregations
+https://hnrss.org/frontpage                           "~Hacker News"
+https://lobste.rs/rss                                 "~Lobsters"
+https://prose.sh/rss                                  "~Prose Blogging Platform"
+
+# Software Foundations
+https://small-tech.org/index.xml                      "~Small Tech Foundation"
+https://suckless.org/atom.xml                         "~Suckless Software Foundation"
+https://www.rfc-editor.org/rfcrss.xml                 "~RFC Editor"
+
+# Podcasts
+https://audioboom.com/channels/2399216.rss            "~No Such Thing as Fish"
 
 # News
-https://news.yahoo.com/rssfeeds               "~Yahoo News"
-https://finance.yahoo.com/rss/                "~Yahoo Finance"
-https://www.wired.com/feed/rss                "~Wired"
+https://news.yahoo.com/rssfeeds                       "~Yahoo News"
+https://finance.yahoo.com/rss/                        "~Yahoo Finance"
+https://www.wired.com/feed/rss                        "~Wired"
 
 # People
-https://stallman.org//rss/rss.xml             "~RMS"
-http://blog.acolyer.org/feed/                 "~Adrian Colyer"
-https://martinfowler.com/feed.atom            "~Martin Fowler"
-https://zachholman.com/atom.xml               "~Zach Holman"
-http://www.jeffgeerling.com/blog.xml          "~Jeff Geerling"
-https://drewdevault.com/blog/index.xml        "~Drew Devault"
-http://tenderlovemaking.com/atom.xml          "~Aaron Patterson"
-https://lukesmith.xyz/index.xml               "~Luke Smith"
-https://blog.tomasino.org/index.xml           "~James Tomasino"
-https://www.kalzumeus.com/feed/articles/      "~Patrick McKenzie"
-https://aphyr.com/posts.atom                  "~Kyle Kingsbury (jepson.io)"
-https://feeds.feedburner.com/tpope            "~Tim Pope"
-
-# YouTube
-https://www.youtube.com/feeds/videos.xml?channel_id=UCrqM0Ym_NbK1fqeQG2VIohg  "~Tsoding Daily (YT)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YT)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "~Brodie Robertson (YT)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "~Mental Outlaw (YT)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA "~Firebase (YT)"
-
-# Reddit
-https://www.reddit.com/r/indianstreetbets/.rss  "~Indian Street Bets (Reddit)"
-https://www.reddit.com/r/neovim/.rss            "~Neovim (Reddit)"
-https://www.reddit.com/r/torrents/.rss          "~Torrents (Reddit)"
-https://www.reddit.com/r/newyorkcity/.rss       "~New York City (Reddit)"
+https://stallman.org//rss/rss.xml                     "~RMS"
+http://blog.acolyer.org/feed/                         "~Adrian Colyer"
+https://martinfowler.com/feed.atom                    "~Martin Fowler"
+https://zachholman.com/atom.xml                       "~Zach Holman"
+http://www.jeffgeerling.com/blog.xml                  "~Jeff Geerling"
+https://drewdevault.com/blog/index.xml                "~Drew Devault"
+http://tenderlovemaking.com/atom.xml                  "~Aaron Patterson"
+https://lukesmith.xyz/index.xml                       "~Luke Smith"
+https://blog.tomasino.org/index.xml                   "~James Tomasino"
+https://www.kalzumeus.com/feed/articles/              "~Patrick McKenzie"
+https://aphyr.com/posts.atom                          "~Kyle Kingsbury (jepson.io)"
+https://feeds.feedburner.com/tpope                    "~Tim Pope"
+https://desmondrivet.com/posts/feed_lifestream.xml    "~Desmond Rivet"
+https://jlelse.blog/.rss                              "~Jan-Lukas Else"
+https://waldon.blog/feed/                             "~Waldon (Misadventures with Linux)"
+https://macwright.com/rss.xml                         "~Mac Wright"
+https://os.phil-opp.com/rss.xml                       "~Writing an OS in Rust"
+https://www.windytan.com/feeds/posts/default          "~oona räisänen"
+https://asthasr.github.io/index.xml
