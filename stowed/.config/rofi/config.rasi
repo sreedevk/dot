@@ -92,7 +92,7 @@ configuration {
 
 	/*---------- File browser settings ----------*/
     filebrowser {
-      directory: "/home/sreedev/";
+      directory: "~";
       directories-first: true;
       sorting-method:    "name";
     }
