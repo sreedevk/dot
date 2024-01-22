@@ -115,7 +115,7 @@ mpv 1:0.37.0-2
 nasm 2.16.01-1
 ncdu 2.3-1
 nemo 6.0.2-1
-neovide 0.12.1-1
+neovide 0.12.1-2
 neovim 0.9.5-2
 nerd-fonts-cozette-ttf 1.19.2_3.0.0-1
 net-tools 2.10-2
@@ -130,6 +130,7 @@ nvidia-settings 545.29.06-1
 nvtop 3.0.2-1
 obs-studio 30.0.2-1
 opencl-nvidia 545.29.06-1
+openresolv 3.13.2-2
 openssh 9.6p1-1
 openssh-askpass 2.1.0-4
 openssl-1.1 1.1.1.w-1
@@ -139,7 +140,7 @@ p7zip 1:17.05-2
 pandoc-bin 3.1.11-1
 parallel 20231222-1
 pavucontrol 1:5.0+r64+geba9ca6-1
-picom 10.2-1
+picom 11-1
 pipewire-alsa 1:1.0.1-1
 pipewire-media-session 1:0.4.2-2
 pipewire-pulse 1:1.0.1-1
