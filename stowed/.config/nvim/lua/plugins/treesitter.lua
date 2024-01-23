@@ -13,8 +13,8 @@ return {
       ensure_installed = {
         "c", "elixir", "ruby", "lua", "rust", "json", "cpp",
         "clojure", "python", "javascript", "bash", "eex", "heex",
-        "org", "typescript", "go", "yaml", "html", "markdown",
-        "markdown_inline", "ocaml", "haskell", "ledger"
+        "typescript", "go", "yaml", "html", "ocaml", 
+        "haskell", "ledger"
       },
       autotag = {
         enable = true,
@@ -22,7 +22,7 @@ return {
       },
       sync_install = false,
       ignore_install = { "comment" },
-      auto_install = true,
+      auto_install = false,
       incremental_selection = { enable = false },
       indent = { enable = true },
       playground = {
