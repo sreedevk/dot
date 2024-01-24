@@ -6,7 +6,7 @@
 (setq user-full-name "Sreedev Kodichath"
       user-mail-address (rot13 "ferrqricnqznxhzne@tznvy.pbz"))
 
-(setq doom-theme 'doom-tokyo-night
+(setq doom-theme 'doom-ir-black
       doom-font (font-spec :family "Iosevka NF" :size 17)
       doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 18)
       doom-big-font (font-spec :family "Iosevka NF" :size 26))
