@@ -1,9 +1,9 @@
 # ---- OPTS
 always-display-description  true
-auto-reload                 yes
+auto-reload                 no
 browser                     brave
-cleanup-on-quit             no
-confirm-exit                no
+cleanup-on-quit             yes
+confirm-exit                yes
 download-full-page          yes
 download-retries            4
 external-url-viewer         "urlscan -dc -r 'brave {}'"
