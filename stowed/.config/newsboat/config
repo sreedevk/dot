@@ -7,7 +7,7 @@ confirm-exit                yes
 download-full-page          yes
 download-retries            4
 external-url-viewer         "urlscan -dc -r 'brave {}'"
-feed-sort-order             unreadarticlecount-asc
+feed-sort-order             unreadarticlecount-desc
 prepopulate-query-feeds     yes
 reload-threads              8
 reload-time                 80
@@ -47,15 +47,6 @@ notify-always no
 notify-screen no
 notify-xterm yes
 notify-beep no
-
-# Macros
-macro , open-in-browser
-macro a set browser "yt-dlp --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser brave
-macro A set browser "setsid -f mpv -vo null" ; open-in-browser ; set browser brave
-macro v set browser "setsid -f mpv" ; open-in-browser ; set browser brave
-macro w set browser "brave" ; open-in-browser ; set browser brave
-macro c set browser "echo %u | xclip -r -sel c" ; open-in-browser ; set browser brave
-macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser brave
 
 # ---- THEME
 color listnormal        cyan default
