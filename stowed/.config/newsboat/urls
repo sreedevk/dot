@@ -57,6 +57,8 @@ https://stackabuse.com/rss/                                          "~Stack Abu
 https://medium.com/feed/airbnb-engineering                           "~Airbnb Engineering"                "Tech & Software"
 https://github.blog/feed/                                            "~Github Blog"                       "Tech & Software"
 https://motherduck.com/rss.xml                                       "~DuckDB Blog (MotherDuck)"          "Tech & Software"
+https://andrewkelley.me/rss.xml                                      "~Andrew Kelley (Zig)"               "Tech & Software"
+https://world.hey.com/dhh/feed.atom                                  "~David Heinemeier Hansson (Rails)"  "Tech & Software"
 
 # Podcasts
 https://audioboom.com/channels/2399216.rss                           "~No Such Thing as Fish"             "Podcasts"
