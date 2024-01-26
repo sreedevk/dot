@@ -1,4 +1,5 @@
 # Tech & Software
+https://devtechnica.com/atom.xml                                     "~Devtechnica"                       "Tech & Software"
 https://news.ycombinator.com/rss                                     "~HackerNews"                        "Tech & Software"
 https://lobste.rs/rss                                                "~Lobsters"                          "Tech & Software"
 https://medium.com/feed/better-programming                           "~Better Programming"                "Tech & Software"
@@ -55,6 +56,7 @@ https://labs.spotify.com/feed/                                       "~Spotify E
 https://stackabuse.com/rss/                                          "~Stack Abuse"                       "Tech & Software"
 https://medium.com/feed/airbnb-engineering                           "~Airbnb Engineering"                "Tech & Software"
 https://github.blog/feed/                                            "~Github Blog"                       "Tech & Software"
+https://motherduck.com/rss.xml                                       "~DuckDB Blog (MotherDuck)"          "Tech & Software"
 
 # Podcasts
 https://audioboom.com/channels/2399216.rss                           "~No Such Thing as Fish"             "Podcasts"
