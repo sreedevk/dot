@@ -7,7 +7,7 @@ confirm-exit                yes
 download-full-page          yes
 download-retries            4
 external-url-viewer         "urlscan -dc -r 'brave {}'"
-feed-sort-order             unreadarticlecount-desc
+feed-sort-order             unreadarticlecount-asc
 prepopulate-query-feeds     yes
 reload-threads              8
 reload-time                 80
