@@ -4,9 +4,6 @@ return {
     'nvim-lua/plenary.nvim',
     'LinArcX/telescope-env.nvim',
     'ahmedkhalf/project.nvim',
-    {
-      dependencies = { "kkharji/sqlite.lua" }
-    }
   },
   cmd = "Telescope",
   config = function()
