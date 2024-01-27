@@ -1,6 +1,7 @@
 # Tech & Software
 https://devtechnica.com/atom.xml                                     "~Devtechnica"                       "Tech & Software"
 https://news.ycombinator.com/rss                                     "~HackerNews"                        "Tech & Software"
+http://arxiv.org/rss/cs                                              "~Arxiv (CS)"                        "Tech & Software"
 https://lobste.rs/rss                                                "~Lobsters"                          "Tech & Software"
 https://medium.com/feed/better-programming                           "~Better Programming"                "Tech & Software"
 https://dev.to/feed                                                  "~Dev.to"                            "Tech & Software"
