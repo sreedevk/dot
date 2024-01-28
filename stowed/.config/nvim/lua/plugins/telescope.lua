@@ -2,8 +2,6 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'LinArcX/telescope-env.nvim',
-    'ahmedkhalf/project.nvim',
   },
   cmd = "Telescope",
   config = function()
@@ -12,17 +10,21 @@ return {
     telescope.setup {
       pickers = {
         find_files = {
-          hidden = false,
           find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
         }
       },
-      extensions = {
-        file_browser = {
-          theme = "ivy",
-          hijack_netrw = false,
-        }
-      },
       defaults = {
+        vimgrep_arguments = {
+          'rg',
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--smart-case',
+          '--no-ignore',
+          '--hidden'
+        },
         mappings = {
           n = {
             ["q"] = t_actions.close,
@@ -35,8 +37,5 @@ return {
         }
       },
     }
-
-    telescope.load_extension "env"
-    telescope.load_extension "projects"
   end
 }
