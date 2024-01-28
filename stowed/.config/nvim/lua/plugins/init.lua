@@ -11,7 +11,6 @@ return {
   'kevinhwang91/nvim-bqf',
   'famiu/bufdelete.nvim',
   'nanotee/zoxide.vim',
-  'xarthurx/taskwarrior.vim',
   {
     'chrisbra/csv.vim',
     lazy = true,
