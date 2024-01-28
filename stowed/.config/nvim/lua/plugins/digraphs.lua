@@ -6,15 +6,10 @@ return {
   config = function ()
     vim.g.BetterDigraphsAdditions = {
       {
-        digraph = "OK",
-        symbol = "*",
-        name = "NEW STAR"
+        digraph = "TH",
+        symbol = "ø",
+        name = "theta"
       },
-      {
-        digraph = "zz",
-        symbol = "Z",
-        name = "CAPITAL Z"
-      }
     }
 
     vim.keymap.set("i", "<C-v><C-u>", [[<cmd>lua require('better-digraphs').digraphs("insert")<cr>]])
