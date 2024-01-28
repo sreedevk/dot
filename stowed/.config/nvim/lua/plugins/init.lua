@@ -4,6 +4,7 @@ return {
   'tpope/vim-fugitive',
   'tpope/vim-rails',
   'tpope/vim-ragtag',
+  'tpope/vim-dispatch',
   'mattn/emmet-vim',
   'chrisbra/unicode.vim',
   'tpope/vim-repeat',
@@ -72,6 +73,19 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("todo-comments").setup {}
+    end
+  },
+
+  {
+    "miversen33/netman.nvim",
+    config = function()
+      require("netman")
+      require("neo-tree").setup({
+        sources = {
+          "filesystem",
+          "netman.ui.neo-tree",
+        }
+      })
     end
   },
 
