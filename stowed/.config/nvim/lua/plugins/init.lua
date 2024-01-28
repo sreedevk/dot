@@ -77,19 +77,6 @@ return {
   },
 
   {
-    "miversen33/netman.nvim",
-    config = function()
-      require("netman")
-      require("neo-tree").setup({
-        sources = {
-          "filesystem",
-          "netman.ui.neo-tree",
-        }
-      })
-    end
-  },
-
-  {
     "j-hui/fidget.nvim",
     lazy = true,
     tag = 'legacy',
