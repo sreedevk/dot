@@ -1,3 +1,4 @@
+agg v1.4.3 (https//github.com/asciinema/agg#89c95760)
 bingrep v0.11.0
 blaze-ssh v0.0.4
 cargo-generate v0.19.0
@@ -9,7 +10,8 @@ grex v1.4.4
 hx v0.6.0
 mdbook v0.4.36
 paru v1.11.0
-sea-orm-cli v0.12.11
+sea-orm-cli v0.12.12
+spotify-tui v0.25.0
 tock v1.0.1
 uiua v0.7.1
 wasm-pack v0.12.1
