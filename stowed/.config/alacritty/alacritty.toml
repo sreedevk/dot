@@ -10,55 +10,31 @@ unfocused_hollow = false
 TERM = "xterm-256color"
 
 [font]
-size = 16
+size   = 16
+# normal = { family = "VT323", style = "Regular" }
+# bold   = { family = "VT323", style = "Bold"    }
+# italic = { family = "VT323", style = "Italic"  }
+normal = { family = "Iosevka NF", style = "Regular" }
+bold   = { family = "Iosevka NF", style = "Bold"    }
+italic = { family = "Iosevka NF", style = "Italic"  }
 
-[font.bold]
-family = "Iosevka NF"
-style = "Bold"
+[keyboard]
+bindings = [
+  { action = "ScrollPageUp",   key = "U",      mode = "~Alt", mods = "Alt" },
+  { action = "ScrollPageDown", key = "D",      mode = "~Alt", mods = "Alt"  },
+  { action = "ToggleViMode",   key = "Escape",                mods = "Control" },
+  { action = "ToggleViMode",   key = "I",      mode = "Vi",   mods = "None" },
+  { action = "ToggleViMode",   key = "Return", mode = "Vi",   mods = "None" },
+]
 
-[font.italic]
-family = "Iosevka NF"
-style = "Italic"
-
-[font.normal]
-family = "Iosevka NF"
-style = "Regular"
-
-[[keyboard.bindings]]
-action = "ScrollPageUp"
-key = "U"
-mode = "~Alt"
-mods = "Alt"
-
-[[keyboard.bindings]]
-action = "ScrollPageDown"
-key = "D"
-mode = "~Alt"
-mods = "Alt"
-
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Escape"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = "I"
-mode = "Vi"
-mods = "None"
-
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Return"
-mode = "Vi"
-mods = "None"
-
-[[mouse.bindings]]
-action = "PasteSelection"
-mouse = "Middle"
+[mouse]
+bindings = [
+  { action = "PasteSelection", mouse = "Middle" }
+]
 
 [scrolling]
 multiplier = 5
+history = 20_000
 
 [selection]
 save_to_clipboard = true
@@ -71,7 +47,4 @@ program = "/usr/bin/zsh"
 [window]
 decorations = "full"
 opacity = 0.75
-
-[window.padding]
-x = 5
-y = 5
+padding = { x = 5, y = 5 }
