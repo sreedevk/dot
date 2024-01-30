@@ -36,3 +36,6 @@ alias g='git'
 
 # Docker
 alias dc='docker-compose'
+
+# yt-dlp
+alias yt-dlp='yt'
