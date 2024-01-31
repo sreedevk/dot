@@ -1,5 +1,5 @@
 #!/bin/sh
 
-echo "$(free -mh | grep Mem | awk 'BEGIN {OFS="/"} {print $3,$2 " used"}')"
+echo "$(free --giga --human | awk 'NR==2 {printf "%.2f/%.2f G\n", $3, $2}')"
 
 exit 0
