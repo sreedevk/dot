@@ -1,11 +1,13 @@
 #!/bin/sh
 
-GPU_INFO=$(nvidia-smi -q)
-PRODUCT_NAME="$(awk '/Product Name/ {print $5FS$6}' <<< "$GPU_INFO")"
-MEMORY_USAGE="$(awk '/Used/ {print $3;exit}' <<< "$GPU_INFO")"
-TOTAL_MEMORY="$(awk '/Total/ {print $3FS$4;exit}' <<< "$GPU_INFO")"
-GPU_TEMP="$(awk '/GPU Current Temp/ {print $5"°"$6;exit}' <<< "$GPU_INFO")"
+csv=$(nvidia-smi -i 0 --query-gpu="name,temperature.gpu,memory.total,memory.used" --format csv)
 
-echo "$PRODUCT_NAME $GPU_TEMP $MEMORY_USAGE/$TOTAL_MEMORY"
+# Extracting data from CSV
+PRODUCT_NAME=$(echo "$csv" | awk -F', ' 'NR==2 {print $1}' | cut -d' ' -f2,3)
+GPU_CUR_TEMP=$(echo "$csv" | awk -F', ' 'NR==2 {print $2}' | tr -d '[:space:]')
+MEMORY_USAGE=$(echo "$csv" | awk -F', ' 'NR==2 {print $4}' | tr -d '[:space:]' | sed 's/MiB//')
+TOTAL_MEMORY=$(echo "$csv" | awk -F', ' 'NR==2 {print $3}' | tr -d '[:space:]' | sed 's/MiB//')
+
+echo "$PRODUCT_NAME "${GPU_CUR_TEMP}°C" $MEMORY_USAGE/$TOTAL_MEMORY MiB"
 
 exit 0
