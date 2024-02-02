@@ -12,6 +12,7 @@ mdbook v0.4.36
 paru v1.11.0
 sea-orm-cli v0.12.12
 spotify-tui v0.25.0
+tetris-tui v0.2.10
 tock v1.0.1
 uiua v0.7.1
 wasm-pack v0.12.1
