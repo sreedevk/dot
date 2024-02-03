@@ -10,7 +10,13 @@ return {
   'tpope/vim-repeat',
   'kevinhwang91/nvim-bqf',
   'famiu/bufdelete.nvim',
-  'nanotee/zoxide.vim',
+  {
+    'nanotee/zoxide.vim',
+    dependencies = {
+      'junegunn/fzf',
+      'junegunn/fzf.vim'
+    }
+  },
   {
     'chrisbra/csv.vim',
     lazy = true,
