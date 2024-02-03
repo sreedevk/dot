@@ -19,9 +19,7 @@ stowed/.config/nvim/lazy-lock.json
 !stowed/.config/lf/
 !stowed/.config/newsboat
 !stowed/.config/systemd
-!stowed/.config/htop
 !stowed/.config/dwmblocks
-!stowed/.config/btop/btop.conf
 !stowed/.taskrc
 !stowed/.config/autorandr
 !stowed/.config/cava
