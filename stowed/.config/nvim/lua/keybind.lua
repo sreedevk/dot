@@ -89,7 +89,3 @@ map("n", "<leader>sd", [[<cmd>lua require("persistence").stop()<cr>]])
 
 -- trevj
 map('n', '<Leader>j', [[<cmd>lua require('treesj').toggle()<cr>]])
-
--- task runner
-map('n', '<Leader>rn', [[<cmd>OverseerRun<cr>]])
-map('n', '<Leader>ro', [[<cmd>OverseerToggle<cr>]])
