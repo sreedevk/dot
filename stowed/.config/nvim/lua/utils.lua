@@ -1,6 +1,5 @@
 local M = {}
 
--- run command in toggle term
 function M.fetchjson()
   local url    = vim.fn.expand('<cWORD>')
   local handle = io.popen('curl '.. url)
