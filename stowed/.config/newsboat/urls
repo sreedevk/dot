@@ -63,6 +63,7 @@ https://github.blog/feed/                                            "~Github Bl
 https://motherduck.com/rss.xml                                       "~DuckDB Blog (MotherDuck)"          "Tech & Software"
 https://andrewkelley.me/rss.xml                                      "~Andrew Kelley (Zig)"               "Tech & Software"
 https://world.hey.com/dhh/feed.atom                                  "~David Heinemeier Hansson (Rails)"  "Tech & Software"
+https://rustacean-station.org/podcast.rss                            "~Rustacean Station"                 "Tech & Software"
 
 # Podcasts
 https://audioboom.com/channels/2399216.rss                           "~No Such Thing as Fish"             "Podcasts"

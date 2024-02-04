@@ -90,8 +90,8 @@ bindsym XF86AudioNext          exec --no-startup-id playerctl next
 bindsym $mod+Shift+d --release exec --no-startup-id "killall dunst && exec notify-send -a dunst 'restart'"
 
 # Shortcuts - Screenshots
-bindsym Print                  exec --no-startup-id "maim -i $(xdotool getactivewindow) ~/Pictures/screenshots/$(date +%s).png"
-bindsym $mod+Ctrl+s  --release exec --no-startup-id "maim -s -d 0.2 ~/Pictures/screenshots/$(date +%s).png"
+bindsym Print                  exec --no-startup-id "maim -i $(xdotool getactivewindow) ~/Media/screenshots/$(date +%s).png"
+bindsym $mod+Ctrl+s  --release exec --no-startup-id "maim -s -d 0.2 ~/Media/screenshots/$(date +%s).png"
 bindsym $mod+Shift+s --release exec --no-startup-id "maim -s -d 0.2 | xclip -selection clipboard -t image/png"
 
 # Shortcuts - Audio
@@ -143,6 +143,8 @@ bindsym $mod+backslash       split v; exec --no-startup-id notify-send -a i3wm "
 
 bindsym $mod+Ctrl+l          workspace next
 bindsym $mod+Ctrl+h          workspace prev
+
+bindsym $mod+0               exec --no-startup-id i3lock -i ~/Media/wallpapers/city6609.png -t -f
 
 # Workspace Control
 set $ws1 1
