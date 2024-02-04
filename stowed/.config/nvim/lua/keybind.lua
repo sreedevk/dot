@@ -64,23 +64,10 @@ map('n', '<Leader>tz', '<cmd>ZenMode<CR>')
 map('n', '<Leader>tt', '<cmd>TroubleToggle quickfix<CR>')
 
 -- alt toggle
-map('n', '<Leader>z', '<cmd>ZenMode<CR>')
 map('n', '<Leader>u', "<cmd>UndotreeToggle<CR>")
 
 -- Run Command
 map('v', '<Leader>rs', ":'>ToggleTermSendVisualLine<CR>")
-
--- debugging
-map('n', '<F5>', ':lua require("dap").continue()<CR>')
-map('n', '<F10>', ':lua require("dap").step_over()<CR>')
-map('n', '<F11>', ':lua require("dap").step_into()<CR>')
-map('n', '<F12>', ':lua require("dap").step_out()<CR>')
-map('n', '<Leader>dB', ':lua require("dap").toggle_breakpoint(vim.fn.input("Breakpoint Condition: "))<CR>')
-map('n', '<Leader>dbp', ':lua require("dap").toggle_breakpoint()<CR>')
-map('n', '<Leader>dlp', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("log point message: "))<CR>')
-map('n', '<Leader>drp', ':lua require("dap").repl.open()<CR>')
-map('n', '<Leader>duo', ':lua require("dapui").open()<CR>')
-map('n', '<Leader>duc', ':lua require("dapui").close()<CR>')
 
 -- persistence
 map('n', '<leader>sp', [[<cmd>lua require("persistence").load({last=true})<cr>]])
@@ -89,3 +76,6 @@ map("n", "<leader>sd", [[<cmd>lua require("persistence").stop()<cr>]])
 
 -- trevj
 map('n', '<Leader>j', [[<cmd>lua require('treesj').toggle()<cr>]])
+
+-- zoxide
+map('n', '<Leader>zi', [[<cmd>Zi<cr>]])
