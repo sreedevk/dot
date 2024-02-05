@@ -23,4 +23,4 @@ stowed/.config/nvim/lazy-lock.json
 !stowed/.taskrc
 !stowed/.config/autorandr
 !stowed/.config/cava
-
+!stowed/.config/neovide/

@@ -1,0 +1,8 @@
+wsl = false
+no-multigrid = true
+vsync = true
+maximized = false
+srgb = true
+idle = false
+neovim-bin = "/usr/bin/nvim" # in reality found dynamically on $PATH if unset
+frame = "full"
