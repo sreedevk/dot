@@ -8,7 +8,7 @@
 ; mode = normal
 
 # Accepts only non-negative values.
-; framerate = 60
+framerate = 90
 
 # 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
 # new as of 0.6.0 autosens of low values (dynamic range)
@@ -23,8 +23,8 @@
 # The number of bars (0-512). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
 ; bars = 0
-; bar_width = 2
-; bar_spacing = 1
+bar_width = 1
+bar_spacing = 0
 # bar_height is only used for output in "noritake" format
 ; bar_height = 32
 
@@ -183,8 +183,8 @@ source = auto
 ; alacritty_sync = 0
 
 # Shaders for sdl_glsl, located in $HOME/.config/cava/shaders
-; vertex_shader = pass_through.vert
-; fragment_shader = bar_spectrum.frag
+vertex_shader = pass_through.vert
+fragment_shader = northern_lights.frag
 
 ; for glsl output mode, keep rendering even if no audio
 ; continuous_rendering = 0
@@ -220,7 +220,6 @@ source = auto
 ; gradient_color_6 = '#cc8033'
 ; gradient_color_7 = '#cc5933'
 ; gradient_color_8 = '#cc3333'
-
 
 
 [smoothing]
