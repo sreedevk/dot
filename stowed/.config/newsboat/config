@@ -1,12 +1,12 @@
 # ---- OPTS
 always-display-description  true
 auto-reload                 no
-browser                     brave
+browser                     librewolf
 cleanup-on-quit             yes
 confirm-exit                yes
 download-full-page          yes
 download-retries            4
-external-url-viewer         "urlscan -dc -r 'brave {}'"
+external-url-viewer         "urlscan -dc -r 'librewolf {}'"
 feed-sort-order             unreadarticlecount-asc
 prepopulate-query-feeds     yes
 reload-threads              8
