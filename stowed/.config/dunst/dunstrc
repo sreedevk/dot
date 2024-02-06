@@ -33,7 +33,7 @@
     horizontal_padding = 8
     startup_notification = false
     dmenu = /usr/bin/dmenu -p dunst:
-    browser = librewolf
+    browser = brave
     icon_position = left
     icon_path = /usr/share/icons/rose-pine/16x16/apps/:/usr/share/icons/rose-pine/16x16/status/:/usr/share/icons/rose-pine/16x16/devices/
     enable_recursive_icon_lookup = true
