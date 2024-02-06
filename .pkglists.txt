@@ -16,13 +16,16 @@ base 3-2
 base-devel 1-1
 bat 0.24.0-1
 bind 9.18.21-1
+brave-bin 1:1.62.156-1
 brightnessctl 0.5.1-2
 btop 1.3.0-2
+catppuccin-gtk-theme-macchiato 0.7.1-1
 cava 0.10.0-1
 clang 16.0.6-2
-cmake 3.28.3-1
+cmake 3.28.2-1
+corrupter-bin 1.0-1
 cuda 12.3.1-2
-dbeaver 23.3.4-1
+dbeaver 23.3.3-1
 dbus-broker 35-2
 dbus-broker-units 35-2
 ddgr 2.2-1
@@ -32,7 +35,6 @@ docker 1:25.0.2-1
 docker-buildx 0.12.1-1
 docker-compose 2.24.5-1
 doctl 1.104.0-1
-dracula-gtk-theme v4.0.0-1
 duf 0.8.1-2
 dunst 1.9.2-1
 dust 0.9.0-1
@@ -48,6 +50,7 @@ fasm 1.73.32-1
 fastfetch 2.7.1-1
 fd 9.0.0-1
 feh 3.10.2-1
+firefox 122.0-1
 flatpak 1:1.15.6-2
 fprintd 1.94.2-2
 fuse2 2.9.9-4
@@ -74,6 +77,7 @@ htop 3.3.0-1
 hyperfine 1.18.0-2
 i3-wm 4.23-1
 i3lock 2.14.1-1
+imhex-bin 1.32.2-1
 intel-media-driver 24.1.2-1
 ipcalc 0.51-1
 irssi 1.4.5-1
@@ -85,7 +89,6 @@ lf 31-1
 libappindicator-gtk3 12.10.0.r298-3
 libnotify 0.8.3-1
 libreoffice-fresh 24.2.0-1
-librewolf-bin 122.0-1
 lightdm 1:1.32.0-5
 lightdm-gtk-greeter 1:2.0.8-3
 linux 6.7.3.arch1-2
@@ -154,7 +157,7 @@ rsync 3.2.7-6
 sdl2_image 2.8.2-2
 sdl2_ttf 2.22.0-1
 slack-desktop 4.36.138-1
-smassh 3.0.4-1
+smassh 3.0.3-1
 sof-firmware 2023.12-1
 sof-tools 2023.12-1
 speech-dispatcher 0.11.5-1
@@ -190,6 +193,7 @@ virtualbox-host-dkms 7.0.14-2
 vulkan-intel 1:23.3.5-1
 wd719x-firmware 1-7
 wget 1.21.4-1
+wireguard-tools 1.0.20210914-1
 wireless_tools 30.pre9-3
 xclip 0.13-4
 xdo 0.5.7-2
