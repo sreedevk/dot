@@ -2,13 +2,13 @@
 # AUTHOR: Sreedev Kodichath
 
 # move files to trash instead of removing
-trash(){
+trash () {
   mkdir -p /tmp/trash
   mv $1 /tmp/trash
 }
 
 # compile plugins after change in .zsh_plugins
-antibody-compile(){
+antibody-compile () {
   antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
 }
 
@@ -24,16 +24,11 @@ lfcd () {
 }
 
 # Find Keycode
-keycode() {
+keycode () {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
-# disable NMI Watchdog
-disable_nmi_watchdog() {
-  sudo sysctl kernel.nmi_watchdog=0
-}
-
 # APL Keyboard - Alt + Key
-init-apl() {
+setxkbmap-apl () {
   setxkbmap -layout us,apl -variant ,dyalog -option grp:switch
 }
