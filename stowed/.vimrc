@@ -38,6 +38,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-ruby/vim-ruby'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -95,7 +96,10 @@ let g:NERDTreeWinSize=20
 let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint --type-check']
 let g:syntastic_typescript_tslint_args = "--config ~/.config/nvim/add_conf/tslint.json"
 let g:EasyMotion_smartcase = 1
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method = 'latexmk'
 
 map <Leader> <Plug>(easymotion-prefix)
 

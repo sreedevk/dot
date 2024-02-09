@@ -9,7 +9,6 @@ diesel_cli v2.1.1
 grex v1.4.4
 hx v0.6.0
 mdbook v0.4.36
-paru v1.11.0
 sea-orm-cli v0.12.12
 spotify-tui v0.25.0
 tetris-tui v0.2.10
