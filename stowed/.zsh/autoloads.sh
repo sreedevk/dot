@@ -45,4 +45,7 @@ if command -v glow &> /dev/null; then
   eval "$(glow completion zsh)"
 fi
 
+[ -f "/usr/share/fzf/key-bindings.zsh" ] && source /usr/share/fzf/key-bindings.zsh
+[ -f "/usr/share/fzf/completion.zsh"   ] && source /usr/share/fzf/completion.zsh
+
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
