@@ -37,8 +37,14 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-dispatch'
 Plug 'vim-ruby/vim-ruby'
 Plug 'lervag/vimtex'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'nanotee/zoxide.vim'
+Plug 'ledger/vim-ledger'
+
 
 call plug#end()
 
@@ -143,6 +149,13 @@ vnoremap <M-k> :m '<-2<CR>gv=gv
 nnoremap <Leader>x <cmd>! chmod +x %<CR>
 nnoremap <leader><leader>s :%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left> 
 nnoremap <Leader>ca <cmd>tabonly<CR>
+nnoremap <Leader>zi <cmd>Zi<CR>
+
+nnoremap , :
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+
 
 silent! call airline#extensions#whitespace#disable()
 
