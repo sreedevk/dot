@@ -96,6 +96,9 @@ export FZF_DEFAULT_OPTS="
  --color=info:#9ccfd8,prompt:#f6c177,pointer:#c4a7e7
  --color=marker:#ebbcba,spinner:#eb6f92,header:#ebbcba"
 
+[ -f "/usr/share/fzf/key-bindings.bash"  ] && source "/usr/share/fzf/key-bindings.bash"
+[ -f "/usr/share/fzf/completion.bash"    ] && source "/usr/share/fzf/completion.bash"
+
 echo ""
 eval "$(command -v fastfetch)"
 echo ""
