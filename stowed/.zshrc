@@ -76,6 +76,7 @@ set -o vi
 
 # KEY BINDINGS
 bindkey -s '^o' 'lfcd\n'
+bindkey '^R' fzf-history-widget
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^x' edit-command-line

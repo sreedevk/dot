@@ -95,3 +95,6 @@ https://sports.yahoo.com/rss/                                        "~Yahoo Spo
 # Other
 https://www.ikeahackers.net/feed                                     "~Ikea Hackers"                      "Other"
 https://xkcd.com/rss.xml                                             "~xkcd"                              "Other"
+
+# Torrents
+https://eztvx.to/ezrss.xml                                           "~/EZTV"                             "Torrents"
