@@ -1,5 +1,8 @@
 # VI MODE
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+zvm_after_init_commands+=('[ -f "/usr/share/fzf/key-bindings.zsh" ] && source /usr/share/fzf/key-bindings.zsh')
+zvm_after_init_commands+=('[ -f "/usr/share/fzf/completion.zsh"   ] && source /usr/share/fzf/completion.zsh')
+
 
 # FZF
 export FZF_TAB_GROUP_COLORS=(
