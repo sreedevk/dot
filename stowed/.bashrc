@@ -2,24 +2,37 @@
 # AUTHOR: Sreedev Kodichath
 
 # PATHS
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH"
+export PATH="$PATH:$HOME/.local/bin:/opt/bin"
 
 # ENV VARIABLES
+export VISUAL="neovide"
+export EDITOR="nvim"
+export READER="zathura"
+export TERMINAL="alacritty"
+export BROWSER="brave"
+
+# BETTER TERM
 export KEYTIMEOUT=1
 export GPG_TTY=$(tty)
-export VISUAL=neovide
-export EDITOR=nvim
-export TERMINFO=/usr/share/terminfo/
-export TERM="xterm-256color"
-export HISTFILE=~/.cache/bash/history
-export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
+export TERMINFO="/usr/share/terminfo/"
+export MANROFFOPT="-c"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export LANG="en_US.UTF-8"
+export TZ="America/New_York"
+
+if [ -z "$TMUX" ]; then
+  export TERM="xterm-256color"
+fi
+
+# HISTORYFILE
+export HISTORY_IGNORE="(ls|cd|pwd|exit|history)"
+export HISTFILE="~/.cache/bash_history"
 export HISTFILESIZE=10000
-export HISTSIZE=500
+export HISTSIZE=1000
+export SAVEHIST=1000
 export HISTCONTROL=erasedups:ignoredups:ignorespace
 
-# If not running interactively, don't do anything
+# NON INTERACTIVE MODE EARLY RETURN
 [[ $- != *i* ]] && return
 
 # VIM BINDINGS
@@ -30,12 +43,29 @@ bind -m vi-insert 'Control-a: beginning-of-line'
 bind -m vi-insert 'Control-e: end-of-line'
 bind -m vi-insert 'Control-k: previous-history'
 bind -m vi-insert 'Control-j: next-history'
+bind -m vi-insert 'Control-w: backward-word'
 
-# AUTOLOAD ASDF VM
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
+# SHOPT
+shopt -s autocd # change to named directory
+shopt -s cdspell # autocorrects cd misspellings
+shopt -s cmdhist # save multi-line commands in history as single line
+shopt -s dotglob
+shopt -s histappend # do not overwrite history
+shopt -s expand_aliases # expand aliases
+shopt -s checkwinsize # checks term size when bash regains control
 
 # AUTOLOADS 
+
+# ASDF AUTOLOADS
+if [ -f "$HOME/.asdf/asdf.sh" ]; then
+  . "$HOME/.asdf/asdf.sh"
+  . "$HOME/.asdf/completions/asdf.bash"
+fi
+
+if [ -f "$(command -v direnv)" ]; then
+  eval "$(direnv hook bash)"
+fi
+
 if [ -f "$(command -v starship)" ]; then
   eval "$(starship init bash)"
 fi
@@ -48,18 +78,24 @@ if [ -f "$(command -v luarocks)" ]; then
   eval "$(luarocks path --bin)"
 fi
 
-if [ -f "$(command -v direnv)" ]; then
-  eval "$(direnv hook bash)"
+if [ -f "$HOME/.ghcup/env" ]; then
+   source $HOME/.ghcup/env
 fi
 
-# SHOPT
-shopt -s autocd # change to named directory
-shopt -s cdspell # autocorrects cd misspellings
-shopt -s cmdhist # save multi-line commands in history as single line
-shopt -s dotglob
-shopt -s histappend # do not overwrite history
-shopt -s expand_aliases # expand aliases
-shopt -s checkwinsize # checks term size when bash regains control
+if [ -f "$HOME/.cargo/env" ]; then
+  . $HOME/.cargo/env
+fi
+
+if command -v go &> /dev/null; then
+  eval "$(go env)"
+fi
+
+if command -v glow &> /dev/null; then
+  eval "$(glow completion bash)"
+fi
+
+[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
 
 # ALIASES
 alias ls='eza --color=always'
