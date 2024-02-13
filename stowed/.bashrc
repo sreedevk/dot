@@ -26,7 +26,7 @@ fi
 
 # HISTORYFILE
 export HISTORY_IGNORE="(ls|cd|pwd|exit|history)"
-export HISTFILE="~/.cache/bash_history"
+export HISTFILE="~/.cache/bash/history"
 export HISTFILESIZE=10000
 export HISTSIZE=1000
 export SAVEHIST=1000
@@ -94,7 +94,7 @@ if command -v glow &> /dev/null; then
   eval "$(glow completion bash)"
 fi
 
-[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+[[ ! -r $HOME/.opam/opam-init/init.sh ]] || source $HOME/.opam/opam-init/init.sh  > /dev/null 2> /dev/null
 
 
 # ALIASES
