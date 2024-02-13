@@ -5,7 +5,7 @@
 export PATH="$PATH:$HOME/.local/bin:/opt/bin"
 
 # ENV VARIABLES
-export VISUAL="neovide"
+export VISUAL="nvim"
 export EDITOR="nvim"
 export READER="zathura"
 export TERMINAL="alacritty"
