@@ -27,7 +27,7 @@ fi
 
 # HISTORYFILE
 export HISTORY_IGNORE="(ls|cd|pwd|exit|history)"
-export HISTFILE="~/.cache/zsh_history"
+export HISTFILE="~/.cache/zsh/history"
 export HISTFILESIZE=10000
 export HISTSIZE=1000
 export SAVEHIST=1000
