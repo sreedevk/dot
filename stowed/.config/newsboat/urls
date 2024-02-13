@@ -84,10 +84,6 @@ https://sports.yahoo.com/rss/                                         "~Yahoo Sp
 https://www.ikeahackers.net/feed                                      "~Ikea Hackers"                         "Other"
 https://xkcd.com/rss.xml                                              "~xkcd"                                 "Other"
 
-# Torrents
-https://eztvx.to/ezrss.xml                                            "~/eztv"                                "Torrents"
-
-
 # Podcasts
 https://audioboom.com/channels/2399216.rss                                  "~No Such Thing as Fish"                "Podcasts"
 https://www.bbc.co.uk/sounds/series/p02pc9pj.rss                            "~Friday Night Comedy"                  "Podcasts"
