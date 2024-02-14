@@ -11,10 +11,12 @@ return {
 
     require('nvim-treesitter.configs').setup({
       ensure_installed = {
-        "c", "elixir", "ruby", "lua", "rust", "json", "cpp",
-        "clojure", "python", "javascript", "bash", "eex", "heex",
-        "typescript", "go", "yaml", "html", "ocaml", 
-        "haskell", "ledger"
+        "astro", "awk", "bash", "c", "clojure", "cmake", "commonlisp", "cpp", "css",
+        "diff", "eex", "elixir", "elm", "erlang", "fennel", "gleam", "gnuplot",
+        "go", "gpg", "haskell", "heex", "html", "javascript", "jq", "json", "julia",
+        "latex", "ledger", "lua", "nasm", "ocaml", "purescript", "python", "rasi",
+        "regex", "ruby", "rust", "ssh_config", "svelte", "tablegen", "todotxt",
+        "toml", "tsv", "typescript", "yaml", "zathurarc", "zig",
       },
       autotag = {
         enable = true,
