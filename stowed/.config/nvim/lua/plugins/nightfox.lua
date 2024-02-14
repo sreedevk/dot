@@ -4,21 +4,21 @@ return {
     require('nightfox').setup({
       options = {
         compile_path = vim.fn.stdpath("cache") .. "/nightfox",
-        compile_file_suffix = "_compiled", -- Compiled file suffix
-        transparent = true,           -- Disable setting background
-        terminal_colors = true,        -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-        dim_inactive = false,          -- Non focused panes set to alternative background
-        module_default = true,         -- Default enable value for modules
+        compile_file_suffix = "_compiled",
+        transparent = false,
+        terminal_colors = true,
+        dim_inactive = false,
+        module_default = true,
         colorblind = {
-          enable = false,              -- Enable colorblind support
-          simulate_only = false,       -- Only show simulated colorblind colors and not diff shifted
+          enable = false,
+          simulate_only = false,
           severity = {
-            protan = 0,                -- Severity [0,1] for protan (red)
-            deutan = 0,                -- Severity [0,1] for deutan (green)
-            tritan = 0,                -- Severity [0,1] for tritan (blue)
+            protan = 0,
+            deutan = 0,
+            tritan = 0,
           },
         },
-        styles = {       -- Style to be applied to different syntax groups
+        styles = {
           comments = "italic",
           keywords = "bold",
           types = "italic,bold",
@@ -30,20 +30,18 @@ return {
           strings = "NONE",
           variables = "NONE",
         },
-        inverse = { -- Inverse highlight for different types
+        inverse = {
           match_paren = true,
           visual = true,
           search = true,
         },
-        modules = { -- List of various plugins and additional options
-          -- ...
-        },
+        modules = {},
       },
       palettes = {},
       specs = {},
       groups = {},
     })
 
-    vim.cmd([[colorscheme nightfox]])
+    vim.cmd([[colorscheme duskfox]])
   end
 }

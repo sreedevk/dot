@@ -65,6 +65,7 @@ https://andrewkelley.me/rss.xml                                       "~Andrew K
 https://world.hey.com/dhh/feed.atom                                   "~David Heinemeier Hansson (Rails)"     "Tech & Software"
 https://rustacean-station.org/podcast.rss                             "~Rustacean Station"                    "Tech & Software"
 https://www.flenker.blog/feed.xml                                     "~Flenker Blog"                         "Tech & Software"
+https://okmij.org/ftp/rss.xml                           q             "~okmij.org"                            "Tech & Software"     
 
 # News
 https://news.yahoo.com/rssfeeds                                       "~Yahoo News"                           "News"
