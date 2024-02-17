@@ -11,3 +11,4 @@ opam 2.1.5
 ruby 3.3.0
 zig 0.11.0
 python 3.11.0
+julia 1.10.1
