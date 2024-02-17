@@ -1,15 +1,15 @@
 return {
-  'tpope/vim-surround',
-  'tpope/vim-characterize',
-  'tpope/vim-fugitive',
-  'tpope/vim-rails',
-  'tpope/vim-ragtag',
-  'tpope/vim-dispatch',
-  'mattn/emmet-vim',
   'chrisbra/unicode.vim',
-  'tpope/vim-repeat',
-  'kevinhwang91/nvim-bqf',
   'famiu/bufdelete.nvim',
+  'kevinhwang91/nvim-bqf',
+  'mattn/emmet-vim',
+  'tpope/vim-characterize',
+  'tpope/vim-dispatch',
+  'tpope/vim-fugitive',
+  'tpope/vim-ragtag',
+  'tpope/vim-rails',
+  'tpope/vim-repeat',
+  'tpope/vim-surround',
   {
     'nanotee/zoxide.vim',
     dependencies = {
@@ -173,7 +173,7 @@ return {
 
   {
     "tiagovla/scope.nvim",
-    config = function ()
+    config = function()
       require("scope").setup()
     end
   }
