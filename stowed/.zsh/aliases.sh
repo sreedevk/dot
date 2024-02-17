@@ -14,6 +14,8 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias jctl="journalctl -p 3 -xb"
 alias clock="tty-clock -csSbt -C3"
+alias wget="noglob wget"
+alias curl="noglob curl"
 
 # Taskwarrior
 alias tt="taskwarrior-tui"
