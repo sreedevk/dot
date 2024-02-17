@@ -79,3 +79,4 @@ map('n', '<Leader>j', [[<cmd>lua require('treesj').toggle()<cr>]])
 
 -- zoxide
 map('n', '<Leader>zi', [[<cmd>Zi<cr>]])
+map('n', '<Leader>zz', ':Z ')
