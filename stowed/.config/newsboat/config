@@ -3,7 +3,7 @@
 # ---- OPTS
 always-display-description  true
 auto-reload                 yes
-browser                     brave
+browser                     "surf %u &"
 cleanup-on-quit             yes
 confirm-exit                yes
 download-full-page          yes
@@ -46,9 +46,9 @@ bind-key ;       macro-prefix
 bind-key ^E      edit-flags
 
 # macros
-macro y set browser "echo %u | xclip -sel clip"; open-in-browser; set browser brave
-macro Y set browser "echo %u | xclip -sel clip"; one; set browser brave
-macro a set browser mpv; one; set browser brave
+macro y set browser "echo %u | xclip -sel clip"; open-in-browser; set browser "surf %u &"
+macro Y set browser "echo %u | xclip -sel clip"; one; set browser "surf %u &"
+macro a set browser mpv; one; set browser "surf %u &"
 
 # notification
 notify-format "Newsboat: %f unread feeds (%n unread articles total)"
