@@ -40,6 +40,10 @@ bind-key s       save
 bind-key u       pageup
 bind-key x       pb-delete
 
+# macros
+macro y set browser "echo %u | xclip -sel clip"; open-in-browser; set browser brave
+macro a set browser mpv; one; set browser firefox
+
 # notification
 notify-format "newsboat: Reload Complete, %f unread feeds (%n unread articles total)"
 notify-program "notify-send"
