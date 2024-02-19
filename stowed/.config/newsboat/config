@@ -70,3 +70,9 @@ highlight article ":.*\\(embedded flash\\)$" magenta default
 feedlist-format "%?T?║%n %12u %t &╠ %t?"
 highlight feedlist "[║│]" color3 color0
 highlight feedlist "╠.*" color3 color0
+
+urls-source "freshrss"
+freshrss-url "http://nullptrderef1:8081/api/greader.php"
+freshrss-login "sreedev"
+freshrss-passwordfile "~/.config/newsboat/password"
+freshrss-min-items 100
