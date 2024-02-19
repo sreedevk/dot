@@ -43,6 +43,7 @@ bind-key x       pb-delete
 bind-key s       sort
 bind-key S       rev-sort
 bind-key ;       macro-prefix
+bind-key ^E      edit-flags
 
 # macros
 macro y set browser "echo %u | xclip -sel clip"; open-in-browser; set browser brave
@@ -85,3 +86,4 @@ freshrss-url "http://nullptrderef1:8081/api/greader.php"
 freshrss-login "sreedev"
 freshrss-passwordfile "~/.config/newsboat/password"
 freshrss-min-items 100
+freshrss-flag-star "s"
