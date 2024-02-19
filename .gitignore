@@ -17,7 +17,7 @@ stowed/.config/nvim/lazy-lock.json
 !stowed/.config/fastfetch/
 !stowed/.config/sxiv/
 !stowed/.config/lf/
-!stowed/.config/newsboat
+!stowed/.config/newsboat/config
 !stowed/.config/systemd
 !stowed/.config/dwmblocks
 !stowed/.taskrc
