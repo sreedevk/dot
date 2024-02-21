@@ -125,7 +125,7 @@ obs-studio 30.0.2-4
 openblas 0.3.26-3
 opencl-nvidia 545.29.06-4
 openresolv 3.13.2-2
-openssh 9.6p1-1
+openssh 9.6p1-3
 openssh-askpass 2.1.0-4
 openssl-1.1 1.1.1.w-1
 opentabletdriver 0.6.4.0-2
@@ -174,9 +174,11 @@ task 2.6.2-2
 taskwarrior-tui 0.25.4-1
 texlive-latex 2023.66594-20
 thunderbird 115.7.0-2
+tidy 5.8.0-2
 tmux 3.4-4
 tokei 12.1.2-1
 traceroute 2.1.5-1
+trippy 0.9.0-1
 ttf-dejavu 2.37+18+g9b5d1b2f-6
 ttf-font-awesome 6.5.1-1
 ttf-iosevka-nerd 3.1.1-1
