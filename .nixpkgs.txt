@@ -2,3 +2,4 @@ amfora-1.9.2
 asciinema-2.4.0
 brave-1.62.162
 floorp-11.9.0
+lmms-1.2.2
