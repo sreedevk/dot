@@ -32,3 +32,7 @@ keycode () {
 setxkbmap-apl () {
   setxkbmap -layout us,apl -variant ,dyalog -option grp:switch
 }
+
+clearboard () {
+  echo "" | xclip -sel clip
+}
