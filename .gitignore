@@ -26,3 +26,4 @@ stowed/.config/nvim/lazy-lock.json
 !stowed/.config/neovide/
 !stowed/.config/zathura
 !stowed/.config/vimb
+!stowed/.config/nix
