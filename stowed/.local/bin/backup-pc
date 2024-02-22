@@ -1,17 +1,17 @@
 #!/bin/zsh
 
 echo "Backing up ~/Data directory to rpi4b:/home/sreedev/Data/devstation-repository"
-restic -r sftp:nullptrderef1:/home/sreedev/Data/devstation-repository --verbose backup --iexclude "debug" --iexclude "release" --iexclude "labs" ~/Data 
+restic -r sftp:root@nullptrderef1:/home/sreedev/EncDataDrive/devstation-repository --verbose backup --iexclude "debug" --iexclude "release" --iexclude "labs" ~/Data 
 echo "\n\n"
 
 echo "Backing up ~/Media directory to rpi4b:/home/sreedev/Data/devstation-repository"
-restic -r sftp:nullptrderef1:/home/sreedev/Data/devstation-repository --verbose backup --iexclude "debug" --iexclude "release" --iexclude "labs" ~/Media/
+restic -r sftp:root@nullptrderef1:/home/sreedev/EncDataDrive/devstation-repository --verbose backup --iexclude "debug" --iexclude "release" --iexclude "labs" ~/Media/
 echo "\n\n"
 
 echo "Backing up ~/Documents directory to rpi4b:/home/sreedev/Data/devstation-repository"
-restic -r sftp:nullptrderef1:/home/sreedev/Data/devstation-repository --verbose backup --iexclude "debug" --iexclude "release" --iexclude "labs" ~/Documents/
+restic -r sftp:root@nullptrderef1:/home/sreedev/EncDataDrive/devstation-repository --verbose backup --iexclude "debug" --iexclude "release" --iexclude "labs" ~/Documents/
 echo "\n\n"
 
 echo "Backing up ~/Downloads directory to rpi4b:/home/sreedev/Data/devstation-repository"
-restic -r sftp:nullptrderef1:/home/sreedev/Data/devstation-repository --verbose backup --iexclude "debug" --iexclude "release" --iexclude "labs" ~/Downloads/
+restic -r sftp:root@nullptrderef1:/home/sreedev/EncDataDrive/devstation-repository --verbose backup --iexclude "debug" --iexclude "release" --iexclude "labs" ~/Downloads/
 echo "\n\n"
