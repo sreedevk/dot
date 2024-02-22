@@ -49,6 +49,7 @@ bind-key ^E      edit-flags
 macro y set browser "echo %u | xclip -sel clip"; open-in-browser; set browser "vimb %u &"
 macro Y set browser "echo %u | xclip -sel clip"; one; set browser "vimb %u &"
 macro a set browser mpv; one; set browser "vimb %u &"
+macro o set browser brave; open-in-browser; set browser "vimb %u &"
 
 # notification
 notify-format "Newsboat: %f unread feeds (%n unread articles total)"
