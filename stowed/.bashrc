@@ -26,7 +26,7 @@ fi
 
 # HISTORYFILE
 export HISTORY_IGNORE="(ls|cd|pwd|exit|history)"
-export HISTFILE="~/.cache/bash/history"
+export HISTFILE=$HOME/.cache/bash/history
 export HISTFILESIZE=10000
 export HISTSIZE=1000
 export SAVEHIST=1000
