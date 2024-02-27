@@ -33,6 +33,7 @@ setxkbmap-apl () {
   setxkbmap -layout us,apl -variant ,dyalog -option grp:switch
 }
 
-clearboard () {
+cls () {
   echo "" | xclip -sel clip
+  truncate -s0 $HOME/.cache/zsh/history
 }
