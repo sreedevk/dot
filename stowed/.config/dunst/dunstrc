@@ -17,10 +17,13 @@
     stack_duplicates = true
     hide_duplicate_count = true
     ignore_newline = no
-    geometry = "300x2-30+20"
+    height = 150
+    width = 450
+    origin = "top-right"
+    offset = 20
     shrink = yes
     transparency = 30
-    gap_size = 3
+    gap_size = 4
     idle_threshold = 120 
     monitor = 0
     notification_height = 0
