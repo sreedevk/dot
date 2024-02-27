@@ -4,6 +4,7 @@ blaze-ssh v0.0.4
 cargo-expand v1.0.79
 cargo-generate v0.19.0
 cargo-tarpaulin v0.27.3
+cargo-udeps v0.1.46
 cargo-update v13.3.0
 cargo-watch v8.5.2
 csvlens v0.6.0
