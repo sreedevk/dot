@@ -21,6 +21,7 @@ crtc 1
 mode 3840x2160
 pos 1920x0
 rate 60.00
+scale 0.7x0.7
 x-prop-audio auto
 x-prop-broadcast_rgb Automatic
 x-prop-colorspace Default
