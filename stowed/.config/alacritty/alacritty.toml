@@ -46,5 +46,5 @@ program = "/usr/bin/zsh"
 
 [window]
 decorations = "full"
-opacity = 0.75
+opacity = 0.65
 padding = { x = 5, y = 5 }
