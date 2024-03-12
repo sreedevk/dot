@@ -1,5 +1,0 @@
-amfora-1.9.2
-asciinema-2.4.0
-babashka-1.3.188
-fselect-0.8.5
-nushell-0.89.0
