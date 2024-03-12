@@ -81,8 +81,8 @@ highlight feedlist "[║│]" color3 color0
 highlight feedlist "╠.*" color3 color0
 
 urls-source "freshrss"
-freshrss-url "http://nullptrderef1:8081/api/greader.php"
-freshrss-login "sreedev"
+freshrss-url "http://nullptrderef1:8888/api/greader.php"
+freshrss-login "user"
 freshrss-passwordfile "~/.config/newsboat/password"
 freshrss-min-items 100
 freshrss-flag-star "s"
