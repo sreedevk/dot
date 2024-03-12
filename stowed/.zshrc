@@ -79,8 +79,7 @@ bindkey    '^E'    end-of-line
 bindkey    '^x'    edit-command-line
 bindkey    '^[[Z'  autosuggest-accept
 
+# FASTFETCH @ SHELL INIT
 if [ -f "$(command -v fastfetch)" ]; then
-  echo "\n"
-  fastfetch
-  echo "\n"
+  (echo -e "\n"; eval "$(command -v fastfetch)"; echo -e "\n")
 fi

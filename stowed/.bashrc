@@ -135,6 +135,7 @@ export FZF_DEFAULT_OPTS="
 [ -f "/usr/share/fzf/key-bindings.bash"  ] && source "/usr/share/fzf/key-bindings.bash"
 [ -f "/usr/share/fzf/completion.bash"    ] && source "/usr/share/fzf/completion.bash"
 
-echo ""
-eval "$(command -v fastfetch)"
-echo ""
+# FASTFETCH @ SHELL INIT
+if [ -f "$(command -v fastfetch)" ]; then
+  (echo -e "\n"; eval "$(command -v fastfetch)"; echo -e "\n")
+fi
