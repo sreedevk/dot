@@ -37,3 +37,12 @@ cls () {
   echo "" | xclip -sel clip
   truncate -s0 $HOME/.cache/zsh/history
 }
+
+randstr() {
+    local length=$1
+    if [[ -z $length ]]; then
+        echo "Usage: randstr <length>"
+        return 1
+    fi
+    openssl rand -base64 $((length * 3 / 4)) | tr -d '\n' | cut -c1-$length
+}
