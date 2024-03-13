@@ -72,7 +72,6 @@ return {
         button("e", "New File", ":enew<cr>"),
         button("l", "Last Session", "<cmd>lua require('persistence').load({last=true})<cr>"),
         button("f", "Find Files", ":Telescope find_files<CR>"),
-        button("y", "Browse Dirs", ":Telescope file_browser<CR>"),
         button("/", "Live Grep", ":Telescope live_grep<CR>"),
         button("p", "Lazy Dashboard", ":Lazy show<CR>"),
         button("q", "Quit Neovim", ":q<CR>"),
