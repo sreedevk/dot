@@ -11,9 +11,11 @@ cargo-watch v8.5.2
 csvlens v0.6.0
 deduplicator v0.2.1
 diesel_cli v2.1.1
+gitu v0.6.0
 grex v1.4.4
 hx v0.6.0
 mdbook v0.4.37
+paru v1.11.0
 sea-orm-cli v0.12.14
 spotify-tui v0.25.0
 sqlx-cli v0.7.3
