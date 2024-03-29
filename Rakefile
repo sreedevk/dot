@@ -6,9 +6,6 @@ namespace :packages do
 
     # backup cargo packages
     sh("cargo install --list | grep ':' | sed 's/://g' > ~/.dot/.cargo_pkglists.txt")
-
-    # backup nix packages
-    sh("nix-env -q --installed > ~/.dot/.nixpkgs.txt")
   end
 
   desc "install deps"
