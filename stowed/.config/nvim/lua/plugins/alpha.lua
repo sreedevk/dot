@@ -70,6 +70,8 @@ return {
       type = "group",
       val = {
         button("e", "New File", ":enew<cr>"),
+        button("n", "Notes", ":e ~/Data/notebook/obsidian/notebook/<cr>"),
+        button("z", "Zoxide", ":Zi<CR>"),
         button("l", "Last Session", "<cmd>lua require('persistence').load({last=true})<cr>"),
         button("f", "Find Files", ":Telescope find_files<CR>"),
         button("/", "Live Grep", ":Telescope live_grep<CR>"),
