@@ -1,5 +1,5 @@
-data.location=~/Data/.task/
-hooks.location=~/Data/.task/hooks
+data.location=~/.task/
+hooks.location=~/.task/hooks
 
 # Color theme (uncomment one to use)
 # include dark-16.theme
