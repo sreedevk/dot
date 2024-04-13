@@ -7,7 +7,7 @@
   editor = nvim
   pager = delta
 [commit]
-  gpgsign = true
+  gpgsign = false
 [init]
   defaultBranch = main
 [color]
@@ -68,3 +68,5 @@
     conflictstyle = diff3
 [diff]
     colorMoved = default
+[safe]
+	directory = /etc/nixos
