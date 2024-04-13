@@ -20,3 +20,16 @@ namespace :packages do
       .each {|pkg| sh("cargo install #{pkg}") }
   end
 end
+
+# NixOS Specific
+namespace :sys do
+  desc "system backup" 
+  task :archive do
+    sh("sudo cp /etc/nixos/*.nix ~/.dot/nixos/hosts/nullptrderef1/")
+  end
+
+  desc "system restore"
+  task :restore do
+    sh("sudo nixos-rebuild switch --flake ./nixos#nullptrderef1")
+  end
+end
