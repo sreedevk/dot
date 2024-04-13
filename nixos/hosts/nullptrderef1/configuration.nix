@@ -460,10 +460,6 @@
 
       adminUID = "1000";
       adminGID = "100";
-
-      # Secrets
-      plexClaim = "claim-zMsX-5bCZRcams4x-GGS";
-      photoPrismPassword = "admin@123";
     in
     {
       # Jellyfin Media Player
@@ -500,7 +496,7 @@
           TZ = timeZone;
           PUID = adminUID;
           PGID = adminGID;
-          PLEX_CLAIM = plexClaim;
+          PLEX_CLAIM = secrets.plex.claim;
         };
       };
 
@@ -877,7 +873,7 @@
           PUID = adminUID;
           PGID = adminGID;
           PHOTOPRISM_UPLOAD_NSFW = "true";
-          PHOTOPRISM_ADMIN_PASSWORD = photoPrismPassword;
+          PHOTOPRISM_ADMIN_PASSWORD = secrets.photoprism.password;
         };
       };
     };
