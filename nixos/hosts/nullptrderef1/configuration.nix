@@ -595,7 +595,6 @@
         };
       };
 
-      # Adult Media Indexer
       "whisparr" = {
         autoStart = true;
         image = "ghcr.io/hotio/whisparr";
@@ -656,7 +655,6 @@
         ports = [ "9117:9117" ];
       };
 
-      # Adult Media Server
       "stash" = {
         autoStart = true;
         image = "ghcr.io/hotio/stash";
