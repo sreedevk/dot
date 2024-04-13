@@ -2,6 +2,7 @@
 stowed/.config/*
 stowed/.zshenv
 stowed/.config/nvim/lazy-lock.json
+stowed/.zsh/plugins.sh
 
 # Allow
 !stowed/.config/alacritty/
