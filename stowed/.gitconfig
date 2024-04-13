@@ -7,7 +7,7 @@
   editor = nvim
   pager = delta
 [commit]
-  gpgsign = false
+  gpgsign = true
 [init]
   defaultBranch = main
 [color]
