@@ -1,16 +1,12 @@
-namespace :packages do
-  desc "Update Installed Packages Information"
-  task :archive do
-    # backup pacman packages
+namespace :archlinux do
+  desc "archive package information"
+  task :archive_packages do
     sh("pacman -Qe > ~/.dot/.pkglists.txt")
-
-    # backup cargo packages
     sh("cargo install --list | grep ':' | sed 's/://g' > ~/.dot/.cargo_pkglists.txt")
   end
 
-  desc "install deps"
-  task :restore do
-    puts "Installing pacman dependencies"
+  desc "restore packages"
+  task :restore_packages do
     sh("pacman -S - < ~/.dot/.pkglists.txt")
     `cat ~/.dot/.cargo_pkglists.txt`
       .lines
@@ -21,15 +17,9 @@ namespace :packages do
   end
 end
 
-# NixOS Specific
-namespace :sys do
-  desc "system backup" 
-  task :archive do
-    sh("sudo cp /etc/nixos/*.nix ~/.dot/nixos/hosts/nullptrderef1/")
-  end
-
-  desc "system restore"
-  task :restore do
-    sh("sudo nixos-rebuild switch --flake ./nixos#nullptrderef1")
+namespace :nixos do
+  desc "rebuild system"
+  task :rebuild do
+    sh("sudo nixos-rebuild switch --flake ./nixos##{ENV['HOSTNAME']}")
   end
 end
