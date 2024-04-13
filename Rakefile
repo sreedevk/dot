@@ -20,6 +20,6 @@ end
 namespace :nixos do
   desc "rebuild system"
   task :rebuild do
-    sh("sudo nixos-rebuild switch --flake ./nixos##{ENV['HOSTNAME']}")
+    sh("sudo nixos-rebuild switch --flake ./nixos##{`cat /etc/hostname`.strip}")
   end
 end
