@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, secrets, ... }:
 
 {
   imports = [ ./hardware-configuration.nix ];
@@ -153,7 +153,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "system root user & administrator";
-    initialPassword = "admin@123";
+    password = secrets.system.password;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP"
     ];
