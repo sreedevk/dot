@@ -1,14 +1,14 @@
 namespace :archlinux do
   desc "archive package information"
   task :archive_packages do
-    sh("pacman -Qe > ~/.dot/.pkglists.txt")
-    sh("cargo install --list | grep ':' | sed 's/://g' > ~/.dot/.cargo_pkglists.txt")
+    sh("pacman -Qe > ~/.dot/archlinux/packages.txt")
+    sh("cargo install --list | grep ':' | sed 's/://g' > ~/.dot/archlinux/cargo.txt")
   end
 
   desc "restore packages"
   task :restore_packages do
-    sh("pacman -S - < ~/.dot/.pkglists.txt")
-    `cat ~/.dot/.cargo_pkglists.txt`
+    sh("pacman -S - < ~/.dot/archlinux/packages.txt")
+    `cat ~/.dot/archlinux/cargo.txt`
       .lines
       .lazy
       .map(&:strip)
