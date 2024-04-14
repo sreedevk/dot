@@ -118,6 +118,7 @@
       cp = "cherry-pick";
       dfs = "diff --staged";
       df = "diff";
+      fucked = "reset --hard";
       l = "log";
       lg = "log --decorate --oneline --graph";
       s = "status";
