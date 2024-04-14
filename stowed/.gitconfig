@@ -26,8 +26,9 @@
   cm     = commit -m
   co     = checkout
   cp     = cherry-pick
-  dfs    = diff --staged
   df     = diff
+  dfs    = diff --staged
+  fucked = reset --hard
   l      = log
   lg     = log --decorate --oneline --graph
   s      = status
