@@ -49,12 +49,12 @@
       };
 
       # Jellyseer Media Discovery
-      "jellyseer" = { 
+      "jellyseer" = {
         autoStart = true;
         image = "fallenbagel/jellyseerr:latest";
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/jellyseer/:/app/config" 
+          "${applicationConfigDir}/jellyseer/:/app/config"
         ];
         ports = [ "5055:5055" ];
         environment = {
@@ -105,6 +105,47 @@
           "${magazinesDir}:/magazines"
         ];
         extraOptions = [ "--network=host" ];
+      };
+
+      "autobrr" = {
+        autoStart = true;
+        image = "ghcr.io/autobrr/autobrr:latest";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        dependsOn = [ "qbittorrent-nox" ];
+        ports = [ "7474:7474" ];
+        volumes = [
+          "${applicationConfigDir}/autobrr/:/config"
+        ];
+        environment = {
+          TZ = timeZone;
+        };
+      };
+
+#docker pull vaultwarden/server:latest
+# docker run -d --name vaultwarden -v /vw-data/:/data/ --restart unless-stopped -p 80:80 
+
+      "vaultwarden" = {
+        autoStart = true;
+        image = "vaultwarden/server:latest ";
+        ports = [ "9801:80" ];
+        volumes = [
+          "/mnt/enc_data_drive/secrets/vw-data:/data/" 
+        ];
+      };
+
+      "homebox" = {
+        autoStart = true;
+        image = "ghcr.io/hay-kot/homebox:latest";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        ports = [ "3100:7745" ];
+        volumes = [
+          "${applicationConfigDir}/Homebox:/data"
+        ];
+        environment = {
+          HBOX_LOG_LEVEL = "info";
+          HBOX_LOG_FORMAT = "text";
+          HBOX_WEB_MAX_UPLOAD_SIZE = "10";
+        };
       };
 
       # Radarr Movies Indexer
@@ -185,6 +226,21 @@
         ];
         ports = [ "8004:80" ];
         cmd = [ "--persist" "--name='${applicationUserName}'" ];
+        environment = {
+          TZ = timeZone;
+        };
+      };
+
+      "homarr" = {
+        autoStart = true;
+        image = "ghcr.io/ajnart/homarr:latest";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        volumes = [
+          "${applicationConfigDir}/Homarr/config:/app/data/configs"
+          "${applicationConfigDir}/Homarr/data:/data"
+          "${applicationConfigDir}/Homarr/icons:/icons"
+        ];
+        ports = [ "7575:7575" ];
         environment = {
           TZ = timeZone;
         };
