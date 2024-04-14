@@ -2,6 +2,7 @@
 {
   virtualisation.oci-containers.containers =
     let
+      applicationUserName = "nullptrderef1";
       lanAddress = "192.168.1.179";
       timeZone = "America/New_York";
 
@@ -44,6 +45,22 @@
         ports = [ "8096:8096" ];
         environment = {
           JELLYFIN_LOG_DIR = "/log";
+        };
+      };
+
+      # Jellyseer Media Discovery
+      "jellyseer" = { 
+        autoStart = true;
+        image = "fallenbagel/jellyseerr:latest";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        volumes = [
+          "${applicationConfigDir}/jellyseer/:/app/config" 
+        ];
+        ports = [ "5055:5055" ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
         };
       };
 
@@ -154,6 +171,20 @@
           "${downloadsDir}:/downloads"
         ];
         ports = [ "8787:8787" ];
+        environment = {
+          TZ = timeZone;
+        };
+      };
+
+      "openbooks" = {
+        autoStart = true;
+        image = "evanbuss/openbooks";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        volumes = [
+          "${booksDir}:/books"
+        ];
+        ports = [ "8004:80" ];
+        cmd = [ "--persist" "--name='${applicationUserName}'" ];
         environment = {
           TZ = timeZone;
         };
