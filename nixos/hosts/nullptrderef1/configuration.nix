@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 { config, lib, pkgs, secrets, ... }:
 
 {
@@ -45,7 +41,6 @@
     ];
   };
 
-  # Use the systemd-boot EFI boot loader.
   boot = {
     kernelParams = [ "nohibernate" ];
     tmp.cleanOnBoot = true;
@@ -140,7 +135,6 @@
     };
   };
 
-  # Set your time zone.
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
@@ -148,7 +142,6 @@
     LC_MONETARY = "en_US.UTF-8";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.admin = {
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -384,8 +377,6 @@
   security.sudo.wheelNeedsPassword = false;
   security.rtkit.enable = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
   programs = {
     mtr.enable = true;
     zsh.enable = true;
@@ -395,7 +386,6 @@
     };
   };
 
-  # PODMAN CONTAINER BASED SERVICES
   virtualisation.oci-containers.containers =
     let
       lanAddress = "192.168.1.179";
@@ -837,6 +827,6 @@
     };
 
   system.copySystemConfiguration = false;
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "23.11";
 }
 
