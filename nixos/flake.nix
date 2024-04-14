@@ -23,7 +23,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users."${user}" = (import ./hosts/${hostname}/users/${user}.nix);
+                users."${user}" = (import ./users/${user}.nix);
               };
             }
           ];
