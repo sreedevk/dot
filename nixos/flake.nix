@@ -20,9 +20,11 @@
             (import ./hosts/${hostname}/configuration.nix)
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users."${user}" = (import ./hosts/${hostname}/home.nix);
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users."${user}" = (import ./hosts/${hostname}/home.nix);
+              };
             }
           ];
           specialArgs = { inherit inputs secrets; };
