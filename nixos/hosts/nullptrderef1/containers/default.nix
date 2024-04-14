@@ -12,6 +12,7 @@
       applicationUserName = "nullptrderef1";
       lanAddress = "192.168.1.179";
       timeZone = "America/New_York";
+      podmanSocket = "/var/run/podman/podman.sock";
 
       downloadsDir = "/mnt/data/downloads/";
       torrentsWatchDir = "/mnt/data/torrents/";
@@ -128,15 +129,15 @@
         };
       };
 
-#docker pull vaultwarden/server:latest
-# docker run -d --name vaultwarden -v /vw-data/:/data/ --restart unless-stopped -p 80:80 
+      #docker pull vaultwarden/server:latest
+      # docker run -d --name vaultwarden -v /vw-data/:/data/ --restart unless-stopped -p 80:80 
 
       "vaultwarden" = {
         autoStart = true;
         image = "vaultwarden/server:latest ";
         ports = [ "9801:80" ];
         volumes = [
-          "/mnt/enc_data_drive/secrets/vw-data:/data/" 
+          "/mnt/enc_data_drive/secrets/vw-data:/data/"
         ];
       };
 
@@ -531,6 +532,21 @@
           PHOTOPRISM_UPLOAD_NSFW = "true";
           PHOTOPRISM_ADMIN_PASSWORD = secrets.photoprism.password;
         };
+      };
+
+      "portrainer" = {
+        autoStart = true;
+        image = "portainer/portainer-ce:latest";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        ports = [
+          "8024:8000"
+          "9443:9443"
+          "9080:9000"
+        ];
+        volumes = [
+          "${podmanSocket}:/var/run/docker.sock"
+          "${applicationConfigDir}/portrainer:/data"
+        ];
       };
     };
 }
