@@ -185,54 +185,24 @@
   };
 
   environment.systemPackages = with pkgs; [
-    amfora
-    antibody
     babashka
-    bat
-    btop
     cava
     clang
     cmake
     cryptsetup
     curl
-    delta
     dhcpcd
     dig
     direnv
-    du-dust
-    duf
-    emacs
-    eza
     fasm-bin
-    fastfetch
-    fd
-    fzf
-    gh
-    git
-    git-crypt
-    glab
-    glow
     gnumake
-    gping
-    hexyl
-    hledger
-    htop
-    hyperfine
-    ipcalc
-    irssi
     iwd
-    jaq
-    jq
-    lf
     man
     minicom
     mosh
     mullvad
     mullvad-vpn
-    ncdu
-    neovim
     netcat-gnu
-    newsboat
     ngrok
     nmap
     openresolv
@@ -241,30 +211,18 @@
     p7zip
     pandoc
     parallel
-    procs
     restic
     ripgrep
     ripgrep-all
     rsync
-    ruby
     rustup
     sshfs
-    starship
-    stow
     strace
-    tailspin
-    taskwarrior
-    taskwarrior-tui
-    tmux
-    tokei
+    starship
     traceroute
     unzip
     wget
-    xh
-    xxd
-    yt-dlp
     zip
-    zoxide
     zsh
   ];
 
