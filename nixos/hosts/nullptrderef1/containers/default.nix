@@ -1,5 +1,12 @@
 { config, lib, pkgs, secrets, ... }:
 {
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    dockerSocket.enable = true;
+    defaultNetwork.settings.dns_enabled = true;
+  };
+
   virtualisation.oci-containers.containers =
     let
       applicationUserName = "nullptrderef1";
