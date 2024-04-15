@@ -67,22 +67,44 @@
           filtering_enabled = true;
         };
         rewrites = [
-          {
-            domain = "nullptrderef1";
-            answer = "192.168.1.179";
-          }
-          {
-            domain = "nullptrderef1.local";
-            answer = "192.168.1.179";
-          }
-          {
-            domain = "rpi4b.local";
-            answer = "192.168.1.152";
-          }
-          {
-            domain = "devstation.local";
-            answer = "192.168.1.249";
-          }
+          { domain = "nullptrderef1"; answer = "192.168.1.179"; }
+          { domain = "nullptrderef1.local"; answer = "192.168.1.179"; }
+          { domain = "sonarr.local"; answer = "192.168.1.179"; }
+          { domain = "radarr.local"; answer = "192.168.1.179"; }
+          { domain = "qbittorrent.local"; answer = "192.168.1.179"; }
+          { domain = "autobrr.local"; answer = "192.168.1.179"; }
+          { domain = "portrainer.local"; answer = "192.168.1.179"; }
+          { domain = "homebox.local"; answer = "192.168.1.179"; }
+          { domain = "homarr.local"; answer = "192.168.1.179"; }
+          { domain = "aria.local"; answer = "192.168.1.179"; }
+          { domain = "jackett.local"; answer = "192.168.1.179"; }
+          { domain = "bitwarden.local"; answer = "192.168.1.179"; }
+          { domain = "prowlarr.local"; answer = "192.168.1.179"; }
+          { domain = "adguard.local"; answer = "192.168.1.179"; }
+          { domain = "cockpit.local"; answer = "192.168.1.179"; }
+          { domain = "netdata.local"; answer = "192.168.1.179"; }
+          { domain = "huginn.local"; answer = "192.168.1.179"; }
+          { domain = "ntfy.local"; answer = "192.168.1.179"; }
+          { domain = "kuma.local"; answer = "192.168.1.179"; }
+          { domain = "plex.local"; answer = "192.168.1.179"; }
+          { domain = "jellyseer.local"; answer = "192.168.1.179"; }
+          { domain = "audiobooks.local"; answer = "192.168.1.179"; }
+          { domain = "freshrss.local"; answer = "192.168.1.179"; }
+          { domain = "filebrowser.local"; answer = "192.168.1.179"; }
+          { domain = "photoprism.local"; answer = "192.168.1.179"; }
+          { domain = "stash.local"; answer = "192.168.1.179"; }
+          { domain = "bazarr.local"; answer = "192.168.1.179"; }
+          { domain = "linkding.local"; answer = "192.168.1.179"; }
+          { domain = "lidarr.local"; answer = "192.168.1.179"; }
+          { domain = "openbooks.local"; answer = "192.168.1.179"; }
+          { domain = "kavita.local"; answer = "192.168.1.179"; }
+          { domain = "null.local"; answer = "192.168.1.179"; }
+          { domain = "whisparr.local"; answer = "192.168.1.179"; }
+          { domain = "readarr.local"; answer = "192.168.1.179"; }
+          { domain = "metube.local"; answer = "192.168.1.179"; }
+          { domain = "jellyfin.local"; answer = "192.168.1.179"; }
+          { domain = "rpi4b.local"; answer = "192.168.1.152"; }
+          { domain = "devstation.local"; answer = "192.168.1.249"; }
         ];
         upstream_dns = [
           "https://dns10.quad9.net/dns-query"

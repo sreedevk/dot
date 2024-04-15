@@ -337,7 +337,7 @@
         volumes = [
           "${applicationConfigDir}/Homer/:/www/assets"
         ];
-        ports = [ "80:8080" ];
+        ports = [ "8448:8080" ];
       };
 
       # RSS Feed Server, Scanner, Indexer & Organizer
@@ -559,6 +559,27 @@
           "${tvDir}:/tv"
           "${moviesDir}:/movies"
           "${encTvDir}:/enctv"
+        ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+        };
+      };
+
+      "caddy" = {
+        autoStart = true;
+        image = "caddy:alpine";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        ports = [
+          "80:80"
+          "443:443"
+          "443:443/udp"
+        ];
+        volumes = [
+          "${applicationConfigDir}/caddy/Caddyfile:/etc/caddy/Caddyfile"
+          "${applicationConfigDir}/caddy/data:/data"
+          "${applicationConfigDir}/caddy/config:/config"
         ];
         environment = {
           TZ = timeZone;
