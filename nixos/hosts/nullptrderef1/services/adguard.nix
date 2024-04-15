@@ -67,43 +67,12 @@
           filtering_enabled = true;
         };
         rewrites = [
-          { domain = "nullptrderef1.arpa"; answer = "192.168.1.179"; }
-          { domain = "sonarr.arpa"; answer = "192.168.1.179"; }
-          { domain = "radarr.arpa"; answer = "192.168.1.179"; }
-          { domain = "qbittorrent.arpa"; answer = "192.168.1.179"; }
-          { domain = "autobrr.arpa"; answer = "192.168.1.179"; }
-          { domain = "portrainer.arpa"; answer = "192.168.1.179"; }
-          { domain = "homebox.arpa"; answer = "192.168.1.179"; }
-          { domain = "homarr.arpa"; answer = "192.168.1.179"; }
-          { domain = "aria.arpa"; answer = "192.168.1.179"; }
-          { domain = "jackett.arpa"; answer = "192.168.1.179"; }
-          { domain = "bitwarden.arpa"; answer = "192.168.1.179"; }
-          { domain = "prowlarr.arpa"; answer = "192.168.1.179"; }
-          { domain = "adguard.arpa"; answer = "192.168.1.179"; }
-          { domain = "cockpit.arpa"; answer = "192.168.1.179"; }
-          { domain = "netdata.arpa"; answer = "192.168.1.179"; }
-          { domain = "huginn.arpa"; answer = "192.168.1.179"; }
-          { domain = "ntfy.arpa"; answer = "192.168.1.179"; }
-          { domain = "kuma.arpa"; answer = "192.168.1.179"; }
-          { domain = "plex.arpa"; answer = "192.168.1.179"; }
-          { domain = "jellyseer.arpa"; answer = "192.168.1.179"; }
-          { domain = "audiobooks.arpa"; answer = "192.168.1.179"; }
-          { domain = "freshrss.arpa"; answer = "192.168.1.179"; }
-          { domain = "filebrowser.arpa"; answer = "192.168.1.179"; }
-          { domain = "photoprism.arpa"; answer = "192.168.1.179"; }
-          { domain = "stash.arpa"; answer = "192.168.1.179"; }
-          { domain = "bazarr.arpa"; answer = "192.168.1.179"; }
-          { domain = "linkding.arpa"; answer = "192.168.1.179"; }
-          { domain = "lidarr.arpa"; answer = "192.168.1.179"; }
-          { domain = "openbooks.arpa"; answer = "192.168.1.179"; }
-          { domain = "kavita.arpa"; answer = "192.168.1.179"; }
+          { domain = "nullptrderef1"; answer = "192.168.1.179"; }
+          { domain = "nullptrderef1.localhost"; answer = "192.168.1.179"; }
+          { domain = "null.localhost"; answer = "192.168.1.179"; }
           { domain = "null.arpa"; answer = "192.168.1.179"; }
-          { domain = "whisparr.arpa"; answer = "192.168.1.179"; }
-          { domain = "readarr.arpa"; answer = "192.168.1.179"; }
-          { domain = "metube.arpa"; answer = "192.168.1.179"; }
-          { domain = "jellyfin.arpa"; answer = "192.168.1.179"; }
-          { domain = "rpi4b.arpa"; answer = "192.168.1.152"; }
-          { domain = "devstation.arpa"; answer = "192.168.1.249"; }
+          { domain = "rpi4b.localhost"; answer = "192.168.1.152"; }
+          { domain = "devstation.localhost"; answer = "192.168.1.249"; }
         ];
         upstream_dns = [
           "https://dns10.quad9.net/dns-query"
