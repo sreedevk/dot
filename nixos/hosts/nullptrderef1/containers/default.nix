@@ -548,5 +548,23 @@
           "${applicationConfigDir}/portrainer:/data"
         ];
       };
+
+      "bazarr" = {
+        autoStart = true;
+        image = "lscr.io/linuxserver/bazarr:latest";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        ports = [ "6767:6767" ];
+        volumes = [
+          "${applicationConfigDir}/Bazarr/config:/config"
+          "${tvDir}:/tv"
+          "${moviesDir}:/movies"
+          "${encTvDir}:/enctv"
+        ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+        };
+      };
     };
 }
