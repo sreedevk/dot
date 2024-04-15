@@ -211,6 +211,7 @@
     ngrok
     nmap
     openresolv
+    openssl
     openvpn
     ouch
     p7zip
