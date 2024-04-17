@@ -566,5 +566,25 @@
           PGID = adminGID;
         };
       };
+
+      "navidrome" = {
+        autoStart = true;
+        image = "deluan/navidrome:latest";
+        ports = [ "4533:4533" ];
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        volumes = [
+          "${applicationConfigDir}/navidrome"
+          "${musicDir}:/music:ro"
+        ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+          ND_SCANSCHEDULE = "1h";
+          ND_LOGLEVEL = "info";
+          ND_SESSIONTIMEOUT = "24h";
+          ND_BASEURL = "";
+        };
+      };
     };
 }
