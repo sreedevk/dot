@@ -586,5 +586,20 @@
           ND_BASEURL = "";
         };
       };
+
+      "znc" = {
+        autoStart = true;
+        image = "lscr.io/linuxserver/znc:latest";
+        ports = [ "6501:6501" ];
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        volumes = [
+          "${applicationConfigDir}/znc/:/config"
+        ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+        };
+      };
     };
 }
