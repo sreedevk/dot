@@ -601,5 +601,12 @@
           PGID = adminGID;
         };
       };
+
+      "thelounge" = {
+        autoStart = true;
+        image = "ghcr.io/thelounge/thelounge:latest";
+        ports = [ "9000:9000" ];
+        volumes = [ "${applicationConfigDir}/thelounge:/var/opt/thelounge" ];
+      };
     };
 }
