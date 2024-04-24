@@ -410,6 +410,7 @@
           "/mnt/data/:/srv"
           "${applicationConfigDir}/filebrowser/settings.json:/config/settings.json"
           "${applicationConfigDir}/filebrowser/filebrowser.db:/config/filebrowser.db"
+          "${applicationConfigDir}/filebrowser/database.db:/config/database.db"
         ];
         environment = {
           PUID = adminUID;
