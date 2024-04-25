@@ -425,7 +425,7 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "8081:8081" ];
         volumes = [
-          "${videosDir}:/downloads"
+          "${downloadsDir}/Metube:/downloads"
         ];
         environment = {
           TZ = timeZone;
