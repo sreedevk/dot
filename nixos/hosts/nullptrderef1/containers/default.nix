@@ -687,5 +687,20 @@
           LIVEBOOK_PASSWORD = secrets.livebook.password;
         };
       };
+
+      "cloudbeaver" = {
+        autoStart = true;
+        image = "dbeaver/cloudbeaver:latest";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        ports = [ "8079:8978" ];
+        volumes = [
+          "${applicationConfigDir}/cloudbeaver:/opt/cloudbeaver/workspace"
+        ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+        };
+      };
     };
 }
