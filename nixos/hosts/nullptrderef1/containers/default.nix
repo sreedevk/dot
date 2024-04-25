@@ -653,5 +653,39 @@
           APP_URL = "http://nullptrderef1";
         };
       };
+
+      "docuseal" = {
+        autoStart = true;
+        image = "docuseal/docuseal";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        ports = [ "6008:3000" ];
+        volumes = [
+          "${applicationConfigDir}/docuseal:/data"
+        ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+        };
+      };
+
+      "livebook" = {
+        autoStart = true;
+        image = "ghcr.io/livebook-dev/livebook";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        ports = [
+          "8090:8080"
+          "8091:8081"
+        ];
+        volumes = [
+          "${applicationConfigDir}/livebook:/data"
+        ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+          LIVEBOOK_PASSWORD = secrets.livebook.password;
+        };
+      };
     };
 }
