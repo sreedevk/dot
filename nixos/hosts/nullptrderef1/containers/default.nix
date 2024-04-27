@@ -5,6 +5,7 @@
     dockerCompat = true;
     dockerSocket.enable = true;
     defaultNetwork.settings.dns_enabled = true;
+    autoPrune.enable = true;
   };
 
   virtualisation.oci-containers.containers =
@@ -410,6 +411,7 @@
           "/mnt/data/:/srv"
           "${applicationConfigDir}/filebrowser/settings.json:/config/settings.json"
           "${applicationConfigDir}/filebrowser/filebrowser.db:/config/filebrowser.db"
+          "${applicationConfigDir}/filebrowser/database.db:/config/database.db"
         ];
         environment = {
           PUID = adminUID;
@@ -424,7 +426,7 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "8081:8081" ];
         volumes = [
-          "${videosDir}:/downloads"
+          "${downloadsDir}/Metube:/downloads"
         ];
         environment = {
           TZ = timeZone;
@@ -594,6 +596,106 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
           "${applicationConfigDir}/znc/:/config"
+        ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+        };
+      };
+
+      "thelounge" = {
+        autoStart = true;
+        image = "ghcr.io/thelounge/thelounge:latest";
+        ports = [ "9000:9000" ];
+        volumes = [ "${applicationConfigDir}/thelounge:/var/opt/thelounge" ];
+      };
+
+      "firefly-db" = {
+        autoStart = true;
+        image = "mariadb:lts";
+        ports = [ "3306:3306" ];
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        volumes = [
+          "${applicationConfigDir}/firefly/db:/var/lib/mysql"
+        ];
+        environment = {
+          MYSQL_RANDOM_ROOT_PASSWORD = "yes";
+          MYSQL_USER = "firefly";
+          MYSQL_PASSWORD = secrets.firefly.db.password;
+          MYSQL_DATABASE = "firefly";
+        };
+      };
+
+      "firefly-app" = {
+        autoStart = true;
+        image = "fireflyiii/core:latest";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        dependsOn = [ "firefly-db" ];
+        ports = [ "6003:8080" ];
+        volumes = [
+          "${applicationConfigDir}/firefly/uploads/:/var/www/html/storage/upload"
+        ];
+        environment = {
+          APP_ENV = "production";
+          SITE_OWNER = secrets.firefly.app.site_owner;
+          APP_KEY = secrets.firefly.app.secret;
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+          DB_CONNECTION = "mysql";
+          DB_HOST = "nullptrderef1";
+          DB_PORT = "3306";
+          DB_DATABASE = "firefly";
+          DB_USERNAME = "firefly";
+          DB_PASSWORD = secrets.firefly.db.password;
+          MYSQL_USE_SSL = "false";
+          MYSQL_SSL_VERIFY_SERVER_CERT = "false";
+          APP_URL = "http://nullptrderef1";
+        };
+      };
+
+      "docuseal" = {
+        autoStart = true;
+        image = "docuseal/docuseal";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        ports = [ "6008:3000" ];
+        volumes = [
+          "${applicationConfigDir}/docuseal:/data"
+        ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+        };
+      };
+
+      "livebook" = {
+        autoStart = true;
+        image = "ghcr.io/livebook-dev/livebook";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        ports = [
+          "8090:8080"
+          "8091:8081"
+        ];
+        volumes = [
+          "${applicationConfigDir}/livebook:/data"
+        ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+          LIVEBOOK_PASSWORD = secrets.livebook.password;
+        };
+      };
+
+      "cloudbeaver" = {
+        autoStart = true;
+        image = "dbeaver/cloudbeaver:latest";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        ports = [ "8079:8978" ];
+        volumes = [
+          "${applicationConfigDir}/cloudbeaver:/opt/cloudbeaver/workspace"
         ];
         environment = {
           TZ = timeZone;
