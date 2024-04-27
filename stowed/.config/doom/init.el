@@ -63,7 +63,6 @@
        (docker +lsp)
        editorconfig
        (eval +overlay)
-       gist
        (lookup +dictionary +docsets +offline)
        (lsp +peek +eglot)
        (magit +forge)
