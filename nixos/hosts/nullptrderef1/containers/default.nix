@@ -255,22 +255,6 @@
         };
       };
 
-      "whisparr" = {
-        autoStart = true;
-        image = "ghcr.io/hotio/whisparr";
-        dependsOn = [ "qbittorrent-nox" ];
-        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
-        volumes = [
-          "${applicationConfigDir}/Whisparr/:/config"
-          "${videosDir}:/videos"
-          "${downloadsDir}:/downloads"
-        ];
-        ports = [ "6969:6969" ];
-        environment = {
-          TZ = timeZone;
-        };
-      };
-
       # Flaresolver Cloudflare Challenge Solver
       "flareSolverr" = {
         autoStart = true;
@@ -313,21 +297,6 @@
           "${downloadsDir}:/downloads"
         ];
         ports = [ "9117:9117" ];
-      };
-
-      "stash" = {
-        autoStart = true;
-        image = "ghcr.io/hotio/stash";
-        volumes = [
-          "${applicationConfigDir}/Stash/:/config"
-          "${videosDir}:/videos"
-          "${imagesDir}:/images"
-        ];
-        ports = [ "9999:9999" ];
-        environment = {
-          TZ = timeZone;
-        };
-        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
       };
 
       # Server Homepage
