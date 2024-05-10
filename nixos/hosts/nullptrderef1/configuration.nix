@@ -87,6 +87,7 @@
       allowPing = false;
       allowedTCPPorts = [
         13378
+        18999
         19999
         21
         22
@@ -267,19 +268,6 @@
       settings = {
         WebService = {
           AllowUnencrypted = true;
-        };
-      };
-    };
-
-    netdata = {
-      enable = true;
-      config = {
-        global = {
-          "page cache size" = 32;
-          "update every" = 15;
-        };
-        ml = {
-          "enabled" = "yes";
         };
       };
     };
