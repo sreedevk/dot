@@ -1,5 +1,4 @@
 { config, lib, pkgs, secrets, ... }:
-
 {
   imports = [ ./hardware-configuration.nix ./containers ./services ];
 
@@ -103,6 +102,7 @@
         5055
         5299
         53
+        53589
         6003
         6660
         6767
@@ -138,7 +138,6 @@
         9696
         9801
         9999
-        53589
       ];
       allowedUDPPorts = [
         13378
@@ -288,4 +287,3 @@
   system.copySystemConfiguration = false;
   system.stateVersion = "23.11";
 }
-
