@@ -232,6 +232,7 @@
     traceroute
     unzip
     wget
+    xclip
     zip
     zsh
   ];
