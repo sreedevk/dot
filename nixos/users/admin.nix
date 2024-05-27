@@ -48,15 +48,16 @@
       taskwarrior
       taskwarrior-tui
       tmux
+      tmuxPlugins.extrakto
+      tmuxPlugins.jump
+      tmuxPlugins.tmux-thumbs
+      tmuxPlugins.yank
       tokei
+      vim
       xh
       xxd
       yt-dlp
       zoxide
-      tmuxPlugins.extrakto
-      tmuxPlugins.yank
-      tmuxPlugins.tmux-thumbs
-      tmuxPlugins.jump
     ];
   };
 
