@@ -11,6 +11,7 @@
     packages = with pkgs; [
       amfora
       antibody
+      asdf-vm
       bat
       btop
       cava
@@ -52,6 +53,10 @@
       xxd
       yt-dlp
       zoxide
+      tmuxPlugins.extrakto
+      tmuxPlugins.yank
+      tmuxPlugins.tmux-thumbs
+      tmuxPlugins.jump
     ];
   };
 
