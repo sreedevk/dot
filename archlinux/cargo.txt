@@ -1,25 +1,18 @@
 agg v1.4.3 (https//github.com/asciinema/agg#89c95760)
-amp v0.7.0
 bingrep v0.11.0
 blaze-ssh v0.0.4
-cargo-expand v1.0.85
-cargo-generate v0.20.0
-cargo-tarpaulin v0.28.0
-cargo-udeps v0.1.47
+cargo-expand v1.0.87
 cargo-update v13.4.0
 cargo-watch v8.5.2
-csvlens v0.8.1
+csvlens v0.9.0
 deduplicator v0.2.1
 diesel_cli v2.1.1
-gitu v0.19.1
 grex v1.4.5
 hx v0.6.0
 mdbook v0.4.37
-paru v1.11.0
 sea-orm-cli v0.12.15
 spotify-tui v0.25.0
 sqlx-cli v0.7.4
-tetris-tui v0.2.10
 tock v1.0.1
 uiua v0.10.3
 wasm-pack v0.12.1
