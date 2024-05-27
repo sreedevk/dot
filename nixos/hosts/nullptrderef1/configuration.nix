@@ -243,7 +243,6 @@
     ripgrep
     ripgrep-all
     rsync
-    rustup
     sshfs
     starship
     strace
