@@ -124,6 +124,7 @@
         8081
         8083
         8096
+        8099
         8181
         8191
         8686
@@ -156,6 +157,17 @@
   i18n.extraLocaleSettings = {
     LC_TIME = "en_US.UTF-8";
     LC_MONETARY = "en_US.UTF-8";
+  };
+
+  systemd.services.radio-streaming = {
+    description = "enable audio streaming from XHDATA D-328 Radio";
+    enable = true;
+    after = [ "network.target" ];
+    wants = [ "network.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.ffmpeg}/bin/ffmpeg -f alsa -ac 2 -ar 44100 -i hw:0 -acodec libmp3lame -b:a 128k -content_type audio/mpeg -f mp3 icecast://radiosource:${secrets.icecast.password}@localhost:8099/radio";
+      Restart = "always";
+    };
   };
 
   users.users.admin = {
@@ -194,6 +206,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    alsa-utils
     babashka
     cava
     clang
@@ -204,7 +217,10 @@
     dig
     direnv
     fasm-bin
+    ffmpeg
     gnumake
+    icecast
+    instaloader
     iwd
     man
     minicom
@@ -227,8 +243,8 @@
     rsync
     rustup
     sshfs
-    strace
     starship
+    strace
     traceroute
     unzip
     wget
@@ -260,6 +276,35 @@
       pulse.enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
+    };
+
+    icecast = {
+      enable = true;
+      hostname = "nullptrderef1";
+      listen = {
+        address = "0.0.0.0";
+        port = 8099;
+      };
+      admin = {
+        user = "admin";
+        password = secrets.icecast.password;
+      };
+      extraConf = ''
+        <authentication>
+           <source-password>${secrets.icecast.password}</source-password>
+           <relay-user>relay</relay-user>
+           <relay-password>${secrets.icecast.password}</relay-password>
+           <admin-user>admin</admin-user>
+           <admin-password>${secrets.icecast.password}</admin-password>
+        </authentication>
+        <mount type="normal">
+          <mount-name>/radio</mount-name>
+          <username>radiosource</username>
+          <password>${secrets.icecast.password}</password>
+          <dump-file>/tmp/dump-example1.ogg</dump-file>
+          <stream-name>New York City Radio Stream</stream-name>
+        </mount>
+      '';
     };
 
     cockpit = {
