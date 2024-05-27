@@ -13,26 +13,30 @@
     let
       system = "x86_64-linux";
       secrets = builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
-      mkSystem = pkgs: system: hostname: user:
+      mkSystem = pkgs: system: hostname:
         pkgs.lib.nixosSystem {
           system = system;
           modules = [
             (import ./hosts/${hostname}/configuration.nix)
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users."${user}" = (import ./users/${user}.nix);
-              };
-            }
           ];
           specialArgs = { inherit inputs secrets; };
+        };
+
+      mkHome = pkgs: system: username:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgs.legacyPackages."${system}";
+          modules = [
+            ./users/${username}.nix
+          ];
         };
     in
     {
       nixosConfigurations = {
-        nullptrderef1 = mkSystem inputs.nixpkgs system "nullptrderef1" "admin";
+        nullptrderef1 = mkSystem inputs.nixpkgs system "nullptrderef1";
+      };
+
+      homeConfigurations = {
+        admin = mkHome inputs.nixpkgs system "admin";
       };
     };
 }

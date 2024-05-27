@@ -1,5 +1,8 @@
 { configs, pkgs, ... }:
 {
+  programs.zsh = {
+    enable = true;
+  };
 
   home = {
     username = "admin";
@@ -50,6 +53,70 @@
       yt-dlp
       zoxide
     ];
+  };
+
+  home.file = {
+    ".zshrc" = {
+      enable = true;
+      executable = false;
+      recursive = false;
+      source = ../../stowed/.zshrc;
+    };
+    ".zsh" = {
+      enable = true;
+      source = ../../stowed/.zsh;
+      recursive = true;
+    };
+    ".config" = {
+      enable = true;
+      source = ../../stowed/.config;
+      recursive = true;
+    };
+    ".local" = {
+      enable = true;
+      source = ../../stowed/.local;
+      recursive = true;
+    };
+    ".bashrc" = {
+      enable = true;
+      source = ../../stowed/.bashrc;
+      recursive = true;
+    };
+    ".gitattributes" = {
+      enable = true;
+      source = ../../stowed/.gitattributes;
+      recursive = true;
+    };
+    ".gitconfig" = {
+      enable = true;
+      source = ../../stowed/.gitconfig;
+      recursive = true;
+    };
+    ".gitignore" = {
+      enable = true;
+      source = ../../stowed/.gitignore;
+      recursive = true;
+    };
+    ".taskrc" = {
+      enable = true;
+      source = ../../stowed/.taskrc;
+      recursive = true;
+    };
+    ".tmux.conf" = {
+      enable = true;
+      source = ../../stowed/.tmux.conf;
+      recursive = true;
+    };
+    ".profile" = {
+      enable = true;
+      source = ../../stowed/.profile;
+      recursive = true;
+    };
+    ".vimrc" = {
+      enable = true;
+      source = ../../stowed/.vimrc;
+      recursive = true;
+    };
   };
 
   programs.home-manager.enable = true;
