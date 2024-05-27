@@ -80,3 +80,10 @@ map('n', '<Leader>j', [[<cmd>lua require('treesj').toggle()<cr>]])
 -- zoxide
 map('n', '<Leader>zi', [[<cmd>Zi<cr>]])
 map('n', '<Leader>zz', ':Z ')
+
+-- obsidian
+map('n', '<Leader>nw',  [[<cmd>ObsidianWorkspace<cr>]])
+map('n', '<Leader>nn',  [[<cmd>ObsidianNew<cr>]])
+map('n', '<Leader>ns',  [[<cmd>ObsidianSearch<cr>]])
+map('n', '<Leader>nf',  [[<cmd>ObsidianQuickSwitch<cr>]])
+map('n', '<Leader>nrn', [[<cmd>ObsidianRename<cr>]])
