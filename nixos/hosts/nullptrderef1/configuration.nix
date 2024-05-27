@@ -218,7 +218,9 @@
     direnv
     fasm-bin
     ffmpeg
+    git
     gnumake
+    home-manager
     icecast
     instaloader
     iwd
