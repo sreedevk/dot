@@ -2,13 +2,12 @@
 {
   services.adguardhome = {
     enable = true;
+    host = "0.0.0.0";
+    port = 8000;
     mutableSettings = false;
     openFirewall = true;
     extraArgs = [ ];
     settings = {
-      http = {
-        address = "0.0.0.0:8000";
-      };
       filters = [
         {
           enabled = true;
@@ -59,13 +58,9 @@
           ID = 25;
         }
       ];
-      dns = {
-        bind_host = "0.0.0.0";
-        bootstrap_dns = [ "9.9.9.9" "8.8.8.8" "8.8.4.4" ];
-        filtering = {
-          protection_enabled = true;
-          filtering_enabled = true;
-        };
+      filtering = {
+        protection_enabled = true;
+        filtering_enabled = true;
         rewrites = [
           { domain = "nullptrderef1"; answer = "192.168.1.179"; }
           { domain = "nullptrderef1.localhost"; answer = "192.168.1.179"; }
@@ -74,6 +69,10 @@
           { domain = "rpi4b.localhost"; answer = "192.168.1.152"; }
           { domain = "devstation.localhost"; answer = "192.168.1.249"; }
         ];
+      };
+      dns = {
+        bind_host = "0.0.0.0";
+        bootstrap_dns = [ "9.9.9.9" "8.8.8.8" "8.8.4.4" ];
         upstream_dns = [
           "https://dns10.quad9.net/dns-query"
           "https://extended.dns.mullvad.net/dns-query"
