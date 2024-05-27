@@ -73,6 +73,7 @@
       dns = {
         bind_host = "0.0.0.0";
         bootstrap_dns = [ "9.9.9.9" "8.8.8.8" "8.8.4.4" ];
+        ratelimit = 200;
         upstream_dns = [
           "https://dns10.quad9.net/dns-query"
           "https://extended.dns.mullvad.net/dns-query"
