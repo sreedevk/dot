@@ -207,8 +207,6 @@
 
   environment.systemPackages = with pkgs; [
     alsa-utils
-    babashka
-    cava
     clang
     cmake
     cryptsetup
