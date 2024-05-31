@@ -658,6 +658,21 @@
         };
       };
 
+      "archivebox" = {
+        autoStart = true;
+        image = "archivebox/archivebox";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        ports = [ "8089:8000" ];
+        volumes = [
+          "${applicationConfigDir}/archivebox:/data"
+        ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+        };
+      };
+
       "cloudbeaver" = {
         autoStart = true;
         image = "dbeaver/cloudbeaver:latest";
