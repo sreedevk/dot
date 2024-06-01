@@ -8,6 +8,10 @@
     openFirewall = true;
     extraArgs = [ ];
     settings = {
+      statistics = {
+        interval = "168h";
+        enabled = true;
+      };
       filters = [
         {
           enabled = true;
