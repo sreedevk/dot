@@ -31,6 +31,7 @@ alias e="$EDITOR"
 alias mux='tmuxinator'
 alias t="tmux"
 alias ta="tmux a"
+alias ts="tmux-sessionizer"
 
 # git
 alias g='git'
