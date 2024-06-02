@@ -75,6 +75,7 @@
       tmuxPlugins.jump
       tmuxPlugins.tmux-thumbs
       tmuxPlugins.yank
+      tmuxinator
       tokei
       vim
       xh
