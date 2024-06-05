@@ -236,21 +236,6 @@
         };
       };
 
-      "homarr" = {
-        autoStart = true;
-        image = "ghcr.io/ajnart/homarr:latest";
-        extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" ];
-        volumes = [
-          "${opts.paths.applicationConfigDir}/Homarr/config:/app/data/configs"
-          "${opts.paths.applicationConfigDir}/Homarr/data:/data"
-          "${opts.paths.applicationConfigDir}/Homarr/icons:/icons"
-        ];
-        ports = [ "7575:7575" ];
-        environment = {
-          TZ = opts.timeZone;
-        };
-      };
-
       # Flaresolver Cloudflare Challenge Solver
       "flareSolverr" = {
         autoStart = true;
