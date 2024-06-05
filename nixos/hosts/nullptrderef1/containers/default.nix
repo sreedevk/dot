@@ -34,6 +34,9 @@
 
       adminUID = "1000";
       adminGID = "100";
+
+      ethernetInterface = "enp2s0";
+      wirelessInterface = "wlan0";
     in
     {
       # Jellyfin Media Player
@@ -681,6 +684,67 @@
         volumes = [
           "${applicationConfigDir}/cloudbeaver:/opt/cloudbeaver/workspace"
         ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+        };
+      };
+
+      "farfalle" = {
+        autoStart = true;
+        image = "ghcr.io/rashadphz/farfalle:main";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" "--add-host=host.docker.internal:host-gateway" ];
+        ports = [ "8199:8000" "9199:8080" "3199:3000" ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+          SEARCH_PROVIDER = "searxng";
+        };
+      };
+
+      "rss-bridge" = {
+        autoStart = true;
+        image = "rssbridge/rss-bridge:latest";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        ports = [ "8768:80" ];
+        volumes = [
+          "${applicationConfigDir}/rss-bridge:/config"
+        ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+        };
+      };
+
+      "baikal" = {
+        autoStart = true;
+        image = "ckulka/baikal:nginx";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        ports = [ "8945:80" ];
+        volumes = [
+          "${applicationConfigDir}/baikal/config:/var/www/baikal/config"
+          "${applicationConfigDir}/baikal/data:/var/www/baikal/Specific"
+        ];
+        environment = {
+          TZ = timeZone;
+          PUID = adminUID;
+          PGID = adminGID;
+        };
+      };
+
+      "olivetin" = {
+        autoStart = true;
+        image = "jamesread/olivetin";
+        extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
+        volumes = [
+          "${applicationConfigDir}/olivetin:/config"
+          "${podmanSocket}:/var/run/docker.sock"
+        ];
+        ports = [ "1337:1337" ];
+        user = "root";
         environment = {
           TZ = timeZone;
           PUID = adminUID;
