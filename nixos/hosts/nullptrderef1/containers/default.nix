@@ -13,30 +13,27 @@
       applicationUserName = "nullptrderef1";
       lanAddress = "192.168.1.179";
       timeZone = "America/New_York";
-      podmanSocket = "/var/run/podman/podman.sock";
-
-      downloadsDir = "/mnt/data/downloads/";
-      torrentsWatchDir = "/mnt/data/torrents/";
-
-      applicationConfigDir = "/mnt/data/applications";
-
-      moviesDir = "/mnt/data/media/movies/";
-      tvDir = "/mnt/data/media/shows/";
-      audioBooksDir = "/mnt/data/media/audiobooks/";
-      musicDir = "/mnt/data/media/music/";
-      videosDir = "/mnt/data/media/videos/";
-      imagesDir = "/mnt/data/media/images/";
-      booksDir = "/mnt/data/media/books/";
-      magazinesDir = "/mnt/data/media/magazines/";
-
-      encTvDir = "/mnt/enc_data_drive/media/shows/";
-      encVideosDir = "/mnt/enc_data_drive/media/videos/";
-
       adminUID = "1000";
       adminGID = "100";
-
       ethernetInterface = "enp2s0";
       wirelessInterface = "wlan0";
+
+      paths = {
+        downloadsDir = "/mnt/data/downloads/";
+        torrentsWatchDir = "/mnt/data/torrents/";
+        applicationConfigDir = "/mnt/data/applications";
+        moviesDir = "/mnt/data/media/movies/";
+        tvDir = "/mnt/data/media/shows/";
+        audioBooksDir = "/mnt/data/media/audiobooks/";
+        musicDir = "/mnt/data/media/music/";
+        videosDir = "/mnt/data/media/videos/";
+        imagesDir = "/mnt/data/media/images/";
+        booksDir = "/mnt/data/media/books/";
+        magazinesDir = "/mnt/data/media/magazines/";
+        encTvDir = "/mnt/enc_data_drive/media/shows/";
+        encVideosDir = "/mnt/enc_data_drive/media/videos/";
+        podmanSocket = "/var/run/podman/podman.sock";
+      };
     in
     {
       # Jellyfin Media Player
@@ -44,14 +41,14 @@
         autoStart = true;
         image = "jellyfin/jellyfin";
         volumes = [
-          "${applicationConfigDir}/jellyfin/config:/config"
-          "${applicationConfigDir}/jellyfin/cache/:/cache"
-          "${applicationConfigDir}/jellyfin/log/:/log"
-          "${moviesDir}:/movies"
-          "${tvDir}:/tv"
-          "${encTvDir}:/enctv"
-          "${audioBooksDir}:/audiobooks"
-          "${musicDir}:/music"
+          "${paths.applicationConfigDir}/jellyfin/config:/config"
+          "${paths.applicationConfigDir}/jellyfin/cache/:/cache"
+          "${paths.applicationConfigDir}/jellyfin/log/:/log"
+          "${paths.moviesDir}:/movies"
+          "${paths.tvDir}:/tv"
+          "${paths.encTvDir}:/enctv"
+          "${paths.audioBooksDir}:/audiobooks"
+          "${paths.musicDir}:/music"
         ];
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "8096:8096" ];
@@ -66,7 +63,7 @@
         image = "fallenbagel/jellyseerr:latest";
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/jellyseer/:/app/config"
+          "${paths.applicationConfigDir}/jellyseer/:/app/config"
         ];
         ports = [ "5055:5055" ];
         environment = {
@@ -82,8 +79,8 @@
         image = "plexinc/pms-docker";
         extraOptions = [ "--network=host" ];
         volumes = [
-          "${applicationConfigDir}/plex/database/:/config"
-          "${applicationConfigDir}/plex/transcode/:/transcode"
+          "${paths.applicationConfigDir}/plex/database/:/config"
+          "${paths.applicationConfigDir}/plex/transcode/:/transcode"
         ];
         environment = {
           TZ = timeZone;
@@ -107,14 +104,14 @@
           USER_GID = adminGID;
         };
         volumes = [
-          "${applicationConfigDir}/qbittorrent/config/:/config"
-          "${applicationConfigDir}/vuetorrent:/vuetorrent"
-          "${downloadsDir}:/downloads"
-          "${torrentsWatchDir}:/torrents"
-          "${imagesDir}:/images"
-          "${videosDir}:/videos"
-          "${booksDir}:/books"
-          "${magazinesDir}:/magazines"
+          "${paths.applicationConfigDir}/qbittorrent/config/:/config"
+          "${paths.applicationConfigDir}/vuetorrent:/vuetorrent"
+          "${paths.downloadsDir}:/downloads"
+          "${paths.torrentsWatchDir}:/torrents"
+          "${paths.imagesDir}:/images"
+          "${paths.videosDir}:/videos"
+          "${paths.booksDir}:/books"
+          "${paths.magazinesDir}:/magazines"
         ];
         extraOptions = [ "--network=host" ];
       };
@@ -126,7 +123,7 @@
         dependsOn = [ "qbittorrent-nox" ];
         ports = [ "7474:7474" ];
         volumes = [
-          "${applicationConfigDir}/autobrr/:/config"
+          "${paths.applicationConfigDir}/autobrr/:/config"
         ];
         environment = {
           TZ = timeZone;
@@ -151,7 +148,7 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "3100:7745" ];
         volumes = [
-          "${applicationConfigDir}/Homebox:/data"
+          "${paths.applicationConfigDir}/Homebox:/data"
         ];
         environment = {
           HBOX_LOG_LEVEL = "info";
@@ -167,9 +164,9 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         dependsOn = [ "qbittorrent-nox" ];
         volumes = [
-          "${applicationConfigDir}/Radarr/:/config"
-          "${moviesDir}:/movies"
-          "${downloadsDir}:/downloads"
+          "${paths.applicationConfigDir}/Radarr/:/config"
+          "${paths.moviesDir}:/movies"
+          "${paths.downloadsDir}:/downloads"
         ];
         ports = [ "7878:7878" ];
         environment = {
@@ -184,10 +181,10 @@
         dependsOn = [ "qbittorrent-nox" ];
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/Sonarr/:/config"
-          "${tvDir}:/tv"
-          "${encTvDir}:/enctv"
-          "${downloadsDir}:/downloads"
+          "${paths.applicationConfigDir}/Sonarr/:/config"
+          "${paths.tvDir}:/tv"
+          "${paths.encTvDir}:/enctv"
+          "${paths.downloadsDir}:/downloads"
         ];
         ports = [ "8989:8989" ];
         environment = {
@@ -202,9 +199,9 @@
         dependsOn = [ "qbittorrent-nox" ];
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/Lidarr/:/config"
-          "${musicDir}:/music"
-          "${downloadsDir}:/downloads"
+          "${paths.applicationConfigDir}/Lidarr/:/config"
+          "${paths.musicDir}:/music"
+          "${paths.downloadsDir}:/downloads"
         ];
         ports = [ "8686:8686" ];
         environment = {
@@ -219,9 +216,9 @@
         dependsOn = [ "qbittorrent-nox" ];
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/Readarr/:/config"
-          "${booksDir}:/books"
-          "${downloadsDir}:/downloads"
+          "${paths.applicationConfigDir}/Readarr/:/config"
+          "${paths.booksDir}:/books"
+          "${paths.downloadsDir}:/downloads"
         ];
         ports = [ "8787:8787" ];
         environment = {
@@ -234,7 +231,7 @@
         image = "evanbuss/openbooks";
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${booksDir}:/books"
+          "${paths.booksDir}:/books"
         ];
         ports = [ "8004:80" ];
         cmd = [ "--persist" "--name='${applicationUserName}'" ];
@@ -248,9 +245,9 @@
         image = "ghcr.io/ajnart/homarr:latest";
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/Homarr/config:/app/data/configs"
-          "${applicationConfigDir}/Homarr/data:/data"
-          "${applicationConfigDir}/Homarr/icons:/icons"
+          "${paths.applicationConfigDir}/Homarr/config:/app/data/configs"
+          "${paths.applicationConfigDir}/Homarr/data:/data"
+          "${paths.applicationConfigDir}/Homarr/icons:/icons"
         ];
         ports = [ "7575:7575" ];
         environment = {
@@ -276,8 +273,8 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         dependsOn = [ "flareSolverr" ];
         volumes = [
-          "${applicationConfigDir}/Prowlarr/:/config"
-          "${downloadsDir}:/downloads"
+          "${paths.applicationConfigDir}/Prowlarr/:/config"
+          "${paths.downloadsDir}:/downloads"
         ];
         ports = [ "9696:9696" ];
         environment = {
@@ -296,8 +293,8 @@
           AUTO_UPDATE = "true";
         };
         volumes = [
-          "${applicationConfigDir}/Jackett:/config"
-          "${downloadsDir}:/downloads"
+          "${paths.applicationConfigDir}/Jackett:/config"
+          "${paths.downloadsDir}:/downloads"
         ];
         ports = [ "9117:9117" ];
       };
@@ -308,7 +305,7 @@
         image = "b4bz/homer:latest";
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/Homer/:/www/assets"
+          "${paths.applicationConfigDir}/Homer/:/www/assets"
         ];
         ports = [ "80:8080" ];
       };
@@ -319,8 +316,8 @@
         image = "freshrss/freshrss:edge";
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/FreshRSS/data/:/var/www/FreshRSS/data"
-          "${applicationConfigDir}/FreshRSS/extensions/:/var/www/FreshRSS/extensions"
+          "${paths.applicationConfigDir}/FreshRSS/data/:/var/www/FreshRSS/data"
+          "${paths.applicationConfigDir}/FreshRSS/extensions/:/var/www/FreshRSS/extensions"
         ];
         ports = [ "8808:80" ];
         environment = {
@@ -336,9 +333,9 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "5000:5000" ];
         volumes = [
-          "${applicationConfigDir}/Kavita:/kavita/config"
-          "${booksDir}:/books"
-          "${magazinesDir}:/magazines"
+          "${paths.applicationConfigDir}/Kavita:/kavita/config"
+          "${paths.booksDir}:/books"
+          "${paths.magazinesDir}:/magazines"
         ];
       };
 
@@ -349,8 +346,8 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "13378:80" ];
         volumes = [
-          "${applicationConfigDir}/audiobookshelf:/config"
-          "${audioBooksDir}:/audiobooks"
+          "${paths.applicationConfigDir}/audiobookshelf:/config"
+          "${paths.audioBooksDir}:/audiobooks"
         ];
         environment = {
           TZ = timeZone;
@@ -368,8 +365,8 @@
         };
         ports = [ "7777:80" ];
         volumes = [
-          "${applicationConfigDir}/ntfy/cache:/var/cache/ntfy"
-          "${applicationConfigDir}/ntfy/data/:/etc/ntfy"
+          "${paths.applicationConfigDir}/ntfy/cache:/var/cache/ntfy"
+          "${paths.applicationConfigDir}/ntfy/data/:/etc/ntfy"
         ];
       };
 
@@ -381,9 +378,9 @@
         ports = [ "6660:80" ];
         volumes = [
           "/mnt/data/:/srv"
-          "${applicationConfigDir}/filebrowser/settings.json:/config/settings.json"
-          "${applicationConfigDir}/filebrowser/filebrowser.db:/config/filebrowser.db"
-          "${applicationConfigDir}/filebrowser/database.db:/config/database.db"
+          "${paths.applicationConfigDir}/filebrowser/settings.json:/config/settings.json"
+          "${paths.applicationConfigDir}/filebrowser/filebrowser.db:/config/filebrowser.db"
+          "${paths.applicationConfigDir}/filebrowser/database.db:/config/database.db"
         ];
         environment = {
           PUID = adminUID;
@@ -398,7 +395,7 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "8081:8081" ];
         volumes = [
-          "${downloadsDir}/Metube:/downloads"
+          "${paths.downloadsDir}/Metube:/downloads"
         ];
         environment = {
           TZ = timeZone;
@@ -436,8 +433,8 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "6800:6800" "6880:80" ];
         volumes = [
-          "${downloadsDir}:/downloads"
-          "${applicationConfigDir}/aria2:/conf"
+          "${paths.downloadsDir}:/downloads"
+          "${paths.applicationConfigDir}/aria2:/conf"
         ];
         environment = {
           TZ = timeZone;
@@ -452,7 +449,7 @@
         image = "sissbruecker/linkding:latest";
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/linkding:/etc/linkding/data"
+          "${paths.applicationConfigDir}/linkding:/etc/linkding/data"
         ];
         ports = [ "9090:9090" ];
         environment = {
@@ -480,7 +477,7 @@
         image = "louislam/uptime-kuma:1";
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/uptime-kuma/:/app/data"
+          "${paths.applicationConfigDir}/uptime-kuma/:/app/data"
         ];
         ports = [ "3001:3001" ];
         environment = {
@@ -495,8 +492,8 @@
         image = "photoprism/photoprism";
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" "--privileged" ];
         volumes = [
-          "${applicationConfigDir}/photoprism/:/photoprism/storage"
-          "${imagesDir}:/photoprism/originals"
+          "${paths.applicationConfigDir}/photoprism/:/photoprism/storage"
+          "${paths.imagesDir}:/photoprism/originals"
         ];
         ports = [ "2342:2342" ];
         environment = {
@@ -518,8 +515,8 @@
           "9080:9000"
         ];
         volumes = [
-          "${podmanSocket}:/var/run/docker.sock"
-          "${applicationConfigDir}/portrainer:/data"
+          "${paths.podmanSocket}:/var/run/docker.sock"
+          "${paths.applicationConfigDir}/portrainer:/data"
         ];
       };
 
@@ -529,10 +526,10 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "6767:6767" ];
         volumes = [
-          "${applicationConfigDir}/Bazarr/config:/config"
-          "${tvDir}:/tv"
-          "${moviesDir}:/movies"
-          "${encTvDir}:/enctv"
+          "${paths.applicationConfigDir}/Bazarr/config:/config"
+          "${paths.tvDir}:/tv"
+          "${paths.moviesDir}:/movies"
+          "${paths.encTvDir}:/enctv"
         ];
         environment = {
           TZ = timeZone;
@@ -547,8 +544,8 @@
         ports = [ "4533:4533" ];
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/navidrome"
-          "${musicDir}:/music:ro"
+          "${paths.applicationConfigDir}/navidrome"
+          "${paths.musicDir}:/music:ro"
         ];
         environment = {
           TZ = timeZone;
@@ -567,7 +564,7 @@
         ports = [ "6501:6501" ];
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/znc/:/config"
+          "${paths.applicationConfigDir}/znc/:/config"
         ];
         environment = {
           TZ = timeZone;
@@ -580,7 +577,7 @@
         autoStart = true;
         image = "ghcr.io/thelounge/thelounge:latest";
         ports = [ "9000:9000" ];
-        volumes = [ "${applicationConfigDir}/thelounge:/var/opt/thelounge" ];
+        volumes = [ "${paths.applicationConfigDir}/thelounge:/var/opt/thelounge" ];
       };
 
       "firefly-db" = {
@@ -589,7 +586,7 @@
         ports = [ "3306:3306" ];
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/firefly/db:/var/lib/mysql"
+          "${paths.applicationConfigDir}/firefly/db:/var/lib/mysql"
         ];
         environment = {
           MYSQL_RANDOM_ROOT_PASSWORD = "yes";
@@ -606,7 +603,7 @@
         dependsOn = [ "firefly-db" ];
         ports = [ "6003:8080" ];
         volumes = [
-          "${applicationConfigDir}/firefly/uploads/:/var/www/html/storage/upload"
+          "${paths.applicationConfigDir}/firefly/uploads/:/var/www/html/storage/upload"
         ];
         environment = {
           APP_ENV = "production";
@@ -633,7 +630,7 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "6008:3000" ];
         volumes = [
-          "${applicationConfigDir}/docuseal:/data"
+          "${paths.applicationConfigDir}/docuseal:/data"
         ];
         environment = {
           TZ = timeZone;
@@ -651,7 +648,7 @@
           "8091:8081"
         ];
         volumes = [
-          "${applicationConfigDir}/livebook:/data"
+          "${paths.applicationConfigDir}/livebook:/data"
         ];
         environment = {
           TZ = timeZone;
@@ -667,7 +664,7 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "8089:8000" ];
         volumes = [
-          "${applicationConfigDir}/archivebox:/data"
+          "${paths.applicationConfigDir}/archivebox:/data"
         ];
         environment = {
           TZ = timeZone;
@@ -682,7 +679,7 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "8079:8978" ];
         volumes = [
-          "${applicationConfigDir}/cloudbeaver:/opt/cloudbeaver/workspace"
+          "${paths.applicationConfigDir}/cloudbeaver:/opt/cloudbeaver/workspace"
         ];
         environment = {
           TZ = timeZone;
@@ -710,7 +707,7 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "8768:80" ];
         volumes = [
-          "${applicationConfigDir}/rss-bridge:/config"
+          "${paths.applicationConfigDir}/rss-bridge:/config"
         ];
         environment = {
           TZ = timeZone;
@@ -725,8 +722,8 @@
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         ports = [ "8945:80" ];
         volumes = [
-          "${applicationConfigDir}/baikal/config:/var/www/baikal/config"
-          "${applicationConfigDir}/baikal/data:/var/www/baikal/Specific"
+          "${paths.applicationConfigDir}/baikal/config:/var/www/baikal/config"
+          "${paths.applicationConfigDir}/baikal/data:/var/www/baikal/Specific"
         ];
         environment = {
           TZ = timeZone;
@@ -740,8 +737,8 @@
         image = "jamesread/olivetin";
         extraOptions = [ "--add-host=nullptrderef1:${lanAddress}" ];
         volumes = [
-          "${applicationConfigDir}/olivetin:/config"
-          "${podmanSocket}:/var/run/docker.sock"
+          "${paths.applicationConfigDir}/olivetin:/config"
+          "${paths.podmanSocket}:/var/run/docker.sock"
         ];
         ports = [ "1337:1337" ];
         user = "root";
