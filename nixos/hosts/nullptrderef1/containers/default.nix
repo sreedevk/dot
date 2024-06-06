@@ -678,7 +678,34 @@
           TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
-          SEARCH_PROVIDER = "searxng";
+          SEARCH_PROVIDER = "tavily";
+          TAVILY_API_KEY = secrets.farfalle.tavily_api_key;
+        };
+      };
+
+      "ollama" = {
+        autoStart = true;
+        image = "ollama/ollama";
+        extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" ];
+        volumes = [ "${opts.paths.applicationConfigDir}/Ollama:/root/.ollama" ];
+        ports = [ "11434:11434" ];
+        environment = {
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
+      };
+
+      "ollama-web" = {
+        autoStart = true;
+        image = "ghcr.io/open-webui/open-webui:main";
+        extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--add-host=host.docker.internal:host-gateway" ];
+        volumes = [ "${opts.paths.applicationConfigDir}/OllamaWeb:/app/backend/data" ];
+        ports = [ "3134:8080" ];
+        environment = {
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
         };
       };
 
