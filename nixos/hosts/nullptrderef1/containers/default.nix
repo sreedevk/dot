@@ -678,8 +678,9 @@
           TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
-          SEARCH_PROVIDER = "tavily";
+          SEARCH_PROVIDER = "searxng";
           TAVILY_API_KEY = secrets.farfalle.tavily_api_key;
+          SEARXNG_BASE_URL = "http://nullptrderef1:9199/";
         };
       };
 
