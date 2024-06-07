@@ -7,6 +7,7 @@ droidcam_start() {
   DROIDCAM_IP="${1:-$DROIDCAM_IP}"
   DROIDCAM_PORT="${2:-$DROIDCAM_PORT}"
   systemd-run --user --unit=droidcam /usr/bin/droidcam-cli $DROIDCAM_IP $DROIDCAM_PORT
+  xdg-open "http://${DROIDCAM_IP}:${DROIDCAM_PORT}/remote"
 }
 
 droidcam_stop() {
