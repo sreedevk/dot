@@ -34,6 +34,10 @@ return {
     lazy = true,
     cmd = "UndotreeToggle",
   },
+  {
+    "danymat/neogen",
+    config = true,
+  },
 
   {
     "tpope/vim-tbone",
