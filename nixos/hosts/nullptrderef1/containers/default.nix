@@ -26,6 +26,7 @@
           musicDir = "/mnt/data/media/music/";
           videosDir = "/mnt/data/media/videos/";
           imagesDir = "/mnt/data/media/images/";
+          encImagesDir = "/mnt/enc_data_drive/media/images/";
           booksDir = "/mnt/data/media/books/";
           magazinesDir = "/mnt/data/media/magazines/";
           encTvDir = "/mnt/enc_data_drive/media/shows/";
@@ -476,7 +477,8 @@
         extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--privileged" "--no-healthcheck" ];
         volumes = [
           "${opts.paths.applicationConfigDir}/photoprism/:/photoprism/storage"
-          "${opts.paths.imagesDir}:/photoprism/originals"
+          "${opts.paths.imagesDir}:/photoprism/originals/generic"
+          "${opts.paths.encImagesDir}:/photoprism/originals/personal"
         ];
         ports = [ "2342:2342" ];
         environment = {
