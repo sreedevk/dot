@@ -68,7 +68,7 @@
       ruby
       stow
       tailspin
-      taskwarrior
+      taskwarrior3
       taskwarrior-tui
       tmux
       tmuxPlugins.extrakto
