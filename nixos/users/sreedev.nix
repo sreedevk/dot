@@ -52,6 +52,17 @@
       source = ../../stowed/.gitignore;
       recursive = true;
     };
+    ".zshenv" = {
+      enable = true;
+      text = ''
+        export JIRA_API_TOKEN="${secrets.jira.token}"
+        export CARGO_REGISTRY_TOKEN="${secrets.cargo.token}"
+        export DIGITAL_OCEAN_TOKEN="${secrets.digital_ocean.token}"
+        export OPEN_WEATHER_API_KEY="${secrets.openweather.token}"
+        export PASTEBIN_API_KEY="${secrets.pastebin.token}"
+        export WALLHAVEN_API_KEY="${secrets.wallhaven.token}"
+      '';
+    };
     ".taskrc" = {
       enable = true;
       text = ''
@@ -77,6 +88,11 @@
     ".vimrc" = {
       enable = true;
       source = ../../stowed/.vimrc;
+      recursive = true;
+    };
+    ".Xresources" = {
+      enable = true;
+      source = ../../stowed/.Xresources;
       recursive = true;
     };
   };
