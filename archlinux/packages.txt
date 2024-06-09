@@ -24,6 +24,7 @@ cava 0.10.2-2
 cava-debug 0.10.2-2
 clang 17.0.6-2
 cmake 3.29.5-2
+csvlens 0.9.1-1
 cuda 12.5.0-1
 darktable 2:4.6.1-3
 dbeaver 24.1.0-1
@@ -57,6 +58,8 @@ fasm 1.73.32-1
 fastfetch 2.15.0-1
 fd 10.1.0-1
 feh 3.10.2-1
+fjira-bin 1.3.2-1
+fjira-bin-debug 1.3.2-1
 flatpak 1:1.15.8-1
 floorp-bin 11.13.3-1
 floorp-bin-debug 11.10.5-1
@@ -119,6 +122,7 @@ lxappearance 0.6.3-4
 maim 5.8.0-2
 man-db 2.12.1-1
 mariadb-clients 11.4.2-1
+mdbook 0.4.40-1
 mesa-utils 9.0.0-4
 mesa-vdpau 1:24.1.1-1
 minecraft-launcher 1:1.0.1221-1
@@ -252,7 +256,6 @@ xorg-server-xephyr 21.1.13-1
 xorg-xev 1.2.6-1
 xorg-xinit 1.4.2-1
 xorg-xrandr 1.5.2-1
-xpipe 1:9.4.1-1
 yt-dlp 2024.05.27-1
 zathura 0.5.6-2
 zathura-pdf-mupdf 0.4.3-2

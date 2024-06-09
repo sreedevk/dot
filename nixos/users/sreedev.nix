@@ -11,6 +11,7 @@
       hledger
       httpie
       jira-cli-go
+      uiua
     ];
   };
   home.file = {

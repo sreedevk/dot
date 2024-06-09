@@ -4,15 +4,10 @@ blaze-ssh v0.0.4
 cargo-expand v1.0.87
 cargo-update v13.4.0
 cargo-watch v8.5.2
-csvlens v0.9.0
 deduplicator v0.2.1
 diesel_cli v2.2.0
 grex v1.4.5
 hx v0.6.0
-mdbook v0.4.37
 sea-orm-cli v0.12.15
-spotify-tui v0.25.0
 sqlx-cli v0.7.4
-tock v1.0.1
-uiua v0.10.3
 wasm-pack v0.12.1
