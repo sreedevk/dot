@@ -6,6 +6,11 @@
     stateVersion = "23.11";
   };
   home.file = {
+    ".tool-versions" = {
+      enable = true;
+      source = ../../stowed/.tool-versions;
+      recursive = true;
+    };
     ".zshrc" = {
       enable = true;
       executable = false;
