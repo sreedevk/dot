@@ -19,6 +19,12 @@
         User git
         IdentityFile ~/.ssh/devtechnica
         IdentitiesOnly yes
+
+      Host nullptrderef1
+        HostName nullptrderef1
+        User admin
+        IdentityFile ~/.ssh/devtechnica
+        IdentitiesOnly yes
     '';
   };
 
