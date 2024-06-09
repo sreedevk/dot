@@ -1,33 +1,6 @@
 { configs, pkgs, secrets, ... }:
 {
   imports = [ ./shared ];
-
-  programs.zsh = {
-    enable = true;
-  };
-
-  programs.ssh = {
-    enable = true;
-    extraConfig = ''
-      Host sree.dev
-        HostName sree.dev
-        User deploy
-        IdentityFile ~/.ssh/devtechnica
-
-      Host github.com
-        HostName github.com
-        User git
-        IdentityFile ~/.ssh/devtechnica
-        IdentitiesOnly yes
-
-      Host gitlab.com
-        HostName gitlab.com
-        User git
-        IdentityFile ~/.ssh/devtechnica
-        IdentitiesOnly yes
-    '';
-  };
-
   home = {
     username = "admin";
     homeDirectory = "/home/admin";
