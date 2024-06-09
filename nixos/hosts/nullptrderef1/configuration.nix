@@ -171,6 +171,21 @@
     };
   };
 
+  systemd.services.taskchampion-sync = {
+    description = "taskwarrior task server";
+    enable = true;
+    after = [ "network.target" ];
+    wants = [ "network.target" ];
+    serviceConfig = {
+      ExecStart = ''
+        ${pkgs.taskchampion-sync-server}/bin/taskchampion-sync-server \
+          --port 8080 \
+          -d /mnt/data/applications/taskchampion
+      '';
+      Restart = "always";
+    };
+  };
+
   users.users.admin = {
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -245,6 +260,7 @@
     sshfs
     starship
     strace
+    taskchampion-sync-server
     traceroute
     unzip
     wget
