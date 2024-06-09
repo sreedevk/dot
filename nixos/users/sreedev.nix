@@ -11,6 +11,7 @@
       direnv
       duckdb
       eza
+      fzf
       hledger
       httpie
       jira-cli-go
