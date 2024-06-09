@@ -1,7 +1,8 @@
-<h1 align="center">The Dot Project</h1>
-<p align="center">
-This is a collection of my dot configuration files.
-</p>
+# Dotfiles & Nix(OS) Configurations
+
+This repository contains configurations for various programs & Nix(OS).
+
+## Screenshots
 
 clock/cava/emacs/htop/nvtop/polybar |  emacs/cava/fastfetch
 :-------------------------:|:-------------------------:
@@ -11,41 +12,13 @@ neovim splash  | neovim term
 :-------------------------:|:-------------------------:
 ![](https://user-images.githubusercontent.com/36154121/235316773-c9df3bb9-7eca-4927-a193-b729c7a57cec.png) | ![](https://user-images.githubusercontent.com/36154121/235316809-34b8bb75-1a70-4cad-bc5f-f50830c2d1d1.png)
 
+## Programs
 
-### What's in the box?
-- Neovim
-- Tmux
-- ZShell
-- Bash
-- i3wm
-- Kitty
-- Alacritty
-- Doom Emacs
-- Dunst
-- fastfetch
-- Polybar
-- Rofi
-- Starship
-- Picom
-- Vim
-- Gitconfig (with delta pager)
-
-## Install
-
-### Clone
-```bash
-git clone https://github.com/sreedevk/dot ~/.dot
-```
-
-### Dependencies
-
-```bash
-cd ~/.dot
-./scripts/arch_install_deps.sh
-```
-
-### Link
-```bash
-cd ~/.dot
-stow stowed
-```
+category | programs
+:-------:|:--------:
+editors | (Neo)vim / (Doom)emacs
+shells  | zsh / bash / starship
+wms     | i3wm / polybar / rofi / picom
+terminals | alacritty / tmux
+notifications | dunst
+other | fastfetch / git
