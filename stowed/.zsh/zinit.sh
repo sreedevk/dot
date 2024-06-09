@@ -25,3 +25,15 @@ zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
 	"commit tag") git show --color=always $word ;;
 	*) git show --color=always $word | delta ;;
 	esac'
+
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+
+
+
+zinit load Aloxaf/fzf-tab
+zinit load zsh-users/zsh-autosuggestions
+zinit load jeffreytse/zsh-vi-mode
+zinit load zdharma-continuum/fast-syntax-highlighting

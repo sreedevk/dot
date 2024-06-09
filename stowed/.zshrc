@@ -39,9 +39,7 @@ export HISTCONTROL=erasedups:ignoredups:ignorespace
 zle -N edit-command-line
 
 # LOAD COMPILED PLUGINS
-[ -f "$HOME/.zsh/plugin-opts.sh" ]  && source ~/.zsh/plugin-opts.sh
-[ ! -f "$HOME/.zsh/plugins.sh" ]    && antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
-[ -f "$HOME/.zsh/plugins.sh" ]      && source ~/.zsh/plugins.sh
+[ -f "$HOME/.zsh/zinit.sh" ]  && source "$HOME/.zsh/zinit.sh"
 
 # LOAD ALIASES & FUNCTIONS
 [ -f "$HOME/.zsh/aliases.sh" ]   && source "$HOME/.zsh/aliases.sh"
