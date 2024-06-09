@@ -4,6 +4,10 @@
     username = "sreedev";
     homeDirectory = "/home/sreedev";
     stateVersion = "23.11";
+    packages = with pkgs; [
+      amfora
+      cmatrix
+    ];
   };
   home.file = {
     ".tool-versions" = {
