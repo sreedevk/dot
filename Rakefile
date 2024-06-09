@@ -18,10 +18,3 @@ namespace :archlinux do
       .each { |pkg| sh("cargo install #{pkg}") }
   end
 end
-
-namespace :nixos do
-  desc 'rebuild system'
-  task :rebuild do
-    sh("sudo nixos-rebuild switch --flake ./nixos##{`cat /etc/hostname`.strip}")
-  end
-end
