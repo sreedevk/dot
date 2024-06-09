@@ -1,8 +1,0 @@
-\.git
-^/.*\.org
-^/.*\.md
-docs
-docs.*
-LICENSE
-.gitignore
-.scripts
