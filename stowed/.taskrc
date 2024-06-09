@@ -18,3 +18,6 @@ hooks.location=~/.task/hooks
 include dark-violets-256.theme
 
 news.version=2.6.0
+sync.server.origin=http://192.168.1.179:8080
+sync.server.client_id=$TASKWARRIOR_CLIENT_ID
+sync.encryption_secret=$TASKWARRIOR_ENC_SEC
