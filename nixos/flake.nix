@@ -26,8 +26,9 @@
         home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs.legacyPackages."${system}";
           modules = [
-            ./users/${username}.nix
+            (import ./users/${username}.nix)
           ];
+          extraSpecialArgs = { inherit inputs secrets; };
         };
     in
     {
