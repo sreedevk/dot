@@ -28,3 +28,4 @@ stowed/.zsh/plugins.sh
 !stowed/.config/zathura
 !stowed/.config/vimb
 !stowed/.config/nix
+!stowed/.config/mimeapps.list
