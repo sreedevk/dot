@@ -25,6 +25,12 @@
         User admin
         IdentityFile ~/.ssh/devtechnica
         IdentitiesOnly yes
+
+      Host rpi4b
+        HostName 192.168.1.152
+        User sreedev
+        IdentityFile ~/.ssh/devtechnica
+        IdentitiesOnly yes
     '';
   };
 
