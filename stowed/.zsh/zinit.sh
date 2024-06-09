@@ -1,8 +1,8 @@
 # VI MODE
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
-zvm_after_init_commands+=('[ -f "/usr/share/fzf/key-bindings.zsh" ] && source /usr/share/fzf/key-bindings.zsh')
-zvm_after_init_commands+=('[ -f "/usr/share/fzf/completion.zsh"   ] && source /usr/share/fzf/completion.zsh')
-
+[ -f "/usr/share/fzf/key-bindings.zsh" ] && zvm_after_init_commands+=('source /usr/share/fzf/key-bindings.zsh')
+[ -f "/usr/share/fzf/completion.zsh"   ] && zvm_after_init_commands+=('source /usr/share/fzf/completion.zsh')
+[ -f "$HOME/.zinit-plugin-pre" ]         && source "$HOME/.zinit-plugin-pre"
 
 # FZF
 export FZF_TAB_GROUP_COLORS=(
@@ -31,9 +31,7 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
-
-
-zinit load Aloxaf/fzf-tab
-zinit load zsh-users/zsh-autosuggestions
-zinit load jeffreytse/zsh-vi-mode
-zinit load zdharma-continuum/fast-syntax-highlighting
+zinit light Aloxaf/fzf-tab
+zinit light zsh-users/zsh-autosuggestions
+zinit light jeffreytse/zsh-vi-mode
+zinit light zdharma-continuum/fast-syntax-highlighting

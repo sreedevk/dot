@@ -77,6 +77,17 @@
       source = ../../../stowed/.zsh;
       recursive = true;
     };
+
+    ".zinit-plugin-pre" = {
+      enable = true;
+      recursive = false;
+      text = ''
+        export FZF_PATH=$(nix-build '<nixpkgs>' -A fzf --no-out-link)
+        [ -f "$FZF_PATH/share/fzf/key-bindings.zsh" ] && zvm_after_init_commands+=("source $FZF_PATH/share/fzf/key-bindings.zsh")
+        [ -f "$FZF_PATH/share/fzf/completion.zsh"   ] && zvm_after_init_commands+=("source $FZF_PATH/share/fzf/completion.zsh")
+      '';
+    };
+
     ".config" = {
       enable = true;
       source = ../../../stowed/.config;
