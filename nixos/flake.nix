@@ -38,6 +38,7 @@
 
       homeConfigurations = {
         admin = mkHome inputs.nixpkgs system "admin";
+        sreedev = mkHome inputs.nixpkgs system "sreedev";
       };
     };
 }
