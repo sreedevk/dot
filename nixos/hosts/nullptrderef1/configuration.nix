@@ -1,5 +1,11 @@
 { config, lib, pkgs, secrets, ... }:
-
+let
+  opts = {
+    paths = {
+      applicationConfigDir = "/mnt/data/applications";
+    };
+  };
+in
 {
   imports = [ ./hardware-configuration.nix ./containers ./services ];
 
@@ -178,9 +184,7 @@
     wants = [ "network.target" ];
     serviceConfig = {
       ExecStart = ''
-        ${pkgs.taskchampion-sync-server}/bin/taskchampion-sync-server \
-          --port 8080 \
-          -d /mnt/data/applications/taskchampion
+        ${pkgs.taskchampion-sync-server}/bin/taskchampion-sync-server --port 8080 --data-dir ${opts.paths.applicationConfigDir}/taskchampion
       '';
       Restart = "always";
     };
