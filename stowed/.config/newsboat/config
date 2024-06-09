@@ -83,6 +83,6 @@ highlight feedlist "╠.*" color3 color0
 urls-source "freshrss"
 freshrss-url "http://nullptrderef1:8808/api/greader.php"
 freshrss-login "user"
-freshrss-passwordfile "~/.config/newsboat/password"
+freshrss-passwordeval "echo $FRESHRSS_PASSWORD"
 freshrss-min-items 100
 freshrss-flag-star "s"

@@ -70,6 +70,7 @@
         export OPEN_WEATHER_API_KEY="${secrets.openweather.token}"
         export PASTEBIN_API_KEY="${secrets.pastebin.token}"
         export WALLHAVEN_API_KEY="${secrets.wallhaven.token}"
+        export FRESHRSS_PASSWORD="${secrets.freshrss.password}"
       '';
     };
     ".taskrc" = {
