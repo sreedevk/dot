@@ -7,6 +7,9 @@
     packages = with pkgs; [
       amfora
       cmatrix
+      jira-cli-go
+      duckdb
+      httpie
     ];
   };
   home.file = {
