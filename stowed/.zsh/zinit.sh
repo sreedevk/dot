@@ -2,7 +2,7 @@
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 [ -f "/usr/share/fzf/key-bindings.zsh" ] && zvm_after_init_commands+=('source /usr/share/fzf/key-bindings.zsh')
 [ -f "/usr/share/fzf/completion.zsh"   ] && zvm_after_init_commands+=('source /usr/share/fzf/completion.zsh')
-[ -f "$HOME/.zinit-plugin-pre" ]         && source "$HOME/.zinit-plugin-pre"
+[ -f "$HOME/.zsh/plugins.zsh" ] && source "$HOME/.zsh/plugins.zsh"
 
 # FZF
 export FZF_TAB_GROUP_COLORS=(
