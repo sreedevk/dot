@@ -72,19 +72,37 @@
       recursive = false;
       source = ../../../stowed/.zshrc;
     };
-    ".zsh" = {
+    ".zsh-aliases" = {
       enable = true;
-      source = ../../../stowed/.zsh;
+      source = ../../../stowed/.zsh/aliases.sh;
+      target = ".zsh/aliases.sh";
       recursive = true;
     };
-
-    ".zinit-plugin-pre" = {
+    ".zsh-zinit" = {
+      enable = true;
+      source = ../../../stowed/.zsh/zinit.sh;
+      target = ".zsh/zinit.sh";
+      recursive = true;
+    };
+    ".zsh-autoloads" = {
+      enable = true;
+      source = ../../../stowed/.zsh/autoloads.sh;
+      target = ".zsh/autoloads.sh";
+      recursive = true;
+    };
+    ".zsh-functions" = {
+      enable = true;
+      source = ../../../stowed/.zsh/functions.sh;
+      target = ".zsh/functions.sh";
+      recursive = true;
+    };
+    ".zsh-plugins" = {
       enable = true;
       recursive = false;
+      target = ".zsh/plugins.zsh";
       text = ''
-        export FZF_PATH=$(nix-build '<nixpkgs>' -A fzf --no-out-link)
-        [ -f "$FZF_PATH/share/fzf/key-bindings.zsh" ] && zvm_after_init_commands+=("source $FZF_PATH/share/fzf/key-bindings.zsh")
-        [ -f "$FZF_PATH/share/fzf/completion.zsh"   ] && zvm_after_init_commands+=("source $FZF_PATH/share/fzf/completion.zsh")
+        [ -f "${pkgs.fzf}/share/fzf/key-bindings.zsh" ] && zvm_after_init_commands+=("source ${pkgs.fzf}/share/fzf/key-bindings.zsh")
+        [ -f "${pkgs.fzf}/share/fzf/completion.zsh"   ] && zvm_after_init_commands+=("source ${pkgs.fzf}/share/fzf/completion.zsh")
       '';
     };
 
