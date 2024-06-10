@@ -8,6 +8,7 @@
     packages = with pkgs; [
       amfora
       cmatrix
+      btop
       direnv
       duckdb
       eza
@@ -20,6 +21,7 @@
       bat
       lf
       fastfetch
+      vim
     ];
   };
 }
