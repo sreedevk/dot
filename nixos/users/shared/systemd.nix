@@ -3,21 +3,6 @@
   systemd.user = {
     enable = true;
     services = {
-      autotiling = {
-        Unit = {
-          Description = "xorg based window manager autotiling service";
-          Documentation = "https://github.com/nwg-piotr/autotiling";
-        };
-        Service = {
-          Type = "simple";
-          ExecStart = "${pkgs.autotiling}/bin/autotiling";
-          Restart = "on-failure";
-          RestartSec = 3;
-        };
-        Install = {
-          WantedBy = [ "default.target" ];
-        };
-      };
       emacs = {
         Unit = {
           Description = "Emacs text editor";
