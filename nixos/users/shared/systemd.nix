@@ -15,9 +15,6 @@
           Environment = "SSH_AUTH_SOCK=%t/keyring/ssh";
           Restart = "on-failure";
         };
-        Install = {
-          WantedBy = [ "default.target" ];
-        };
       };
     };
   };
