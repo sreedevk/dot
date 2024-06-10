@@ -16,6 +16,7 @@
       cmatrix
       direnv
       duckdb
+      duf
       eza
       fastfetch
       fzf
@@ -28,6 +29,14 @@
       uiua
       vim
       zoxide
+      dust
+      gping
+      hyperfine
+      hexyl
+      ipcalc
+      irssi
+      jaq
+      jq
     ];
   };
 

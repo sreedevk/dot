@@ -33,9 +33,7 @@ doctl 1.107.0-1
 dracula-gtk-theme v4.0.0-1
 droidcam 1:2.1.3-1
 droidcam-debug 1:2.1.3-1
-duf 0.8.1-2
 dunst 1.11.0-1
-dust 1.0.0-3
 easyeffects 7.1.6-2
 ed 1.20.2-2
 efibootmgr 18-3
@@ -48,8 +46,6 @@ exfatprogs 1.2.3-1
 fasm 1.73.32-1
 fd 10.1.0-1
 feh 3.10.2-1
-fjira-bin 1.3.2-1
-fjira-bin-debug 1.3.2-1
 flatpak 1:1.15.8-1
 floorp-bin 11.13.3-1
 floorp-bin-debug 11.10.5-1
@@ -68,10 +64,7 @@ glfw 3.4-2
 glow 1.5.1-1
 gmic 3.3.6-1
 gnu-netcat 0.7.1-10
-goread-bin 1.6.4-1
-goread-bin-debug 1.6.4-1
 gperf 3.1-5
-gping 1.16.1-1
 grub 2:2.12-2
 gst-libav 1.24.3-1
 gst-plugins-good 1.24.3-1
@@ -79,19 +72,13 @@ gstreamer 1.24.3-1
 hexyl 0.14.0-1
 htop 3.3.0-3
 hugo 0.127.0-1
-hyperfine 1.18.0-2
 i3-wm 4.23-4
 i3lock 2.15-2
 intel-media-driver 24.2.3-1
-ipcalc 0.51-1
-irssi 1.4.5-3
 iwd 2.18-1
-jaq 1.4.0-1
 jdk-openjdk 22.0.1.u0-1
 jellyfin-media-player 1.11.1-1
 jellyfin-media-player-debug 1.11.1-1
-jq 1.7.1-2
-just 1.28.0-1
 keybase 6.0.2-4
 less 1:643-2
 libappindicator-gtk3 12.10.0.r298-3
@@ -128,7 +115,6 @@ neovim 0.10.0-4
 nerd-fonts-cozette-ttf 1.19.2_3.0.0-1
 net-tools 2.10-2
 newsboat 2.35-4
-ngrok 3.10.0-1
 nmap 7.95-1
 noto-fonts 1:24.6.1-1
 noto-fonts-cjk 20230817-2
@@ -165,6 +151,7 @@ postgresql-libs 16.2-4
 procs 0.14.5-3
 pulsemixer 1.5.1-6
 pwgen 2.08-2
+python-i3ipc 2.2.1-6
 python-pyserial 3.5-6
 qflipper 1.3.3-1
 rawtherapee 1:5.10-2
@@ -194,8 +181,6 @@ starship 1.19.0-1
 strace 6.9-1
 sxiv 26-1
 tailspin 3.0.1-1
-task 3.0.2-1
-taskwarrior-tui 0.26.3-1
 texlive-binextra 2024.2-2
 texlive-fontsextra 2024.2-2
 texlive-latex 2024.2-2
