@@ -1,5 +1,4 @@
-{ secrets, pkgs, ... }:
-{
+{ secrets, pkgs, ... }: {
   home.packages = with pkgs; [
     amfora
     bat

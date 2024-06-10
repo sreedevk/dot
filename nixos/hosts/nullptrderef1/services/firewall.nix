@@ -1,5 +1,4 @@
-{ config, lib, pkgs, secrets, ... }:
-{
+{ config, lib, pkgs, secrets, ... }: {
   networking.firewall = {
     enable = true;
     allowPing = false;
@@ -60,13 +59,6 @@
       32400
       53589
     ];
-    allowedUDPPorts = [
-      21
-      22
-      53
-      6881
-      8096
-      13378
-    ];
+    allowedUDPPorts = [ 21 22 53 6881 8096 13378 ];
   };
 }

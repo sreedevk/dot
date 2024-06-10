@@ -1,6 +1,6 @@
-{ pkgs, secrets, ... }:
-{
-  imports = [ ./zsh.nix ./ssh.nix ./taskwarrior.nix ./systemd.nix ./packages.nix ];
+{ pkgs, secrets, ... }: {
+  imports =
+    [ ./zsh.nix ./ssh.nix ./taskwarrior.nix ./systemd.nix ./packages.nix ];
 
   home.file = {
     ".tool-versions" = {
@@ -83,11 +83,7 @@
       show-trace = true;
       auto-optimise-store = true;
       fallback = true;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-        "recursive-nix"
-      ];
+      experimental-features = [ "nix-command" "flakes" "recursive-nix" ];
     };
   };
 }
