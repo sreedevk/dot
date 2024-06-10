@@ -1,4 +1,3 @@
-{ config, lib, pkgs, secrets, ... }:
-{
+{ config, lib, pkgs, secrets, ... }: {
   imports = [ ./adguard.nix ./mullvad.nix ./firewall.nix ];
 }

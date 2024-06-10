@@ -1,5 +1,6 @@
 {
-  description = "NixOS System Configuration Management Flake for Multiple Hosts";
+  description =
+    "NixOS System Configuration Management Flake for Multiple Hosts";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -9,29 +10,28 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
-      secrets = builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
+      secrets =
+        builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
       mkSystem = pkgs: system: hostname:
         pkgs.lib.nixosSystem {
           system = system;
-          modules = [
-            (import ./hosts/${hostname}/configuration.nix)
-          ];
+          modules = [ (import ./hosts/${hostname}/configuration.nix) ];
           specialArgs = { inherit inputs secrets; };
         };
 
       mkHome = pkgs: system: username:
         home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs.legacyPackages."${system}";
-          modules = [
-            (import ./users/${username}.nix)
-          ];
+          modules = [ (import ./users/${username}.nix) ];
           extraSpecialArgs = { inherit inputs secrets; };
         };
-    in
-    {
+    in {
+      formatter.x86_64-linux =
+        inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+
       nixosConfigurations = {
         nullptrderef1 = mkSystem inputs.nixpkgs system "nullptrderef1";
       };

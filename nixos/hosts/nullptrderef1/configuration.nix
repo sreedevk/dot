@@ -1,12 +1,6 @@
 { config, lib, pkgs, secrets, ... }:
-let
-  opts = {
-    paths = {
-      applicationConfigDir = "/mnt/data/applications";
-    };
-  };
-in
-{
+let opts = { paths = { applicationConfigDir = "/mnt/data/applications"; }; };
+in {
   imports = [ ./hardware-configuration.nix ./containers ./services ];
 
   documentation.nixos.enable = true;
@@ -29,9 +23,7 @@ in
     config = {
       allowUnfree = true;
       packageOverrides = pkgs: {
-        vaapiIntel = pkgs.vaapiIntel.override {
-          enableHybridCodec = true;
-        };
+        vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
       };
     };
   };
@@ -62,24 +54,16 @@ in
       iwd = {
         enable = true;
         settings = {
-          IPV6 = {
-            Enabled = false;
-          };
-          Settings = {
-            AutoConnect = true;
-          };
+          IPV6 = { Enabled = false; };
+          Settings = { AutoConnect = true; };
         };
       };
     };
     networkmanager = {
       enable = true;
       wifi.backend = "iwd";
-      insertNameservers = [
-        "127.0.0.1"
-        "149.112.112.112"
-        "194.242.2.5"
-        "9.9.9.9"
-      ];
+      insertNameservers =
+        [ "127.0.0.1" "149.112.112.112" "194.242.2.5" "9.9.9.9" ];
     };
     nameservers = pkgs.lib.mkForce [
       "127.0.0.1"
@@ -103,7 +87,8 @@ in
     after = [ "network.target" ];
     wants = [ "network.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.ffmpeg}/bin/ffmpeg -f alsa -ac 2 -ar 44100 -i hw:0 -acodec libmp3lame -b:a 128k -content_type audio/mpeg -f mp3 icecast://radiosource:${secrets.icecast.password}@localhost:8099/radio";
+      ExecStart =
+        "${pkgs.ffmpeg}/bin/ffmpeg -f alsa -ac 2 -ar 44100 -i hw:0 -acodec libmp3lame -b:a 128k -content_type audio/mpeg -f mp3 icecast://radiosource:${secrets.icecast.password}@localhost:8099/radio";
       Restart = "always";
     };
   };
@@ -146,14 +131,9 @@ in
   };
 
   fonts = {
-    packages = with pkgs; [
-      iosevka
-      nerdfonts
-    ];
+    packages = with pkgs; [ iosevka nerdfonts ];
 
-    fontconfig = {
-      enable = true;
-    };
+    fontconfig = { enable = true; };
   };
 
   environment.systemPackages = with pkgs; [
@@ -255,11 +235,7 @@ in
       enable = true;
       port = 8008;
       openFirewall = true;
-      settings = {
-        WebService = {
-          AllowUnencrypted = true;
-        };
-      };
+      settings = { WebService = { AllowUnencrypted = true; }; };
     };
   };
 

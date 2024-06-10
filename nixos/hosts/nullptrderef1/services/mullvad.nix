@@ -1,14 +1,9 @@
-{ config, lib, pkgs, secrets, ... }:
-{
-  services.mullvad-vpn = {
-    enable = true;
-  };
+{ config, lib, pkgs, secrets, ... }: {
+  services.mullvad-vpn = { enable = true; };
 
   systemd.services."mullvad-daemon".postStart =
-    let
-      mullvad = config.services.mullvad-vpn.package;
-    in
-    ''
+    let mullvad = config.services.mullvad-vpn.package;
+    in ''
       while ! ${mullvad}/bin/mullvad status > /dev/null; do sleep 1; done
       ${mullvad}/bin/mullvad account get | grep "Not logged in" && ${mullvad}/bin/mullvad account login ${secrets.mullvad.account}
       ${mullvad}/bin/mullvad relay set location ${secrets.mullvad.location}

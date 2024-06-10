@@ -1,5 +1,4 @@
-{ configs, pkgs, secrets, ... }:
-{
+{ configs, pkgs, secrets, ... }: {
   imports = [ ./shared ];
   home = {
     username = "admin";

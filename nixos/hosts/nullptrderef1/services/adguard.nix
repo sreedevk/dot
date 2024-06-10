@@ -1,5 +1,4 @@
-{ config, lib, pkgs, secrets, ... }:
-{
+{ config, lib, pkgs, secrets, ... }: {
   services.adguardhome = {
     enable = true;
     host = "0.0.0.0";
@@ -15,13 +14,15 @@
       filters = [
         {
           enabled = true;
-          url = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
+          url =
+            "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
           name = "StevenBlack's List";
           ID = 1;
         }
         {
           enabled = true;
-          url = "https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt";
+          url =
+            "https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt";
           name = "DeveloperDan's Advertisements & Tracking List";
           ID = 15;
         }
@@ -57,7 +58,8 @@
         }
         {
           enabled = true;
-          url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt";
+          url =
+            "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt";
           name = "Adblock Pro Plus";
           ID = 25;
         }
@@ -66,12 +68,30 @@
         protection_enabled = true;
         filtering_enabled = true;
         rewrites = [
-          { domain = "nullptrderef1"; answer = "192.168.1.179"; }
-          { domain = "nullptrderef1.localhost"; answer = "192.168.1.179"; }
-          { domain = "null.localhost"; answer = "192.168.1.179"; }
-          { domain = "null.arpa"; answer = "192.168.1.179"; }
-          { domain = "rpi4b.localhost"; answer = "192.168.1.152"; }
-          { domain = "devstation.localhost"; answer = "192.168.1.249"; }
+          {
+            domain = "nullptrderef1";
+            answer = "192.168.1.179";
+          }
+          {
+            domain = "nullptrderef1.localhost";
+            answer = "192.168.1.179";
+          }
+          {
+            domain = "null.localhost";
+            answer = "192.168.1.179";
+          }
+          {
+            domain = "null.arpa";
+            answer = "192.168.1.179";
+          }
+          {
+            domain = "rpi4b.localhost";
+            answer = "192.168.1.152";
+          }
+          {
+            domain = "devstation.localhost";
+            answer = "192.168.1.249";
+          }
         ];
       };
       dns = {
