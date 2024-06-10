@@ -23,6 +23,8 @@
       httpie
       jira-cli-go
       lf
+      taskwarrior-tui
+      taskwarrior3
       uiua
       vim
       zoxide
