@@ -21,6 +21,7 @@
     htop
     httpie
     hyperfine
+    instaloader
     ipcalc
     irssi
     jaq
