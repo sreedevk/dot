@@ -11,6 +11,7 @@
       asdf-vm
       babashka
       bat
+      broot
       btop
       delta
       du-dust
@@ -42,8 +43,8 @@
       ruby
       stow
       tailspin
-      taskwarrior3
       taskwarrior-tui
+      taskwarrior3
       tmux
       tmuxPlugins.extrakto
       tmuxPlugins.jump

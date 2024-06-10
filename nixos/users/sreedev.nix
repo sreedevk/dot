@@ -7,21 +7,22 @@
     stateVersion = "23.11";
     packages = with pkgs; [
       amfora
-      cmatrix
+      bat
+      broot
       btop
+      cmatrix
       direnv
       duckdb
       eza
+      fastfetch
       fzf
       hledger
       httpie
       jira-cli-go
-      uiua
-      zoxide
-      bat
       lf
-      fastfetch
+      uiua
       vim
+      zoxide
     ];
   };
 }
