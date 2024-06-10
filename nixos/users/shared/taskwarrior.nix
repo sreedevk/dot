@@ -20,7 +20,7 @@
         include dark-violets-256.theme
         data.location=~/.task/
         hooks.location=~/.task/hooks
-        sync.server.origin=http://192.168.1.179:8080
+        sync.server.origin=http://nullptrderef1:8080
         sync.server.client_id=${secrets.taskwarrior.client_id}
         sync.encryption_secret=${secrets.taskwarrior.encryption_secret}
       '';
