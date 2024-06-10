@@ -1,6 +1,6 @@
 { pkgs, secrets, ... }:
 {
-  imports = [ ./zsh.nix ./ssh.nix ./taskwarrior.nix ];
+  imports = [ ./zsh.nix ./ssh.nix ./taskwarrior.nix ./systemd.nix ];
 
   home.file = {
     ".tool-versions" = {
