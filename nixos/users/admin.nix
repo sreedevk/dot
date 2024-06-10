@@ -8,10 +8,9 @@
     packages = with pkgs; [
       asdf-vm
       babashka
+      dig
       delta
       gh
-      git
-      git-crypt
       glab
       neovim
       newsboat
