@@ -82,9 +82,11 @@
     settings = {
       show-trace = true;
       auto-optimise-store = true;
+      fallback = true;
       experimental-features = [
         "nix-command"
         "flakes"
+        "recursive-nix"
       ];
     };
   };
