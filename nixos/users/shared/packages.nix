@@ -6,6 +6,8 @@
     broot
     btop
     cmatrix
+    direnv
+    duckdb
     duf
     dust
     eza
@@ -17,6 +19,7 @@
     hexyl
     hledger
     htop
+    httpie
     hyperfine
     ipcalc
     irssi
@@ -25,19 +28,20 @@
     lf
     ncdu
     procs
+    ripgrep
+    ripgrep-all
     tailspin
     taskwarrior-tui
     taskwarrior3
     tmuxinator
     tokei
+    tty-clock
+    uiua
+    vim
+    wget
     xh
     xxd
     yt-dlp
     zoxide
-    vim
-    uiua
-    direnv
-    httpie
-    duckdb
   ];
 }

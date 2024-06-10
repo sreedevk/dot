@@ -232,11 +232,10 @@ in
     cryptsetup
     curl
     dhcpcd
-    dig
-    direnv
     fasm-bin
     ffmpeg
     git
+    git-crypt
     gnumake
     home-manager
     icecast
@@ -248,7 +247,6 @@ in
     mullvad
     mullvad-vpn
     netcat-gnu
-    ngrok
     nmap
     openresolv
     openssl
@@ -258,8 +256,6 @@ in
     pandoc
     parallel
     restic
-    ripgrep
-    ripgrep-all
     rsync
     sshfs
     starship
@@ -267,8 +263,6 @@ in
     taskchampion-sync-server
     traceroute
     unzip
-    wget
-    xclip
     zip
     zsh
   ];
