@@ -17,6 +17,9 @@
       jira-cli-go
       uiua
       zoxide
+      bat
+      lf
+      fastfetch
     ];
   };
 }
