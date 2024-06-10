@@ -1,0 +1,43 @@
+{ secrets, pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    amfora
+    bat
+    broot
+    btop
+    cmatrix
+    duf
+    dust
+    eza
+    fastfetch
+    fd
+    fzf
+    glow
+    gping
+    hexyl
+    hledger
+    htop
+    hyperfine
+    ipcalc
+    irssi
+    jaq
+    jq
+    lf
+    ncdu
+    procs
+    tailspin
+    taskwarrior-tui
+    taskwarrior3
+    tmuxinator
+    tokei
+    xh
+    xxd
+    yt-dlp
+    zoxide
+    vim
+    uiua
+    direnv
+    httpie
+    duckdb
+  ];
+}
