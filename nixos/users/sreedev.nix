@@ -6,37 +6,10 @@
     homeDirectory = "/home/sreedev";
     stateVersion = "23.11";
     packages = with pkgs; [
-      amfora
       autorandr
       autotiling
       awscli2
-      bat
-      broot
-      btop
-      cmatrix
-      direnv
-      duckdb
-      duf
-      eza
-      fastfetch
-      fzf
-      hledger
-      httpie
       jira-cli-go
-      lf
-      taskwarrior-tui
-      taskwarrior3
-      uiua
-      vim
-      zoxide
-      dust
-      gping
-      hyperfine
-      hexyl
-      ipcalc
-      irssi
-      jaq
-      jq
     ];
   };
 
