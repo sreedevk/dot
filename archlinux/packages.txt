@@ -44,7 +44,6 @@ emacs 29.3-3
 envycontrol 3.4.0-1
 exfatprogs 1.2.3-1
 fasm 1.73.32-1
-fd 10.1.0-1
 feh 3.10.2-1
 flatpak 1:1.15.8-1
 floorp-bin 11.13.3-1
@@ -61,7 +60,6 @@ git-delta 0.17.0-3
 git-lfs 3.5.1-1
 github-cli 2.50.0-1
 glfw 3.4-2
-glow 1.5.1-1
 gmic 3.3.6-1
 gnu-netcat 0.7.1-10
 gperf 3.1-5
@@ -70,7 +68,6 @@ gst-libav 1.24.3-1
 gst-plugins-good 1.24.3-1
 gstreamer 1.24.3-1
 hexyl 0.14.0-1
-htop 3.3.0-3
 hugo 0.127.0-1
 i3-wm 4.23-4
 i3lock 2.15-2
@@ -108,7 +105,6 @@ mpv 1:0.38.0-4
 mullvad-vpn-bin 2024.3-1
 mullvad-vpn-bin-debug 2024.3-1
 nasm 2.16.03-1
-ncdu 2.4-1
 nemo 6.0.2-1
 neovide 0.13.1-1
 neovim 0.10.0-4
@@ -148,7 +144,6 @@ pngquant 3.0.3-2
 polkit-qt6 0.200.0-1
 polybar 3.7.1-1
 postgresql-libs 16.2-4
-procs 0.14.5-3
 pulsemixer 1.5.1-6
 pwgen 2.08-2
 python-i3ipc 2.2.1-6
@@ -180,14 +175,12 @@ sshfs 3.7.3-1
 starship 1.19.0-1
 strace 6.9-1
 sxiv 26-1
-tailspin 3.0.1-1
 texlive-binextra 2024.2-2
 texlive-fontsextra 2024.2-2
 texlive-latex 2024.2-2
 thunderbird 115.11.1-1
 tidy 5.8.0-2
 tmux 3.4-8
-tokei 12.1.2-1
 traceroute 2.1.5-1
 trippy 0.10.0-1
 ttc-iosevka 30.1.2-1
@@ -221,14 +214,12 @@ xclicker-debug 1.5.0-1
 xclip 0.13-5
 xdo 0.5.7-2
 xf86-video-vesa 2.6.0-2
-xh 0.22.0-1
 xorg-server 21.1.13-1
 xorg-server-devel 21.1.13-1
 xorg-server-xephyr 21.1.13-1
 xorg-xev 1.2.6-1
 xorg-xinit 1.4.2-1
 xorg-xrandr 1.5.2-1
-yt-dlp 2024.05.27-1
 zathura 0.5.6-2
 zathura-pdf-mupdf 0.4.3-2
 zola 0.18.0-2
