@@ -71,4 +71,21 @@
   };
 
   programs.home-manager.enable = true;
+  news.display = "silent";
+
+  nix = {
+    package = pkgs.nix;
+    gc = {
+      automatic = true;
+      frequency = "weekly";
+    };
+    settings = {
+      show-trace = true;
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+  };
 }
