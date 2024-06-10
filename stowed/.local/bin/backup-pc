@@ -1,5 +1,0 @@
-#!/bin/zsh
-
-echo "Backing up ~/Data directory to rpi4b:/home/sreedev/Data/devstation-repository"
-restic -r sftp:admin@nullptrderef1:/mnt/enc_data_drive/devstation-repository --verbose backup --iexclude "debug" --iexclude "release" --iexclude "labs" ~/Data 
-echo "\n\n"
