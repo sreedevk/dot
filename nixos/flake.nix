@@ -28,7 +28,8 @@
           modules = [ (import ./users/${username}.nix) ];
           extraSpecialArgs = { inherit inputs secrets; };
         };
-    in {
+    in
+    {
       formatter.x86_64-linux =
         inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt;
 
