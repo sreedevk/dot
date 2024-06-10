@@ -44,5 +44,3 @@ fi
 if command -v glow &> /dev/null; then
   eval "$(glow completion zsh)"
 fi
-
-[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
