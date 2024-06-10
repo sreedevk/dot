@@ -12,7 +12,6 @@
       babashka
       bat
       btop
-      cava
       delta
       du-dust
       duf

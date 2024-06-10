@@ -18,9 +18,6 @@ beanstalkd-debug 1.13-1
 bind 9.18.27-1
 brave-bin 1:1.66.118-1
 brightnessctl 0.5.1-2
-btop 1.3.2-1
-cava 0.10.2-2
-cava-debug 0.10.2-2
 clang 17.0.6-2
 cmake 3.29.5-2
 csvlens 0.9.1-1
@@ -227,7 +224,6 @@ upd72020x-fw 1:1.0.0-2
 upower 1.90.4-1
 usbutils 017-1
 v4l2loopback-dc-dkms 1:2.1.3-1
-vim 9.1.0445-1
 vimb 3.7.0-1
 virtualbox 7.0.18-1
 virtualbox-host-dkms 7.0.18-1
