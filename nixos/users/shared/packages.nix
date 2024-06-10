@@ -27,6 +27,7 @@
     jq
     lf
     ncdu
+    nixpkgs-fmt
     procs
     ripgrep
     ripgrep-all
