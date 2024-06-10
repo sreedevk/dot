@@ -12,7 +12,7 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
-      system = "x86_64-linux";
+      x86system = "x86_64-linux";
       secrets =
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
       mkSystem = pkgs: system: hostname:
@@ -30,16 +30,17 @@
         };
     in
     {
-      formatter.x86_64-linux =
-        inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+      formatter = {
+        "${x86system}" = inputs.nixpkgs.legacyPackages."${x86system}".nixpkgs-fmt;
+      };
 
       nixosConfigurations = {
-        nullptrderef1 = mkSystem inputs.nixpkgs system "nullptrderef1";
+        nullptrderef1 = mkSystem inputs.nixpkgs x86system "nullptrderef1";
       };
 
       homeConfigurations = {
-        admin = mkHome inputs.nixpkgs system "admin";
-        sreedev = mkHome inputs.nixpkgs system "sreedev";
+        admin = mkHome inputs.nixpkgs x86system "admin";
+        sreedev = mkHome inputs.nixpkgs x86system "sreedev";
       };
     };
 }
