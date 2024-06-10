@@ -8,6 +8,7 @@
     packages = with pkgs; [
       amfora
       autorandr
+      autotiling
       bat
       broot
       btop
