@@ -13,6 +13,7 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       x86system = "x86_64-linux";
+      armsystem = "aarch64-linux";
       secrets =
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
       mkSystem = pkgs: system: hostname:
@@ -41,6 +42,7 @@
       homeConfigurations = {
         admin = mkHome inputs.nixpkgs x86system "admin";
         sreedev = mkHome inputs.nixpkgs x86system "sreedev";
+        pi = mkHome inputs.nixpkgs armsystem "pi";
       };
     };
 }
