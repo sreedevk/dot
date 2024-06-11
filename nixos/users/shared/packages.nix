@@ -5,6 +5,7 @@
     broot
     btop
     cmatrix
+    csvlens
     direnv
     duckdb
     duf
@@ -26,11 +27,13 @@
     jaq
     jq
     lf
+    mdbook
     ncdu
     nixpkgs-fmt
     procs
     ripgrep
     ripgrep-all
+    sc-im
     starship
     tailspin
     taskwarrior-tui
