@@ -8,6 +8,7 @@
       autorandr
       autotiling
       awscli2
+      dunst
       jira-cli-go
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
     ];
@@ -19,6 +20,12 @@
       monospace = [ "Iosevka NF" ];
       serif = [ "Iosevka NF" ];
       sansSerif = [ "Iosevka NF" ];
+    };
+  };
+
+  services = {
+    dunst = {
+      enable = true;
     };
   };
 
@@ -57,6 +64,32 @@
   programs.autorandr = {
     enable = true;
     profiles = {
+      "office" = {
+        fingerprint = {
+          "DP-1-3" =
+            "00ffffffffffff004c2dcb0b41334c30151c0103804728782ad691a7554ea0250c5054bfef80714f810081c081809500a9c0b3000101565e00a0a0a0295030203500c48e2100001a023a801871382d40582c4500c48e2100001e000000fd00184b1b5a19000a202020202020000000fc00533332443835300a2020202020011c02031cf14890041f1303122022230907078301000066030c00100080023a801871382d40582c4500c48e2100001e023a80d072382d40102c4580c48e2100001e011d007251d01e206e285500c48e2100001e011d00bc52d01e20b8285540c48e2100001e000000000000000000000000000000000000000000000000000000a2";
+          "eDP-1-1" =
+            "00ffffffffffff0006af9af900000000141f0104a51e13780363f5a854489d240e505400000001010101010101010101010101010101fa3c80b870b0244010103e002dbc1000001ac83080b870b0244010103e002dbc1000001a000000fe004a38335646804231343055414e0000000000024101b2001100000a410a20200068";
+        };
+        config = {
+          DP-1-3 = {
+            enable = true;
+            crtc = 1;
+            primary = false;
+            mode = "2560x1440";
+            position = "1920x0";
+            rate = "59.95";
+          };
+          eDP-1-1 = {
+            enable = true;
+            crtc = 0;
+            primary = true;
+            mode = "1920x1200";
+            position = "0x0";
+            rate = "60.03";
+          };
+        };
+      };
       "home" = {
         fingerprint = {
           DP-1-3 =
