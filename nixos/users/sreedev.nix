@@ -1,11 +1,19 @@
-{ pkgs, secrets, ... }: {
+{ pkgs, secrets, lib, ... }: {
   imports = [ ./shared ];
   home = {
     username = "sreedev";
     homeDirectory = "/home/sreedev";
     stateVersion = "23.11";
-    packages = with pkgs; [ autorandr autotiling awscli2 jira-cli-go ];
+    packages = with pkgs; [
+      autorandr
+      autotiling
+      awscli2
+      jira-cli-go
+      (nerdfonts.override { fonts = [ "Iosevka" ]; })
+    ];
   };
+
+  fonts.fontconfig.enable = lib.mkForce true;
 
   systemd.user.services = {
     autotiling = {
