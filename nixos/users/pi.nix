@@ -16,11 +16,15 @@
       neovim
       newsboat
       ruby
+      starship
       tmux
       tmuxPlugins.extrakto
       tmuxPlugins.jump
       tmuxPlugins.tmux-thumbs
       tmuxPlugins.yank
+      zsh
     ];
   };
+
+  programs.zsh.enable = true;
 }

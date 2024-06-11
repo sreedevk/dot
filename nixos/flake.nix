@@ -33,6 +33,7 @@
     {
       formatter = {
         "${x86system}" = inputs.nixpkgs.legacyPackages."${x86system}".nixpkgs-fmt;
+        "${armsystem}" = inputs.nixpkgs.legacyPackages."${armsystem}".nixpkgs-fmt;
       };
 
       nixosConfigurations = {
