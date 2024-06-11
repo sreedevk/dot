@@ -31,6 +31,7 @@
     procs
     ripgrep
     ripgrep-all
+    starship
     tailspin
     taskwarrior-tui
     taskwarrior3

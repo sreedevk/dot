@@ -168,7 +168,6 @@ in {
     restic
     rsync
     sshfs
-    starship
     strace
     taskchampion-sync-server
     traceroute

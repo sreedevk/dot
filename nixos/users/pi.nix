@@ -16,7 +16,6 @@
       neovim
       newsboat
       ruby
-      starship
       tmux
       tmuxPlugins.extrakto
       tmuxPlugins.jump
