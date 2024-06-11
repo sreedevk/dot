@@ -23,4 +23,6 @@
       tmuxPlugins.yank
     ];
   };
+
+  programs.zsh.enable = true;
 }

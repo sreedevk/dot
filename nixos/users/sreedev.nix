@@ -98,4 +98,6 @@
       };
     };
   };
+
+  programs.zsh.enable = true;
 }
