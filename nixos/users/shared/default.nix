@@ -71,6 +71,8 @@
   };
 
   programs.home-manager.enable = true;
+  programs.htop.enable = true;
+
   news.display = "silent";
 
   nix = {

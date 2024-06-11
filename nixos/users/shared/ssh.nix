@@ -27,7 +27,7 @@
 
       Host rpi4b
         HostName 192.168.1.152
-        User sreedev
+        User pi
         IdentityFile ~/.ssh/devtechnica
         IdentitiesOnly yes
     '';
