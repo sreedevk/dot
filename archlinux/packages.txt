@@ -17,7 +17,6 @@ brave-bin 1:1.66.118-1
 brightnessctl 0.5.1-2
 clang 17.0.6-2
 cmake 3.29.5-2
-csvlens 0.9.1-1
 cuda 12.5.0-1
 darktable 2:4.6.1-3
 dbeaver 24.1.0-1
@@ -33,7 +32,6 @@ doctl 1.107.0-1
 dracula-gtk-theme v4.0.0-1
 droidcam 1:2.1.3-1
 droidcam-debug 1:2.1.3-1
-dunst 1.11.0-1
 easyeffects 7.1.6-2
 ed 1.20.2-2
 efibootmgr 18-3
@@ -93,7 +91,6 @@ lxappearance 0.6.3-4
 maim 5.8.0-2
 man-db 2.12.1-1
 mariadb-clients 11.4.2-1
-mdbook 0.4.40-1
 mesa-utils 9.0.0-4
 mesa-vdpau 1:24.1.1-1
 minecraft-launcher 1:1.0.1221-1
@@ -150,19 +147,15 @@ python-pyserial 3.5-6
 qflipper 1.3.3-1
 rawtherapee 1:5.10-2
 raylib 5.0-1
-razergenie-debug 1.1.0-1
 reflector 2023-2
 restic 0.16.4-1
 rofi 1.7.5-2
 rsync 3.3.0-2
 sbcl 2.4.5-1
-sc-im 0.8.3-2
-sc-im-debug 0.8.3-2
 sdl2_image 2.8.2-4
 sdl2_ttf 2.22.0-1
 slack-desktop 4.38.125-1
 slack-desktop-debug 4.37.101-1
-sniffnet 1.3.0-2
 sof-firmware 2024.03-1
 sof-tools 2024.03-1
 speech-dispatcher 0.11.5-2

@@ -15,9 +15,9 @@
         # include light-16.theme
         # include light-256.theme
         # include no-color.theme
-        # include solarized-dark-256.theme
+        include solarized-dark-256.theme
         # include solarized-light-256.theme
-        include dark-violets-256.theme
+        # include dark-violets-256.theme
         data.location=~/.task/
         hooks.location=~/.task/hooks
         sync.server.origin=http://nullptrderef1:8080
