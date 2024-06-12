@@ -18,7 +18,7 @@ fi
 
 # ZOXIDE - MODERN CD
 if command -v zoxide &> /dev/null; then
-  eval "$(zoxide init zsh)"
+  eval "$(zoxide init zsh --no-aliases)"
 fi
 
 # RUST AUTOLOADS

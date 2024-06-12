@@ -35,3 +35,4 @@ zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-autosuggestions
 zinit light jeffreytse/zsh-vi-mode
 zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light ajeetdsouza/zoxide

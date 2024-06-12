@@ -16,6 +16,8 @@ alias jctl="journalctl -p 3 -xb"
 alias clock="tty-clock -csSbt -C3"
 alias wget="noglob wget"
 alias curl="noglob curl"
+alias z='__zoxide_z'
+alias zxi='__zoxide_zi'
 
 # Taskwarrior
 alias tt="taskwarrior-tui"
