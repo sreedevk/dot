@@ -38,8 +38,10 @@
       Service = {
         Type = "simple";
         ExecStart = "${pkgs.autotiling}/bin/autotiling";
-        Restart = "on-failure";
+        Restart = "always";
         RestartSec = 3;
+        StartLimitInterval = 0;
+        StartLimitBurst = 0;
       };
       Install = { WantedBy = [ "default.target" ]; };
     };
