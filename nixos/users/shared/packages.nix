@@ -1,6 +1,7 @@
 { secrets, pkgs, ... }: {
   home.packages = with pkgs; [
     amfora
+    babashka
     bat
     broot
     btop
@@ -31,6 +32,7 @@
     mdbook
     ncdu
     nixpkgs-fmt
+    nushell
     procs
     ripgrep
     ripgrep-all
