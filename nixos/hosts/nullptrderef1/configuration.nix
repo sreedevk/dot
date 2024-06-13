@@ -244,6 +244,7 @@ in {
   programs = {
     mtr.enable = true;
     zsh.enable = true;
+    mosh.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
