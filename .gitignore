@@ -13,6 +13,8 @@ stowed/.zshenv
 !stowed/.config/dunst
 !stowed/.config/dwmblocks
 !stowed/.config/fastfetch/
+!stowed/.config/gh
+!stowed/.config/htop/
 !stowed/.config/i3
 !stowed/.config/lf/
 !stowed/.config/mimeapps.list
@@ -29,4 +31,3 @@ stowed/.zshenv
 !stowed/.config/vimb
 !stowed/.config/zathura
 !stowed/.taskrc
-!stowed/.config/htop/

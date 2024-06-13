@@ -14,6 +14,7 @@
     fastfetch
     fd
     fzf
+    gh
     glow
     gping
     hexyl
