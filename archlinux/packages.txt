@@ -44,7 +44,7 @@ exfatprogs 1.2.3-1
 fasm 1.73.32-1
 feh 3.10.2-1
 flatpak 1:1.15.8-1
-floorp-bin 11.13.3-1
+floorp-bin 11.14.0-1
 floorp-bin-debug 11.10.5-1
 fprintd 1.94.3-1
 fuse2 2.9.9-4
@@ -82,8 +82,8 @@ libreoffice-fresh 24.2.4-1
 lightdm 1:1.32.0-6
 lightdm-gtk-greeter 1:2.0.9-1
 linux 6.9.3.arch1-1
-linux-firmware 20240510.b9d2bf23-1
-linux-firmware-qlogic 20240510.b9d2bf23-1
+linux-firmware 20240610.9c10a208-1
+linux-firmware-qlogic 20240610.9c10a208-1
 linux-headers 6.9.3.arch1-1
 lmms 1.2.2-23
 lsof 4.99.3-2
