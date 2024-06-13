@@ -31,3 +31,5 @@ stowed/.zshenv
 !stowed/.config/vimb
 !stowed/.config/zathura
 !stowed/.taskrc
+!stowed/.config/user-dirs.locale
+!stowed/.config/user-dirs.dirs
