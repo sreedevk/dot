@@ -13,17 +13,18 @@
       git
       git-crypt
       glab
+      less
       neovim
       newsboat
+      nodejs-slim
       ruby
       tmux
       tmuxPlugins.extrakto
       tmuxPlugins.jump
       tmuxPlugins.tmux-thumbs
       tmuxPlugins.yank
-      zsh
       tree-sitter
-      nodejs-slim
+      zsh
     ];
   };
 
