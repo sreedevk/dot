@@ -190,6 +190,7 @@ wireless_tools 30.pre9-4
 wmctrl 1.07-6
 xclicker-debug 1.5.0-1
 xclip 0.13-5
+xdg-user-dirs 0.18-1
 xdo 0.5.7-2
 xf86-video-vesa 2.6.0-2
 xorg-server 21.1.13-1

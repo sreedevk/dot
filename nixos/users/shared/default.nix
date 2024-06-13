@@ -68,6 +68,12 @@
       source = ../../../stowed/.Xresources;
       recursive = true;
     };
+
+    ".xession" = {
+      enable = true;
+      source = ../../../stowed/.xsession;
+      recursive = true;
+    };
   };
 
   programs.home-manager.enable = true;
