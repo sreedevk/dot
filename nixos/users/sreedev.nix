@@ -9,7 +9,6 @@
       autotiling
       awscli2
       dunst
-      floorp
       jira-cli-go
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
     ];
