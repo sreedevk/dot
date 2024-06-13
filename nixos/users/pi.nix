@@ -22,6 +22,8 @@
       tmuxPlugins.tmux-thumbs
       tmuxPlugins.yank
       zsh
+      tree-sitter
+      nodejs-slim
     ];
   };
 
