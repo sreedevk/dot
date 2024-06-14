@@ -8,6 +8,7 @@
     cmatrix
     csvlens
     direnv
+    doctl
     duckdb
     duf
     dust
