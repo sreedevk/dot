@@ -9,6 +9,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
@@ -28,7 +32,7 @@
         home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs.legacyPackages."${system}";
           modules = [ stylix.homeManagerModules.stylix ./users/${username}.nix ];
-          extraSpecialArgs = { inherit inputs secrets; };
+          extraSpecialArgs = { inherit inputs secrets system; };
         };
     in
     {
