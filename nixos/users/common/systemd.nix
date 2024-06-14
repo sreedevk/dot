@@ -1,4 +1,4 @@
-{ pkgs, secrets, ... }: {
+{ configs, pkgs, secrets, username, ... }: {
   systemd.user = {
     enable = true;
     services = {
