@@ -71,6 +71,7 @@
 
     ".xsession" = {
       enable = true;
+      executable = true;
       source = ../../../stowed/.xsession;
       recursive = true;
     };
