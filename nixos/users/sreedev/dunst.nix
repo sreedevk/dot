@@ -16,8 +16,8 @@
           dmenu = "/usr/bin/dmenu - p dunst: ";
           enable_recursive_icon_lookup = true;
           follow = "mouse";
-          font = lib.mkDefault "Iosevka NF 12";
-          format = "%a\n<b>%s</b>\n%b\n%p";
+          font = lib.mkDefault "Iosevka NF 16";
+          format = "%a\\n<b>%s</b>\\n%b\\n%p";
           frame_color = "#788388";
           frame_width = 0;
           gap_size = 4;

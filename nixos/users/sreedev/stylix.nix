@@ -29,7 +29,7 @@
       alacritty.enable = false;
       bat.enable = true;
       btop.enable = true;
-      dunst.enable = true;
+      dunst.enable = false;
       feh.enable = true;
       firefox.enable = true;
       fzf.enable = true;
