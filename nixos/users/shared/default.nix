@@ -63,12 +63,6 @@
       recursive = true;
     };
 
-    ".Xresources" = {
-      enable = true;
-      source = ../../../stowed/.Xresources;
-      recursive = true;
-    };
-
     ".xsession" = {
       enable = true;
       executable = true;
