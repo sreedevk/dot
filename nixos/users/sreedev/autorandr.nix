@@ -65,6 +65,11 @@
             position = "1920x0";
             primary = true;
             rate = "60.00";
+            scale = {
+              method = "factor";
+              x = 1.2;
+              y = 1.2;
+            };
           };
 
           "inbuilt" = {
