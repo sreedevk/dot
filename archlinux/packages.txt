@@ -42,7 +42,6 @@ git 2.45.2-1
 git-crypt 0.7.0-2
 git-delta 0.17.0-3
 git-lfs 3.5.1-1
-glfw 3.4-2
 gmic 3.3.6-1
 gnu-netcat 0.7.1-10
 gperf 3.1-5
