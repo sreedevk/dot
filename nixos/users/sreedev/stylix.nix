@@ -5,6 +5,14 @@
     imageScalingMode = "fill"; # fill,fit,stretch,center,tile
     polarity = "dark";
     fonts = {
+
+      sizes = {
+        applications = 16;
+        desktop = 16;
+        popups = 22;
+        terminal = 16;
+      };
+
       serif = {
         package = pkgs.dejavu_fonts;
         name = "DejaVu Serif";
@@ -26,10 +34,10 @@
       };
     };
     targets = {
-      alacritty.enable = false;
+      alacritty.enable = true;
       bat.enable = true;
       btop.enable = true;
-      dunst.enable = false;
+      dunst.enable = true;
       feh.enable = true;
       firefox.enable = true;
       fzf.enable = true;
