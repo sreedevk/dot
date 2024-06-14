@@ -5,6 +5,7 @@
     homeDirectory = "/home/sreedev";
     stateVersion = "23.11";
     packages = with pkgs; [
+      arandr
       autorandr
       autotiling
       awscli2
