@@ -4,10 +4,10 @@
     profiles = {
       "undocked" = {
         fingerprint = {
-          "inbuilt" = secrets.autorandr.monitors.inbuilt;
+          "undocked-primary" = secrets.autorandr.monitors.inbuilt;
         };
         config = {
-          "inbuilt" = {
+          "undocked-primary" = {
             enable = true;
             crtc = 0;
             primary = true;
@@ -20,11 +20,11 @@
       };
       "office" = {
         fingerprint = {
-          "officemonitor" = secrets.autorandr.monitors.office;
-          "inbuilt" = secrets.autorandr.monitors.inbuilt;
+          "office-primary" = secrets.autorandr.monitors.office;
+          "office-secondary" = secrets.autorandr.monitors.inbuilt;
         };
         config = {
-          "officemonitor" = {
+          "office-primary" = {
             enable = true;
             crtc = 1;
             primary = false;
@@ -33,7 +33,7 @@
             rate = "59.95";
             dpi = 96;
           };
-          "inbuilt" = {
+          "office-secondary" = {
             enable = true;
             crtc = 0;
             primary = true;
@@ -46,13 +46,13 @@
       };
       "home" = {
         fingerprint = {
-          "homelab4k" = secrets.autorandr.monitors.homelab4k;
-          "homelab1080p" = secrets.autorandr.monitors.homelab1080p;
-          "inbuilt" = secrets.autorandr.monitors.inbuilt;
+          "home-primary" = secrets.autorandr.monitors.homelab4k;
+          "home-secondary" = secrets.autorandr.monitors.homelab1080p;
+          "home-tertiary" = secrets.autorandr.monitors.inbuilt;
         };
 
         config = {
-          "homelab1080p" = {
+          "home-secondary" = {
             enable = true;
             crtc = 2;
             primary = false;
@@ -62,7 +62,7 @@
             dpi = 96;
           };
 
-          "homelab4k" = {
+          "home-primary" = {
             enable = true;
             crtc = 0;
             mode = "3840x2160";
@@ -73,7 +73,7 @@
             # scale = { method = "factor"; x = 1.2; y = 1.2; };
           };
 
-          "inbuilt" = {
+          "home-tertiary" = {
             enable = true;
             crtc = 1;
             mode = "1920x1200";
