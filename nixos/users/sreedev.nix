@@ -20,6 +20,7 @@
   stylix = {
     enable = true;
     image = ../../wallpapers/leaves.jpg;
+    imageScalingMode = "fill"; # fill,fit,stretch,center,tile
     polarity = "dark";
     fonts = {
       serif = {
@@ -41,6 +42,23 @@
         package = pkgs.noto-fonts-emoji;
         name = "Noto Color Emoji";
       };
+    };
+    targets = {
+      alacritty.enable = false;
+      bat.enable = true;
+      btop.enable = true;
+      dunst.enable = true;
+      feh.enable = true;
+      firefox.enable = true;
+      fzf.enable = true;
+      gtk.enable = true;
+      i3.enable = false;
+      nushell.enable = true;
+      rofi.enable = false;
+      sxiv.enable = false;
+      xresources.enable = true;
+      zathura.enable = false;
+      zellij.enable = true;
     };
   };
 
