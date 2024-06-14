@@ -41,7 +41,6 @@ exfatprogs 1.2.3-1
 fasm 1.73.32-1
 feh 3.10.2-1
 flatpak 1:1.15.8-1
-floorp-bin 11.14.1-1
 fprintd 1.94.3-1
 fuse2 2.9.9-4
 fwup v1.9.1.r0.g91fbf8c-1
