@@ -1,7 +1,4 @@
 { pkgs, secrets, username, ... }: {
-  imports =
-    [ ./zsh.nix ./ssh.nix ./taskwarrior.nix ./systemd.nix ./packages.nix ];
-
   home = {
     username = "${username}";
     homeDirectory = "/home/${username}";

@@ -1,16 +1,16 @@
 { pkgs, secrets, lib, inputs, system, username, ... }: {
-  imports = [ ../shared ./firefox.nix ./stylix.nix ./dunst.nix ./autorandr.nix ];
-
-  home.packages = with pkgs; [
-    arandr
-    autorandr
-    autotiling
-    awscli2
-    dunst
-    emacs
-    floorp
-    jira-cli-go
-    (nerdfonts.override { fonts = [ "Iosevka" ]; })
+  imports = [
+    ./common/autorandr.nix
+    ./common/dunst.nix
+    ./common/firefox.nix
+    ./common/misc.nix
+    ./common/packages/cli.nix
+    ./common/packages/gui.nix
+    ./common/ssh.nix
+    ./common/stylix.nix
+    ./common/systemd.nix
+    ./common/taskwarrior.nix
+    ./common/zsh.nix
   ];
 
   fonts.fontconfig = {
