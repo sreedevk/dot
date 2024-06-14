@@ -20,6 +20,8 @@
     gh
     glow
     gping
+    grex
+    hex
     hexyl
     hledger
     html-tidy
