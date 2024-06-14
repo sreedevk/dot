@@ -17,6 +17,33 @@
     ];
   };
 
+  stylix = {
+    enable = true;
+    image = ../../wallpapers/leaves.jpg;
+    polarity = "dark";
+    fonts = {
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+
+      monospace = {
+        package = (pkgs.nerdfonts.override { fonts = [ "Iosevka" ]; });
+        name = "Iosevka NF";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
+  };
+
   fonts.fontconfig = {
     enable = lib.mkForce true;
     defaultFonts = {
@@ -43,7 +70,7 @@
           dmenu = "/usr/bin/dmenu - p dunst: ";
           enable_recursive_icon_lookup = true;
           follow = "mouse";
-          font = "Iosevka NF 12";
+          font = lib.mkDefault "Iosevka NF 12";
           format = "%a\n<b>%s</b>\n%b\n%p";
           frame_color = "#788388";
           frame_width = 0;
@@ -79,20 +106,20 @@
           word_wrap = "yes";
         };
         urgency_low = {
-          background = "#263238";
-          foreground = "#556064";
+          background = lib.mkDefault "#263238";
+          foreground = lib.mkDefault "#556064";
           timeout = 10;
         };
 
         urgency_normal = {
-          background = "#263238";
-          foreground = "#F9FAF9";
+          background = lib.mkDefault "#263238";
+          foreground = lib.mkDefault "#F9FAF9";
           timeout = 10;
         };
 
         urgency_critical = {
-          background = "#D62929";
-          foreground = "#F9FAF9";
+          background = lib.mkDefault "#D62929";
+          foreground = lib.mkDefault "#F9FAF9";
           timeout = 0;
         };
       };

@@ -23,5 +23,9 @@
     ];
   };
 
+  stylix = {
+    enable = false;
+  };
+
   programs.zsh.enable = true;
 }

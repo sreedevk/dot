@@ -3,6 +3,7 @@ stowed/.config/*
 stowed/.config/nvim/lazy-lock.json
 stowed/.zsh/plugins.sh
 stowed/.zshenv
+wallpapers/*
 
 # Allow
 !stowed/.config/alacritty/
@@ -33,3 +34,4 @@ stowed/.zshenv
 !stowed/.taskrc
 !stowed/.config/user-dirs.locale
 !stowed/.config/user-dirs.dirs
+!wallpapers/leaves.jpg
