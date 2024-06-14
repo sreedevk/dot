@@ -24,7 +24,7 @@
         sync.server.client_id=${secrets.taskwarrior.client_id}
         sync.encryption_secret=${secrets.taskwarrior.encryption_secret}
       '';
-      recursive = true;
+      recursive = false;
     };
   };
 }
