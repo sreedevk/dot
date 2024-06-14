@@ -1,11 +1,16 @@
 { pkgs, secrets, lib, inputs, system, username, ... }: {
-  imports = [ 
-  ../shared 
-  ./firefox.nix 
-  ./stylix.nix 
-  ./dunst.nix 
-  ./autorandr.nix 
-  ../common/packages/gui.nix 
+  imports = [
+    ./common/autorandr.nix
+    ./common/packages/cli.nix
+    ./common/packages/gui.nix
+    ./common/ssh.nix
+    ./common/systemd.nix
+    ./common/taskwarrior.nix
+    ./common/zsh.nix
+    ./common/dunst.nix
+    ./common/firefox.nix
+    ./common/misc.nix
+    ./common/stylix.nix
   ];
 
   fonts.fontconfig = {

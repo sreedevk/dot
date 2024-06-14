@@ -20,6 +20,8 @@
     dust
     eza
     fastfetch
+    git
+    git-crypt
     fd
     fzf
     gh

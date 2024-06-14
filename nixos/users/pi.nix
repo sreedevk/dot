@@ -1,10 +1,16 @@
 { configs, pkgs, secrets, username, ... }: {
-  imports = [ ../shared ../common/packages/tmux.nix ];
+  imports = [
+    ./common/misc.nix
+    ./common/packages/cli.nix
+    ./common/ssh.nix
+    ./common/packages/tmux.nix
+    ./common/systemd.nix
+    ./common/taskwarrior.nix
+    ./common/zsh.nix
+  ];
 
   home.packages = with pkgs; [
     asdf-vm
-    git
-    git-crypt
     neovim
     nodejs-slim
     ruby

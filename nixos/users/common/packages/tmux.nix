@@ -5,4 +5,5 @@
     tmuxPlugins.jump
     tmuxPlugins.tmux-thumbs
     tmuxPlugins.yank
+  ];
 }
