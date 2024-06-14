@@ -3,6 +3,7 @@
     amfora
     babashka
     bat
+    beanstalkd
     broot
     btop
     cmatrix
@@ -21,6 +22,7 @@
     gping
     hexyl
     hledger
+    html-tidy
     htop
     httpie
     hyperfine
@@ -34,10 +36,12 @@
     ncdu
     newsboat
     nixpkgs-fmt
+    nmap
     nushell
     procs
     ripgrep
     ripgrep-all
+    rsync
     sc-im
     starship
     tailspin
