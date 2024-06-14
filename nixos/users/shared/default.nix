@@ -69,7 +69,7 @@
       recursive = true;
     };
 
-    ".xession" = {
+    ".xsession" = {
       enable = true;
       source = ../../../stowed/.xsession;
       recursive = true;
