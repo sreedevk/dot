@@ -1,21 +1,11 @@
 { configs, pkgs, secrets, username, ... }: {
-  imports = [ ../shared ];
+  imports = [ ../shared ../common/packages/tmux.nix ];
   home.packages = with pkgs; [
     asdf-vm
-    babashka
-    delta
-    dig
-    gh
     git
     git-crypt
-    glab
     neovim
     ruby
-    tmux
-    tmuxPlugins.extrakto
-    tmuxPlugins.jump
-    tmuxPlugins.tmux-thumbs
-    tmuxPlugins.yank
   ];
 
   stylix = {

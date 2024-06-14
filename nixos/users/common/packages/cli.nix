@@ -1,7 +1,11 @@
 { secrets, pkgs, ... }: {
   home.packages = with pkgs; [
     amfora
+    glab
+    dig
     aria2
+    delta
+    less
     babashka
     bat
     beanstalkd
