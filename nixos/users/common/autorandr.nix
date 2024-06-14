@@ -70,11 +70,7 @@
             primary = true;
             rate = "60.00";
             dpi = 96;
-            scale = {
-              method = "factor";
-              x = 1.2;
-              y = 1.2;
-            };
+            # scale = { method = "factor"; x = 1.2; y = 1.2; };
           };
 
           "inbuilt" = {
