@@ -17,10 +17,18 @@
 
   outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
     let
-      x86system = "x86_64-linux";
-      armsystem = "aarch64-linux";
+      systems = {
+        x86 = "x86_64-linux";
+        arm64 = "aarch64-linux";
+      };
+
       secrets =
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
+
+      mkFormatter = sys: {
+        "${sys}" = inputs.nixpkgs.legacyPackages."${sys}".nixpkgs-fmt;
+      };
+
       mkSystem = pkgs: system: hostname:
         pkgs.lib.nixosSystem {
           system = system;
@@ -36,19 +44,22 @@
         };
     in
     {
+      # Formatters for Nix Files
       formatter = {
-        "${x86system}" = inputs.nixpkgs.legacyPackages."${x86system}".nixpkgs-fmt;
-        "${armsystem}" = inputs.nixpkgs.legacyPackages."${armsystem}".nixpkgs-fmt;
+        "${systems.x86}" = mkFormatter systems.x86;
+        "${systems.arm64}" = mkFormatter systems.arm64;
       };
 
+      # Operating System Level Configurations 
       nixosConfigurations = {
-        nullptrderef1 = mkSystem inputs.nixpkgs x86system "nullptrderef1";
+        nullptrderef1 = mkSystem inputs.nixpkgs systems.x86 "nullptrderef1";
       };
 
+      # User Level Home Manager Configurations
       homeConfigurations = {
-        admin = mkHome inputs.nixpkgs x86system "admin";
-        sreedev = mkHome inputs.nixpkgs x86system "sreedev";
-        pi = mkHome inputs.nixpkgs armsystem "pi";
+        admin = mkHome inputs.nixpkgs systems.x86 "admin";
+        sreedev = mkHome inputs.nixpkgs systems.x86 "sreedev";
+        pi = mkHome inputs.nixpkgs systems.arm64 "pi";
       };
     };
 }
