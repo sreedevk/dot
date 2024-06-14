@@ -38,7 +38,7 @@
           notification_height = 0;
           offset = 20;
           origin = "top-right";
-          padding = 8;
+          padding = 12;
           progress_bar = true;
           show_age_threshold = 60;
           show_indicators = "yes";
@@ -48,7 +48,7 @@
           startup_notification = false;
           sticky_history = "yes";
           transparency = 30;
-          width = 450;
+          width = 650;
           word_wrap = "yes";
         };
         urgency_low = {
