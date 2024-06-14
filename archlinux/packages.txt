@@ -3,7 +3,6 @@ alacritty 0.13.2-2
 alsa-firmware 1.2.4-3
 alsa-plugins 1:1.2.7.1-2
 alsa-utils 1.2.11-1
-aria2 1.37.0-1
 aura-bin 3.2.9-1
 base 3-2
 base-devel 1-1

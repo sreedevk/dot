@@ -1,6 +1,7 @@
 { secrets, pkgs, ... }: {
   home.packages = with pkgs; [
     amfora
+    aria2
     babashka
     bat
     beanstalkd
