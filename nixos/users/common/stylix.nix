@@ -33,6 +33,7 @@
         name = "Noto Color Emoji";
       };
     };
+
     targets = {
       alacritty.enable = true;
       bat.enable = true;
