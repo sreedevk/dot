@@ -31,8 +31,8 @@
       mkHome = pkgs: system: username:
         home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs.legacyPackages."${system}";
-          modules = [ stylix.homeManagerModules.stylix ./users/${username}.nix ];
-          extraSpecialArgs = { inherit inputs secrets system; };
+          modules = [ stylix.homeManagerModules.stylix ./users/${username} ];
+          extraSpecialArgs = { inherit inputs secrets system username; };
         };
     in
     {
