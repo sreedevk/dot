@@ -14,6 +14,7 @@
             mode = "1920x1200";
             position = "0x0";
             rate = "60.03";
+            dpi = 96;
           };
         };
       };
@@ -30,6 +31,7 @@
             mode = "2560x1440";
             position = "1920x0";
             rate = "59.95";
+            dpi = 96;
           };
           "inbuilt" = {
             enable = true;
@@ -38,6 +40,7 @@
             mode = "1920x1200";
             position = "0x0";
             rate = "60.03";
+            dpi = 96;
           };
         };
       };
@@ -56,6 +59,7 @@
             mode = "1920x1080";
             position = "0x0";
             rate = "100.00";
+            dpi = 96;
           };
 
           "homelab4k" = {
@@ -65,6 +69,7 @@
             position = "1920x0";
             primary = true;
             rate = "60.00";
+            dpi = 96;
             scale = {
               method = "factor";
               x = 1.2;
@@ -79,6 +84,7 @@
             position = "0x1080";
             primary = false;
             rate = "60.03";
+            dpi = 96;
           };
         };
       };
