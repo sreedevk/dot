@@ -7,10 +7,10 @@
     fonts = {
 
       sizes = {
-        applications = 18;
-        desktop = 16;
-        popups = 18;
-        terminal = 16;
+        applications = 10;
+        desktop = 10;
+        popups = 14;
+        terminal = 10;
       };
 
       serif = {
