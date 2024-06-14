@@ -24,6 +24,7 @@
     gh
     git
     git-crypt
+    gitleaks
     glab
     glow
     gping
