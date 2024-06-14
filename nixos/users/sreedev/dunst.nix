@@ -48,7 +48,7 @@
           startup_notification = false;
           sticky_history = "yes";
           transparency = 30;
-          width = 650;
+          width = 500;
           word_wrap = "yes";
         };
         urgency_low = {
