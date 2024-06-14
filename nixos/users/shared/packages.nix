@@ -31,6 +31,7 @@
     lf
     mdbook
     ncdu
+    newsboat
     nixpkgs-fmt
     nushell
     procs

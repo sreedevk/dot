@@ -14,7 +14,6 @@
       git-crypt
       glab
       neovim
-      newsboat
       ruby
       tmux
       tmuxPlugins.extrakto

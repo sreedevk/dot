@@ -15,7 +15,6 @@
       glab
       less
       neovim
-      newsboat
       nodejs-slim
       ruby
       tmux
