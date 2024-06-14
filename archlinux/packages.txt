@@ -100,7 +100,6 @@ neovide 0.13.1-1
 neovim 0.10.0-4
 nerd-fonts-cozette-ttf 1.19.2_3.0.0-1
 net-tools 2.10-2
-newsboat 2.35-4
 nmap 7.95-1
 noto-fonts 1:24.6.1-1
 noto-fonts-cjk 20230817-2
