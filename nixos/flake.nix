@@ -25,10 +25,8 @@
       secrets =
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
 
-      mkFormatter = sys: {
-        "${sys}" = inputs.nixpkgs.legacyPackages."${sys}".nixpkgs-fmt;
-      };
-
+      mkFormatter = sys: inputs.nixpkgs.legacyPackages."${sys}".nixpkgs-fmt;
+      
       mkSystem = pkgs: system: hostname:
         pkgs.lib.nixosSystem {
           system = system;
