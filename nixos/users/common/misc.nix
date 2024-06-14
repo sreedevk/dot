@@ -76,6 +76,7 @@
 
   programs.home-manager.enable = true;
   programs.htop.enable = true;
+  programs.zsh.enable = true;
 
   news.display = "silent";
 

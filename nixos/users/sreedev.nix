@@ -15,6 +15,4 @@
     ./common/taskwarrior.nix
     ./common/zsh.nix
   ];
-
-  programs.zsh.enable = true;
 }
