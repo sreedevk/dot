@@ -1,18 +1,17 @@
 { secrets, pkgs, ... }: {
   home.packages = with pkgs; [
     amfora
-    glab
-    dig
     aria2
-    delta
-    less
     babashka
     bat
     beanstalkd
     broot
     btop
+    cava
     cmatrix
     csvlens
+    delta
+    dig
     direnv
     doctl
     duckdb
@@ -20,11 +19,12 @@
     dust
     eza
     fastfetch
-    git
-    git-crypt
     fd
     fzf
     gh
+    git
+    git-crypt
+    glab
     glow
     gping
     grex
@@ -40,6 +40,7 @@
     irssi
     jaq
     jq
+    less
     lf
     mdbook
     ncdu
