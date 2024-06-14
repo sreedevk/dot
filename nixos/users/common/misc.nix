@@ -84,6 +84,7 @@
     gc = {
       automatic = true;
       frequency = "weekly";
+      options = "--delete-older-than 7d";
     };
     settings = {
       show-trace = true;
