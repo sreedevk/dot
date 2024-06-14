@@ -12,7 +12,9 @@
   home.packages = with pkgs; [
     asdf-vm
     neovim
+    nodejs-slim
     ruby
+    zsh
   ];
 
   stylix = {
