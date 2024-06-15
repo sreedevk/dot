@@ -18,6 +18,7 @@
         paths = {
           downloadsDir = "/mnt/data/downloads/";
           torrentsWatchDir = "/mnt/data/torrents/";
+          encAppData = "/mnt/enc_data_drive/AppData";
           applicationConfigDir = "/mnt/data/applications";
           moviesDir = "/mnt/data/media/movies/";
           tvDir = "/mnt/data/media/shows/";
@@ -464,7 +465,7 @@
           "--no-healthcheck"
         ];
         volumes = [
-          "${opts.paths.applicationConfigDir}/photoprism/:/photoprism/storage"
+          "${opts.paths.encAppData}/photoprism/:/photoprism/storage"
           "${opts.paths.imagesDir}:/photoprism/originals/generic"
           "${opts.paths.encImagesDir}:/photoprism/originals/personal"
         ];
