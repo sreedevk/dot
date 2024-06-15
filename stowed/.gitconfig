@@ -3,7 +3,7 @@
   name = sreedev
   signingkey = F2D006638E49CD45
 [core]
-  attributesfile = /home/sreedev/.gitattributes
+  attributesfile = ~/.gitattributes
   editor = nvim
   pager = delta
 [commit]
