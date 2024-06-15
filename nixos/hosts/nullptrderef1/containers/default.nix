@@ -465,9 +465,9 @@
           "--no-healthcheck"
         ];
         volumes = [
-          "${opts.paths.encAppData}/photoprism/:/photoprism/storage"
-          "${opts.paths.imagesDir}:/photoprism/originals/generic"
-          "${opts.paths.encImagesDir}:/photoprism/originals/personal"
+          "${opts.paths.encAppData}/Photoprism/:/photoprism/storage"
+          "${opts.paths.imagesDir}:/Photoprism/originals/generic"
+          "${opts.paths.encImagesDir}:/Photoprism/originals/personal"
         ];
         ports = [ "2342:2342" ];
         environment = {
@@ -487,7 +487,7 @@
         ports = [ "8024:8000" "9443:9443" "9080:9000" ];
         volumes = [
           "${opts.paths.podmanSocket}:/var/run/docker.sock"
-          "${opts.paths.applicationConfigDir}/portrainer:/data"
+          "${opts.paths.encAppData}/Portrainer:/data"
         ];
       };
 
