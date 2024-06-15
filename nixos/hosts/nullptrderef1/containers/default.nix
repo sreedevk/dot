@@ -316,7 +316,7 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "13378:80" ];
         volumes = [
-          "${opts.paths.applicationConfigDir}/audiobookshelf:/config"
+          "${opts.paths.encAppData}/AudioBookShelf:/config"
           "${opts.paths.audioBooksDir}:/audiobooks"
         ];
         environment = { TZ = opts.timeZone; };
@@ -731,8 +731,8 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "8945:80" ];
         volumes = [
-          "${opts.paths.encAppData}/Baikal/config:/var/www/baikal/config"
-          "${opts.paths.encAppData}/Baikal/data:/var/www/baikal/Specific"
+          "${opts.paths.applicationConfigDir}/Baikal:/var/www/baikal/config"
+          "${opts.paths.encAppData}/Baikal:/var/www/baikal/Specific"
         ];
         environment = {
           TZ = opts.timeZone;
