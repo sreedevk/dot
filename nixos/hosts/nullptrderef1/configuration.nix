@@ -152,21 +152,16 @@ in {
     icecast
     iwd
     man
-    minicom
     mosh
     mullvad
     mullvad-vpn
     netcat-gnu
-    nmap
     openresolv
     openssl
     openvpn
     ouch
     p7zip
-    pandoc
     parallel
-    restic
-    rsync
     sshfs
     strace
     taskchampion-sync-server
