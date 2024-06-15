@@ -30,6 +30,7 @@
           magazinesDir = "/mnt/data/media/magazines/";
           encTvDir = "/mnt/enc_data_drive/media/shows/";
           encVideosDir = "/mnt/enc_data_drive/media/videos/";
+          notebookDir = "/mnt/enc_data_drive/notebook";
           podmanSocket = "/var/run/podman/podman.sock";
         };
       };
@@ -751,6 +752,22 @@
         ];
         ports = [ "1337:1337" ];
         user = "root";
+        environment = {
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
+      };
+
+      "memos" = {
+        autoStart = true;
+        ports = [ "5230:5230" ];
+        image = "neosmemo/memos:stable";
+        extraOptions =
+          [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        volumes = [
+          "${opts.paths.notebookDir}/:/var/opt/memos"
+        ];
         environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
