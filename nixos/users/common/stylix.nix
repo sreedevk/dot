@@ -47,6 +47,7 @@
       nushell.enable = true;
       rofi.enable = false;
       sxiv.enable = false;
+      tmux.enable = true;
       xresources.enable = true;
       zathura.enable = false;
       zellij.enable = true;
