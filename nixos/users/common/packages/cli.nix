@@ -51,8 +51,10 @@
     nushell
     pandoc
     procs
+    restic
     ripgrep
     ripgrep-all
+    rsync
     rsync
     sc-im
     starship
