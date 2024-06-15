@@ -1,11 +1,11 @@
 agg v1.4.3 (https//github.com/asciinema/agg#89c95760)
 bingrep v0.11.0
 blaze-ssh v0.0.4
-cargo-expand v1.0.87
+cargo-expand v1.0.88
 cargo-update v13.4.0
 cargo-watch v8.5.2
 deduplicator v0.2.1
-diesel_cli v2.2.0
+diesel_cli v2.2.1
 sea-orm-cli v0.12.15
 sqlx-cli v0.7.4
 wasm-pack v0.12.1
