@@ -30,7 +30,6 @@
           magazinesDir = "/mnt/data/media/magazines/";
           encTvDir = "/mnt/enc_data_drive/media/shows/";
           encVideosDir = "/mnt/enc_data_drive/media/videos/";
-          notebookDir = "/mnt/enc_data_drive/notebook";
           podmanSocket = "/var/run/podman/podman.sock";
         };
       };
@@ -766,7 +765,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes = [
-          "${opts.paths.notebookDir}/:/var/opt/memos"
+          "${opts.paths.applicationConfigDir}/memos:/var/opt/memos"
         ];
         environment = {
           TZ = opts.timeZone;
