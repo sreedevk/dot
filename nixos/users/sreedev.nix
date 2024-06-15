@@ -9,6 +9,7 @@
     ./common/misc.nix
     ./common/packages/cli.nix
     ./common/packages/gui.nix
+    ./common/packages/tmux.nix
     ./common/ssh.nix
     ./common/stylix.nix
     ./common/systemd.nix

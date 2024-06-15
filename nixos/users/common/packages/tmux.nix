@@ -1,7 +1,4 @@
 { secrets, pkgs, ... }: {
-  home.packages = with pkgs; [
-  ];
-
   programs.tmux = {
     enable = true;
     shell = "${pkgs.zsh}/bin/zsh";
@@ -13,9 +10,5 @@
       tmuxPlugins.yank
       tmuxPlugins.tmux-thumbs
     ];
-    extraConfig = ''
-      set -g @thumbs-key U
-      set -g @thumbs-reverse enabled
-    '';
   };
 }
