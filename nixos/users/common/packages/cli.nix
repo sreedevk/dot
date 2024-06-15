@@ -49,6 +49,7 @@
     nixpkgs-fmt
     nmap
     nushell
+    pandoc
     procs
     ripgrep
     ripgrep-all
