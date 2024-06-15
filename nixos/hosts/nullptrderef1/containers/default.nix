@@ -140,7 +140,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "3100:7745" ];
-        volumes = [ "${opts.paths.applicationConfigDir}/Homebox:/data" ];
+        volumes = [ "${opts.paths.encAppData}/HomeBox:/data" ];
         environment = {
           HBOX_LOG_LEVEL = "info";
           HBOX_LOG_FORMAT = "text";
@@ -284,8 +284,8 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes = [
-          "${opts.paths.applicationConfigDir}/FreshRSS/data/:/var/www/FreshRSS/data"
-          "${opts.paths.applicationConfigDir}/FreshRSS/extensions/:/var/www/FreshRSS/extensions"
+          "${opts.paths.encAppData}/FreshRSS/data/:/var/www/FreshRSS/data"
+          "${opts.paths.encAppData}/FreshRSS/extensions/:/var/www/FreshRSS/extensions"
         ];
         ports = [ "8808:80" ];
         environment = {
@@ -418,7 +418,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes =
-          [ "${opts.paths.applicationConfigDir}/linkding:/etc/linkding/data" ];
+          [ "${opts.paths.encAppData}/Linkding:/etc/linkding/data" ];
         ports = [ "9090:9090" ];
         environment = {
           TZ = opts.timeZone;
@@ -562,7 +562,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes =
-          [ "${opts.paths.applicationConfigDir}/firefly/db:/var/lib/mysql" ];
+          [ "${opts.paths.encAppData}/FireFly/db:/var/lib/mysql" ];
         environment = {
           MYSQL_RANDOM_ROOT_PASSWORD = "yes";
           MYSQL_USER = "firefly";
@@ -579,7 +579,7 @@
         dependsOn = [ "firefly-db" ];
         ports = [ "6003:8080" ];
         volumes = [
-          "${opts.paths.applicationConfigDir}/firefly/uploads/:/var/www/html/storage/upload"
+          "${opts.paths.encAppData}/FireFly/uploads/:/var/www/html/storage/upload"
         ];
         environment = {
           APP_ENV = "production";
@@ -606,7 +606,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "6008:3000" ];
-        volumes = [ "${opts.paths.applicationConfigDir}/docuseal:/data" ];
+        volumes = [ "${opts.paths.encAppData}/Docuseal:/data" ];
         environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
@@ -635,7 +635,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "8089:8000" ];
-        volumes = [ "${opts.paths.applicationConfigDir}/archivebox:/data" ];
+        volumes = [ "${opts.paths.encAppData}/ArchiveBox:/data" ];
         environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
@@ -731,8 +731,8 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "8945:80" ];
         volumes = [
-          "${opts.paths.applicationConfigDir}/baikal/config:/var/www/baikal/config"
-          "${opts.paths.applicationConfigDir}/baikal/data:/var/www/baikal/Specific"
+          "${opts.paths.encAppData}/Baikal/config:/var/www/baikal/config"
+          "${opts.paths.encAppData}/Baikal/data:/var/www/baikal/Specific"
         ];
         environment = {
           TZ = opts.timeZone;
@@ -766,7 +766,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes = [
-          "${opts.paths.applicationConfigDir}/memos:/var/opt/memos"
+          "${opts.paths.encAppData}/Memos:/var/opt/memos"
         ];
         environment = {
           TZ = opts.timeZone;
