@@ -118,6 +118,20 @@
               name = "nullptrderef1";
               url = "http://nullptrderef1/";
             }
+            {
+              name = "hackernews";
+              url = "https://news.ycombinator.com/";
+            }
+            {
+              name = "add bookmark";
+              url = ''
+                javascript: (function () {
+                  var bookmarkUrl = window.location;
+                  var applicationUrl = 'http://nullptrderef1:9090/bookmarks/new';
+                  applicationUrl += '?url=' + encodeURIComponent(bookmarkUrl);
+                  applicationUrl += '&auto_close';  window.open(applicationUrl);})();
+              '';
+            }
           ];
         }
       ];
