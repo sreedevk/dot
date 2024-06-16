@@ -25,8 +25,12 @@
       secrets =
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
 
-      mkFormatter = sys: inputs.nixpkgs.legacyPackages."${sys}".nixpkgs-fmt;
-      
+      mkFormatters =
+        systemsl: builtins.foldl'
+          (output: sys: output // { sys = inputs.nixpkgs.legacyPackages."${sys}".nixpkgs-fmt; })
+          { }
+          (nixpkgs.lib.attrValues systemsl);
+
       mkSystem = pkgs: system: hostname:
         pkgs.lib.nixosSystem {
           system = system;
@@ -43,10 +47,7 @@
     in
     {
       # Formatters for Nix Files
-      formatter = {
-        "${systems.x86}" = mkFormatter systems.x86;
-        "${systems.arm64}" = mkFormatter systems.arm64;
-      };
+      formatter = mkFormatters systems;
 
       # Operating System Level Configurations 
       nixosConfigurations = {
