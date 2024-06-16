@@ -1,4 +1,4 @@
-{ config, lib, pkgs, secrets, ... }:
+{ config, pkgs, secrets, system, inputs, ... }:
 let opts =
   { paths = { encAppData = "/mnt/enc_data_drive/AppData"; }; };
 in
@@ -134,44 +134,49 @@ in
 
   fonts = {
     packages = with pkgs; [ iosevka nerdfonts ];
-
     fontconfig = { enable = true; };
   };
 
-  environment.systemPackages = with pkgs; [
-    alsa-utils
-    clang
-    cmake
-    cryptsetup
-    curl
-    dhcpcd
-    fasm-bin
-    ffmpeg
-    git
-    git-crypt
-    gnumake
-    home-manager
-    icecast
-    iwd
-    man
-    mosh
-    mullvad
-    mullvad-vpn
-    netcat-gnu
-    openresolv
-    openssl
-    openvpn
-    ouch
-    p7zip
-    parallel
-    sshfs
-    strace
-    taskchampion-sync-server
-    traceroute
-    unzip
-    zip
-    zsh
-  ];
+
+  environment.systemPackages =
+    let
+      agenix-packages = [ inputs.agenix.packages.${system}.default ];
+      nix-packages = with pkgs; [
+        alsa-utils
+        clang
+        cmake
+        cryptsetup
+        curl
+        dhcpcd
+        fasm-bin
+        ffmpeg
+        git
+        git-crypt
+        gnumake
+        home-manager
+        icecast
+        iwd
+        man
+        mosh
+        mullvad
+        mullvad-vpn
+        netcat-gnu
+        openresolv
+        openssl
+        openvpn
+        ouch
+        p7zip
+        parallel
+        sshfs
+        strace
+        taskchampion-sync-server
+        traceroute
+        unzip
+        zip
+        zsh
+      ];
+    in
+    pkgs.lib.concatLists [ agenix-packages nix-packages ];
 
   services = {
     flatpak.enable = false;
