@@ -17,50 +17,64 @@
         engines = {
           "Nix Packages" = {
             urls = [{
-              template = "https://search.nixos.org/packages?type=packages&query={searchTerms}";
+              template =
+                "https://search.nixos.org/packages?type=packages&query={searchTerms}&channel=unstable&size=100";
             }];
             definedAliases = [ "@np" ];
           };
 
           "NixOS Options" = {
             urls = [{
-              template = "https://search.nixos.org/options?channel=unstable&query={searchTerms}";
+              template =
+                "https://search.nixos.org/options?channel=unstable&query={searchTerms}";
             }];
             definedAliases = [ "@no" ];
           };
 
           "NixOS Wiki" = {
-            urls = [{ template = "https://wiki.nixos.org/index.php?search={searchTerms}"; }];
+            urls = [{
+              template =
+                "https://wiki.nixos.org/index.php?search={searchTerms}";
+            }];
             definedAliases = [ "@nw" ];
           };
 
           "YouTube" = {
-            urls = [{ template = "https://www.youtube.com/results?search_query={searchTerms}"; }];
+            urls = [{
+              template =
+                "https://www.youtube.com/results?search_query={searchTerms}";
+            }];
             definedAliases = [ "@yt" ];
           };
 
           "HomeManager" = {
-            urls = [{ template = "https://home-manager-options.extranix.com?query={searchTerms}&release=master"; }];
+            urls = [{
+              template =
+                "https://home-manager-options.extranix.com?query={searchTerms}&release=master";
+            }];
             definedAliases = [ "@hm" ];
           };
 
           "Reddit" = {
             urls = [{
-              template = "https://old.reddit.com/search?q={searchTerms}&include_over_18=on";
+              template =
+                "https://old.reddit.com/search?q={searchTerms}&include_over_18=on";
             }];
             definedAliases = [ "@r" ];
           };
 
           "DuckDuckGo" = {
             urls = [{
-              template = "https://duckduckgo.com?q={searchTerms}";
+              template =
+                "https://duckduckgo.com?q={searchTerms}";
             }];
             definedAliases = [ "@ddg" ];
           };
 
           "GitHub" = {
             urls = [{
-              template = "https://github.com/search?q={searchTerms}";
+              template =
+                "https://github.com/search?q={searchTerms}";
             }];
             definedAliases = [ "@gh" ];
           };
