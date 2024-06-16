@@ -187,8 +187,11 @@ in
     openssh = {
       enable = true;
       allowSFTP = true;
-      settings.PasswordAuthentication = false;
-      settings.KbdInteractiveAuthentication = false;
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+      };
     };
     pipewire = {
       enable = true;
