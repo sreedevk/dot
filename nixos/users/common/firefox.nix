@@ -15,76 +15,50 @@
         engines = {
           "Nix Packages" = {
             urls = [{
-              template = "https://search.nixos.org/packages";
-              params = [
-                { name = "type"; value = "packages"; }
-                { name = "query"; value = "{searchTerms}"; }
-              ];
+              template = "https://search.nixos.org/packages?type=packages&query={searchTerms}";
             }];
-
-            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = [ "@nix" ];
+            definedAliases = [ "@np" ];
           };
 
           "NixOS Options" = {
             urls = [{
-              template = "https://search.nixos.org/options";
-              params = [
-                {
-                  name = "channel";
-                  value = "unstable";
-                }
-                {
-                  name = "query";
-                  value = "{searchTerms}";
-                }
-              ];
+              template = "https://search.nixos.org/options?channel=unstable&query={searchTerms}";
             }];
             definedAliases = [ "@no" ];
           };
 
           "NixOS Wiki" = {
             urls = [{ template = "https://wiki.nixos.org/index.php?search={searchTerms}"; }];
-            iconUpdateURL = "https://wiki.nixos.org/favicon.png";
-            updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = [ "@nw" ];
           };
 
+          "YouTube" = {
+            urls = [{ template = "https://www.youtube.com/results?search_query={searchTerms}"; }];
+            definedAliases = [ "@yt" ];
+          };
+
           "HomeManager" = {
-            urls = [{ template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master"; }];
-            iconUpdateURL = "https://wiki.nixos.org/favicon.png";
-            updateInterval = 24 * 60 * 60 * 1000; # every day
+            urls = [{ template = "https://home-manager-options.extranix.com?query={searchTerms}&release=master"; }];
             definedAliases = [ "@hm" ];
           };
 
           "Reddit" = {
             urls = [{
-              template = "https://old.reddit.com/search";
-              params = [
-                {
-                  name = "q";
-                  value = "{searchTerms}";
-                }
-                {
-                  name = "include_over_18";
-                  value = "on";
-                }
-              ];
+              template = "https://old.reddit.com/search?q={searchTerms}&include_over_18=on";
             }];
             definedAliases = [ "@r" ];
           };
 
           "DuckDuckGo" = {
-            urls = [{ template = "https://duckduckgo.com/?q={searchTerms}"; }];
+            urls = [{
+              template = "https://duckduckgo.com?q={searchTerms}";
+            }];
+            definedAliases = [ "@ddg" ];
           };
 
           "GitHub" = {
             urls = [{
-              template = "https://github.com/search";
-              params = [{
-                name = "q";
-                value = "{searchTerms}";
-              }];
+              template = "https://github.com/search?q={searchTerms}";
             }];
             definedAliases = [ "@gh" ];
           };
