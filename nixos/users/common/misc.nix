@@ -74,10 +74,16 @@
     };
   };
 
-  programs.home-manager.enable = true;
-  programs.htop.enable = true;
-  programs.zsh.enable = true;
-  systemd.user.enable = true;
+  programs = {
+    home-manager.enable = true;
+    htop.enable = true;
+    zsh.enable = true;
+  };
+
+  systemd.user = {
+    enable = true;
+    startServices = "sd-switch";
+  };
 
   news.display = "silent";
 
