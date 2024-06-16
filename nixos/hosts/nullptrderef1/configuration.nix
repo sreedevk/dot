@@ -153,6 +153,7 @@ in
     home-manager
     icecast
     iwd
+    lshw
     man
     mosh
     mullvad
@@ -164,6 +165,7 @@ in
     ouch
     p7zip
     parallel
+    pciutils
     sshfs
     strace
     taskchampion-sync-server
