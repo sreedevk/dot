@@ -79,6 +79,11 @@
             definedAliases = [ "@gh" ];
           };
 
+          "Flatpak" = {
+            urls = [{ template = "https://flathub.org/apps/search?q={searchTerms}"; }];
+            definedAliases = [ "@fp" ];
+          };
+
           "Bing".metaData.hidden = true;
           "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
           "Wikipedia (en)".metaData.alias = "@w";
