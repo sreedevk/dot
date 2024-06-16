@@ -77,6 +77,7 @@
   programs.home-manager.enable = true;
   programs.htop.enable = true;
   programs.zsh.enable = true;
+  systemd.user.enable = true;
 
   news.display = "silent";
 

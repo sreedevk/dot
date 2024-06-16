@@ -6,7 +6,6 @@
     ./common/packages/cli.nix
     ./common/packages/tmux.nix
     ./common/ssh.nix
-    ./common/systemd.nix
     ./common/taskwarrior.nix
     ./common/zsh.nix
   ];
