@@ -12,7 +12,6 @@
     ./common/packages/tmux.nix
     ./common/ssh.nix
     ./common/stylix.nix
-    ./common/systemd.nix
     ./common/taskwarrior.nix
     ./common/zsh.nix
   ];
