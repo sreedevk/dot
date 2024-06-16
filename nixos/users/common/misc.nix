@@ -80,6 +80,13 @@
 
   news.display = "silent";
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
+  };
+
   nix = {
     package = pkgs.nix;
     gc = {
