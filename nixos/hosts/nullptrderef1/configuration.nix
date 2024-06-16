@@ -172,6 +172,7 @@ in
     traceroute
     unzip
     zip
+    zfs
     zsh
   ];
 
