@@ -8,6 +8,8 @@
         vimium
         ublock-origin
         darkreader
+        linkding-extension
+        consent-o-matic
       ];
       search = {
         force = true;
@@ -105,17 +107,16 @@
         "network.allow-experiments" = false;
         "dom.events.asyncClipboard.clipboardItem" = true;
         "browser.bookmarks.addedImportButton" = false;
-        "browser.toolbars.bookmarks.visibility" = "never";
+        "browser.toolbars.bookmarks.visibility" = "always";
       };
       bookmarks = [
         {
+          name = "main";
           toolbar = true;
           bookmarks = [
             {
-              name = "wikipedia";
-              tags = [ "wiki" ];
-              keyword = "wiki";
-              url = "https://en.wikipedia.org";
+              name = "nullptrderef1";
+              url = "http://nullptrderef1/";
             }
           ];
         }
