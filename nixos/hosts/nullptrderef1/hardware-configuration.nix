@@ -32,15 +32,19 @@
     fsType = "ext4";
   };
 
-  fileSystems."/mnt/media" =
-    { device = "datapool/media";
-      fsType = "zfs";
-    };
+  # NOTE: USE THE CONFIG BELOW TO AUTO IMPORT 
+  # ZPOOLS + ZFS DATAPOINTS AFTER CREATING
+  # THEM MANUALLY
+  # ========================================
+  # fileSystems."/mnt/media" =
+  #   { device = "datapool/media";
+  #     fsType = "zfs";
+  #   };
+  # boot.zfs.extraPools = [ "datapool" ];
+  # ========================================
 
   boot.initrd.luks.devices."enc_data_drive".device =
     "/dev/disk/by-uuid/2123e639-909b-44ac-ac4a-6c896746d33f";
-
-  boot.zfs.extraPools = [ "datapool" ];
 
   swapDevices = [ ];
 
