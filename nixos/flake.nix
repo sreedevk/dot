@@ -4,7 +4,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    agenix.url = "github:ryantm/agenix";
     stylix.url = "github:danth/stylix";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -16,7 +15,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, agenix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
     let
       systems = {
         x86 = "x86_64-linux";
@@ -37,7 +36,6 @@
           system = system;
           modules = [
             (import ./hosts/${hostname}/configuration.nix)
-            agenix.nixosModules.default
           ];
           specialArgs = { inherit inputs secrets system; };
         };
@@ -47,7 +45,6 @@
           pkgs = pkgs.legacyPackages."${system}";
           modules = [
             stylix.homeManagerModules.stylix
-            agenix.homeManagerModules.default
             ./users/${username}.nix
           ];
           extraSpecialArgs = { inherit inputs secrets system username; };

@@ -137,46 +137,40 @@ in
     fontconfig = { enable = true; };
   };
 
-
-  environment.systemPackages =
-    let
-      agenix-packages = [ inputs.agenix.packages.${system}.default ];
-      nix-packages = with pkgs; [
-        alsa-utils
-        clang
-        cmake
-        cryptsetup
-        curl
-        dhcpcd
-        fasm-bin
-        ffmpeg
-        git
-        git-crypt
-        gnumake
-        home-manager
-        icecast
-        iwd
-        man
-        mosh
-        mullvad
-        mullvad-vpn
-        netcat-gnu
-        openresolv
-        openssl
-        openvpn
-        ouch
-        p7zip
-        parallel
-        sshfs
-        strace
-        taskchampion-sync-server
-        traceroute
-        unzip
-        zip
-        zsh
-      ];
-    in
-    pkgs.lib.concatLists [ agenix-packages nix-packages ];
+  environment.systemPackages = with pkgs; [
+    alsa-utils
+    clang
+    cmake
+    cryptsetup
+    curl
+    dhcpcd
+    fasm-bin
+    ffmpeg
+    git
+    git-crypt
+    gnumake
+    home-manager
+    icecast
+    iwd
+    man
+    mosh
+    mullvad
+    mullvad-vpn
+    netcat-gnu
+    openresolv
+    openssl
+    openvpn
+    ouch
+    p7zip
+    parallel
+    sshfs
+    strace
+    taskchampion-sync-server
+    traceroute
+    unzip
+    zip
+    zsh
+  ];
 
   services = {
     flatpak.enable = false;
