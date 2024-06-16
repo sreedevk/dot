@@ -1,11 +1,14 @@
 { pkgs, secrets, lib, inputs, system, ... }: {
   stylix = {
     enable = true;
+
     image = ../../../wallpapers/leaves.jpg;
     imageScalingMode = "fill"; # fill,fit,stretch,center,tile
-    polarity = "dark";
-    fonts = {
 
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
+
+    fonts = {
       sizes = {
         applications = 10;
         desktop = 10;
