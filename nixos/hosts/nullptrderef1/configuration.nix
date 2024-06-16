@@ -1,6 +1,7 @@
 { config, pkgs, secrets, system, inputs, ... }:
-let opts =
-  { paths = { encAppData = "/mnt/enc_data_drive/AppData"; }; };
+let
+  opts =
+    { paths = { encAppData = "/mnt/enc_data_drive/AppData"; }; };
 in
 {
   imports = [ ./hardware-configuration.nix ./containers ./services ];

@@ -27,7 +27,7 @@
 
       mkFormatters =
         systemsl: builtins.foldl'
-          (output: sys: output // { sys = inputs.nixpkgs.legacyPackages."${sys}".nixpkgs-fmt; })
+          (output: sys: output // { ${sys} = inputs.nixpkgs.legacyPackages."${sys}".nixpkgs-fmt; })
           { }
           (nixpkgs.lib.attrValues systemsl);
 
