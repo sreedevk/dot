@@ -12,6 +12,7 @@
 
   boot.zfs.forceImportRoot = false;
 
+  # NOTE: CORE OS PARTITIONS
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/66773c39-ea86-4b86-ae8b-31a4e56bf46b";
     fsType = "ext4";
@@ -22,6 +23,7 @@
     fsType = "vfat";
   };
 
+  # NOTE: DATA PARTITIONS
   fileSystems."/mnt/data" = {
     device = "/dev/disk/by-uuid/8691d951-a1f4-4702-a947-e91e6afc4614";
     fsType = "ext4";
@@ -31,6 +33,9 @@
     device = "/dev/disk/by-uuid/af7977f8-c99e-4b48-8a25-dc716233bfd5";
     fsType = "ext4";
   };
+
+  boot.initrd.luks.devices."enc_data_drive".device =
+    "/dev/disk/by-uuid/2123e639-909b-44ac-ac4a-6c896746d33f";
 
   # NOTE: USE THE CONFIG BELOW TO AUTO IMPORT 
   # ZPOOLS + ZFS DATAPOINTS AFTER CREATING
@@ -43,11 +48,7 @@
   # boot.zfs.extraPools = [ "datapool" ];
   # ========================================
 
-  boot.initrd.luks.devices."enc_data_drive".device =
-    "/dev/disk/by-uuid/2123e639-909b-44ac-ac4a-6c896746d33f";
-
   swapDevices = [ ];
-
 
   networking = {
     useDHCP = lib.mkDefault false;
@@ -56,9 +57,9 @@
       enp2s0 = {
         useDHCP = lib.mkDefault false;
         ipv4 = {
-          address = [{
+          addresses = [{
             address = "192.168.1.179";
-            prefixLength = "24";
+            prefixLength = 24;
           }];
         };
       };
