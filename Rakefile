@@ -18,3 +18,26 @@ namespace :archlinux do
       .each { |pkg| sh("cargo install #{pkg}") }
   end
 end
+
+namespace :nix do
+  desc 'rebuild with upgrades'
+  task :rebuild do
+    sh('nix-collect-garbage')
+    sh('git crypt unlock')
+    sh('sudo nixos-rebuild switch --flake ./nixos --upgrade"')
+    sh('home-manager switch --flake ./nixos"')
+    sh('git crypt lock')
+    sh('nix-collect-garbage')
+  end
+end
+
+namespace :hm do
+  desc 'rebuild with upgrades'
+  task :rebuild do
+    sh('nix-collect-garbage')
+    sh('git crypt unlock')
+    sh('home-manager switch --flake ./nixos"')
+    sh('git crypt lock')
+    sh('nix-collect-garbage')
+  end
+end
