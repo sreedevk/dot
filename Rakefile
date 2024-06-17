@@ -24,7 +24,7 @@ namespace :nix do
   task :rebuild do
     sh('nix-collect-garbage')
     sh('git crypt unlock')
-    sh('sudo nixos-rebuild switch --flake ./nixos --upgrade"')
+    sh('sudo nixos-rebuild switch --flake ./nixos --upgrade')
     sh('home-manager switch --flake ./nixos"')
     sh('git crypt lock')
     sh('nix-collect-garbage')
@@ -36,7 +36,7 @@ namespace :hm do
   task :rebuild do
     sh('nix-collect-garbage')
     sh('git crypt unlock')
-    sh('home-manager switch --flake ./nixos"')
+    sh('home-manager switch --flake ./nixos')
     sh('git crypt lock')
     sh('nix-collect-garbage')
   end
