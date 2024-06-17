@@ -48,10 +48,25 @@
 
   swapDevices = [ ];
 
-  networking.useDHCP = lib.mkDefault false;
-  networking.interfaces.enp2s0.useDHCP = lib.mkDefault true;
-  networking.interfaces.wlan0.useDHCP = lib.mkDefault true;
-  networking.hostId = "0ec79991";
+
+  networking = {
+    useDHCP = lib.mkDefault false;
+    hostId = "0ec79991";
+    interfaces = {
+      enp2s0 = {
+        useDHCP = lib.mkDefault false;
+        ipv4 = {
+          address = [{
+            address = "192.168.1.179";
+            prefixLength = "24";
+          }];
+        };
+      };
+      wlan0 = {
+        useDHCP = lib.mkDefault true;
+      };
+    };
+  };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode =
