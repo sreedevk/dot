@@ -172,13 +172,14 @@ in
     p7zip
     parallel
     pciutils
+    rake
     sshfs
     strace
     taskchampion-sync-server
     traceroute
     unzip
-    zip
     zfs
+    zip
     zsh
   ];
 
