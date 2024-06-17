@@ -9,6 +9,7 @@ return {
   'tpope/vim-ragtag',
   'tpope/vim-rails',
   'tpope/vim-repeat',
+  'jbyuki/venn.nvim',
   'tpope/vim-surround',
   {
     'nanotee/zoxide.vim',
