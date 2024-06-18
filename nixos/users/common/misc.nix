@@ -48,12 +48,6 @@
       recursive = true;
     };
 
-    ".tmux.conf" = {
-      enable = true;
-      source = ../../../stowed/.tmux.conf;
-      recursive = true;
-    };
-
     ".profile" = {
       enable = true;
       source = ../../../stowed/.profile;
