@@ -50,7 +50,7 @@
           };
           Timer = {
             OnBootSec = "5min";
-            OnUnitActiveSec = "1min";
+            OnUnitActiveSec = "30min";
             Unit = "taskwarrior-sync.service";
           };
           Install = {
