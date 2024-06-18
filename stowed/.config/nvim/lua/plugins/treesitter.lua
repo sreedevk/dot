@@ -10,14 +10,7 @@ return {
     vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
 
     require('nvim-treesitter.configs').setup({
-      ensure_installed = {
-        "astro", "awk", "bash", "c", "clojure", "cmake", "commonlisp", "cpp", "css",
-        "diff", "eex", "elixir", "elm", "erlang", "fennel", "gleam", "gnuplot",
-        "go", "gpg", "haskell", "heex", "html", "javascript", "jq", "json", "julia",
-        "latex", "ledger", "lua", "nasm", "ocaml", "purescript", "python", "rasi",
-        "regex", "ruby", "rust", "ssh_config", "svelte", "tablegen", "todotxt",
-        "toml", "tsv", "typescript", "yaml", "zathurarc", "zig",
-      },
+      ensure_installed = { "bash", "c", "cpp", "css", "diff", "eex", "elixir", "gleam", "haskell", "heex", "html", "javascript", "jq", "json", "ledger", "lua", "python", "ruby", "rust", "ssh_config", "toml", "tsv", "typescript", "yaml", "zig", },
       autotag = {
         enable = true,
         filetypes = { "html" },
@@ -30,7 +23,7 @@ return {
       playground = {
         enable = true,
         disable = {},
-        updatetime = 50, -- Debounced time for highlighting nodes in the playground from source code
+        updatetime = 50,        -- Debounced time for highlighting nodes in the playground from source code
         persist_queries = true, -- Whether the query persists across vim sessions
       },
       highlight = {
