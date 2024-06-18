@@ -106,7 +106,7 @@ in
     description = "taskwarrior task server";
     enable = true;
     after = [ "network.target" ];
-    wants = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = ''
         ${pkgs.taskchampion-sync-server}/bin/taskchampion-sync-server --port 8080 --data-dir ${opts.paths.encAppData}/TaskChampion
