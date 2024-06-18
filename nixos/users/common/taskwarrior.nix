@@ -51,7 +51,7 @@
           };
           Timer = {
             OnBootSec = "5min";
-            OnUnitActiveSec = "30min";
+            OnUnitActiveSec = "2sec";
           };
         };
       };
