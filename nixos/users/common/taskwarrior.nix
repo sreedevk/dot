@@ -39,7 +39,6 @@
           Service = {
             Type = "simple";
             ExecStart = "${pkgs.taskwarrior3}/bin/task sync";
-            Restart = "always";
           };
         };
       };
