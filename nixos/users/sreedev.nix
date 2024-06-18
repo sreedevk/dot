@@ -9,7 +9,7 @@
     ./common/misc.nix
     ./common/packages/cli.nix
     ./common/packages/gui.nix
-    ./common/packages/tmux.nix
+    ./common/tmux.nix
     ./common/ssh.nix
     ./common/stylix.nix
     ./common/taskwarrior.nix
