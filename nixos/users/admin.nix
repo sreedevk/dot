@@ -4,7 +4,7 @@
     ./common/neovim.nix
     ./common/packages/cargo.nix
     ./common/packages/cli.nix
-    ./common/packages/tmux.nix
+    ./common/tmux.nix
     ./common/ssh.nix
     ./common/taskwarrior.nix
     ./common/zsh.nix
