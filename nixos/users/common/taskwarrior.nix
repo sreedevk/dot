@@ -51,7 +51,11 @@
           };
           Timer = {
             OnBootSec = "5min";
-            OnUnitActiveSec = "2sec";
+            OnUnitActiveSec = "1min";
+            Unit = "taskwarrior-sync.service";
+          };
+          Install = {
+            WantedBy = [ "timers.target" ];
           };
         };
       };
