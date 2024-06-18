@@ -37,7 +37,7 @@
             Documentation = "info:task man:task(1) https://taskwarrior.org/docs/";
           };
           Service = {
-            Type = "simple";
+            Type = "oneshot";
             ExecStart = "${pkgs.taskwarrior3}/bin/task sync";
           };
         };
