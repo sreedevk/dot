@@ -172,6 +172,7 @@ in
     ouch
     p7zip
     parallel
+    parted
     pciutils
     rake
     sshfs
