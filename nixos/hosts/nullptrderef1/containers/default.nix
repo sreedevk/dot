@@ -466,8 +466,8 @@
         ];
         volumes = [
           "${opts.paths.encAppData}/Photoprism/:/photoprism/storage"
-          "${opts.paths.imagesDir}:/Photoprism/originals/generic"
-          "${opts.paths.encImagesDir}:/Photoprism/originals/personal"
+          "${opts.paths.imagesDir}:/photoprism/originals/generic"
+          "${opts.paths.encImagesDir}:/photoprism/originals/personal"
         ];
         ports = [ "2342:2342" ];
         environment = {
