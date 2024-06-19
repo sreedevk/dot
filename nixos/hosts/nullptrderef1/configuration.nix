@@ -146,6 +146,7 @@ in
 
   environment.systemPackages = with pkgs; [
     alsa-utils
+    busybox
     clang
     cmake
     cryptsetup
