@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-set -e
+set -xe
 
 if [[ -z $1 ]]; then
   echo "no inputs provided"
