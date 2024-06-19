@@ -174,7 +174,6 @@ in
     parallel
     parted
     pciutils
-    rake
     sshfs
     strace
     taskchampion-sync-server
