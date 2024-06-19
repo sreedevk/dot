@@ -5,15 +5,19 @@
 
   boot = {
     supportedFilesystems = [ "zfs" ];
-    availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "uas" "usb_storage" "sd_mod" ];
-    kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
     zfs.forceImportRoot = false;
-    initrd.luks.devices = {
-      "enc_data_drive" = {
-        device = "/dev/disk/by-uuid/2123e639-909b-44ac-ac4a-6c896746d33f";
+
+    initrd = {
+      kernelModules = [ "kvm-intel" ];
+      availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "uas" "usb_storage" "sd_mod" ];
+      luks.devices = {
+        "enc_data_drive" = {
+          device = "/dev/disk/by-uuid/2123e639-909b-44ac-ac4a-6c896746d33f";
+        };
       };
     };
+
   };
 
 
