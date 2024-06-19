@@ -7,8 +7,12 @@ if [[ -z $1 ]]; then
   return 1
 fi
 
-nix-collect-garbage
+echo "running gc & decrypting secrets..."
+nix-collect-garbage &>/dev/null
 git crypt unlock
+
 eval $@
+
+echo "encrypting secrets & running gc..."
 git crypt lock
-nix-collect-garbage
+nix-collect-garbage &>/dev/null
