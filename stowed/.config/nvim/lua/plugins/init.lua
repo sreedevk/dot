@@ -11,6 +11,7 @@ return {
   'tpope/vim-repeat',
   'jbyuki/venn.nvim',
   'tpope/vim-surround',
+  'lervag/vimtex',
   {
     'nanotee/zoxide.vim',
     dependencies = {
