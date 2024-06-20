@@ -63,6 +63,7 @@
     taskwarrior3
     tmuxinator
     tokei
+    tree
     tty-clock
     uiua
     vim

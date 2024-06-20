@@ -9,7 +9,7 @@ fi
 
 cleanup() {
   echo "[RWC] re-encrypting before exit on error..."
-  git crypt lock || true
+  git crypt lock
 }
 
 trap 'cleanup' EXIT
@@ -22,5 +22,5 @@ git crypt unlock || true
 eval $@
 
 echo "[RWC] encrypting secrets & running gc..."
-git crypt lock || true
+git crypt lock
 nix-collect-garbage &>/dev/null
