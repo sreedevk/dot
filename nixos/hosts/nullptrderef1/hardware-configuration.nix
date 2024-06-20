@@ -179,6 +179,16 @@
       fsType = "zfs";
     };
 
+  fileSystems."/mnt/dpool0/media/magazines" =
+    { device = "dpool0/media/magazines";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/media/audiobooks" =
+    { device = "dpool0/media/audiobooks";
+      fsType = "zfs";
+    };
+
   swapDevices = [ ];
 
   networking = {
