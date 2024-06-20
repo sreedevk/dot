@@ -24,3 +24,5 @@ eval $@
 echo "[RWC] encrypting secrets & running gc..."
 git crypt lock
 nix-collect-garbage &>/dev/null
+
+trap - EXIT
