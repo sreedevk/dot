@@ -27,6 +27,7 @@ cleanup() {
 }
 
 trap 'cleanup' EXIT
+trap 'cleanup' SIGINT
 
 echo "[RWC] running gc & decrypting secrets..."
 nix-collect-garbage &>/dev/null
