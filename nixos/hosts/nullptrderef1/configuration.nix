@@ -158,6 +158,7 @@ in
     git-crypt
     gnumake
     home-manager
+    hwinfo
     icecast
     iwd
     lshw
