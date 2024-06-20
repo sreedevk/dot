@@ -4,6 +4,7 @@
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
+
     supportedFilesystems = [ "zfs" ];
     extraModulePackages = [ ];
     zfs = {
@@ -22,7 +23,15 @@
     };
 
   };
-
+  
+  # NOTE: OpenZFS Does not support swap on zvols or datasets
+  swapDevices = [ 
+    { 
+      device = "/var/lib/swapfile";
+      size = 32*1024;
+      randomEncryption.enable = true; 
+    } 
+  ];
 
   # NOTE: CORE OS PARTITIONS
 
@@ -188,8 +197,6 @@
     { device = "dpool0/media/audiobooks";
       fsType = "zfs";
     };
-
-  swapDevices = [ ];
 
   networking = {
     useDHCP = lib.mkDefault false;
