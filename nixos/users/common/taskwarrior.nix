@@ -1,29 +1,97 @@
-{ pkgs, secrets, ... }: {
+{ pkgs, secrets, ... }:
+let
+  taskwarriorOptions = {
+    themes = {
+      dark-16 = "dark-16.theme";
+      dark = "dark-256.theme";
+      dark-blue = "dark-blue-256.theme";
+      dark-gray = "dark-gray-256.theme";
+      dark-gray-blue = "dark-gray-blue-256.theme";
+      dark-green = "dark-green-256.theme";
+      dark-red = "dark-red-256.theme";
+      dark-yellow-green = "dark-yellow-green.theme";
+      light-16 = "light-16.theme";
+      light = "light-256.theme";
+      nocolor = "no-color.theme";
+      solarized-dark = "solarized-dark-256.theme";
+    };
+  };
+
+  taskwarriorSettings = {
+    theme = taskwarriorOptions.themes.solarized-dark;
+
+    dataLocation = "~/.task/";
+    hooksLocation = "~/.task/hooks";
+
+    sync = {
+      serverAddress = "http://nullptrderef1:8080";
+      clientID = secrets.taskwarrior.client_id;
+      encryptionSecret = secrets.taskwarrior.encryption_secret;
+    };
+
+    coefficients = {
+      user = {
+        tags = [
+          { name = "important"; coefficient = 15.0; }
+        ];
+        projects = [
+          { name = "learn:tech"; coefficient = 5.0; }
+          { name = "blog"; coefficient = 5.0; }
+          { name = "opensource"; coefficient = 5.0; }
+          { name = "personal:homenet"; coefficient = 5.0; }
+          { name = "work"; coefficient = 8.0; }
+          { name = "other"; coefficient = 4.0; }
+        ];
+      };
+
+      system = {
+        due = 12.0;
+        blocking = 2.0;
+        scheduled = 5.0;
+        active = 4.0;
+        age = 2.0;
+        annotations = 1.0;
+        tags = 1.0;
+        project = 1.0;
+        waiting = -3.0;
+        blocked = -5.0;
+      };
+      uda = {
+        H = 6.0;
+        M = 3.9;
+        L = 1.8;
+      };
+    };
+  };
+
+  mkTaskConfig = configs:
+    let
+      mkProjectCoefficient = project: "urgency.user.project.${project.name}.coefficient  ${project.coefficient}";
+      projectCoefficients = concatStringsSep "\n" (builtins.map (mkProjectCoefficient) configs.coefficients.user.projects);
+    in
+    ''
+      # THEME
+      include ${configs.theme}
+
+      # LOCAL DATA STORAGE
+      data.location=${configs.dataLocation}
+      hooks.location=${configs.hooksLocation}
+
+      # SYNC SETTINGS
+      sync.server.origin=${configs.sync.serverAddress}
+      sync.server.client_id=${configs.sync.clientID}
+      sync.server.encryption_secret=${configs.sync.encryptionSecret}
+
+      # COEFFICIENTS
+      ${projectCoefficients}
+    '';
+
+in
+{
   home.file = {
     ".taskrc" = {
       enable = true;
-      text = ''
-        # Color theme (uncomment one to use)
-        # include dark-16.theme
-        # include dark-256.theme
-        # include dark-blue-256.theme
-        # include dark-gray-256.theme
-        # include dark-gray-blue-256.theme
-        # include dark-green-256.theme
-        # include dark-red-256.theme
-        # include dark-yellow-green.theme
-        # include light-16.theme
-        # include light-256.theme
-        # include no-color.theme
-        include solarized-dark-256.theme
-        # include solarized-light-256.theme
-        # include dark-violets-256.theme
-        data.location=~/.task/
-        hooks.location=~/.task/hooks
-        sync.server.origin=http://nullptrderef1:8080
-        sync.server.client_id=${secrets.taskwarrior.client_id}
-        sync.encryption_secret=${secrets.taskwarrior.encryption_secret}
-      '';
+      text = mkTaskConfig taskwarriorSettings;
       recursive = false;
     };
   };
