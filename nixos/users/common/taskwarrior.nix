@@ -2,23 +2,23 @@
 let
   taskwarriorOptions = {
     themes = {
-      dark-16 = "dark-16.theme";
-      dark = "dark-256.theme";
-      dark-blue = "dark-blue-256.theme";
-      dark-gray = "dark-gray-256.theme";
-      dark-gray-blue = "dark-gray-blue-256.theme";
-      dark-green = "dark-green-256.theme";
-      dark-red = "dark-red-256.theme";
-      dark-yellow-green = "dark-yellow-green.theme";
-      light-16 = "light-16.theme";
-      light = "light-256.theme";
-      nocolor = "no-color.theme";
-      solarized-dark = "solarized-dark-256.theme";
+      dark-16 = "dark-16";
+      dark = "dark-256";
+      dark-blue = "dark-blue-256";
+      dark-gray = "dark-gray-256";
+      dark-gray-blue = "dark-gray-blue-256";
+      dark-green = "dark-green-256";
+      dark-red = "dark-red-256";
+      dark-yellow-green = "dark-yellow-green";
+      light-16 = "light-16";
+      light = "light-256";
+      nocolor = "no-color";
+      solarized-dark = "solarized-dark-256";
     };
   };
 
   taskwarriorSettings = {
-    theme = taskwarriorOptions.themes.solarized-dark;
+    theme = "${taskwarriorOptions.themes.solarized-dark}.theme";
 
     dataLocation = "~/.task/";
     hooksLocation = "~/.task/hooks";
@@ -82,9 +82,6 @@ let
       sync.server.origin=${configs.sync.serverAddress}
       sync.server.client_id=${configs.sync.clientID}
       sync.server.encryption_secret=${configs.sync.encryptionSecret}
-
-      # COEFFICIENTS
-      ${projectCoefficients}
     '';
 
 in
