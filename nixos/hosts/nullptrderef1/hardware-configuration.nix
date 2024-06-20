@@ -6,7 +6,10 @@
   boot = {
     supportedFilesystems = [ "zfs" ];
     extraModulePackages = [ ];
-    zfs.forceImportRoot = false;
+    zfs = {
+      zfs.forceImportRoot = false;
+      zfs.extraPools = [ "dpool0" ];
+    };
 
     initrd = {
       kernelModules = [ "kvm-intel" ];
@@ -44,16 +47,137 @@
     fsType = "ext4";
   };
 
-  # NOTE: USE THE CONFIG BELOW TO AUTO IMPORT 
-  # ZPOOLS + ZFS DATAPOINTS AFTER CREATING
-  # THEM MANUALLY
-  # ========================================
-  # fileSystems."/mnt/media" =
-  #   { device = "datapool/media";
-  #     fsType = "zfs";
-  #   };
-  # boot.zfs.extraPools = [ "datapool" ];
-  # ========================================
+  fileSystems."/mnt/dpool0/media" =
+    {
+      device = "dpool0/media";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/media/videos" =
+    {
+      device = "dpool0/media/videos";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/media/movies" =
+    {
+      device = "dpool0/media/movies";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/media/music" =
+    {
+      device = "dpool0/media/music";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/media/photos" =
+    {
+      device = "dpool0/media/photos";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/media/shows" =
+    {
+      device = "dpool0/media/shows";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/other" =
+    {
+      device = "dpool0/other";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/secrets" =
+    {
+      device = "dpool0/secrets";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/notes" =
+    {
+      device = "dpool0/notes";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/appdata" =
+    {
+      device = "dpool0/appdata";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/backups" =
+    {
+      device = "dpool0/backups";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/resources" =
+    {
+      device = "dpool0/resources";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/resources/llms" =
+    {
+      device = "dpool0/resources/llms";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/resources/databases" =
+    {
+      device = "dpool0/resources/databases";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/resources/wordlists" =
+    {
+      device = "dpool0/resources/wordlists";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/resources/other" =
+    {
+      device = "dpool0/resources/other";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/personal" =
+    {
+      device = "dpool0/personal";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/personal/documents" =
+    {
+      device = "dpool0/personal/documents";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/personal/finances" =
+    {
+      device = "dpool0/personal/finances";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/personal/projects" =
+    {
+      device = "dpool0/personal/projects";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/personal/archives" =
+    {
+      device = "dpool0/personal/archives";
+      fsType = "zfs";
+    };
+
+  fileSystems."/mnt/dpool0/personal/other" =
+    {
+      device = "dpool0/personal/other";
+      fsType = "zfs";
+    };
 
   swapDevices = [ ];
 
