@@ -71,6 +71,7 @@
     xh
     xxd
     yt-dlp
+    zellij
     zoxide
   ];
 }
