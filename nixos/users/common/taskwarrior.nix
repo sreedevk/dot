@@ -67,7 +67,7 @@ let
   mkTaskConfig = configs:
     let
       mkProjectCoefficient = project: "urgency.user.project.${project.name}.coefficient  ${project.coefficient}";
-      projectCoefficients = concatStringsSep "\n" (builtins.map (mkProjectCoefficient) configs.coefficients.user.projects);
+      projectCoefficients = builtins.concatStringsSep "\n" (builtins.map (mkProjectCoefficient) configs.coefficients.user.projects);
     in
     ''
       # THEME
