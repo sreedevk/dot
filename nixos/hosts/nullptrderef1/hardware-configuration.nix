@@ -198,6 +198,11 @@
       fsType = "zfs";
     };
 
+  fileSystems."/mnt/dpool0/media/books" =
+    { device = "dpool0/media/books";
+      fsType = "zfs";
+    };
+
   networking = {
     useDHCP = lib.mkDefault false;
     hostId = "0ec79991";
