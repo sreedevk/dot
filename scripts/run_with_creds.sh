@@ -8,14 +8,14 @@ if [[ -z $1 ]]; then
 fi
 
 git_lock_secret() {
-  encstat="$(git crypt status nixos/secrets | awk '{print $1}' | grep -o -E '^\s+(encrypted|not encrypted)')"
+  encstat="$(git crypt status nixos/secrets)"
   if [[ "$encstat" == *'not encrypted'* ]]; then
     git crypt lock
   fi
 }
 
 git_unlock_secret() {
-  encstat="$(git crypt status nixos/secrets | awk '{print $1}')"
+  encstat="$(git crypt status nixos/secrets)"
   if [[ "$encstat" != *'not encrypted'* ]]; then
     git crypt unlock
   fi
