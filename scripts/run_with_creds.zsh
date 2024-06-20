@@ -13,7 +13,7 @@ cleanup() {
 }
 
 nixupdate () {
-  "sudo nixos-rebuild switch --flake './nixos' || home-manager switch --flake './nixos'"
+  echo "sudo nixos-rebuild switch --flake './nixos' || home-manager switch --flake './nixos'"
 }
 
 trap 'cleanup' EXIT
