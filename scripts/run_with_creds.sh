@@ -3,10 +3,10 @@
 set -e
 
 if [[ -z $1 ]]; then
+  echo "no inputs provided"
   return 1
 fi
 
-  echo "no inputs provided"
 git_lock_secret() {
   encstat="$(git crypt status nixos/secrets | awk '{print $1}' | grep -o -E '^\s+(encrypted|not encrypted)')"
   if [[ "$encstat" == *'not encrypted'* ]]; then
