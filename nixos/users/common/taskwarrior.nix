@@ -67,7 +67,7 @@ let
   mkTaskConfig = configs:
     let
       castFloatToString = float: builtins.substring 0 3 (builtins.toString float);
-      mkProjectCoefficient = project: "urgency.user.project.\"${project.name}\".coefficient ${castFloatToString project.coefficient}";
+      mkProjectCoefficient = project: "urgency.user.project.${project.name}.coefficient ${castFloatToString project.coefficient}";
       projectCoefficients = builtins.concatStringsSep "\n" (builtins.map (mkProjectCoefficient) configs.coefficients.user.projects);
     in
     ''
