@@ -19,7 +19,7 @@ let
 
   taskwarriorSettings = {
     theme = "${taskwarriorOptions.themes.solarized-dark}.theme";
-
+    clientSyncFreq = "30min";
     dataLocation = "~/.task/";
     hooksLocation = "~/.task/hooks";
 
@@ -140,7 +140,7 @@ in
           };
           Timer = {
             OnBootSec = "5min";
-            OnUnitActiveSec = "30min";
+            OnUnitActiveSec = taskwarriorSettings.clientSyncFreq;
             Unit = "taskwarrior-sync.service";
           };
           Install = {
