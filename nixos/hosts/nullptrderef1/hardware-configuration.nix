@@ -7,8 +7,8 @@
     supportedFilesystems = [ "zfs" ];
     extraModulePackages = [ ];
     zfs = {
-      zfs.forceImportRoot = false;
-      zfs.extraPools = [ "dpool0" ];
+      forceImportRoot = false;
+      extraPools = [ "dpool0" ];
     };
 
     initrd = {
