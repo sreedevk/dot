@@ -66,9 +66,17 @@ let
 
   mkTaskConfig = configs:
     let
-      castFloatToString = float: builtins.substring 0 3 (builtins.toString float);
-      mkProjectCoefficient = project: "urgency.user.project.${project.name}.coefficient ${castFloatToString project.coefficient}";
-      projectCoefficients = builtins.concatStringsSep "\n" (builtins.map (mkProjectCoefficient) configs.coefficients.user.projects);
+      mkprojectCoefficients = projectCoefficients: builtins.concatStringsSep
+        "\n"
+        (builtins.map
+          (project: "urgency.user.project.${project.name}.coefficient=${builtins.toString project.coefficient}")
+          projectCoefficients);
+
+      mktagCoefficients = tagCoefficients: builtins.concatStringsSep
+        "\n"
+        (builtins.map
+          (tag: "urgency.user.tag.${tag.name}.coefficient=${builtins.toString tag.coefficient}")
+          tagCoefficients);
     in
     ''
       # THEME
@@ -81,11 +89,25 @@ let
       # SYNC SETTINGS
       sync.server.origin=${configs.sync.serverAddress}
       sync.server.client_id=${configs.sync.clientID}
-      sync.server.encryption_secret=${configs.sync.encryptionSecret}
+      sync.encryption_secret=${configs.sync.encryptionSecret}
 
-      urgency.blocked.coefficient = 0.0
+      # COEFFICIENTS
+      urgency.due.coefficient=${builtins.toString configs.coefficients.system.due}
+      urgency.blocking.coefficient=${builtins.toString configs.coefficients.system.blocking}
+      urgency.scheduled.coefficient=${builtins.toString configs.coefficients.system.scheduled}
+      urgency.active.coefficient=${builtins.toString configs.coefficients.system.active}
+      urgency.age.coefficient=${builtins.toString configs.coefficients.system.age}
+      urgency.annotations.coefficient=${builtins.toString configs.coefficients.system.annotations}
+      urgency.waiting.coefficient=${builtins.toString configs.coefficients.system.waiting}
+      urgency.blocked.coefficient=${builtins.toString configs.coefficients.system.blocked}
+      urgency.tags.coefficient=${builtins.toString configs.coefficients.system.tags}
+      urgency.project.coefficient=${builtins.toString configs.coefficients.system.project}
+      urgency.uda.priority.H.coefficient=${builtins.toString configs.coefficients.uda.H}
+      urgency.uda.priority.M.coefficient=${builtins.toString configs.coefficients.uda.M}
+      urgency.uda.priority.L.coefficient=${builtins.toString configs.coefficients.uda.L}
+      ${mkprojectCoefficients configs.coefficients.user.projects}
+      ${mktagCoefficients configs.coefficients.user.tags}
     '';
-
 in
 {
   home.file = {
