@@ -7,13 +7,9 @@ if [[ -z $1 ]]; then
   return 1
 fi
 
-cleanup() {
+cleanup () {
   echo "[RWC] re-encrypting before exit on error..."
   git crypt lock
-}
-
-nixupdate () {
-  sudo nixos-rebuild switch --flake './nixos' || home-manager switch --flake './nixos'
 }
 
 trap 'cleanup' EXIT
