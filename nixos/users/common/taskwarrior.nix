@@ -82,6 +82,8 @@ let
       sync.server.origin=${configs.sync.serverAddress}
       sync.server.client_id=${configs.sync.clientID}
       sync.server.encryption_secret=${configs.sync.encryptionSecret}
+
+      urgency.blocked.coefficient = 0.0
     '';
 
 in
