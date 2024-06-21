@@ -20,12 +20,15 @@
           encAppData = "/mnt/dpool0/appdata";
           downloadsDir = "/mnt/dpool0/downloads";
           magazinesDir = "/mnt/dpool0/media/magazines";
-          imagesDir = "/mnt/dpool0/media/images";
+
+          qbtImagesDir = "/mnt/dpool0/media/photos/other";
+          imagesDir = "/mnt/dpool0/media/photos/";
+
           moviesDir = "/mnt/dpool0/media/movies";
           audioBooksDir = "/mnt/dpool0/media/audiobooks";
           booksDir = "/mnt/dpool0/media/books";
           musicDir = "/mnt/dpool0/media/music";
-          videosDir = "/mnt/dpool0/media/videos/";
+          videosDir = "/mnt/dpool0/media/videos";
 
           tvDir = "/mnt/data/media/shows/";
           torrentsWatchDir = "/mnt/data/torrents/";
@@ -109,7 +112,7 @@
           "${opts.paths.applicationConfigDir}/vuetorrent:/vuetorrent"
           "${opts.paths.downloadsDir}:/downloads"
           "${opts.paths.torrentsWatchDir}:/torrents"
-          "${opts.paths.imagesDir}:/images"
+          "${opts.paths.qbtImagesDir}:/images"
           "${opts.paths.videosDir}:/videos"
           "${opts.paths.booksDir}:/books"
           "${opts.paths.magazinesDir}:/magazines"
