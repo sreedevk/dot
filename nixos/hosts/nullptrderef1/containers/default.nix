@@ -16,20 +16,18 @@
         adminUID = "1000";
         adminGID = "100";
         paths = {
-          # migrated
-          encAppData = "/mnt/dpool0/appdata";
-          downloadsDir = "/mnt/dpool0/downloads";
-          magazinesDir = "/mnt/dpool0/media/magazines";
-          qbtImagesDir = "/mnt/dpool0/media/photos/other";
-          imagesDir = "/mnt/dpool0/media/photos";
-          torrentsWatchDir = "/mnt/dpool0/downloads/torrents";
-          moviesDir = "/mnt/dpool0/media/movies";
-          audioBooksDir = "/mnt/dpool0/media/audiobooks";
-          booksDir = "/mnt/dpool0/media/books";
-          musicDir = "/mnt/dpool0/media/music";
-          videosDir = "/mnt/dpool0/media/videos";
-
-          tvDir = "/mnt/dpool0/media/shows";
+          appplication_data = "/mnt/dpool0/appdata";
+          downloads = "/mnt/dpool0/downloads";
+          magazines = "/mnt/dpool0/media/magazines";
+          qbt_images = "/mnt/dpool0/media/photos/other";
+          images = "/mnt/dpool0/media/photos";
+          torrent_watch = "/mnt/dpool0/downloads/torrents";
+          movies = "/mnt/dpool0/media/movies";
+          audiobooks = "/mnt/dpool0/media/audiobooks";
+          books = "/mnt/dpool0/media/books";
+          music = "/mnt/dpool0/media/music";
+          videos = "/mnt/dpool0/media/videos";
+          television = "/mnt/dpool0/media/shows";
 
           podmanSocket = "/var/run/podman/podman.sock";
         };
@@ -41,19 +39,19 @@
         autoStart = true;
         image = "jellyfin/jellyfin";
         volumes = [
-          "${opts.paths.encAppData}/jellyfin/config:/config"
-          "${opts.paths.encAppData}/jellyfin/cache/:/cache"
-          "${opts.paths.encAppData}/jellyfin/log/:/log"
-          "${opts.paths.moviesDir}:/movies"
-          "${opts.paths.tvDir}:/tv"
-          "${opts.paths.audioBooksDir}:/audiobooks"
-          "${opts.paths.musicDir}:/music"
+          "${opts.paths.appplication_data}/jellyfin/config:/config"
+          "${opts.paths.appplication_data}/jellyfin/cache/:/cache"
+          "${opts.paths.appplication_data}/jellyfin/log/:/log"
+          "${opts.paths.movies}:/movies"
+          "${opts.paths.television}:/tv"
+          "${opts.paths.audiobooks}:/audiobooks"
+          "${opts.paths.music}:/music"
         ];
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "8096:8096" ];
-        environment = { 
-          JELLYFIN_LOG_DIR = "/log"; 
+        environment = {
+          JELLYFIN_LOG_DIR = "/log";
           TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
@@ -66,7 +64,7 @@
         image = "fallenbagel/jellyseerr:latest";
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-        volumes = [ "${opts.paths.encAppData}/jellyseer/:/app/config" ];
+        volumes = [ "${opts.paths.appplication_data}/jellyseer/:/app/config" ];
         ports = [ "5055:5055" ];
         environment = {
           TZ = opts.timeZone;
@@ -81,8 +79,8 @@
         image = "plexinc/pms-docker";
         extraOptions = [ "--network=host" "--no-healthcheck" ];
         volumes = [
-          "${opts.paths.encAppData}/plex/database/:/config"
-          "${opts.paths.encAppData}/plex/transcode/:/transcode"
+          "${opts.paths.appplication_data}/plex/database/:/config"
+          "${opts.paths.appplication_data}/plex/transcode/:/transcode"
         ];
         environment = {
           TZ = opts.timeZone;
@@ -106,14 +104,14 @@
           USER_GID = opts.adminGID;
         };
         volumes = [
-          "${opts.paths.encAppData}/qbittorrent/config/:/config"
-          "${opts.paths.encAppData}/vuetorrent:/vuetorrent"
-          "${opts.paths.downloadsDir}:/downloads"
-          "${opts.paths.torrentsWatchDir}:/torrents"
-          "${opts.paths.qbtImagesDir}:/images"
-          "${opts.paths.videosDir}:/videos"
-          "${opts.paths.booksDir}:/books"
-          "${opts.paths.magazinesDir}:/magazines"
+          "${opts.paths.appplication_data}/qbittorrent/config/:/config"
+          "${opts.paths.appplication_data}/vuetorrent:/vuetorrent"
+          "${opts.paths.downloads}:/downloads"
+          "${opts.paths.torrent_watch}:/torrents"
+          "${opts.paths.qbt_images}:/images"
+          "${opts.paths.videos}:/videos"
+          "${opts.paths.books}:/books"
+          "${opts.paths.magazines}:/magazines"
         ];
         extraOptions = [ "--network=host" "--no-healthcheck" ];
       };
@@ -125,8 +123,8 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         dependsOn = [ "qbittorrent-nox" ];
         ports = [ "7474:7474" ];
-        volumes = [ "${opts.paths.encAppData}/autobrr/:/config" ];
-        environment = { 
+        volumes = [ "${opts.paths.appplication_data}/autobrr/:/config" ];
+        environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
@@ -153,7 +151,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "3100:7745" ];
-        volumes = [ "${opts.paths.encAppData}/HomeBox:/data" ];
+        volumes = [ "${opts.paths.appplication_data}/HomeBox:/data" ];
         environment = {
           HBOX_LOG_LEVEL = "info";
           HBOX_LOG_FORMAT = "text";
@@ -172,9 +170,9 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         dependsOn = [ "qbittorrent-nox" ];
         volumes = [
-          "${opts.paths.encAppData}/Radarr/:/config"
-          "${opts.paths.moviesDir}:/movies"
-          "${opts.paths.downloadsDir}:/downloads"
+          "${opts.paths.appplication_data}/Radarr/:/config"
+          "${opts.paths.movies}:/movies"
+          "${opts.paths.downloads}:/downloads"
         ];
         ports = [ "7878:7878" ];
         environment = {
@@ -192,9 +190,9 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes = [
-          "${opts.paths.encAppData}/Sonarr/:/config"
-          "${opts.paths.tvDir}:/tv"
-          "${opts.paths.downloadsDir}:/downloads"
+          "${opts.paths.appplication_data}/Sonarr/:/config"
+          "${opts.paths.television}:/tv"
+          "${opts.paths.downloads}:/downloads"
         ];
         ports = [ "8989:8989" ];
         environment = {
@@ -212,12 +210,12 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes = [
-          "${opts.paths.encAppData}/Lidarr/:/config"
-          "${opts.paths.musicDir}:/music"
-          "${opts.paths.downloadsDir}:/downloads"
+          "${opts.paths.appplication_data}/Lidarr/:/config"
+          "${opts.paths.music}:/music"
+          "${opts.paths.downloads}:/downloads"
         ];
         ports = [ "8686:8686" ];
-        environment = { 
+        environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
@@ -232,12 +230,12 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes = [
-          "${opts.paths.encAppData}/Readarr/:/config"
-          "${opts.paths.booksDir}:/books"
-          "${opts.paths.downloadsDir}:/downloads"
+          "${opts.paths.appplication_data}/Readarr/:/config"
+          "${opts.paths.books}:/books"
+          "${opts.paths.downloads}:/downloads"
         ];
         ports = [ "8787:8787" ];
-        environment = { 
+        environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
@@ -249,7 +247,7 @@
         image = "evanbuss/openbooks";
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-        volumes = [ "${opts.paths.booksDir}:/books" ];
+        volumes = [ "${opts.paths.books}:/books" ];
         ports = [ "8004:80" ];
         cmd = [ "--persist" "--name='${opts.applicationUserName}'" ];
         environment = {
@@ -267,7 +265,7 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "8191:8191" ];
         environment = {
-          LOG_LEVEL = "info"; 
+          LOG_LEVEL = "info";
           TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
@@ -282,11 +280,11 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         dependsOn = [ "flareSolverr" ];
         volumes = [
-          "${opts.paths.encAppData}/Prowlarr/:/config"
-          "${opts.paths.downloadsDir}:/downloads"
+          "${opts.paths.appplication_data}/Prowlarr/:/config"
+          "${opts.paths.downloads}:/downloads"
         ];
         ports = [ "9696:9696" ];
-        environment = { 
+        environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
@@ -307,8 +305,8 @@
           PGID = opts.adminGID;
         };
         volumes = [
-          "${opts.paths.encAppData}/Jackett:/config"
-          "${opts.paths.downloadsDir}:/downloads"
+          "${opts.paths.appplication_data}/Jackett:/config"
+          "${opts.paths.downloads}:/downloads"
         ];
         ports = [ "9117:9117" ];
       };
@@ -319,7 +317,7 @@
         image = "b4bz/homer:latest";
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-        volumes = [ "${opts.paths.encAppData}/Homer/:/www/assets" ];
+        volumes = [ "${opts.paths.appplication_data}/Homer/:/www/assets" ];
         ports = [ "80:8080" ];
         environment = {
           TZ = opts.timeZone;
@@ -335,8 +333,8 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes = [
-          "${opts.paths.encAppData}/FreshRSS/data/:/var/www/FreshRSS/data"
-          "${opts.paths.encAppData}/FreshRSS/extensions/:/var/www/FreshRSS/extensions"
+          "${opts.paths.appplication_data}/FreshRSS/data/:/var/www/FreshRSS/data"
+          "${opts.paths.appplication_data}/FreshRSS/extensions/:/var/www/FreshRSS/extensions"
         ];
         ports = [ "8808:80" ];
         environment = {
@@ -355,9 +353,9 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "5000:5000" ];
         volumes = [
-          "${opts.paths.encAppData}/Kavita:/kavita/config"
-          "${opts.paths.booksDir}:/books"
-          "${opts.paths.magazinesDir}:/magazines"
+          "${opts.paths.appplication_data}/Kavita:/kavita/config"
+          "${opts.paths.books}:/books"
+          "${opts.paths.magazines}:/magazines"
         ];
 
         environment = {
@@ -375,8 +373,8 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "13378:80" ];
         volumes = [
-          "${opts.paths.encAppData}/AudioBookShelf:/config"
-          "${opts.paths.audioBooksDir}:/audiobooks"
+          "${opts.paths.appplication_data}/AudioBookShelf:/config"
+          "${opts.paths.audiobooks}:/audiobooks"
         ];
         environment = {
           TZ = opts.timeZone;
@@ -399,8 +397,8 @@
         };
         ports = [ "7777:80" ];
         volumes = [
-          "${opts.paths.encAppData}/ntfy/cache:/var/cache/ntfy"
-          "${opts.paths.encAppData}/ntfy/data/:/etc/ntfy"
+          "${opts.paths.appplication_data}/ntfy/cache:/var/cache/ntfy"
+          "${opts.paths.appplication_data}/ntfy/data/:/etc/ntfy"
         ];
       };
 
@@ -413,9 +411,9 @@
         ports = [ "6660:80" ];
         volumes = [
           "/mnt/data/:/srv"
-          "${opts.paths.encAppData}/filebrowser/settings.json:/config/settings.json"
-          "${opts.paths.encAppData}/filebrowser/filebrowser.db:/config/filebrowser.db"
-          "${opts.paths.encAppData}/filebrowser/database.db:/config/database.db"
+          "${opts.paths.appplication_data}/filebrowser/settings.json:/config/settings.json"
+          "${opts.paths.appplication_data}/filebrowser/filebrowser.db:/config/filebrowser.db"
+          "${opts.paths.appplication_data}/filebrowser/database.db:/config/database.db"
         ];
         environment = {
           TZ = opts.timeZone;
@@ -431,7 +429,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "8081:8081" ];
-        volumes = [ "${opts.paths.downloadsDir}/Metube:/downloads" ];
+        volumes = [ "${opts.paths.downloads}/Metube:/downloads" ];
         environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
@@ -469,8 +467,8 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "6800:6800" "6880:80" ];
         volumes = [
-          "${opts.paths.downloadsDir}:/downloads"
-          "${opts.paths.encAppData}/aria2:/conf"
+          "${opts.paths.downloads}:/downloads"
+          "${opts.paths.appplication_data}/aria2:/conf"
         ];
         environment = {
           TZ = opts.timeZone;
@@ -486,7 +484,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes =
-          [ "${opts.paths.encAppData}/Linkding:/etc/linkding/data" ];
+          [ "${opts.paths.appplication_data}/Linkding:/etc/linkding/data" ];
         ports = [ "9090:9090" ];
         environment = {
           TZ = opts.timeZone;
@@ -515,7 +513,7 @@
         image = "louislam/uptime-kuma:1";
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-        volumes = [ "${opts.paths.encAppData}/uptime-kuma/:/app/data" ];
+        volumes = [ "${opts.paths.appplication_data}/uptime-kuma/:/app/data" ];
         ports = [ "3001:3001" ];
         environment = {
           TZ = opts.timeZone;
@@ -533,8 +531,8 @@
           "--no-healthcheck"
         ];
         volumes = [
-          "${opts.paths.encAppData}/Photoprism/:/photoprism/storage"
-          "${opts.paths.imagesDir}:/photoprism/originals"
+          "${opts.paths.appplication_data}/Photoprism/:/photoprism/storage"
+          "${opts.paths.images}:/photoprism/originals"
         ];
         ports = [ "2342:2342" ];
         environment = {
@@ -554,7 +552,7 @@
         ports = [ "8024:8000" "9443:9443" "9080:9000" ];
         volumes = [
           "${opts.paths.podmanSocket}:/var/run/docker.sock"
-          "${opts.paths.encAppData}/Portrainer:/data"
+          "${opts.paths.appplication_data}/Portrainer:/data"
         ];
         environment = {
           TZ = opts.timeZone;
@@ -570,9 +568,9 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "6767:6767" ];
         volumes = [
-          "${opts.paths.encAppData}/Bazarr/config:/config"
-          "${opts.paths.tvDir}:/tv"
-          "${opts.paths.moviesDir}:/movies"
+          "${opts.paths.appplication_data}/Bazarr/config:/config"
+          "${opts.paths.television}:/tv"
+          "${opts.paths.movies}:/movies"
         ];
         environment = {
           TZ = opts.timeZone;
@@ -588,8 +586,8 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes = [
-          "${opts.paths.encAppData}/navidrome"
-          "${opts.paths.musicDir}:/music:ro"
+          "${opts.paths.appplication_data}/navidrome"
+          "${opts.paths.music}:/music:ro"
         ];
         environment = {
           TZ = opts.timeZone;
@@ -608,7 +606,7 @@
         ports = [ "6501:6501" ];
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-        volumes = [ "${opts.paths.encAppData}/znc/:/config" ];
+        volumes = [ "${opts.paths.appplication_data}/znc/:/config" ];
         environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
@@ -623,7 +621,7 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "9000:9000" ];
         volumes =
-          [ "${opts.paths.encAppData}/thelounge:/var/opt/thelounge" ];
+          [ "${opts.paths.appplication_data}/thelounge:/var/opt/thelounge" ];
         environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
@@ -638,7 +636,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes =
-          [ "${opts.paths.encAppData}/FireFly/db:/var/lib/mysql" ];
+          [ "${opts.paths.appplication_data}/FireFly/db:/var/lib/mysql" ];
         environment = {
           MYSQL_RANDOM_ROOT_PASSWORD = "yes";
           MYSQL_USER = "firefly";
@@ -658,7 +656,7 @@
         dependsOn = [ "firefly-db" ];
         ports = [ "6003:8080" ];
         volumes = [
-          "${opts.paths.encAppData}/FireFly/uploads/:/var/www/html/storage/upload"
+          "${opts.paths.appplication_data}/FireFly/uploads/:/var/www/html/storage/upload"
         ];
         environment = {
           APP_ENV = "production";
@@ -685,7 +683,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "6008:3000" ];
-        volumes = [ "${opts.paths.encAppData}/Docuseal:/data" ];
+        volumes = [ "${opts.paths.appplication_data}/Docuseal:/data" ];
         environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
@@ -699,7 +697,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "8090:8080" "8091:8081" ];
-        volumes = [ "${opts.paths.encAppData}/livebook:/data" ];
+        volumes = [ "${opts.paths.appplication_data}/livebook:/data" ];
         environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
@@ -714,7 +712,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "8089:8000" ];
-        volumes = [ "${opts.paths.encAppData}/ArchiveBox:/data" ];
+        volumes = [ "${opts.paths.appplication_data}/ArchiveBox:/data" ];
         environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
@@ -729,7 +727,7 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "8079:8978" ];
         volumes = [
-          "${opts.paths.encAppData}/cloudbeaver:/opt/cloudbeaver/workspace"
+          "${opts.paths.appplication_data}/cloudbeaver:/opt/cloudbeaver/workspace"
         ];
         environment = {
           TZ = opts.timeZone;
@@ -762,7 +760,7 @@
         image = "ollama/ollama";
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-        volumes = [ "${opts.paths.encAppData}/Ollama:/root/.ollama" ];
+        volumes = [ "${opts.paths.appplication_data}/Ollama:/root/.ollama" ];
         ports = [ "11434:11434" ];
         environment = {
           TZ = opts.timeZone;
@@ -780,7 +778,7 @@
           "--no-healthcheck"
         ];
         volumes =
-          [ "${opts.paths.encAppData}/OllamaWeb:/app/backend/data" ];
+          [ "${opts.paths.appplication_data}/OllamaWeb:/app/backend/data" ];
         ports = [ "3134:8080" ];
         environment = {
           TZ = opts.timeZone;
@@ -795,7 +793,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "8768:80" ];
-        volumes = [ "${opts.paths.encAppData}/rss-bridge:/config" ];
+        volumes = [ "${opts.paths.appplication_data}/rss-bridge:/config" ];
         environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
@@ -810,8 +808,8 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "8945:80" ];
         volumes = [
-          "${opts.paths.encAppData}/Baikal:/var/www/baikal/config"
-          "${opts.paths.encAppData}/Baikal:/var/www/baikal/Specific"
+          "${opts.paths.appplication_data}/Baikal:/var/www/baikal/config"
+          "${opts.paths.appplication_data}/Baikal:/var/www/baikal/Specific"
         ];
         environment = {
           TZ = opts.timeZone;
@@ -826,7 +824,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes = [
-          "${opts.paths.encAppData}/olivetin:/config"
+          "${opts.paths.appplication_data}/olivetin:/config"
           "${opts.paths.podmanSocket}:/var/run/docker.sock"
         ];
         ports = [ "1337:1337" ];
@@ -845,7 +843,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes = [
-          "${opts.paths.encAppData}/Memos:/var/opt/memos"
+          "${opts.paths.appplication_data}/Memos:/var/opt/memos"
         ];
         environment = {
           TZ = opts.timeZone;
