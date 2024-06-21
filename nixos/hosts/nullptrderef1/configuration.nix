@@ -175,6 +175,7 @@ in
     parallel
     parted
     pciutils
+    progress
     sshfs
     strace
     taskchampion-sync-server
