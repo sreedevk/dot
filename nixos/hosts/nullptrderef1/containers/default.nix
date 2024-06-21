@@ -22,7 +22,8 @@
           magazinesDir = "/mnt/dpool0/media/magazines";
 
           qbtImagesDir = "/mnt/dpool0/media/photos/other";
-          imagesDir = "/mnt/dpool0/media/photos/";
+          imagesDir = "/mnt/dpool0/media/photos";
+          torrentsWatchDir = "/mnt/dpool0/downloads/torrents";
 
           moviesDir = "/mnt/dpool0/media/movies";
           audioBooksDir = "/mnt/dpool0/media/audiobooks";
@@ -31,7 +32,6 @@
           videosDir = "/mnt/dpool0/media/videos";
 
           tvDir = "/mnt/data/media/shows/";
-          torrentsWatchDir = "/mnt/data/torrents/";
           applicationConfigDir = "/mnt/data/applications";
           encImagesDir = "/mnt/enc_data_drive/media/images/";
           encTvDir = "/mnt/enc_data_drive/media/shows/";
