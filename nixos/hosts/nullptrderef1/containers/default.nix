@@ -18,24 +18,18 @@
         paths = {
           # migrated
           encAppData = "/mnt/dpool0/appdata";
-
           downloadsDir = "/mnt/dpool0/downloads";
           magazinesDir = "/mnt/dpool0/media/magazines";
-
           qbtImagesDir = "/mnt/dpool0/media/photos/other";
           imagesDir = "/mnt/dpool0/media/photos";
           torrentsWatchDir = "/mnt/dpool0/downloads/torrents";
-
           moviesDir = "/mnt/dpool0/media/movies";
           audioBooksDir = "/mnt/dpool0/media/audiobooks";
           booksDir = "/mnt/dpool0/media/books";
           musicDir = "/mnt/dpool0/media/music";
           videosDir = "/mnt/dpool0/media/videos";
 
-          tvDir = "/mnt/data/media/shows/";
-          encImagesDir = "/mnt/enc_data_drive/media/images/";
-          encTvDir = "/mnt/enc_data_drive/media/shows/";
-          encVideosDir = "/mnt/enc_data_drive/media/videos/";
+          tvDir = "/mnt/dpool0/media/shows";
 
           podmanSocket = "/var/run/podman/podman.sock";
         };
@@ -52,7 +46,6 @@
           "${opts.paths.encAppData}/jellyfin/log/:/log"
           "${opts.paths.moviesDir}:/movies"
           "${opts.paths.tvDir}:/tv"
-          "${opts.paths.encTvDir}:/enctv"
           "${opts.paths.audioBooksDir}:/audiobooks"
           "${opts.paths.musicDir}:/music"
         ];
@@ -201,7 +194,6 @@
         volumes = [
           "${opts.paths.encAppData}/Sonarr/:/config"
           "${opts.paths.tvDir}:/tv"
-          "${opts.paths.encTvDir}:/enctv"
           "${opts.paths.downloadsDir}:/downloads"
         ];
         ports = [ "8989:8989" ];
@@ -542,8 +534,7 @@
         ];
         volumes = [
           "${opts.paths.encAppData}/Photoprism/:/photoprism/storage"
-          "${opts.paths.imagesDir}:/photoprism/originals/generic"
-          "${opts.paths.encImagesDir}:/photoprism/originals/personal"
+          "${opts.paths.imagesDir}:/photoprism/originals"
         ];
         ports = [ "2342:2342" ];
         environment = {
@@ -582,7 +573,6 @@
           "${opts.paths.encAppData}/Bazarr/config:/config"
           "${opts.paths.tvDir}:/tv"
           "${opts.paths.moviesDir}:/movies"
-          "${opts.paths.encTvDir}:/enctv"
         ];
         environment = {
           TZ = opts.timeZone;
