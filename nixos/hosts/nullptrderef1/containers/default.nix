@@ -59,7 +59,12 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "8096:8096" ];
-        environment = { JELLYFIN_LOG_DIR = "/log"; };
+        environment = { 
+          JELLYFIN_LOG_DIR = "/log"; 
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       # Jellyseer Media Discovery
@@ -128,7 +133,11 @@
         dependsOn = [ "qbittorrent-nox" ];
         ports = [ "7474:7474" ];
         volumes = [ "${opts.paths.encAppData}/autobrr/:/config" ];
-        environment = { TZ = opts.timeZone; };
+        environment = { 
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       "vaultwarden" = {
@@ -138,6 +147,11 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "9801:80" ];
         volumes = [ "/mnt/enc_data_drive/secrets/vw-data:/data/" ];
+        environment = {
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       "homebox" = {
@@ -151,6 +165,9 @@
           HBOX_LOG_LEVEL = "info";
           HBOX_LOG_FORMAT = "text";
           HBOX_WEB_MAX_UPLOAD_SIZE = "10";
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
         };
       };
 
@@ -188,7 +205,11 @@
           "${opts.paths.downloadsDir}:/downloads"
         ];
         ports = [ "8989:8989" ];
-        environment = { TZ = opts.timeZone; };
+        environment = {
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       # Lidarr Music Indexer
@@ -204,7 +225,11 @@
           "${opts.paths.downloadsDir}:/downloads"
         ];
         ports = [ "8686:8686" ];
-        environment = { TZ = opts.timeZone; };
+        environment = { 
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       # Readarr Books Indexer
@@ -220,7 +245,11 @@
           "${opts.paths.downloadsDir}:/downloads"
         ];
         ports = [ "8787:8787" ];
-        environment = { TZ = opts.timeZone; };
+        environment = { 
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       "openbooks" = {
@@ -231,7 +260,11 @@
         volumes = [ "${opts.paths.booksDir}:/books" ];
         ports = [ "8004:80" ];
         cmd = [ "--persist" "--name='${opts.applicationUserName}'" ];
-        environment = { TZ = opts.timeZone; };
+        environment = {
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       # Flaresolver Cloudflare Challenge Solver
@@ -241,7 +274,12 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "8191:8191" ];
-        environment = { LOG_LEVEL = "info"; };
+        environment = {
+          LOG_LEVEL = "info"; 
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       # Prowlarr Indexer Source Management
@@ -256,7 +294,11 @@
           "${opts.paths.downloadsDir}:/downloads"
         ];
         ports = [ "9696:9696" ];
-        environment = { TZ = opts.lanAddress; };
+        environment = { 
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       # Jackett Indexer Source Management
@@ -267,8 +309,10 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         dependsOn = [ "flareSolverr" ];
         environment = {
-          TZ = opts.timeZone;
           AUTO_UPDATE = "true";
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
         };
         volumes = [
           "${opts.paths.encAppData}/Jackett:/config"
@@ -285,6 +329,11 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         volumes = [ "${opts.paths.encAppData}/Homer/:/www/assets" ];
         ports = [ "80:8080" ];
+        environment = {
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       # RSS Feed Server, Scanner, Indexer & Organizer
@@ -299,8 +348,10 @@
         ];
         ports = [ "8808:80" ];
         environment = {
-          TZ = opts.timeZone;
           CRON_MIN = "2,32";
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
         };
       };
 
@@ -316,6 +367,12 @@
           "${opts.paths.booksDir}:/books"
           "${opts.paths.magazinesDir}:/magazines"
         ];
+
+        environment = {
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       # AudioBook Server
@@ -329,7 +386,11 @@
           "${opts.paths.encAppData}/AudioBookShelf:/config"
           "${opts.paths.audioBooksDir}:/audiobooks"
         ];
-        environment = { TZ = opts.timeZone; };
+        environment = {
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       # Notification Server
@@ -339,7 +400,11 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         cmd = [ "serve" ];
-        environment = { TZ = opts.timeZone; };
+        environment = {
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
         ports = [ "7777:80" ];
         volumes = [
           "${opts.paths.encAppData}/ntfy/cache:/var/cache/ntfy"
@@ -361,6 +426,7 @@
           "${opts.paths.encAppData}/filebrowser/database.db:/config/database.db"
         ];
         environment = {
+          TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
         };
@@ -499,6 +565,11 @@
           "${opts.paths.podmanSocket}:/var/run/docker.sock"
           "${opts.paths.encAppData}/Portrainer:/data"
         ];
+        environment = {
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       "bazarr" = {
@@ -563,6 +634,11 @@
         ports = [ "9000:9000" ];
         volumes =
           [ "${opts.paths.encAppData}/thelounge:/var/opt/thelounge" ];
+        environment = {
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       "firefly-db" = {
@@ -578,6 +654,9 @@
           MYSQL_USER = "firefly";
           MYSQL_PASSWORD = secrets.firefly.db.password;
           MYSQL_DATABASE = "firefly";
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
         };
       };
 
