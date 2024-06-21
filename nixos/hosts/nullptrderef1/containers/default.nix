@@ -18,6 +18,8 @@
         paths = {
           # migrated
           encAppData = "/mnt/dpool0/appdata";
+          applicationConfigDir = "/mnt/dpool0/appdata";
+
           downloadsDir = "/mnt/dpool0/downloads";
           magazinesDir = "/mnt/dpool0/media/magazines";
 
@@ -32,7 +34,6 @@
           videosDir = "/mnt/dpool0/media/videos";
 
           tvDir = "/mnt/data/media/shows/";
-          applicationConfigDir = "/mnt/data/applications";
           encImagesDir = "/mnt/enc_data_drive/media/images/";
           encTvDir = "/mnt/enc_data_drive/media/shows/";
           encVideosDir = "/mnt/enc_data_drive/media/videos/";
