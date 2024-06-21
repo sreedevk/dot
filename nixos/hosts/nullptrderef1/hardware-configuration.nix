@@ -207,6 +207,11 @@
     { device = "dpool0/downloads";
       fsType = "zfs";
     };
+    
+  fileSystems."/mnt/dpool0/downloads/torrents" =
+    { device = "dpool0/downloads/torrents";
+      fsType = "zfs";
+    };
 
   networking = {
     useDHCP = lib.mkDefault false;
