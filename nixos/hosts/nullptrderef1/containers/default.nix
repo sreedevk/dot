@@ -19,6 +19,7 @@
           # migrated
           encAppData = "/mnt/dpool0/appdata";
           downloadsDir = "/mnt/dpool0/downloads";
+          magazinesDir = "/mnt/dpool0/media/magazines";
 
           torrentsWatchDir = "/mnt/data/torrents/";
           applicationConfigDir = "/mnt/data/applications";
@@ -30,7 +31,6 @@
           imagesDir = "/mnt/data/media/images/";
           encImagesDir = "/mnt/enc_data_drive/media/images/";
           booksDir = "/mnt/data/media/books/";
-          magazinesDir = "/mnt/data/media/magazines/";
           encTvDir = "/mnt/enc_data_drive/media/shows/";
           encVideosDir = "/mnt/enc_data_drive/media/videos/";
           podmanSocket = "/var/run/podman/podman.sock";
