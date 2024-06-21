@@ -9,7 +9,7 @@ aura-bin 3.2.9-1
 base 3-2
 base-devel 1-1
 bind 9.18.27-1
-brave-bin 1:1.67.116-1
+brave-bin 1:1.67.119-1
 brightnessctl 0.5.1-2
 clang 17.0.6-2
 cmake 3.29.6-1
@@ -22,7 +22,7 @@ dialog 1:1.3_20240307-2
 dmidecode 3.5-1
 docker 1:26.1.4-1
 docker-buildx 0.15.1-1
-docker-compose 2.27.1-1
+docker-compose 2.27.2-1
 dracula-gtk-theme v4.0.0-1
 droidcam 1:2.1.3-2
 easyeffects 7.1.6-2
@@ -43,7 +43,6 @@ fwupd 1.9.21-1
 gdb 14.2-2
 gimp 2.10.38-1
 git 2.45.2-1
-git-crypt 0.7.0-2
 git-delta 0.17.0-3
 git-lfs 3.5.1-1
 gmic 3.4.0-1
@@ -104,7 +103,7 @@ openssh-askpass 2.1.0-4
 openssl-1.1 1.1.1.w-1
 opentabletdriver 0.6.4.0-4
 openttd 14.1-2
-openvpn 2.6.10-1
+openvpn 2.6.11-1
 ouch 0.5.1-1
 p7zip 1:17.05-2
 parallel 20240522-1
@@ -118,6 +117,7 @@ playerctl 2.4.1-3
 polkit-qt6 0.200.0-1
 polybar 3.7.1-1
 postgresql-libs 16.2-4
+progress 0.17-1
 pulsemixer 1.5.1-6
 pwgen 2.08-2
 python-i3ipc 2.2.1-6
