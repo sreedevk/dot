@@ -213,6 +213,11 @@
       fsType = "zfs";
     };
 
+  fileSystems."/mnt/dpool0/media/audio" =
+    { device = "dpool0/media/audio";
+      fsType = "zfs";
+    };
+
   networking = {
     useDHCP = lib.mkDefault false;
     hostId = "0ec79991";
