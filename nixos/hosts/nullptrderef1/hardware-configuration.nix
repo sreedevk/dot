@@ -203,6 +203,11 @@
       fsType = "zfs";
     };
 
+  fileSystems."/mnt/dpool0/downloads" =
+    { device = "dpool0/downloads";
+      fsType = "zfs";
+    };
+
   networking = {
     useDHCP = lib.mkDefault false;
     hostId = "0ec79991";
