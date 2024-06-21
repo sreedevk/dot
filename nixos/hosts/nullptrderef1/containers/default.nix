@@ -16,9 +16,11 @@
         adminUID = "1000";
         adminGID = "100";
         paths = {
-          downloadsDir = "/mnt/data/downloads/";
+          # migrated
+          encAppData = "/mnt/dpool0/appdata";
+          downloadsDir = "/mnt/dpool0/downloads";
+
           torrentsWatchDir = "/mnt/data/torrents/";
-          encAppData = "/mnt/enc_data_drive/AppData";
           applicationConfigDir = "/mnt/data/applications";
           moviesDir = "/mnt/data/media/movies/";
           tvDir = "/mnt/data/media/shows/";
