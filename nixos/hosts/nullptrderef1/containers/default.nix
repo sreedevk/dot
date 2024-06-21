@@ -20,19 +20,20 @@
           encAppData = "/mnt/dpool0/appdata";
           downloadsDir = "/mnt/dpool0/downloads";
           magazinesDir = "/mnt/dpool0/media/magazines";
+          imagesDir = "/mnt/dpool0/media/images";
+          moviesDir = "/mnt/dpool0/media/movies";
+          audioBooksDir = "/mnt/dpool0/media/audiobooks";
+          booksDir = "/mnt/dpool0/media/books";
+          musicDir = "/mnt/dpool0/media/music";
+          videosDir = "/mnt/dpool0/media/videos/";
 
+          tvDir = "/mnt/data/media/shows/";
           torrentsWatchDir = "/mnt/data/torrents/";
           applicationConfigDir = "/mnt/data/applications";
-          moviesDir = "/mnt/data/media/movies/";
-          tvDir = "/mnt/data/media/shows/";
-          audioBooksDir = "/mnt/data/media/audiobooks/";
-          musicDir = "/mnt/data/media/music/";
-          videosDir = "/mnt/data/media/videos/";
-          imagesDir = "/mnt/data/media/images/";
           encImagesDir = "/mnt/enc_data_drive/media/images/";
-          booksDir = "/mnt/data/media/books/";
           encTvDir = "/mnt/enc_data_drive/media/shows/";
           encVideosDir = "/mnt/enc_data_drive/media/videos/";
+
           podmanSocket = "/var/run/podman/podman.sock";
         };
       };
