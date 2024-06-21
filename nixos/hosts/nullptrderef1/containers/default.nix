@@ -167,7 +167,11 @@
           "${opts.paths.downloadsDir}:/downloads"
         ];
         ports = [ "7878:7878" ];
-        environment = { TZ = opts.timeZone; };
+        environment = {
+          TZ = opts.timeZone;
+          PUID = opts.adminUID;
+          PGID = opts.adminGID;
+        };
       };
 
       # Sonarr TV Indexer
