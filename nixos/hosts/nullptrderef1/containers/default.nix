@@ -782,7 +782,6 @@
         ];
         ports = [ "3134:8080" ];
         environment = {
-          OLLAMA_BASE_URL = "http://nullptrderef1:3134";
           TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
