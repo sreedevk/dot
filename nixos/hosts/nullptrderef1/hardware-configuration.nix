@@ -37,12 +37,12 @@
       };
 
       mkzfsmount = mountpoint: {
-            name = mountpoint.path;
-            value = {
-              device = mountpoint.device;
-              fsType = "zfs";
-            };
-          };
+        name = mountpoint.path;
+        value = {
+          device = mountpoint.device;
+          fsType = "zfs";
+        };
+      };
 
       mkzfsmounts = mountpoints: builtins.map mkzfsmount mountpoints;
     in
