@@ -46,10 +46,10 @@
   };
 
   # NOTE: DATA PARTITIONS
-  fileSystems."/mnt/data" = {
-    device = "/dev/disk/by-uuid/8691d951-a1f4-4702-a947-e91e6afc4614";
-    fsType = "ext4";
-  };
+  # fileSystems."/mnt/data" = {
+  #   device = "/dev/disk/by-uuid/8691d951-a1f4-4702-a947-e91e6afc4614";
+  #   fsType = "ext4";
+  # };
 
   fileSystems."/mnt/enc_data_drive" = {
     device = "/dev/disk/by-uuid/af7977f8-c99e-4b48-8a25-dc716233bfd5";
