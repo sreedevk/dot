@@ -19,30 +19,22 @@
 
   };
 
-# NOTE: OpenZFS Does not support swap on zvols or datasets
-  swapDevices = [ 
-  { 
-    device = "/var/lib/swapfile";
-    size = 128*1024;
-    randomEncryption.enable = true; 
-  } 
+  # NOTE: OpenZFS Does not support swap on zvols or datasets
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 128 * 1024;
+      randomEncryption.enable = true;
+    }
   ];
 
-# NOTE: CORE OS PARTITIONS
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/0B7B-5F96";
-    fsType = "vfat";
-  };
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/66773c39-ea86-4b86-ae8b-31a4e56bf46b";
-    fsType = "ext4";
-  };
-
-# NOTE: DATA PARTITIONS
 
   fileSystems = {
+    # NOTE: CORE OS PARTITIONS
+    "/boot" = { device = "/dev/disk/by-uuid/0B7B-5F96"; fsType = "vfat"; };
+    "/" = { device = "/dev/disk/by-uuid/66773c39-ea86-4b86-ae8b-31a4e56bf46b"; fsType = "ext4"; };
+
+    # NOTE: DATA PARTITIONS
     "/mnt/dpool0/media" = { device = "dpool0/media"; fsType = "zfs"; };
     "/mnt/dpool0/media/videos" = { device = "dpool0/media/videos"; fsType = "zfs"; };
     "/mnt/dpool0/media/movies" = { device = "dpool0/media/movies"; fsType = "zfs"; };
@@ -50,7 +42,7 @@
     "/mnt/dpool0/media/photos" = { device = "dpool0/media/photos"; fsType = "zfs"; };
     "/mnt/dpool0/media/shows" = { device = "dpool0/media/shows"; fsType = "zfs"; };
     "/mnt/dpool0/other" = { device = "dpool0/other"; fsType = "zfs"; };
-    "/mnt/dpool0/secrets" = { device = "dpool0/secrets"; fsType = "zfs"; }; 
+    "/mnt/dpool0/secrets" = { device = "dpool0/secrets"; fsType = "zfs"; };
     "/mnt/dpool0/notes" = { device = "dpool0/notes"; fsType = "zfs"; };
     "/mnt/dpool0/appdata" = { device = "dpool0/appdata"; fsType = "zfs"; };
     "/mnt/dpool0/backups" = { device = "dpool0/backups"; fsType = "zfs"; };
