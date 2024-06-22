@@ -279,6 +279,7 @@ in
     };
 
     grafana = {
+      enable = true;
       settings = {
         server = {
           domain = "nullptrderef1";
