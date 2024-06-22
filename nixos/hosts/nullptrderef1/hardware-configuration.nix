@@ -36,16 +36,15 @@
         "/" = { device = "/dev/disk/by-uuid/66773c39-ea86-4b86-ae8b-31a4e56bf46b"; fsType = "ext4"; };
       };
 
-      mkzfsmounts = mountpoints:
-        builtins.map
-          (mountpoint: {
+      mkzfsmount = mountpoint: {
             name = mountpoint.path;
             value = {
               device = mountpoint.device;
               fsType = "zfs";
             };
-          })
-          mountpoints;
+          };
+
+      mkzfsmounts = mountpoints: builtins.map mkzfsmount mountpoints;
     in
     sys_mountpoints // builtins.listToAttrs (mkzfsmounts zfs_mountpoints);
 
