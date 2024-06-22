@@ -1,7 +1,7 @@
 { config, pkgs, secrets, system, inputs, ... }:
 let
   opts =
-    { paths = { encAppData = "/mnt/enc_data_drive/AppData"; }; };
+    { paths = { application_data = "/mnt/dpool0/appdata"; }; };
 in
 {
   imports = [ ./hardware-configuration.nix ./containers ./services ];
@@ -109,7 +109,7 @@ in
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = ''
-        ${pkgs.taskchampion-sync-server}/bin/taskchampion-sync-server --port 8080 --data-dir ${opts.paths.encAppData}/TaskChampion
+        ${pkgs.taskchampion-sync-server}/bin/taskchampion-sync-server --port 8080 --data-dir ${opts.paths.application_data}/TaskChampion
       '';
       Restart = "always";
     };
