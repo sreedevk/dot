@@ -777,10 +777,12 @@
           "--add-host=host.docker.internal:host-gateway"
           "--no-healthcheck"
         ];
-        volumes =
-          [ "${opts.paths.application_data}/OllamaWeb:/app/backend/data" ];
+        volumes = [ 
+          "${opts.paths.application_data}/OllamaWeb:/app/backend/data"
+        ];
         ports = [ "3134:8080" ];
         environment = {
+          OLLAMA_BASE_URL = "http://nullptrderef1:3134";
           TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
