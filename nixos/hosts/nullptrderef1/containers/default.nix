@@ -465,10 +465,10 @@
         image = "wahyd4/aria2-ui:latest";
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-        ports = [ "6800:6800" "6880:80" ];
+        ports = [ "6880:80" ];
         volumes = [
-          "${opts.paths.downloads}:/downloads"
-          "${opts.paths.application_data}/aria2:/conf"
+          "${opts.paths.downloads}/Aria2:/data"
+          "${opts.paths.application_data}/aria2:/app/conf"
         ];
         environment = {
           TZ = opts.timeZone;
@@ -477,7 +477,8 @@
           ENABLE_AUTH = "true";
           ARIA2_USER = secrets.aria2.username;
           ARIA2_PWD = secrets.aria2.password;
-          DOMAIN = http://nullptrderef1;
+          ARIA2_SSL = "false";
+          DOMAIN = "http://nullptrderef1";
         };
       };
 
