@@ -279,10 +279,13 @@ in
     };
 
     grafana = {
-      enable = true;
-      domain = "nullptrderef1";
-      port = 2442;
-      addr = "0.0.0.0";
+      settings = {
+        server = {
+          domain = "nullptrderef1";
+          http_port = 2442;
+          http_addr = "0.0.0.0";
+        };
+      };
     };
   };
 
