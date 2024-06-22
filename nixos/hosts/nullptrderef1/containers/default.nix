@@ -462,7 +462,7 @@
       # Aria2 Download Manager
       "aria2" = {
         autoStart = true;
-        image = "abcminiuser/docker-aria2-with-webui:latest-ng";
+        image = "wahyd4/aria2-ui:latest";
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "6800:6800" "6880:80" ];
@@ -474,6 +474,10 @@
           TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
+          ENABLE_AUTH = "true";
+          ARIA2_USER = secrets.aria2.username;
+          ARIA2_PWD = secrets.aria2.password;
+          DOMAIN = http://nullptrderef1;
         };
       };
 
@@ -777,7 +781,7 @@
           "--add-host=host.docker.internal:host-gateway"
           "--no-healthcheck"
         ];
-        volumes = [ 
+        volumes = [
           "${opts.paths.application_data}/OllamaWeb:/app/backend/data"
         ];
         ports = [ "3134:8080" ];
