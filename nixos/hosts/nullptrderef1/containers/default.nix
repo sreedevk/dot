@@ -137,7 +137,7 @@
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "9801:80" ];
-        volumes = [ "/mnt/enc_data_drive/secrets/vw-data:/data/" ];
+        volumes = [ "${opts.paths.application_data}/vw-data:/data/" ];
         environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
