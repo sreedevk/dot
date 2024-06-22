@@ -410,7 +410,7 @@
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
         ports = [ "6660:80" ];
         volumes = [
-          "/mnt/data/:/srv"
+          "/mnt/dpool0/:/srv"
           "${opts.paths.application_data}/filebrowser/settings.json:/config/settings.json"
           "${opts.paths.application_data}/filebrowser/filebrowser.db:/config/filebrowser.db"
           "${opts.paths.application_data}/filebrowser/database.db:/config/database.db"
