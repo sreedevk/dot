@@ -474,7 +474,6 @@
           TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
-          RPC_SECRET = secrets.aria2.password;
         };
       };
 
