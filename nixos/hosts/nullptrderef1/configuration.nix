@@ -277,6 +277,13 @@ in
         }
       ];
     };
+
+    grafana = {
+      enable = true;
+      domain = "nullptrderef1";
+      port = 2442;
+      addr = "0.0.0.0";
+    };
   };
 
   security.sudo.wheelNeedsPassword = false;
