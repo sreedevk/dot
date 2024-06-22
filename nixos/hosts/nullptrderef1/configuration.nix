@@ -31,7 +31,7 @@ in
     };
   };
 
-  hardware.graphics.enable = lib.mkForce false;
+  hardware.graphics.enable = pkgs.lib.mkForce false;
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
