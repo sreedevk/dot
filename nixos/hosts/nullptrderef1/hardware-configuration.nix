@@ -9,6 +9,7 @@
     extraModulePackages = [ ];
     zfs = {
       forceImportRoot = false;
+      forceImportAll = false;
       extraPools = [ "dpool0" ];
     };
 

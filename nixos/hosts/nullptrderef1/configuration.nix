@@ -249,6 +249,14 @@ in
       openFirewall = true;
       settings = { WebService = { AllowUnencrypted = true; }; };
     };
+
+    zfs = {
+      autoScrub = {
+        enable = true;
+        interval = "weekly";
+        pools = [ "dpool0" ];
+      };
+    };
   };
 
   security.sudo.wheelNeedsPassword = false;
