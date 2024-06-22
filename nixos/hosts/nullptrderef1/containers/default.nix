@@ -462,23 +462,19 @@
       # Aria2 Download Manager
       "aria2" = {
         autoStart = true;
-        image = "wahyd4/aria2-ui:latest";
+        image = "hurlenko/aria2-ariang";
         extraOptions =
           [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-        ports = [ "6880:80" ];
+        ports = [ "6880:8080" ];
         volumes = [
-          "${opts.paths.downloads}/Aria2:/data"
-          "${opts.paths.application_data}/aria2:/app/conf"
+          "${opts.paths.downloads}/Aria2:/aria2/data"
+          "${opts.paths.application_data}/aria2:/aria2/conf"
         ];
         environment = {
           TZ = opts.timeZone;
           PUID = opts.adminUID;
           PGID = opts.adminGID;
-          ENABLE_AUTH = "true";
-          ARIA2_USER = secrets.aria2.username;
-          ARIA2_PWD = secrets.aria2.password;
-          ARIA2_SSL = "false";
-          DOMAIN = "http://nullptrderef1";
+          RPC_SECRET = secrets.aria2.password;
         };
       };
 
