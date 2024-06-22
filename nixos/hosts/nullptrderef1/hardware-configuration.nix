@@ -28,7 +28,7 @@
   swapDevices = [ 
     { 
       device = "/var/lib/swapfile";
-      size = 32*1024;
+      size = 128*1024;
       randomEncryption.enable = true; 
     } 
   ];
