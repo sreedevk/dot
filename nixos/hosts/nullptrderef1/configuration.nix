@@ -31,6 +31,7 @@ in
     };
   };
 
+  hardware.graphics.enable = false;
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
