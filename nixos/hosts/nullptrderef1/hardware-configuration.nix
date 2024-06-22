@@ -15,11 +15,6 @@
     initrd = {
       kernelModules = [ "kvm-intel" ];
       availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "uas" "usb_storage" "sd_mod" ];
-      luks.devices = {
-        "enc_data_drive" = {
-          device = "/dev/disk/by-uuid/2123e639-909b-44ac-ac4a-6c896746d33f";
-        };
-      };
     };
 
   };
@@ -46,15 +41,6 @@
   };
 
   # NOTE: DATA PARTITIONS
-  # fileSystems."/mnt/data" = {
-  #   device = "/dev/disk/by-uuid/8691d951-a1f4-4702-a947-e91e6afc4614";
-  #   fsType = "ext4";
-  # };
-
-  fileSystems."/mnt/enc_data_drive" = {
-    device = "/dev/disk/by-uuid/af7977f8-c99e-4b48-8a25-dc716233bfd5";
-    fsType = "ext4";
-  };
 
   fileSystems."/mnt/dpool0/media" =
     {
