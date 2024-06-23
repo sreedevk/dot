@@ -3,7 +3,7 @@
     "navidrome" = {
       autoStart = true;
       image = "deluan/navidrome:latest";
-      ports = [ "4533:4533" ];
+      ports = [ "${opts.apps.navidrome.app_port}:4533" ];
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
