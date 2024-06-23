@@ -3,16 +3,16 @@
     "firefly-db" = {
       autoStart = true;
       image = "mariadb:lts";
-      ports = [ "3306:3306" ];
+      ports = [ "${secrets.firefly.database.port}:3306" ];
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes =
-        [ "${opts.paths.application_data}/FireFly/db:/var/lib/mysql" ];
+        [ "${opts.paths.application_data}/firefly/db:/var/lib/mysql" ];
       environment = {
         MYSQL_RANDOM_ROOT_PASSWORD = "yes";
-        MYSQL_USER = "firefly";
-        MYSQL_PASSWORD = secrets.firefly.db.password;
-        MYSQL_DATABASE = "firefly";
+        MYSQL_USER = secrets.firefly.database.username;
+        MYSQL_PASSWORD = secrets.firefly.database.password;
+        MYSQL_DATABASE = secrets.firefly.database.name;
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
@@ -25,9 +25,9 @@
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "firefly-db" ];
-      ports = [ "6003:8080" ];
+      ports = [ "${secrets.firefly.app.port}:8080" ];
       volumes = [
-        "${opts.paths.application_data}/FireFly/uploads/:/var/www/html/storage/upload"
+        "${opts.paths.application_data}/firefly/uploads/:/var/www/html/storage/upload"
       ];
       environment = {
         APP_ENV = "production";
@@ -37,14 +37,14 @@
         PUID = opts.adminUID;
         PGID = opts.adminGID;
         DB_CONNECTION = "mysql";
-        DB_HOST = "nullptrderef1";
-        DB_PORT = "3306";
-        DB_DATABASE = "firefly";
-        DB_USERNAME = "firefly";
-        DB_PASSWORD = secrets.firefly.db.password;
+        DB_HOST = secrets.firefly.database.host;
+        DB_PORT = secrets.firefly.database.port;
+        DB_DATABASE = secrets.firefly.database.name;
+        DB_USERNAME = secrets.firefly.database.username;
+        DB_PASSWORD = secrets.firefly.database.password;
         MYSQL_USE_SSL = "false";
         MYSQL_SSL_VERIFY_SERVER_CERT = "false";
-        APP_URL = "http://nullptrderef1";
+        APP_URL = "http://${secrets.firefly.app.host}";
       };
     };
   };
