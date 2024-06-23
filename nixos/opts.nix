@@ -42,6 +42,7 @@
     znc.app_port = "6501";
     thelounge.app_port = "9000";
     jackett.app_port = "9117";
+    jellyseer.app_port = "5055";
     farfalle = {
       app_port = "3199";
       api_port = "8199";
