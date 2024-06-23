@@ -1,12 +1,13 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   virtualisation.oci-containers.containers = {
-    "jellyseer" = {
+    "openbooks" = {
       autoStart = true;
-      image = "fallenbagel/jellyseerr:latest";
+      image = "evanbuss/openbooks";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/jellyseer/:/app/config" ];
-      ports = [ "5055:5055" ];
+      volumes = [ "${opts.paths.books}:/books" ];
+      ports = [ "8004:80" ];
+      cmd = [ "--persist" "--name='${opts.applicationUserName}'" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;

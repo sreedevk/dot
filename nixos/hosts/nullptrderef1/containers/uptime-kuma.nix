@@ -1,12 +1,13 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   virtualisation.oci-containers.containers = {
-    "jellyseer" = {
+    # Service Health Monitoring
+    "uptime-kuma" = {
       autoStart = true;
-      image = "fallenbagel/jellyseerr:latest";
+      image = "louislam/uptime-kuma:1";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/jellyseer/:/app/config" ];
-      ports = [ "5055:5055" ];
+      volumes = [ "${opts.paths.application_data}/uptime-kuma/:/app/data" ];
+      ports = [ "3001:3001" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;

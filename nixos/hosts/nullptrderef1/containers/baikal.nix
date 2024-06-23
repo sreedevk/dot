@@ -1,12 +1,15 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   virtualisation.oci-containers.containers = {
-    "jellyseer" = {
+    "baikal" = {
       autoStart = true;
-      image = "fallenbagel/jellyseerr:latest";
+      image = "ckulka/baikal:nginx";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/jellyseer/:/app/config" ];
-      ports = [ "5055:5055" ];
+      ports = [ "8945:80" ];
+      volumes = [
+        "${opts.paths.application_data}/Baikal:/var/www/baikal/config"
+        "${opts.paths.application_data}/Baikal:/var/www/baikal/Specific"
+      ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;

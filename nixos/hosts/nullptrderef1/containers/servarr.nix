@@ -79,6 +79,24 @@
       };
     };
 
+    "bazarr" = {
+      autoStart = true;
+      image = "lscr.io/linuxserver/bazarr:latest";
+      extraOptions =
+        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      ports = [ "6767:6767" ];
+      volumes = [
+        "${opts.paths.application_data}/Bazarr/config:/config"
+        "${opts.paths.television}:/tv"
+        "${opts.paths.movies}:/movies"
+      ];
+      environment = {
+        TZ = opts.timeZone;
+        PUID = opts.adminUID;
+        PGID = opts.adminGID;
+      };
+    };
+
     "prowlarr" = {
       autoStart = true;
       image = "ghcr.io/hotio/prowlarr";

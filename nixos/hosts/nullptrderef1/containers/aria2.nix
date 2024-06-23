@@ -1,12 +1,15 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   virtualisation.oci-containers.containers = {
-    "jellyseer" = {
+    "aria2" = {
       autoStart = true;
-      image = "fallenbagel/jellyseerr:latest";
+      image = "hurlenko/aria2-ariang";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/jellyseer/:/app/config" ];
-      ports = [ "5055:5055" ];
+      ports = [ "6880:8080" "6800:6800" ];
+      volumes = [
+        "${opts.paths.downloads}/Aria2:/aria2/data"
+        "${opts.paths.application_data}/aria2:/aria2/conf"
+      ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
