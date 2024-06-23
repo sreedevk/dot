@@ -39,6 +39,8 @@
     homebox.app_port = "3100";
     homer.app_port = "80";
     huginn.app_port = "3333";
+    znc.app_port = "6501";
+    thelounge.app_port = "9000";
     farfalle = {
       app_port = "3199";
       api_port = "8199";

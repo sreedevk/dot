@@ -28,6 +28,8 @@ in
       opts.apps.homebox.app_port
       opts.apps.homer.app_port
       opts.apps.huginn.app_port
+      opts.apps.znc.app_port
+      opts.apps.thelounge.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
