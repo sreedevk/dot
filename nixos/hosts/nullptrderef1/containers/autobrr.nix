@@ -6,7 +6,7 @@
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "qbittorrent-nox" ];
-      ports = [ "7474:7474" ];
+      ports = [ "${opts.apps.autobrr.app_port}:7474" ];
       volumes = [ "${opts.paths.application_data}/autobrr/:/config" ];
       environment = {
         TZ = opts.timeZone;

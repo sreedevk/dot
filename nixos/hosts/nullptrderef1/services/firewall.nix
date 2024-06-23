@@ -15,6 +15,7 @@ in
       opts.apps.freshrss.app_port
       opts.apps.kavita.app_port
       opts.apps.linkding.app_port
+      opts.apps.autobrr.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
@@ -36,7 +37,6 @@ in
       6767 # Bazarr
       6881 # qBittorrent Nox
       6969 # aar
-      7474 # AutoBrr
       7777 # Ntfy
       7878 # Radarr
       8000 # Adguard
