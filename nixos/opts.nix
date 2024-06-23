@@ -27,6 +27,10 @@
     flaresolverr.app_port = "8191";
     kavita.app_port = "5000";
     freshrss.app_port = "8808";
+    aria2 = {
+      app_port = "6880";
+      rpc_port = "6800";
+    };
   };
 
   autorandr =
