@@ -28,6 +28,7 @@
     kavita.app_port = "5000";
     freshrss.app_port = "8808";
     autobrr.app_port = "7474";
+    baikal.app_port = "8945";
     audiobookshelf.app_port = "13378";
     aria2 = {
       app_port = "6880";
