@@ -1,10 +1,10 @@
-{ pkgs, secrets, lib, inputs, system, ... }: {
+{ pkgs, lib, inputs, system, opts, ... }: {
   programs.autorandr = {
     enable = true;
     profiles = {
       "undocked" = {
         fingerprint = {
-          "undocked-primary" = secrets.autorandr.monitors.inbuilt;
+          "undocked-primary" = opts.autorandr.monitors.inbuilt;
         };
         config = {
           "undocked-primary" = {
@@ -20,8 +20,8 @@
       };
       "office" = {
         fingerprint = {
-          "office-primary" = secrets.autorandr.monitors.office;
-          "office-secondary" = secrets.autorandr.monitors.inbuilt;
+          "office-primary" = opts.autorandr.monitors.office;
+          "office-secondary" = opts.autorandr.monitors.inbuilt;
         };
         config = {
           "office-primary" = {
@@ -46,9 +46,9 @@
       };
       "home" = {
         fingerprint = {
-          "home-primary" = secrets.autorandr.monitors.homelab4k;
-          "home-secondary" = secrets.autorandr.monitors.homelab1080p;
-          "home-tertiary" = secrets.autorandr.monitors.inbuilt;
+          "home-primary" = opts.autorandr.monitors.homelab4k;
+          "home-secondary" = opts.autorandr.monitors.homelab1080p;
+          "home-tertiary" = opts.autorandr.monitors.inbuilt;
         };
 
         config = {
