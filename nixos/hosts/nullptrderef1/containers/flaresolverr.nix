@@ -5,7 +5,7 @@
       image = "ghcr.io/flaresolverr/flaresolverr:latest";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "8191:8191" ];
+      ports = [ "${opts.apps.flaresolverr.app_port}:8191" ];
       environment = {
         LOG_LEVEL = "info";
         TZ = opts.timeZone;

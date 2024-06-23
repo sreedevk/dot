@@ -21,6 +21,13 @@
     podmanSocket = "/var/run/podman/podman.sock";
   };
 
+  apps = {
+    linkding.app_port = "9090";
+    flaresolverr.app_port = "8191";
+    kavita.app_port = "5000";
+freshrss.app_port = "8808";
+  };
+
   autorandr =
     {
       monitors = {
@@ -34,10 +41,7 @@
   nullptrderef1 =
     {
       mountpoints = [
-        {
-          device = "dpool0/media";
-          path = "/mnt/dpool0/media";
-        }
+        { device = "dpool0/media"; path = "/mnt/dpool0/media"; }
         { device = "dpool0/media/videos"; path = "/mnt/dpool0/media/videos"; }
         { device = "dpool0/media/movies"; path = "/mnt/dpool0/media/movies"; }
         { device = "dpool0/media/music"; path = "/mnt/dpool0/media/music"; }
