@@ -13,6 +13,8 @@
       3001 # Uptime Kuma
       3100 # HomeBox
       3134 # Ollama Web
+      3306 # MariaDB Firefly
+      3307 # MariaDB Photoprism
       3333 # Huginn
       4533 # Navidrome
       5000 # Kavita
