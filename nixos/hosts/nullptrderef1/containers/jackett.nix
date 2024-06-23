@@ -1,17 +1,22 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   virtualisation.oci-containers.containers = {
-    "jellyseer" = {
+    "jackett" = {
       autoStart = true;
-      image = "fallenbagel/jellyseerr:latest";
+      image = "lscr.io/linuxserver/jackett:latest";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/jellyseer/:/app/config" ];
-      ports = [ "5055:5055" ];
+      dependsOn = [ "flareSolverr" ];
       environment = {
+        AUTO_UPDATE = "true";
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
       };
+      volumes = [
+        "${opts.paths.application_data}/Jackett:/config"
+        "${opts.paths.downloads}:/downloads"
+      ];
+      ports = [ "9117:9117" ];
     };
   };
 }
