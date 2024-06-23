@@ -5,7 +5,7 @@
       image = "filebrowser/filebrowser";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "6660:80" ];
+      ports = [ "${opts.apps.filebrowser.app_port}:80" ];
       volumes = [
         "/mnt/dpool0/:/srv"
         "${opts.paths.application_data}/filebrowser/settings.json:/config/settings.json"
