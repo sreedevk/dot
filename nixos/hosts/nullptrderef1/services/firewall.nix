@@ -26,6 +26,7 @@ in
       opts.apps.filebrowser.app_port
       opts.apps.rss-bridge.app_port
       opts.apps.homebox.app_port
+      opts.apps.homer.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
@@ -33,7 +34,6 @@ in
       21
       22
       53
-      80
       443
       2442 # Grafana
       3001 # Uptime Kuma

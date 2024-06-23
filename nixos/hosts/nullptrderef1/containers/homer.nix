@@ -5,8 +5,8 @@
       image = "b4bz/homer:latest";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/Homer/:/www/assets" ];
-      ports = [ "80:8080" ];
+      volumes = [ "${opts.paths.application_data}/homer/:/www/assets" ];
+      ports = [ "${opts.apps.homer.app_port}:8080" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
