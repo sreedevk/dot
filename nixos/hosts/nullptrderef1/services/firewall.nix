@@ -13,6 +13,7 @@ in
       secrets.firefly.app.port
       secrets.freshrss.app.port
       secrets.plex.app.port
+      secrets.kavita.app.port
       21
       22
       53
@@ -24,7 +25,6 @@ in
       3134 # Ollama Web
       3333 # Huginn
       4533 # Navidrome
-      5000 # Kavita
       5055 # JellySeer
       6660 # FileBrowser
       6767 # Bazarr
