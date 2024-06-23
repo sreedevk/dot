@@ -25,6 +25,7 @@ in
       opts.apps.farfalle.api_port
       opts.apps.filebrowser.app_port
       opts.apps.rss-bridge.app_port
+      opts.apps.homebox.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
@@ -36,7 +37,6 @@ in
       443
       2442 # Grafana
       3001 # Uptime Kuma
-      3100 # HomeBox
       3134 # Ollama Web
       3333 # Huginn
       4533 # Navidrome

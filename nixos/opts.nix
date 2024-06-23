@@ -36,6 +36,7 @@
     searxng.app_port = "9199";
     filebrowser.app_port = "6660";
     rss-bridge.app_port = "8768";
+    homebox.app_port = "3100";
     farfalle = {
       app_port = "3199";
       api_port = "8199";
