@@ -22,10 +22,11 @@
   };
 
   apps = {
+    archivebox.app_port = "8089";
     linkding.app_port = "9090";
     flaresolverr.app_port = "8191";
     kavita.app_port = "5000";
-freshrss.app_port = "8808";
+    freshrss.app_port = "8808";
   };
 
   autorandr =

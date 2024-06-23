@@ -7,6 +7,7 @@ in
     enable = true;
     allowPing = false;
     allowedTCPPorts = builtins.map mkPort [
+      opts.apps.archivebox.app_port
       opts.apps.flaresolverr.app_port
       opts.apps.freshrss.app_port
       opts.apps.kavita.app_port
