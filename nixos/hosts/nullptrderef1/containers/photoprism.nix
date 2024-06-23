@@ -70,7 +70,7 @@
         "--innodb-lock-wait-timeout=120"
       ];
       volumes = [
-        "${opts.paths.application_data}/photoprism/db:/var/lib/mysql"
+        "${opts.paths.application_databases}/photoprism:/var/lib/mysql"
       ];
 
       extraOptions = [

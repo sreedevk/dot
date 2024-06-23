@@ -30,6 +30,7 @@
         adminGID = "100";
         paths = {
           application_data = "/mnt/dpool0/appdata";
+          application_databases = "/mnt/dpool0/appdata/databases";
           downloads = "/mnt/dpool0/downloads";
           magazines = "/mnt/dpool0/media/magazines";
           qbt_images = "/mnt/dpool0/media/photos/other";
