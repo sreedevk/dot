@@ -1,4 +1,4 @@
-{ config, pkgs, secrets, ... }:
+{ config, pkgs, opts, secrets, ... }:
 let
   mkPort = port_str: if builtins.isString port_str then pkgs.lib.strings.toInt port_str else port_str;
 in
@@ -7,11 +7,12 @@ in
     enable = true;
     allowPing = false;
     allowedTCPPorts = builtins.map mkPort [
+      opts.apps.flaresolverr.app_port
+      opts.apps.freshrss.app_port
+      opts.apps.kavita.app_port
+      opts.apps.linkding.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
-      secrets.freshrss.app.port
-      secrets.kavita.app.port
-      secrets.linkding.app.port
       secrets.photoprism.app.port
       secrets.photoprism.database.port
       secrets.plex.app.port
@@ -45,7 +46,6 @@ in
       8081 # MeTube
       8096 # JellyFin
       8099 # IceCast
-      8191 # FlareSolverr
       8686 # Lidarr
       8787 # Readarr
       8989 # Sonarr

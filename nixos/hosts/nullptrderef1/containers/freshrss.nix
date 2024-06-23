@@ -9,7 +9,7 @@
         "${opts.paths.application_data}/FreshRSS/data/:/var/www/FreshRSS/data"
         "${opts.paths.application_data}/FreshRSS/extensions/:/var/www/FreshRSS/extensions"
       ];
-      ports = [ "${secrets.freshrss.app.port}:80" ];
+      ports = [ "${opts.apps.freshrss.app_port}:80" ];
       environment = {
         CRON_MIN = "2,32";
         TZ = opts.timeZone;
