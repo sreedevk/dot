@@ -30,6 +30,7 @@ in
       opts.apps.huginn.app_port
       opts.apps.znc.app_port
       opts.apps.thelounge.app_port
+      opts.apps.jackett.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
@@ -65,7 +66,6 @@ in
       9001 # Prometheus
       9002 # Prometheus Node
       9080 # Portrainer 2
-      9117 # Jackett
       9443 # Portrainer 3
       9696 # Prowlarr
       9801 # VaultWarden
