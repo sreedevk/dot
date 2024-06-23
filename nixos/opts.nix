@@ -31,6 +31,9 @@
       app_port = "6880";
       rpc_port = "6800";
     };
+    audiobookshelf = {
+      app_port = "13378";
+    };
   };
 
   autorandr =
