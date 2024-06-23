@@ -90,31 +90,6 @@ in
     LC_MONETARY = "en_US.UTF-8";
   };
 
-  systemd.services.radio-streaming = {
-    description = "enable audio streaming from XHDATA D-328 Radio";
-    enable = true;
-    after = [ "network.target" ];
-    wants = [ "network.target" ];
-    serviceConfig = {
-      ExecStart =
-        "${pkgs.ffmpeg}/bin/ffmpeg -f alsa -ac 2 -ar 44100 -i hw:0 -acodec libmp3lame -b:a 128k -content_type audio/mpeg -f mp3 icecast://radiosource:${secrets.icecast.password}@0.0.0.0:8099/radio";
-      Restart = "always";
-    };
-  };
-
-  systemd.services.taskchampion-sync = {
-    description = "taskwarrior task server";
-    enable = true;
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = ''
-        ${pkgs.taskchampion-sync-server}/bin/taskchampion-sync-server --port 8080 --data-dir ${opts.paths.application_data}/TaskChampion
-      '';
-      Restart = "always";
-    };
-  };
-
   users.users.admin = {
     isNormalUser = true;
     shell = pkgs.zsh;

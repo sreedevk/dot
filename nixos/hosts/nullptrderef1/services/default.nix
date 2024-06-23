@@ -5,5 +5,6 @@
     ./firewall.nix
     ./icecast.nix
     ./telemetry.nix
+    ./taskchampion.nix
   ];
 }
