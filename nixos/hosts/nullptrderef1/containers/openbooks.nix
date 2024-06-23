@@ -6,7 +6,7 @@
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.books}:/books" ];
-      ports = [ "8004:80" ];
+      ports = [ "${opts.apps.openbooks.app_port}:80" ];
       cmd = [ "--persist" "--name='${opts.applicationUserName}'" ];
       environment = {
         TZ = opts.timeZone;
