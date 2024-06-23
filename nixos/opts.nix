@@ -28,6 +28,8 @@
     navidrome.app_port = "4533";
     ntfy.app_port = "7777";
     olivetin.app_port = "1337";
+    ollama-api.app_port = "11434";
+    ollama-web.app_port =  "3134";
     metube.app_port = "8081";
     autobrr.app_port = "7474";
     baikal.app_port = "8945";
