@@ -262,17 +262,20 @@ in
       enable = true;
       port = 9001;
       exporters = {
+        zfs.enable = true;
         node = {
           enable = true;
           enabledCollectors = [ "systemd" ];
           port = 9002;
         };
+        process.enable = true;
+        ping.enable = true;
       };
       scrapeConfigs = [
         {
           job_name = "chrysalis";
           static_configs = [{
-            targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.node.port}" ];
+            targets = [ "0.0.0.0:${toString config.services.prometheus.exporters.node.port}" ];
           }];
         }
       ];
@@ -281,8 +284,12 @@ in
     grafana = {
       enable = true;
       settings = {
+        security = {
+          admin_password = secrets.grafana.password;
+        };
         server = {
           domain = "nullptrderef1";
+          protocol = "http";
           http_port = 2442;
           http_addr = "0.0.0.0";
         };
