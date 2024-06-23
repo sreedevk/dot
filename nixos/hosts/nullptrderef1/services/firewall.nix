@@ -1,25 +1,29 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, secrets, ... }:
+let
+  mkPort = port_str: if builtins.isString port_str then pkgs.lib.strings.toInt port_str else port_str;
+in
+{
   networking.firewall = {
     enable = true;
     allowPing = false;
-    allowedTCPPorts = [
+    allowedTCPPorts = builtins.map mkPort [
+      secrets.photoprism.app.port
+      secrets.firefly.database.port
+      secrets.photoprism.database.port
+      secrets.firefly.app.port
       21
       22
       53
       80
       443
-      2342 # PhotoPrism
       2442 # Grafana
       3001 # Uptime Kuma
       3100 # HomeBox
       3134 # Ollama Web
-      3306 # MariaDB Firefly
-      3307 # MariaDB Photoprism
       3333 # Huginn
       4533 # Navidrome
       5000 # Kavita
       5055 # JellySeer
-      6003 # Firefly App
       6660 # FileBrowser
       6767 # Bazarr
       6800 # Aria2 (RPC)
