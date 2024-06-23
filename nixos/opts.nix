@@ -35,6 +35,7 @@
     plex.app_port = "32400";
     searxng.app_port = "9199";
     filebrowser.app_port = "6660";
+    rss-bridge.app_port = "8768";
     farfalle = {
       app_port = "3199";
       api_port = "8199";

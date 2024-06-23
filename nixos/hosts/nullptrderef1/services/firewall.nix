@@ -24,6 +24,7 @@ in
       opts.apps.farfalle.app_port
       opts.apps.farfalle.api_port
       opts.apps.filebrowser.app_port
+      opts.apps.rss-bridge.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port

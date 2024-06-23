@@ -22,7 +22,7 @@
       image = "rssbridge/rss-bridge:latest";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "8768:80" ];
+      ports = [ "${opts.apps.rss-bridge.app_port}:80" ];
       volumes = [ "${opts.paths.application_data}/rss-bridge:/config" ];
       environment = {
         TZ = opts.timeZone;
