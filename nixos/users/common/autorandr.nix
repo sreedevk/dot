@@ -46,8 +46,8 @@
       };
       "home" = {
         fingerprint = {
-          "home-primary" = opts.autorandr.monitors.homelab4k;
-          "home-secondary" = opts.autorandr.monitors.homelab1080p;
+          "home-primary" = opts.autorandr.monitors.homelab-0;
+          "home-secondary" = opts.autorandr.monitors.homelab-1;
           "home-tertiary" = opts.autorandr.monitors.inbuilt;
         };
 
