@@ -7,13 +7,14 @@ in
     enable = true;
     allowPing = false;
     allowedTCPPorts = builtins.map mkPort [
-      secrets.photoprism.app.port
-      secrets.firefly.database.port
-      secrets.photoprism.database.port
       secrets.firefly.app.port
+      secrets.firefly.database.port
       secrets.freshrss.app.port
-      secrets.plex.app.port
       secrets.kavita.app.port
+      secrets.linkding.app.port
+      secrets.photoprism.app.port
+      secrets.photoprism.database.port
+      secrets.plex.app.port
       21
       22
       53
@@ -52,7 +53,6 @@ in
       9001 # Prometheus
       9002 # Prometheus Node
       9080 # Portrainer 2
-      9090 # Linkding
       9117 # Jackett
       9443 # Portrainer 3
       9696 # Prowlarr
