@@ -8,11 +8,12 @@
         "${opts.paths.application_data}/plex/database/:/config"
         "${opts.paths.application_data}/plex/transcode/:/transcode"
       ];
+      ports = [ "${secrets.plex.app.port}:32400" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
-        PLEX_CLAIM = secrets.plex.claim;
+        PLEX_CLAIM = secrets.plex.app.claim;
       };
     };
   };
