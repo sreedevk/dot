@@ -6,7 +6,7 @@
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_data}/Ollama:/root/.ollama" ];
-      ports = [ "11434:11434" ];
+      ports = [ "${opts.apps.ollama-api.app_port}:11434" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
@@ -25,7 +25,7 @@
       volumes = [
         "${opts.paths.application_data}/OllamaWeb:/app/backend/data"
       ];
-      ports = [ "3134:8080" ];
+      ports = [ "${opts.apps.ollama-web.app_port}:8080" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
