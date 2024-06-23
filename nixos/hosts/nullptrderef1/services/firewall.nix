@@ -38,6 +38,8 @@ in
       opts.apps.navidrome.app_port
       opts.apps.ntfy.app_port
       opts.apps.olivetin.app_port
+      opts.apps.ollama-api.app_port
+      opts.apps.ollama-web.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
