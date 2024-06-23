@@ -8,7 +8,7 @@
         "--add-host=host.docker.internal:host-gateway"
         "--no-healthcheck"
       ];
-      ports = [ "8199:8000" "9199:8080" "3199:3000" ];
+      ports = [ "8199:8000" "${opts.apps.searxng.app_port}:8080" "3199:3000" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;

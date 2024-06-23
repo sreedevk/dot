@@ -33,6 +33,7 @@
     kavita.app_port = "5000";
     linkding.app_port = "9090";
     plex.app_port = "32400";
+    searxng.app_port = "9199";
     aria2 = {
       app_port = "6880";
       rpc_port = "6800";

@@ -20,6 +20,7 @@ in
       opts.apps.kavita.app_port
       opts.apps.linkding.app_port
       opts.apps.plex.app_port
+      opts.apps.searxng.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
