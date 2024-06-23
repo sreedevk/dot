@@ -266,11 +266,7 @@ in
           enable = true;
           enabledCollectors = [
             "systemd"
-            "ping"
-            "wireguard"
             "zfs"
-            "minio"
-            "collectd"
           ];
           port = 9002;
           openFirewall = true;
