@@ -13,7 +13,7 @@
         "${opts.paths.application_data}/photoprism/app:/photoprism/storage"
         "${opts.paths.images}:/photoprism/originals"
       ];
-      ports = [ "2342:2342" ];
+      ports = [ "${secrets.photoprism.app.port}:2342" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
