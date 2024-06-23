@@ -20,6 +20,7 @@
     ./jellyfin.nix
     ./jellyseer.nix
     ./kavita.nix
+    ./linkding.nix
     ./livebook.nix
     ./memos.nix
     ./metube.nix
