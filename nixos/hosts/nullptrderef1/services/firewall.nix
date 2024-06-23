@@ -11,6 +11,7 @@ in
       opts.apps.aria2.app_port
       opts.apps.aria2.rpc_port
       opts.apps.audiobookshelf.app_port
+      opts.apps.cloudbeaver.app_port
       opts.apps.baikal.app_port
       opts.apps.autobrr.app_port
       opts.apps.flaresolverr.app_port

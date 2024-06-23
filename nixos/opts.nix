@@ -29,6 +29,7 @@
     freshrss.app_port = "8808";
     autobrr.app_port = "7474";
     baikal.app_port = "8945";
+    cloudbeaver.app_port = "8079";
     audiobookshelf.app_port = "13378";
     aria2 = {
       app_port = "6880";
