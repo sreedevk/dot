@@ -5,7 +5,7 @@
       image = "ghcr.io/hay-kot/homebox:latest";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "3100:7745" ];
+      ports = [ "${opts.apps.homebox.app_port}:7745" ];
       volumes = [ "${opts.paths.application_data}/HomeBox:/data" ];
       environment = {
         HBOX_LOG_LEVEL = "info";
