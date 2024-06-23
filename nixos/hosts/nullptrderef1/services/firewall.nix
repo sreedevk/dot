@@ -36,11 +36,11 @@ in
       opts.apps.jellyfin.app_port
       opts.apps.metube.app_port
       opts.apps.navidrome.app_port
+      opts.apps.ntfy.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
       secrets.photoprism.database.port
-
       21
       22
       53
@@ -51,7 +51,6 @@ in
       6767 # Bazarr
       6881 # qBittorrent Nox
       6969 # aar
-      7777 # Ntfy
       7878 # Radarr
       8000 # Adguard
       8001 # qBittorrent WebUI

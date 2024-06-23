@@ -11,7 +11,7 @@
         PUID = opts.adminUID;
         PGID = opts.adminGID;
       };
-      ports = [ "7777:80" ];
+      ports = [ "${opts.apps.ntfy.app_port}:80" ];
       volumes = [
         "${opts.paths.application_data}/ntfy/cache:/var/cache/ntfy"
         "${opts.paths.application_data}/ntfy/data/:/etc/ntfy"
