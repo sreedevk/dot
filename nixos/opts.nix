@@ -23,15 +23,16 @@
 
   apps = {
     archivebox.app_port = "8089";
-    linkding.app_port = "9090";
-    flaresolverr.app_port = "8191";
-    kavita.app_port = "5000";
-    freshrss.app_port = "8808";
+    audiobookshelf.app_port = "13378";
     autobrr.app_port = "7474";
     baikal.app_port = "8945";
     cloudbeaver.app_port = "8079";
     docuseal.app_port = "6008";
-    audiobookshelf.app_port = "13378";
+    flaresolverr.app_port = "8191";
+    freshrss.app_port = "8808";
+    kavita.app_port = "5000";
+    linkding.app_port = "9090";
+    plex.app_port = "32400";
     aria2 = {
       app_port = "6880";
       rpc_port = "6800";
