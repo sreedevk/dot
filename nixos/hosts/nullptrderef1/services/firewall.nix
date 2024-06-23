@@ -11,6 +11,8 @@ in
       secrets.firefly.database.port
       secrets.photoprism.database.port
       secrets.firefly.app.port
+      secrets.freshrss.app.port
+      secrets.plex.app.port
       21
       22
       53
@@ -45,7 +47,6 @@ in
       8191 # FlareSolverr
       8686 # Lidarr
       8787 # Readarr
-      8808 # FreshRSS
       8989 # Sonarr
       9000 # TheLounge
       9001 # Prometheus
