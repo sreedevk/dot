@@ -266,7 +266,6 @@ in
           enable = true;
           enabledCollectors = [
             "systemd"
-            "process"
             "ping"
             "wireguard"
             "zfs"
@@ -291,7 +290,7 @@ in
       enable = true;
       settings = {
         security = {
-          admin_password = secrets.grafana.password;
+          admin_password = "$__file{${pkgs.writeText "grafpass" secrets.grafana.password}}";
         };
         server = {
           domain = "nullptrderef1";
