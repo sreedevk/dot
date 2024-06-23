@@ -276,10 +276,6 @@ in
             api key = ${secrets.netdata.api_key}
           [UUID]
             enabled = yes
-            default history = 3600
-            default memory mode = dbengine
-            health enabled by default = auto
-            allow from = *
         '';
       };
     };
