@@ -21,6 +21,8 @@ in
       opts.apps.linkding.app_port
       opts.apps.plex.app_port
       opts.apps.searxng.app_port
+      opts.apps.farfalle.app_port
+      opts.apps.farfalle.api_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
