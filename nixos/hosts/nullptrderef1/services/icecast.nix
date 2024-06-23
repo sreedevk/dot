@@ -1,4 +1,4 @@
-{ config, lib, pkgs, secrets, ... }: {
+{ config, pkgs, secrets, ... }: {
   systemd.services.radio-streaming = {
     description = "enable audio streaming from XHDATA D-328 Radio";
     enable = true;
