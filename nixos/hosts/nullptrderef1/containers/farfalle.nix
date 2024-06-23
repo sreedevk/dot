@@ -8,14 +8,14 @@
         "--add-host=host.docker.internal:host-gateway"
         "--no-healthcheck"
       ];
-      ports = [ "8199:8000" "${opts.apps.searxng.app_port}:8080" "3199:3000" ];
+      ports = [ "${opts.apps.farfalle.api_port}:8000" "${opts.apps.searxng.app_port}:8080" "${opts.apps.farfalle.app_port}:3000" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
         SEARCH_PROVIDER = "searxng";
         TAVILY_API_KEY = secrets.farfalle.tavily_api_key;
-        SEARXNG_BASE_URL = "http://nullptrderef1:9199/";
+        SEARXNG_BASE_URL = "http://nullptrderef1:${opts.apps.searxng.app_port}/";
       };
     };
   };

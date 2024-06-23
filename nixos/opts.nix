@@ -34,6 +34,10 @@
     linkding.app_port = "9090";
     plex.app_port = "32400";
     searxng.app_port = "9199";
+    farfalle = {
+      app_port = "3199";
+      api_port = "8199";
+    };
     aria2 = {
       app_port = "6880";
       rpc_port = "6800";
