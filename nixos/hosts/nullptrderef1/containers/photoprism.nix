@@ -10,7 +10,7 @@
         "--no-healthcheck"
       ];
       volumes = [
-        "${opts.paths.application_data}/Photoprism/:/photoprism/storage"
+        "${opts.paths.application_data}/photoprism/app:/photoprism/storage"
         "${opts.paths.images}:/photoprism/originals"
       ];
       ports = [ "2342:2342" ];
@@ -70,7 +70,7 @@
         "--innodb-lock-wait-timeout=120"
       ];
       volumes = [
-        "${opts.paths.application_data}/photoprism-db:/var/lib/mysql"
+        "${opts.paths.application_data}/photoprism/db:/var/lib/mysql"
       ];
 
       extraOptions = [
