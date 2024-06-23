@@ -35,6 +35,7 @@ in
       opts.apps.jellyseer.app_port
       opts.apps.jellyfin.app_port
       opts.apps.metube.app_port
+      opts.apps.navidrome.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
@@ -47,7 +48,6 @@ in
       2442 # Grafana
       3001 # Uptime Kuma
       3134 # Ollama Web
-      4533 # Navidrome
       6767 # Bazarr
       6881 # qBittorrent Nox
       6969 # aar
