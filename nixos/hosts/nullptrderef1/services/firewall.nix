@@ -1,4 +1,4 @@
-{ config, lib, pkgs, secrets, ... }: {
+{ config, pkgs, ... }: {
   networking.firewall = {
     enable = true;
     allowPing = false;

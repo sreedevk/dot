@@ -1,4 +1,4 @@
-{ config, lib, pkgs, secrets, ... }: {
+{ config, pkgs, opts, ... }: {
   systemd.services.taskchampion-sync = {
     description = "taskwarrior task server";
     enable = true;

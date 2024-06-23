@@ -1,8 +1,4 @@
-{ config, pkgs, secrets, system, inputs, ... }:
-let
-  opts =
-    { paths = { application_data = "/mnt/dpool0/appdata"; }; };
-in
+{ config, pkgs, secrets, opts, system, inputs, ... }:
 {
   imports = [ ./hardware-configuration.nix ./containers ./services ];
 

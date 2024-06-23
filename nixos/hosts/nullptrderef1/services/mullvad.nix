@@ -1,4 +1,4 @@
-{ config, lib, pkgs, secrets, ... }: {
+{ config, secrets, ... }: {
   services.mullvad-vpn = { enable = true; };
 
   systemd.services."mullvad-daemon".postStart =
