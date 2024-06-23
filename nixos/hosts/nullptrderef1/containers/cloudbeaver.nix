@@ -5,7 +5,7 @@
       image = "dbeaver/cloudbeaver:latest";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "8079:8978" ];
+      ports = [ "${opts.apps.cloudbeaver.app_port}:8978" ];
       volumes = [
         "${opts.paths.application_data}/cloudbeaver:/opt/cloudbeaver/workspace"
       ];
