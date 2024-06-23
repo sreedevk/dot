@@ -258,6 +258,19 @@ in
       };
     };
 
+    netdata = {
+      enable = true;
+      config = {
+        global = {
+          "page cache size" = 32;
+          "update every" = 15;
+        };
+        ml = {
+          "enabled" = "yes";
+        };
+      };
+    };
+
     prometheus = {
       enable = true;
       port = 9001;
