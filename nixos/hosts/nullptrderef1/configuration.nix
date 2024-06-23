@@ -195,7 +195,7 @@
     zfs = {
       autoScrub = {
         enable = true;
-        interval = "weekly";
+        interval = "monthly";
         pools = [ "dpool0" ];
       };
     };
