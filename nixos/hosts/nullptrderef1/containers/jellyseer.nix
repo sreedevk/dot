@@ -6,7 +6,7 @@
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_data}/jellyseer/:/app/config" ];
-      ports = [ "5055:5055" ];
+      ports = [ "${opts.apps.jellyseer.app_port}:5055" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
