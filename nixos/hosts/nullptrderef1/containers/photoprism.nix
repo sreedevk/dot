@@ -31,7 +31,6 @@
         PHOTOPRISM_DISABLE_CHOWN = "false"; # disables updating storage permissions via chmod and chown on startup
         PHOTOPRISM_DISABLE_WEBDAV = "false"; # disables built-in WebDAV server
         PHOTOPRISM_DETECT_NSFW = "true"; # automatically flags photos as private that MAY be offensive (requires TensorFlow)
-        PHOTOPRISM_UPLOAD_NSFW = "true"; # allows uploads that MAY be offensive (no effect without TensorFlow)
         PHOTOPRISM_DISABLE_SETTINGS = "false"; # disables settings UI and API
         PHOTOPRISM_DISABLE_TENSORFLOW = "false"; # disables all features depending on TensorFlow
         PHOTOPRISM_DISABLE_FACES = "false"; # disables face detection and recognition (requires TensorFlow)
