@@ -260,12 +260,26 @@ in
 
     netdata = {
       enable = true;
+      config = {
+        global = {
+          "update every" = 15;
+        };
+        ml = {
+          "enabled" = "yes";
+        };
+      };
       configDir = {
         "stream.conf" = pkgs.writeText "stream.conf" ''
           [stream]
-              enabled = yes
-              destination = 0.0.0.0:19999
-              api key = ${secrets.netdata.api_key}
+            enabled = yes
+            destination = nullptrderef1:19999
+            api key = ${secrets.netdata.api_key}
+          [UUID]
+            enabled = yes
+            default history = 3600
+            default memory mode = dbengine
+            health enabled by default = auto
+            allow from = *
         '';
       };
     };
