@@ -26,6 +26,7 @@
     memos.app_port = "5230";
     audiobookshelf.app_port = "13378";
     navidrome.app_port = "4533";
+    ntfy.app_port = "7777";
     metube.app_port = "8081";
     autobrr.app_port = "7474";
     baikal.app_port = "8945";
