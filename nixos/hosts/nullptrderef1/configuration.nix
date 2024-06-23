@@ -266,7 +266,6 @@ in
           enable = true;
           enabledCollectors = [
             "systemd"
-            "statsd"
             "process"
             "ping"
             "wireguard"
