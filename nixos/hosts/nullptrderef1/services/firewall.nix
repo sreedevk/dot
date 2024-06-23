@@ -12,6 +12,8 @@ in
       opts.apps.freshrss.app_port
       opts.apps.kavita.app_port
       opts.apps.linkding.app_port
+      opts.apps.aria2.app_port
+      opts.apps.aria2.rpc_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
@@ -31,8 +33,6 @@ in
       5055 # JellySeer
       6660 # FileBrowser
       6767 # Bazarr
-      6800 # Aria2 (RPC)
-      6880 # Aria2 (Web)
       6881 # qBittorrent Nox
       6969 # aar
       7474 # AutoBrr
