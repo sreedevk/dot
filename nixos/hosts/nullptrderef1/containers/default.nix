@@ -1,7 +1,15 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   imports = [
     ./jellyfin.nix
+    ./jellyseer.nix
+    ./plex.nix
+    ./qbittorrent.nix
+    ./autobrr.nix
+    ./vaultwarden.nix
+    ./homebox.nix
+    ./servarr.nix
   ];
+
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
@@ -11,190 +19,6 @@
   };
 
   virtualisation.oci-containers.containers = {
-    # Jellyseer Media Discovery
-    "jellyseer" = {
-      autoStart = true;
-      image = "fallenbagel/jellyseerr:latest";
-      extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/jellyseer/:/app/config" ];
-      ports = [ "5055:5055" ];
-      environment = {
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
-      };
-    };
-
-    # Plex Media Server
-    "plex" = {
-      autoStart = true;
-      image = "plexinc/pms-docker";
-      extraOptions = [ "--network=host" "--no-healthcheck" ];
-      volumes = [
-        "${opts.paths.application_data}/plex/database/:/config"
-        "${opts.paths.application_data}/plex/transcode/:/transcode"
-      ];
-      environment = {
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
-        PLEX_CLAIM = secrets.plex.claim;
-      };
-    };
-
-    # qBittorrent P2P Torrent Client
-    "qbittorrent-nox" = {
-      autoStart = true;
-      image = "qbittorrentofficial/qbittorrent-nox:4.6.4-1";
-      ports = [ "6881:6881/tcp" "6881:6881/udp" "8001:8001/tcp" ];
-      environment = {
-        QBT_EULA = "accept";
-        QBT_VERSION = "4.6.4-1";
-        QBT_WEBUI_PORT = "8001";
-        TZ = opts.timeZone;
-        USER_UID = opts.adminUID;
-        USER_GID = opts.adminGID;
-      };
-      volumes = [
-        "${opts.paths.application_data}/qbittorrent/config/:/config"
-        "${opts.paths.application_data}/vuetorrent:/vuetorrent"
-        "${opts.paths.downloads}:/downloads"
-        "${opts.paths.torrent_watch}:/torrents"
-        "${opts.paths.qbt_images}:/images"
-        "${opts.paths.videos}:/videos"
-        "${opts.paths.books}:/books"
-        "${opts.paths.magazines}:/magazines"
-      ];
-      extraOptions = [ "--network=host" "--no-healthcheck" ];
-    };
-
-    "autobrr" = {
-      autoStart = true;
-      image = "ghcr.io/autobrr/autobrr:latest";
-      extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      dependsOn = [ "qbittorrent-nox" ];
-      ports = [ "7474:7474" ];
-      volumes = [ "${opts.paths.application_data}/autobrr/:/config" ];
-      environment = {
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
-      };
-    };
-
-    "vaultwarden" = {
-      autoStart = true;
-      image = "vaultwarden/server:latest ";
-      extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "9801:80" ];
-      volumes = [ "${opts.paths.application_data}/vw-data:/data/" ];
-      environment = {
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
-      };
-    };
-
-    "homebox" = {
-      autoStart = true;
-      image = "ghcr.io/hay-kot/homebox:latest";
-      extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "3100:7745" ];
-      volumes = [ "${opts.paths.application_data}/HomeBox:/data" ];
-      environment = {
-        HBOX_LOG_LEVEL = "info";
-        HBOX_LOG_FORMAT = "text";
-        HBOX_WEB_MAX_UPLOAD_SIZE = "10";
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
-      };
-    };
-
-    # Radarr Movies Indexer
-    "radarr" = {
-      autoStart = true;
-      image = "ghcr.io/hotio/radarr";
-      extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      dependsOn = [ "qbittorrent-nox" ];
-      volumes = [
-        "${opts.paths.application_data}/Radarr/:/config"
-        "${opts.paths.movies}:/movies"
-        "${opts.paths.downloads}:/downloads"
-      ];
-      ports = [ "7878:7878" ];
-      environment = {
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
-      };
-    };
-
-    # Sonarr TV Indexer
-    "sonarr" = {
-      autoStart = true;
-      image = "ghcr.io/hotio/sonarr";
-      dependsOn = [ "qbittorrent-nox" ];
-      extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [
-        "${opts.paths.application_data}/Sonarr/:/config"
-        "${opts.paths.television}:/tv"
-        "${opts.paths.downloads}:/downloads"
-      ];
-      ports = [ "8989:8989" ];
-      environment = {
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
-      };
-    };
-
-    # Lidarr Music Indexer
-    "lidarr" = {
-      autoStart = true;
-      image = "ghcr.io/hotio/lidarr";
-      dependsOn = [ "qbittorrent-nox" ];
-      extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [
-        "${opts.paths.application_data}/Lidarr/:/config"
-        "${opts.paths.music}:/music"
-        "${opts.paths.downloads}:/downloads"
-      ];
-      ports = [ "8686:8686" ];
-      environment = {
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
-      };
-    };
-
-    # Readarr Books Indexer
-    "readarr" = {
-      autoStart = true;
-      image = "ghcr.io/hotio/readarr";
-      dependsOn = [ "qbittorrent-nox" ];
-      extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [
-        "${opts.paths.application_data}/Readarr/:/config"
-        "${opts.paths.books}:/books"
-        "${opts.paths.downloads}:/downloads"
-      ];
-      ports = [ "8787:8787" ];
-      environment = {
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
-      };
-    };
-
     "openbooks" = {
       autoStart = true;
       image = "evanbuss/openbooks";
@@ -210,7 +34,6 @@
       };
     };
 
-    # Flaresolver Cloudflare Challenge Solver
     "flareSolverr" = {
       autoStart = true;
       image = "ghcr.io/flaresolverr/flaresolverr:latest";
@@ -219,25 +42,6 @@
       ports = [ "8191:8191" ];
       environment = {
         LOG_LEVEL = "info";
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
-      };
-    };
-
-    # Prowlarr Indexer Source Management
-    "prowlarr" = {
-      autoStart = true;
-      image = "ghcr.io/hotio/prowlarr";
-      extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      dependsOn = [ "flareSolverr" ];
-      volumes = [
-        "${opts.paths.application_data}/Prowlarr/:/config"
-        "${opts.paths.downloads}:/downloads"
-      ];
-      ports = [ "9696:9696" ];
-      environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
