@@ -31,6 +31,7 @@ in
       opts.apps.znc.app_port
       opts.apps.thelounge.app_port
       opts.apps.jackett.app_port
+      opts.apps.jellyseer.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
