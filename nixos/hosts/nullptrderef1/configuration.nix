@@ -260,14 +260,13 @@ in
 
     netdata = {
       enable = true;
-      config = {
-        global = {
-          "page cache size" = 32;
-          "update every" = 15;
-        };
-        ml = {
-          "enabled" = "yes";
-        };
+      configDir = {
+        "stream.conf" = pkgs.writeText "stream.conf" ''
+          [stream]
+              enabled = yes
+              destination = 0.0.0.0:19999
+              api key = ${secrets.netdata.api_key}
+        '';
       };
     };
 
