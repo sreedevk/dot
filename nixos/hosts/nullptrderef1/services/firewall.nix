@@ -32,6 +32,7 @@ in
       opts.apps.thelounge.app_port
       opts.apps.jackett.app_port
       opts.apps.jellyseer.app_port
+      opts.apps.jellyfin.app_port = "8096";
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
@@ -58,7 +59,6 @@ in
       8024 # Portrainer 1
       8080 # TaskChampion Sync Server
       8081 # MeTube
-      8096 # JellyFin
       8099 # IceCast
       8686 # Lidarr
       8787 # Readarr
@@ -74,11 +74,11 @@ in
       19999 # NetData
     ];
     allowedUDPPorts = [
+      opts.apps.jellyfin.app_port = "8096";
       21
       22
       53
       6881 # qBittorrent Nox
-      8096 # JellyFin
       13378 # AudioBook Shelf
     ];
   };
