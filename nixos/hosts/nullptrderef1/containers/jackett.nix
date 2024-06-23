@@ -16,7 +16,7 @@
         "${opts.paths.application_data}/Jackett:/config"
         "${opts.paths.downloads}:/downloads"
       ];
-      ports = [ "9117:9117" ];
+      ports = [ "${opts.apps.jackett.app_port}:9117" ];
     };
   };
 }
