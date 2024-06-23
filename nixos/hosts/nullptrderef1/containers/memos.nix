@@ -1,12 +1,14 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   virtualisation.oci-containers.containers = {
-    "jellyseer" = {
+    "memos" = {
       autoStart = true;
-      image = "fallenbagel/jellyseerr:latest";
+      ports = [ "5230:5230" ];
+      image = "neosmemo/memos:stable";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/jellyseer/:/app/config" ];
-      ports = [ "5055:5055" ];
+      volumes = [
+        "${opts.paths.application_data}/Memos:/var/opt/memos"
+      ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;

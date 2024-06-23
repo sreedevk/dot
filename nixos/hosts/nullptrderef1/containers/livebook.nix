@@ -1,16 +1,17 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   virtualisation.oci-containers.containers = {
-    "jellyseer" = {
+    "livebook" = {
       autoStart = true;
-      image = "fallenbagel/jellyseerr:latest";
+      image = "ghcr.io/livebook-dev/livebook";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/jellyseer/:/app/config" ];
-      ports = [ "5055:5055" ];
+      ports = [ "8090:8080" "8091:8081" ];
+      volumes = [ "${opts.paths.application_data}/livebook:/data" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
+        LIVEBOOK_PASSWORD = secrets.livebook.password;
       };
     };
   };

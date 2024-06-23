@@ -1,12 +1,17 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   virtualisation.oci-containers.containers = {
-    "jellyseer" = {
+    "kavita" = {
       autoStart = true;
-      image = "fallenbagel/jellyseerr:latest";
+      image = "jvmilazz0/kavita";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/jellyseer/:/app/config" ];
-      ports = [ "5055:5055" ];
+      ports = [ "5000:5000" ];
+      volumes = [
+        "${opts.paths.application_data}/Kavita:/kavita/config"
+        "${opts.paths.books}:/books"
+        "${opts.paths.magazines}:/magazines"
+      ];
+
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;

@@ -1,12 +1,11 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   virtualisation.oci-containers.containers = {
-    "jellyseer" = {
+    "huginn" = {
       autoStart = true;
-      image = "fallenbagel/jellyseerr:latest";
+      image = "ghcr.io/huginn/huginn";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/jellyseer/:/app/config" ];
-      ports = [ "5055:5055" ];
+      ports = [ "3333:3000" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
