@@ -5,7 +5,7 @@
       image = "ghcr.io/huginn/huginn";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "3333:3000" ];
+      ports = [ "${opts.apps.huginn.app_port}:3000" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
