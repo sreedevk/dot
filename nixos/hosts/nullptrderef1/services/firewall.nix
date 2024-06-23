@@ -34,10 +34,12 @@ in
       opts.apps.jackett.app_port
       opts.apps.jellyseer.app_port
       opts.apps.jellyfin.app_port
+      opts.apps.metube.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
       secrets.photoprism.database.port
+
       21
       22
       53
@@ -45,9 +47,7 @@ in
       2442 # Grafana
       3001 # Uptime Kuma
       3134 # Ollama Web
-      3333 # Huginn
       4533 # Navidrome
-      5055 # JellySeer
       6767 # Bazarr
       6881 # qBittorrent Nox
       6969 # aar
@@ -59,7 +59,6 @@ in
       8008 # Cockpit
       8024 # Portrainer 1
       8080 # TaskChampion Sync Server
-      8081 # MeTube
       8099 # IceCast
       8686 # Lidarr
       8787 # Readarr
