@@ -19,8 +19,8 @@
         PUID = opts.adminUID;
         PGID = opts.adminGID;
         PHOTOPRISM_UPLOAD_NSFW = "true";
-        PHOTOPRISM_ADMIN_PASSWORD = secrets.photoprism.password;
-        PHOTOPRISM_ADMIN_USER = secrets.photoprism.username; # TODO: UPDATES SECRETS
+        PHOTOPRISM_ADMIN_PASSWORD = secrets.photoprism.app.password;
+        PHOTOPRISM_ADMIN_USER = secrets.photoprism.app.username; # TODO: UPDATES SECRETS
         PHOTOPRISM_AUTH_MODE = "password";
         PHOTOPRISM_SITE_URL = "http://nullptrderef1:2342/";
         PHOTOPRISM_ORIGINALS_LIMIT = "5000"; # file size limit for originals in MB (increase for high-res video)
@@ -46,10 +46,10 @@
         PHOTOPRISM_AUTO_INDEX = "300"; # delay before automatically indexing files in SECONDS when uploading via WebDAV (-1 to disable)
         PHOTOPRISM_AUTO_IMPORT = "-1"; # delay before automatically importing files in SECONDS when uploading via WebDAV (-1 to disable)
         PHOTOPRISM_DATABASE_DRIVER = "mysql"; # MariaDB 10.5.12+ (MySQL successor) offers significantly better performance compared to SQLite
-        PHOTOPRISM_DATABASE_SERVER = "nullptrderef1:3307"; # MariaDB database server (hostname=port)
-        PHOTOPRISM_DATABASE_NAME = "photoprism"; # MariaDB database schema name
-        PHOTOPRISM_DATABASE_USER = "photoprism"; # MariaDB database user name
-        PHOTOPRISM_DATABASE_PASSWORD = secrets.photoprism.password; # MariaDB database user password
+        PHOTOPRISM_DATABASE_SERVER = "${secrets.photoprism.database.host}:${secrets.photoprism.database.port}"; # MariaDB database server (hostname=port)
+        PHOTOPRISM_DATABASE_NAME = secrets.photoprism.database.name; # MariaDB database schema name
+        PHOTOPRISM_DATABASE_USER = secrets.photoprism.database.username; # MariaDB database user name
+        PHOTOPRISM_DATABASE_PASSWORD = secrets.photoprism.database.password; # MariaDB database user password
         PHOTOPRISM_FFMPEG_ENCODER = "intel"; # H.264/AVC encoder (software, intel, nvidia, apple, raspberry, or vaapi)
         PHOTOPRISM_UID = opts.adminUID;
         PHOTOPRISM_GID = opts.adminGID;
@@ -83,10 +83,10 @@
       environment = {
         MARIADB_AUTO_UPGRADE = "1";
         MARIADB_INITDB_SKIP_TZINFO = "1";
-        MARIADB_DATABASE = "photoprism";
-        MARIADB_USER = "photoprism";
-        MARIADB_PASSWORD = secrets.photoprism.password;
-        MARIADB_ROOT_PASSWORD = secrets.photoprism.password;
+        MARIADB_DATABASE = secrets.photoprism.database.name;
+        MARIADB_USER = secrets.photoprism.database.username;
+        MARIADB_PASSWORD = secrets.photoprism.database.password;
+        MARIADB_ROOT_PASSWORD = secrets.photoprism.database.password;
       };
     };
   };
