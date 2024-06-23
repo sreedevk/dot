@@ -23,6 +23,7 @@
 
   apps = {
     archivebox.app_port = "8089";
+    memos.app_port = "5230";
     audiobookshelf.app_port = "13378";
     autobrr.app_port = "7474";
     baikal.app_port = "8945";

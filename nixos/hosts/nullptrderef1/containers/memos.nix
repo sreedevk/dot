@@ -2,7 +2,7 @@
   virtualisation.oci-containers.containers = {
     "memos" = {
       autoStart = true;
-      ports = [ "5230:5230" ];
+      ports = [ "${opts.apps.memos.app_port}:5230" ];
       image = "neosmemo/memos:stable";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];

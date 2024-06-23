@@ -7,6 +7,7 @@ in
     enable = true;
     allowPing = false;
     allowedTCPPorts = builtins.map mkPort [
+      opts.apps.memos.app_port
       opts.apps.archivebox.app_port
       opts.apps.aria2.app_port
       opts.apps.aria2.rpc_port
@@ -32,7 +33,7 @@ in
       opts.apps.thelounge.app_port
       opts.apps.jackett.app_port
       opts.apps.jellyseer.app_port
-      opts.apps.jellyfin.app_port = "8096";
+      opts.apps.jellyfin.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
@@ -73,8 +74,8 @@ in
       11434 # Ollama API
       19999 # NetData
     ];
-    allowedUDPPorts = [
-      opts.apps.jellyfin.app_port = "8096";
+    allowedUDPPorts = builtins.map mkPort [
+      opts.apps.jellyfin.app_port
       21
       22
       53
