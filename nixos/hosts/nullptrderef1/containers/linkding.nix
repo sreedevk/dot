@@ -7,7 +7,7 @@
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes =
         [ "${opts.paths.application_data}/linkding:/etc/linkding/data" ];
-      ports = [ "${secrets.linkding.app.port}:9090" ];
+      ports = [ "${opts.apps.linkding.app_port}:9090" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
