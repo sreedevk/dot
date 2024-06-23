@@ -7,7 +7,7 @@
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${secrets.kavita.app.port}:5000" ];
       volumes = [
-        "${opts.paths.application_data}/Kavita:/kavita/config"
+        "${opts.paths.application_data}/kavita:/kavita/config"
         "${opts.paths.books}:/books"
         "${opts.paths.magazines}:/magazines"
       ];
