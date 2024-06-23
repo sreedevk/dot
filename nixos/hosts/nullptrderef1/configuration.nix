@@ -262,18 +262,25 @@ in
       enable = true;
       port = 9001;
       exporters = {
-        zfs.enable = true;
         node = {
           enable = true;
-          enabledCollectors = [ "systemd" ];
+          enabledCollectors = [
+            "systemd"
+            "statsd"
+            "process"
+            "ping"
+            "wireguard"
+            "zfs"
+            "minio"
+            "collectd"
+          ];
           port = 9002;
+          openFirewall = true;
         };
-        process.enable = true;
-        ping.enable = true;
       };
       scrapeConfigs = [
         {
-          job_name = "chrysalis";
+          job_name = "nullptrderef1";
           static_configs = [{
             targets = [ "0.0.0.0:${toString config.services.prometheus.exporters.node.port}" ];
           }];
