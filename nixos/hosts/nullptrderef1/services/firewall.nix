@@ -27,6 +27,7 @@ in
       opts.apps.rss-bridge.app_port
       opts.apps.homebox.app_port
       opts.apps.homer.app_port
+      opts.apps.huginn.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
