@@ -25,6 +25,7 @@
     archivebox.app_port = "8089";
     memos.app_port = "5230";
     audiobookshelf.app_port = "13378";
+    metube.app_port = "8081";
     autobrr.app_port = "7474";
     baikal.app_port = "8945";
     cloudbeaver.app_port = "8079";
