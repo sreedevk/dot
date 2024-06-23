@@ -37,6 +37,7 @@ in
       opts.apps.metube.app_port
       opts.apps.navidrome.app_port
       opts.apps.ntfy.app_port
+      opts.apps.olivetin.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
