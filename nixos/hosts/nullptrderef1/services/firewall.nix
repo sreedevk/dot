@@ -23,6 +23,7 @@ in
       opts.apps.searxng.app_port
       opts.apps.farfalle.app_port
       opts.apps.farfalle.api_port
+      opts.apps.filebrowser.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
@@ -39,7 +40,6 @@ in
       3333 # Huginn
       4533 # Navidrome
       5055 # JellySeer
-      6660 # FileBrowser
       6767 # Bazarr
       6881 # qBittorrent Nox
       6969 # aar
