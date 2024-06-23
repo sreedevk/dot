@@ -15,6 +15,7 @@ in
       opts.apps.baikal.app_port
       opts.apps.autobrr.app_port
       opts.apps.flaresolverr.app_port
+      opts.apps.docuseal.app_port
       opts.apps.freshrss.app_port
       opts.apps.kavita.app_port
       opts.apps.linkding.app_port
