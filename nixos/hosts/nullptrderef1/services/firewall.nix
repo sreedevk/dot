@@ -40,6 +40,7 @@ in
       opts.apps.olivetin.app_port
       opts.apps.ollama-api.app_port
       opts.apps.ollama-web.app_port
+      opts.apps.openbooks.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
