@@ -11,11 +11,12 @@ in
       opts.apps.aria2.app_port
       opts.apps.aria2.rpc_port
       opts.apps.audiobookshelf.app_port
+      opts.apps.baikal.app_port
+      opts.apps.autobrr.app_port
       opts.apps.flaresolverr.app_port
       opts.apps.freshrss.app_port
       opts.apps.kavita.app_port
       opts.apps.linkding.app_port
-      opts.apps.autobrr.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
