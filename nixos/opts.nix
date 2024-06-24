@@ -73,6 +73,8 @@
     lidarr = "8686";
     qbittorrent-web = "8001";
     qbittorrent-p2p = "6881";
+    netdata = "19999";
+    icecast = "8099":
   };
 
   autorandr =
