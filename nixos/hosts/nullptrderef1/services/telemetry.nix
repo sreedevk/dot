@@ -13,7 +13,7 @@
       "stream.conf" = pkgs.writeText "stream.conf" ''
         [stream]
           enabled = yes
-          destination = nullptrderef1:19999
+          destination = nullptrderef1:${opts.ports.netdata}
           api key = ${secrets.netdata.api_key}
         [UUID]
           enabled = yes
