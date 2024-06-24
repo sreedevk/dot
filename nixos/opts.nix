@@ -71,6 +71,8 @@
     prometheus_app = "9001";
     prometheus_node = "9002";
     lidarr = "8686";
+    qbittorrent-web = "8001";
+    qbittorrent-p2p = "6881";
   };
 
   autorandr =

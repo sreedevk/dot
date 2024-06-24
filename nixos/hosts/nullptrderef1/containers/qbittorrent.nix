@@ -4,11 +4,11 @@
     "qbittorrent-nox" = {
       autoStart = true;
       image = "qbittorrentofficial/qbittorrent-nox:4.6.4-1";
-      ports = [ "6881:6881/tcp" "6881:6881/udp" "8001:8001/tcp" ];
+      ports = [ "${opts.ports.qbittorrent-p2p}:6881/tcp" "${opts.ports.qbittorrent-p2p}:6881/udp" "${opts.ports.qbittorrent-web}:8001/tcp" ];
       environment = {
         QBT_EULA = "accept";
         QBT_VERSION = "4.6.4-1";
-        QBT_WEBUI_PORT = "8001";
+        QBT_WEBUI_PORT = "${opts.ports.qbittorrent-web}";
         TZ = opts.timeZone;
         USER_UID = opts.adminUID;
         USER_GID = opts.adminGID;
