@@ -9,7 +9,7 @@
         "${opts.paths.application_data}/olivetin:/config"
         "${opts.paths.podmanSocket}:/var/run/docker.sock"
       ];
-      ports = [ "${opts.apps.olivetin.app_port}:1337" ];
+      ports = [ "${opts.ports.olivetin}:1337" ];
       user = "root";
       environment = {
         TZ = opts.timeZone;

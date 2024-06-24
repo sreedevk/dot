@@ -11,7 +11,7 @@
         "${opts.paths.movies}:/movies"
         "${opts.paths.downloads}:/downloads"
       ];
-      ports = [ "${opts.apps.radarr.app_port}:7878" ];
+      ports = [ "${opts.ports.radarr}:7878" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
@@ -31,7 +31,7 @@
         "${opts.paths.television}:/tv"
         "${opts.paths.downloads}:/downloads"
       ];
-      ports = [ "${opts.apps.sonarr.app_port}:8989" ];
+      ports = [ "${opts.ports.sonarr}:8989" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
@@ -71,7 +71,7 @@
         "${opts.paths.books}:/books"
         "${opts.paths.downloads}:/downloads"
       ];
-      ports = [ "${opts.apps.readarr.app_port}:8787" ];
+      ports = [ "${opts.ports.readarr}:8787" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
@@ -84,7 +84,7 @@
       image = "lscr.io/linuxserver/bazarr:latest";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.apps.bazarr.app_port}:6767" ];
+      ports = [ "${opts.ports.bazarr}:6767" ];
       volumes = [
         "${opts.paths.application_data}/Bazarr/config:/config"
         "${opts.paths.television}:/tv"
@@ -107,7 +107,7 @@
         "${opts.paths.application_data}/Prowlarr/:/config"
         "${opts.paths.downloads}:/downloads"
       ];
-      ports = [ "${opts.apps.prowlarr.app_port}:9696" ];
+      ports = [ "${opts.ports.prowlarr}:9696" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;

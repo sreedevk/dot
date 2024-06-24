@@ -3,7 +3,7 @@
     "znc" = {
       autoStart = true;
       image = "lscr.io/linuxserver/znc:latest";
-      ports = [ "${opts.apps.znc.app_port}:6501" ];
+      ports = [ "${opts.ports.znc}:6501" ];
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_data}/znc/:/config" ];
@@ -19,7 +19,7 @@
       image = "ghcr.io/thelounge/thelounge:latest";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.apps.thelounge.app_port}:9000" ];
+      ports = [ "${opts.ports.thelounge}:9000" ];
       volumes =
         [ "${opts.paths.application_data}/thelounge:/var/opt/thelounge" ];
       environment = {

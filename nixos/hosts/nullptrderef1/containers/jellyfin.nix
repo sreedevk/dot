@@ -14,7 +14,7 @@
       ];
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.apps.jellyfin.app_port}:8096" ];
+      ports = [ "${opts.ports.jellyfin}:8096" ];
       environment = {
         JELLYFIN_LOG_DIR = "/log";
         TZ = opts.timeZone;

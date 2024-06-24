@@ -13,7 +13,7 @@
         "${opts.paths.application_data}/photoprism/app:/photoprism/storage"
         "${opts.paths.images}:/photoprism/originals"
       ];
-      ports = [ "${secrets.photoprism.app.port}:2342" ];
+      ports = [ "${opts.ports.photoprism_app}:2342" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
@@ -22,8 +22,8 @@
         PHOTOPRISM_ADMIN_PASSWORD = secrets.photoprism.app.password;
         PHOTOPRISM_ADMIN_USER = secrets.photoprism.app.username;
         PHOTOPRISM_AUTH_MODE = "password";
-        PHOTOPRISM_SITE_URL = "http://${secrets.photoprism.app.host}:${secrets.photoprism.app.port}/";
-        PHOTOPRISM_ORIGINALS_LIMIT = "5000";
+        PHOTOPRISM_SITE_URL = "http://nullptrderef1:${opts.ports.photoprism_app}/";
+        PHOTOPRISM_ORIGINALS_LIMIT = "10000";
         PHOTOPRISM_HTTP_COMPRESSION = "gzip";
         PHOTOPRISM_LOG_LEVEL = "info";
         PHOTOPRISM_READONLY = "false";
@@ -46,8 +46,8 @@
         PHOTOPRISM_AUTO_INDEX = "300";
         PHOTOPRISM_AUTO_IMPORT = "-1";
         PHOTOPRISM_DATABASE_DRIVER = "mysql";
-        PHOTOPRISM_DATABASE_SERVER = "${secrets.photoprism.database.host}:${secrets.photoprism.database.port}";
-        PHOTOPRISM_DATABASE_NAME = secrets.photoprism.database.name;
+        PHOTOPRISM_DATABASE_SERVER = "nullptrderef1:${opts.ports.photoprism_db}";
+        PHOTOPRISM_DATABASE_NAME = "photoprism";
         PHOTOPRISM_DATABASE_USER = secrets.photoprism.database.username;
         PHOTOPRISM_DATABASE_PASSWORD = secrets.photoprism.database.password;
         PHOTOPRISM_FFMPEG_ENCODER = "intel";
@@ -79,11 +79,11 @@
         "--no-healthcheck"
       ];
 
-      ports = [ "${secrets.photoprism.database.port}:3306" ];
+      ports = [ "${opts.ports.photoprism_db}:3306" ];
       environment = {
         MARIADB_AUTO_UPGRADE = "1";
         MARIADB_INITDB_SKIP_TZINFO = "1";
-        MARIADB_DATABASE = secrets.photoprism.database.name;
+        MARIADB_DATABASE = "photoprism";
         MARIADB_USER = secrets.photoprism.database.username;
         MARIADB_PASSWORD = secrets.photoprism.database.password;
         MARIADB_ROOT_PASSWORD = secrets.photoprism.database.password;

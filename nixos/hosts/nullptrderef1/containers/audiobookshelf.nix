@@ -5,7 +5,7 @@
       image = "ghcr.io/advplyr/audiobookshelf:latest";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.apps.audiobookshelf.app_port}:80" ];
+      ports = [ "${opts.ports.audiobookshelf}:80" ];
       volumes = [
         "${opts.paths.application_data}/AudioBookShelf:/config"
         "${opts.paths.audiobooks}:/audiobooks"

@@ -7,7 +7,7 @@
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_data}/uptime-kuma/:/app/data" ];
-      ports = [ "${opts.apps.uptime-kuma.app_port}:3001" ];
+      ports = [ "${opts.ports.uptime-kuma}:3001" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;

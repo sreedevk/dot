@@ -5,7 +5,7 @@
       image = "docuseal/docuseal";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.apps.docuseal.app_port}:3000" ];
+      ports = [ "${opts.ports.docuseal}:3000" ];
       volumes = [ "${opts.paths.application_data}/docuseal:/data" ];
       environment = {
         TZ = opts.timeZone;

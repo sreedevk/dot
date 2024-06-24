@@ -5,7 +5,7 @@
       image = "archivebox/archivebox";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.apps.archivebox.app_port}:8000" ];
+      ports = [ "${opts.ports.archivebox}:8000" ];
       volumes = [ "${opts.paths.application_data}/archivebox:/data" ];
       environment = {
         TZ = opts.timeZone;

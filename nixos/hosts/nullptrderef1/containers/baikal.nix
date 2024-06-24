@@ -5,7 +5,7 @@
       image = "ckulka/baikal:nginx";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.apps.baikal.app_port}:80" ];
+      ports = [ "${opts.ports.baikal}:80" ];
       volumes = [
         "${opts.paths.application_data}/Baikal:/var/www/baikal/config"
         "${opts.paths.application_data}/Baikal:/var/www/baikal/Specific"

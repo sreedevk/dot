@@ -9,7 +9,7 @@
         "${opts.paths.application_data}/FreshRSS/data/:/var/www/FreshRSS/data"
         "${opts.paths.application_data}/FreshRSS/extensions/:/var/www/FreshRSS/extensions"
       ];
-      ports = [ "${opts.apps.freshrss.app_port}:80" ];
+      ports = [ "${opts.ports.freshrss}:80" ];
       environment = {
         CRON_MIN = "2,32";
         TZ = opts.timeZone;
@@ -22,7 +22,7 @@
       image = "rssbridge/rss-bridge:latest";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.apps.rss-bridge.app_port}:80" ];
+      ports = [ "${opts.ports.rss-bridge}:80" ];
       volumes = [ "${opts.paths.application_data}/rss-bridge:/config" ];
       environment = {
         TZ = opts.timeZone;

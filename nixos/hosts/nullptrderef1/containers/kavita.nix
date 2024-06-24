@@ -5,7 +5,7 @@
       image = "jvmilazz0/kavita";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.apps.kavita.app_port}:5000" ];
+      ports = [ "${opts.ports.kavita}:5000" ];
       volumes = [
         "${opts.paths.application_data}/kavita:/kavita/config"
         "${opts.paths.books}:/books"
