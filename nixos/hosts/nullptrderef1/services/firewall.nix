@@ -7,51 +7,51 @@ in
     enable = true;
     allowPing = false;
     allowedTCPPorts = builtins.map mkPort [
-      opts.apps.memos.app_port
-      opts.apps.archivebox.app_port
-      opts.apps.aria2.app_port
-      opts.apps.aria2.rpc_port
-      opts.apps.audiobookshelf.app_port
-      opts.apps.autobrr.app_port
-      opts.apps.baikal.app_port
-      opts.apps.cloudbeaver.app_port
-      opts.apps.docuseal.app_port
-      opts.apps.flaresolverr.app_port
-      opts.apps.freshrss.app_port
-      opts.apps.kavita.app_port
-      opts.apps.linkding.app_port
-      opts.apps.plex.app_port
-      opts.apps.searxng.app_port
-      opts.apps.farfalle.app_port
-      opts.apps.farfalle.api_port
-      opts.apps.filebrowser.app_port
-      opts.apps.rss-bridge.app_port
-      opts.apps.homebox.app_port
-      opts.apps.homer.app_port
-      opts.apps.huginn.app_port
-      opts.apps.znc.app_port
-      opts.apps.thelounge.app_port
-      opts.apps.jackett.app_port
-      opts.apps.jellyseer.app_port
-      opts.apps.jellyfin.app_port
-      opts.apps.metube.app_port
-      opts.apps.navidrome.app_port
-      opts.apps.ntfy.app_port
-      opts.apps.olivetin.app_port
-      opts.apps.ollama-api.app_port
-      opts.apps.ollama-web.app_port
-      opts.apps.openbooks.app_port
-      opts.apps.radarr.app_port
-      opts.apps.sonarr.app_port
-      opts.apps.readarr.app_port
-      opts.apps.bazarr.app_port
-      opts.apps.prowlarr.app_port
-      opts.apps.uptime-kuma.app_port
-      opts.apps.vaultwarden.app_port
-      opts.apps.firefly.app_port
-      opts.apps.firefly.db_port
-      secrets.photoprism.app.port
-      secrets.photoprism.database.port
+      opts.ports.archivebox
+      opts.ports.audiobookshelf
+      opts.ports.autobrr
+      opts.ports.baikal
+      opts.ports.bazarr
+      opts.ports.cloudbeaver
+      opts.ports.docuseal
+      opts.ports.filebrowser
+      opts.ports.flaresolverr
+      opts.ports.freshrss
+      opts.ports.homebox
+      opts.ports.homer
+      opts.ports.huginn
+      opts.ports.jackett
+      opts.ports.jellyfin
+      opts.ports.jellyseer
+      opts.ports.kavita
+      opts.ports.linkding
+      opts.ports.memos
+      opts.ports.metube
+      opts.ports.navidrome
+      opts.ports.ntfy
+      opts.ports.olivetin
+      opts.ports.ollama-api
+      opts.ports.ollama-web
+      opts.ports.openbooks
+      opts.ports.plex
+      opts.ports.prowlarr
+      opts.ports.radarr
+      opts.ports.readarr
+      opts.ports.rss-bridge
+      opts.ports.searxng
+      opts.ports.sonarr
+      opts.ports.thelounge
+      opts.ports.uptime-kuma
+      opts.ports.vaultwarden
+      opts.ports.znc
+      opts.ports.firefly_db
+      opts.ports.firefly_app
+      opts.ports.farfalle_api
+      opts.ports.farfalle_app
+      opts.ports.aria_web
+      opts.ports.aria_rpc
+      opts.ports.photoprism_app
+      opts.ports.photoprism_db
       21
       22
       53
@@ -62,13 +62,11 @@ in
       6969 # aar
       8000 # Adguard
       8001 # qBittorrent WebUI
-      8004 # OpenBooks
       8008 # Cockpit
       8024 # Portrainer 1
       8080 # TaskChampion Sync Server
       8099 # IceCast
       8686 # Lidarr
-      9000 # TheLounge
       9001 # Prometheus
       9002 # Prometheus Node
       9080 # Portrainer 2
@@ -77,7 +75,7 @@ in
       19999 # NetData
     ];
     allowedUDPPorts = builtins.map mkPort [
-      opts.apps.jellyfin.app_port
+      opts.ports.jellyfin
       21
       22
       53
