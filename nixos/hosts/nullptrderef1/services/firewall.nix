@@ -58,8 +58,8 @@ in
       opts.ports.lidarr
       opts.ports.qbittorrent-web
       opts.ports.qbittorrent-p2p
-      opts.ports.netdata;
-      opts.ports.icecast;
+      opts.ports.netdata
+      opts.ports.icecast
       21
       22
       53
