@@ -53,6 +53,7 @@
     thelounge.app_port = "9000";
     znc.app_port = "6501";
     radarr.app_port = "7878";
+    sonarr.app_port = "8989";
     farfalle = {
       app_port = "3199";
       api_port = "8199";
