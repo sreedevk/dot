@@ -67,6 +67,7 @@
     aria_rpc = "6800";
     photoprism_app = "2342";
     photoprism_db = "3307";
+    grafana = "2442";
   };
 
   autorandr =
