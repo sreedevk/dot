@@ -52,12 +52,11 @@ in
       opts.ports.aria_rpc
       opts.ports.photoprism_app
       opts.ports.photoprism_db
+      opts.ports.grafana
       21
       22
       53
       443
-      2442 # Grafana
-      3134 # Ollama Web
       6881 # qBittorrent Nox
       6969 # aar
       8000 # Adguard
@@ -71,7 +70,6 @@ in
       9002 # Prometheus Node
       9080 # Portrainer 2
       9443 # Portrainer 3
-      11434 # Ollama API
       19999 # NetData
     ];
     allowedUDPPorts = builtins.map mkPort [
