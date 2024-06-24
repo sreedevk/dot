@@ -58,6 +58,8 @@ in
       opts.ports.lidarr
       opts.ports.qbittorrent-web
       opts.ports.qbittorrent-p2p
+      opts.ports.netdata;
+      opts.ports.icecast;
       21
       22
       53
@@ -67,10 +69,8 @@ in
       8008 # Cockpit
       8024 # Portrainer 1
       8080 # TaskChampion Sync Server
-      8099 # IceCast
       9080 # Portrainer 2
       9443 # Portrainer 3
-      19999 # NetData
     ];
     allowedUDPPorts = builtins.map mkPort [
       opts.ports.audiobookshelf
