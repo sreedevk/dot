@@ -43,6 +43,7 @@ in
       opts.apps.openbooks.app_port
       opts.apps.radarr.app_port
       opts.apps.sonarr.app_port
+      opts.apps.readarr.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
@@ -65,7 +66,6 @@ in
       8080 # TaskChampion Sync Server
       8099 # IceCast
       8686 # Lidarr
-      8787 # Readarr
       9000 # TheLounge
       9001 # Prometheus
       9002 # Prometheus Node
