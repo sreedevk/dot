@@ -16,7 +16,7 @@
     hostname = "nullptrderef1";
     listen = {
       address = "0.0.0.0";
-      port = opts.ports.icecast;
+      port = pkgs.lib.strings.toInt opts.ports.icecast;
     };
     admin = {
       user = "admin";
