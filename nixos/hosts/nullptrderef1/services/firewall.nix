@@ -53,6 +53,9 @@ in
       opts.ports.photoprism_app
       opts.ports.photoprism_db
       opts.ports.grafana
+      opts.ports.prometheus_node
+      opts.ports.prometheus_app
+      opts.ports.lidarr
       21
       22
       53
@@ -65,9 +68,6 @@ in
       8024 # Portrainer 1
       8080 # TaskChampion Sync Server
       8099 # IceCast
-      8686 # Lidarr
-      9001 # Prometheus
-      9002 # Prometheus Node
       9080 # Portrainer 2
       9443 # Portrainer 3
       19999 # NetData

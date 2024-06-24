@@ -51,7 +51,7 @@
         "${opts.paths.music}:/music"
         "${opts.paths.downloads}:/downloads"
       ];
-      ports = [ "8686:8686" ];
+      ports = [ "${opts.ports.lidarr}:8686" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
