@@ -5,7 +5,7 @@
       image = "vaultwarden/server:latest ";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "9801:80" ];
+      ports = [ "${opts.apps.vaultwarden.app_port}:80" ];
       volumes = [ "${opts.paths.application_data}/vw-data:/data/" ];
       environment = {
         TZ = opts.timeZone;
