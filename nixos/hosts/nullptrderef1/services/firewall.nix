@@ -56,14 +56,14 @@ in
       opts.ports.prometheus_node
       opts.ports.prometheus_app
       opts.ports.lidarr
+      opts.ports.qbittorrent-web
+      opts.ports.qbittorrent-p2p
       21
       22
       53
       443
-      6881 # qBittorrent Nox
       6969 # aar
       8000 # Adguard
-      8001 # qBittorrent WebUI
       8008 # Cockpit
       8024 # Portrainer 1
       8080 # TaskChampion Sync Server
@@ -73,12 +73,12 @@ in
       19999 # NetData
     ];
     allowedUDPPorts = builtins.map mkPort [
+      opts.ports.audiobookshelf
       opts.ports.jellyfin
+      opts.ports.qbittorrent-p2p
       21
       22
       53
-      6881 # qBittorrent Nox
-      13378 # AudioBook Shelf
     ];
   };
 }
