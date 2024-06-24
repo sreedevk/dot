@@ -48,8 +48,8 @@ in
       opts.apps.prowlarr.app_port
       opts.apps.uptime-kuma.app_port
       opts.apps.vaultwarden.app_port
-      secrets.firefly.app.port
-      secrets.firefly.database.port
+      opts.apps.firefly.app_port
+      opts.apps.firefly.db_port
       secrets.photoprism.app.port
       secrets.photoprism.database.port
       21
