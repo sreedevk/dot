@@ -59,6 +59,10 @@
     prowlarr.app_port = "9696";
     uptime-kuma.app_port = "3001";
     vaultwarden.app_port = "9801";
+    firefly = {
+      app_port = "6003";
+      db_port = "3306";
+    };
     farfalle = {
       app_port = "3199";
       api_port = "8199";
