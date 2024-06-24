@@ -11,7 +11,7 @@
         "${opts.paths.movies}:/movies"
         "${opts.paths.downloads}:/downloads"
       ];
-      ports = [ "7878:7878" ];
+      ports = [ "${opts.apps.radarr.app_port}:7878" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
