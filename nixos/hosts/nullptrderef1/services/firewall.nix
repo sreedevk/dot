@@ -44,6 +44,7 @@ in
       opts.apps.radarr.app_port
       opts.apps.sonarr.app_port
       opts.apps.readarr.app_port
+      opts.apps.bazarr.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
@@ -55,7 +56,6 @@ in
       2442 # Grafana
       3001 # Uptime Kuma
       3134 # Ollama Web
-      6767 # Bazarr
       6881 # qBittorrent Nox
       6969 # aar
       8000 # Adguard

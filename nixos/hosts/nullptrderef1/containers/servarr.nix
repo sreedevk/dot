@@ -84,7 +84,7 @@
       image = "lscr.io/linuxserver/bazarr:latest";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "6767:6767" ];
+      ports = [ "${opts.apps.bazarr.app_port}:6767" ];
       volumes = [
         "${opts.paths.application_data}/Bazarr/config:/config"
         "${opts.paths.television}:/tv"
