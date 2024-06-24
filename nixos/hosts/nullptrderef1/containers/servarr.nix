@@ -71,7 +71,7 @@
         "${opts.paths.books}:/books"
         "${opts.paths.downloads}:/downloads"
       ];
-      ports = [ "8787:8787" ];
+      ports = [ "${opts.apps.readarr.app_port}:8787" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
