@@ -23,7 +23,7 @@
 
   services.prometheus = {
     enable = true;
-    port = 9001;
+    port = pkgs.lib.strings.toInt opts.ports.prometheus_app;
     exporters = {
       node = {
         enable = true;
@@ -31,7 +31,7 @@
           "systemd"
           "zfs"
         ];
-        port = 9002;
+        port = pkgs.lib.strings.toInt opts.ports.prometheus_node;
         openFirewall = true;
       };
     };

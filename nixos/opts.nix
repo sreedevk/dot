@@ -68,6 +68,9 @@
     photoprism_app = "2342";
     photoprism_db = "3307";
     grafana = "2442";
+    prometheus_app = "9001";
+    prometheus_node = "9002";
+    lidarr = "8686";
   };
 
   autorandr =
