@@ -58,6 +58,7 @@
     bazarr.app_port = "6767";
     prowlarr.app_port = "9696";
     uptime-kuma.app_port = "3001";
+    vaultwarden.app_port = "9801";
     farfalle = {
       app_port = "3199";
       api_port = "8199";
