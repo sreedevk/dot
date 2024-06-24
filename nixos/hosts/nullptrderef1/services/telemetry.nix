@@ -1,4 +1,4 @@
-{ config, pkgs, secrets, ... }: {
+{ config, pkgs, secrets, opts, ... }: {
   services.netdata = {
     enable = true;
     config = {
@@ -54,7 +54,7 @@
       server = {
         domain = "nullptrderef1";
         protocol = "http";
-        http_port = 2442;
+        http_port = pkgs.lib.strings.toInt opts.ports.grafana;
         http_addr = "0.0.0.0";
       };
     };
