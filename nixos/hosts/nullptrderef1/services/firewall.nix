@@ -41,6 +41,7 @@ in
       opts.apps.ollama-api.app_port
       opts.apps.ollama-web.app_port
       opts.apps.openbooks.app_port
+      opts.apps.radarr.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
@@ -55,7 +56,6 @@ in
       6767 # Bazarr
       6881 # qBittorrent Nox
       6969 # aar
-      7878 # Radarr
       8000 # Adguard
       8001 # qBittorrent WebUI
       8004 # OpenBooks
