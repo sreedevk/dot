@@ -45,6 +45,7 @@ in
       opts.apps.sonarr.app_port
       opts.apps.readarr.app_port
       opts.apps.bazarr.app_port
+      opts.apps.prowlarr.app_port
       secrets.firefly.app.port
       secrets.firefly.database.port
       secrets.photoprism.app.port
@@ -71,7 +72,6 @@ in
       9002 # Prometheus Node
       9080 # Portrainer 2
       9443 # Portrainer 3
-      9696 # Prowlarr
       9801 # VaultWarden
       11434 # Ollama API
       19999 # NetData

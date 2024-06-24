@@ -107,7 +107,7 @@
         "${opts.paths.application_data}/Prowlarr/:/config"
         "${opts.paths.downloads}:/downloads"
       ];
-      ports = [ "9696:9696" ];
+      ports = [ "${opts.apps.prowlarr.app_port}:9696" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
