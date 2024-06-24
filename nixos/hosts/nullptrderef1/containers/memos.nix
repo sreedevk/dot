@@ -2,12 +2,12 @@
   virtualisation.oci-containers.containers = {
     "memos" = {
       autoStart = true;
-      ports = [ "${opts.apps.memos.app_port}:5230" ];
+      ports = [ "${opts.ports.memos}:5230" ];
       image = "neosmemo/memos:stable";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.application_data}/Memos:/var/opt/memos"
+        "${opts.paths.application_data}/memos:/var/opt/memos"
       ];
       environment = {
         TZ = opts.timeZone;

@@ -3,7 +3,7 @@
     "firefly-db" = {
       autoStart = true;
       image = "mariadb:lts";
-      ports = [ "${opts.apps.firefly.db_port}:3306" ];
+      ports = [ "${opts.ports.firefly_db}:3306" ];
       cmd = [ "--max-connections=512" ];
       extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_databases}/firefly:/var/lib/mysql" ];
@@ -23,7 +23,7 @@
       image = "fireflyiii/core:latest";
       extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "firefly-db" ];
-      ports = [ "${opts.apps.firefly.app_port}:8080" ];
+      ports = [ "${opts.ports.firefly_app}:8080" ];
       volumes = [
         "${opts.paths.application_data}/firefly/uploads/:/var/www/html/storage/upload"
       ];
@@ -35,7 +35,7 @@
         DB_DATABASE = secrets.firefly.database.name;
         DB_HOST = secrets.firefly.database.host;
         DB_PASSWORD = secrets.firefly.database.password;
-        DB_PORT = opts.apps.firefly.db_port;
+        DB_PORT = opts.ports.firefly_db;
         DB_USERNAME = secrets.firefly.database.username;
         MYSQL_SSL_VERIFY_SERVER_CERT = "false";
         MYSQL_USE_SSL = "false";

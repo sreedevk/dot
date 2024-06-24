@@ -5,7 +5,7 @@
       image = "ghcr.io/alexta69/metube";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.apps.metube.app_port}:8081" ];
+      ports = [ "${opts.ports.metube}:8081" ];
       volumes = [ "${opts.paths.downloads}/Metube:/downloads" ];
       environment = {
         TZ = opts.timeZone;
