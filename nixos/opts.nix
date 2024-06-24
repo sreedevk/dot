@@ -55,6 +55,7 @@
     radarr.app_port = "7878";
     sonarr.app_port = "8989";
     readarr.app_port = "8787";
+    bazarr.app_port = "6767";
     farfalle = {
       app_port = "3199";
       api_port = "8199";
