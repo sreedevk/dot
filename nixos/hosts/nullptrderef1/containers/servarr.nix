@@ -31,7 +31,7 @@
         "${opts.paths.television}:/tv"
         "${opts.paths.downloads}:/downloads"
       ];
-      ports = [ "8989:8989" ];
+      ports = [ "${opts.apps.sonarr.app_port}:8989" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
