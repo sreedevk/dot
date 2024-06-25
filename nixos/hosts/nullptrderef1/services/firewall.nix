@@ -60,25 +60,24 @@ in
       opts.ports.qbittorrent-p2p
       opts.ports.netdata
       opts.ports.icecast
+      opts.ports.adguard_web
+      opts.ports.adguard_dns
+      opts.ports.portrainer_web
+      opts.ports.potrainer_web_secure
       21
       22
-      53
       443
-      6969 # aar
-      8000 # Adguard
       8008 # Cockpit
       8024 # Portrainer 1
       8080 # TaskChampion Sync Server
-      9080 # Portrainer 2
-      9443 # Portrainer 3
     ];
     allowedUDPPorts = builtins.map mkPort [
       opts.ports.audiobookshelf
       opts.ports.jellyfin
       opts.ports.qbittorrent-p2p
+      opts.ports.adguard_dns
       21
       22
-      53
     ];
   };
 }

@@ -2,7 +2,7 @@
   services.adguardhome = {
     enable = true;
     host = "0.0.0.0";
-    port = 8000;
+    port = pkgs.lib.strings.toInt opts.ports.adguard_web;
     mutableSettings = false;
     openFirewall = true;
     extraArgs = [ ];

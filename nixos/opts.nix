@@ -75,6 +75,10 @@
     qbittorrent-p2p = "6881";
     netdata = "19999";
     icecast = "8099";
+    adguard_web = "8000";
+    adguard_dns = "53";
+    portrainer_web = "9080";
+    portrainer_web_secure = "9443";
   };
 
   autorandr =
