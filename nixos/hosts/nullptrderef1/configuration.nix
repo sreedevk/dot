@@ -187,7 +187,7 @@
 
     cockpit = {
       enable = true;
-      port = 8008;
+      port = pkgs.lib.strings.toInt opts.ports.cockpit;
       openFirewall = true;
       settings = { WebService = { AllowUnencrypted = true; }; };
     };
