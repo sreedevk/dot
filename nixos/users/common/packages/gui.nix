@@ -7,7 +7,7 @@
     dunst
     emacs
     droidcam
-    # floorp
+    floorp
     jira-cli-go
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
