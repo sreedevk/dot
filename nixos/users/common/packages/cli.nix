@@ -37,6 +37,7 @@
     htop
     httpie
     hyperfine
+    id3v2
     instaloader
     ipcalc
     irssi
