@@ -7,7 +7,7 @@
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.application_data}/navidrome"
+        "${opts.paths.application_data}/navidrome:/data"
         "${opts.paths.music}:/music:ro"
       ];
       environment = {
