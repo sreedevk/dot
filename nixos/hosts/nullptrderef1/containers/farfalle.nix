@@ -17,6 +17,7 @@
         TAVILY_API_KEY = secrets.farfalle.tavily_api_key;
         SEARXNG_BASE_URL = "http://nullptrderef1:${opts.ports.searxng}/";
         OLLAMA_API_BASE = "http://nullptrderef1:${opts.ports.ollama-api}";
+        NEXT_PUBLIC_API_URL = "http://nullptrderef1:${opts.ports.farfalle_api}"
       };
     };
   };
