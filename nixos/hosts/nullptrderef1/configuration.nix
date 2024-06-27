@@ -117,6 +117,7 @@
 
   environment.systemPackages = with pkgs; [
     alsa-utils
+    bcc
     busybox
     clang
     cmake
