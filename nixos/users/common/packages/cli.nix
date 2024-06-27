@@ -17,6 +17,7 @@
     duckdb
     duf
     dust
+    exiftool
     eza
     fastfetch
     fd
