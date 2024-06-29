@@ -5,6 +5,7 @@
     babashka
     bat
     beanstalkd
+    beets
     broot
     btop
     cava
