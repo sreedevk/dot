@@ -6,6 +6,7 @@
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.huginn}:3000" ];
+      volumes = [ "${opts.paths.application_databases}/huginn:/var/lib/mysql" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
