@@ -1,0 +1,5 @@
+directory: /mnt/dpool0/media/music
+library: /mnt/dpool0/appdata/beets/musiclibrary.db
+plugins: fetchart lyrics lastgenre
+import:
+  move: yes
