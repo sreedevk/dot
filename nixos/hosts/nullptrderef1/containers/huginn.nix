@@ -23,7 +23,7 @@
         DATABASE_POOL = "20";
         DATABASE_HOST = secrets.huginn.database.host;
         DATABASE_PORT = opts.ports.huginn-db;
-        DO_NOT_SEED = "true";
+        DO_NOT_SEED = "false";
         REMEMBER_FOR = "40.weeks";
         IMPORT_DEFAULT_SCENARIO_FOR_ALL_USERS = "false";
         USE_GRAPHVIZ_DOT = "dot";
