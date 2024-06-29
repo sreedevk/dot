@@ -46,7 +46,8 @@
     homebox = "3100";
     homer = "80";
     https = "443";
-    huginn = "3333";
+    huginn-app = "3333";
+    huginn-db = "3308";
     icecast = "8099";
     jackett = "9117";
     jellyfin = "8096";
