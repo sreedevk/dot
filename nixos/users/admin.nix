@@ -1,4 +1,4 @@
-{ configs, pkgs, secrets, username, ... }: {
+{ configs, pkgs, secrets, opts, username, ... }: {
   imports = [
     ./common/misc.nix
     ./common/neovim.nix
@@ -8,5 +8,6 @@
     ./common/ssh.nix
     ./common/taskwarrior.nix
     ./common/zsh.nix
+    ./common/beets.nix
   ];
 }
