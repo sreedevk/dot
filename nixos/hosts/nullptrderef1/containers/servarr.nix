@@ -69,6 +69,7 @@
       volumes = [
         "${opts.paths.application_data}/Readarr/:/config"
         "${opts.paths.books}:/books"
+        "${opts.paths.audiobooks}:/audiobooks"
         "${opts.paths.downloads}:/downloads"
       ];
       ports = [ "${opts.ports.readarr}:8787" ];
