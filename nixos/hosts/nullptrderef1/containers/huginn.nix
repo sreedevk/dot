@@ -15,11 +15,11 @@
         DOMAIN = "nullptrderef1";
         DATABASE_ADAPTER = "mysql2";
         DATABASE_ENCODING = "utf8mb4";
+        HUGINN_DATABASE_NAME = secrets.huginn.database.name;
+        HUGINN_DATABASE_USERNAME = secrets.huginn.database.username;
+        HUGINN_DATABASE_PASSWORD = secrets.huginn.database.password;
         DATABASE_RECONNECT = "true";
-        DATABASE_NAME = secrets.huginn.database.name;
         DATABASE_POOL = "20";
-        DATABASE_USERNAME = secrets.huginn.database.username;
-        DATABASE_PASSWORD = secrets.huginn.database.password;
         DATABASE_HOST = secrets.huginn.database.host;
         DATABASE_PORT = opts.ports.huginn-db;
         DO_NOT_SEED = "true";
