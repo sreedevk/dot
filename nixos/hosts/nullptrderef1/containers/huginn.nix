@@ -10,7 +10,8 @@
       ports = [ "${opts.ports.huginn-app}:3000" ];
       environment = {
         TZ = opts.timeZone;
-        TIMEZONE = opts.timeZone;
+        PGID = opts.adminGID;
+        PUID = opts.adminUID;
         APP_SECRET_TOKEN = secrets.huginn.app.secret;
         DOMAIN = "nullptrderef1";
         DATABASE_ADAPTER = "mysql2";
