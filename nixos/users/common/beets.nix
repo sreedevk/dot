@@ -10,8 +10,8 @@
       recursive = false;
       enable = true;
       text = ''
-        directory: /mnt/dpool0/media/music
-        library: /mnt/dpool0/appdata/beets/musiclibrary.db
+        directory: ${opts.paths.music}
+        library: ${opts.paths.application_databases}/beets/musiclibrary.db
         plugins: fetchart lyrics lastgenre
         import:
           move: yes
