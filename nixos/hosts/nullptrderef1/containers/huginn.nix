@@ -9,8 +9,6 @@
       volumes = [ "${opts.paths.application_databases}/huginn:/var/lib/mysql" ];
       environment = {
         TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
       };
     };
   };
