@@ -5,6 +5,13 @@
 
   boot = {
 
+    kernel.sysctl = {
+      "fs.inotify.max_user_watches" = "1048576";
+      "vm.swappiness" = 10;
+      "vm.dirty_ratio" = 20;
+      "vm.dirty_background_ratio" = 10;
+    };
+
     supportedFilesystems = [ "zfs" ];
     extraModulePackages = [ ];
     zfs = {
