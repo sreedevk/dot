@@ -48,7 +48,6 @@
 
   virtualisation.oci-containers = {
     backend = "podman";
-    enable = true;
     storageDriver = "zfs";
     logOptions = [
       "max-size=10m"
