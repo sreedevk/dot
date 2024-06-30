@@ -45,13 +45,4 @@
     defaultNetwork.settings.dns_enabled = true;
     autoPrune.enable = true;
   };
-
-  virtualisation.oci-containers = {
-    backend = "podman";
-    storageDriver = "zfs";
-    logOptions = [
-      "max-size=10m"
-      "max-file=3"
-    ];
-  };
 }
