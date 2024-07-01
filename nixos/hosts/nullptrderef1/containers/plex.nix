@@ -13,7 +13,7 @@
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
-        PLEX_CLAIM = secrets.plex.app.claim;
+        PLEX_CLAIM = secrets.plex_app_claim;
       };
     };
   };

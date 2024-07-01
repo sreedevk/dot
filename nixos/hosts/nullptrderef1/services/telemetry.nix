@@ -14,7 +14,7 @@
         [stream]
           enabled = yes
           destination = nullptrderef1:${opts.ports.netdata}
-          api key = ${secrets.netdata.api_key}
+          api key = ${secrets.netdata_api_key}
         [UUID]
           enabled = yes
       '';
@@ -49,7 +49,7 @@
     enable = true;
     settings = {
       security = {
-        admin_password = "$__file{${pkgs.writeText "grafpass" secrets.grafana.password}}";
+        admin_password = "$__file{${pkgs.writeText "grafpass" secrets.grafana_password}}";
       };
       server = {
         domain = "nullptrderef1";

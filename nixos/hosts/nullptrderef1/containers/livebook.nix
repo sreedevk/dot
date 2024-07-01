@@ -11,7 +11,7 @@
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
-        LIVEBOOK_PASSWORD = secrets.livebook.password;
+        LIVEBOOK_PASSWORD = secrets.livebook_password;
       };
     };
   };

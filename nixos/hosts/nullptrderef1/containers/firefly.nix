@@ -8,10 +8,10 @@
       extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_databases}/firefly:/var/lib/mysql" ];
       environment = {
-        MARIADB_ROOT_PASSWORD = secrets.firefly.database.password;
-        MYSQL_DATABASE = secrets.firefly.database.name;
-        MYSQL_PASSWORD = secrets.firefly.database.password;
-        MYSQL_USER = secrets.firefly.database.username;
+        MARIADB_ROOT_PASSWORD = secrets.firefly_database_password;
+        MYSQL_DATABASE = secrets.firefly_database_name;
+        MYSQL_PASSWORD = secrets.firefly_database_password;
+        MYSQL_USER = secrets.firefly_database_username;
         PGID = opts.adminGID;
         PUID = opts.adminUID;
         TZ = opts.timeZone;
@@ -29,19 +29,19 @@
       ];
       environment = {
         APP_ENV = "production";
-        APP_KEY = secrets.firefly.app.secret;
-        APP_URL = "http://${secrets.firefly.app.host}";
+        APP_KEY = secrets.firefly_app_secret;
+        APP_URL = "http://${secrets.firefly_app_host}";
         DB_CONNECTION = "mysql";
-        DB_DATABASE = secrets.firefly.database.name;
-        DB_HOST = secrets.firefly.database.host;
-        DB_PASSWORD = secrets.firefly.database.password;
+        DB_DATABASE = secrets.firefly_database_name;
+        DB_HOST = secrets.firefly_database_host;
+        DB_PASSWORD = secrets.firefly_database_password;
         DB_PORT = opts.ports.firefly_db;
-        DB_USERNAME = secrets.firefly.database.username;
+        DB_USERNAME = secrets.firefly_database_username;
         MYSQL_SSL_VERIFY_SERVER_CERT = "false";
         MYSQL_USE_SSL = "false";
         PGID = opts.adminGID;
         PUID = opts.adminUID;
-        SITE_OWNER = secrets.firefly.app.site_owner;
+        SITE_OWNER = secrets.firefly_app_site_owner;
         TZ = opts.timeZone;
       };
     };
