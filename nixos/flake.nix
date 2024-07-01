@@ -27,7 +27,7 @@
       secrets =
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
 
-      utils = {
+      userUtils = {
         randStr = builtins.concatStrings (builtins.map (char: builtins.toString (char + 33)) (builtins.genList (i: builtins.randInt 0 93) 32));
       };
 
@@ -43,7 +43,7 @@
           modules = [
             (import ./hosts/${hostname}/configuration.nix)
           ];
-          specialArgs = { inherit inputs secrets system opts utils; };
+          specialArgs = { inherit inputs secrets system opts userUtils; };
         };
 
       mkHome = pkgs: system: username:
@@ -53,7 +53,7 @@
             stylix.homeManagerModules.stylix
             ./users/${username}.nix
           ];
-          extraSpecialArgs = { inherit inputs secrets system username opts utils; };
+          extraSpecialArgs = { inherit inputs secrets system username opts userUtils; };
         };
     in
     {
