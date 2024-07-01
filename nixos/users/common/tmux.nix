@@ -1,4 +1,4 @@
-{ secrets, pkgs, ... }:
+{ pkgs, ... }:
 let
   t-smart-manager = pkgs.tmuxPlugins.mkTmuxPlugin
     {
