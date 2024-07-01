@@ -90,6 +90,7 @@
 
   nix = {
     package = pkgs.nix;
+    trusted-users = ["${username}"];
     gc = {
       automatic = true;
       frequency = "weekly";
