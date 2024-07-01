@@ -3,19 +3,23 @@
     "NixOS System Configuration Management Flake for Multiple Hosts";
 
   inputs = {
+    agenix.url = "github:ryantm/agenix";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     stylix.url = "github:danth/stylix";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, agenix, ... }@inputs:
     let
       opts = (import ./opts.nix);
 
@@ -25,14 +29,11 @@
       };
 
       secrets =
-        let
-          tryReadFile = path: if (builtins.tryEval (builtins.readFile path)).success then (builtins.readFile path) else "";
-          tryJSON = text: if (builtins.tryEval (builtins.fromJSON text)).success then (builtins.fromJSON text) else { };
-        in
-        tryJSON (tryReadFile "${self}/secrets/secrets.json");
+        builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
 
-      userUtils = {
-        randStr = builtins.concatStrings (builtins.map (char: builtins.toString (char + 33)) (builtins.genList (i: builtins.randInt 0 93) 32));
+      userutils = {
+        randStr = len:
+          builtins.concatStrings (builtins.map (char: builtins.toString (char + 33)) (builtins.genList (i: builtins.randInt 0 93) len));
       };
 
       mkFormatters =
@@ -46,8 +47,9 @@
           system = system;
           modules = [
             (import ./hosts/${hostname}/configuration.nix)
+            (import agenix.nixosModules.default)
           ];
-          specialArgs = { inherit inputs secrets system opts userUtils; };
+          specialArgs = { inherit inputs secrets system opts userutils; };
         };
 
       mkHome = pkgs: system: username:
@@ -55,9 +57,10 @@
           pkgs = pkgs.legacyPackages."${system}";
           modules = [
             stylix.homeManagerModules.stylix
+            agenix.homeManagerModules.default
             ./users/${username}.nix
           ];
-          extraSpecialArgs = { inherit inputs secrets system username opts userUtils; };
+          extraSpecialArgs = { inherit inputs secrets system username opts userutils; };
         };
     in
     {
