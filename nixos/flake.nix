@@ -27,6 +27,10 @@
       secrets =
         builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
 
+      utils = {
+        randStr = builtins.concatStrings (builtins.map (char: builtins.toString (char + 33)) (builtins.genList (i: builtins.randInt 0 93) 32));
+      };
+
       mkFormatters =
         systemsl: builtins.foldl'
           (output: sys: output // { ${sys} = inputs.nixpkgs.legacyPackages."${sys}".nixpkgs-fmt; })
@@ -39,7 +43,7 @@
           modules = [
             (import ./hosts/${hostname}/configuration.nix)
           ];
-          specialArgs = { inherit inputs secrets system opts; };
+          specialArgs = { inherit inputs secrets system opts utils; };
         };
 
       mkHome = pkgs: system: username:
@@ -49,7 +53,7 @@
             stylix.homeManagerModules.stylix
             ./users/${username}.nix
           ];
-          extraSpecialArgs = { inherit inputs secrets system username opts; };
+          extraSpecialArgs = { inherit inputs secrets system username opts utils; };
         };
     in
     {
