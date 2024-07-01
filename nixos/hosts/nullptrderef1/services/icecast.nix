@@ -6,7 +6,7 @@
     wants = [ "network.target" ];
     serviceConfig = {
       ExecStart =
-        "${pkgs.ffmpeg}/bin/ffmpeg -f alsa -ac 2 -ar 44100 -i hw:0 -acodec libmp3lame -b:a 128k -content_type audio/mpeg -f mp3 icecast://radiosource:${secrets.icecast.password}@0.0.0.0:${opts.ports.icecast}/radio";
+        "${pkgs.ffmpeg}/bin/ffmpeg -f alsa -ac 2 -ar 44100 -i hw:0 -acodec libmp3lame -b:a 128k -content_type audio/mpeg -f mp3 icecast://radiosource:${secrets.icecast_password}@0.0.0.0:${opts.ports.icecast}/radio";
       Restart = "always";
     };
   };
@@ -20,20 +20,20 @@
     };
     admin = {
       user = "admin";
-      password = secrets.icecast.password;
+      password = secrets.icecast_password;
     };
     extraConf = ''
       <authentication>
-         <source-password>${secrets.icecast.password}</source-password>
+         <source-password>${secrets.icecast_password}</source-password>
          <relay-user>relay</relay-user>
-         <relay-password>${secrets.icecast.password}</relay-password>
+         <relay-password>${secrets.icecast_password}</relay-password>
          <admin-user>admin</admin-user>
-         <admin-password>${secrets.icecast.password}</admin-password>
+         <admin-password>${secrets.icecast_password}</admin-password>
       </authentication>
       <mount type="normal">
         <mount-name>/radio</mount-name>
         <username>radiosource</username>
-        <password>${secrets.icecast.password}</password>
+        <password>${secrets.icecast_password}</password>
         <dump-file>/tmp/dump-example1.ogg</dump-file>
         <stream-name>New York City Radio Stream</stream-name>
       </mount>
