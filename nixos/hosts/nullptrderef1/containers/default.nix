@@ -7,7 +7,6 @@
     ./baikal.nix
     ./cloudbeaver.nix
     ./docuseal.nix
-    ./farfalle.nix
     ./filebrowser.nix
     ./firefly.nix
     ./flaresolverr.nix

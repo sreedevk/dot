@@ -34,8 +34,6 @@
     cloudbeaver = "8079";
     cockpit = "8008";
     docuseal = "6008";
-    farfalle_api = "8199";
-    farfalle_app = "3199";
     filebrowser = "6660";
     firefly_app = "6003";
     firefly_db = "3306";
