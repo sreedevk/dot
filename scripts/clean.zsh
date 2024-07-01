@@ -7,4 +7,5 @@ git rm --cached -r ~/.dot/nixos/secrets/secrets.json
 
 echo "{}" > ~/.dot/nixos/secrets/secrets.json
 
-git commit -am "removed user specific secrets"
+git add .
+git commit -m "removed user specific secrets"
