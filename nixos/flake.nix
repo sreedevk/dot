@@ -25,7 +25,11 @@
       };
 
       secrets =
-        builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
+        let
+          tryReadFile = path: if (builtins.tryEval (builtins.readFile path)).success then (builtins.readFile path) else "";
+          tryJSON = text: if (builtins.tryEval (builtins.fromJSON text)).success then (builtins.fromJSON text) else { };
+        in
+        tryJSON (tryReadFile "${self}/secrets/secrets.json");
 
       userUtils = {
         randStr = builtins.concatStrings (builtins.map (char: builtins.toString (char + 33)) (builtins.genList (i: builtins.randInt 0 93) 32));
