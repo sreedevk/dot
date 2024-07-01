@@ -4,6 +4,20 @@ This repository contains configurations for various programs & Nix(OS).
 
 This Nix(OS) section of this repository is located in the `nixos` directory. The structure & layout of this directory is as follows.
 
+## Pre Requisites
+
+### Install Home Manager CLI
+```bash
+nix-shell '<home-manager>' -A install
+```
+
+### Install Agenix CLI
+```bash
+nix profile install github:ryantm/agenix#agenix
+```
+
+## File Structure
+
 ### nixos/hosts
 
 - The `nixos/hosts` contains the `configuration.nix` files for each of my computers that runs NixOS. 

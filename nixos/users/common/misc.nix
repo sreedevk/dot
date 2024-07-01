@@ -97,6 +97,7 @@
     };
     settings = {
       trusted-users = [ "${username}" ];
+      allowed-users = [ "${username}" ];
       show-trace = true;
       auto-optimise-store = true;
       fallback = true;
