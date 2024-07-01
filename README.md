@@ -27,17 +27,26 @@ This is the entrypoint for both the `home-manager` & `NixOS`.
 
 #### NixOS
 
+##### Utilities
+I have added a utility script to make working with git crypt easier (`./scripts/run_with_creds.zsh`). If you want to run a command with `git crypt unlock` before and `git crypt lock` after. you can pass the command into this script and it'll do the unlock and cleanup for you.
+
+here's an example
+```bash
+./scripts/run_with_creds.zsh sudo nixos-rebuild switch --flake './nixos#host'
+```
+The script also is careful to lock secrets using `git crypt lock` if the command is interrupted for any reason.
+
 ##### Modifications
 
 After making any changes in the `nixos/hosts` directory, you can install the changes to the current host configuration into NixOS using the following command on the host.
 
 ```bash
 # TO BE RUN FROM THE ROOT OF THIS CLONED REPSITORY
-sudo nixos-rebuild switch --flake "./nixos"
+./scripts/run_with_creds.zsh sudo nixos-rebuild switch --flake "./nixos"
 
 # OR 
 
-sudo nixos-rebuild switch --flake "./nixos#<NAME OF THE HOST HERE>"
+./scripts/run_with_creds.zsh sudo nixos-rebuild switch --flake "./nixos#<NAME OF THE HOST HERE>"
 ```
 
 ##### Upgrading 
@@ -56,10 +65,10 @@ nix flake update './nixos'
 Any modifications to the `nixos/users` directory can be installed using this `home-manager` command
 
 ```bash
-home-manager switch --flake './nixos'
+./scripts/run_with_creds.zsh home-manager switch --flake './nixos'
 
 # OR 
-home-manager switch --flake './nixos#<NAME OF THE USER HERE>'
+./scripts/run_with_creds.zsh home-manager switch --flake './nixos#<NAME OF THE USER HERE>'
 ```
 
 ##### Upgrading
