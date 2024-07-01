@@ -29,6 +29,11 @@ in
         '';
       }
 
+      {
+        plugin = tmux-super-fingers;
+        extraConfig = "set -g @super-fingers-key f";
+      }
+
       tmuxPlugins.extrakto
       tmuxPlugins.jump
       tmuxPlugins.tmux-thumbs
