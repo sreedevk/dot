@@ -20,8 +20,6 @@ in
         cloudbeaver
         cockpit
         docuseal
-        farfalle_api
-        farfalle_app
         filebrowser
         firefly_app
         firefly_db
