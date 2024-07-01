@@ -1,4 +1,4 @@
-{ pkgs, secrets, username, ... }: {
+{ pkgs, username, ... }: {
   home.packages = with pkgs; [
     neovim
     nodejs-slim

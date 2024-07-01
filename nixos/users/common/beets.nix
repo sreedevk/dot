@@ -1,4 +1,4 @@
-{ secrets, pkgs, opts, inputs, system, ... }: {
+{ pkgs, opts, inputs, system, ... }: {
   home.packages = with pkgs; [
     beets
   ];
