@@ -90,13 +90,13 @@
 
   nix = {
     package = pkgs.nix;
-    trusted-users = ["${username}"];
     gc = {
       automatic = true;
       frequency = "weekly";
       options = "--delete-older-than 7d";
     };
     settings = {
+      trusted-users = [ "${username}" ];
       show-trace = true;
       auto-optimise-store = true;
       fallback = true;
