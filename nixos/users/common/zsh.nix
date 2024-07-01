@@ -43,14 +43,14 @@
     ".zshenv" = {
       enable = true;
       text = ''
-        export JIRA_API_TOKEN="${secrets.jira_token}"
-        export CARGO_REGISTRY_TOKEN="${secrets.cargo_token}"
-        export DIGITAL_OCEAN_TOKEN="${secrets.digital_ocean_token}"
-        export OPEN_WEATHER_API_KEY="${secrets.openweather_token}"
-        export PASTEBIN_API_KEY="${secrets.pastebin_token}"
-        export WALLHAVEN_API_KEY="${secrets.wallhaven_token}"
-        export FRESHRSS_PASSWORD="${secrets.freshrss_app_password}"
-        export GH_TOKEN="${secrets.github_token}"
+        export JIRA_API_TOKEN="${secrets.jira_token or ""}"
+        export CARGO_REGISTRY_TOKEN="${secrets.cargo_token or ""}"
+        export DIGITAL_OCEAN_TOKEN="${secrets.digital_ocean_token or ""}"
+        export OPEN_WEATHER_API_KEY="${secrets.openweather_token or ""}"
+        export PASTEBIN_API_KEY="${secrets.pastebin_token or ""}"
+        export WALLHAVEN_API_KEY="${secrets.wallhaven_token or ""}"
+        export FRESHRSS_PASSWORD="${secrets.freshrss_app_password or ""}"
+        export GH_TOKEN="${secrets.github_token or ""}"
       '';
     };
   };

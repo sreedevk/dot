@@ -1,4 +1,4 @@
-{ pkgs, secrets, ... }: {
+{ pkgs, ... }: {
   home.file = {
     "authorized_keys" = {
       enable = true;
