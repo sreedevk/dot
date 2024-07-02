@@ -1,4 +1,4 @@
-{ pkgs, secrets, userutils, ... }:
+{ pkgs, secrets, ... }:
 let
   taskwarriorOptions = {
     themes = {
@@ -25,8 +25,8 @@ let
 
     sync = {
       serverAddress = "http://nullptrderef1:8080";
-      clientID = secrets.taskwarrior_client_id or userutils.randStr 32;
-      encryptionSecret = secrets.taskwarrior_encryption_secret or userutils.randStr 32;
+      clientID = secrets.taskwarrior_client_id;
+      encryptionSecret = secrets.taskwarrior_encryption_secret;
     };
 
     coefficients = {
