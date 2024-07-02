@@ -5,6 +5,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     stylix.url = "github:danth/stylix";
+    sec.url = "git+ssh://nullptrderef1/mnt/dpool0/secrets/nix?ref=main&shallow=1";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,24 +16,16 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
     let
       opts = (import ./opts.nix);
+      secrets = inputs.sec.secrets;
 
       systems = {
         x86 = "x86_64-linux";
         arm64 = "aarch64-linux";
-      };
-
-      secrets =
-        builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
-
-      userutils = {
-        randStr = len:
-          builtins.concatStrings (builtins.map (char: builtins.toString (char + 33)) (builtins.genList (i: builtins.randInt 0 93) len));
       };
 
       mkFormatters =
@@ -47,7 +40,7 @@
           modules = [
             (import ./hosts/${hostname}/configuration.nix)
           ];
-          specialArgs = { inherit inputs secrets system opts userutils; };
+          specialArgs = { inherit inputs secrets system opts; };
         };
 
       mkHome = pkgs: system: username:
@@ -57,7 +50,7 @@
             stylix.homeManagerModules.stylix
             ./users/${username}.nix
           ];
-          extraSpecialArgs = { inherit inputs secrets system username opts userutils; };
+          extraSpecialArgs = { inherit inputs secrets system username opts; };
         };
     in
     {

@@ -4,7 +4,6 @@ stowed/.config/nvim/lazy-lock.json
 stowed/.zsh/plugins.sh
 stowed/.zshenv
 wallpapers/*
-nixos/secrets/*.json
 
 # Allow
 !stowed/.config/alacritty/
