@@ -15,35 +15,36 @@
   };
   programs.ssh = {
     enable = true;
-    extraConfig = ''
-      Host sree.dev
-        HostName sree.dev
-        User deploy
-        IdentityFile ~/.ssh/devtechnica
-
-      Host github.com
-        HostName github.com
-        User git
-        IdentityFile ~/.ssh/devtechnica
-        IdentitiesOnly yes
-
-      Host gitlab.com
-        HostName gitlab.com
-        User git
-        IdentityFile ~/.ssh/devtechnica
-        IdentitiesOnly yes
-
-      Host nullptrderef1
-        HostName nullptrderef1
-        User admin
-        IdentityFile ~/.ssh/devtechnica
-        IdentitiesOnly yes
-
-      Host rpi4b
-        HostName 192.168.1.152
-        User pi
-        IdentityFile ~/.ssh/devtechnica
-        IdentitiesOnly yes
-    '';
+    matchBlocks = {
+      "sree.dev" = {
+        hostname = "sree.dev";
+        user = "deploy";
+        identityFile = "~/.ssh/devtechnica";
+      };
+      "github.com" = {
+        hostname = "github.com";
+        user = "sreedev";
+        identityFile = "~/.ssh/devtechnica";
+        identitiesOnly = true;
+      };
+      "gitlab.com" = {
+        hostname = "gitlab.com";
+        user = "sreedev";
+        identityFile = "~/.ssh/devtechnica";
+        identitiesOnly = true;
+      };
+      "nullptrderef1" = {
+        hostname = "nullptrderef1";
+        user = "admin";
+        identityFile = "~/.ssh/devtechnica";
+        identitiesOnly = true;
+      };
+      "rpi4b" = {
+        hostname = "192.168.1.152";
+        user = "pi";
+        identityFile = "~/.ssh/devtechnica";
+        identitiesOnly = true;
+      };
+    };
   };
 }
