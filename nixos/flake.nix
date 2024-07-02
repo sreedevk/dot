@@ -3,7 +3,6 @@
     "NixOS System Configuration Management Flake for Multiple Hosts";
 
   inputs = {
-    agenix.url = "github:ryantm/agenix";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     stylix.url = "github:danth/stylix";
 
@@ -19,7 +18,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, agenix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
     let
       opts = (import ./opts.nix);
 
@@ -47,7 +46,6 @@
           system = system;
           modules = [
             (import ./hosts/${hostname}/configuration.nix)
-            (import agenix.nixosModules.default)
           ];
           specialArgs = { inherit inputs secrets system opts userutils; };
         };
@@ -57,7 +55,6 @@
           pkgs = pkgs.legacyPackages."${system}";
           modules = [
             stylix.homeManagerModules.stylix
-            agenix.homeManagerModules.default
             ./users/${username}.nix
           ];
           extraSpecialArgs = { inherit inputs secrets system username opts userutils; };
