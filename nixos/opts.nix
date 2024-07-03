@@ -45,6 +45,9 @@
     flaresolverr = "8191";
     freshrss = "8808";
     ftp = "21";
+    gitea_db = "3309";
+    gitea_http = "3000";
+    gitea_ssh = "222";
     grafana = "2442";
     homebox = "3100";
     homer = "80";
@@ -89,8 +92,6 @@
     uptime-kuma = "3001";
     vaultwarden = "9801";
     znc = "6501";
-    gitea_ssh = "222";
-    gitea_http = "3000";
   };
 
   autorandr =

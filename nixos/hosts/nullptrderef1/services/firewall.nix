@@ -26,6 +26,7 @@ in
         flaresolverr
         freshrss
         ftp
+        gitea_db
         gitea_http
         gitea_ssh
         grafana
