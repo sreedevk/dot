@@ -90,7 +90,7 @@
         };
       };
       settings = {
-        "dom.security.https_only_mode" = true;
+        "dom.security.https_only_mode" = false;
         "browser.download.panel.shown" = true;
         "identity.fxaccounts.enabled" = false;
         "signon.rememberSignons" = false;
