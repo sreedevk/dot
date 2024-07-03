@@ -10,7 +10,7 @@
         PUID = opts.adminUID;
         PGID = opts.adminGID;
         GITEA__database__DB_TYPE = "mysql";
-        GITEA__database__HOST = "db:${opts.ports.gitea_db}";
+        GITEA__database__HOST = "nullptrderef1:${opts.ports.gitea_db}";
         GITEA__database__NAME = secrets.gitea_database_name;
         GITEA__database__USER = secrets.gitea_database_username;
         GITEA__database__PASSWD = secrets.gitea_database_password;
