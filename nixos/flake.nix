@@ -5,8 +5,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     stylix.url = "github:danth/stylix";
-    # sec.url = "path:/home/sreedev/.sec";
     sec.url = "git+http://nullptrderef1:3000/nullptrderef1/sec.git?ref=main&shallow=1";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
