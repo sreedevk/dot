@@ -1,5 +1,4 @@
 {
-  applicationUserName = "nullptrderef1";
   lanAddress = "192.168.1.179";
   timeZone = "America/New_York";
   adminUID = "1000";
@@ -7,13 +6,8 @@
 
   publicKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP" ];
 
-  github = {
-    primary_user = "sreedev";
-  };
-
-  gitlab = {
-    primary_user = "sreedev";
-  };
+  github.primary_user = "sreedev";
+  gitlab.primary_user = "sreedev";
 
   paths = {
     application_data = "/mnt/dpool0/appdata";
