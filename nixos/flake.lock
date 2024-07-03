@@ -337,10 +337,10 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1719961943,
-        "narHash": "sha256-KsGylCQGZli1Bm4c5QZzrGT3pzxFUlEFCn17Yvyt2Xw=",
+        "lastModified": 1719974427,
+        "narHash": "sha256-fd5V3YT6A3z3dDXfZ+OgCrvbv2rY9H5lB9yOwMps14c=",
         "ref": "main",
-        "rev": "6783d7e5d8c02897620fe84dc8f9f9df28e4a7a5",
+        "rev": "c44d228e2668cecad148a52d3fd4eb4c9366fef0",
         "shallow": true,
         "type": "git",
         "url": "ssh://nullptrderef1/mnt/dpool0/secrets/nix"
