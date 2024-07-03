@@ -343,13 +343,13 @@
         "rev": "c44d228e2668cecad148a52d3fd4eb4c9366fef0",
         "shallow": true,
         "type": "git",
-        "url": "ssh://nullptrderef1/mnt/dpool0/secrets/nix"
+        "url": "http://nullptrderef1:3000/nullptrderef1/sec.git"
       },
       "original": {
         "ref": "main",
         "shallow": true,
         "type": "git",
-        "url": "ssh://nullptrderef1/mnt/dpool0/secrets/nix"
+        "url": "http://nullptrderef1:3000/nullptrderef1/sec.git"
       }
     },
     "sops-nix": {
