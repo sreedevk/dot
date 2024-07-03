@@ -2,6 +2,7 @@
   virtualisation.oci-containers.containers = {
     "gitea-app" = {
       autoStart = true;
+      dependsOn = [ "gitea-db" ];
       image = "gitea/gitea:latest";
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
