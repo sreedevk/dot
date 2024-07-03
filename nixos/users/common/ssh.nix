@@ -33,6 +33,13 @@
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
       };
+      "gitea" = {
+        hostname = "gitea";
+        user = "git";
+        port = 222;
+        identityFile = "~/.ssh/devtechnica";
+        identitiesOnly = true;
+      };
       "nullptrderef1" = {
         hostname = "nullptrderef1";
         user = "admin";
