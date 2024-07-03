@@ -43,6 +43,7 @@
     irssi
     jaq
     jq
+    k9s
     less
     lf
     mdbook
