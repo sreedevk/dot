@@ -9,10 +9,10 @@
     ./common/misc.nix
     ./common/packages/cli.nix
     ./common/packages/gui.nix
-    ./common/tmux.nix
     ./common/ssh.nix
     ./common/stylix.nix
     ./common/taskwarrior.nix
+    ./common/tmux.nix
     ./common/zsh.nix
   ];
 }

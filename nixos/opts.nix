@@ -4,6 +4,9 @@
   timeZone = "America/New_York";
   adminUID = "1000";
   adminGID = "100";
+
+  publicKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP" ];
+
   paths = {
     application_data = "/mnt/dpool0/appdata";
     application_databases = "/mnt/dpool0/appdata/databases";
