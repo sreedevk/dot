@@ -91,9 +91,7 @@
     shell = pkgs.zsh;
     description = "system root user & administrator";
     password = secrets.nullptrderef1_system_password;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP"
-    ];
+    openssh.authorizedKeys.keys = opts.publicKeys;
     extraGroups = [
       "audio"
       "bluetooth"

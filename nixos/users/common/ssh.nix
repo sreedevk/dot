@@ -6,9 +6,7 @@
       target = ".ssh/authorized_keys.source";
       executable = false;
       recursive = false;
-      text = ''
-        ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP
-      '';
+      text = builtins.concatStringsSep "\n" opts.publicKeys;
       onChange = ''
         cat ~/.ssh/authorized_keys.source > ~/.ssh/authorized_keys && chmod 400 ~/.ssh/authorized_keys
       '';
