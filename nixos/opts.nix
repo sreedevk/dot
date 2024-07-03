@@ -4,7 +4,10 @@
   adminUID = "1000";
   adminGID = "100";
 
-  publicKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP" ];
+  publicKeys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP"
+    "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLIIsLk17/QAghVjeIFEd+N1HW/0ucEp92auTlzEU3xMrh46fednqSN3Pa8s7KYnIor4gIDQF4XfOwsmZUj+YgY="
+  ];
 
   github.primary_user = "sreedev";
   gitlab.primary_user = "sreedev";
