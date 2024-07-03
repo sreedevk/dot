@@ -7,6 +7,14 @@
 
   publicKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP" ];
 
+  github = {
+    primary_user = "sreedev";
+  };
+
+  gitlab = {
+    primary_user = "sreedev";
+  };
+
   paths = {
     application_data = "/mnt/dpool0/appdata";
     application_databases = "/mnt/dpool0/appdata/databases";

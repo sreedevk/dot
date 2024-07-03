@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, opts, ... }: {
+
   home.file = {
     "authorized_keys" = {
       enable = true;
@@ -13,6 +14,7 @@
       '';
     };
   };
+
   programs.ssh = {
     enable = true;
     matchBlocks = {
@@ -23,13 +25,13 @@
       };
       "github.com" = {
         hostname = "github.com";
-        user = "sreedev";
+        user = opts.github.primary_user;
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
       };
       "gitlab.com" = {
         hostname = "gitlab.com";
-        user = "sreedev";
+        user = opts.gitlab.primary_user;
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
       };
