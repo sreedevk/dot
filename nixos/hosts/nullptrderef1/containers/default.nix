@@ -11,6 +11,7 @@
     ./firefly.nix
     ./flaresolverr.nix
     ./freshrss.nix
+    ./gitea.nix
     ./homebox.nix
     ./homer.nix
     ./huginn.nix

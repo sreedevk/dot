@@ -89,6 +89,8 @@
     uptime-kuma = "3001";
     vaultwarden = "9801";
     znc = "6501";
+    gitea_ssh = "222";
+    gitea_http = "3000";
   };
 
   autorandr =

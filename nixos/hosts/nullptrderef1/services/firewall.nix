@@ -26,6 +26,8 @@ in
         flaresolverr
         freshrss
         ftp
+        gitea_http
+        gitea_ssh
         grafana
         homebox
         homer
@@ -76,6 +78,7 @@ in
         adguard_dns
         audiobookshelf
         ftp
+        gitea_ssh
         jellyfin
         qbittorrent-p2p
         ssh
