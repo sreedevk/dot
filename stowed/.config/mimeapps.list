@@ -1,7 +1,0 @@
-[Default Applications]
-text/html=firefox.desktop
-x-scheme-handler/http=firefox.desktop
-x-scheme-handler/https=firefox.desktop
-x-scheme-handler/about=firefox.desktop
-x-scheme-handler/unknown=firefox.desktop
-x-scheme-handler/discord-1176718791388975124=firefox.desktop
