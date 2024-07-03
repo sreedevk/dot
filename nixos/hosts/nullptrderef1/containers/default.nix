@@ -27,7 +27,6 @@
     ./ntfy.nix
     ./olivetin.nix
     ./ollama.nix
-    ./openbooks.nix
     ./photoprism.nix
     ./plex.nix
     ./portrainer.nix
