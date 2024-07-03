@@ -73,6 +73,10 @@
             answer = "192.168.1.179";
           }
           {
+            domain = "gitea";
+            answer = "192.168.1.179";
+          }
+          {
             domain = "nullptrderef1.localhost";
             answer = "192.168.1.179";
           }
