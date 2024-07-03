@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, system, ... }: {
+{ pkgs, lib, inputs, system, opts, ... }: {
   services = {
     dunst = {
       enable = true;
@@ -11,7 +11,7 @@
           alignment = "left";
           allow_markup = "yes";
           bounce_freq = 0;
-          browser = "brave";
+          browser = "${opts.default-web-browser.bin}";
           corner_radius = 5;
           dmenu = "/usr/bin/dmenu - p dunst: ";
           enable_recursive_icon_lookup = true;

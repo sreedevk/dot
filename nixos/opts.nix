@@ -12,6 +12,11 @@
   github.primary_user = "sreedev";
   gitlab.primary_user = "sreedev";
 
+  default-web-browser = {
+    bin = "firefox";
+    xdg-desktop = "firefox.desktop";
+  };
+
   paths = {
     application_data = "/mnt/dpool0/appdata";
     application_databases = "/mnt/dpool0/appdata/databases";
