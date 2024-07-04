@@ -2,7 +2,11 @@
   stylix = {
     enable = true;
 
-    image = ../../../wallpapers/leaves.jpg;
+    image = pkgs.fetchurl {
+      url = "https://www.pixelstalk.net/wp-content/uploads/images2/Free-download-Computer-Art-Photo.jpg";
+      sha256 = "7a7428df0aa181fd0510f1e3d9ca0e0afa3b0ee66ffb1e6b2ff588a38a8f239d";
+    };
+
     imageScalingMode = "fill"; # fill,fit,stretch,center,tile
 
     polarity = "dark";
