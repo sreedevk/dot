@@ -29,6 +29,8 @@
     gh
     git
     git-crypt
+    git-filter-repo
+    git-sizer
     gitleaks
     glab
     glow
