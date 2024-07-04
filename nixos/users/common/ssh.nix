@@ -16,42 +16,41 @@
   programs.ssh = {
     enable = true;
     matchBlocks = {
+
       "sree.dev" = {
         hostname = "sree.dev";
         user = "deploy";
         identityFile = "~/.ssh/devtechnica";
       };
+
       "github.com" = {
         hostname = "github.com";
         user = opts.github.primary_user;
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
       };
+
       "gitlab.com" = {
         hostname = "gitlab.com";
         user = opts.gitlab.primary_user;
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
       };
-      "gitea" = {
-        hostname = "gitea";
-        user = "git";
-        port = 222;
-        identityFile = "~/.ssh/devtechnica";
-        identitiesOnly = true;
-      };
+
       "nullptrderef1" = {
         hostname = "nullptrderef1";
         user = "admin";
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
       };
+
       "rpi4b" = {
         hostname = "192.168.1.152";
         user = "pi";
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
       };
+
     };
   };
 }
