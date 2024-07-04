@@ -6,6 +6,7 @@
     ./common/dunst.nix
     ./common/firefox.nix
     ./common/fontconfig.nix
+    ./common/keybase.nix
     ./common/keyboard.nix
     ./common/misc.nix
     ./common/packages/cli.nix

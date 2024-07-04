@@ -54,7 +54,6 @@ intel-media-driver 24.2.5-1
 iwd 2.18-1
 jellyfin-media-player 1.11.1-2
 jellyfin-media-player-debug 1.11.1-2
-keybase 6.0.2-4
 libappindicator-gtk3 12.10.0.r298-3
 libnotify 0.8.3-1
 libreoffice-fresh 24.2.4-2
