@@ -10,6 +10,7 @@
     floorp
     jira-cli-go
     spotify
+    cinnamon.nemo-with-extensions
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
 }
