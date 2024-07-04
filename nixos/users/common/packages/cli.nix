@@ -52,6 +52,7 @@
     less
     lf
     mdbook
+    mosh
     ncdu
     newsboat
     nixpkgs-fmt

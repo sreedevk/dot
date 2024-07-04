@@ -72,7 +72,6 @@ mesa-vdpau 1:24.1.2-1
 minecraft-launcher 1:1.0.1221-3
 minecraft-launcher-debug 1:1.0.1221-3
 minicom 2.9-2
-mosh 1.4.0-11
 mpv 1:0.38.0-5
 mullvad-vpn-bin 2024.3-1
 nasm 2.16.03-1
