@@ -130,7 +130,6 @@ slack-desktop 4.39.88-1
 sof-firmware 2024.03-1
 sof-tools 2024.03-1
 speech-dispatcher 0.11.5-2
-spotify 1:1.2.40.599-1
 squashfs-tools 4.6.1-1
 sshfs 3.7.3-1
 strace 6.9-1

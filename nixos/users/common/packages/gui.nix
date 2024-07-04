@@ -4,11 +4,12 @@
     autorandr
     autotiling
     awscli2
+    droidcam
     dunst
     emacs
-    droidcam
     floorp
     jira-cli-go
+    spotify
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
 }
