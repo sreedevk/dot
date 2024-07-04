@@ -1,36 +1,42 @@
 { pkgs, secrets, ... }: {
 
   home.file = {
+
     ".zshrc" = {
       enable = true;
       executable = false;
       recursive = false;
       source = ../../../stowed/.zshrc;
     };
+
     ".zsh-aliases" = {
       enable = true;
       source = ../../../stowed/.zsh/aliases.sh;
       target = ".zsh/aliases.sh";
       recursive = true;
     };
+
     ".zsh-zinit" = {
       enable = true;
       source = ../../../stowed/.zsh/zinit.sh;
       target = ".zsh/zinit.sh";
       recursive = true;
     };
+
     ".zsh-autoloads" = {
       enable = true;
       source = ../../../stowed/.zsh/autoloads.sh;
       target = ".zsh/autoloads.sh";
       recursive = true;
     };
+
     ".zsh-functions" = {
       enable = true;
       source = ../../../stowed/.zsh/functions.sh;
       target = ".zsh/functions.sh";
       recursive = true;
     };
+    
     ".zsh-plugins" = {
       enable = true;
       recursive = false;
@@ -40,6 +46,7 @@
         [ -f "${pkgs.fzf}/share/fzf/completion.zsh"   ] && zvm_after_init_commands+=("source ${pkgs.fzf}/share/fzf/completion.zsh")
       '';
     };
+    
     ".zshenv" = {
       enable = true;
       text = ''
@@ -53,5 +60,6 @@
         export GH_TOKEN="${secrets.github_token or ""}"
       '';
     };
+
   };
 }
