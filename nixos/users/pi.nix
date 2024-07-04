@@ -1,6 +1,5 @@
 { configs, pkgs, secrets, username, ... }: {
   imports = [
-    ./common/cargo.nix
     ./common/misc.nix
     ./common/neovim.nix
     ./common/packages/cli.nix
