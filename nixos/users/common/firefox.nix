@@ -5,11 +5,12 @@
       isDefault = true;
       extensions = with inputs.firefox-addons.packages."${system}"; [
         bitwarden
-        vimium
-        ublock-origin
-        darkreader
-        linkding-extension
         consent-o-matic
+        darkreader
+        duckduckgo-privacy-essentials
+        linkding-extension
+        ublock-origin
+        vimium
       ];
       search = {
         force = true;
