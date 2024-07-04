@@ -4,13 +4,14 @@
     autorandr
     autotiling
     awscli2
+    cinnamon.nemo-with-extensions
+    dbeaver-bin
     droidcam
     dunst
     emacs
     floorp
     jira-cli-go
     spotify
-    cinnamon.nemo-with-extensions
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
 }

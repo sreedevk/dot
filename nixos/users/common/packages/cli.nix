@@ -23,6 +23,7 @@
     dust
     exiftool
     eza
+    fasm
     fastfetch
     fd
     fzf
