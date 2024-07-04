@@ -1,6 +1,5 @@
 agg v1.4.3 (https//github.com/asciinema/agg#89c95760)
 bingrep v0.11.0
-blaze-ssh v0.0.4
 cargo-expand v1.0.88
 cargo-update v13.4.0
 cargo-watch v8.5.2
