@@ -59,6 +59,7 @@
     nushell
     pandoc
     procs
+    progress
     python311Packages.eyed3
     restic
     ripgrep
