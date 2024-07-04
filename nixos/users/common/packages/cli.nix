@@ -2,6 +2,10 @@
   home.packages = with pkgs; [
     amfora
     aria2
+    aspell
+    aspellDicts.en
+    aspellDicts.en-computers
+    aspellDicts.en-science
     babashka
     bat
     beanstalkd

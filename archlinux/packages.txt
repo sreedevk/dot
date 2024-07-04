@@ -3,8 +3,6 @@ alacritty 0.13.2-2
 alsa-firmware 1.2.4-3
 alsa-plugins 1:1.2.12-2
 alsa-utils 1.2.12-1
-aspell 0.60.8.1-2
-aspell-en 2020.12.07-1
 aura-bin 3.2.9-1
 base 3-2
 base-devel 1-1
