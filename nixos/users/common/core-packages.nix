@@ -51,6 +51,7 @@
     less
     lf
     mdbook
+    mediainfo
     mosh
     ncdu
     newsboat
