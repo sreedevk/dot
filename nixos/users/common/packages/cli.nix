@@ -80,6 +80,7 @@
     xxd
     yt-dlp
     zellij
+    zola
     zoxide
   ];
 }

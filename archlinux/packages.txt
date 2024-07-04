@@ -173,5 +173,4 @@ xorg-xrandr 1.5.2-1
 zathura 0.5.6-2
 zathura-pdf-mupdf 0.4.3-4
 zfs-utils-debug 2.2.4-1
-zola 0.19.1-1
 zsh 5.9-5
