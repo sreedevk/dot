@@ -25,6 +25,7 @@
     autorandr
     autotiling
     awscli2
+    brightnessctl
     cinnamon.nemo-with-extensions
     dbeaver-bin
     droidcam
@@ -32,7 +33,6 @@
     emacs
     floorp
     jira-cli-go
-    picom-pijulius
     playerctl
     rofi
     spotify

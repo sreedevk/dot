@@ -24,7 +24,7 @@
         # AutoStart Applications
         exec_always --no-startup-id ${pkgs.autorandr}/bin/autorandr -c --match-edid
         exec_always --no-startup-id ~/.config/polybar/launch.sh
-        exec_always --no-startup-id ${pkgs.picom-pijulius}/bin/picom -b
+        exec_always --no-startup-id picom -b
         exec_always --no-startup-id ~/.fehbg
 
         # Disable Screen Blanking
@@ -83,8 +83,8 @@
         bindsym $mod+Shift+period      exec --no-startup-id "systemctl suspend"
 
         # Brightness
-        bindsym XF86MonBrightnessUp    exec --no-startup-id "brightnessctl set +10%"
-        bindsym XF86MonBrightnessDown  exec --no-startup-id "brightnessctl set 10%-"
+        bindsym XF86MonBrightnessUp    exec --no-startup-id "${pkgs.brightnessctl}/bin/brightnessctl set +10%"
+        bindsym XF86MonBrightnessDown  exec --no-startup-id "${pkgs.brightnessctl}/bin/brightnessctl set 10%-"
 
         # Volume
         bindsym XF86AudioRaiseVolume   exec --no-startup-id pactl set-sink-volume $(pactl info | grep 'Default Sink' | awk '{print $3}') +5%
@@ -111,7 +111,7 @@
 
         # Shortcuts - UX + Design
         bindsym $mod+p                 exec --no-startup-id "pkill picom"
-        bindsym $mod+Shift+p           exec --no-startup-id "${pkgs.picom-pijulius}/bin/picom -b"
+        bindsym $mod+Shift+p           exec --no-startup-id "picom -b"
 
         # Shortcuts - Entry & Exit
         bindsym $mod+Shift+c         reload
