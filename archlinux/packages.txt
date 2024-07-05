@@ -61,7 +61,6 @@ linux-firmware-qlogic 20240610.9c10a208-1
 linux-headers 6.9.7.arch1-1
 lmms 1.2.2-23
 lsof 4.99.3-2
-maim 5.8.0-2
 mariadb-clients 11.4.2-1
 mesa-utils 9.0.0-4
 mesa-vdpau 1:24.1.2-1
@@ -95,6 +94,7 @@ ouch 0.5.1-1
 p7zip 1:17.05-2
 parallel 20240622-1
 pavucontrol 1:6.0-1
+picom 11.2-1
 pipewire-alsa 1:1.2.0-2
 pipewire-media-session 1:0.4.2-2
 pipewire-pulse 1:1.2.0-2
