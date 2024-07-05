@@ -8,6 +8,9 @@
       ExecStart =
         "${pkgs.ffmpeg}/bin/ffmpeg -f alsa -ac 2 -ar 44100 -i hw:0 -acodec libmp3lame -b:a 128k -content_type audio/mpeg -f mp3 icecast://radiosource:${secrets.icecast_password}@0.0.0.0:${opts.ports.icecast}/radio";
       Restart = "always";
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
     };
   };
 
