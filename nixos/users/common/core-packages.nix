@@ -41,6 +41,7 @@
     grex
     hex
     hexyl
+    hexyl
     hledger
     html-tidy
     htop
@@ -55,6 +56,7 @@
     k9s
     less
     lf
+    maim
     mdbook
     mediainfo
     mosh
