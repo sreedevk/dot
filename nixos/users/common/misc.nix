@@ -6,6 +6,7 @@
   };
 
   home.file = {
+
     ".tool-versions" = {
       enable = true;
       source = ../../../stowed/.tool-versions;
@@ -87,7 +88,6 @@
   programs = {
     home-manager.enable = true;
     htop.enable = true;
-    zsh.enable = true;
   };
 
   systemd.user = {

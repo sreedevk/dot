@@ -1,7 +1,8 @@
 { pkgs, secrets, ... }: {
 
-  home.file = {
+  programs.zsh.enable = true;
 
+  home.file = {
     ".zshrc" = {
       enable = true;
       executable = false;
@@ -36,7 +37,7 @@
       target = ".zsh/functions.sh";
       recursive = true;
     };
-    
+
     ".zsh-plugins" = {
       enable = true;
       recursive = false;
@@ -46,7 +47,7 @@
         [ -f "${pkgs.fzf}/share/fzf/completion.zsh"   ] && zvm_after_init_commands+=("source ${pkgs.fzf}/share/fzf/completion.zsh")
       '';
     };
-    
+
     ".zshenv" = {
       enable = true;
       text = ''
