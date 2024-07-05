@@ -30,7 +30,6 @@ envycontrol 3.4.0-1
 exfatprogs 1.2.4-1
 feh 3.10.3-1
 flatpak 1:1.15.8-1
-floorp-bin 11.14.1-1
 fprintd 1.94.3-1
 fuse2 2.9.9-4
 fwup v1.9.1.r0.g91fbf8c-1
@@ -41,7 +40,6 @@ git 2.45.2-1
 git-delta 0.17.0-3
 git-lfs 3.5.1-1
 gmic 3.4.0-2
-gnu-netcat 0.7.1-10
 gperf 3.1-5
 grub 2:2.12-2
 gst-libav 1.24.5-2
@@ -53,7 +51,6 @@ i3lock 2.15-2
 intel-media-driver 24.2.5-1
 iwd 2.18-1
 jellyfin-media-player 1.11.1-2
-jellyfin-media-player-debug 1.11.1-2
 libappindicator-gtk3 12.10.0.r298-3
 libnotify 0.8.3-1
 libreoffice-fresh 24.2.4-2
@@ -70,7 +67,6 @@ mariadb-clients 11.4.2-1
 mesa-utils 9.0.0-4
 mesa-vdpau 1:24.1.2-1
 minecraft-launcher 1:1.0.1221-3
-minecraft-launcher-debug 1:1.0.1221-3
 minicom 2.9-2
 mpv 1:0.38.0-5
 mullvad-vpn-bin 2024.3-1
@@ -164,5 +160,4 @@ xorg-xinit 1.4.2-1
 xorg-xrandr 1.5.2-1
 zathura 0.5.6-2
 zathura-pdf-mupdf 0.4.3-4
-zfs-utils-debug 2.2.4-1
 zsh 5.9-5

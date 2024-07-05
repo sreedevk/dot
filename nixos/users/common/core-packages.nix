@@ -2,6 +2,8 @@
   home.packages = with pkgs; [
     amfora
     aria2
+    asciinema
+    asciinema-agg
     aspell
     aspellDicts.en
     aspellDicts.en-computers
@@ -9,6 +11,7 @@
     babashka
     bat
     beanstalkd
+    bingrep
     broot
     btop
     cava
@@ -56,6 +59,7 @@
     mediainfo
     mosh
     ncdu
+    netcat-gnu
     newsboat
     nixpkgs-fmt
     nmap
