@@ -3,9 +3,13 @@
     "NixOS System Configuration Management Flake for Multiple Hosts";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    stylix.url = "github:danth/stylix";
     sec.url = "git+http://nullptrderef1:3000/nullptrderef1/sec.git?ref=main&shallow=1";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
