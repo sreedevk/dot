@@ -7,6 +7,7 @@
     ./common/dunst.nix
     ./common/firefox.nix
     ./common/fontconfig.nix
+    ./common/i3.nix
     ./common/keybase.nix
     ./common/keyboard.nix
     ./common/misc.nix
@@ -19,6 +20,7 @@
   ];
 
   home.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "Iosevka" ]; })
     arandr
     autorandr
     autotiling
@@ -30,7 +32,9 @@
     emacs
     floorp
     jira-cli-go
+    picom-pijulius
+    playerctl
+    rofi
     spotify
-    (nerdfonts.override { fonts = [ "Iosevka" ]; })
   ];
 }
