@@ -78,6 +78,7 @@
     pandoc
     procs
     progress
+    pwgen
     python311Packages.eyed3
     restic
     ripgrep
@@ -85,6 +86,7 @@
     rsync
     rsync
     sc-im
+    sshfs
     starship
     tailspin
     taskwarrior-tui
@@ -95,6 +97,7 @@
     tree
     tty-clock
     uiua
+    unrar
     vim
     wget
     xh

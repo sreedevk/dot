@@ -37,10 +37,15 @@
     jira-cli-go
     libreoffice-fresh
     lmms
+    nsxiv
     openttd
     playerctl
+    python311Packages.i3ipc
+    qflipper
     rofi
     slack
     spotify
+    sxiv
+    zathura
   ];
 }
