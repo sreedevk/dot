@@ -32,7 +32,11 @@
     dunst
     emacs
     floorp
+    gimp-with-plugins
     jira-cli-go
+    libreoffice-fresh
+    lmms
+    openttd
     playerctl
     rofi
     spotify
