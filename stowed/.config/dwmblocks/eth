@@ -1,4 +1,0 @@
-#!/bin/sh
-
-IPADDR="$(ip addr show wlan0 | grep inet | head -n1 | awk '{print $2}')"
-echo "$IPADDR"
