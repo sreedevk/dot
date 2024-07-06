@@ -60,6 +60,7 @@
     mdbook
     mediainfo
     mosh
+    nasm
     ncdu
     netcat-gnu
     newsboat
