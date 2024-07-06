@@ -321,10 +321,10 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1719974427,
-        "narHash": "sha256-fd5V3YT6A3z3dDXfZ+OgCrvbv2rY9H5lB9yOwMps14c=",
+        "lastModified": 1720233190,
+        "narHash": "sha256-6PA7aP+7LNc+VkxdtsOdvpjvDAneeLY+WedcyEuD5dI=",
         "ref": "main",
-        "rev": "c44d228e2668cecad148a52d3fd4eb4c9366fef0",
+        "rev": "2463c97604a0817d96a0e9ee2b4e848d4c3b0ee9",
         "shallow": true,
         "type": "git",
         "url": "http://nullptrderef1:3000/nullptrderef1/sec.git"

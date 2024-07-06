@@ -31,6 +31,7 @@
     droidcam
     dunst
     emacs
+    feh
     floorp
     gimp-with-plugins
     jira-cli-go
@@ -39,6 +40,7 @@
     openttd
     playerctl
     rofi
+    slack
     spotify
   ];
 }

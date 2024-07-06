@@ -15,6 +15,8 @@
     broot
     btop
     cava
+    clang
+    cmake
     cmatrix
     csvlens
     delta
@@ -37,6 +39,7 @@
     gitleaks
     glab
     glow
+    gperf
     gping
     grex
     hex
@@ -56,6 +59,8 @@
     k9s
     less
     lf
+    lua
+    luau
     maim
     mdbook
     mediainfo
@@ -63,10 +68,13 @@
     nasm
     ncdu
     netcat-gnu
+    nettools
     newsboat
     nixpkgs-fmt
     nmap
     nushell
+    ouch
+    p7zip
     pandoc
     procs
     progress
@@ -83,6 +91,7 @@
     taskwarrior3
     tmuxinator
     tokei
+    traceroute
     tree
     tty-clock
     uiua
