@@ -8,8 +8,6 @@ base 3-2
 base-devel 1-1
 bind 9.18.27-1
 brave-bin 1:1.67.123-1
-clang 18.1.8-1
-cmake 3.30.0-1
 cuda 12.5.0-1
 dbus-broker 36-2
 dbus-broker-units 36-2
@@ -18,15 +16,12 @@ dmidecode 3.5-2
 docker 1:27.0.3-1
 docker-buildx 0.15.1-1
 docker-compose 2.28.1-1
-dracula-gtk-theme v4.0.0-1
 easyeffects 7.1.7-1
 efibootmgr 18-3
-efl 1.27.0-3
 egl-wayland 2:1.1.13-2
 eglexternalplatform 1.1-3
 envycontrol 3.4.0-1
 exfatprogs 1.2.4-1
-feh 3.10.3-1
 flatpak 1:1.15.8-1
 fprintd 1.94.3-1
 fuse2 2.9.9-4
@@ -36,8 +31,6 @@ gdb 14.2-2
 git 2.45.2-1
 git-delta 0.17.0-3
 git-lfs 3.5.1-1
-gmic 3.4.0-2
-gperf 3.1-5
 grub 2:2.12-2
 gst-libav 1.24.5-2
 gst-plugins-good 1.24.5-2
@@ -47,7 +40,6 @@ i3lock 2.15-2
 intel-media-driver 24.2.5-1
 iwd 2.18-1
 jellyfin-media-player 1.11.1-2
-libappindicator-gtk3 12.10.0.r298-3
 libnotify 0.8.3-1
 lightdm 1:1.32.0-6
 lightdm-gtk-greeter 1:2.0.9-1
@@ -60,13 +52,11 @@ mariadb-clients 11.4.2-1
 mesa-utils 9.0.0-4
 mesa-vdpau 1:24.1.3-1
 minecraft-launcher 1:1.0.1221-3
-minicom 2.9-2
 mpv 1:0.38.0-5
 mullvad-vpn-bin 2024.3-1
 neovide 0.13.1-1
 neovim 0.10.0-5
 nerd-fonts-cozette-ttf 1.19.2_3.0.0-1
-net-tools 2.10-2
 nmap 7.95-1
 noto-fonts 1:24.7.1-1
 noto-fonts-cjk 20230817-2
@@ -83,8 +73,6 @@ openssh-askpass 2.1.0-4
 openssl-1.1 1.1.1.w-1
 opentabletdriver 0.6.4.0-4
 openvpn 2.6.11-1
-ouch 0.5.1-1
-p7zip 1:17.05-2
 parallel 20240622-1
 pavucontrol 1:6.0-1
 picom 11.2-1
@@ -104,7 +92,6 @@ reflector 2023-2
 sbcl 2.4.5-1
 sdl2_image 2.8.2-4
 sdl2_ttf 2.22.0-1
-slack-desktop 4.39.88-1
 sof-firmware 2024.03-1
 sof-tools 2024.03-1
 speech-dispatcher 0.11.5-2
@@ -113,7 +100,6 @@ sshfs 3.7.3-1
 strace 6.9-1
 sxiv 26-2
 thunderbird 115.12.2-1
-traceroute 2.1.5-1
 ttf-dejavu 2.37+18+g9b5d1b2f-7
 ttf-font-awesome 6.5.2-1
 ttf-jetbrains-mono 2.304-1
