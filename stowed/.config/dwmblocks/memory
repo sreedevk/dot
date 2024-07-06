@@ -1,5 +1,0 @@
-#!/bin/sh
-
-echo "$(free -mh | grep Mem | awk 'BEGIN {OFS="/"} {print $3,$2 " used"}')"
-
-exit 0
