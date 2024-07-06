@@ -4,11 +4,13 @@
     profiles.main = {
       isDefault = true;
       extensions = with inputs.firefox-addons.packages."${system}"; [
+        adnauseam
         bitwarden
         consent-o-matic
         darkreader
         duckduckgo-privacy-essentials
         linkding-extension
+        sponsorblock
         ublock-origin
         vimium
       ];
