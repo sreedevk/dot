@@ -51,6 +51,7 @@
     httpie
     hyperfine
     id3v2
+    imagemagick
     instaloader
     ipcalc
     irssi

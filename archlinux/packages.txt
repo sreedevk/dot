@@ -52,7 +52,7 @@ mariadb-clients 11.4.2-1
 mesa-utils 9.0.0-4
 mesa-vdpau 1:24.1.3-1
 minecraft-launcher 1:1.0.1221-3
-mpv 1:0.38.0-5
+mpv 1:0.38.0-6
 mullvad-vpn-bin 2024.3-1
 neovide 0.13.1-1
 neovim 0.10.0-5
@@ -62,7 +62,7 @@ noto-fonts 1:24.7.1-1
 noto-fonts-cjk 20230817-2
 noto-fonts-emoji 1:2.042-1
 nvidia 555.58.02-1
-nvidia-settings 555.58-1
+nvidia-settings 555.58.02-1
 nvtop 3.1.0-1
 obs-studio 30.1.2-2
 openblas 0.3.27-1
