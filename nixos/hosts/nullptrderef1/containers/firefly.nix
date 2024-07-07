@@ -49,8 +49,6 @@
         DB_PASSWORD = secrets.firefly_database_password;
         DB_PORT = opts.ports.firefly_db;
         DB_USERNAME = secrets.firefly_database_username;
-        MYSQL_SSL_VERIFY_SERVER_CERT = "false";
-        MYSQL_USE_SSL = "false";
         PGID = opts.adminGID;
         PUID = opts.adminUID;
         SITE_OWNER = secrets.firefly_app_site_owner;
