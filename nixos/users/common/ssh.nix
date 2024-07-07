@@ -30,6 +30,13 @@
         identitiesOnly = true;
       };
 
+      "gitea" = {
+        hostname = "gitea.nullptrderef1.duckdns.org";
+        user = "nullptrderef1";
+        identityFile = "~/.ssh/devtechnica";
+        identitiesOnly = true;
+      };
+
       "gitlab.com" = {
         hostname = "gitlab.com";
         user = opts.gitlab.primary_user;
