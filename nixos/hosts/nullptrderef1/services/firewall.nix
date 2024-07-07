@@ -68,6 +68,9 @@ in
         searxng
         sonarr
         ssh
+        nginx-proxy-manager-app
+        nginx-proxy-manager-http
+        nginx-proxy-manager-https
         taskchampion
         thelounge
         uptime-kuma
