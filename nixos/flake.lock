@@ -323,13 +323,15 @@
       "locked": {
         "lastModified": 1720375607,
         "narHash": "sha256-RC5FqS6XJo7oK+YtQ4098nulMPuk5yYkG7zPQJpreoI=",
-        "ref": "refs/heads/main",
+        "ref": "main",
         "rev": "4586e8cf8378c8750f5972efe0f0573b970dcc0a",
-        "revCount": 8,
+        "shallow": true,
         "type": "git",
         "url": "https://gitea.nullptrderef1.duckdns.org/nullptrderef1/sec.git"
       },
       "original": {
+        "ref": "main",
+        "shallow": true,
         "type": "git",
         "url": "https://gitea.nullptrderef1.duckdns.org/nullptrderef1/sec.git"
       }
