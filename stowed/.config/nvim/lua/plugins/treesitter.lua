@@ -15,7 +15,7 @@ return {
         enable = true,
         filetypes = { "html" },
       },
-      sync_install = false,
+      sync_install = true,
       ignore_install = { "comment" },
       auto_install = false,
       incremental_selection = { enable = false },
