@@ -123,11 +123,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1720290646,
-        "narHash": "sha256-3qOtNUQN8IX553JnnVirK4nwpi0EDnhFXHZS80+F8y4=",
+        "lastModified": 1720329613,
+        "narHash": "sha256-lXKlKRf0ri+VEq+4zFTkPENXEUhULZ8oDV28piSKNRo=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "e6d4bbd22a5a582b166c8a5f120d2bb21454f194",
+        "rev": "8beedc684423d458770eda7ff86e34e8e714ab41",
         "type": "gitlab"
       },
       "original": {
@@ -208,11 +208,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720289319,
-        "narHash": "sha256-E3CjSsXNDWYqoNjrKQLPdEZDLR+mVI9HMa+jY//FjBY=",
+        "lastModified": 1720327769,
+        "narHash": "sha256-kAsg3Lg4YKKpGw+f1W2s5hzjP8B0y/juowvjK8utIag=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "10486e6b311b3c5ae1c3477fee058704cea7cb4a",
+        "rev": "6b7ce96f34b324e4e104abc30d06955d216bac71",
         "type": "github"
       },
       "original": {
@@ -321,19 +321,17 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1720233625,
-        "narHash": "sha256-fd5V3YT6A3z3dDXfZ+OgCrvbv2rY9H5lB9yOwMps14c=",
-        "ref": "main",
-        "rev": "9927768f91ddfa566d7fec4f748240653b90515e",
-        "shallow": true,
+        "lastModified": 1720375607,
+        "narHash": "sha256-RC5FqS6XJo7oK+YtQ4098nulMPuk5yYkG7zPQJpreoI=",
+        "ref": "refs/heads/main",
+        "rev": "4586e8cf8378c8750f5972efe0f0573b970dcc0a",
+        "revCount": 8,
         "type": "git",
-        "url": "http://nullptrderef1:3000/nullptrderef1/sec.git"
+        "url": "ssh://nullptrderef1:/mnt/dpool0/secrets/nix"
       },
       "original": {
-        "ref": "main",
-        "shallow": true,
         "type": "git",
-        "url": "http://nullptrderef1:3000/nullptrderef1/sec.git"
+        "url": "ssh://nullptrderef1:/mnt/dpool0/secrets/nix"
       }
     },
     "sops-nix": {
