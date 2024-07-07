@@ -3,7 +3,7 @@
     "NixOS System Configuration Management Flake for Multiple Hosts";
 
   inputs = {
-    sec.url = "git+ssh://nullptrderef1:/mnt/dpool0/secrets/nix";
+    sec.url = "git+https://gitea.nullptrderef1.duckdns.org/nullptrderef1/sec.git";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     stylix = {
