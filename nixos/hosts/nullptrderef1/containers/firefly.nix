@@ -36,10 +36,16 @@
       environment = {
         APP_ENV = "production";
         APP_KEY = secrets.firefly_app_secret;
-        APP_URL = "http://${secrets.firefly_app_host}";
+        APP_URL = "${secrets.firefly_app_host}";
+        DEFAULT_LANGUAGE = "en_US";
+        DEFAULT_LOCALE = "equal";
         DB_CONNECTION = "mysql";
+        TRUSTED_PROXIES = "**";
+        LOG_CHANNEL = "stack";
         DB_DATABASE = secrets.firefly_database_name;
         DB_HOST = secrets.firefly_database_host;
+        MYSQL_USE_SSL = "false";
+        MYSQL_SSL_VERIFY_SERVER_CERT = "false";
         DB_PASSWORD = secrets.firefly_database_password;
         DB_PORT = opts.ports.firefly_db;
         DB_USERNAME = secrets.firefly_database_username;
