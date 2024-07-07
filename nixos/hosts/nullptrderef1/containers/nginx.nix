@@ -14,11 +14,6 @@
         "${opts.paths.application_data}/nginx-proxy-manager:/data"
         "${opts.paths.application_data}/letsencrypt:/etc/letsencrypt"
       ];
-      environment = {
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
-      };
     };
   };
 }
