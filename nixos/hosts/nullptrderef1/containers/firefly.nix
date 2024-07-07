@@ -2,7 +2,7 @@
   virtualisation.oci-containers.containers = {
     "firefly-db" = {
       autoStart = true;
-      image = "lscr.io/linuxserver/mariadb:latest";
+      image = "mariadb:latest";
       ports = [ "${opts.ports.firefly_db}:3306" ];
       cmd = [ "--max-connections=512" ];
       extraOptions = [
