@@ -93,7 +93,7 @@
         };
       };
       settings = {
-        "dom.security.https_only_mode" = false;
+        "dom.security.https_only_mode" = true;
         "browser.download.panel.shown" = true;
         "identity.fxaccounts.enabled" = false;
         "signon.rememberSignons" = false;
@@ -138,7 +138,7 @@
           bookmarks = [
             {
               name = "nullptrderef1";
-              url = "http://nullptrderef1/";
+              url = "https://nullptrderef1.duckdns.org/";
             }
             {
               name = "hackernews";
@@ -149,9 +149,11 @@
               url = ''
                 javascript: (function () {
                   var bookmarkUrl = window.location;
-                  var applicationUrl = 'http://nullptrderef1:9090/bookmarks/new';
+                  var applicationUrl = 'https://links.nullptrderef1.duckdns.org/bookmarks/new';
                   applicationUrl += '?url=' + encodeURIComponent(bookmarkUrl);
-                  applicationUrl += '&auto_close';  window.open(applicationUrl);})();
+                  applicationUrl += '&auto_close';
+                  window.open(applicationUrl);
+                })();
               '';
             }
           ];
