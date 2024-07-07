@@ -71,6 +71,7 @@
         admin = mkHome inputs.nixpkgs systems.x86 "admin";
         sreedev = mkHome inputs.nixpkgs systems.x86 "sreedev";
         pi = mkHome inputs.nixpkgs systems.arm64 "pi";
+        deploy = mkHome inputs.nixpkgs systems.x86 "deploy";
       };
     };
 }
