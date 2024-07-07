@@ -2,6 +2,7 @@
 
   imports = [
     ./common/core-packages.nix
+    ./common/keybase.nix
     ./common/misc.nix
     ./common/neovim.nix
     ./common/tmux.nix
