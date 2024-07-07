@@ -2,13 +2,16 @@
   virtualisation.oci-containers.containers = {
     "firefly-db" = {
       autoStart = true;
-      image = "mariadb:lts";
+      image = "lscr.io/linuxserver/mariadb:latest";
       ports = [ "${opts.ports.firefly_db}:3306" ];
       cmd = [ "--max-connections=512" ];
-      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       volumes = [ "${opts.paths.application_databases}/firefly:/var/lib/mysql" ];
       environment = {
-        MARIADB_ROOT_PASSWORD = secrets.firefly_database_password;
+        MYSQL_ROOT_PASSWORD = secrets.firefly_database_password;
         MYSQL_DATABASE = secrets.firefly_database_name;
         MYSQL_PASSWORD = secrets.firefly_database_password;
         MYSQL_USER = secrets.firefly_database_username;
@@ -21,7 +24,10 @@
     "firefly-app" = {
       autoStart = true;
       image = "fireflyiii/core:latest";
-      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       dependsOn = [ "firefly-db" ];
       ports = [ "${opts.ports.firefly_app}:8080" ];
       volumes = [
