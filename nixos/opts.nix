@@ -58,7 +58,7 @@
     gitea_ssh = "222";
     grafana = "2442";
     homebox = "3100";
-    homer = "80";
+    homer = "82";
     https = "443";
     huginn-app = "3333";
     huginn-db = "3308";
@@ -73,6 +73,9 @@
     metube = "8081";
     navidrome = "4533";
     netdata = "19999";
+    nginx-proxy-manager-app = "81";
+    nginx-proxy-manager-http = "80";
+    nginx-proxy-manager-https = "443";
     ntfy = "7777";
     olivetin = "1337";
     ollama-api = "11434";
