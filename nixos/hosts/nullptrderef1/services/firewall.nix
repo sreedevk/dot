@@ -66,6 +66,7 @@ in
         portrainer_web_secure
         prometheus_app
         prometheus_node
+        prometheus_zfs
         prowlarr
         qbittorrent-p2p
         qbittorrent-web
