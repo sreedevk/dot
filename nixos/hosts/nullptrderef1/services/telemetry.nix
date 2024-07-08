@@ -52,10 +52,10 @@
         admin_password = "$__file{${pkgs.writeText "grafpass" secrets.grafana_password}}";
       };
       server = {
-        domain = "nullptrderef1";
+        domain = "localhost";
         protocol = "http";
         http_port = pkgs.lib.strings.toInt opts.ports.grafana;
-        http_addr = "0.0.0.0";
+        enable_gzip = true;
       };
     };
   };
