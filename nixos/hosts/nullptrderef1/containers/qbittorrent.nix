@@ -3,7 +3,7 @@
     # qBittorrent P2P Torrent Client
     "qbittorrent-nox" = {
       autoStart = true;
-      image = "qbittorrentofficial/qbittorrent-nox:4.6.4-1";
+      image = "qbittorrentofficial/qbittorrent-nox:latest";
       ports = [ "${opts.ports.qbittorrent-p2p}:6881/tcp" "${opts.ports.qbittorrent-p2p}:6881/udp" "${opts.ports.qbittorrent-web}:8001/tcp" ];
       environment = {
         QBT_EULA = "accept";
