@@ -26,7 +26,6 @@
     ./memos.nix
     ./metube.nix
     ./navidrome.nix
-    ./nextcloud.nix
     ./nginx.nix
     ./ntfy.nix
     ./olivetin.nix
