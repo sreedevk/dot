@@ -1,6 +1,6 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   virtualisation.oci-containers.containers = {
-    nextcloud = {
+    "nextcloud-aio-mastercontainer" = {
       autoStart = true;
       image = "nextcloud/all-in-one:latest";
       extraOptions = [
