@@ -27,11 +27,14 @@
     exporters = {
       node = {
         enable = true;
-        enabledCollectors = [
-          "systemd"
-          "zfs"
-        ];
+        enabledCollectors = [ "systemd" ];
         port = pkgs.lib.strings.toInt opts.ports.prometheus_node;
+        openFirewall = true;
+      };
+      zfs = {
+        enable = true;
+        port = pkgs.lib.strings.toInt opts.ports.prometheus_zfs;
+        pools = [ "dpool0" ];
         openFirewall = true;
       };
     };
@@ -52,9 +55,10 @@
         admin_password = "$__file{${pkgs.writeText "grafpass" secrets.grafana_password}}";
       };
       server = {
-        domain = "localhost";
+        domain = "grafana.nullptrderef1.duckdns.org";
         protocol = "http";
         http_port = pkgs.lib.strings.toInt opts.ports.grafana;
+        http_addr = "0.0.0.0";
         enable_gzip = true;
       };
     };
