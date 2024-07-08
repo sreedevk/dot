@@ -2,7 +2,7 @@
   virtualisation.oci-containers.containers = {
     actual-app = {
       autoStart = true;
-      image = "actual-server:latest";
+      image = "docker.io/actualbudget/actual-server:latest";
       ports = [ "${opts.ports.actual-app}:5006" ];
       volumes = [ "${opts.paths.application_data}/actual:/data" ];
       extraOptions =
