@@ -20,8 +20,6 @@ in
         bazarr
         cloudbeaver
         cockpit
-        docuseal
-        filebrowser
         firefly_app
         firefly_db
         flaresolverr
@@ -47,6 +45,9 @@ in
         metube
         navidrome
         netdata
+        nextcloud-app
+        nextcloud-http docuseal
+        nextcloud-httpsfilebrowser
         nginx-proxy-manager-app
         nginx-proxy-manager-http
         nginx-proxy-manager-https
