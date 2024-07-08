@@ -74,6 +74,13 @@
             definedAliases = [ "@ddg" ];
           };
 
+          "AnnasArchive" = {
+            urls = [{
+              template = "https://vec.annas-archive.se/search?q={searchTerms}";
+            }];
+            definedAliases = [ "@anna" ];
+          };
+
           "GitHub" = {
             urls = [{
               template =
