@@ -1,5 +1,6 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   imports = [
+    ./actual.nix
     ./archivebox.nix
     ./aria2.nix
     ./audiobookshelf.nix
