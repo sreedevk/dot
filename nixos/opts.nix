@@ -35,6 +35,7 @@
   };
 
   ports = {
+    actual-app = "5006";
     adguard_dns = "53";
     adguard_web = "8000";
     archivebox = "8089";

@@ -8,6 +8,7 @@ in
     allowPing = false;
     allowedTCPPorts = builtins.map mkPort (with opts.ports;
       [
+        actual-app
         adguard_dns
         adguard_web
         archivebox
@@ -46,6 +47,9 @@ in
         metube
         navidrome
         netdata
+        nginx-proxy-manager-app
+        nginx-proxy-manager-http
+        nginx-proxy-manager-https
         ntfy
         olivetin
         ollama-api
@@ -68,9 +72,6 @@ in
         searxng
         sonarr
         ssh
-        nginx-proxy-manager-app
-        nginx-proxy-manager-http
-        nginx-proxy-manager-https
         taskchampion
         thelounge
         uptime-kuma
