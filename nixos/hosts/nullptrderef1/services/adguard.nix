@@ -14,54 +14,21 @@
       filters = [
         {
           enabled = true;
-          url =
-            "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
-          name = "StevenBlack's List";
+          url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt";
+          name = "HaGeZi's Pro++ DNS Blocklist";
           ID = 1;
         }
         {
           enabled = true;
-          url =
-            "https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt";
-          name = "DeveloperDan's Advertisements & Tracking List";
-          ID = 15;
+          url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt";
+          name = "HaGeZi's Threat Intelligence Feeds DNS Blocklist";
+          ID = 2;
         }
         {
           enabled = true;
-          url = "https://easylist.to/easylist/easylist.txt";
-          name = "EasyList Basic";
-          ID = 16;
-        }
-        {
-          enabled = true;
-          url = "https://easylist.to/easylist/easyprivacy.txt";
-          name = "EasyList Privacy";
-          ID = 17;
-        }
-        {
-          enabled = true;
-          url = "https://secure.fanboy.co.nz/fanboy-annoyance.txt";
-          name = "Fanboy's Annoyances";
-          ID = 18;
-        }
-        {
-          enabled = true;
-          url = "https://easylist.to/easylist/fanboy-social.txt";
-          name = "Fanboy's Social";
-          ID = 19;
-        }
-        {
-          enabled = true;
-          url = "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt";
-          name = "Fanboy's Cookiemonster";
-          ID = 20;
-        }
-        {
-          enabled = true;
-          url =
-            "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt";
-          name = "Adblock Pro Plus";
-          ID = 25;
+          url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/fake.txt";
+          name = "HaGeZi's Fake DNS Blocklist";
+          id = 3;
         }
       ];
       filtering = {
