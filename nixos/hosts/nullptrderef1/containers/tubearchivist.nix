@@ -39,7 +39,7 @@
           "--health-timeout=10s"
           "--health-retries=3"
           "--health-start-period=30s"
-          "--ulimit memlock=-1:-1"
+          "--security-opt=memlock=-1:-1"
         ];
       ports = [ "${opts.ports.tubearchivist-es}:9200" ];
       volumes = [
