@@ -4,7 +4,7 @@
 
   inputs = {
     sec.url = "git+ssh://git@gitea.nullptrderef1.duckdns.org/nullptrderef1/sec.git?ref=main&shallow=1";
-    nixpkgs.url = "git+ssh://git@gitea.nullptrderef1.duckdns.org/nullptrderef1/nixpkgs.git?ref=nixos-unstable&shallow=1";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
 
     stylix = {
       url = "github:danth/stylix";
