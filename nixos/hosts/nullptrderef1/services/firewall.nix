@@ -61,6 +61,9 @@ in
         ollama-api
         ollama-web
         openbooks
+        paperless-app
+        paperless-db
+        paperless-redis
         photoprism_app
         photoprism_db
         plex
