@@ -35,6 +35,7 @@
     floorp
     gimp-with-plugins
     jira-cli-go
+    joplin-desktop
     libreoffice-fresh
     lmms
     nsxiv
