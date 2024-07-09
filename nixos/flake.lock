@@ -327,13 +327,13 @@
         "rev": "c17c566a1d6752b8427eb64eaaa38290305914bf",
         "shallow": true,
         "type": "git",
-        "url": "https://gitea.nullptrderef1.duckdns.org/nullptrderef1/sec.git"
+        "url": "ssh://git@gitea.nullptrderef1.duckdns.org/nullptrderef1/sec.git"
       },
       "original": {
         "ref": "main",
         "shallow": true,
         "type": "git",
-        "url": "https://gitea.nullptrderef1.duckdns.org/nullptrderef1/sec.git"
+        "url": "ssh://git@gitea.nullptrderef1.duckdns.org/nullptrderef1/sec.git"
       }
     },
     "sops-nix": {
