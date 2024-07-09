@@ -17,7 +17,7 @@
       ];
       environment = {
         ES_URL = "http://nullptrderef1:${opts.ports.tubearchivist-es}";
-        REDIS_HOST = "nullptrderef1:${opts.ports.tubearchivist-redis}";
+        REDIS_HOST = "nullptrderef1";
         TZ = opts.timeZone;
         HOST_UID = opts.adminUID;
         HOST_GID = opts.adminGID;
