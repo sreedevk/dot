@@ -107,5 +107,6 @@
     zellij
     zola
     zoxide
+    tea
   ];
 }
