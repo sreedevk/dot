@@ -57,6 +57,7 @@
     gitea_db = "3309";
     gitea_http = "3000";
     gitea_ssh = "222";
+    gotify = "8773";
     grafana = "2442";
     homebox = "3100";
     homer = "82";
@@ -67,6 +68,8 @@
     jackett = "9117";
     jellyfin = "8096";
     jellyseer = "5055";
+    joplin-app = "22300";
+    joplin-db = "5432";
     kavita = "5000";
     lidarr = "8686";
     linkding = "9090";
@@ -95,6 +98,7 @@
     prometheus_node = "9002";
     prometheus_zfs = "9134";
     prowlarr = "9696";
+    podgrab = "8567";
     qbittorrent-p2p = "6881";
     qbittorrent-web = "8001";
     radarr = "7878";

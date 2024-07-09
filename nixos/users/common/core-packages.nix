@@ -56,6 +56,7 @@
     ipcalc
     irssi
     jaq
+    joplin
     jq
     k9s
     less
@@ -92,6 +93,7 @@
     tailspin
     taskwarrior-tui
     taskwarrior3
+    tea
     tmuxinator
     tokei
     traceroute
@@ -107,6 +109,5 @@
     zellij
     zola
     zoxide
-    tea
   ];
 }
