@@ -321,10 +321,10 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1720533073,
-        "narHash": "sha256-XBqLH64+LPThNcZkin6l6EBFiaLF0evn2cQpY8xSIjk=",
+        "lastModified": 1720542948,
+        "narHash": "sha256-u/O+n5D9AlN0k4tuzBIFNHzKNVej71toXhtEE63nclo=",
         "ref": "main",
-        "rev": "bffb46827f2ae60f605bf81ab9add8db8ea4cb17",
+        "rev": "dd7bf7ff3a1e416c4fccefef72e68ff6ba78388c",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@gitea.nullptrderef1.duckdns.org/nullptrderef1/sec.git"
@@ -334,24 +334,6 @@
         "shallow": true,
         "type": "git",
         "url": "ssh://git@gitea.nullptrderef1.duckdns.org/nullptrderef1/sec.git"
-      }
-    },
-    "sops-nix": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_3",
-        "nixpkgs-stable": "nixpkgs-stable"
-      },
-      "locked": {
-        "lastModified": 1719873517,
-        "narHash": "sha256-D1dxZmXf6M2h5lNE1m6orojuUawVPjogbGRsqSBX+1g=",
-        "owner": "Mic92",
-        "repo": "sops-nix",
-        "rev": "a11224af8d824935f363928074b4717ca2e280db",
-        "type": "github"
-      },
-      "original": {
-        "id": "sops-nix",
-        "type": "indirect"
       }
     },
     "stylix": {
