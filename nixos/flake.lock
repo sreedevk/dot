@@ -322,10 +322,10 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1720389502,
-        "narHash": "sha256-7TD5uOzNrvNH5UNoHjggk3XPSVC7GI9bWLbKlTSAc78=",
+        "lastModified": 1720533073,
+        "narHash": "sha256-XBqLH64+LPThNcZkin6l6EBFiaLF0evn2cQpY8xSIjk=",
         "ref": "main",
-        "rev": "c17c566a1d6752b8427eb64eaaa38290305914bf",
+        "rev": "bffb46827f2ae60f605bf81ab9add8db8ea4cb17",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@gitea.nullptrderef1.duckdns.org/nullptrderef1/sec.git"
