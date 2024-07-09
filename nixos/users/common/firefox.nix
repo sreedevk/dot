@@ -11,6 +11,7 @@
         duckduckgo-privacy-essentials
         linkding-extension
         sponsorblock
+        tubearchivist-companion
         ublock-origin
         vimium
       ];
