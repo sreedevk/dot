@@ -21,6 +21,7 @@
     application_data = "/mnt/dpool0/appdata";
     application_databases = "/mnt/dpool0/appdata/databases";
     downloads = "/mnt/dpool0/downloads";
+    documents = "/mnt/dpool0/personal/documents";
     magazines = "/mnt/dpool0/media/magazines";
     qbt_images = "/mnt/dpool0/media/photos/other";
     images = "/mnt/dpool0/media/photos";
@@ -88,9 +89,13 @@
     ollama-api = "11434";
     ollama-web = "3134";
     openbooks = "8004";
+    paperless-app = "8991";
+    paperless-db = "3316";
+    paperless-redis = "6340";
     photoprism_app = "2342";
     photoprism_db = "3307";
     plex = "32400";
+    podgrab = "8567";
     portrainer_misc = "8024";
     portrainer_web = "9080";
     portrainer_web_secure = "9443";
@@ -98,7 +103,6 @@
     prometheus_node = "9002";
     prometheus_zfs = "9134";
     prowlarr = "9696";
-    podgrab = "8567";
     qbittorrent-p2p = "6881";
     qbittorrent-web = "8001";
     radarr = "7878";

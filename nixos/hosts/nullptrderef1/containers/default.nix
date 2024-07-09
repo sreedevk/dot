@@ -32,6 +32,7 @@
     ./ntfy.nix
     ./olivetin.nix
     ./ollama.nix
+    ./paperless.nix
     ./photoprism.nix
     ./plex.nix
     ./podgrab.nix
