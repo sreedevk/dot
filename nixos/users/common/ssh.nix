@@ -32,7 +32,7 @@
 
       "gitea.nullptrderef1.duckdns.org" = {
         hostname = "gitea.nullptrderef1.duckdns.org";
-        user = "nullptrderef1";
+        user = "git";
         port = 222;
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
