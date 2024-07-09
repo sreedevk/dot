@@ -34,7 +34,7 @@
       extraOptions =
         [
           "--add-host=nullptrderef1:${opts.lanAddress}"
-          "--health-cmd='curl -f http://nullptrderef1:${opts.ports.tubearchivist-es}/health'"
+          "--health-cmd=curl -f http://nullptrderef1:${opts.ports.tubearchivist-es}/health"
           "--health-interval=2m"
           "--health-timeout=10s"
           "--health-retries=3"
