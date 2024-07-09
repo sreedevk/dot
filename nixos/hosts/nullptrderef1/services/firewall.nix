@@ -30,6 +30,7 @@ in
         gitea_db
         gitea_http
         gitea_ssh
+        gotify
         grafana
         homebox
         homer
@@ -40,6 +41,8 @@ in
         jackett
         jellyfin
         jellyseer
+        joplin-app
+        joplin-db
         kavita
         lidarr
         linkding
@@ -61,6 +64,7 @@ in
         photoprism_app
         photoprism_db
         plex
+        podgrab
         portrainer_misc
         portrainer_web
         portrainer_web_secure
@@ -91,6 +95,7 @@ in
         audiobookshelf
         ftp
         gitea_ssh
+        gotify
         jellyfin
         qbittorrent-p2p
         ssh

@@ -13,6 +13,7 @@
     ./flaresolverr.nix
     ./freshrss.nix
     ./gitea.nix
+    ./gotify.nix
     ./homebox.nix
     ./homer.nix
     ./huginn.nix
@@ -20,6 +21,7 @@
     ./jackett.nix
     ./jellyfin.nix
     ./jellyseer.nix
+    ./joplin.nix
     ./kavita.nix
     ./linkding.nix
     ./livebook.nix
@@ -32,6 +34,7 @@
     ./ollama.nix
     ./photoprism.nix
     ./plex.nix
+    ./podgrab.nix
     ./portrainer.nix
     ./qbittorrent.nix
     ./servarr.nix
