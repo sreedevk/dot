@@ -48,7 +48,7 @@ in
         navidrome
         netdata
         nextcloud-app
-        nextcloud-http 
+        nextcloud-http
         nextcloud-https
         nginx-proxy-manager-app
         nginx-proxy-manager-http
