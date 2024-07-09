@@ -16,7 +16,7 @@
         "${opts.paths.application_data}/tubearchivist/cache:/cache"
       ];
       environment = {
-        ES_URL = "https://tube-es.nullptrderef1.duckdns.org:${opts.ports.tubearchivist-es}";
+        ES_URL = "https://tube-es.nullptrderef1.duckdns.org";
         REDIS_HOST = "tube-redis.nullptrderef1.duckdns.org";
         TZ = opts.timeZone;
         HOST_UID = opts.adminUID;
