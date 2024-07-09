@@ -96,6 +96,10 @@
       };
       dns = {
         bind_host = "0.0.0.0";
+        cache_size = 64000000;
+        cache_ttl_min = 3600;
+        cache_ttl_max = 86400;
+        cache_optimistic = true;
         bootstrap_dns = [ "9.9.9.9" "8.8.8.8" "8.8.4.4" ];
         ratelimit = 200;
         upstream_dns = [
