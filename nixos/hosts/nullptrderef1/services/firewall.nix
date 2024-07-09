@@ -78,6 +78,9 @@ in
         ssh
         taskchampion
         thelounge
+        tubearchivist
+        tubearchivist-es
+        tubearchivist-redis
         uptime-kuma
         vaultwarden
         znc
