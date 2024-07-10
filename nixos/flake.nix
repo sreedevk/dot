@@ -7,7 +7,6 @@
 
     nixpkgs-os.url = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     nixpkgs-hm.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
-    nixpkgs-ms.url = "github:nixos/nixpkgs?ref=master&shallow=1";
 
     stylix = {
       url = "github:danth/stylix";
