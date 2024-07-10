@@ -118,7 +118,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
-          "nixpkgs-hm"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -204,7 +204,7 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs-hm"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -246,20 +246,6 @@
       "locked": {
         "lastModified": 1720498663,
         "narHash": "sha256-juqJkkdAt44mOfA43q1qUHn7iWoK++81lR8Mh7N/EF8=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "106e145e1d4583d1e2bb20e54947d15ad55e75e1",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
-    "nixpkgs-hm": {
-      "locked": {
-        "lastModified": 1720498663,
-        "narHash": "sha256-juqJkkdAt44mOfA43q1qUHn7iWoK++81lR8Mh7N/EF8=",
         "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "106e145e1d4583d1e2bb20e54947d15ad55e75e1",
@@ -268,22 +254,6 @@
       "original": {
         "owner": "nixos",
         "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-os": {
-      "locked": {
-        "lastModified": 1720418205,
-        "narHash": "sha256-cPJoFPXU44GlhWg4pUk9oUPqurPlCFZ11ZQPk21GTPU=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "655a58a72a6601292512670343087c2d75d859c1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -341,8 +311,6 @@
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-hm": "nixpkgs-hm",
-        "nixpkgs-os": "nixpkgs-os",
         "sec": "sec",
         "stylix": "stylix"
       }
@@ -399,7 +367,7 @@
         "gnome-shell": "gnome-shell",
         "home-manager": "home-manager_2",
         "nixpkgs": [
-          "nixpkgs-hm"
+          "nixpkgs"
         ]
       },
       "locked": {
