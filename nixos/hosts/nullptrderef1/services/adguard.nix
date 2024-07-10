@@ -19,7 +19,7 @@
           ID = 1;
         }
         {
-          enabled = true;
+          enabled = false;
           url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt";
           name = "HaGeZi's Threat Intelligence Feeds DNS Blocklist";
           ID = 2;
@@ -63,7 +63,7 @@
       };
       dns = {
         bind_host = "0.0.0.0";
-        cache_size = 64000000;
+        cache_size = 1000000;
         cache_ttl_min = 3600;
         cache_ttl_max = 86400;
         cache_optimistic = true;
