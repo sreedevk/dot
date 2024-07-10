@@ -112,13 +112,11 @@
     sonarr = "8989";
     ssh = "22";
     taskchampion = "8080";
-    thelounge = "9000";
     tubearchivist = "8780";
     tubearchivist-es = "9200";
     tubearchivist-redis = "6379";
     uptime-kuma = "3001";
     vaultwarden = "9801";
-    znc = "6501";
   };
 
   autorandr =

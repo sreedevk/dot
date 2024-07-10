@@ -17,7 +17,6 @@
     ./homebox.nix
     ./homer.nix
     ./huginn.nix
-    ./irc.nix
     ./jackett.nix
     ./jellyfin.nix
     ./jellyseer.nix
