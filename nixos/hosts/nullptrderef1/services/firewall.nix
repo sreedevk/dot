@@ -84,13 +84,10 @@ in
         sonarr
         ssh
         taskchampion
-        thelounge
         tubearchivist
-        tubearchivist-es
         tubearchivist-redis
         uptime-kuma
         vaultwarden
-        znc
       ]);
     allowedUDPPorts = builtins.map mkPort (with opts.ports;
       [
