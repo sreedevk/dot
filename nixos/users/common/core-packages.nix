@@ -56,7 +56,6 @@
     ipcalc
     irssi
     jaq
-    joplin
     jq
     k9s
     less
