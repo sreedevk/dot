@@ -118,7 +118,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-hm"
         ]
       },
       "locked": {
@@ -204,7 +204,7 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-hm"
         ]
       },
       "locked": {
@@ -243,6 +243,52 @@
       }
     },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1720498663,
+        "narHash": "sha256-juqJkkdAt44mOfA43q1qUHn7iWoK++81lR8Mh7N/EF8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "106e145e1d4583d1e2bb20e54947d15ad55e75e1",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs-hm": {
+      "locked": {
+        "lastModified": 1720498663,
+        "narHash": "sha256-juqJkkdAt44mOfA43q1qUHn7iWoK++81lR8Mh7N/EF8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "106e145e1d4583d1e2bb20e54947d15ad55e75e1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-ms": {
+      "locked": {
+        "lastModified": 1720567912,
+        "narHash": "sha256-f9EoOv9ZqGqYfj1JfnOT95BtSv7QQ0VZfXNWHx7NJZg=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "66bd3bd8d2a6c88a23701f5c3e37b2b90d2481c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-os": {
       "locked": {
         "lastModified": 1720418205,
         "narHash": "sha256-cPJoFPXU44GlhWg4pUk9oUPqurPlCFZ11ZQPk21GTPU=",
@@ -311,6 +357,9 @@
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-hm": "nixpkgs-hm",
+        "nixpkgs-ms": "nixpkgs-ms",
+        "nixpkgs-os": "nixpkgs-os",
         "sec": "sec",
         "stylix": "stylix"
       }
@@ -367,7 +416,7 @@
         "gnome-shell": "gnome-shell",
         "home-manager": "home-manager_2",
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-hm"
         ]
       },
       "locked": {
