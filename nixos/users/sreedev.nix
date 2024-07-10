@@ -32,7 +32,6 @@
     dunst
     emacs
     feh
-    floorp
     gimp-with-plugins
     jira-cli-go
     joplin-desktop
