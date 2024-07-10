@@ -4,23 +4,21 @@
 
   inputs = {
     sec.url = "git+ssh://git@gitea.nullptrderef1.duckdns.org/nullptrderef1/sec.git?ref=main&shallow=1";
-
-    nixpkgs-os.url = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
-    nixpkgs-hm.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
 
     stylix = {
       url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs-hm";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs-hm";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs-hm";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -65,15 +63,15 @@
 
       # Operating System Level Configurations 
       nixosConfigurations = {
-        nullptrderef1 = mkSystem inputs.nixpkgs-os systems.x86 "nullptrderef1";
+        nullptrderef1 = mkSystem inputs.nixpkgs systems.x86 "nullptrderef1";
       };
 
       # User Level Home Manager Configurations
       homeConfigurations = {
-        admin = mkHome inputs.nixpkgs-hm systems.x86 "admin";
-        sreedev = mkHome inputs.nixpkgs-hm systems.x86 "sreedev";
-        pi = mkHome inputs.nixpkgs-hm systems.arm64 "pi";
-        deploy = mkHome inputs.nixpkgs-hm systems.x86 "deploy";
+        admin = mkHome inputs.nixpkgs systems.x86 "admin";
+        sreedev = mkHome inputs.nixpkgs systems.x86 "sreedev";
+        pi = mkHome inputs.nixpkgs systems.arm64 "pi";
+        deploy = mkHome inputs.nixpkgs systems.x86 "deploy";
       };
     };
 }
