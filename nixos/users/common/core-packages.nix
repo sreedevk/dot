@@ -22,59 +22,43 @@
     delta
     dig
     direnv
-    doctl
-    duckdb
     duf
     dust
     exiftool
     eza
     fd
     fzf
-    gh
     git
     git-crypt
     git-filter-repo
     git-sizer
     gitleaks
-    glab
-    glow
     gperf
     gping
     grex
     hex
     hexyl
-    hexyl
-    hledger
     html-tidy
-    htop
     httpie
     hyperfine
     id3v2
     imagemagick
-    instaloader
     ipcalc
-    irssi
     jaq
     jq
-    k9s
     less
     lf
     lua
     luau
-    maim
-    mdbook
     mediainfo
     mosh
     nasm
     ncdu
     netcat-gnu
     nettools
-    nixpkgs-fmt
     nmap
-    nushell
     ouch
     p7zip
-    pandoc
     procs
     progress
     pwgen
@@ -83,15 +67,11 @@
     ripgrep
     ripgrep-all
     rsync
-    rsync
     sc-im
     sshfs
     starship
     tailspin
-    taskwarrior-tui
     taskwarrior3
-    tea
-    tmuxinator
     tokei
     traceroute
     tree
@@ -102,9 +82,7 @@
     wget
     xh
     xxd
-    yt-dlp
     zellij
-    zola
     zoxide
   ];
 }

@@ -24,32 +24,57 @@
     ./common/zsh.nix
   ];
 
-  home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Iosevka" ]; })
-    arandr
-    autorandr
-    autotiling
-    awscli2
-    brightnessctl
-    cinnamon.nemo-with-extensions
-    dbeaver-bin
-    droidcam
-    dunst
-    emacs
-    feh
-    gimp-with-plugins
-    jira-cli-go
-    joplin-desktop
-    libreoffice-fresh
-    lmms
-    nsxiv
-    openttd
-    playerctl
-    python311Packages.i3ipc
-    qflipper
-    rofi
-    slack
-    spotify
-    sxiv
-  ];
+  home.packages =
+    let
+      cli-tools = with pkgs; [
+        awscli2
+        doctl
+        duckdb
+        glab
+        glow
+        hledger
+        instaloader
+        irssi
+        jira-cli-go
+        k9s
+        mdbook
+        nixpkgs-fmt
+        nushell
+        pandoc
+        taskwarrior-tui
+        tea
+        tmuxinator
+        yt-dlp
+        zola
+      ];
+
+      gui-tools = with pkgs; [
+        (nerdfonts.override { fonts = [ "Iosevka" ]; })
+        arandr
+        autorandr
+        autotiling
+        brightnessctl
+        cinnamon.nemo-with-extensions
+        dbeaver-bin
+        droidcam
+        dunst
+        emacs
+        feh
+        gimp-with-plugins
+        joplin-desktop
+        libreoffice-fresh
+        lmms
+        maim
+        nsxiv
+        openttd
+        playerctl
+        python311Packages.i3ipc
+        qflipper
+        rofi
+        slack
+        spotify
+        sxiv
+      ];
+    in
+    builtins.concatLists [ cli-tools gui-tools ];
 }
