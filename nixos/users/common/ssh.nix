@@ -30,8 +30,8 @@
         identitiesOnly = true;
       };
 
-      "gitea.nullptrderef1.duckdns.org" = {
-        hostname = "gitea.nullptrderef1.duckdns.org";
+      "gitea.nullptr.sh" = {
+        hostname = "gitea.nullptr.sh";
         user = "git";
         port = 222;
         identityFile = "~/.ssh/devtechnica";
