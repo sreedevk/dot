@@ -40,18 +40,6 @@
             answer = "192.168.1.179";
           }
           {
-            domain = "nullptrderef1.localhost";
-            answer = "192.168.1.179";
-          }
-          {
-            domain = "null.localhost";
-            answer = "192.168.1.179";
-          }
-          {
-            domain = "null.arpa";
-            answer = "192.168.1.179";
-          }
-          {
             domain = "rpi4b.localhost";
             answer = "192.168.1.152";
           }
