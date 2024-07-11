@@ -1,6 +1,7 @@
 { configs, pkgs, secrets, username, ... }: {
   imports = [
     ./common/core-packages.nix
+    ./common/fastfetch.nix
     ./common/misc.nix
     ./common/neovim.nix
     ./common/ssh.nix

@@ -3,6 +3,7 @@
     ./common/beets.nix
     ./common/cargo.nix
     ./common/core-packages.nix
+    ./common/fastfetch.nix
     ./common/keybase.nix
     ./common/misc.nix
     ./common/neovim.nix
