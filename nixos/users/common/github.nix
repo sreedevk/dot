@@ -11,12 +11,10 @@
   };
   programs.gh = {
     enable = true;
-    extensions = [
-      "github/gh-actions-importer"
-      "meiji163/gh-notify"
-      "redraw/gh-install"
-      "matt-bartel/gh-clone-org"
-      "mislav/gh-cp"
+    extensions = with pkgs; [
+      gh-notify
+      gh-cal
+      gh-markdown-preview
     ];
     settings = {
       github_protocol = "ssh";
