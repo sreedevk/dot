@@ -37,11 +37,7 @@
       cmd = [ "--max-connections=512" ];
       extraOptions = [
         "--add-host=nullptrderef1:${opts.lanAddress}"
-        "--health-cmd=mysqladmin ping -h nullptrderef1 -u root --password=${secrets.huginn_database_password} --port ${opts.ports.huginn-db}"
-        "--health-interval=2m"
-        "--health-timeout=10s"
-        "--health-retries=3"
-        "--health-start-period=30s"
+        "--no-healthcheck"
       ];
       volumes = [ "${opts.paths.application_databases}/huginn:/var/lib/mysql" ];
       environment = {

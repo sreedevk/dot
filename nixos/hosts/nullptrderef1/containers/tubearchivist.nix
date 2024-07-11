@@ -34,11 +34,7 @@
       extraOptions =
         [
           "--add-host=nullptrderef1:${opts.lanAddress}"
-          "--health-cmd=curl -f http://nullptrderef1:${opts.ports.tubearchivist-es}/health"
-          "--health-interval=2m"
-          "--health-timeout=10s"
-          "--health-retries=3"
-          "--health-start-period=30s"
+          "--no-healthcheck"
           "--ulimit=memlock=-1:-1"
         ];
       ports = [ "${opts.ports.tubearchivist-es}:9200" ];
