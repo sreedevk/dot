@@ -38,6 +38,14 @@
         identitiesOnly = true;
       };
 
+      "gitea.nullptr.sh" = {
+        hostname = "gitea.nullptr.sh";
+        user = "git";
+        port = 222;
+        identityFile = "~/.ssh/devtechnica";
+        identitiesOnly = true;
+      };
+
       "gitlab.com" = {
         hostname = "gitlab.com";
         user = opts.gitlab.primary_user;
