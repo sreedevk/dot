@@ -25,7 +25,14 @@
 
       "github.com" = {
         hostname = "github.com";
-        user = opts.github.primary_user;
+        user = "git";
+        identityFile = "~/.ssh/devtechnica";
+        identitiesOnly = true;
+      };
+
+      "nullptr.sh" = {
+        hostname = "nullptr.sh";
+        user = "admin";
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
       };
@@ -40,14 +47,7 @@
 
       "gitlab.com" = {
         hostname = "gitlab.com";
-        user = opts.gitlab.primary_user;
-        identityFile = "~/.ssh/devtechnica";
-        identitiesOnly = true;
-      };
-
-      "nullptrderef1" = {
-        hostname = "nullptrderef1";
-        user = "admin";
+        user = "git";
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
       };
