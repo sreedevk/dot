@@ -8,6 +8,7 @@
     ./common/fastfetch.nix
     ./common/firefox.nix
     ./common/fontconfig.nix
+    ./common/github.nix
     ./common/htop.nix
     ./common/i3.nix
     ./common/keybase.nix
