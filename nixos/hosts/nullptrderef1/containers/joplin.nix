@@ -25,13 +25,13 @@
       ports = [ "${opts.ports.joplin-app}:22300" ];
       environment = {
         APP_PORT = "${opts.ports.joplin-app}";
-        APP_BASE_URL = "https://joplin.nullptrderef1.duckdns.org";
+        APP_BASE_URL = "https://joplin.nullptr.sh";
         DB_CLIENT = "pg";
         POSTGRES_PASSWORD = "${secrets.joplin-db-password}";
         POSTGRES_DATABASE = "joplin";
         POSTGRES_USER = "postgres";
         POSTGRES_PORT = "${opts.ports.joplin-db}";
-        POSTGRES_HOST = "nullptrderef1.duckdns.org";
+        POSTGRES_HOST = "nullptr.sh";
         MAILER_ENABLED = "0";
         MAILER_HOST = "";
         MAILER_PORT = "";
