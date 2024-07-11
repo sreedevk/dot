@@ -1,2 +1,0 @@
-nnoremap q :q<CR>
-set editor-command=neovide %s
