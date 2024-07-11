@@ -24,7 +24,7 @@ let
     hooksLocation = "~/.task/hooks";
 
     sync = {
-      serverAddress = "http://nullptrderef1:8080";
+      serverAddress = "https://tasks.nullptr.sh";
       clientID = secrets.taskwarrior_client_id;
       encryptionSecret = secrets.taskwarrior_encryption_secret;
     };
