@@ -70,7 +70,6 @@
     ncdu
     netcat-gnu
     nettools
-    newsboat
     nixpkgs-fmt
     nmap
     nushell
