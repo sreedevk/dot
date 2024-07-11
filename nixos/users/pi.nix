@@ -2,6 +2,7 @@
   imports = [
     ./common/core-packages.nix
     ./common/fastfetch.nix
+    ./common/htop.nix
     ./common/misc.nix
     ./common/neovim.nix
     ./common/ssh.nix
