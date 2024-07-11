@@ -9,9 +9,6 @@
     "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLIIsLk17/QAghVjeIFEd+N1HW/0ucEp92auTlzEU3xMrh46fednqSN3Pa8s7KYnIor4gIDQF4XfOwsmZUj+YgY="
   ];
 
-  github.primary_user = "sreedev";
-  gitlab.primary_user = "sreedev";
-
   default-web-browser = {
     bin = "firefox";
     xdg-desktop = "firefox.desktop";
