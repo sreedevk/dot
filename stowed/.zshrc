@@ -48,12 +48,12 @@ export HISTCONTROL=erasedups:ignoredups:ignorespace
 zle -N edit-command-line
 
 # LOAD COMPILED PLUGINS
-[ -f "$HOME/.zsh/zinit.sh" ]  && source "$HOME/.zsh/zinit.sh"
+[ -f "$HOME/.zsh/zinit.zsh" ]  && source "$HOME/.zsh/zinit.zsh"
 
 # LOAD ALIASES & FUNCTIONS
-[ -f "$HOME/.zsh/aliases.sh" ]   && source "$HOME/.zsh/aliases.sh"
-[ -f "$HOME/.zsh/functions.sh" ] && source "$HOME/.zsh/functions.sh"
-[ -f "$HOME/.zsh/autoloads.sh" ] && source "$HOME/.zsh/autoloads.sh"
+[ -f "$HOME/.zsh/aliases.zsh" ]   && source "$HOME/.zsh/aliases.zsh"
+[ -f "$HOME/.zsh/functions.zsh" ] && source "$HOME/.zsh/functions.zsh"
+[ -f "$HOME/.zsh/autoloads.zsh" ] && source "$HOME/.zsh/autoloads.zsh"
 
 # AUTOLOAD MODULES
 autoload -U colors && colors
