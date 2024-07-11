@@ -10,35 +10,35 @@
       source = ../../../stowed/.zshrc;
     };
 
-    ".zsh-aliases" = {
+    ".zsh/aliases.zsh" = {
       enable = true;
       source = ../../../stowed/.zsh/aliases.sh;
-      target = ".zsh/aliases.sh";
+      target = ".zsh/aliases.zsh";
       recursive = true;
     };
 
-    ".zsh-zinit" = {
+    ".zsh/zinit.zsh" = {
       enable = true;
       source = ../../../stowed/.zsh/zinit.sh;
-      target = ".zsh/zinit.sh";
+      target = ".zsh/zinit.zsh";
       recursive = true;
     };
 
-    ".zsh-autoloads" = {
+    ".zsh/autoloads.zsh" = {
       enable = true;
       source = ../../../stowed/.zsh/autoloads.sh;
-      target = ".zsh/autoloads.sh";
+      target = ".zsh/autoloads.zsh";
       recursive = true;
     };
 
-    ".zsh-functions" = {
+    ".zsh/functions.zsh" = {
       enable = true;
       source = ../../../stowed/.zsh/functions.sh;
-      target = ".zsh/functions.sh";
+      target = ".zsh/functions.zsh";
       recursive = true;
     };
 
-    ".zsh-plugins" = {
+    ".zsh/plugins.zsh" = {
       enable = true;
       recursive = false;
       target = ".zsh/plugins.zsh";
