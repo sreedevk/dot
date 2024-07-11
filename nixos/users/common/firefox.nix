@@ -208,7 +208,7 @@
           bookmarks = [
             {
               name = "nullptrderef1";
-              url = "https://nullptrderef1.duckdns.org/";
+              url = "https://nullptr.sh";
             }
             {
               name = "hackernews";
@@ -219,7 +219,7 @@
               url = ''
                 javascript: (function () {
                   var bookmarkUrl = window.location;
-                  var applicationUrl = 'https://links.nullptrderef1.duckdns.org/bookmarks/new';
+                  var applicationUrl = 'https://links.nullptr.sh/bookmarks/new';
                   applicationUrl += '?url=' + encodeURIComponent(bookmarkUrl);
                   applicationUrl += '&auto_close';
                   window.open(applicationUrl);
