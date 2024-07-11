@@ -57,7 +57,6 @@
         export OPEN_WEATHER_API_KEY="${secrets.openweather_token or ""}"
         export PASTEBIN_API_KEY="${secrets.pastebin_token or ""}"
         export WALLHAVEN_API_KEY="${secrets.wallhaven_token or ""}"
-        export FRESHRSS_PASSWORD="${secrets.freshrss_app_password or ""}"
         export GH_TOKEN="${secrets.github_token or ""}"
       '';
     };
