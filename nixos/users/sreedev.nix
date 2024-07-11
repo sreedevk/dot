@@ -11,6 +11,7 @@
     ./common/keybase.nix
     ./common/keyboard.nix
     ./common/misc.nix
+    ./common/newsboat.nix
     ./common/ssh.nix
     ./common/stylix.nix
     ./common/taskwarrior.nix
