@@ -19,6 +19,7 @@
     ./common/taskwarrior.nix
     ./common/tmux.nix
     ./common/x86-packages.nix
+    ./common/zathura.nix
     ./common/zsh.nix
   ];
 
@@ -49,6 +50,5 @@
     slack
     spotify
     sxiv
-    zathura
   ];
 }
