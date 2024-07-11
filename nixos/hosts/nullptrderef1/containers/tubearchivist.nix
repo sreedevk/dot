@@ -21,7 +21,7 @@
         TZ = opts.timeZone;
         HOST_UID = opts.adminUID;
         HOST_GID = opts.adminGID;
-        TA_HOST = "tube.nullptrderef1.duckdns.org";
+        TA_HOST = "tube.nullptr.sh";
         TA_USERNAME = "admin";
         TA_PASSWORD = secrets.tubearchivist_app_password;
         ELASTIC_PASSWORD = secrets.tubearchivist_es_password;
