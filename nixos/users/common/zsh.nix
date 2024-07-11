@@ -12,28 +12,28 @@
 
     ".zsh/aliases.zsh" = {
       enable = true;
-      source = ../../../stowed/.zsh/aliases.sh;
+      source = ../../../stowed/.zsh/aliases.zsh;
       target = ".zsh/aliases.zsh";
       recursive = true;
     };
 
     ".zsh/zinit.zsh" = {
       enable = true;
-      source = ../../../stowed/.zsh/zinit.sh;
+      source = ../../../stowed/.zsh/zinit.zsh;
       target = ".zsh/zinit.zsh";
       recursive = true;
     };
 
     ".zsh/autoloads.zsh" = {
       enable = true;
-      source = ../../../stowed/.zsh/autoloads.sh;
+      source = ../../../stowed/.zsh/autoloads.zsh;
       target = ".zsh/autoloads.zsh";
       recursive = true;
     };
 
     ".zsh/functions.zsh" = {
       enable = true;
-      source = ../../../stowed/.zsh/functions.sh;
+      source = ../../../stowed/.zsh/functions.zsh;
       target = ".zsh/functions.zsh";
       recursive = true;
     };
