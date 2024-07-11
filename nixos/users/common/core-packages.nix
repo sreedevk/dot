@@ -28,7 +28,6 @@
     dust
     exiftool
     eza
-    fastfetch
     fd
     fzf
     gh
