@@ -23,7 +23,7 @@
         PAPERLESS_TIME_ZONE = opts.timeZone;
         PAPERLESS_OCR_LANGUAGE = "eng";
         PAPERLESS_DBPORT = opts.ports.paperless-db;
-        PAPERLESS_URL = "https://paperless.nullptrderef1.duckdns.org";
+        PAPERLESS_URL = "https://docs.nullptr.sh";
         USERMAP_UID = opts.adminUID;
         USERMAP_GID = opts.adminGID;
         TZ = opts.timeZone;
