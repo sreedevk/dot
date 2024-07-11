@@ -5,6 +5,7 @@
     ./common/awscli.nix
     ./common/core-packages.nix
     ./common/dunst.nix
+    ./common/fastfetch.nix
     ./common/firefox.nix
     ./common/fontconfig.nix
     ./common/i3.nix
