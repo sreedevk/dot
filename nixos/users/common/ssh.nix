@@ -16,55 +16,52 @@
   programs.ssh = {
     enable = true;
     userKnownHostsFile = "/dev/null";
+    extraOptionOverrides = {
+      StrictHostKeyChecking = "no";
+    };
 
     matchBlocks = {
       "sree.dev" = {
         hostname = "sree.dev";
         user = "deploy";
-        identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
-        checkHostIP = false;
+        identityFile = "~/.ssh/devtechnica";
       };
 
       "github.com" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
-        checkHostIP = false;
+        identityFile = "~/.ssh/devtechnica";
       };
 
       "nullptr.sh" = {
         hostname = "nullptr.sh";
         user = "admin";
-        identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
-        checkHostIP = false;
+        identityFile = "~/.ssh/devtechnica";
       };
 
       "gitea.nullptr.sh" = {
         hostname = "gitea.nullptr.sh";
         user = "git";
         port = 222;
-        identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
-        checkHostIP = false;
+        identityFile = "~/.ssh/devtechnica";
       };
 
       "gitlab.com" = {
         hostname = "gitlab.com";
         user = "git";
-        identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
-        checkHostIP = false;
+        identityFile = "~/.ssh/devtechnica";
       };
 
       "rpi4b" = {
         hostname = "192.168.1.152";
         user = "pi";
-        identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
-        checkHostIP = false;
+        identityFile = "~/.ssh/devtechnica";
       };
 
     };
