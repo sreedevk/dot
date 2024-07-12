@@ -40,7 +40,8 @@ alias zl="zellij"
 alias g='git'
 
 # Docker
-alias dc='docker-compose'
+alias dc='docker compose'
+alias d='docker'
 
 # yt-dlp
 alias yt='yt-dlp'
