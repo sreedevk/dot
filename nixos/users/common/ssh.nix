@@ -23,6 +23,7 @@
         user = "deploy";
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
+        checkHostIP = false;
       };
 
       "github.com" = {
@@ -30,6 +31,7 @@
         user = "git";
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
+        checkHostIP = false;
       };
 
       "nullptr.sh" = {
@@ -37,6 +39,7 @@
         user = "admin";
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
+        checkHostIP = false;
       };
 
       "gitea.nullptr.sh" = {
@@ -45,6 +48,7 @@
         port = 222;
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
+        checkHostIP = false;
       };
 
       "gitlab.com" = {
@@ -52,6 +56,7 @@
         user = "git";
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
+        checkHostIP = false;
       };
 
       "rpi4b" = {
@@ -59,6 +64,7 @@
         user = "pi";
         identityFile = "~/.ssh/devtechnica";
         identitiesOnly = true;
+        checkHostIP = false;
       };
 
     };
