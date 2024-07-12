@@ -1,4 +1,7 @@
 { pkgs, lib, inputs, system, opts, ... }: {
+
+  services.autorandr.enable = true;
+
   programs.autorandr = {
     enable = true;
     profiles = {
@@ -39,7 +42,7 @@
             primary = true;
             mode = "1920x1200";
             position = "0x0";
-            rate = "60.03";
+            rate = "60.00";
             dpi = 96;
           };
         };
@@ -58,7 +61,7 @@
             primary = false;
             mode = "1920x1080";
             position = "0x0";
-            rate = "100.00";
+            rate = "60.00";
             dpi = 96;
           };
 
