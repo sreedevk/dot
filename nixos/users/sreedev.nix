@@ -69,6 +69,7 @@
         openttd
         playerctl
         python311Packages.i3ipc
+        python312Packages.supervisor
         qflipper
         rofi
         slack
