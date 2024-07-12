@@ -200,8 +200,8 @@
         client.placeholder       $overlay0 $base  $text  $overlay0  $overlay0
         client.background        $base
 
-        assign [class="Slack"]                     $ws4
-        assign [class="Brave-browser"]             $ws2
+        # assign [class="Slack"]                     $ws4
+        # assign [class="Brave-browser"]             $ws2
 
         for_window [urgent=latest]                      focus
         for_window [class="Pavucontrol"]                floating enable resize set 800 500
