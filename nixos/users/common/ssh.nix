@@ -15,12 +15,14 @@
 
   programs.ssh = {
     enable = true;
-    matchBlocks = {
+    userKnownHostsFile = "/dev/null";
 
+    matchBlocks = {
       "sree.dev" = {
         hostname = "sree.dev";
         user = "deploy";
         identityFile = "~/.ssh/devtechnica";
+        identitiesOnly = true;
       };
 
       "github.com" = {
