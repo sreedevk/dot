@@ -105,7 +105,8 @@
     qbittorrent-web = "8001";
     radarr = "7878";
     readarr = "8787";
-    container-registry = "5500";
+    container-registry-server = "5500";
+    container-registry-web = "5600";
     rss-bridge = "8768";
     searxng = "9199";
     sonarr = "8989";
