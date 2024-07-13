@@ -60,6 +60,7 @@
         dunst
         emacs
         feh
+        floorp
         gimp-with-plugins
         joplin-desktop
         libreoffice-fresh
