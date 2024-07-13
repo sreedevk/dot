@@ -25,6 +25,7 @@
       volumes = [
         "${opts.paths.application_data}/containers/web/data:/opt/data"
         "${opts.paths.application_data}/containers/web/config.yml:/opt/config.yml:ro"
+        "${opts.paths.application_data}/containers/web/registry_password_file:/run/secrets/registry_password_file:ro"
       ];
       environment = {
         TZ = opts.timeZone;
