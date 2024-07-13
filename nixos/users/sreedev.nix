@@ -65,6 +65,7 @@
         libreoffice-fresh
         lmms
         maim
+        nicotine-plus
         nsxiv
         openttd
         playerctl
