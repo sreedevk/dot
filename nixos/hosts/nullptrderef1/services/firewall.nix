@@ -20,6 +20,7 @@ in
         bazarr
         cloudbeaver
         cockpit
+        container-registry
         docuseal
         filebrowser
         firefly_app
@@ -93,6 +94,7 @@ in
       [
         adguard_dns
         audiobookshelf
+        container-registry
         ftp
         gitea_ssh
         gotify

@@ -7,6 +7,7 @@
     ./autobrr.nix
     ./baikal.nix
     ./cloudbeaver.nix
+    ./container-registry.nix
     ./docuseal.nix
     ./filebrowser.nix
     ./firefly.nix
