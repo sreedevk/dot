@@ -188,7 +188,14 @@
       enable = true;
       port = pkgs.lib.strings.toInt opts.ports.cockpit;
       openFirewall = true;
-      settings = { WebService = { AllowUnencrypted = true; }; };
+      settings = {
+        WebService =
+          {
+            AllowUnencrypted = false;
+            Origins = [ "https://cockpit.nullptr.sh" ];
+            ProtocolHeader = "X-Forwarded-Proto";
+          };
+      };
     };
 
     zfs = {
