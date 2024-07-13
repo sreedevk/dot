@@ -74,8 +74,8 @@ map('n', '<leader>sp', [[<cmd>lua require("persistence").load({last=true})<cr>]]
 map("n", "<leader>so", [[<cmd>lua require("persistence").load()<cr>]])
 map("n", "<leader>sd", [[<cmd>lua require("persistence").stop()<cr>]])
 
--- trevj
-map('n', '<Leader>j', [[<cmd>lua require('treesj').toggle()<cr>]])
+-- leader
+map("n", "<leader>j", [[<cmd>TSJToggle<cr>]])
 
 -- zoxide
 map('n', '<Leader>zi', [[<cmd>Zi<cr>]])

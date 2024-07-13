@@ -157,16 +157,6 @@ return {
       require('mini.comment').setup()
     end
   },
-
-  {
-    'Wansmer/treesj',
-    keys = { '<leader>j' },
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    config = function()
-      require('treesj').setup({})
-    end,
-  },
-
   {
     'ledger/vim-ledger',
     ft = { 'ledger', 'journal' },
