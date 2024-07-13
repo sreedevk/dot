@@ -105,6 +105,7 @@
     qbittorrent-web = "8001";
     radarr = "7878";
     readarr = "8787";
+    container-registry = "5500";
     rss-bridge = "8768";
     searxng = "9199";
     sonarr = "8989";
@@ -115,6 +116,7 @@
     tubearchivist-redis = "6379";
     uptime-kuma = "3001";
     vaultwarden = "9801";
+    whisper = "9000";
   };
 
   autorandr =
