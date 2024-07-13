@@ -131,6 +131,7 @@
     hwinfo
     icecast
     iwd
+    kexec-tools
     lshw
     man
     mosh
