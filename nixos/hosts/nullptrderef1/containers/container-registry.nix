@@ -4,7 +4,7 @@
     "container-registry" = {
       autoStart = true;
       image = "registry:2.7";
-      extraOptions = [ "--network=host" "--no-healthcheck" ];
+      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.container-registry}:5000" ];
       volumes = [ "${opts.paths.application_data}/container-registry:/data" ];
       environment = {
