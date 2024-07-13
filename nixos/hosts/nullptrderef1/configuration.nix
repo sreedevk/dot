@@ -191,9 +191,8 @@
       settings = {
         WebService =
           {
-            AllowUnencrypted = false;
+            AllowUnencrypted = true;
             Origins = "https://cockpit.nullptr.sh";
-            ProtocolHeader = "X-Forwarded-Proto";
           };
       };
     };
