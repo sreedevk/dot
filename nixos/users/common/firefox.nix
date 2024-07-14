@@ -23,6 +23,7 @@
         darkreader
         duckduckgo-privacy-essentials
         linkding-extension
+        mullvad
         multi-account-containers
         open-url-in-container
         sponsorblock
