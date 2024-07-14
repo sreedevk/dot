@@ -154,6 +154,7 @@
     unzip
     zfs
     zip
+    zmap
     zsh
   ];
 
