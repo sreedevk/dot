@@ -3,6 +3,19 @@
     enable = true;
     profiles.main = {
       isDefault = true;
+      containersForce = true;
+      containers = {
+        personal = {
+          color = "red";
+          icon = "tree";
+          id = 1;
+        };
+        work = {
+          color = "pink";
+          icon = "briefcase";
+          id = 2;
+        };
+      };
       extensions = with inputs.firefox-addons.packages."${system}"; [
         adnauseam
         bitwarden
@@ -18,6 +31,7 @@
       search = {
         force = true;
         default = "DuckDuckGo";
+        privateDefault = "DuckDuckGo";
         engines = {
           "Nix Packages" = {
             urls = [{
