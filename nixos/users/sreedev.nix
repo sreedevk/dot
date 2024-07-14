@@ -14,6 +14,7 @@
     ./common/keybase.nix
     ./common/keyboard.nix
     ./common/misc.nix
+    ./common/neovim.nix
     ./common/newsboat.nix
     ./common/ssh.nix
     ./common/stylix.nix
@@ -26,58 +27,63 @@
 
   home.packages =
     let
-      cli-tools = with pkgs; [
-        awscli2
-        doctl
-        duckdb
-        glab
-        glow
-        hledger
-        instaloader
-        irssi
-        jira-cli-go
-        k9s
-        mdbook
-        nixpkgs-fmt
-        nushell
-        pandoc
-        taskwarrior-tui
-        tea
-        tmuxinator
-        yt-dlp
-        zola
-      ];
+      cli-tools =
+        with pkgs; [
+          awscli2
+          doctl
+          duckdb
+          glab
+          glow
+          hledger
+          instaloader
+          irssi
+          jira-cli-go
+          k9s
+          mdbook
+          nixpkgs-fmt
+          nushell
+          pandoc
+          taskwarrior-tui
+          tea
+          tmuxinator
+          yt-dlp
+          zola
+        ];
 
-      gui-tools = with pkgs; [
-        (nerdfonts.override { fonts = [ "Iosevka" ]; })
-        arandr
-        autorandr
-        autotiling
-        brightnessctl
-        cinnamon.nemo-with-extensions
-        dbeaver-bin
-        droidcam
-        dunst
-        emacs
-        feh
-        floorp
-        gimp-with-plugins
-        joplin-desktop
-        libreoffice-fresh
-        lmms
-        maim
-        nicotine-plus
-        nsxiv
-        openttd
-        playerctl
-        python311Packages.i3ipc
-        python312Packages.supervisor
-        qflipper
-        rofi
-        slack
-        spotify
-        sxiv
-      ];
+      gui-tools =
+        with pkgs; [
+          (nerdfonts.override { fonts = [ "Iosevka" ]; })
+          arandr
+          autorandr
+          autotiling
+          brightnessctl
+          cinnamon.nemo-with-extensions
+          dbeaver-bin
+          droidcam
+          dunst
+          emacs
+          feh
+          floorp
+          gimp-with-plugins
+          joplin-desktop
+          libreoffice-fresh
+          lmms
+          maim
+          nicotine-plus
+          nsxiv
+          openttd
+          playerctl
+          python311Packages.i3ipc
+          python312Packages.supervisor
+          qflipper
+          rofi
+          slack
+          spotify
+          sxiv
+        ];
     in
-    builtins.concatLists [ cli-tools gui-tools ];
+    builtins.concatLists [
+      cli-tools
+      gui-tools
+    ];
 }
