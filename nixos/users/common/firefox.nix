@@ -23,7 +23,10 @@
         darkreader
         duckduckgo-privacy-essentials
         linkding-extension
+        multi-account-containers
+        open-url-in-container
         sponsorblock
+        temporary-containers
         tubearchivist-companion
         ublock-origin
         vimium
