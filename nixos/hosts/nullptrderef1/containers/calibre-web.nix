@@ -8,6 +8,7 @@
       ports = [ "${opts.ports.calibre-web}:8083" ];
       volumes = [
         "${opts.paths.application_data}/calibre-web:/config"
+        "${opts.paths.application_databases}/calibre-web:/metadata"
         "${opts.paths.books}:/books:ro"
       ];
       environment = {
