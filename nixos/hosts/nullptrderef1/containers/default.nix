@@ -42,6 +42,7 @@
     ./tubearchivist.nix
     ./uptime-kuma.nix
     ./vaultwarden.nix
+    ./watchtower.nix
   ];
 
   virtualisation.podman = {
