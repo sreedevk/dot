@@ -18,6 +18,7 @@ in
         autobrr
         baikal
         bazarr
+        calibre-web
         cloudbeaver
         cockpit
         container-registry-server
