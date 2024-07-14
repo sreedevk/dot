@@ -6,6 +6,7 @@
     ./audiobookshelf.nix
     ./autobrr.nix
     ./baikal.nix
+    ./calibre-web.nix
     ./cloudbeaver.nix
     ./container-registry.nix
     ./docuseal.nix

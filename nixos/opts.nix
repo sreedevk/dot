@@ -57,6 +57,7 @@
     gitea_http = "3000";
     gitea_ssh = "222";
     gotify = "8773";
+    calibre-web = "8083";
     grafana = "2442";
     homebox = "3100";
     homer = "82";
