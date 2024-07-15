@@ -19,7 +19,7 @@
       recursive = true;
       text = ''
         [user]
-          email = sreedev@icloud.com
+          email = sreedevpadmakumar@gmail.com
           name = sreedev
           signingkey = F2D006638E49CD45
         [core]
