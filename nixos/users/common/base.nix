@@ -31,24 +31,6 @@
       recursive = true;
     };
 
-    ".gitattributes" = {
-      enable = true;
-      source = ../../../stowed/.gitattributes;
-      recursive = true;
-    };
-
-    ".gitconfig" = {
-      enable = true;
-      source = ../../../stowed/.gitconfig;
-      recursive = true;
-    };
-
-    ".gitignore" = {
-      enable = true;
-      source = ../../../stowed/.gitignore;
-      recursive = true;
-    };
-
     ".profile" = {
       enable = true;
       source = ../../../stowed/.profile;

@@ -3,17 +3,18 @@
     ./common/autorandr.nix
     ./common/autotiling.nix
     ./common/awscli.nix
+    ./common/base.nix
     ./common/core-packages.nix
     ./common/dunst.nix
     ./common/fastfetch.nix
     ./common/firefox.nix
     ./common/fontconfig.nix
+    ./common/git.nix
     ./common/github.nix
     ./common/htop.nix
     ./common/i3.nix
     ./common/keybase.nix
     ./common/keyboard.nix
-    ./common/misc.nix
     ./common/neovim.nix
     ./common/newsboat.nix
     ./common/ssh.nix
