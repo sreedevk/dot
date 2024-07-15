@@ -1,9 +1,10 @@
 { configs, pkgs, secrets, username, ... }: {
   imports = [
+    ./common/base.nix
     ./common/core-packages.nix
     ./common/fastfetch.nix
+    ./common/git.nix
     ./common/htop.nix
-    ./common/misc.nix
     ./common/neovim.nix
     ./common/ssh.nix
     ./common/taskwarrior.nix
