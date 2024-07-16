@@ -3,6 +3,7 @@
   home.file = {
     ".gitattributes" = {
       enable = true;
+      target = ".gitattributes";
       recursive = true;
       text = ''
         *.rb diff=ruby
@@ -30,6 +31,7 @@
 
     ".gitignore" = {
       enable = true;
+      target = ".gitignore";
       recursive = true;
       text = ''
         .tmux/plugins/**
