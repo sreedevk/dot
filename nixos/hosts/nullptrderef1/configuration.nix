@@ -1,6 +1,10 @@
 { config, pkgs, secrets, opts, system, inputs, ... }:
 {
-  imports = [ ./hardware-configuration.nix ./containers ./services ];
+  imports = [
+    ./hardware-configuration.nix
+    ../common/containers
+    ../common/services
+  ];
 
   documentation.nixos.enable = true;
 
