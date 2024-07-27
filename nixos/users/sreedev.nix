@@ -58,7 +58,6 @@
           autorandr
           autotiling
           brightnessctl
-          cinnamon.nemo-with-extensions
           dbeaver-bin
           droidcam
           dunst
@@ -70,6 +69,7 @@
           libreoffice-fresh
           lmms
           maim
+          nemo-with-extensions
           nicotine-plus
           nsxiv
           openttd

@@ -37,7 +37,7 @@
         rewrites = [
           {
             domain = "nullptrderef1";
-            answer = "192.168.1.179";
+            answer = opts.lanAddress;
           }
           {
             domain = "rpi4b.localhost";
