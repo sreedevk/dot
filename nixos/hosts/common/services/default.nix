@@ -6,5 +6,6 @@
     ./icecast.nix
     ./telemetry.nix
     ./taskchampion.nix
+    ./tailscale.nix
   ];
 }
