@@ -1,17 +1,23 @@
-{ config, lib, pkgs, secrets, opts, ... }: {
+{ config, lib, pkgs, opts, ... }: {
   virtualisation.oci-containers.containers = {
     "archivebox" = {
       autoStart = true;
-      image = "archivebox/archivebox";
-      extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.ports.archivebox}:8000" ];
-      volumes = [ "${opts.paths.application_data}/archivebox:/data" ];
       environment = {
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
         PGID = opts.adminGID;
+        PUID = opts.adminUID;
+        TZ = opts.timeZone;
       };
+      extraOptions = [
+        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
+      image = "archivebox/archivebox";
+      ports = [
+        "${opts.ports.archivebox}:8000"
+      ];
+      volumes = [
+        "${opts.paths.application_data}/archivebox:/data"
+      ];
     };
   };
 }

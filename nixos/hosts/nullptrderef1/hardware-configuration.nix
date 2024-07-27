@@ -64,7 +64,7 @@
         useDHCP = lib.mkDefault false;
         ipv4 = {
           addresses = [{
-            address = "192.168.1.179";
+            address = opts.lanAddress;
             prefixLength = 24;
           }];
         };
