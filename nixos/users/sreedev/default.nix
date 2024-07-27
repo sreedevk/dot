@@ -1,29 +1,29 @@
 { pkgs, secrets, lib, inputs, opts, system, username, ... }: {
   imports = [
-    ./common/autorandr.nix
-    ./common/autotiling.nix
-    ./common/awscli.nix
-    ./common/base.nix
-    ./common/core-packages.nix
-    ./common/dunst.nix
-    ./common/fastfetch.nix
-    ./common/firefox.nix
-    ./common/fontconfig.nix
-    ./common/git.nix
-    ./common/github.nix
-    ./common/htop.nix
-    ./common/i3.nix
-    ./common/keybase.nix
-    ./common/keyboard.nix
-    ./common/neovim.nix
-    ./common/newsboat.nix
-    ./common/ssh.nix
-    ./common/stylix.nix
-    ./common/taskwarrior.nix
-    ./common/tmux.nix
-    ./common/x86-packages.nix
-    ./common/zathura.nix
-    ./common/zsh.nix
+    ../common/autorandr.nix
+    ../common/autotiling.nix
+    ../common/awscli.nix
+    ../common/base.nix
+    ../common/core-packages.nix
+    ../common/dunst.nix
+    ../common/fastfetch.nix
+    ../common/firefox.nix
+    ../common/fontconfig.nix
+    ../common/git.nix
+    ../common/github.nix
+    ../common/htop.nix
+    ../common/i3.nix
+    ../common/keybase.nix
+    ../common/keyboard.nix
+    ../common/neovim.nix
+    ../common/newsboat.nix
+    ../common/ssh.nix
+    ../common/stylix.nix
+    ../common/taskwarrior.nix
+    ../common/tmux.nix
+    ../common/x86-packages.nix
+    ../common/zathura.nix
+    ../common/zsh.nix
   ];
 
   home.packages =
