@@ -52,7 +52,7 @@
           pkgs = pkgs.legacyPackages."${system}";
           modules = [
             stylix.homeManagerModules.stylix
-            ./users/${username}.nix
+            ./users/${username}
           ];
           extraSpecialArgs = { inherit inputs secrets system username opts; };
         };
