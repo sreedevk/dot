@@ -59,6 +59,7 @@
     nmap
     ouch
     p7zip
+    pass
     procs
     progress
     pwgen
