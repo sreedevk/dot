@@ -1,7 +1,7 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   virtualisation.oci-containers.containers = {
     "nginx-proxy-manager" = {
-      autoStart = true;
+      autoStart = false;
       image = "jc21/nginx-proxy-manager:latest";
       ports = [
         "${opts.ports.nginx-proxy-manager-app}:81"
