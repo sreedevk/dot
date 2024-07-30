@@ -31,7 +31,7 @@
         TZ = opts.timeZone;
         USER_UID = opts.adminUID;
         USER_GID = opts.adminGID;
-        REGISTRY_HOSTNAME = "nullptrderef1:${opts.ports.container-registry-server}";
+        REGISTRY_HOSTNAME = "dkr.xternull.duckdns.org";
       };
     };
   };
