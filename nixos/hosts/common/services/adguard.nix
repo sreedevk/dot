@@ -47,6 +47,10 @@
             domain = "devstation.localhost";
             answer = "192.168.1.249";
           }
+          {
+            domain = "dkr.nullptr.sh";
+            answer = opts.lanAddress;
+          }
         ];
       };
       dns = {
