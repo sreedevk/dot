@@ -1,4 +1,4 @@
-{ opts, ... }: {
+{ opts, secrets, ... }: {
   virtualisation.oci-containers.containers = {
     "aria2" = {
       autoStart = true;
@@ -6,6 +6,7 @@
         PGID = opts.adminGID;
         PUID = opts.adminUID;
         TZ = opts.timeZone;
+        RPC_SECRET = secrets.aria2_password;
       };
       extraOptions = [
         "--add-host=nullptrderef1:${opts.lanAddress}"
