@@ -36,18 +36,20 @@
       };
 
       "nullptr.sh" = {
-        hostname = "nullptr.sh";
+        hostname = "192.168.1.179";
         user = "admin";
         identitiesOnly = true;
         identityFile = "~/.ssh/devtechnica";
+        proxyJump = "rpi4b";
       };
 
       "gitea.nullptr.sh" = {
-        hostname = "gitea.nullptr.sh";
+        hostname = "192.168.1.179";
         user = "git";
         port = 222;
         identitiesOnly = true;
         identityFile = "~/.ssh/devtechnica";
+        proxyJump = "rpi4b";
       };
 
       "gitlab.com" = {
@@ -58,7 +60,7 @@
       };
 
       "rpi4b" = {
-        hostname = "192.168.1.152";
+        hostname = "100.66.42.90";
         user = "pi";
         identitiesOnly = true;
         identityFile = "~/.ssh/devtechnica";
