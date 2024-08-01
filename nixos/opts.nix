@@ -46,9 +46,13 @@
     autobrr = "7474";
     baikal = "8945";
     bazarr = "6767";
+    calibre-web = "8083";
     cloudbeaver = "8079";
     cockpit = "8008";
+    container-registry-server = "5500";
+    container-registry-web = "5600";
     docuseal = "6008";
+    excalidraw = "9977";
     filebrowser = "6660";
     firefly_app = "6003";
     firefly_db = "3306";
@@ -59,7 +63,6 @@
     gitea_http = "3000";
     gitea_ssh = "222";
     gotify = "8773";
-    calibre-web = "8083";
     grafana = "2442";
     homebox = "3100";
     homer = "82";
@@ -108,8 +111,6 @@
     qbittorrent-web = "8001";
     radarr = "7878";
     readarr = "8787";
-    container-registry-server = "5500";
-    container-registry-web = "5600";
     rss-bridge = "8768";
     searxng = "9199";
     sonarr = "8989";

@@ -10,6 +10,7 @@
     ./cloudbeaver.nix
     ./container-registry.nix
     ./docuseal.nix
+    ./excalidraw.nix
     ./filebrowser.nix
     ./firefly.nix
     ./flaresolverr.nix
