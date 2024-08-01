@@ -57,7 +57,8 @@
     firefly_app = "6003";
     firefly_db = "3306";
     flaresolverr = "8191";
-    freshrss = "8808";
+    freshrss-app = "8808";
+    freshrss-db = "3311";
     ftp = "21";
     gitea_db = "3309";
     gitea_http = "3000";
