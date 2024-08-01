@@ -1,22 +1,55 @@
 { config, lib, pkgs, secrets, opts, ... }: {
   virtualisation.oci-containers.containers = {
-    "freshRSS" = {
+    "freshrss-app" = {
       autoStart = true;
       image = "freshrss/freshrss:edge";
+      dependsOn = [ "freshrss-db" ];
       extraOptions =
         [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.application_data}/FreshRSS/data/:/var/www/FreshRSS/data"
-        "${opts.paths.application_data}/FreshRSS/extensions/:/var/www/FreshRSS/extensions"
+        "${opts.paths.application_data}/freshrss/data/:/var/www/FreshRSS/data"
+        "${opts.paths.application_data}/freshrss/extensions/:/var/www/FreshRSS/extensions"
       ];
-      ports = [ "${opts.ports.freshrss}:80" ];
+      ports = [ "${opts.ports.freshrss-app}:80" ];
       environment = {
+        ADMIN_API_PASSWORD = secrets.freshrss_app_password;
+        ADMIN_EMAIL = secrets.freshrss_app_site_owner;
+        ADMIN_PASSWORD = secrets.freshrss_app_password;
+        FRESHRSS_ENV = "production";
         CRON_MIN = "2,32";
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
+        BASE_URL = "https://freshrss.nullptr.sh";
+        DB_BASE = secrets.freshrss_database_name;
+        DB_HOST = secrets.freshrss_database_host;
+        DB_PASSWORD = secrets.freshrss_database_password;
+        DB_USER = secrets.freshrss_database_username;
         PGID = opts.adminGID;
+        PUBLISHED_PORT = "80";
+        PUID = opts.adminUID;
+        TZ = opts.timeZone;
       };
     };
+
+    "freshrss-db" = {
+      autoStart = true;
+      image = "mariadb:latest";
+      ports = [ "${opts.ports.freshrss-db}:3306" ];
+      cmd = [ "--max-connections=128" ];
+      extraOptions = [
+        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
+      volumes = [ "${opts.paths.application_databases}/freshrss:/var/lib/mysql" ];
+      environment = {
+        MYSQL_DATABASE = secrets.freshrss_database_name;
+        MYSQL_PASSWORD = secrets.freshrss_database_password;
+        MYSQL_ROOT_PASSWORD = secrets.freshrss_database_password;
+        MYSQL_USER = secrets.freshrss_database_username;
+        PGID = opts.adminGID;
+        PUID = opts.adminUID;
+        TZ = opts.timeZone;
+      };
+    };
+
     "rss-bridge" = {
       autoStart = true;
       image = "rssbridge/rss-bridge:latest";

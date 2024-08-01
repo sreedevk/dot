@@ -29,7 +29,8 @@ in
         firefly_app
         firefly_db
         flaresolverr
-        freshrss
+        freshrss-app
+        freshrss-db
         ftp
         gitea_db
         gitea_http
