@@ -25,3 +25,8 @@ fi
 if [ -f "$HOME/.cargo/env" ]; then
   . $HOME/.cargo/env
 fi
+
+# FJIRA AUTOLOADS - JIRA TUI
+if command -v fjira &> /dev/null; then
+  eval "$(fjira completion zsh)"
+end

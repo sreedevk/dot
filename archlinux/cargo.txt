@@ -1,8 +1,8 @@
-cargo-expand v1.0.88
+cargo-expand v1.0.89
 cargo-update v13.4.0
 cargo-watch v8.5.2
 deduplicator v0.2.2
 diesel_cli v2.2.1
 sea-orm-cli v0.12.15
-sqlx-cli v0.7.4
+sqlx-cli v0.8.0
 wasm-pack v0.13.0

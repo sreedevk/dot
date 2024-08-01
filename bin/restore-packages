@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+set -xe 
+
+sudo pacman -S $(cat ~/.dot/archlinux/packages.txt | awk '{print $1}' | xargs)
+sudo aura -A $(cat ~/.dot/archlinux/aur.txt | awk '{print $1}' | xargs)
+cat ~/.dot/archlinux/cargo.txt | awk '{print $1}' | xargs -Ix cargo install x
