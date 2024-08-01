@@ -51,6 +51,7 @@ in
         kavita
         lidarr
         linkding
+        llama-cpp-server
         memos
         metube
         navidrome

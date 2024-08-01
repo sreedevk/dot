@@ -27,6 +27,7 @@
     ./kavita.nix
     ./linkding.nix
     ./livebook.nix
+    ./llama-cpp.nix
     ./memos.nix
     ./metube.nix
     ./navidrome.nix
