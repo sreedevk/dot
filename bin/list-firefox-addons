@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
 fflake=$(nix flake metadata ./nixos --json | jq '.locks.nodes."firefox-addons".original')
 fdirectory=$(echo $fflake | jq '.dir' -r)

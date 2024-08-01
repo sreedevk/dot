@@ -54,6 +54,14 @@
             definedAliases = [ "@no" ];
           };
 
+          "Firefox Addons" = {
+            urls = [{
+              template =
+                "https://addons.mozilla.org/en-US/firefox/search/?q={searchTerms}";
+            }];
+            definedAliases = [ "@fa" ];
+          };
+
           "NixOS Wiki" = {
             urls = [{
               template =
