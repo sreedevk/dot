@@ -1,6 +1,7 @@
 { pkgs, lib, inputs, system, ... }: {
   programs.firefox = {
     enable = true;
+    package = pkgs.firefox-bin;
     profiles.main = {
       isDefault = true;
       containersForce = true;
