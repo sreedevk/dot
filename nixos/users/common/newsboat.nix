@@ -86,7 +86,7 @@
 
       urls-source "freshrss"
       freshrss-url "https://freshrss.nullptr.sh/api/greader.php"
-      freshrss-login "user"
+      freshrss-login "admin"
       freshrss-passwordeval "echo ${secrets.freshrss_app_password or ""}"
       freshrss-min-items 100
       freshrss-flag-star "s"
