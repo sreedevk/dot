@@ -83,6 +83,7 @@
     wget
     xh
     xxd
+    yq
     zellij
     zoxide
   ];
