@@ -18,19 +18,21 @@
   paths = {
     application_data = "/mnt/dpool0/appdata";
     application_databases = "/mnt/dpool0/appdata/databases";
-    downloads = "/mnt/dpool0/downloads";
-    documents = "/mnt/dpool0/personal/documents";
-    magazines = "/mnt/dpool0/media/magazines";
-    qbt_images = "/mnt/dpool0/media/photos/other";
-    images = "/mnt/dpool0/media/photos";
-    torrent_watch = "/mnt/dpool0/downloads/torrents";
-    movies = "/mnt/dpool0/media/movies";
     audiobooks = "/mnt/dpool0/media/audiobooks";
     books = "/mnt/dpool0/media/books";
+    documents = "/mnt/dpool0/personal/documents";
+    downloads = "/mnt/dpool0/downloads";
+    images = "/mnt/dpool0/media/photos";
+    llama-cpp-models = "/mnt/dpool0/resources/llms/llama-cpp-models";
+    magazines = "/mnt/dpool0/media/magazines";
+    movies = "/mnt/dpool0/media/movies";
     music = "/mnt/dpool0/media/music";
-    videos = "/mnt/dpool0/media/videos";
-    television = "/mnt/dpool0/media/shows";
+    other = "/mnt/dpool0/other";
     podmanSocket = "/var/run/podman/podman.sock";
+    qbt_images = "/mnt/dpool0/media/photos/other";
+    television = "/mnt/dpool0/media/shows";
+    torrent_watch = "/mnt/dpool0/downloads/torrents";
+    videos = "/mnt/dpool0/media/videos";
   };
 
   ports = {
@@ -77,6 +79,7 @@
     joplin-app = "22300";
     joplin-db = "5432";
     kavita = "5000";
+    llama-cpp-server = "8100";
     lidarr = "8686";
     linkding = "9090";
     memos = "5230";
