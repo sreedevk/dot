@@ -16,7 +16,7 @@ in
 {
   virtualisation.oci-containers.containers = {
     "llama-cpp-server" = {
-      autoStart = true;
+      autoStart = false; # memory consumption is high, start only on use.
       image = "ghcr.io/ggerganov/llama.cpp:server";
       extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.llama-cpp-server}:8000" ];
