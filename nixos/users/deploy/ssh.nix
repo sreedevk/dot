@@ -6,13 +6,7 @@
       target = ".ssh/authorized_keys.source";
       executable = false;
       recursive = false;
-      text = builtins.concatStringsSep "\n" (with opts.publicKeys; [
-        devstation
-        neoserver
-        olivetin
-        rpi4b
-        terminus
-      ]);
+      text = builtins.concatStringsSep "\n" (with opts.publicKeys; [ devstation ]);
       onChange = ''
         rm -rf ~/.ssh/authorized_keys && cat ~/.ssh/authorized_keys.source > ~/.ssh/authorized_keys && chmod 400 ~/.ssh/authorized_keys
       '';
@@ -66,11 +60,12 @@
       };
 
       "rpi4b" = {
-        hostname = "192.168.1.152";
+        hostname = "100.66.42.90";
         user = "pi";
         identitiesOnly = true;
         identityFile = "~/.ssh/devtechnica";
       };
+
     };
   };
 }

@@ -1,18 +1,4 @@
 { pkgs, opts, ... }: {
-
-  home.file = {
-    "authorized_keys" = {
-      enable = true;
-      target = ".ssh/authorized_keys.source";
-      executable = false;
-      recursive = false;
-      text = builtins.concatStringsSep "\n" opts.publicKeys;
-      onChange = ''
-        rm -rf ~/.ssh/authorized_keys && cat ~/.ssh/authorized_keys.source > ~/.ssh/authorized_keys && chmod 400 ~/.ssh/authorized_keys
-      '';
-    };
-  };
-
   programs.ssh = {
     enable = true;
     userKnownHostsFile = "/dev/null";

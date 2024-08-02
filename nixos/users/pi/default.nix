@@ -6,9 +6,9 @@
     ../common/git.nix
     ../common/htop.nix
     ../common/neovim.nix
-    ../common/ssh.nix
     ../common/taskwarrior.nix
     ../common/tmux.nix
     ../common/zsh.nix
+    ./ssh.nix
   ];
 }
