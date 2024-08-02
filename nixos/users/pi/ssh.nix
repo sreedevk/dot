@@ -9,7 +9,7 @@
       text = builtins.concatStringsSep "\n" (with opts.publicKeys; [
         devstation
         neoserver
-        olivetin
+        nullptrderef1
         rpi4b
         terminus
       ]);
@@ -66,11 +66,12 @@
       };
 
       "rpi4b" = {
-        hostname = "192.168.1.152";
+        hostname = "100.66.42.90";
         user = "pi";
         identitiesOnly = true;
         identityFile = "~/.ssh/devtechnica";
       };
+
     };
   };
 }

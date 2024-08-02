@@ -17,13 +17,13 @@
     ../common/keyboard.nix
     ../common/neovim.nix
     ../common/newsboat.nix
-    ../common/ssh.nix
     ../common/stylix.nix
     ../common/taskwarrior.nix
     ../common/tmux.nix
     ../common/x86-packages.nix
     ../common/zathura.nix
     ../common/zsh.nix
+    ./ssh.nix
   ];
 
   home.packages =
