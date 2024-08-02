@@ -4,7 +4,11 @@
     "qbittorrent-nox" = {
       autoStart = true;
       image = "qbittorrentofficial/qbittorrent-nox:latest";
-      ports = [ "${opts.ports.qbittorrent-p2p}:6881/tcp" "${opts.ports.qbittorrent-p2p}:6881/udp" "${opts.ports.qbittorrent-web}:8001/tcp" ];
+      ports = [
+        "${opts.ports.qbittorrent-p2p}:6881/tcp"
+        "${opts.ports.qbittorrent-p2p}:6881/udp"
+        "${opts.ports.qbittorrent-web}:8001/tcp"
+      ];
       environment = {
         QBT_EULA = "accept";
         QBT_VERSION = "4.6.4-1";
@@ -23,7 +27,13 @@
         "${opts.paths.books}:/books"
         "${opts.paths.magazines}:/magazines"
       ];
-      extraOptions = [ "--network=host" "--no-healthcheck" ];
+      extraOptions = [
+        "--network=host"
+        "--no-healthcheck"
+        "--memory=8g"
+        "--memory-swap=16g"
+        "--cpus=4"
+      ];
     };
   };
 }
