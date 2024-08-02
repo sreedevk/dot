@@ -95,7 +95,13 @@
     shell = pkgs.zsh;
     description = "system root user & administrator";
     password = secrets.nullptrderef1_system_password;
-    openssh.authorizedKeys.keys = opts.publicKeys;
+    openssh.authorizedKeys.keys = with opts.publicKeys; [
+      devstation
+      neoserver
+      olivetin
+      rpi4b
+      terminus
+    ];
     extraGroups = [
       "audio"
       "bluetooth"
