@@ -24,6 +24,7 @@
     userKnownHostsFile = "/dev/null";
     extraOptionOverrides = {
       StrictHostKeyChecking = "no";
+      LogLevel = "ERROR";
     };
 
     matchBlocks = {
