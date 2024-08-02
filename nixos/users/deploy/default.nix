@@ -6,9 +6,9 @@
     ../common/fastfetch.nix
     ../common/git.nix
     ../common/htop.nix
-    ../common/keybase.nix
     ../common/neovim.nix
     ../common/tmux.nix
     ../common/zsh.nix
+    ./ssh.nix
   ];
 }
