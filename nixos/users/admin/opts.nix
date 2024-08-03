@@ -1,1 +1,5 @@
-{}
+{
+  git = {
+    enable-signing = false;
+  };
+}

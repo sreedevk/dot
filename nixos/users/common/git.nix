@@ -1,4 +1,8 @@
-{ pkgs, opts, ... }: {
+{ pkgs, opts, ... }: 
+let
+
+in
+{
 
   home.file = {
     ".gitattributes" = {
