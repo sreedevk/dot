@@ -1,6 +1,6 @@
-{ pkgs, opts, ... }: 
+{ pkgs, opts, ... }:
 let
-
+  gpgsign = if opts.git.enable-signing then "true" else "false";
 in
 {
 
@@ -52,13 +52,13 @@ in
         [user]
           email = sreedev@icloud.com
           name = sreedev
-          signingkey = B8C402B16E80E17C 
+          signingkey = B8C402B16E80E17C
         [core]
           attributesfile = ~/.gitattributes
           editor = ${pkgs.neovim}/bin/nvim
           pager = ${pkgs.delta}/bin/delta
         [commit]
-          gpgsign = true
+          gpgsign = ${gpgsign}
         [init]
           defaultBranch = main
         [color]

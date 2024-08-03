@@ -75,6 +75,9 @@
       # Operating System Level Configurations 
       nixosConfigurations = {
         nullptrderef1 = mkSystem nixpkgs systems.x86 "nullptrderef1";
+        devstation = mkSystem nixpkgs systems.x86 "devstation";
+        devtechnica = mkSystem nixpkgs systems.x86 "devtechnica";
+        rpi4b = mkSystem nixpkgs systems.x86 "rpi4b";
       };
 
       # User Level Home Manager Configurations
