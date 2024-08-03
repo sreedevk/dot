@@ -50,7 +50,7 @@
             (import ./hosts/${hostname}/configuration.nix)
           ];
           specialArgs = {
-            inherit pkgs secrets system opts;
+            inherit secrets system opts;
           };
         };
 
