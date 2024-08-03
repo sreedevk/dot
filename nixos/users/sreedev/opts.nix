@@ -4,6 +4,10 @@
     xdg-desktop = "firefox.desktop";
   };
 
+  git = {
+    enable-signing = true;
+  };
+
   autorandr =
     {
       monitors = {
