@@ -1,6 +1,11 @@
 {
   timeZone = "America/New_York";
 
+  default-web-browser = {
+    bin = "firefox";
+    xdg-desktop = "firefox.desktop";
+  };
+
   publicKeys = {
     devstation = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP";
     nullptrderef1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO2pNg6tFrSaQ+oTlGAhboBgQQ+I7S3sXoyM1DfOsI0f";
