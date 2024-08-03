@@ -1,4 +1,4 @@
-{ pkgs, username, opts, ... }: {
+{ pkgs, nixpkgs, username, opts, ... }: {
   home = {
     username = "${username}";
     homeDirectory = "/home/${username}";

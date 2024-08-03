@@ -1,4 +1,4 @@
-{ pkgs, secrets, lib, inputs, system, ... }: {
+{ pkgs, secrets, lib, system, ... }: {
   programs.awscli = {
     enable = true;
     settings = {

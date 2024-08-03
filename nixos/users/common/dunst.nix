@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, system, opts, ... }: {
+{ pkgs, lib, system, opts, ... }: {
   services = {
     dunst = {
       enable = true;
