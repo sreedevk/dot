@@ -5,6 +5,7 @@
   inputs = {
     sec.url = "git+ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git?ref=main&shallow=1";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
+    nixgl.url = "github:nix-community/nixGL";
 
     stylix = {
       url = "github:danth/stylix";
@@ -22,7 +23,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
+  outputs = { self, nixpkgs, nixgl, home-manager, stylix, ... }@inputs:
     let
       opts = (import ./opts.nix);
       secrets = inputs.sec.secrets;
@@ -31,6 +32,12 @@
         x86 = "x86_64-linux";
         arm64 = "aarch64-linux";
       };
+
+      genPkgs = system:
+        import nixpkgs {
+          inherit system;
+          overlays = [ nixgl.overlay ];
+        };
 
       mkFormatters =
         systemsl: builtins.foldl'
@@ -68,10 +75,10 @@
 
       # User Level Home Manager Configurations
       homeConfigurations = {
-        admin = mkHome inputs.nixpkgs systems.x86 "admin";
-        sreedev = mkHome inputs.nixpkgs systems.x86 "sreedev";
-        pi = mkHome inputs.nixpkgs systems.arm64 "pi";
-        deploy = mkHome inputs.nixpkgs systems.x86 "deploy";
+        admin = mkHome (genPkgs systems.x86) systems.x86 "admin";
+        deploy = mkHome (genPkgs systems.x86) systems.x86 "deploy";
+        pi = mkHome (genPkgs systems.arm64) systems.arm64 "pi";
+        sreedev = mkHome (genPkgs systems.x86) systems.x86 "sreedev";
       };
     };
 }
