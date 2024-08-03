@@ -50,7 +50,8 @@
             (import ./hosts/${hostname}/configuration.nix)
           ];
           specialArgs = {
-            inherit secrets system opts;
+            inherit secrets system;
+            opts = opts // (import ./hosts/${hostname}/opts.nix);
           };
         };
 
@@ -62,7 +63,8 @@
             ./users/${username}
           ];
           extraSpecialArgs = {
-            inherit firefox-addons secrets system username opts;
+            inherit firefox-addons secrets system username;
+            opts = opts // (import ./users/${username}/opts.nix);
           };
         };
     in
