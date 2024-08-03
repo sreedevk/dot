@@ -5,7 +5,7 @@
     autoReload = true;
     reloadThreads = 8;
     reloadTime = 120;
-    browser = "${pkgs.firefox}/bin/firefox";
+    browser = "firefox";
     maxItems = 30;
     extraConfig = ''
       # ---- OPTS
@@ -50,8 +50,8 @@
       bind-key ^E      edit-flags
 
       # macros
-      macro y set browser "echo %u | xclip -sel clip"; open-in-browser; set browser ${pkgs.firefox}/bin/firefox
-      macro a set browser mpv; one; set browser ${pkgs.firefox}/bin/firefox
+      macro y set browser "echo %u | xclip -sel clip"; open-in-browser; set browser firefox
+      macro a set browser mpv; one; set browser firefox
 
       # notification
       notify-format "Newsboat: %f unread feeds (%n unread articles total)"

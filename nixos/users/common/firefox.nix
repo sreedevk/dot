@@ -1,4 +1,5 @@
-{ pkgs, lib, firefox-addons, system, ... }: {
+{ pkgs, lib, firefox-addons, system, ... }:
+{
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
