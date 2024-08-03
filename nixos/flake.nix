@@ -56,15 +56,15 @@
         };
 
       mkHome =
-        pkgs: system: username: home-manager.lib.homeManagerConfiguration {
+        pkgs: system: username: host: home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs.legacyPackages."${system}";
           modules = [
             stylix.homeManagerModules.stylix
             ./users/${username}
           ];
           extraSpecialArgs = {
-            inherit firefox-addons secrets system username;
-            opts = opts // (import ./users/${username}/opts.nix);
+            inherit firefox-addons secrets system username host;
+            opts = opts // (import ./hosts/${host}/opts.nix) // (import ./users/${username}/opts.nix);
           };
         };
     in
@@ -79,10 +79,10 @@
 
       # User Level Home Manager Configurations
       homeConfigurations = {
-        admin = mkHome nixpkgs systems.x86 "admin";
-        deploy = mkHome nixpkgs systems.x86 "deploy";
-        pi = mkHome nixpkgs systems.arm64 "pi";
-        sreedev = mkHome nixpkgs systems.x86 "sreedev";
+        admin = mkHome nixpkgs systems.x86 "admin" "nullptrderef1";
+        deploy = mkHome nixpkgs systems.x86 "deploy" "devtechnica";
+        pi = mkHome nixpkgs systems.arm64 "pi" "rpi4b";
+        sreedev = mkHome nixpkgs systems.x86 "sreedev" "devstation";
       };
     };
 }
