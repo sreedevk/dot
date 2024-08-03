@@ -38,7 +38,7 @@
 
   fileSystems =
     let
-      zfs_mountpoints = opts.nullptrderef1.mountpoints;
+      zfs_mountpoints = opts.mountpoints;
       sys_mountpoints = {
         "/boot" = { device = "/dev/disk/by-uuid/0B7B-5F96"; fsType = "vfat"; };
         "/" = { device = "/dev/disk/by-uuid/66773c39-ea86-4b86-ae8b-31a4e56bf46b"; fsType = "ext4"; };
