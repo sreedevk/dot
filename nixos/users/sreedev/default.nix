@@ -15,6 +15,7 @@
     ../common/i3.nix
     ../common/keybase.nix
     ../common/keyboard.nix
+    ../common/kitty.nix
     ../common/neovim.nix
     ../common/newsboat.nix
     ../common/stylix.nix
