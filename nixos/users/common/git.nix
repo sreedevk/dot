@@ -46,9 +46,9 @@
       recursive = true;
       text = ''
         [user]
-          email = sreedevpadmakumar@gmail.com
+          email = sreedev@icloud.com
           name = sreedev
-          signingkey = F2D006638E49CD45
+          signingkey = B8C402B16E80E17C 
         [core]
           attributesfile = ~/.gitattributes
           editor = ${pkgs.neovim}/bin/nvim
