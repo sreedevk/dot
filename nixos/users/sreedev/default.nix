@@ -1,4 +1,4 @@
-{ pkgs, secrets, lib, opts, system, username, ... }: {
+{ pkgs,  ... }: {
   imports = [
     ../common/autorandr.nix
     ../common/autotiling.nix

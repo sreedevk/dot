@@ -6,10 +6,10 @@
     sec.url = "git+ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git?ref=main&shallow=1";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
 
-    nixgl = {
-      url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixgl = {
+    #   url = "github:nix-community/nixGL";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     stylix = {
       url = "github:danth/stylix";
@@ -27,7 +27,7 @@
     };
   };
 
-  outputs = { self, sec, nixpkgs, nixgl, firefox-addons, home-manager, stylix, ... }:
+  outputs = { self, sec, nixpkgs, firefox-addons, home-manager, stylix, ... }:
     let
       opts = (import ./opts.nix);
       secrets = sec.secrets;
