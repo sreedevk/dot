@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, system, ... }: {
+{ pkgs, lib, firefox-addons, system, ... }: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-bin;
@@ -17,7 +17,7 @@
           id = 2;
         };
       };
-      extensions = with inputs.firefox-addons.packages."${system}"; [
+      extensions = with firefox-addons.packages."${system}"; [
         adnauseam
         bitwarden
         consent-o-matic
