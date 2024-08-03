@@ -1,5 +1,7 @@
 { pkgs, secrets, ... }:
 let
+  home.packages = with pkgs; [ taskwarrior3 ];
+
   taskwarriorOptions = {
     themes = {
       dark-16 = "dark-16";
