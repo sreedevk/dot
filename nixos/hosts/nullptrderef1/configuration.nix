@@ -159,7 +159,6 @@
     progress
     sshfs
     strace
-    taskchampion-sync-server
     traceroute
     unzip
     zfs

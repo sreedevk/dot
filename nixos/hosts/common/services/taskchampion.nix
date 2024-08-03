@@ -1,4 +1,8 @@
 { config, pkgs, opts, ... }: {
+  environment.systemPackages = with pkgs; [
+    taskchampion-sync-server
+  ];
+
   systemd.services.taskchampion-sync = {
     description = "taskwarrior task server";
     enable = true;

@@ -72,7 +72,6 @@
     sshfs
     starship
     tailspin
-    taskwarrior3
     tokei
     traceroute
     tree

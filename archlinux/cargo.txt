@@ -3,6 +3,6 @@ cargo-update v13.4.0
 cargo-watch v8.5.2
 deduplicator v0.2.2
 diesel_cli v2.2.1
-sea-orm-cli v0.12.15
+sea-orm-cli v1.0.0
 sqlx-cli v0.8.0
 wasm-pack v0.13.0
