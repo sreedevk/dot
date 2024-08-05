@@ -45,8 +45,8 @@
           nixpkgs-fmt
           nushell
           pandoc
-          taskwarrior-tui
           tea
+          texliveFull
           tmuxinator
           yt-dlp
           zola
