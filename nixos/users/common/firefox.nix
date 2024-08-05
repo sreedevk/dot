@@ -21,6 +21,7 @@
       extensions = with firefox-addons.packages."${system}"; [
         adnauseam
         bitwarden
+        buster-captcha-solver
         consent-o-matic
         darkreader
         duckduckgo-privacy-essentials
