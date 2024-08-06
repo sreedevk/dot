@@ -116,11 +116,11 @@
     },
     "devpkgs": {
       "locked": {
-        "lastModified": 1722907949,
-        "narHash": "sha256-jWDXkIvO18p801yUuY+Lo1Dn3rTJpgykx2vHtoESY8c=",
+        "lastModified": 1722970992,
+        "narHash": "sha256-rU7LIJvVNgo1QAGOaPCJ6svAkWaApe+ydMUwqZ/cuMQ=",
         "owner": "sreedevk",
         "repo": "nixpkgs",
-        "rev": "52024726f1710225c7fbf3163169703bd631423a",
+        "rev": "3a75311e72c27c1d8dbdde48e86bb3e5a57e5e16",
         "type": "github"
       },
       "original": {
