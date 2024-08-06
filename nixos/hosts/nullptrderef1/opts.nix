@@ -35,7 +35,6 @@
     authentik-redis = "6381";
     baikal = "8945";
     bazarr = "6767";
-    calibre-web = "8083";
     cloudbeaver = "8079";
     cockpit = "8008";
     container-registry-server = "5500";

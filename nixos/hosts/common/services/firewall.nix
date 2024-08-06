@@ -17,7 +17,6 @@ in
         audiobookshelf
         baikal
         bazarr
-        calibre-web
         cloudbeaver
         cockpit
         container-registry-server
