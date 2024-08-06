@@ -12,6 +12,7 @@
         POSTGRES_DB = "joplin";
         POSTGRES_PASSWORD = "${secrets.joplin-db-password}";
         POSTGRES_USER = "postgres";
+        POSTGRES_HOST = "nullptrderef1";
         PUID = opts.adminUID;
         TZ = opts.timeZone;
       };
