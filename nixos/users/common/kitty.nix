@@ -5,7 +5,7 @@ let
     sha256 = "1crnbv3mdx83xjwl2j63rwwl9qfgi2f1lr53zzjlby5lh50xjz4n";
   };
 
-  nixGLIntel = (pkgs.callPackage "${nixGLSource}/nixGL.nix" { }).nixGLIntel;
+  nixGLNvidia = (pkgs.callPackage "${nixGLSource}/nixGL.nix" { }).auto.nixGLNvidia;
 in
 {
 
@@ -25,13 +25,19 @@ in
     theme = "Rosé Pine";
     font = {
       name = "Iosevka NF";
-      size = lib.mkForce 24;
+      size = lib.mkForce 28;
+    };
+    settings = {
+      scrollback_lines = 10000;
+      enable_audio_bell = false;
+      update_check_interval = 0;
+      background_opacity = "0.8";
     };
     package =
       pkgs.writeShellScriptBin "kitty" ''
         #!/bin/sh
 
-        ${nixGLIntel}/bin/nixGLIntel ${pkgs.kitty}/bin/kitty "$@"
+        ${nixGLNvidia}/bin/nixGLNvidia-555.58.02 ${pkgs.kitty}/bin/kitty "$@"
       '';
   };
 }
