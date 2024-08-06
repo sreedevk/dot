@@ -22,7 +22,9 @@ in
 
   programs.kitty = {
     enable = true;
+    theme = "Rosé Pine";
     font = {
+      name = "Iosevka NF";
       size = lib.mkForce 24;
     };
     package =
