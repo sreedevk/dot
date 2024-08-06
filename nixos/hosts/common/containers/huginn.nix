@@ -2,7 +2,7 @@
   virtualisation.oci-containers.containers = {
 
     "huginn-app" = {
-      autoStart = true;
+      autoStart = false;
       dependsOn = [ "huginn-db" ];
       image = "ghcr.io/huginn/huginn";
       extraOptions =
@@ -31,7 +31,7 @@
     };
 
     "huginn-db" = {
-      autoStart = true;
+      autoStart = false;
       image = "mariadb:lts";
       ports = [ "${opts.ports.huginn-db}:3306" ];
       cmd = [ "--max-connections=512" ];
