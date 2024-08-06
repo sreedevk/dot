@@ -33,7 +33,6 @@
     audiobookshelf = "13378";
     authentik-db = "5433";
     authentik-redis = "6381";
-    autobrr = "7474";
     baikal = "8945";
     bazarr = "6767";
     calibre-web = "8083";
@@ -64,8 +63,6 @@
     jackett = "9117";
     jellyfin = "8096";
     jellyseer = "5055";
-    joplin-app = "22300";
-    joplin-db = "5432";
     kavita = "5000";
     llama-cpp-server = "8100";
     lidarr = "8686";
