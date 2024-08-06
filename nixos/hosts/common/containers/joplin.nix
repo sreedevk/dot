@@ -31,7 +31,7 @@
         POSTGRES_DATABASE = "joplin";
         POSTGRES_USER = "postgres";
         POSTGRES_PORT = "${opts.ports.joplin-db}";
-        POSTGRES_HOST = "nullptr.sh";
+        POSTGRES_HOST = "nullptrderef1";
         MAILER_ENABLED = "0";
         MAILER_HOST = "";
         MAILER_PORT = "";
