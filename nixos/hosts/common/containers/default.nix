@@ -4,7 +4,6 @@
     ./archivebox.nix
     ./aria2.nix
     ./audiobookshelf.nix
-    ./autobrr.nix
     ./baikal.nix
     ./calibre-web.nix
     ./cloudbeaver.nix
