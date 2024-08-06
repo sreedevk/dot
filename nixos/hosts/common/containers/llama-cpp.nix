@@ -14,7 +14,7 @@
       ports = [ "${opts.ports.llama-cpp-server}:8000" ];
       volumes = [ "${opts.paths.llama-cpp-models}:/models:ro" ];
       entrypoint = "/llama-server";
-      cmd = [ "-m" "/models/dolphin-2.2.1-mistral-7b.Q6_K.gguf" "--port" "8000" "--host" "0.0.0.0" "-n" "512" ];
+      cmd = [ "-m" "/models/llama-2-7b-chat.Q5_K_M.gguf" "--port" "8000" "--host" "0.0.0.0" "-n" "512" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
