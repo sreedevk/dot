@@ -38,8 +38,6 @@ in
         homebox
         homer
         https
-        huginn-app
-        huginn-db
         icecast
         jackett
         jellyfin

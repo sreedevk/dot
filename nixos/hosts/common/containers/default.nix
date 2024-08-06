@@ -17,7 +17,6 @@
     ./gotify.nix
     ./homebox.nix
     ./homer.nix
-    ./huginn.nix
     ./jackett.nix
     ./jellyfin.nix
     ./jellyseer.nix
