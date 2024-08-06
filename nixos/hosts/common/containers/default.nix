@@ -23,7 +23,6 @@
     ./jackett.nix
     ./jellyfin.nix
     ./jellyseer.nix
-    ./joplin.nix
     ./kavita.nix
     ./linkding.nix
     ./livebook.nix
