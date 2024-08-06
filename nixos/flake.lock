@@ -116,11 +116,11 @@
     },
     "devpkgs": {
       "locked": {
-        "lastModified": 1722970992,
-        "narHash": "sha256-rU7LIJvVNgo1QAGOaPCJ6svAkWaApe+ydMUwqZ/cuMQ=",
+        "lastModified": 1722977215,
+        "narHash": "sha256-zVXnDCKYKGcGi+aBXCyJ9BKCpnMDYZF5wkqFb14uri4=",
         "owner": "sreedevk",
         "repo": "nixpkgs",
-        "rev": "3a75311e72c27c1d8dbdde48e86bb3e5a57e5e16",
+        "rev": "452bcc72b6e6195a7ae5879193820cf7f2c68c8d",
         "type": "github"
       },
       "original": {
@@ -260,11 +260,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1722926584,
-        "narHash": "sha256-sLA+lfCxTkXf4o3JVxcfe+w9kAzauGfEnJ9roNbNng8=",
+        "lastModified": 1722957468,
+        "narHash": "sha256-SQ0TCC4aklOhN/OzcztrKqDLY8SjpIZcyvTulzhDXs0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d33cf80b603b3d0cddb48f9816cae707a59e2334",
+        "rev": "2a13929e1f191b3690dd2f2db13098b04adb9043",
         "type": "github"
       },
       "original": {
@@ -286,10 +286,10 @@
     },
     "sec": {
       "locked": {
-        "lastModified": 1722652113,
-        "narHash": "sha256-90Ggz7XcFKTuoWw8PQr8vQgtOGLbSCShlgZfkIPFNtQ=",
+        "lastModified": 1722977016,
+        "narHash": "sha256-KXt4SM1NST43qpCG4u5kB9rnRZGKFh/YGsok3whJCbw=",
         "ref": "main",
-        "rev": "51a75da87832e497ce06f260f5f52c87f863cb25",
+        "rev": "d7bc67b6a0dd4c9fd39330e83d966da727783bfd",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git"
