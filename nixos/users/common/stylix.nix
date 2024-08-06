@@ -58,6 +58,7 @@
       xresources.enable = true;
       zathura.enable = false;
       zellij.enable = true;
+      kitty.enable = false;
     };
   };
 }
