@@ -22,7 +22,6 @@ in
         container-registry-server
         container-registry-web
         docuseal
-        excalidraw
         filebrowser
         firefly_app
         firefly_db
