@@ -65,7 +65,6 @@
           emacs
           feh
           gimp-with-plugins
-          joplin-desktop
           libreoffice-fresh
           lmms
           maim
