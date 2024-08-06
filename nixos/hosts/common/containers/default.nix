@@ -5,7 +5,6 @@
     ./aria2.nix
     ./audiobookshelf.nix
     ./baikal.nix
-    ./calibre-web.nix
     ./cloudbeaver.nix
     ./container-registry.nix
     ./docuseal.nix
