@@ -114,6 +114,22 @@
         "type": "github"
       }
     },
+    "devpkgs": {
+      "locked": {
+        "lastModified": 1722907949,
+        "narHash": "sha256-jWDXkIvO18p801yUuY+Lo1Dn3rTJpgykx2vHtoESY8c=",
+        "owner": "sreedevk",
+        "repo": "nixpkgs",
+        "rev": "52024726f1710225c7fbf3163169703bd631423a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sreedevk",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -260,6 +276,7 @@
     },
     "root": {
       "inputs": {
+        "devpkgs": "devpkgs",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",

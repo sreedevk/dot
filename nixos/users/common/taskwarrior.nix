@@ -87,7 +87,7 @@ let
       hooks.location=${configs.hooksLocation}
 
       # SYNC SETTINGS
-      sync.server.origin=${configs.sync.serverAddress}
+      sync.server.url=${configs.sync.serverAddress}
       sync.server.client_id=${configs.sync.clientID}
       sync.encryption_secret=${configs.sync.encryptionSecret}
 
