@@ -15,7 +15,6 @@ in
         aria_rpc
         aria_web
         audiobookshelf
-        autobrr
         baikal
         bazarr
         calibre-web
@@ -46,8 +45,6 @@ in
         jackett
         jellyfin
         jellyseer
-        joplin-app
-        joplin-db
         kavita
         lidarr
         linkding
