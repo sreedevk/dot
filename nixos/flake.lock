@@ -114,22 +114,6 @@
         "type": "github"
       }
     },
-    "devpkgs": {
-      "locked": {
-        "lastModified": 1722977215,
-        "narHash": "sha256-zVXnDCKYKGcGi+aBXCyJ9BKCpnMDYZF5wkqFb14uri4=",
-        "owner": "sreedevk",
-        "repo": "nixpkgs",
-        "rev": "452bcc72b6e6195a7ae5879193820cf7f2c68c8d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sreedevk",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "firefox-addons": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -274,12 +258,28 @@
         "type": "github"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1723062672,
+        "narHash": "sha256-IZpF+A7O06y+f+/cR/VE+D1nJYXe6vQHlBLnNQPvbNU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "804a74e996e231e0ecc06ca6f109a1ebc25f20ef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
-        "devpkgs": "devpkgs",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-master": "nixpkgs-master",
         "sec": "sec",
         "stylix": "stylix"
       }
