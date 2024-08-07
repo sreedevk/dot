@@ -79,11 +79,13 @@ nix flake update './nixos'
 Any modifications to the `nixos/users` directory can be installed using this `home-manager` command
 
 ```bash
-./scripts/run_with_creds.zsh home-manager switch --flake './nixos'
+./scripts/run_with_creds.zsh home-manager switch --flake './nixos' -j 4 --impure
 
 # OR 
-./scripts/run_with_creds.zsh home-manager switch --flake './nixos#<NAME OF THE USER HERE>'
+./scripts/run_with_creds.zsh home-manager switch --flake './nixos#<NAME OF THE USER HERE>' -j 4 --impure
 ```
+
+* `--impure` flag is required because nixGL uses `builtins.currentTime` as an impure parameter to force the rebuild on each access.
 
 ##### Upgrading
 
