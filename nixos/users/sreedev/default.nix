@@ -23,9 +23,11 @@
     ../common/stylix.nix
     ../common/taskwarrior.nix
     ../common/tmux.nix
+    ../common/opentabletdriver.nix
     ../common/x86-packages.nix
     ../common/zathura.nix
     ../common/zsh.nix
+    ../common/opentabletdriver.nix
     ./ssh.nix
   ];
 
