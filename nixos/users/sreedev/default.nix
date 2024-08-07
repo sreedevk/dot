@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ../common/alacritty.nix
     ../common/autorandr.nix
     ../common/autotiling.nix
     ../common/awscli.nix
@@ -17,17 +18,16 @@
     ../common/keybase.nix
     ../common/keyboard.nix
     ../common/kitty.nix
-    ../common/alacritty.nix
     ../common/neovim.nix
     ../common/newsboat.nix
+    ../common/opentabletdriver.nix
+    ../common/opentabletdriver.nix
     ../common/stylix.nix
     ../common/taskwarrior.nix
     ../common/tmux.nix
-    ../common/opentabletdriver.nix
     ../common/x86-packages.nix
     ../common/zathura.nix
     ../common/zsh.nix
-    ../common/opentabletdriver.nix
     ./ssh.nix
   ];
 
