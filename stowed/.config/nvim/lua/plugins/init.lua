@@ -9,7 +9,6 @@ return {
   'tpope/vim-ragtag',
   'tpope/vim-rails',
   'tpope/vim-repeat',
-  'junegunn/vim-easy-align',
   'jbyuki/venn.nvim',
   'tpope/vim-surround',
   'lervag/vimtex',
@@ -19,6 +18,16 @@ return {
       'junegunn/fzf',
       'junegunn/fzf.vim'
     }
+  },
+  {
+    'junegunn/vim-easy-align',
+    keys = {
+      { "<Leader>al", mode = "v" }
+    },
+    cmd = { "EasyAlign" },
+    config = function()
+      require('helpers').map('v', '<Leader>al', ":EasyAlign")
+    end
   },
   {
     'chrisbra/csv.vim',
