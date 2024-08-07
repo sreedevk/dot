@@ -5,7 +5,7 @@
   inputs = {
     sec.url = "git+ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git?ref=main&shallow=1";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
-    devpkgs.url = "github:sreedevk/nixpkgs?ref=master&shallow=1";
+    nixpkgs-master.url = "github:nixos/nixpkgs?ref=master&shallow=1";
 
     stylix = {
       url = "github:danth/stylix";
@@ -23,7 +23,7 @@
     };
   };
 
-  outputs = { self, sec, nixpkgs, devpkgs, firefox-addons, home-manager, stylix, ... }:
+  outputs = { self, sec, nixpkgs, nixpkgs-master, firefox-addons, home-manager, stylix, ... }:
     let
       opts = (import ./opts.nix);
       secrets = sec.secrets;
@@ -81,7 +81,7 @@
         admin = mkHome nixpkgs systems.x86 "admin" "nullptrderef1";
         deploy = mkHome nixpkgs systems.x86 "deploy" "devtechnica";
         pi = mkHome nixpkgs systems.arm64 "pi" "rpi4b";
-        sreedev = mkHome devpkgs systems.x86 "sreedev" "devstation";
+        sreedev = mkHome nixpkgs-master systems.x86 "sreedev" "devstation";
       };
     };
 }
