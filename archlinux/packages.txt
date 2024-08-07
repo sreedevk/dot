@@ -46,7 +46,6 @@ mariadb-clients
 mesa-utils
 mesa-vdpau
 mpv
-nmap
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
