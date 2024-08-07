@@ -47,6 +47,7 @@
           k9s
           mdbook
           nixpkgs-fmt
+          nmap
           nushell
           pandoc
           tea
