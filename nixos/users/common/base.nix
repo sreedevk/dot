@@ -97,6 +97,7 @@
     settings = {
       trusted-users = [ "${username}" ];
       allowed-users = [ "${username}" ];
+      trusted-substituters = [ "${username}" ];
       show-trace = true;
       auto-optimise-store = true;
       fallback = true;
