@@ -67,9 +67,6 @@
     metube = "8081";
     navidrome = "4533";
     netdata = "19999";
-    nextcloud-app = "8881";
-    nextcloud-http = "8880";
-    nextcloud-https = "8443";
     nginx-proxy-manager-app = "81";
     nginx-proxy-manager-http = "80";
     nginx-proxy-manager-https = "443";

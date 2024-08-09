@@ -1,4 +1,6 @@
 { config, lib, pkgs, secrets, opts, ... }: {
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ntfy ]);
+
   virtualisation.oci-containers.containers = {
     "ntfy" = {
       autoStart = true;

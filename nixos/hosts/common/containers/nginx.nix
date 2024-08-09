@@ -1,4 +1,12 @@
 { config, lib, pkgs, secrets, opts, ... }: {
+
+  networking.firewall.allowedTCPPorts =
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+      nginx-proxy-manager-app
+      nginx-proxy-manager-http
+      nginx-proxy-manager-https
+    ]);
+
   virtualisation.oci-containers.containers = {
     "nginx-proxy-manager" = {
       autoStart = false;

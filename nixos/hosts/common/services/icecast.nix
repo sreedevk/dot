@@ -1,4 +1,7 @@
 { config, pkgs, secrets, opts, ... }: {
+  networking.firewall.allowedTCPPorts =
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ icecast ]);
+
   systemd.services.radio-streaming = {
     description = "enable audio streaming from XHDATA D-328 Radio";
     enable = true;

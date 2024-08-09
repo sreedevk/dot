@@ -1,4 +1,5 @@
-{ opts, secrets, ... }: {
+{ opts, secrets, pkgs, ... }: {
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ aria_rpc aria_web ]);
   virtualisation.oci-containers.containers = {
     "aria2" = {
       autoStart = true;

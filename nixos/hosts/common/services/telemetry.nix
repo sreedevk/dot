@@ -1,4 +1,14 @@
 { config, pkgs, secrets, opts, ... }: {
+
+  networking.firewall.allowedTCPPorts =
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+      grafana
+      netdata
+      prometheus_app
+      prometheus_node
+      prometheus_zfs
+    ]);
+
   services.netdata = {
     enable = true;
     config = {

@@ -1,5 +1,6 @@
 { pkgs, opts, secrets, ... }:
 {
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ paperless-app paperless-db paperless-redis ]);
   virtualisation.oci-containers.containers = {
     paperless-app = {
       autoStart = true;

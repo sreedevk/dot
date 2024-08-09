@@ -1,5 +1,9 @@
 { pkgs, config, opts, secrets, ... }:
 {
+
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ container-registry-server container-registry-web ]);
+  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ container-registry-server ]);
+
   # container-registry-web
   virtualisation.oci-containers.containers = {
     "container-registry-server" = {

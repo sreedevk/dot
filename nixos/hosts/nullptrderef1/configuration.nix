@@ -81,6 +81,12 @@
       "9.9.9.9"
     ];
     enableIPv6 = false;
+    firewall = {
+      enable = true;
+      allowPing = false;
+      allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ftp https ssh ]);
+      allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ftp ssh ]);
+    };
   };
 
   time.timeZone = "America/New_York";

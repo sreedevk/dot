@@ -3,6 +3,11 @@
     taskchampion-sync-server
   ];
 
+  networking.firewall.allowedTCPPorts =
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+      taskchampion
+    ]);
+
   systemd.services.taskchampion-sync = {
     description = "taskwarrior task server";
     enable = true;
