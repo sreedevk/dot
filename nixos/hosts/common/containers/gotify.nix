@@ -1,4 +1,6 @@
 { config, lib, pkgs, secrets, opts, ... }: {
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ gotify ]);
+  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ gotify ]);
   virtualisation.oci-containers.containers = {
     "gotify" = {
       autoStart = true;

@@ -1,4 +1,15 @@
 { config, lib, pkgs, secrets, opts, ... }: {
+  networking.firewall.allowedTCPPorts =
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+      qbittorrent-p2p
+      qbittorrent-web
+    ]);
+
+  networking.firewall.allowedUDPPorts =
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+      qbittorrent-p2p
+    ]);
+
   virtualisation.oci-containers.containers = {
     # qBittorrent P2P Torrent Client
     "qbittorrent-nox" = {

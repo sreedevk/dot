@@ -1,4 +1,6 @@
 { config, lib, pkgs, secrets, opts, ... }: {
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ freshrss-app freshrss-db rss-bridge ]);
+
   virtualisation.oci-containers.containers = {
     "freshrss-app" = {
       autoStart = true;

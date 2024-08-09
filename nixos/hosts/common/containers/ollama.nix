@@ -1,4 +1,8 @@
 { config, lib, pkgs, secrets, opts, ... }: {
+
+  networking.firewall.allowedTCPPorts =
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ollama-api ollama-web ]);
+
   virtualisation.oci-containers.containers = {
     "ollama" = {
       autoStart = true;

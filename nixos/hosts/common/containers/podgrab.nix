@@ -1,5 +1,6 @@
 { pkgs, opts, secrets, ... }:
 {
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ podgrab ]);
   virtualisation.oci-containers.containers = {
     podgrab = {
       autoStart = true;

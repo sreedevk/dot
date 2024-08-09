@@ -1,4 +1,7 @@
 { config, lib, pkgs, secrets, opts, ... }: {
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ gitea_db gitea_http gitea_ssh ]);
+  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ gitea_ssh ]);
+
   virtualisation.oci-containers.containers = {
     "gitea-app" = {
       autoStart = true;

@@ -1,5 +1,11 @@
 { pkgs, opts, secrets, ... }:
 {
+  networking.firewall.allowedTCPPorts =
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+      tubearchivist
+      tubearchivist-redis
+    ]);
+
   virtualisation.oci-containers.containers = {
     tubearchivist-app = {
       image = "bbilly1/tubearchivist";

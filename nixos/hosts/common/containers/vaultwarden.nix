@@ -1,4 +1,9 @@
 { config, lib, pkgs, secrets, opts, ... }: {
+  networking.firewall.allowedTCPPorts =
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+      vaultwarden
+    ]);
+
   virtualisation.oci-containers.containers = {
     "vaultwarden" = {
       autoStart = true;

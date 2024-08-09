@@ -1,4 +1,5 @@
 { config, lib, pkgs, secrets, opts, ... }: {
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ flaresolverr ]);
   virtualisation.oci-containers.containers = {
     "flareSolverr" = {
       autoStart = true;
