@@ -1,1 +1,3 @@
-{ }
+{
+  hostname = "rpi4b";
+}
