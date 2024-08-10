@@ -8,7 +8,6 @@
       image = "ghcr.io/hotio/radarr";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      dependsOn = [ "qbittorrent-nox" ];
       volumes = [
         "${opts.paths.application_data}/Radarr/:/config"
         "${opts.paths.movies}:/movies"
@@ -26,7 +25,6 @@
     "sonarr" = {
       autoStart = true;
       image = "ghcr.io/hotio/sonarr";
-      dependsOn = [ "qbittorrent-nox" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
@@ -46,7 +44,6 @@
     "lidarr" = {
       autoStart = true;
       image = "ghcr.io/hotio/lidarr";
-      dependsOn = [ "qbittorrent-nox" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
@@ -66,7 +63,6 @@
     "readarr" = {
       autoStart = true;
       image = "ghcr.io/hotio/readarr";
-      dependsOn = [ "qbittorrent-nox" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
