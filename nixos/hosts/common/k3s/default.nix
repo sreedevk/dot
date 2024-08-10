@@ -1,21 +1,24 @@
-{ pkgs, config, opts, ... }:
+{ pkgs, config, secrets, opts, ... }:
 {
   ##### FIREWALL ####
-  networking.firewall.allowedTCPPorts = [
-    6443 # API server
-    2379 # etcd clients "High Availability Embedded etcd"
-    2380 # etcd peers "High Availability Embedded etcd" 
-  ];
-  networking.firewall.allowedUDPPorts = [
-    # 8472 # flannel: multi-node for inter-node networking
-  ];
+
+  networking.firewall.allowedTCPPorts =
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+      k3s-control-plane
+      k3s-etcd-clients
+      k3s-etcd-peers
+    ]);
+
+  networking.firewall.allowedUDPPorts =
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+      k3s-inter-node-net
+    ]);
 
   services.k3s = {
     enable = true;
     role = "server";
-    extraFlags = toString [
-      # "--kubelet-arg=v=4" # Optionally add additional args to k3s
-    ];
+    token = secrets.k3s-token;
+    clusterInit = (opts.hostname == "nullptrderef1");
   };
 
 }
