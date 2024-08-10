@@ -9,7 +9,7 @@
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.cloudbeaver}:8978" ];
       volumes = [
-        "${opts.paths.application_data}/cloudbeaver:/opt/cloudbeaver/workspace"
+        "${opts.paths.application_data}/Cloudbeaver:/opt/cloudbeaver/workspace"
       ];
       environment = {
         TZ = opts.timeZone;
