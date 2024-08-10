@@ -10,7 +10,7 @@
     extraArgs = [ ];
     settings = {
       statistics = {
-        interval = "168h";
+        interval = "48h";
         enabled = true;
       };
       filters = [
@@ -84,11 +84,15 @@
             answer = opts.lanAddress;
           }
           {
-            domain = "rpi4b.localhost";
+            domain = "${opts.hostname}.internal";
+            answer = opts.lanAddress;
+          }
+          {
+            domain = "rpi4b.internal";
             answer = "192.168.1.152";
           }
           {
-            domain = "devstation.localhost";
+            domain = "devstation.internal";
             answer = "192.168.1.249";
           }
         ];
@@ -99,8 +103,8 @@
         cache_ttl_min = 3600;
         cache_ttl_max = 86400;
         cache_optimistic = true;
-        bootstrap_dns = [ "9.9.9.9" "8.8.8.8" "8.8.4.4" ];
-        ratelimit = 200;
+        bootstrap_dns = [ "9.9.9.9" "1.1.1.1" "1.0.0.1" ];
+        ratelimit = 500;
         upstream_dns = [
           "https://extended.dns.mullvad.net/dns-query"
           "https://dns10.quad9.net/dns-query"
