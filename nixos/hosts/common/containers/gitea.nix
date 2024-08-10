@@ -8,13 +8,13 @@
       dependsOn = [ "gitea-db" ];
       image = "gitea/gitea:latest";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       environment = {
         TZ = opts.timeZone;
         USER_UID = opts.adminUID;
         USER_GID = opts.adminGID;
         GITEA__database__DB_TYPE = "mysql";
-        GITEA__database__HOST = "nullptrderef1:${opts.ports.gitea_db}";
+        GITEA__database__HOST = "${opts.hostname}:${opts.ports.gitea_db}";
         GITEA__database__NAME = secrets.gitea_database_name;
         GITEA__database__USER = secrets.gitea_database_username;
         GITEA__database__PASSWD = secrets.gitea_database_password;
@@ -32,7 +32,7 @@
       image = "mariadb:lts";
       ports = [ "${opts.ports.gitea_db}:3306" ];
       cmd = [ "--max-connections=512" ];
-      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_databases}/gitea:/var/lib/mysql" ];
       environment = {
         MARIADB_ROOT_PASSWORD = secrets.gitea_database_password;

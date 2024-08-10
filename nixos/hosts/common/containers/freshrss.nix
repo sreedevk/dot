@@ -7,7 +7,7 @@
       image = "freshrss/freshrss:edge";
       dependsOn = [ "freshrss-db" ];
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
         "${opts.paths.application_data}/freshrss/data/:/var/www/FreshRSS/data"
         "${opts.paths.application_data}/freshrss/extensions/:/var/www/FreshRSS/extensions"
@@ -37,7 +37,7 @@
       ports = [ "${opts.ports.freshrss-db}:3306" ];
       cmd = [ "--max-connections=128" ];
       extraOptions = [
-        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
       ];
       volumes = [ "${opts.paths.application_databases}/freshrss:/var/lib/mysql" ];
@@ -56,7 +56,7 @@
       autoStart = true;
       image = "rssbridge/rss-bridge:latest";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.rss-bridge}:80" ];
       volumes = [ "${opts.paths.application_data}/rss-bridge:/config" ];
       environment = {

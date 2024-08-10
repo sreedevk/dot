@@ -7,7 +7,7 @@
       ports = [ "${opts.ports.memos}:5230" ];
       image = "neosmemo/memos:stable";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
         "${opts.paths.application_data}/memos:/var/opt/memos"
       ];

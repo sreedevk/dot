@@ -52,9 +52,9 @@
   };
 
   networking = {
-    hostName = "nullptrderef1";
-    domain = "nullptrderef1";
-    search = [ "nullptrderef1" ];
+    hostName = opts.hostname;
+    domain = "nullptr.sh";
+    search = [ opts.hostname ];
     defaultGateway = {
       address = "192.168.1.1";
       interface = "enp2s0";

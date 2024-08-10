@@ -7,7 +7,7 @@
       image = "deluan/navidrome:latest";
       ports = [ "${opts.ports.navidrome}:4533" ];
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
         "${opts.paths.application_data}/navidrome:/data"
         "${opts.paths.music}:/music:ro"

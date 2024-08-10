@@ -6,7 +6,7 @@
       autoStart = true;
       image = "binwiederhier/ntfy";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       cmd = [ "serve" ];
       environment = {
         TZ = opts.timeZone;

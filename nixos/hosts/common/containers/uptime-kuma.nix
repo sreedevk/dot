@@ -6,7 +6,7 @@
       autoStart = true;
       image = "louislam/uptime-kuma:1";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_data}/uptime-kuma/:/app/data" ];
       ports = [ "${opts.ports.uptime-kuma}:3001" ];
       environment = {

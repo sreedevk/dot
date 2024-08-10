@@ -9,7 +9,7 @@
       autoStart = true;
       image = "vaultwarden/server:latest ";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.vaultwarden}:80" ];
       volumes = [ "${opts.paths.application_data}/vw-data:/data/" ];
       environment = {

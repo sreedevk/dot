@@ -5,7 +5,7 @@
       autoStart = true;
       image = "jvmilazz0/kavita";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.kavita}:5000" ];
       volumes = [
         "${opts.paths.application_data}/kavita:/kavita/config"

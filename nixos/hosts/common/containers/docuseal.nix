@@ -5,8 +5,7 @@
     "docuseal" = {
       autoStart = true;
       image = "docuseal/docuseal";
-      extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.docuseal}:3000" ];
       volumes = [ "${opts.paths.application_data}/docuseal:/data" ];
       environment = {

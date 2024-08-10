@@ -5,7 +5,7 @@
       autoStart = true;
       image = "sissbruecker/linkding:latest";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes =
         [ "${opts.paths.application_data}/linkding:/etc/linkding/data" ];
       ports = [ "${opts.ports.linkding}:9090" ];

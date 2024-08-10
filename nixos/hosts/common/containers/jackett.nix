@@ -6,7 +6,7 @@
       autoStart = true;
       image = "lscr.io/linuxserver/jackett:latest";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "flareSolverr" ];
       environment = {
         AUTO_UPDATE = "true";

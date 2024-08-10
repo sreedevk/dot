@@ -7,7 +7,7 @@
       autoStart = true;
       image = "ghcr.io/hotio/radarr";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "qbittorrent-nox" ];
       volumes = [
         "${opts.paths.application_data}/Radarr/:/config"
@@ -28,7 +28,7 @@
       image = "ghcr.io/hotio/sonarr";
       dependsOn = [ "qbittorrent-nox" ];
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
         "${opts.paths.application_data}/Sonarr/:/config"
         "${opts.paths.television}:/tv"
@@ -48,7 +48,7 @@
       image = "ghcr.io/hotio/lidarr";
       dependsOn = [ "qbittorrent-nox" ];
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
         "${opts.paths.application_data}/Lidarr/:/config"
         "${opts.paths.music}:/music"
@@ -68,7 +68,7 @@
       image = "ghcr.io/hotio/readarr";
       dependsOn = [ "qbittorrent-nox" ];
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
         "${opts.paths.application_data}/Readarr/:/config"
         "${opts.paths.books}:/books"
@@ -87,7 +87,7 @@
       autoStart = true;
       image = "lscr.io/linuxserver/bazarr:latest";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.bazarr}:6767" ];
       volumes = [
         "${opts.paths.application_data}/Bazarr/config:/config"
@@ -105,7 +105,7 @@
       autoStart = true;
       image = "ghcr.io/hotio/prowlarr";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "flareSolverr" ];
       volumes = [
         "${opts.paths.application_data}/Prowlarr/:/config"

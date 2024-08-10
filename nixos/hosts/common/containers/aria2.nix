@@ -10,7 +10,7 @@
         RPC_SECRET = secrets.aria2_password;
       };
       extraOptions = [
-        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
         "--privileged"
       ];

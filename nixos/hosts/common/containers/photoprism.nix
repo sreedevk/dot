@@ -6,7 +6,7 @@
       image = "photoprism/photoprism:latest";
       dependsOn = [ "photoprism-db" ];
       extraOptions = [
-        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--privileged"
         "--no-healthcheck"
       ];
@@ -23,7 +23,7 @@
         PHOTOPRISM_ADMIN_PASSWORD = secrets.photoprism_app_password;
         PHOTOPRISM_ADMIN_USER = secrets.photoprism_app_username;
         PHOTOPRISM_AUTH_MODE = "password";
-        PHOTOPRISM_SITE_URL = "http://nullptrderef1:${opts.ports.photoprism_app}/";
+        PHOTOPRISM_SITE_URL = "https://photoprism.nullptr.sh";
         PHOTOPRISM_ORIGINALS_LIMIT = "10000";
         PHOTOPRISM_HTTP_COMPRESSION = "gzip";
         PHOTOPRISM_LOG_LEVEL = "info";
@@ -47,7 +47,7 @@
         PHOTOPRISM_AUTO_INDEX = "300";
         PHOTOPRISM_AUTO_IMPORT = "-1";
         PHOTOPRISM_DATABASE_DRIVER = "mysql";
-        PHOTOPRISM_DATABASE_SERVER = "nullptrderef1:${opts.ports.photoprism_db}";
+        PHOTOPRISM_DATABASE_SERVER = "${opts.hostname}:${opts.ports.photoprism_db}";
         PHOTOPRISM_DATABASE_NAME = "photoprism";
         PHOTOPRISM_DATABASE_USER = secrets.photoprism_database_username;
         PHOTOPRISM_DATABASE_PASSWORD = secrets.photoprism_database_password;
@@ -75,7 +75,7 @@
       ];
 
       extraOptions = [
-        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--privileged"
         "--no-healthcheck"
       ];

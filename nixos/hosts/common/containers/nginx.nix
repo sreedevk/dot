@@ -17,7 +17,7 @@
         "${opts.ports.nginx-proxy-manager-https}:443"
       ];
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" "--privileged" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--privileged" ];
       volumes = [
         "${opts.paths.application_data}/nginx-proxy-manager:/data"
         "${opts.paths.application_data}/letsencrypt:/etc/letsencrypt"
