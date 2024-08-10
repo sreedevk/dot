@@ -10,7 +10,7 @@
     tubearchivist-app = {
       image = "bbilly1/tubearchivist";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [
         "tubearchivist-es"
         "tubearchivist-redis"
@@ -22,8 +22,8 @@
         "${opts.paths.application_data}/tubearchivist/cache:/cache"
       ];
       environment = {
-        ES_URL = "http://nullptrderef1:${opts.ports.tubearchivist-es}";
-        REDIS_HOST = "nullptrderef1";
+        ES_URL = "http://${opts.hostname}:${opts.ports.tubearchivist-es}";
+        REDIS_HOST = "${opts.hostname}";
         TZ = opts.timeZone;
         HOST_UID = opts.adminUID;
         HOST_GID = opts.adminGID;
@@ -39,7 +39,7 @@
       image = "bbilly1/tubearchivist-es";
       extraOptions =
         [
-          "--add-host=nullptrderef1:${opts.lanAddress}"
+          "--add-host=${opts.hostname}:${opts.lanAddress}"
           "--no-healthcheck"
           "--ulimit=memlock=-1:-1"
         ];
@@ -60,7 +60,7 @@
       autoStart = true;
       image = "redis/redis-stack-server";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [
         "tubearchivist-es"
       ];

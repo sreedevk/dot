@@ -5,7 +5,7 @@
     "gotify" = {
       autoStart = true;
       image = "gotify/server";
-      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.gotify}:80" ];
       volumes = [ "${opts.paths.application_data}/gotify:/app/data" ];
       environment = {

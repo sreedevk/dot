@@ -38,7 +38,7 @@
         filtering_enabled = true;
         rewrites = [
           {
-            domain = "nullptrderef1";
+            domain = opts.hostname;
             answer = opts.lanAddress;
           }
           {

@@ -17,7 +17,7 @@
 
   services.icecast = {
     enable = true;
-    hostname = "nullptrderef1";
+    hostname = opts.hostname;
     listen = {
       address = "0.0.0.0";
       port = pkgs.lib.strings.toInt opts.ports.icecast;

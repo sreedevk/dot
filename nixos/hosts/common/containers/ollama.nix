@@ -8,7 +8,7 @@
       autoStart = true;
       image = "ollama/ollama";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_data}/Ollama:/root/.ollama" ];
       ports = [ "${opts.ports.ollama-api}:11434" ];
       environment = {
@@ -22,7 +22,7 @@
       autoStart = true;
       image = "ghcr.io/open-webui/open-webui:main";
       extraOptions = [
-        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--add-host=host.docker.internal:host-gateway"
         "--no-healthcheck"
       ];

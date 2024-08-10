@@ -1,9 +1,9 @@
 {
+  hostname = "nullptrderef1";
+
   lanAddress = "192.168.1.179";
   adminUID = "1000";
   adminGID = "100";
-
-  hostname = "nullptrderef1";
 
   paths = {
     application_data = "/mnt/dpool0/appdata";

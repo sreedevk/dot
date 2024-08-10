@@ -6,7 +6,7 @@
       autoStart = true;
       image = "jamesread/olivetin";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--cap-add=NET_RAW" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--cap-add=NET_RAW" "--no-healthcheck" ];
       volumes = [
         "${opts.paths.application_data}/olivetin:/config"
         "${opts.paths.podmanSocket}:/var/run/docker.sock"

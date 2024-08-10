@@ -6,7 +6,7 @@
       autoStart = true;
       image = "akhilrex/podgrab";
       extraOptions = [
-        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--privileged"
         "--no-healthcheck"
       ];

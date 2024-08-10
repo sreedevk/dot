@@ -4,7 +4,7 @@
       autoStart = true;
       image = "ghcr.io/livebook-dev/livebook";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "8090:8080" "8091:8081" ];
       volumes = [ "${opts.paths.application_data}/livebook:/data" ];
       environment = {

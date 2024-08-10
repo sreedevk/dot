@@ -9,7 +9,7 @@
     "container-registry-server" = {
       autoStart = true;
       image = "registry:2.7";
-      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.container-registry-server}:5000" ];
       volumes = [ "${opts.paths.application_data}/containers/server:/var/lib/registry" ];
       environment = {
@@ -24,7 +24,7 @@
       autoStart = true;
       dependsOn = [ "container-registry-server" ];
       image = "quiq/registry-ui";
-      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" "--privileged" ];
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--privileged" ];
       ports = [ "${opts.ports.container-registry-web}:8000" ];
       volumes = [
         "${opts.paths.application_data}/containers/web/data:/opt/data"

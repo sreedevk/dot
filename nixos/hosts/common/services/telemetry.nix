@@ -23,7 +23,7 @@
       "stream.conf" = pkgs.writeText "stream.conf" ''
         [stream]
           enabled = yes
-          destination = nullptrderef1:${opts.ports.netdata}
+          destination = ${opts.hostname}:${opts.ports.netdata}
           api key = ${secrets.netdata_api_key}
         [UUID]
           enabled = yes
@@ -50,7 +50,7 @@
     };
     scrapeConfigs = [
       {
-        job_name = "nullptrderef1";
+        job_name = opts.hostname;
         static_configs = [{
           targets = [ "0.0.0.0:${toString config.services.prometheus.exporters.node.port}" ];
         }];

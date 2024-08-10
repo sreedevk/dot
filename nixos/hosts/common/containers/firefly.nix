@@ -8,7 +8,7 @@
       ports = [ "${opts.ports.firefly_db}:3306" ];
       cmd = [ "--max-connections=512" ];
       extraOptions = [
-        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
       ];
       volumes = [ "${opts.paths.application_databases}/firefly:/var/lib/mysql" ];
@@ -27,7 +27,7 @@
       autoStart = true;
       image = "fireflyiii/core:latest";
       extraOptions = [
-        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
       ];
       dependsOn = [ "firefly-db" ];

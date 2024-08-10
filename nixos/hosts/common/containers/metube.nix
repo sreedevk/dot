@@ -6,7 +6,7 @@
       autoStart = true;
       image = "ghcr.io/alexta69/metube";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.metube}:8081" ];
       volumes = [ "${opts.paths.downloads}/Metube:/downloads" ];
       environment = {

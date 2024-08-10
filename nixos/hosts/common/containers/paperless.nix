@@ -5,7 +5,7 @@
     paperless-app = {
       autoStart = true;
       image = "ghcr.io/paperless-ngx/paperless-ngx:latest";
-      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "paperless-db" "paperless-redis" ];
       volumes = [
         "${opts.paths.application_data}/paperless/consume:/usr/src/paperless/consume"
@@ -15,9 +15,9 @@
       ];
       ports = [ "${opts.ports.paperless-app}:8000" ];
       environment = {
-        PAPERLESS_REDIS = "redis://nullptrderef1:${opts.ports.paperless-redis}";
+        PAPERLESS_REDIS = "redis://${opts.hostname}:${opts.ports.paperless-redis}";
         PAPERLESS_DBENGINE = "mariadb";
-        PAPERLESS_DBHOST = "nullptrderef1";
+        PAPERLESS_DBHOST = "${opts.hostname}";
         PAPERLESS_DBUSER = "paperless";
         PAPERLESS_DBPASS = secrets.paperless-db-password;
         PAPERLESS_SECRET_KEY = secrets.paperless-db-password;
@@ -37,10 +37,10 @@
       autoStart = true;
       image = "docker.io/library/mariadb:11";
       volumes = [ "${opts.paths.application_databases}/paperless:/var/lib/mysql" ];
-      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.paperless-db}:3306" ];
       environment = {
-        MARIADB_HOST = "nullptrderef1";
+        MARIADB_HOST = "${opts.hostname}";
         MARIADB_DATABASE = "paperless";
         MARIADB_USER = "paperless";
         MARIADB_PASSWORD = secrets.paperless-db-password;
@@ -54,7 +54,7 @@
     paperless-redis = {
       autoStart = true;
       image = "docker.io/library/redis:7";
-      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.paperless-redis}:6379" ];
       volumes = [
         "${opts.paths.application_data}/paperless/redis:/data"

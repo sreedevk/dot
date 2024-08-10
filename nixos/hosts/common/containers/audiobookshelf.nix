@@ -10,7 +10,7 @@
         TZ = opts.timeZone;
       };
       extraOptions = [
-        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
       ];
       image = "ghcr.io/advplyr/audiobookshelf:latest";

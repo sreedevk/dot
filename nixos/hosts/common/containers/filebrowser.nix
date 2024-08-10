@@ -7,7 +7,10 @@
       autoStart = true;
       image = "filebrowser/filebrowser";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [
+          "--add-host=${opts.hostname}:${opts.lanAddress}"
+          "--no-healthcheck"
+        ];
       ports = [ "${opts.ports.filebrowser}:80" ];
       volumes = [
         "/mnt/dpool0/:/srv"

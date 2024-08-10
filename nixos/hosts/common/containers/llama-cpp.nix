@@ -7,7 +7,7 @@
       autoStart = true;
       image = "ghcr.io/ggerganov/llama.cpp:server";
       extraOptions = [
-        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
         "--memory=16g"
         "--memory-swap=32g"

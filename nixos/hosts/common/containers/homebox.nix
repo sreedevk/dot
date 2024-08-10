@@ -5,7 +5,7 @@
       autoStart = true;
       image = "ghcr.io/hay-kot/homebox:latest";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.homebox}:7745" ];
       volumes = [ "${opts.paths.application_data}/homebox:/data" ];
       environment = {

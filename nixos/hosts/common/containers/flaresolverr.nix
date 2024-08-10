@@ -5,7 +5,7 @@
       autoStart = true;
       image = "ghcr.io/flaresolverr/flaresolverr:latest";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.flaresolverr}:8191" ];
       environment = {
         LOG_LEVEL = "info";

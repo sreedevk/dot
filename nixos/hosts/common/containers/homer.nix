@@ -5,7 +5,7 @@
       autoStart = true;
       image = "b4bz/homer:latest";
       extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_data}/homer/:/www/assets" ];
       ports = [ "${opts.ports.homer}:8080" ];
       environment = {

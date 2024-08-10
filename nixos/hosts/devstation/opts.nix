@@ -1,1 +1,4 @@
-{ }
+{
+  hostname = "devstation";
+}
+
