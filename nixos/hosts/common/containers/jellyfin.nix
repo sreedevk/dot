@@ -7,9 +7,9 @@
       autoStart = true;
       image = "jellyfin/jellyfin";
       volumes = [
-        "${opts.paths.application_data}/jellyfin/config:/config"
-        "${opts.paths.application_data}/jellyfin/cache/:/cache"
-        "${opts.paths.application_data}/jellyfin/log/:/log"
+        "${opts.paths.application_data}/Jellyfin/config:/config"
+        "${opts.paths.application_data}/Jellyfin/cache/:/cache"
+        "${opts.paths.application_data}/Jellyfin/log/:/log"
         "${opts.paths.movies}:/movies"
         "${opts.paths.television}:/tv"
         "${opts.paths.audiobooks}:/audiobooks"
