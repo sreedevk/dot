@@ -73,9 +73,6 @@
     metube = "8081";
     navidrome = "4533";
     netdata = "19999";
-    nginx-proxy-manager-app = "81";
-    nginx-proxy-manager-http = "80";
-    nginx-proxy-manager-https = "443";
     ntfy = "7777";
     olivetin = "1337";
     ollama-api = "11434";
