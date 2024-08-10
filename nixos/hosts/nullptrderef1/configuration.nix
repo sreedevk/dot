@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ../common/containers
     ../common/services
+    ../common/scripts
   ];
 
   documentation.nixos.enable = true;
