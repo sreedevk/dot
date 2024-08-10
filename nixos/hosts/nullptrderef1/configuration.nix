@@ -221,6 +221,12 @@
         interval = "monthly";
         pools = [ "dpool0" ];
       };
+
+      autoSnapshot = {
+        enable = true;
+        daily = 3;
+        flags = "-p -u -P dpool0";
+      };
     };
   };
 
