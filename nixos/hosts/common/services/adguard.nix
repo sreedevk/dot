@@ -32,6 +32,48 @@
           name = "HaGeZi's Fake DNS Blocklist";
           id = 3;
         }
+        {
+          enabled = true;
+          url = "https://raw.githubusercontent.com/ph00lt0/blocklists/master/blocklist.txt";
+          name = "ph00lt0 Blocklist";
+          id = 4;
+        }
+        {
+          enabled = true;
+          url = "https://blocklistproject.github.io/Lists/adguard/ads-ags.txt";
+          name = "blocklist-project-ads";
+          id = 5;
+        }
+        {
+          enabled = true;
+          url = "https://blocklistproject.github.io/Lists/adguard/crypto-ags.txt";
+          name = "blocklist-project-crypto";
+          id = 6;
+        }
+        {
+          enabled = true;
+          url = "https://blocklistproject.github.io/Lists/adguard/facebook-ags.txt";
+          name = "blocklist-project-facebook";
+          id = 7;
+        }
+        {
+          enabled = true;
+          url = "https://blocklistproject.github.io/Lists/adguard/fraud-ags.txt";
+          name = "blocklist-project-fraud";
+          id = 8;
+        }
+        {
+          enabled = true;
+          url = "https://blocklistproject.github.io/Lists/adguard/tiktok-ags.txt";
+          name = "blocklist-project-tiktok";
+          id = 9;
+        }
+        {
+          enabled = true;
+          url = "https://blocklistproject.github.io/Lists/adguard/tracking-ags.txt";
+          name = "blocklist-project-tracking";
+          id = 10;
+        }
       ];
       filtering = {
         protection_enabled = true;
