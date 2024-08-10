@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ../common/containers
     ../common/services
+    ../common/k3s
   ];
 
   documentation.nixos.enable = true;
