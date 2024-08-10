@@ -33,8 +33,6 @@
     aria_rpc = "6800";
     aria_web = "6880";
     audiobookshelf = "13378";
-    authentik-db = "5433";
-    authentik-redis = "6381";
     baikal = "8945";
     bazarr = "6767";
     cloudbeaver = "8079";
