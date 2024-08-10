@@ -260,11 +260,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1723224876,
-        "narHash": "sha256-/tlxLhz8Z6HMRexGhDK1l25cNOfZzeTy5ZJzK1Gg12w=",
+        "lastModified": 1723253546,
+        "narHash": "sha256-S+Lya9xhBrKfRIOdfnyKNP/J45lmbDt88MUUODXTQJE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1fbf6e93bda2ea39f3b996891e5f2cb19a626ef2",
+        "rev": "e34c7a6b2a2b502a100c660368c17f2e07f73c61",
         "type": "github"
       },
       "original": {
@@ -286,10 +286,10 @@
     },
     "sec": {
       "locked": {
-        "lastModified": 1722977016,
-        "narHash": "sha256-KXt4SM1NST43qpCG4u5kB9rnRZGKFh/YGsok3whJCbw=",
+        "lastModified": 1723253889,
+        "narHash": "sha256-tJ7uNRLj3h2ZnJJPYiS3UnoogcNApgFWykzjMe7DdCo=",
         "ref": "main",
-        "rev": "d7bc67b6a0dd4c9fd39330e83d966da727783bfd",
+        "rev": "e6f6b1049f4d83100bad519b4b3913bd896eb4e4",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git"
