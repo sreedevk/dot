@@ -6,7 +6,7 @@
       image = "fallenbagel/jellyseerr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/jellyseer/:/app/config" ];
+      volumes = [ "${opts.paths.application_data}/Jellyseer/:/app/config" ];
       ports = [ "${opts.ports.jellyseer}:5055" ];
       environment = {
         TZ = opts.timeZone;
