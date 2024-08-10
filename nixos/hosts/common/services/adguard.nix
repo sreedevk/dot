@@ -51,7 +51,7 @@
           id = 6;
         }
         {
-          enabled = true;
+          enabled = false;
           url = "https://blocklistproject.github.io/Lists/adguard/facebook-ags.txt";
           name = "blocklist-project-facebook";
           id = 7;
