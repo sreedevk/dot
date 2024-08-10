@@ -31,7 +31,10 @@ in
         linkding-extension
         mullvad
         multi-account-containers
+        noscript
         open-url-in-container
+        reddit-enhancement-suite
+        sidebery
         sponsorblock
         temporary-containers
         tubearchivist-companion
