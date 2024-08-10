@@ -1,7 +1,7 @@
 { opts, pkgs, secrets, ... }:
 {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ llama-cpp-server ]);
-  
+
   virtualisation.oci-containers.containers = {
     "llama-cpp-server" = {
       autoStart = true;

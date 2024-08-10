@@ -3,6 +3,8 @@
   adminUID = "1000";
   adminGID = "100";
 
+  hostname = "nullptrderef1";
+
   paths = {
     application_data = "/mnt/dpool0/appdata";
     application_databases = "/mnt/dpool0/appdata/databases";
@@ -59,10 +61,14 @@
     jackett = "9117";
     jellyfin = "8096";
     jellyseer = "5055";
+    k3s-control-plane = "6443";
+    k3s-inter-node-net = "8472";
+    k3s-etcd-clients = "2379";
+    k3s-etcd-peers = "2380";
     kavita = "5000";
-    llama-cpp-server = "8100";
     lidarr = "8686";
     linkding = "9090";
+    llama-cpp-server = "8100";
     memos = "5230";
     metube = "8081";
     navidrome = "4533";
