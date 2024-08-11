@@ -14,6 +14,8 @@
     books = "/mnt/dpool0/media/books";
     documents = "/mnt/dpool0/personal/documents";
     downloads = "/mnt/dpool0/downloads";
+    fast_application_data = "/mnt/dpool1/appdata/files";
+    fast_application_databases = "/mnt/dpool1/appdata/databases";
     images = "/mnt/dpool0/media/photos";
     llama-cpp-models = "/mnt/dpool0/resources/llms/llama-cpp-models";
     magazines = "/mnt/dpool0/media/magazines";
@@ -110,6 +112,7 @@
   };
 
   mountpoints = [
+    # DPOOL0
     { device = "dpool0/media"; path = "/mnt/dpool0/media"; }
     { device = "dpool0/media/videos"; path = "/mnt/dpool0/media/videos"; }
     { device = "dpool0/media/movies"; path = "/mnt/dpool0/media/movies"; }
@@ -141,6 +144,11 @@
     { device = "dpool0/media/audio"; path = "/mnt/dpool0/media/audio"; }
     { device = "dpool0/appdata/databases"; path = "/mnt/dpool0/appdata/databases"; }
     { device = "dpool0/appdata/files"; path = "/mnt/dpool0/appdata/files"; }
+
+    # DPOOL1
+    { device = "dpool1/appdata"; path = "/mnt/dpool1/appdata"; }
+    { device = "dpool1/appdata/files"; path = "/mnt/dpool1/appdata/files"; }
+    { device = "dpool1/appdata/databases"; path = "/mnt/dpool1/appdata/databases"; }
   ];
 
 }
