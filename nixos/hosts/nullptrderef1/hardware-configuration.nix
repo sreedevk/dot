@@ -5,6 +5,13 @@
 
   boot = {
 
+    kernelParams = [ "nohibernate" ];
+    tmp.cleanOnBoot = true;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = "1048576";
       "vm.swappiness" = 10;
