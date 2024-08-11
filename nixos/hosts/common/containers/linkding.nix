@@ -22,6 +22,8 @@
         LD_DB_PASSWORD = secrets.linkding_db_password;
         LD_DB_HOST = secrets.linkding_db_host;
         LD_DB_PORT = opts.ports.linkding-db;
+        LD_SUPERUSER_NAME = secrets.linkding_superuser;
+        LD_SUPERUSER_PASSWORD = secrets.linkding_password;
       };
     };
 
