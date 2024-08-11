@@ -15,7 +15,7 @@
       ];
       volumes = [
         "${opts.paths.application_data}/podgrab/config:/config"
-        "${opts.paths.application_data}/podgrab/assets:/assets"
+        "${opts.paths.podcasts}:/assets"
       ];
       environment = {
         CHECK_FREQUENCY = "240";

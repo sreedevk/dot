@@ -1,10 +1,10 @@
 { pkgs, ... }:
 let
-  backup-appdata =
+  appdata-sync =
     pkgs.writeShellScriptBin "backup-appdata" ''
       echo "hello world";
     '';
 in
 {
-  environment.systemPackages = [ backup-appdata ];
+  environment.systemPackages = [ appdata-sync ];
 }
