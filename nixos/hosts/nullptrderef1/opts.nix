@@ -140,6 +140,7 @@
     { device = "dpool0/downloads/torrents"; path = "/mnt/dpool0/downloads/torrents"; }
     { device = "dpool0/media/audio"; path = "/mnt/dpool0/media/audio"; }
     { device = "dpool0/appdata/databases"; path = "/mnt/dpool0/appdata/databases"; }
+    { device = "dpool0/appdata/files"; path = "/mnt/dpool0/appdata/files"; }
   ];
 
 }
