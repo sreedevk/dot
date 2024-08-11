@@ -43,15 +43,6 @@
     ];
   };
 
-  boot = {
-    kernelParams = [ "nohibernate" ];
-    tmp.cleanOnBoot = true;
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-  };
-
   networking = {
     hostName = opts.hostname;
     domain = "nullptr.sh";
