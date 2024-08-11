@@ -5,6 +5,8 @@
   adminUID = "1000";
   adminGID = "100";
 
+  nameservers = [ "9.9.9.9" "149.112.112.112" "194.242.2.5" ];
+
   paths = {
     application_data = "/mnt/dpool0/appdata";
     application_databases = "/mnt/dpool0/appdata/databases";

@@ -63,22 +63,20 @@
     networkmanager = {
       enable = true;
       wifi.backend = "iwd";
-      insertNameservers =
-        [ "127.0.0.1" "149.112.112.112" "194.242.2.5" "9.9.9.9" ];
+      insertNameservers = opts.nameservers;
     };
-    nameservers = pkgs.lib.mkForce [
-      "127.0.0.1"
-      "149.112.112.112"
-      "194.242.2.5"
-      "9.9.9.9"
-    ];
+
+    nameservers = pkgs.lib.mkForce opts.nameservers;
+
     enableIPv6 = false;
+
     firewall = {
       enable = true;
       allowPing = false;
       allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ftp https ssh ]);
       allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ftp ssh ]);
     };
+
   };
 
   time.timeZone = "America/New_York";
