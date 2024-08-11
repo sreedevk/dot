@@ -44,7 +44,7 @@
       zfs = {
         enable = true;
         port = pkgs.lib.strings.toInt opts.ports.prometheus_zfs;
-        pools = [ "dpool0" ];
+        pools = [ "dpool0" "dpool1" ];
         openFirewall = true;
       };
     };
