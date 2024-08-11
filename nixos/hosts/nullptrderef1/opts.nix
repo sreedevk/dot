@@ -8,7 +8,7 @@
   nameservers = [ "9.9.9.9" "149.112.112.112" "194.242.2.5" ];
 
   paths = {
-    application_data = "/mnt/dpool0/appdata";
+    application_data = "/mnt/dpool0/appdata/files";
     application_databases = "/mnt/dpool0/appdata/databases";
     audiobooks = "/mnt/dpool0/media/audiobooks";
     books = "/mnt/dpool0/media/books";
