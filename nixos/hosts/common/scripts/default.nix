@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ./backup.nix
+    ./appdata-sync.nix
   ];
 }
