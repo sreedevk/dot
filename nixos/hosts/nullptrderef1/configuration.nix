@@ -208,13 +208,13 @@
       autoScrub = {
         enable = true;
         interval = "monthly";
-        pools = [ "dpool0" ];
+        pools = [ "dpool0" "dpool1" ];
       };
 
       autoSnapshot = {
         enable = true;
         daily = 3;
-        flags = "-p -u -P dpool0";
+        flags = "-p -u";
       };
     };
   };
