@@ -8,21 +8,21 @@
   nameservers = [ "9.9.9.9" "149.112.112.112" "194.242.2.5" ];
 
   paths = {
+    application_data = "/mnt/dpool1/appdata/files";
     application_data_archive = "/mnt/dpool0/appdata/files";
+    application_databases = "/mnt/dpool1/appdata/databases";
     application_databases_archive = "/mnt/dpool0/appdata/databases";
     audiobooks = "/mnt/dpool0/media/audiobooks";
     books = "/mnt/dpool0/media/books";
     documents = "/mnt/dpool0/personal/documents";
     downloads = "/mnt/dpool0/downloads";
-    application_data = "/mnt/dpool1/appdata/files";
-    application_databases = "/mnt/dpool1/appdata/databases";
     images = "/mnt/dpool0/media/photos";
     llama-cpp-models = "/mnt/dpool0/resources/llms/llama-cpp-models";
     magazines = "/mnt/dpool0/media/magazines";
     movies = "/mnt/dpool0/media/movies";
     music = "/mnt/dpool0/media/music";
-    podcasts = "/mnt/dpool0/media/podcasts";
     other = "/mnt/dpool0/other";
+    podcasts = "/mnt/dpool0/media/podcasts";
     podmanSocket = "/var/run/podman/podman.sock";
     qbt_images = "/mnt/dpool0/media/photos/other";
     television = "/mnt/dpool0/media/shows";
