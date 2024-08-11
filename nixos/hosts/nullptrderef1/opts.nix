@@ -70,7 +70,8 @@
     k3s-etcd-peers = "2380";
     kavita = "5000";
     lidarr = "8686";
-    linkding = "9090";
+    linkding-app = "9090";
+    linkding-db = "5432";
     llama-cpp-server = "8100";
     memos = "5230";
     metube = "8081";
