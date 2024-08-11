@@ -272,6 +272,10 @@ in
               name = "hackernews";
               url = "https://news.ycombinator.com/";
             }
+            {
+              name = "lobsters";
+              url = "https://lobste.rs/";
+            }
           ];
         }
       ];
