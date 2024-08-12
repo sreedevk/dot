@@ -44,6 +44,7 @@
           instaloader
           irssi
           jira-cli-go
+          just
           k9s
           mdbook
           nixpkgs-fmt
