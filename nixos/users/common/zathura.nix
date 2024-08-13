@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, stylix, ... }:
 {
+
+  stylix.targets.zathura.enable = true;
+
   programs.zathura = {
     enable = true;
     extraConfig = ''
