@@ -3,7 +3,6 @@
     ./adguard.nix
     ./mullvad.nix
     ./icecast.nix
-    ./telemetry.nix
     ./taskchampion.nix
     ./clamav.nix
   ];

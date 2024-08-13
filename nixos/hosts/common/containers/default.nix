@@ -36,6 +36,7 @@
     ./portrainer.nix
     ./qbittorrent.nix
     ./servarr.nix
+    ./telemetry.nix
     ./tubearchivist.nix
     ./uptime-kuma.nix
     ./vaultwarden.nix
