@@ -25,14 +25,14 @@
     ../common/opentabletdriver.nix
     ../common/stylix.nix
     ../common/taskwarrior.nix
+    ../common/tmux-sessionizer.nix
     ../common/tmux.nix
     ../common/x86-packages.nix
+    ../common/xresources.nix
     ../common/zathura.nix
     ../common/zsh.nix
     ./backup.nix
     ./ssh.nix
-    ./tmux-sessionizer.nix
-    ./xresources.nix
   ];
 
   home.packages =
