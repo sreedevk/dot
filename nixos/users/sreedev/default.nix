@@ -32,6 +32,7 @@
     ./backup.nix
     ./ssh.nix
     ./tmux-sessionizer.nix
+    ./xresources.nix
   ];
 
   home.packages =
