@@ -77,6 +77,7 @@
       ];
       user_rules = [
         "@@||airbrake.io^$important"
+        "@@||download.nvidia.com^$important"
       ];
       filtering = {
         protection_enabled = true;
