@@ -8,7 +8,6 @@
     };
 
     imageScalingMode = "fill"; # fill,fit,stretch,center,tile
-
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
@@ -44,18 +43,14 @@
     targets = {
       bat.enable = true;
       btop.enable = true;
-      dunst.enable = true;
       feh.enable = true;
-      firefox.enable = true;
       fzf.enable = true;
       gtk.enable = true;
       i3.enable = false;
       nushell.enable = true;
       rofi.enable = false;
-      sxiv.enable = false;
       tmux.enable = true;
       xresources.enable = true;
-      zathura.enable = false;
       zellij.enable = true;
     };
   };
