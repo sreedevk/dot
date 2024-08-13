@@ -84,7 +84,7 @@
       image = "influxdb:2.7.6-alpine";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.ports.influxdb}:3000" ];
+      ports = [ "${opts.ports.influxdb}:8086" ];
       volumes = [
         "${opts.paths.application_databases}/InfluxDB:/var/lib/influxdb2"
         "${opts.paths.application_data}/InfluxDB/config:/etc/influxdb2"
