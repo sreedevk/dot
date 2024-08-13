@@ -269,10 +269,10 @@
     },
     "sec": {
       "locked": {
-        "lastModified": 1723411407,
-        "narHash": "sha256-R2IOvL0gmw1MT2Ih2QK7DL5Y6uTKwbw4rY/jY7rJfmc=",
+        "lastModified": 1723511591,
+        "narHash": "sha256-6utSwQk/br40KVxY/SbpolzBiKR7GEuXnXzHAbZ+fvo=",
         "ref": "main",
-        "rev": "d8c670be4467da75bb73bc349e339c60540786ec",
+        "rev": "40e67cb2bfc19732f4b018fb523d74533c15f297",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git"
