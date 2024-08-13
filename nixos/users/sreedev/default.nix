@@ -31,6 +31,7 @@
     ../common/zsh.nix
     ./backup.nix
     ./ssh.nix
+    ./tmux-sessionizer.nix
   ];
 
   home.packages =
