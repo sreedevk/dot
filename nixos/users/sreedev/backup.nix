@@ -2,7 +2,7 @@
 let
   sync-backups-archives =
     pkgs.writeShellScriptBin "sync-backups-archives" ''
-      ${pkgs.rsync}/bin/rsync -aAXv --progress --delete --size-only /opt/backups nullptr.sh:/mnt/dpool0/backups/devstation/
+      ${pkgs.rsync}/bin/rsync -aAXv --progress --delete --size-only /opt/backups/ nullptr.sh:/mnt/dpool0/backups/devstation/
     '';
 
   create-backup-archives =
