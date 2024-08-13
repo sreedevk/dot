@@ -1,4 +1,7 @@
-{ pkgs, lib, system, opts, ... }: {
+{ pkgs, stylix, lib, system, opts, ... }: {
+
+  stylix.targets.dunst.enable = true;
+
   services = {
     dunst = {
       enable = true;

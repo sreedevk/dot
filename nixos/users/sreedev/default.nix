@@ -86,7 +86,6 @@
           rofi
           slack
           spotify
-          sxiv
         ];
     in
     builtins.concatLists [

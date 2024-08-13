@@ -1,8 +1,10 @@
-{ pkgs, lib, config, firefox-addons, system, ... }:
+{ pkgs, lib, config, stylix, firefox-addons, system, ... }:
 let
   nixglmod = import ./nixGL.nix { inherit lib config pkgs; };
 in
 {
+  stylix.targets.firefox.enable = true;
+
   programs.firefox = {
     enable = true;
     package = nixglmod.nixGLWrapped pkgs.firefox-bin "firefox";
