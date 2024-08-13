@@ -10,8 +10,22 @@
 
     ".tool-versions" = {
       enable = true;
-      source = ../../../stowed/.tool-versions;
       recursive = true;
+      text =
+        let
+          versions = [
+            { tool = "bun"; version = "1.1.20"; }
+            { tool = "elixir"; version = "1.17.2-otp-27"; }
+            { tool = "erlang"; version = "27.0.1"; }
+            { tool = "golang"; version = "1.22.5"; }
+            { tool = "nodejs"; version = "22.5.1"; }
+            { tool = "ruby"; version = "3.2.1"; }
+            { tool = "zig"; version = "0.13.0"; }
+            { tool = "gleam"; version = "1.3.2"; }
+            { tool = "sbcl"; version = "2.4.5"; }
+          ];
+        in
+        builtins.concatStringsSep "\n" (builtins.map (v: "${v.tool} ${v.version}") versions);
     };
 
     ".config" = {
@@ -28,8 +42,12 @@
 
     ".profile" = {
       enable = true;
-      source = ../../../stowed/.profile;
-      recursive = true;
+      recursive = false;
+      target = ".profile";
+      executable = false;
+      text = ''
+        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+      '';
     };
 
     ".vimrc" = {
@@ -41,8 +59,15 @@
     ".xsession" = {
       enable = true;
       executable = true;
-      source = ../../../stowed/.xsession;
       recursive = true;
+      text = ''
+        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+        export GDK_SCALE=1.5
+        export GDK_DPI_SCALE=1.5
+        export QT_AUTO_SCREEN_SCALE_FACTOR=1
+        export QT_SCALE_FACTOR=1
+        export WINIT_X11_SCALE_FACTOR=1
+      '';
     };
 
     "mimeapps.list" = {
