@@ -61,13 +61,14 @@
     homer = "82";
     https = "443";
     icecast = "8099";
+    influxdb = "8086";
     jackett = "9117";
     jellyfin = "8096";
     jellyseer = "5055";
     k3s-control-plane = "6443";
-    k3s-inter-node-net = "8472";
     k3s-etcd-clients = "2379";
     k3s-etcd-peers = "2380";
+    k3s-inter-node-net = "8472";
     kavita = "5000";
     lidarr = "8686";
     linkding-app = "9090";
@@ -94,7 +95,6 @@
     portrainer_web_secure = "9443";
     prometheus_app = "9001";
     prometheus_node = "9002";
-    prometheus_zfs = "9134";
     prowlarr = "9696";
     qbittorrent-p2p = "6881";
     qbittorrent-web = "8001";
