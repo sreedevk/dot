@@ -10,9 +10,14 @@ let
       ${pkgs.p7zip}/bin/7z a -t7z -mx=9 /opt/backups/data-tunecore-archive-$(date -I).7z /home/${username}/Data/tunecore
       ${pkgs.p7zip}/bin/7z a -t7z -mx=9 /opt/backups/data-notebook-archive-$(date -I).7z /home/${username}/Data/notebook
     '';
+
+  sync-notes =
+    pkgs.writeShellScriptBin "sync-notes" ''
+      ${pkgs.rsync}/bin/rsync -aAXv --progress --delete --size-only /home/${username}/Data/notebook/ nullptr.sh:/mnt/dpool0/notes/notebook/
+    '';
 in
 {
-  home.packages = [ create-backup-archives sync-backups-archives ];
+  home.packages = [ create-backup-archives sync-backups-archives sync-notes ];
 
   systemd.user = {
     services = {
@@ -21,6 +26,14 @@ in
         Service = {
           Type = "simple";
           ExecStart = "${create-backup-archives}/bin/create-backup-archives";
+        };
+      };
+
+      sync-notes = {
+        Unit = { Description = "sync notes"; };
+        Service = {
+          Type = "simple";
+          ExecStart = "${sync-notes}/bin/sync-notes";
         };
       };
 
@@ -35,6 +48,21 @@ in
     };
 
     timers = {
+
+      sync-notes-timers = {
+        Unit = {
+          Description = "Timer for syncing backup archives";
+        };
+        Timer = {
+          OnBootSec = "10m";
+          OnUnitActiveSec = "1h";
+          Unit = "sync-notes.service";
+        };
+        Install = {
+          WantedBy = [ "timers.target" ];
+        };
+      };
+
       sync-backups-archives-timers = {
         Unit = {
           Description = "Timer for syncing backup archives";
