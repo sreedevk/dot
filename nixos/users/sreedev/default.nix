@@ -28,6 +28,7 @@
     ../common/x86-packages.nix
     ../common/zathura.nix
     ../common/zsh.nix
+    ./backup.nix
     ./ssh.nix
   ];
 
