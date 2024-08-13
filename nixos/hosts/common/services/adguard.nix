@@ -75,6 +75,9 @@
           id = 10;
         }
       ];
+      user_rules = [
+        "@@||airbrake.io^$important"
+      ];
       filtering = {
         protection_enabled = true;
         filtering_enabled = true;
