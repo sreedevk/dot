@@ -78,6 +78,7 @@
       filtering = {
         protection_enabled = true;
         filtering_enabled = true;
+        filters_update_interval = 8;
         rewrites = [
           {
             domain = opts.hostname;
