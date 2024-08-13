@@ -10,14 +10,14 @@
     imageScalingMode = "fill"; # fill,fit,stretch,center,tile
 
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
     fonts = {
       sizes = {
-        applications = 12;
-        desktop = 12;
-        popups = 14;
-        terminal = 14;
+        applications = 18;
+        desktop = 18;
+        popups = 18;
+        terminal = 28;
       };
 
       serif = {
@@ -42,7 +42,6 @@
     };
 
     targets = {
-      alacritty.enable = true;
       bat.enable = true;
       btop.enable = true;
       dunst.enable = true;
@@ -58,7 +57,6 @@
       xresources.enable = true;
       zathura.enable = false;
       zellij.enable = true;
-      kitty.enable = false;
     };
   };
 }
