@@ -18,6 +18,7 @@
     ../common/keybase.nix
     ../common/keyboard.nix
     ../common/kitty.nix
+    ../common/neovide.nix
     ../common/neovim.nix
     ../common/newsboat.nix
     ../common/opentabletdriver.nix
