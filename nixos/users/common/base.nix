@@ -20,12 +20,6 @@
       recursive = true;
     };
 
-    ".local" = {
-      enable = true;
-      source = ../../../stowed/.local;
-      recursive = true;
-    };
-
     ".bashrc" = {
       enable = true;
       source = ../../../stowed/.bashrc;
