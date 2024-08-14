@@ -11,11 +11,6 @@ This Nix(OS) section of this repository is located in the `nixos` directory. The
 nix-shell '<home-manager>' -A install
 ```
 
-### Install Agenix CLI
-```bash
-nix profile install github:ryantm/agenix#agenix
-```
-
 ## File Structure
 
 ### nixos/hosts
@@ -41,26 +36,17 @@ This is the entrypoint for both the `home-manager` & `NixOS`.
 
 #### NixOS
 
-##### Utilities
-I have added a utility script to make working with git crypt easier (`./scripts/run_with_creds.zsh`). If you want to run a command with `git crypt unlock` before and `git crypt lock` after. you can pass the command into this script and it'll do the unlock and cleanup for you.
-
-here's an example
-```bash
-./scripts/run_with_creds.zsh sudo nixos-rebuild switch --flake './nixos#host'
-```
-The script also is careful to lock secrets using `git crypt lock` if the command is interrupted for any reason.
-
 ##### Modifications
 
 After making any changes in the `nixos/hosts` directory, you can install the changes to the current host configuration into NixOS using the following command on the host.
 
 ```bash
 # TO BE RUN FROM THE ROOT OF THIS CLONED REPSITORY
-./scripts/run_with_creds.zsh sudo nixos-rebuild switch --flake "./nixos"
+sudo nixos-rebuild switch --flake "./nixos"
 
 # OR 
 
-./scripts/run_with_creds.zsh sudo nixos-rebuild switch --flake "./nixos#<NAME OF THE HOST HERE>"
+sudo nixos-rebuild switch --flake "./nixos#<NAME OF THE HOST HERE>"
 ```
 
 ##### Upgrading 
@@ -79,10 +65,10 @@ nix flake update './nixos'
 Any modifications to the `nixos/users` directory can be installed using this `home-manager` command
 
 ```bash
-./scripts/run_with_creds.zsh home-manager switch --flake './nixos' -j 4 --impure
+home-manager switch --flake './nixos' -j 4 --impure
 
 # OR 
-./scripts/run_with_creds.zsh home-manager switch --flake './nixos#<NAME OF THE USER HERE>' -j 4 --impure
+home-manager switch --flake './nixos#<NAME OF THE USER HERE>' -j 4 --impure
 ```
 
 * `--impure` flag is required because nixGL uses `builtins.currentTime` as an impure parameter to force the rebuild on each access.
