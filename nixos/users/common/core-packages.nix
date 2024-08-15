@@ -19,7 +19,6 @@
     cmake
     cmatrix
     csvlens
-    delta
     dig
     direnv
     duf
