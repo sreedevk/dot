@@ -77,7 +77,6 @@
     tty-clock
     uiua
     unrar
-    vim
     wget
     xh
     xxd
