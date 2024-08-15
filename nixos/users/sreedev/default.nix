@@ -13,6 +13,7 @@
     ../common/fontconfig.nix
     ../common/git.nix
     ../common/github.nix
+    ../common/gpg.nix
     ../common/htop.nix
     ../common/i3.nix
     ../common/keybase.nix
@@ -27,10 +28,10 @@
     ../common/taskwarrior.nix
     ../common/tmux-sessionizer.nix
     ../common/tmux.nix
+    ../common/vim.nix
     ../common/x86-packages.nix
     ../common/xresources.nix
     ../common/zathura.nix
-    ../common/gpg.nix
     ../common/zsh.nix
     ./backup.nix
     ./ssh.nix
