@@ -30,6 +30,7 @@
     ../common/x86-packages.nix
     ../common/xresources.nix
     ../common/zathura.nix
+    ../common/gpg.nix
     ../common/zsh.nix
     ./backup.nix
     ./ssh.nix
