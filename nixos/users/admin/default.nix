@@ -10,6 +10,7 @@
     ../common/keybase.nix
     ../common/neovim.nix
     ../common/tmux.nix
+    ../common/vim.nix
     ../common/x86-packages.nix
     ../common/zsh.nix
     ./ssh.nix

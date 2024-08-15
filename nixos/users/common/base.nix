@@ -50,12 +50,6 @@
       '';
     };
 
-    ".vimrc" = {
-      enable = true;
-      source = ../../../stowed/.vimrc;
-      recursive = true;
-    };
-
     ".xsession" = {
       enable = true;
       executable = true;
