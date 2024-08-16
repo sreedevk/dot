@@ -2,16 +2,13 @@
 {
   xresources = {
     properties = {
-      "Xft.dpi" = lib.mkForce 128;
-      "Xcursor.size" = lib.mkForce 18;
+      "Xft.dpi" = 128;
       "Xft.autohint" = 0;
-      "Xft.lcdfilter" = lib.mkForce "lcddefault";
-      "Xft.hintstyle" = lib.mkForce "hintfull";
+      "Xft.lcdfilter" = "lcddefault";
+      "Xft.hintstyle" = "hintfull";
       "Xft.hinting" = 1;
       "Xft.antialias" = 1;
       "Xft.rgba" = "rgb";
-      "*.faceName" = "Iosevka NF";
-      "*.faceSize" = 28;
       "*.renderFont" = true;
       "*foreground" = lib.mkForce "#bdcfe3";
       "*background" = lib.mkForce "#141c21L";
