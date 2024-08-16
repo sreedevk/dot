@@ -44,7 +44,7 @@
       enable = true;
       recursive = false;
       target = ".profile";
-      executable = false;
+      executable = true;
       text = ''
         export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
       '';
