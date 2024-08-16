@@ -41,7 +41,6 @@
     let
       cli-tools =
         with pkgs; [
-          awscli2
           doctl
           duckdb
           glab
