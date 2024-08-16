@@ -79,6 +79,7 @@
         "@@||airbrake.io^$important"
         "@@||download.nvidia.com^$important"
         "@@||one.newrelic.com^$important"
+        "@@||torlock.com^$important"
       ];
       filtering = {
         protection_enabled = true;
