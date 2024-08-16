@@ -1,10 +1,20 @@
-{ pkgs, stylix, lib, system, opts, ... }: {
-
+{ pkgs, stylix, lib, system, opts, ... }:
+let
+  dunstctl = pkgs.writeShellScriptBin "dunstctl" ''
+    DISPLAY=:0 ${pkgs.dunst}/bin/dunstctl $@
+  '';
+in
+{
   stylix.targets.dunst.enable = true;
+
+  home.packages = [ dunstctl ];
 
   services = {
     dunst = {
       enable = true;
+      package = pkgs.writeShellScriptBin "dunst" ''
+        DISPLAY=:0 ${pkgs.dunst}/bin/dunst
+      '';
       iconTheme = {
         package = pkgs.rose-pine-icon-theme;
         name = "rose-pine";

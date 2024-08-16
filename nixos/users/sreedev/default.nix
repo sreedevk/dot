@@ -73,7 +73,6 @@
           brightnessctl
           dbeaver-bin
           droidcam
-          dunst
           emacs
           feh
           gimp-with-plugins
