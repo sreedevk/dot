@@ -3,7 +3,6 @@
   imports = [
     ../common/alacritty.nix
     ../common/autorandr.nix
-    ../common/autotiling.nix
     ../common/awscli.nix
     ../common/base.nix
     ../common/core-packages.nix
@@ -68,7 +67,6 @@
           (nerdfonts.override { fonts = [ "Iosevka" ]; })
           arandr
           autorandr
-          autotiling
           brightnessctl
           dbeaver-bin
           droidcam
