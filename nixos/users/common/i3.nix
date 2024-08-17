@@ -25,9 +25,9 @@
         # AutoStart Applications
         exec_always --no-startup-id ${pkgs.autorandr}/bin/autorandr -c --match-edid
         exec_always --no-startup-id ~/.config/polybar/launch.sh
-        exec_always --no-startup-id ~/.fehbg
         exec_always --no-startup-id ${pkgs.autotiling}/bin/autotiling
         exec_always --no-startup-id picom -b
+        exec_always --no-startup-id ~/.fehbg
 
         # Disable Screen Blanking
         exec --no-startup-id xset s off
