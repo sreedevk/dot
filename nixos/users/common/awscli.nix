@@ -1,6 +1,7 @@
-{ pkgs, secrets, lib, system, ... }: {
+{ pkgs, nixpkgs-stable, secrets, lib, system, ... }: {
   programs.awscli = {
     enable = true;
+    package = nixpkgs-stable.awscli2;
     settings = {
       "default" = {
         region = secrets.aws_region or "";
