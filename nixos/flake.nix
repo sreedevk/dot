@@ -47,6 +47,7 @@
           ];
           specialArgs = {
             inherit secrets system;
+            nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
             opts = opts // (import ./hosts/${hostname}/opts.nix);
           };
         };
