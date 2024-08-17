@@ -126,6 +126,13 @@ in
             definedAliases = [ "@anna" ];
           };
 
+          "WaybackMachine" = {
+            urls = [{
+              template = "https://web.archive.org/web/{searchTerms}";
+            }];
+            definedAliases = [ "@wb" ];
+          };
+
           "GitHub" = {
             urls = [{
               template =
