@@ -29,14 +29,11 @@ grub
 gst-libav
 gst-plugins-good
 gstreamer
-i3lock
 i3-wm
 intel-media-driver
 iwd
 libnotify
 libpam-google-authenticator
-lightdm
-lightdm-gtk-greeter
 linux
 linux-firmware
 linux-firmware-qlogic
