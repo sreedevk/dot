@@ -1,4 +1,4 @@
-{ config, pkgs, opts, ... }: {
+{ config, nixpkgs-stable, pkgs, opts, ... }: {
   environment.systemPackages = with pkgs; [
     taskchampion-sync-server
   ];
@@ -15,7 +15,7 @@
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = ''
-        ${pkgs.taskchampion-sync-server}/bin/taskchampion-sync-server --port ${opts.ports.taskchampion} --data-dir ${opts.paths.application_data}/TaskChampion
+        ${nixpkgs-stable.taskchampion-sync-server}/bin/taskchampion-sync-server --port ${opts.ports.taskchampion} --data-dir ${opts.paths.application_data}/TaskChampion
       '';
       Restart = "always";
     };
