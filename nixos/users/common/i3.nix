@@ -79,7 +79,7 @@
         bindsym $mod+d                 exec --no-startup-id $app_launcher
         bindsym $mod+Ctrl+d            exec --no-startup-id "dmenu_run"
         bindsym $mod+Tab               exec --no-startup-id $window_switcher
-        bindsym Ctrl+space             exec --no-startup-id "dunstctl close-all"
+        bindsym Ctrl+space             exec --no-startup-id "${pkgs.dunst}/bin/dunstctl close-all"
 
         # Power Management
         bindsym $mod+Shift+period      exec --no-startup-id "systemctl suspend"
@@ -151,7 +151,7 @@
         bindsym $mod+Ctrl+l          workspace next
         bindsym $mod+Ctrl+h          workspace prev
 
-        bindsym $mod+0               exec --no-startup-id i3lock -i ~/Media/wallpapers/city6609.png -t -f
+        bindsym $mod+0               exec --no-startup-id ${pkgs.i3lock-pixeled}/bin/i3lock-pixeled
 
         # Workspace Control
         set $ws1 1
