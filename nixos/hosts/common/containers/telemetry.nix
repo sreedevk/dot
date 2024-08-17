@@ -26,28 +26,6 @@
     ];
   };
 
-  services.netdata = {
-    enable = true;
-    config = {
-      global = {
-        "update every" = 15;
-      };
-      ml = {
-        "enabled" = "yes";
-      };
-    };
-    configDir = {
-      "stream.conf" = pkgs.writeText "stream.conf" ''
-        [stream]
-          enabled = yes
-          destination = ${opts.hostname}:${opts.ports.netdata}
-          api key = ${secrets.netdata_api_key}
-        [UUID]
-          enabled = yes
-      '';
-    };
-  };
-
   virtualisation.oci-containers.containers = {
 
     "prometheus" = {
