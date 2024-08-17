@@ -15,6 +15,7 @@
     ../common/gpg.nix
     ../common/htop.nix
     ../common/i3.nix
+    ../common/irssi.nix
     ../common/keybase.nix
     ../common/keyboard.nix
     ../common/kitty.nix
@@ -53,7 +54,6 @@
       glow
       hledger
       instaloader
-      irssi
       jira-cli-go
       just
       k9s
