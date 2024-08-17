@@ -5,6 +5,7 @@
   inputs = {
     sec.url = "git+ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git?ref=main&shallow=1";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
+    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.05&shallow=1";
 
     stylix = {
       url = "github:danth/stylix";
@@ -22,7 +23,7 @@
     };
   };
 
-  outputs = { self, sec, nixpkgs, firefox-addons, home-manager, stylix, ... }:
+  outputs = { self, sec, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
     let
       opts = (import ./opts.nix);
       secrets = sec.secrets;
@@ -59,6 +60,7 @@
           ];
           extraSpecialArgs = {
             inherit firefox-addons secrets system username host;
+            nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
             opts = opts // (import ./hosts/${host}/opts.nix) // (import ./users/${username}/opts.nix);
           };
         };

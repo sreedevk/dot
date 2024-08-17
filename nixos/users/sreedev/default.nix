@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs-stable, ... }:
 {
   imports = [
     ../common/alacritty.nix
