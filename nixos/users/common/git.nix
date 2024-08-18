@@ -51,7 +51,7 @@ in
       text = ''
         [user]
           email = sreedev@icloud.com
-          name = sreedev
+          name = sreedevk
           signingkey = B8C402B16E80E17C
         [core]
           attributesfile = ~/.gitattributes
