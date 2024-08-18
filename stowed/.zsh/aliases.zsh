@@ -2,7 +2,6 @@
 # AUTHOR: Sreedev Kodichath
 
 # Sys
-alias ls='eza --color=always'
 alias la='eza -a --color=always'
 alias ll='eza -l --icons --color=always'
 alias lla='eza -la --icons --color=always'

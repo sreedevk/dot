@@ -7,11 +7,11 @@ let
 
   create-backup-archives =
     pkgs.writeShellScriptBin "create-backup-archives" ''
-      ${pkgs.p7zip}/bin/7z a -t7z -mx=9 /opt/backups/data-notebook-archive-$(date -I).7z /home/${username}/Data/notebook
-      ls data-notebook-archive-*.7z --color=never -I $(ls -a --color=never --sort=size data-notebook-archive-*.7z | tail -n 1) | xargs rm
+      ${pkgs.p7zip}/bin/7z a -t7z -mx=9 /opt/backups/data-notebook-archive-$(date +"%d-%m-%Y-%Z-%s" --utc).7z /home/${username}/Data/notebook
+      ls -d /opt/backups/data-notebook-archive-*.7z --color=never | grep -v "$(ls -d /opt/backups/data-notebook-archive-*.7z --sort=time | head -n 1)" | xargs --no-run-if-empty rm
 
-      ${pkgs.p7zip}/bin/7z a -t7z -mx=9 /opt/backups/data-work-archive-$(date -I).7z /home/${username}/Data/work
-      ls data-work-archive-*.7z --color=never -I $(ls -a --color=never --sort=size data-work-archive-*.7z | tail -n 1) | xargs rm
+      ${pkgs.p7zip}/bin/7z a -t7z -mx=9 /opt/backups/data-work-archive-$(date +"%d-%m-%Y-%Z-%s" --utc).7z /home/${username}/Data/work
+      ls -d /opt/backups/data-work-archive-*.7z --color=never | grep -v "$(ls -d /opt/backups/data-work-archive-*.7z --sort=time | head -n 1)" | xargs --no-run-if-empty rm
     '';
 
   sync-notes =
