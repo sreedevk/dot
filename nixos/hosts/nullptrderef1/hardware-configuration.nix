@@ -12,7 +12,7 @@ in
     kernelParams = [
       "nohibernate"
       "zfs.zfs_arc_max=${builtins.toString (zfs_arc_max_gb * 1073741824)}"
-      "zfs.zfs_dirty_data_max=${builtins.toString ( zfs_dirty_data_max_gb * 1073741824)}"
+      "zfs.zfs_dirty_data_max=${builtins.toString (zfs_dirty_data_max_gb * 1073741824)}"
       "hung_task_timeout_secs=${builtins.toString hung_task_timeout_secs}"
     ];
     tmp.cleanOnBoot = true;
