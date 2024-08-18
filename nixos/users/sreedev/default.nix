@@ -52,6 +52,7 @@
       gimp-with-plugins
       glab
       glow
+      graphviz
       hledger
       instaloader
       jira-cli-go
