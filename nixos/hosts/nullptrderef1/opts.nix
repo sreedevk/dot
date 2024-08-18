@@ -1,11 +1,11 @@
-{
+rec {
   hostname = "nullptrderef1";
 
   lanAddress = "192.168.1.179";
   adminUID = "1000";
   adminGID = "100";
 
-  nameservers = [ "9.9.9.9" "149.112.112.112" "194.242.2.5" ];
+  nameservers = [ lanAddress "9.9.9.9" "149.112.112.112" "194.242.2.5" ];
 
   paths = {
     application_data = "/mnt/dpool1/appdata/files";
