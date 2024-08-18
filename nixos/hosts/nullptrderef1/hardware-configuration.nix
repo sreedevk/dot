@@ -1,5 +1,9 @@
 { config, lib, pkgs, modulesPath, secrets, opts, ... }:
-
+let
+  zfs_arc_max_gb = 40;
+  zfs_dirty_data_max_gb = 4;
+  hung_task_timeout_secs = 600;
+in
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
@@ -7,9 +11,9 @@
 
     kernelParams = [
       "nohibernate"
-      "zfs.zfs_arc_max=42949672960"
-      "zfs.zfs_dirty_data_max=4294967296"
-      "hung_task_timeout_secs=600"
+      "zfs.zfs_arc_max=${builtins.toString (zfs_arc_max_gb * 1073741824)}"
+      "zfs.zfs_dirty_data_max=${builtins.toString ( zfs_dirty_data_max_gb * 1073741824)}"
+      "hung_task_timeout_secs=${builtins.toString hung_task_timeout_secs}"
     ];
     tmp.cleanOnBoot = true;
     loader = {
