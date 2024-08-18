@@ -76,13 +76,21 @@
         }
       ];
       user_rules = [
-        "@@||airbrake.io^$important"
-        "@@||download.nvidia.com^$important"
-        "@@||one.newrelic.com^$important"
-        "@@||torlock.com^$important"
         "@@||1337x.to^$important"
+        "@@||airbrake.io^$important"
+        "@@||blog.codinghorror.com^$important"
+        "@@||buffer.com^$important"
+        "@@||download.nvidia.com^$important"
+        "@@||engineering.fb.com^$important"
+        "@@||feeds.hanselman.com^$important"
+        "@@||finance.yahoo.com^$important"
         "@@||kickasstorrents.to^$important"
+        "@@||maheshba.bitbucket.io^$important"
+        "@@||news.yahoo.com^$important"
+        "@@||one.newrelic.com^$important"
+        "@@||sports.yahoo.com^$important"
         "@@||thepiratebay.org^$important"
+        "@@||torlock.com^$important"
       ];
       filtering = {
         protection_enabled = true;
