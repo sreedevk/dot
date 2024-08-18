@@ -4,7 +4,7 @@
 
   virtualisation.oci-containers.containers = {
     "llama-cpp-server" = {
-      autoStart = true;
+      autoStart = false;
       image = "ghcr.io/ggerganov/llama.cpp:server";
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"

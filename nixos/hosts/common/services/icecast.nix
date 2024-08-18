@@ -4,7 +4,7 @@
 
   systemd.services.radio-streaming = {
     description = "enable audio streaming from XHDATA D-328 Radio";
-    enable = true;
+    enable = false;
     after = [ "network.target" ];
     wants = [ "network.target" ];
     wantedBy = [ "default.target" ];
@@ -16,7 +16,7 @@
   };
 
   services.icecast = {
-    enable = true;
+    enable = false;
     hostname = opts.hostname;
     listen = {
       address = "0.0.0.0";
