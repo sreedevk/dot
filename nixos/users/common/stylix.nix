@@ -51,6 +51,7 @@
       rofi.enable = false;
       tmux.enable = true;
       xresources.enable = true;
+      sxiv.enable = true;
       zellij.enable = true;
     };
   };
