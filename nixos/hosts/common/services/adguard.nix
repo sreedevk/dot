@@ -80,6 +80,9 @@
         "@@||download.nvidia.com^$important"
         "@@||one.newrelic.com^$important"
         "@@||torlock.com^$important"
+        "@@||1337x.to^$important"
+        "@@||kickasstorrents.to^$important"
+        "@@||thepiratebay.org^$important"
       ];
       filtering = {
         protection_enabled = true;

@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs-stable, ... }:
 {
   services.clamav = {
+    package = nixpkgs-stable.clamav;
     daemon = {
       enable = true;
       settings = { };
