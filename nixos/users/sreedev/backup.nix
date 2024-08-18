@@ -7,8 +7,11 @@ let
 
   create-backup-archives =
     pkgs.writeShellScriptBin "create-backup-archives" ''
-      ${pkgs.p7zip}/bin/7z a -t7z -mx=9 /opt/backups/data-tunecore-archive-$(date -I).7z /home/${username}/Data/tunecore
       ${pkgs.p7zip}/bin/7z a -t7z -mx=9 /opt/backups/data-notebook-archive-$(date -I).7z /home/${username}/Data/notebook
+      ls data-notebook-archive-* --color=never -I $(ls -a --color=never --sort=size data-notebook-archive-* | tail -n 1) | xargs rm
+
+      ${pkgs.p7zip}/bin/7z a -t7z -mx=9 /opt/backups/data-work-archive-$(date -I).7z /home/${username}/Data/work
+      ls data-work-archive-* --color=never -I $(ls -a --color=never --sort=size data-work-archive-* | tail -n 1) | xargs rm
     '';
 
   sync-notes =
