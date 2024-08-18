@@ -1,4 +1,4 @@
-{ lib, pkgs, username, ... }: 
+{ lib, pkgs, username, ... }:
 {
   home.file = {
     "i3config" = {
