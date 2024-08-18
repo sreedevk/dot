@@ -5,7 +5,12 @@
 
   boot = {
 
-    kernelParams = [ "nohibernate" ];
+    kernelParams = [
+      "nohibernate"
+      "zfs.zfs_arc_max=42949672960"
+      "zfs.zfs_dirty_data_max=4294967296"
+      "hung_task_timeout_secs=600"
+    ];
     tmp.cleanOnBoot = true;
     loader = {
       systemd-boot.enable = true;
