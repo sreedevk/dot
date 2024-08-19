@@ -1,8 +1,8 @@
 { config, lib, pkgs, modulesPath, secrets, opts, ... }:
 let
-  zfs_arc_max_gb = 40;
+  zfs_arc_max_gb = 20;
   zfs_dirty_data_max_gb = 4;
-  hung_task_timeout_secs = 600;
+  hung_task_timeout_secs = 800;
   force_sync_at_x_dirty_gb = 2;
 in
 {
@@ -25,7 +25,7 @@ in
 
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = "1048576";
-      "vm.swappiness" = 10;
+      "vm.swappiness" = 70;
       "vm.dirty_ratio" = 20;
       "vm.dirty_background_ratio" = 10;
     };
