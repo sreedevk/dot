@@ -42,6 +42,7 @@
       (nerdfonts.override { fonts = [ "Iosevka" ]; })
       arandr
       autorandr
+      bitwarden-cli
       brightnessctl
       dbeaver-bin
       doctl
