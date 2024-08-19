@@ -26,7 +26,7 @@
   outputs = { self, sec, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
     let
       opts = (import ./opts.nix);
-      secrets = sec.secrets;
+      secrets = sec;
 
       systems = {
         x86 = "x86_64-linux";
