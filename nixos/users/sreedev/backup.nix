@@ -7,10 +7,10 @@ let
 
   create-backup-archives =
     pkgs.writeShellScriptBin "create-backup-archives" ''
-      ${pkgs.p7zip}/bin/7z a -t7z -mx=9 /opt/backups/data-notebook-archive-$(date +"%d-%m-%Y-%Z-%s" --utc).7z /home/${username}/Data/notebook
+      ${pkgs.p7zip}/bin/7z a -t7z -m0=lzma2 -ms=on -mx=9 /opt/backups/data-notebook-archive-$(date +"%d-%m-%Y-%Z-%s" --utc).7z /home/${username}/Data/notebook
       ls -d /opt/backups/data-notebook-archive-*.7z --color=never | grep -v "$(ls -d /opt/backups/data-notebook-archive-*.7z --sort=time | head -n 1)" | xargs --no-run-if-empty rm
 
-      ${pkgs.p7zip}/bin/7z a -t7z -mx=9 /opt/backups/data-work-archive-$(date +"%d-%m-%Y-%Z-%s" --utc).7z /home/${username}/Data/work
+      ${pkgs.p7zip}/bin/7z a -t7z -m0=lzma2 -ms=on -mx=9 /opt/backups/data-work-archive-$(date +"%d-%m-%Y-%Z-%s" --utc).7z /home/${username}/Data/work
       ls -d /opt/backups/data-work-archive-*.7z --color=never | grep -v "$(ls -d /opt/backups/data-work-archive-*.7z --sort=time | head -n 1)" | xargs --no-run-if-empty rm
     '';
 
