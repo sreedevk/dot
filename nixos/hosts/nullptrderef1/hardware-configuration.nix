@@ -1,6 +1,6 @@
 { config, lib, pkgs, modulesPath, secrets, opts, ... }:
 let
-  zfs_arc_max_gb = 20;
+  zfs_arc_max_gb = 25;
   zfs_dirty_data_max_gb = 4;
   hung_task_timeout_secs = 800;
   force_sync_at_x_dirty_gb = 2;
