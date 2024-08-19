@@ -7,5 +7,5 @@ RUN nix-channel --update
 COPY ./nixos /workspace
 WORKDIR /workspace
 
-RUN nix --extra-experimental-features flakes --extra-experimental-features nix-command flake lock --override-input sec "github:devtechnica/nullflake?shallow=1"
+RUN nix --extra-experimental-features flakes --extra-experimental-features nix-command flake lock --override-input secrets "github:devtechnica/nullflake?shallow=1"
 CMD nix --extra-experimental-features flakes --extra-experimental-features nix-command build '.#nixosConfigurations.nullptrderef1.config.system.build.toplevel' --no-link
