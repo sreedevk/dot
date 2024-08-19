@@ -51,6 +51,7 @@
     ".zshenv" = {
       enable = true;
       text = ''
+        [ -f "$HOME/.zshenv_lc" ] && . "$HOME/.zshenv_lc"
         export JIRA_API_TOKEN="${secrets.jira_token or ""}"
         export CARGO_REGISTRY_TOKEN="${secrets.cargo_token or ""}"
         export DIGITAL_OCEAN_TOKEN="${secrets.digital_ocean_token or ""}"
