@@ -3,6 +3,7 @@ let
   zfs_arc_max_gb = 40;
   zfs_dirty_data_max_gb = 4;
   hung_task_timeout_secs = 600;
+  force_sync_at_x_dirty_gb = 2;
 in
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
@@ -10,10 +11,11 @@ in
   boot = {
 
     kernelParams = [
+      "hung_task_timeout_secs=${builtins.toString hung_task_timeout_secs}"
       "nohibernate"
       "zfs.zfs_arc_max=${builtins.toString (zfs_arc_max_gb * 1073741824)}"
       "zfs.zfs_dirty_data_max=${builtins.toString (zfs_dirty_data_max_gb * 1073741824)}"
-      "hung_task_timeout_secs=${builtins.toString hung_task_timeout_secs}"
+      "zfs.zfs_dirty_data_sync=${builtins.toString (force_sync_at_x_dirty_gb * 1073741824) }"
     ];
     tmp.cleanOnBoot = true;
     loader = {
@@ -65,6 +67,7 @@ in
         value = {
           device = mountpoint.device;
           fsType = "zfs";
+          options = [ "noatime" ];
         };
       };
 
