@@ -4,9 +4,8 @@ alsa-utils
 base
 base-devel
 bind
+cmake
 cuda
-dbus-broker
-dbus-broker-units
 dhcpcd
 dmidecode
 docker
@@ -20,7 +19,6 @@ exfatprogs
 flatpak
 fprintd
 fuse2
-fwupd
 gdb
 git
 git-delta
@@ -43,6 +41,7 @@ mariadb-clients
 mesa-utils
 mesa-vdpau
 mpv
+neovim
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -56,6 +55,7 @@ openresolv
 openssh
 openssl-1.1
 openvpn
+os-prober
 parallel
 pavucontrol
 picom
@@ -77,6 +77,7 @@ sof-firmware
 sof-tools
 squashfs-tools
 strace
+sudo
 tailscale
 thunderbird
 ttf-dejavu
@@ -105,5 +106,7 @@ xorg-server-xephyr
 xorg-xev
 xorg-xinit
 xorg-xrandr
+xterm
+zarchive
 zmap
 zsh
