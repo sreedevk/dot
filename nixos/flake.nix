@@ -3,7 +3,7 @@
     "NixOS System Configuration Management Flake for Multiple Hosts";
 
   inputs = {
-    sec.url = "git+ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git?ref=main&shallow=1";
+    secrets.url = "git+ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git?ref=main&shallow=1";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.05-small&shallow=1";
 
@@ -23,10 +23,9 @@
     };
   };
 
-  outputs = { self, sec, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
+  outputs = { self, secrets, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
     let
       opts = (import ./opts.nix);
-      secrets = sec;
 
       systems = {
         x86 = "x86_64-linux";
