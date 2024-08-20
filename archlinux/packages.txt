@@ -28,6 +28,7 @@ gst-libav
 gst-plugins-good
 gstreamer
 i3-wm
+incus
 intel-media-driver
 iwd
 libnotify
@@ -90,8 +91,6 @@ unixodbc
 unzip
 upower
 usbutils
-virtualbox
-virtualbox-host-dkms
 vulkan-intel
 webkit2gtk
 wireguard-tools
