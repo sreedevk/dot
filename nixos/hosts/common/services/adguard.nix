@@ -91,6 +91,9 @@
         "@@||sports.yahoo.com^$important"
         "@@||thepiratebay.org^$important"
         "@@||torlock.com^$important"
+        "@@||amazonaws.com^$important"
+        "@@||a2z.com^$important"
+        "@@||aws.dev^$important"
       ];
       filtering = {
         protection_enabled = true;
