@@ -60,11 +60,11 @@ in
       set -g mode-keys vi
       set -g status-keys emacs
 
-      # SWITCHING PANES WITH ALT
-      bind -n M-h select-pane -L
-      bind -n M-l select-pane -R
-      bind -n M-k select-pane -U
-      bind -n M-j select-pane -D
+      # SWITCHING PANES WITH C-M
+      bind -n C-M-h select-pane -L
+      bind -n C-M-l select-pane -R
+      bind -n C-M-k select-pane -U
+      bind -n C-M-j select-pane -D
 
       # SCROLL USING M-u & M-d
       bind -n M-u copy-mode
