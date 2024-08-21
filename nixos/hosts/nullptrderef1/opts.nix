@@ -103,6 +103,7 @@ rec {
     searxng = "9199";
     sonarr = "8989";
     ssh = "22";
+    stirling-pdf = "9987";
     taskchampion = "8080";
     tubearchivist = "8780";
     tubearchivist-es = "9200";
