@@ -282,7 +282,7 @@ in
               '';
             }
             {
-              name = "nullptrderef1";
+              name = "nullptr.sh";
               url = "https://nullptr.sh";
             }
             {
