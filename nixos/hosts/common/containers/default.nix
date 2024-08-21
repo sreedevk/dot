@@ -35,6 +35,7 @@
     ./portrainer.nix
     ./qbittorrent.nix
     ./servarr.nix
+    ./stirling-pdf.nix
     ./telemetry.nix
     ./tubearchivist.nix
     ./uptime-kuma.nix
