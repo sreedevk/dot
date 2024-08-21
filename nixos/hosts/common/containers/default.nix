@@ -8,7 +8,6 @@
     ./cloudbeaver.nix
     ./container-registry.nix
     ./docuseal.nix
-    ./filebrowser.nix
     ./firefly.nix
     ./flaresolverr.nix
     ./freshrss.nix
