@@ -38,6 +38,7 @@ in
         reddit-enhancement-suite
         sidebery
         sponsorblock
+        tab-reloader
         temporary-containers
         tubearchivist-companion
         ublock-origin
