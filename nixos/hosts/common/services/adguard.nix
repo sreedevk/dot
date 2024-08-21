@@ -77,7 +77,11 @@
       ];
       user_rules = [
         "@@||1337x.to^$important"
+        "@@||a2z.com^$important"
         "@@||airbrake.io^$important"
+        "@@||amazonaws.com^$important"
+        "@@||audioboom.com^$important"
+        "@@||aws.dev^$important"
         "@@||blog.codinghorror.com^$important"
         "@@||buffer.com^$important"
         "@@||download.nvidia.com^$important"
@@ -91,9 +95,6 @@
         "@@||sports.yahoo.com^$important"
         "@@||thepiratebay.org^$important"
         "@@||torlock.com^$important"
-        "@@||amazonaws.com^$important"
-        "@@||a2z.com^$important"
-        "@@||aws.dev^$important"
       ];
       filtering = {
         protection_enabled = true;
