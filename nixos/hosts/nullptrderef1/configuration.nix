@@ -1,10 +1,11 @@
 { config, pkgs, secrets, opts, system, ... }:
 {
   imports = [
-    ./hardware-configuration.nix
     ../common/containers
-    ../common/services
+    ../common/k3s
     ../common/scripts
+    ../common/services
+    ./hardware-configuration.nix
   ];
 
   documentation.nixos.enable = true;
