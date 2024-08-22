@@ -2,7 +2,7 @@
 {
   imports = [
     ../common/containers
-    ../common/k3s
+    # ../common/k3s   NOTE: temporarily disabled
     ../common/scripts
     ../common/services
     ./hardware-configuration.nix
