@@ -233,6 +233,11 @@
     };
   };
 
+  system.switch = {
+    enable = false;
+    enableNg = true;
+  };
+
   system.copySystemConfiguration = false;
   system.stateVersion = "23.11";
 }
