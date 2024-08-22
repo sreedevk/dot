@@ -15,7 +15,7 @@
     ]);
 
   services.k3s = {
-    enable = true;
+    enable = false;
     role = "server";
     token = secrets.k3s-token;
     clusterInit = (opts.hostname == "nullptrderef1");
