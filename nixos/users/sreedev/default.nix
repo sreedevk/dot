@@ -23,7 +23,6 @@
     ../common/neovim.nix
     ../common/newsboat.nix
     ../common/opentabletdriver.nix
-    ../common/opentabletdriver.nix
     ../common/stylix.nix
     ../common/taskwarrior.nix
     ../common/tmux-sessionizer.nix
