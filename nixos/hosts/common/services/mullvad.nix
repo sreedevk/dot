@@ -6,7 +6,7 @@
     in ''
       while ! ${mullvad}/bin/mullvad status > /dev/null; do sleep 1; done
       ${mullvad}/bin/mullvad account get | grep "Not logged in" && ${mullvad}/bin/mullvad account login ${secrets.mullvad_account or ""}
-      ${mullvad}/bin/mullvad relay set location ${secrets.mullvad_location or ""}
+      ${mullvad}/bin/mullvad relay set location ${secrets.mullvad_location or "any"}
       ${mullvad}/bin/mullvad lockdown-mode set on
       ${mullvad}/bin/mullvad lan set allow
       ${mullvad}/bin/mullvad tunnel set ipv6 off
