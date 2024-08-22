@@ -46,7 +46,6 @@
       brightnessctl
       dbeaver-bin
       doctl
-      droidcam
       duckdb
       emacs
       feh
