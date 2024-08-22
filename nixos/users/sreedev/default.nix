@@ -59,6 +59,7 @@
       jira-cli-go
       just
       k9s
+      kubectl
       libreoffice-fresh
       lmms
       maim
