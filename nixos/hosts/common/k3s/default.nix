@@ -19,6 +19,12 @@
     role = "server";
     token = secrets.k3s-token;
     clusterInit = (opts.hostname == "nullptrderef1");
+    extraFlags = toString ([
+      "--write-kubeconfig-mode \"0644\""
+      "--cluster-init"
+      "--disable servicelb"
+      "--disable traefik"
+      "--disable local-storage"
+    ] ++ (if opts.hostname == "nullptrderef1" then [ ] else [ "--server https://${opts.hostname}:${opts.ports.k3s-control-plane}" ]));
   };
-
 }
