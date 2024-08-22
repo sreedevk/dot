@@ -170,6 +170,8 @@ in
         "browser.download.viewableInternally.typeWasRegistered.svg" = true;
         "browser.download.viewableInternally.typeWasRegistered.webp" = true;
         "browser.download.viewableInternally.typeWasRegistered.xml" = true;
+        "browser.download.viewableInternally.typeWasRegistered.atom" = true;
+        "browser.download.viewableInternally.typeWasRegistered.rss" = true;
         "browser.helperApps.deleteTempFileOnExit" = true;
         "browser.link.open_newwindow" = true;
         "browser.newtabpage.activity-stream.default.sites" = "";
