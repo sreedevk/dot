@@ -21,9 +21,12 @@
       "*color8" = lib.mkForce "#4a697d";
       "*color9" = lib.mkForce "#fa3935";
       "*foreground" = lib.mkForce "#bdcfe3";
-      "Nsxiv.background" = lib.mkForce "#908caa";
-      "Nsxiv.font" = "DejaVu Sans-14";
-      "Nsxiv.foreground" = "#1f1d2e";
+      "Nsxiv.background" = lib.mkForce "#141c21";
+      "Nsxiv.font" = lib.mkForce "DejaVu Sans-14";
+      "Nsxiv.foreground" = lib.mkForce "#1f1d2e";
+      "Sxiv.background" = "#908caa";
+      "Sxiv.font" = "DejaVu Sans-14";
+      "Sxiv.foreground" = "#1f1d2e";
       "Xft.antialias" = 1;
       "Xft.autohint" = 0;
       "Xft.dpi" = 128;
