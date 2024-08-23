@@ -9,7 +9,7 @@
 
     scanner = {
       enable = true;
-      interval = "daily";
+      interval = "weekly";
       scanDirectories = [
         "/mnt/dpool1/appdata/files"
       ];
