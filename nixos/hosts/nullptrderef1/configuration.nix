@@ -1,8 +1,8 @@
 { config, pkgs, secrets, opts, system, ... }:
 {
   imports = [
-    ../common/containers
     # ../common/k3s   NOTE: temporarily disabled
+    ../common/containers
     ../common/scripts
     ../common/services
     ./hardware-configuration.nix
@@ -13,12 +13,12 @@
   nix = {
     gc = {
       automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
+      dates     = "weekly";
+      options   = "--delete-older-than 7d";
     };
     settings = {
-      warn-dirty = true;
-      auto-optimise-store = true;
+      warn-dirty            = true;
+      auto-optimise-store   = true;
       experimental-features = [ "nix-command" "flakes" ];
     };
     package = pkgs.nixFlakes;
@@ -45,25 +45,25 @@
   };
 
   networking = {
-    hostName = opts.hostname;
-    domain = "nullptr.sh";
-    search = [ opts.hostname ];
+    hostName       = opts.hostname;
+    domain         = "nullptr.sh";
+    search         = [ opts.hostname ];
     defaultGateway = {
-      address = "192.168.1.1";
+      address   = "192.168.1.1";
       interface = "enp2s0";
     };
     wireless = {
       iwd = {
         enable = true;
         settings = {
-          IPV6 = { Enabled = false; };
-          Settings = { AutoConnect = true; };
+          IPV6     = { Enabled     = false; };
+          Settings = { AutoConnect = true;  };
         };
       };
     };
     networkmanager = {
-      enable = true;
-      wifi.backend = "iwd";
+      enable            = true;
+      wifi.backend      = "iwd";
       insertNameservers = opts.nameservers;
     };
 
@@ -80,18 +80,18 @@
 
   };
 
-  time.timeZone = "America/New_York";
-  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone            = "America/New_York";
+  i18n.defaultLocale       = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
-    LC_TIME = "en_US.UTF-8";
+    LC_TIME     = "en_US.UTF-8";
     LC_MONETARY = "en_US.UTF-8";
   };
 
   users.users.admin = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    description = "system root user & administrator";
-    password = secrets.nullptrderef1_system_password;
+    isNormalUser                = true;
+    shell                       = pkgs.zsh;
+    description                 = "system root user & administrator";
+    password                    = secrets.nullptrderef1_system_password;
     openssh.authorizedKeys.keys = with opts.publicKeys; [
       devstation
       neoserver
@@ -116,7 +116,7 @@
   };
 
   fonts = {
-    packages = with pkgs; [ iosevka nerdfonts ];
+    packages   = with pkgs; [ iosevka nerdfonts ];
     fontconfig = { enable = true; };
   };
 
@@ -165,80 +165,80 @@
   ];
 
   services = {
-    flatpak.enable = false;
+    flatpak.enable    = false;
     packagekit.enable = true;
-    udisks2.enable = true;
-    dbus.enable = true;
-    printing.enable = false;
+    udisks2.enable    = true;
+    dbus.enable       = true;
+    printing.enable   = false;
     xserver = {
-      enable = false;
-      xkb.layout = "us";
+      enable      = false;
+      xkb.layout  = "us";
       xkb.options = "ctrl:nocaps";
     };
     openssh = {
-      enable = true;
+      enable    = true;
       allowSFTP = true;
-      settings = {
-        PermitRootLogin = "no";
-        PasswordAuthentication = false;
+      settings  = {
+        PermitRootLogin              = "no";
+        PasswordAuthentication       = false;
         KbdInteractiveAuthentication = false;
       };
     };
     pipewire = {
-      enable = true;
-      audio.enable = true;
-      pulse.enable = true;
-      alsa.enable = true;
+      enable            = true;
+      audio.enable      = true;
+      pulse.enable      = true;
+      alsa.enable       = true;
       alsa.support32Bit = true;
     };
 
     cockpit = {
-      enable = true;
-      port = pkgs.lib.strings.toInt opts.ports.cockpit;
+      enable       = true;
+      port         = pkgs.lib.strings.toInt opts.ports.cockpit;
       openFirewall = true;
-      settings = {
+      settings     = {
         WebService =
           {
             AllowUnencrypted = true;
-            Origins = "https://cockpit.nullptr.sh";
+            Origins          = "https://cockpit.nullptr.sh";
           };
       };
     };
 
     zfs = {
       autoScrub = {
-        enable = true;
+        enable   = true;
         interval = "monthly";
-        pools = [ "dpool0" "dpool1" ];
+        pools    = [ "dpool0" "dpool1" ];
       };
 
       autoSnapshot = {
         enable = true;
-        daily = 3;
-        flags = "-p -u";
+        daily  = 3;
+        flags  = "-p -u";
       };
     };
   };
 
   security.sudo.wheelNeedsPassword = false;
-  security.rtkit.enable = true;
+  security.rtkit.enable            = true;
 
   programs = {
-    mtr.enable = true;
-    zsh.enable = true;
+    mtr.enable  = true;
+    zsh.enable  = true;
     mosh.enable = true;
     gnupg.agent = {
-      enable = true;
+      enable           = true;
       enableSSHSupport = true;
     };
   };
 
   system.switch = {
-    enable = false;
+    enable   = false;
     enableNg = true;
   };
 
   system.copySystemConfiguration = false;
-  system.stateVersion = "23.11";
+  system.stateVersion            = "23.11";
 }
 
