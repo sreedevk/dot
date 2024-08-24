@@ -31,6 +31,7 @@ i3-wm
 incus
 intel-media-driver
 iwd
+less
 libnotify
 libpam-google-authenticator
 linux
@@ -67,6 +68,7 @@ pipewire-v4l2
 polkit-qt6
 polybar
 postgresql-libs
+powertop
 pulsemixer
 raylib
 reflector
