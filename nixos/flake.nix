@@ -25,10 +25,10 @@
 
   outputs = { self, secrets, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
     let
-      opts = (import ./opts.nix);
+      opts  = (import ./opts.nix);
 
       systems = {
-        x86 = "x86_64-linux";
+        x86   = "x86_64-linux";
         arm64 = "aarch64-linux";
       };
 

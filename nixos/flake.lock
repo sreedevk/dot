@@ -229,11 +229,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1724422166,
-        "narHash": "sha256-l9zifWrZe6sRTwl/Padz+a6zwGeE9eaU+0PFWtUQl2w=",
+        "lastModified": 1724435763,
+        "narHash": "sha256-UNky3lJNGQtUEXT2OY8gMxejakSWPTfWKvpFkpFlAfM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5dc25356567119127f046b347c3060a8dd607365",
+        "rev": "c2cd2a52e02f1dfa1c88f95abeb89298d46023be",
         "type": "github"
       },
       "original": {
@@ -307,10 +307,10 @@
     },
     "secrets": {
       "locked": {
-        "lastModified": 1724326242,
-        "narHash": "sha256-X5b6SFva1wKuKwTLtfd6Qh4f1N4mWQclaFygznrgs7Q=",
+        "lastModified": 1724458171,
+        "narHash": "sha256-ZNg1CfqbkLrb0d+JXD7Fur/OJ4L6x4ADm859QhV4WQI=",
         "ref": "main",
-        "rev": "e1d836a76f3c04642b8fa38fd3360c3c344ba95c",
+        "rev": "3e00a546787dea6361d1c28999589975f10f497a",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git"
