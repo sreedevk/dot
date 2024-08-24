@@ -18,6 +18,7 @@
     ./jackett.nix
     ./jellyfin.nix
     ./jellyseer.nix
+    ./jellystat.nix
     ./kavita.nix
     ./linkding.nix
     ./livebook.nix
