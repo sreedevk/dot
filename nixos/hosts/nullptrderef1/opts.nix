@@ -79,7 +79,7 @@ rec {
   linkding-db               = "5432";
   llama-cpp-server          = "8100";
   memos                     = "5230";
-  metube                    = "8081";opts.nix
+  metube                    = "8081";
   navidrome                 = "4533";
   netdata                   = "19999";
   ntfy                      = "7777";
