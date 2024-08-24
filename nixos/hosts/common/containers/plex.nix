@@ -8,6 +8,8 @@
       volumes = [
         "${opts.paths.application_data}/plex/database/:/config"
         "${opts.paths.application_data}/plex/transcode/:/transcode"
+        "${opts.paths.movies}:/movies"
+        "${opts.paths.television}:/television"
       ];
       ports = [ "${opts.ports.plex}:32400" ];
       environment = {
