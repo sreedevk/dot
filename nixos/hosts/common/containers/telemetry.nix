@@ -37,7 +37,7 @@
         - job_name: node_exporter
           static_configs:
             - targets:
-              - ${opts.hostname}: ${opts.ports.prometheus_node}
+              - ${opts.hostname}:${opts.ports.prometheus_node}
               - ${opts.hostname}:9134
       '';
     };
