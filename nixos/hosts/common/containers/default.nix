@@ -43,6 +43,7 @@
     ./sabnzbd.nix
     ./searxng.nix
     ./servarr.nix
+    ./stash.nix
     ./stirling-pdf.nix
     ./tdarr.nix
     ./telemetry.nix

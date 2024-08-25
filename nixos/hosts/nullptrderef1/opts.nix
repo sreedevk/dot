@@ -123,6 +123,7 @@ rec {
     searxng-www = "8798";
     sonarr = "8989";
     ssh = "22";
+    stash = "9999";
     stirling-pdf = "9987";
     tailscale_direct = "39158";
     tailscale_p2p = "41641";
@@ -138,6 +139,7 @@ rec {
     uptime-kuma = "3001";
     vaultwarden = "9801";
     watch-your-lan = "8840";
+    whisparr = "6969";
   };
 
   mountpoints = [
