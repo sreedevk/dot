@@ -12,7 +12,6 @@
   environment.etc = {
     "prometheus/prometheus.yml" = {
       enable = true;
-      copy = true;
       text = ''
         global:
           scrape_interval: 15s
