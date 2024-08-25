@@ -4,6 +4,7 @@ alsa-utils
 base
 base-devel
 bind
+clang
 cmake
 cuda
 dhcpcd
@@ -39,6 +40,7 @@ linux-firmware
 linux-firmware-qlogic
 linux-headers
 lsof
+luarocks
 mariadb-clients
 mesa-utils
 mesa-vdpau
