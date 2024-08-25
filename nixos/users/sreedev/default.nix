@@ -64,6 +64,7 @@
       mdbook
       nemo-with-extensions
       nicotine-plus
+      nixops_unstable_minimal
       nixpkgs-fmt
       nmap
       nsxiv
