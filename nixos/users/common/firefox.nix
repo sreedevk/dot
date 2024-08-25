@@ -295,6 +295,10 @@ in
               name = "lobsters";
               url = "https://lobste.rs/";
             }
+            {
+              name = "Excalidraw";
+              url = "https://excalidraw.com/";
+            }
           ];
         }
       ];
