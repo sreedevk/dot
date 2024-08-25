@@ -12,6 +12,7 @@
   environment.etc = {
     "prometheus/prometheus.yml" = {
       enable = true;
+      copy = true;
       text = ''
         global:
           scrape_interval: 15s
@@ -70,7 +71,7 @@
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
       ports = [ "${opts.ports.prometheus_app}:9090" ];
       volumes = [
-        "/etc/prometheus:/etc/prometheus"
+        "/etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro"
         "${opts.paths.application_data}/Prometheus/data:/prometheus"
       ];
       cmd = [ "--config.file=/etc/prometheus/prometheus.yml" ];
