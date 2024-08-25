@@ -8,6 +8,8 @@ This Nix(OS) section of this repository is located in the `nixos` directory. The
 
 ### Install Home Manager CLI
 ```bash
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
 nix-shell '<home-manager>' -A install
 ```
 
