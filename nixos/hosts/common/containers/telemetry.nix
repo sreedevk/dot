@@ -10,6 +10,22 @@
     ]);
 
   environment.etc = {
+
+    "grafana/datasource.yml" = {
+      enable = true;
+      text = ''
+        apiVersion: 1
+
+        datasources:
+        - name: Prometheus
+          type: prometheus
+          url: http://${opts.hostname}:${opts.ports.prometheus_app}
+          isDefault: true
+          access: proxy
+          editable: true
+      '';
+    };
+
     "prometheus/prometheus.yml" = {
       enable = true;
       text = ''
@@ -41,6 +57,7 @@
               - ${opts.hostname}:9134
       '';
     };
+
   };
 
   services.prometheus.exporters.node = {
@@ -89,7 +106,7 @@
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
       ports = [ "${opts.ports.grafana}:3000" ];
       volumes = [
-        "${opts.paths.application_data}/Grafana/config:/etc/grafana/provisioning/datasources"
+        "/etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml:ro"
         "${opts.paths.application_databases}/Grafana:/var/lib/grafana"
       ];
       environment = {
