@@ -22,7 +22,7 @@
             { tool = "ruby"; version = "3.2.1"; }
             { tool = "zig"; version = "0.13.0"; }
             { tool = "gleam"; version = "1.3.2"; }
-            { tool = "sbcl"; version = "2.4.5"; }
+            # { tool = "sbcl"; version = "2.4.5"; }
           ];
         in
         builtins.concatStringsSep "\n" (builtins.map (v: "${v.tool} ${v.version}") versions);
