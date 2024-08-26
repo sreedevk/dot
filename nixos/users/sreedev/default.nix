@@ -77,6 +77,7 @@
       qflipper
       rofi
       slack
+      sonic-pi
       spotify
       tea
       texliveFull
