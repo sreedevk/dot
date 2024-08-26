@@ -87,12 +87,10 @@
         "@@||download.nvidia.com^$important"
         "@@||engineering.fb.com^$important"
         "@@||feeds.hanselman.com^$important"
-        "@@||finance.yahoo.com^$important"
+        "@@||yahoo.com^$important"
         "@@||kickasstorrents.to^$important"
         "@@||maheshba.bitbucket.io^$important"
-        "@@||news.yahoo.com^$important"
         "@@||one.newrelic.com^$important"
-        "@@||sports.yahoo.com^$important"
         "@@||thepiratebay.org^$important"
         "@@||torlock.com^$important"
       ];
