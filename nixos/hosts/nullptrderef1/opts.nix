@@ -41,6 +41,10 @@ rec {
     aria_rpc                  = "6800";
     aria_web                  = "6880";
     audiobookshelf            = "13378";
+    authentik-app-http        = "9989";
+    authentik-app-https       = "9990";
+    authentik-db              = "5434";
+    authentik-redis           = "6388";
     baikal                    = "8945";
     bazarr                    = "6767";
     cloudbeaver               = "8079";
