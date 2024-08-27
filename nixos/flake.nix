@@ -6,6 +6,7 @@
     secrets.url = "git+ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git?ref=main&shallow=1";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.05-small&shallow=1";
+    agenix.url = "github:ryantm/agenix";
 
     stylix = {
       url = "github:danth/stylix";
@@ -23,12 +24,12 @@
     };
   };
 
-  outputs = { self, secrets, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
+  outputs = { self, secrets, agenix, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
     let
-      opts  = (import ./opts.nix);
+      opts = (import ./opts.nix);
 
       systems = {
-        x86   = "x86_64-linux";
+        x86 = "x86_64-linux";
         arm64 = "aarch64-linux";
       };
 
@@ -42,7 +43,11 @@
         pkgs: system: hostname: pkgs.lib.nixosSystem {
           system = system;
           modules = [
-            (import ./hosts/${hostname}/configuration.nix)
+            ./hosts/${hostname}/configuration.nix
+            agenix.nixosModules.default
+            {
+              environment.systemPackages = [ agenix.packages.${system}.default ];
+            }
           ];
           specialArgs = {
             inherit secrets system;
@@ -56,6 +61,10 @@
           pkgs = pkgs.legacyPackages."${system}";
           modules = [
             stylix.homeManagerModules.stylix
+            agenix.homeManagerModules.age
+            {
+              home.packages = [ agenix.packages.${system}.default ];
+            }
             ./users/${username}
           ];
           extraSpecialArgs = {
