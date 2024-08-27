@@ -14,8 +14,7 @@
       image = "docker.io/library/postgres:16-alpine";
       ports = [ "${opts.ports.authentik-db}:5432" ];
       volumes = [ "${opts.paths.application_databases}/Authentik/Postgres:/var/lib/postgresql/data" ];
-      extraOptions =
-        [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       environment = {
         AUTHENTIK_ERROR_REPORTING__ENABLED = "true";
         AUTHENTIK_SECRET_KEY = secrets.authentik_secret_key;
@@ -34,6 +33,7 @@
       image = "docker.io/library/redis:alpine";
       ports = [ "${opts.ports.authentik-redis}:6379" ];
       cmd = [ "--save" "60" "1" "--loglevel" "warning" ];
+      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_databases}/Authentik/Redis:/data" ];
       environment = {
         AUTHENTIK_ERROR_REPORTING__ENABLED = "true";
@@ -51,6 +51,7 @@
     "authentik-server" = {
       autoStart = true;
       image = "ghcr.io/goauthentik/server:2024.6.4";
+      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       cmd = [ "server" ];
       dependsOn = [ "authentik-db" "authentik-redis" ];
       volumes = [
@@ -79,6 +80,7 @@
     "authentik-worker" = {
       autoStart = true;
       image = "ghcr.io/goauthentik/server:2024.6.4";
+      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "authentik-db" "authentik-redis" ];
       cmd = [ "worker" ];
       volumes = [
