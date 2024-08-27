@@ -4,6 +4,7 @@
     ./archivebox.nix
     ./aria2.nix
     ./audiobookshelf.nix
+    ./authentik.nix
     ./baikal.nix
     ./cloudbeaver.nix
     ./container-registry.nix
