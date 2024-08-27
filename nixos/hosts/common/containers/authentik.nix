@@ -72,6 +72,7 @@
         AUTHENTIK_POSTGRESQL__USER = secrets.authentik_db_username;
         AUTHENTIK_POSTGRESQL__NAME = secrets.authentik_db_name;
         AUTHENTIK_POSTGRESQL__PASSWORD = secrets.authentik_db_password;
+        AUTHENTIK_POSTGRESQL__PORT = opts.ports.authentik-db;
       };
     };
 
@@ -95,6 +96,7 @@
         AUTHENTIK_POSTGRESQL__USER = secrets.authentik_db_username;
         AUTHENTIK_POSTGRESQL__NAME = secrets.authentik_db_name;
         AUTHENTIK_POSTGRESQL__PASSWORD = secrets.authentik_db_password;
+        AUTHENTIK_POSTGRESQL__PORT = opts.ports.authentik-db;
       };
     };
 
