@@ -1,10 +1,11 @@
 { config, pkgs, secrets, opts, system, ... }:
 {
   imports = [
-    # ../common/k3s   NOTE: temporarily disabled
     ../common/containers
     ../common/scripts
     ../common/services
+    ../common/secrets
+    ../../../secrets/mappings.nix
     ./hardware-configuration.nix
   ];
 
