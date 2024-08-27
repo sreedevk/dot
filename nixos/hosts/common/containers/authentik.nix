@@ -34,7 +34,7 @@
       image = "docker.io/library/redis:alpine";
       ports = [ "${opts.ports.authentik-redis}:6379" ];
       cmd = [ "--save" "60" "1" "--loglevel" "warning" ];
-      volumes = "${opts.paths.application_databases}/Authentik/Redis:/data";
+      volumes = [ "${opts.paths.application_databases}/Authentik/Redis:/data" ];
       environment = {
         AUTHENTIK_ERROR_REPORTING__ENABLED = "true";
         AUTHENTIK_SECRET_KEY = secrets.authentik_secret_key;
