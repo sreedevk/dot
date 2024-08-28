@@ -1,4 +1,4 @@
-{ config, pkgs, secrets, ... }: {
+{ config, pkgs, ... }: {
 
   programs.zsh.enable = true;
 
@@ -54,13 +54,12 @@
         [ -f "$HOME/.zshenv_lc" ] && . "$HOME/.zshenv_lc"
         export JIRA_API_TOKEN="$(cat ${config.age.secrets.jira-token.path})"
         export CARGO_REGISTRY_TOKEN="$(cat ${config.age.secrets.cargo-token.path})"
-        export DIGITAL_OCEAN_TOKEN="${secrets.digital_ocean_token or ""}"
-        export OPEN_WEATHER_API_KEY="${secrets.openweather_token or ""}"
-        export PASTEBIN_API_KEY="${secrets.pastebin_token or ""}"
-        export WALLHAVEN_API_KEY="${secrets.wallhaven_token or ""}"
-        export GH_TOKEN="${secrets.github_token or ""}"
+        export DIGITAL_OCEAN_TOKEN="$(cat ${config.age.secrets.digitalocean-token.path})"
+        export OPEN_WEATHER_API_KEY="$(cat ${config.age.secrets.openweather-token.path})"
+        export PASTEBIN_API_KEY="$(cat ${config.age.secrets.pastebin-token.path})"
+        export WALLHAVEN_API_KEY="$(cat ${config.age.secrets.wallhaven-token.path})"
+        export GH_TOKEN="$(cat ${config.age.secrets.gh-token.path})"
       '';
     };
-
   };
 }
