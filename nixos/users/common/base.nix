@@ -1,9 +1,19 @@
-{ pkgs, nixpkgs, username, opts, ... }: {
+{ pkgs, age, nixpkgs, username, opts, ... }: {
 
   home = {
     username = "${username}";
     homeDirectory = "/home/${username}";
     stateVersion = "24.11";
+  };
+
+  age = {
+    identityPaths = [
+      "/home/${username}/.ssh/id_rsa"
+      "/home/${username}/.ssh/id_ed25519"
+      "/home/${username}/.ssh/devtechnica"
+    ];
+    secretsDir = "/home/${username}/.agenix/agenix";
+    secretsMountPoint = "/home/${username}/.agenix/agenix.d";
   };
 
   home.file = {
