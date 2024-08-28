@@ -1,4 +1,4 @@
-{ pkgs, opts, secrets, ... }:
+{ pkgs, opts, config, ... }:
 {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ paperless-app paperless-db paperless-redis ]);
   virtualisation.oci-containers.containers = {
@@ -14,13 +14,12 @@
         "${opts.paths.application_data}/paperless/media:/usr/src/paperless/media"
       ];
       ports = [ "${opts.ports.paperless-app}:8000" ];
+      environmentFiles = [ config.age.secrets.paperless_env.path ];
       environment = {
         PAPERLESS_REDIS = "redis://${opts.hostname}:${opts.ports.paperless-redis}";
         PAPERLESS_DBENGINE = "mariadb";
         PAPERLESS_DBHOST = "${opts.hostname}";
         PAPERLESS_DBUSER = "paperless";
-        PAPERLESS_DBPASS = secrets.paperless-db-password;
-        PAPERLESS_SECRET_KEY = secrets.paperless-db-password;
         PAPERLESS_TIME_ZONE = opts.timeZone;
         PAPERLESS_OCR_LANGUAGE = "eng";
         PAPERLESS_DBPORT = opts.ports.paperless-db;
@@ -39,12 +38,11 @@
       volumes = [ "${opts.paths.application_databases}/paperless:/var/lib/mysql" ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.paperless-db}:3306" ];
+      environmentFiles = [ config.age.secrets.paperless_env.path ];
       environment = {
         MARIADB_HOST = "${opts.hostname}";
         MARIADB_DATABASE = "paperless";
         MARIADB_USER = "paperless";
-        MARIADB_PASSWORD = secrets.paperless-db-password;
-        MARIADB_ROOT_PASSWORD = secrets.paperless-db-password;
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;

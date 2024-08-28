@@ -1,4 +1,4 @@
-{ config, lib, pkgs, secrets, opts, ... }: {
+{ config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ navidrome ]);
 
   virtualisation.oci-containers.containers = {
