@@ -1,4 +1,4 @@
-{ opts, secrets, pkgs, ... }: {
+{ opts, config, pkgs, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ aria_rpc aria_web ]);
   virtualisation.oci-containers.containers = {
     "aria2" = {
@@ -7,8 +7,8 @@
         PGID = opts.adminGID;
         PUID = opts.adminUID;
         TZ = opts.timeZone;
-        RPC_SECRET = secrets.aria2_password;
       };
+      environmentFiles = [ config.age.secrets.aria2_env.path ];
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
