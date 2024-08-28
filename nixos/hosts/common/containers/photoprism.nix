@@ -1,4 +1,4 @@
-{ config, lib, pkgs, secrets, opts, ... }: {
+{ config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ photoprism_app photoprism_db ]);
   virtualisation.oci-containers.containers = {
     "photoprism-app" = {
@@ -15,13 +15,12 @@
         "${opts.paths.images}:/photoprism/originals"
       ];
       ports = [ "${opts.ports.photoprism_app}:2342" ];
+      environmentFiles = [ config.age.secrets.photoprism_env.path ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
         PHOTOPRISM_UPLOAD_NSFW = "true";
-        PHOTOPRISM_ADMIN_PASSWORD = secrets.photoprism_app_password;
-        PHOTOPRISM_ADMIN_USER = secrets.photoprism_app_username;
         PHOTOPRISM_AUTH_MODE = "password";
         PHOTOPRISM_SITE_URL = "https://photoprism.nullptr.sh";
         PHOTOPRISM_ORIGINALS_LIMIT = "10000";
@@ -49,8 +48,6 @@
         PHOTOPRISM_DATABASE_DRIVER = "mysql";
         PHOTOPRISM_DATABASE_SERVER = "${opts.hostname}:${opts.ports.photoprism_db}";
         PHOTOPRISM_DATABASE_NAME = "photoprism";
-        PHOTOPRISM_DATABASE_USER = secrets.photoprism_database_username;
-        PHOTOPRISM_DATABASE_PASSWORD = secrets.photoprism_database_password;
         PHOTOPRISM_FFMPEG_ENCODER = "intel";
         PHOTOPRISM_UID = opts.adminUID;
         PHOTOPRISM_GID = opts.adminGID;
@@ -81,13 +78,11 @@
       ];
 
       ports = [ "${opts.ports.photoprism_db}:3306" ];
+      environmentFiles = [ config.age.secrets.photoprism_env.path ];
       environment = {
         MARIADB_AUTO_UPGRADE = "1";
         MARIADB_INITDB_SKIP_TZINFO = "1";
         MARIADB_DATABASE = "photoprism";
-        MARIADB_USER = secrets.photoprism_database_username;
-        MARIADB_PASSWORD = secrets.photoprism_database_password;
-        MARIADB_ROOT_PASSWORD = secrets.photoprism_database_password;
       };
     };
   };
