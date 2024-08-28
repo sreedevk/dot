@@ -1,4 +1,4 @@
-{ pkgs, opts, secrets, ... }:
+{ pkgs, opts, config, ... }:
 {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ podgrab ]);
   virtualisation.oci-containers.containers = {
@@ -17,9 +17,9 @@
         "${opts.paths.application_data}/podgrab/config:/config"
         "${opts.paths.podcasts}:/assets"
       ];
+      environmentFiles = [ config.age.secrets.podgrab_env.path ];
       environment = {
         CHECK_FREQUENCY = "240";
-        PASSWORD = "${secrets.podgrab-password}"; # username podgrab
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
