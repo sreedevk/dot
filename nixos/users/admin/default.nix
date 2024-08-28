@@ -1,5 +1,6 @@
 { configs, pkgs, opts, username, ... }: {
   imports = [
+    ../../../secrets/mappings.nix
     ../common/base.nix
     ../common/beets.nix
     ../common/cargo.nix

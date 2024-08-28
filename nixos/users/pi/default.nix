@@ -1,5 +1,6 @@
 { configs, pkgs, username, ... }: {
   imports = [
+    ../../../secrets/mappings.nix
     ../common/base.nix
     ../common/core-packages.nix
     ../common/fastfetch.nix
