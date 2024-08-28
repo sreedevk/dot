@@ -1,4 +1,4 @@
-{ config, lib, pkgs, secrets, opts, ... }: {
+{ config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ gitea_db gitea_http gitea_ssh ]);
   networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ gitea_ssh ]);
 
@@ -9,15 +9,13 @@
       image = "gitea/gitea:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      environmentFiles = [ config.age.secrets.gitea_env.path ];
       environment = {
         TZ = opts.timeZone;
         USER_UID = opts.adminUID;
         USER_GID = opts.adminGID;
         GITEA__database__DB_TYPE = "mysql";
         GITEA__database__HOST = "${opts.hostname}:${opts.ports.gitea_db}";
-        GITEA__database__NAME = secrets.gitea_database_name;
-        GITEA__database__USER = secrets.gitea_database_username;
-        GITEA__database__PASSWD = secrets.gitea_database_password;
       };
       volumes = [
         "${opts.paths.application_data}/gitea:/data"
@@ -34,11 +32,8 @@
       cmd = [ "--max-connections=512" ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_databases}/gitea:/var/lib/mysql" ];
+      environmentFiles = [ config.age.secrets.gitea_env.path ];
       environment = {
-        MARIADB_ROOT_PASSWORD = secrets.gitea_database_password;
-        MYSQL_DATABASE = secrets.gitea_database_name;
-        MYSQL_PASSWORD = secrets.gitea_database_password;
-        MYSQL_USER = secrets.gitea_database_username;
         PGID = opts.adminGID;
         PUID = opts.adminUID;
         TZ = opts.timeZone;
