@@ -13,17 +13,11 @@
         "${opts.paths.application_data}/freshrss/extensions/:/var/www/FreshRSS/extensions"
       ];
       ports = [ "${opts.ports.freshrss-app}:80" ];
+      environmentFiles = [ config.age.secrets.freshrss_env.path ];
       environment = {
-        ADMIN_API_PASSWORD = secrets.freshrss_app_password;
-        ADMIN_EMAIL = secrets.freshrss_app_site_owner;
-        ADMIN_PASSWORD = secrets.freshrss_app_password;
         FRESHRSS_ENV = "production";
         CRON_MIN = "2,32";
         BASE_URL = "https://freshrss.nullptr.sh";
-        DB_BASE = secrets.freshrss_database_name;
-        DB_HOST = secrets.freshrss_database_host;
-        DB_PASSWORD = secrets.freshrss_database_password;
-        DB_USER = secrets.freshrss_database_username;
         PGID = opts.adminGID;
         PUBLISHED_PORT = "80";
         PUID = opts.adminUID;
