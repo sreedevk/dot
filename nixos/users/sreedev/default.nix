@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-stable, ... }:
+{ pkgs, age, username, ... }:
 {
   imports = [
     ../../../secrets/mappings.nix
@@ -36,6 +36,16 @@
     ./backup.nix
     ./ssh.nix
   ];
+
+
+  age.identityPaths = [
+    "/home/${username}/.ssh/id_rsa"
+    "/home/${username}/.ssh/id_ed25519"
+    "/home/${username}/.ssh/devtechnica"
+  ];
+
+  age.secretsDir = "/home/${username}/.agenix/agenix";
+  age.secretsMountPoint = "/home/${username}/.agenix/agenix.d";
 
   home.packages =
     with pkgs; [
