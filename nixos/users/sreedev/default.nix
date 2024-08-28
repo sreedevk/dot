@@ -38,14 +38,15 @@
   ];
 
 
-  age.identityPaths = [
-    "/home/${username}/.ssh/id_rsa"
-    "/home/${username}/.ssh/id_ed25519"
-    "/home/${username}/.ssh/devtechnica"
-  ];
-
-  age.secretsDir = "/home/${username}/.agenix/agenix";
-  age.secretsMountPoint = "/home/${username}/.agenix/agenix.d";
+  age = {
+    identityPaths = [
+      "/home/${username}/.ssh/id_rsa"
+      "/home/${username}/.ssh/id_ed25519"
+      "/home/${username}/.ssh/devtechnica"
+    ];
+    secretsDir = "/home/${username}/.agenix/agenix";
+    secretsMountPoint = "/home/${username}/.agenix/agenix.d";
+  };
 
   home.packages =
     with pkgs; [
