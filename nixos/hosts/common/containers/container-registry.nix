@@ -12,8 +12,8 @@
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.container-registry-server}:5000" ];
       volumes = [ "${opts.paths.application_data}/containers/server:/var/lib/registry" ];
+      environmentFiles = [ config.age.secrets.container_registry_env.path ];
       environment = {
-        REGISTRY_HTTP_SECRET = secrets.registry_http_secret;
         TZ = opts.timeZone;
         USER_GID = opts.adminGID;
         USER_UID = opts.adminUID;
