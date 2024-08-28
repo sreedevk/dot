@@ -1,4 +1,4 @@
-{ pkgs, opts, secrets, ... }:
+{ pkgs, opts, config, ... }:
 {
   networking.firewall.allowedTCPPorts =
     builtins.map pkgs.lib.strings.toInt (with opts.ports; [
@@ -21,6 +21,7 @@
         "${opts.paths.videos}/YouTube:/youtube"
         "${opts.paths.application_data}/tubearchivist/cache:/cache"
       ];
+      environmentFiles = [ config.age.secrets.tubearchivist_env.path ];
       environment = {
         ES_URL = "http://${opts.hostname}:${opts.ports.tubearchivist-es}";
         REDIS_HOST = "${opts.hostname}";
@@ -29,8 +30,6 @@
         HOST_GID = opts.adminGID;
         TA_HOST = "tube.nullptr.sh";
         TA_USERNAME = "admin";
-        TA_PASSWORD = secrets.tubearchivist_app_password;
-        ELASTIC_PASSWORD = secrets.tubearchivist_es_password;
       };
     };
 
@@ -47,8 +46,8 @@
       volumes = [
         "${opts.paths.application_data}/tubearchivist/es:/usr/share/elasticsearch/data"
       ];
+      environmentFiles = [ config.age.secrets.tubearchivist_env.path ];
       environment = {
-        ELASTIC_PASSWORD = secrets.tubearchivist_es_password;
         ES_JAVA_OPTS = "-Xms512m -Xmx512m";
         "xpack.security.enabled" = "true";
         "discovery.type" = " single-node";

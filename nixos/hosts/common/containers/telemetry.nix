@@ -1,4 +1,4 @@
-{ pkgs, config, secrets, opts, ... }:
+{ pkgs, config, opts, ... }:
 {
   networking.firewall.allowedTCPPorts =
     builtins.map pkgs.lib.strings.toInt (with opts.ports; [
