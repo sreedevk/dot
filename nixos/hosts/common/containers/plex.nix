@@ -1,4 +1,4 @@
-{ config, lib, pkgs, secrets, opts, ... }: {
+{ config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ plex ]);
   virtualisation.oci-containers.containers = {
     "plex" = {
@@ -12,11 +12,11 @@
         "${opts.paths.television}:/television"
       ];
       ports = [ "${opts.ports.plex}:32400" ];
+      environmentFiles = [ config.age.secrets.plex_env.path ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
-        PLEX_CLAIM = secrets.plex_app_claim;
       };
     };
   };
