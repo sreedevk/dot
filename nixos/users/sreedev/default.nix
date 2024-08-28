@@ -1,6 +1,7 @@
 { pkgs, nixpkgs-stable, ... }:
 {
   imports = [
+    ../../../secrets/mappings.nix
     ../common/alacritty.nix
     ../common/autorandr.nix
     ../common/awscli.nix
