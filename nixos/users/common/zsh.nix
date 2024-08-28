@@ -1,4 +1,4 @@
-{ pkgs, secrets, ... }: {
+{ config, pkgs, secrets, ... }: {
 
   programs.zsh.enable = true;
 
@@ -52,7 +52,7 @@
       enable = true;
       text = ''
         [ -f "$HOME/.zshenv_lc" ] && . "$HOME/.zshenv_lc"
-        export JIRA_API_TOKEN="${secrets.jira_token or ""}"
+        export JIRA_API_TOKEN="$(cat ${config.age.secrets.jira-token.path})"
         export CARGO_REGISTRY_TOKEN="${secrets.cargo_token or ""}"
         export DIGITAL_OCEAN_TOKEN="${secrets.digital_ocean_token or ""}"
         export OPEN_WEATHER_API_KEY="${secrets.openweather_token or ""}"
