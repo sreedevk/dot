@@ -1,4 +1,4 @@
-{ config, lib, pkgs, secrets, opts, ... }: {
+{ config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ freshrss-app freshrss-db rss-bridge ]);
 
   virtualisation.oci-containers.containers = {
@@ -35,11 +35,8 @@
         "--no-healthcheck"
       ];
       volumes = [ "${opts.paths.application_databases}/freshrss:/var/lib/mysql" ];
+      environmentFiles = [ config.age.secrets.freshrss_env.path ];
       environment = {
-        MYSQL_DATABASE = secrets.freshrss_database_name;
-        MYSQL_PASSWORD = secrets.freshrss_database_password;
-        MYSQL_ROOT_PASSWORD = secrets.freshrss_database_password;
-        MYSQL_USER = secrets.freshrss_database_username;
         PGID = opts.adminGID;
         PUID = opts.adminUID;
         TZ = opts.timeZone;
