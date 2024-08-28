@@ -1,4 +1,4 @@
-{ config, lib, pkgs, secrets, opts, ... }: {
+{ config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ firefly_app firefly_db ]);
 
   virtualisation.oci-containers.containers = {
@@ -12,11 +12,8 @@
         "--no-healthcheck"
       ];
       volumes = [ "${opts.paths.application_databases}/firefly:/var/lib/mysql" ];
+      environmentFiles = [ config.age.secrets.firefly_env.path ];
       environment = {
-        MYSQL_ROOT_PASSWORD = secrets.firefly_database_password;
-        MYSQL_DATABASE = secrets.firefly_database_name;
-        MYSQL_PASSWORD = secrets.firefly_database_password;
-        MYSQL_USER = secrets.firefly_database_username;
         PGID = opts.adminGID;
         PUID = opts.adminUID;
         TZ = opts.timeZone;
@@ -35,25 +32,20 @@
       volumes = [
         "${opts.paths.application_data}/firefly/uploads/:/var/www/html/storage/upload"
       ];
+      environmentFiles = [ config.age.secrets.firefly_env.path ];
       environment = {
         APP_ENV = "production";
-        APP_KEY = secrets.firefly_app_secret;
-        APP_URL = "${secrets.firefly_app_host}";
+        APP_URL = "https://firefly.nullptr.sh/";
         DEFAULT_LANGUAGE = "en_US";
         DEFAULT_LOCALE = "equal";
         DB_CONNECTION = "mysql";
         TRUSTED_PROXIES = "**";
         LOG_CHANNEL = "stack";
-        DB_DATABASE = secrets.firefly_database_name;
-        DB_HOST = secrets.firefly_database_host;
         MYSQL_USE_SSL = "false";
         MYSQL_SSL_VERIFY_SERVER_CERT = "false";
-        DB_PASSWORD = secrets.firefly_database_password;
-        DB_PORT = opts.ports.firefly_db;
-        DB_USERNAME = secrets.firefly_database_username;
         PGID = opts.adminGID;
         PUID = opts.adminUID;
-        SITE_OWNER = secrets.firefly_app_site_owner;
+        DB_PORT = opts.ports.firefly_db;
         TZ = opts.timeZone;
       };
     };
