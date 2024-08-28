@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, secrets, opts, ... }:
+{ config, lib, pkgs, modulesPath, opts, ... }:
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
@@ -6,9 +6,9 @@
 
     kernelParams =
       let
-        zfs_arc_max_gb           = 25;
-        zfs_dirty_data_max_gb    = 4;
-        hung_task_timeout_secs   = 800;
+        zfs_arc_max_gb = 25;
+        zfs_dirty_data_max_gb = 4;
+        hung_task_timeout_secs = 800;
         force_sync_at_x_dirty_gb = 2;
       in
       [
@@ -61,15 +61,15 @@
     let
       zfs_mountpoints = opts.mountpoints;
       sys_mountpoints = {
-        "/boot" = { device = "/dev/disk/by-uuid/0B7B-5F96";                            fsType = "vfat"; };
-        "/"     = { device = "/dev/disk/by-uuid/66773c39-ea86-4b86-ae8b-31a4e56bf46b"; fsType = "ext4"; };
+        "/boot" = { device = "/dev/disk/by-uuid/0B7B-5F96"; fsType = "vfat"; };
+        "/" = { device = "/dev/disk/by-uuid/66773c39-ea86-4b86-ae8b-31a4e56bf46b"; fsType = "ext4"; };
       };
 
       mkzfsmount = mountpoint: {
         name = mountpoint.path;
         value = {
-          device  = mountpoint.device;
-          fsType  = "zfs";
+          device = mountpoint.device;
+          fsType = "zfs";
           options = [ "noatime" ];
         };
       };
@@ -86,7 +86,7 @@
         useDHCP = lib.mkDefault false;
         ipv4 = {
           addresses = [{
-            address      = opts.lanAddress;
+            address = opts.lanAddress;
             prefixLength = 24;
           }];
         };
@@ -97,6 +97,6 @@
     };
   };
 
-  nixpkgs.hostPlatform               = lib.mkDefault "x86_64-linux";
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

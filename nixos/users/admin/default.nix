@@ -1,4 +1,4 @@
-{ configs, pkgs, secrets, opts, username, ... }: {
+{ configs, pkgs, opts, username, ... }: {
   imports = [
     ../common/base.nix
     ../common/beets.nix

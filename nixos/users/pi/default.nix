@@ -1,4 +1,4 @@
-{ configs, pkgs, secrets, username, ... }: {
+{ configs, pkgs, username, ... }: {
   imports = [
     ../common/base.nix
     ../common/core-packages.nix

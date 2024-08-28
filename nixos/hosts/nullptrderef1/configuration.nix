@@ -1,4 +1,4 @@
-{ config, pkgs, secrets, opts, system, ... }:
+{ config, pkgs, opts, system, ... }:
 {
   imports = [
     ../common/containers
@@ -91,7 +91,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "system root user & administrator";
-    password = secrets.nullptrderef1_system_password;
+    hashedPasswordFile = config.age.secrets.nullptrderef1_admin_password.path;
     openssh.authorizedKeys.keys = with opts.publicKeys; [
       devstation
       neoserver
