@@ -1,4 +1,4 @@
-{ pkgs, secrets, ... }:
+{ pkgs, secrets, config, ... }:
 {
   programs.newsboat = {
     enable = true;
@@ -87,7 +87,7 @@
       urls-source "freshrss"
       freshrss-url "https://freshrss.nullptr.sh/api/greader.php"
       freshrss-login "admin"
-      freshrss-passwordeval "echo ${secrets.freshrss_app_password or ""}"
+      freshrss-passwordeval "${pkgs.coreutils}/bin/cat ${config.age.secrets.freshrss_app_password.path}"
       freshrss-min-items 100
       freshrss-flag-star "s"
     '';
