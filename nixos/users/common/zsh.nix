@@ -61,6 +61,8 @@
         export GH_TOKEN="$(cat ${config.age.secrets.gh-token.path})"
         export SPOTIFY_CLIENT_ID="$(cat ${config.age.secrets.spotify_client_id.path})"
         export SPOTIFY_CLIENT_SECRET="$(cat ${config.age.secrets.spotify_client_secret.path})"
+        export TASKWARRIOR_CLIENT_ID="$(cat ${config.age.secrets.taskwarrior_client_id.path})"
+        export TASKWARRIOR_ENCRYPTION_SECRET="$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})"
       '';
     };
   };

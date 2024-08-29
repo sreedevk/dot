@@ -1,4 +1,4 @@
-{ pkgs, secrets, ... }:
+{ pkgs, config, ... }:
 let
   taskwarriorOptions = {
     themes = {
@@ -25,8 +25,8 @@ let
 
     sync = {
       serverAddress = "https://tasks.nullptr.sh";
-      clientID = secrets.taskwarrior_client_id;
-      encryptionSecret = secrets.taskwarrior_encryption_secret;
+      clientID = "$TASKWARRIOR_CLIENT_ID";
+      encryptionSecret = "$TASKWARRIOR_ENCRYPTION_SECRET";
     };
 
     coefficients = {
@@ -131,6 +131,7 @@ in
           };
           Service = {
             Type = "simple";
+            EnvironmentFile = config.age.secrets.taskwarrior_env.path;
             ExecStart = "${pkgs.taskwarrior3}/bin/task sync";
           };
         };
