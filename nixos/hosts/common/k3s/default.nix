@@ -1,4 +1,10 @@
-{ pkgs, config, secrets, opts, ... }:
+{ pkgs, config, opts, ... }:
+let
+  node_server_opts =
+    if opts.hostname == "nullptrderef1"
+    then [ ]
+    else [ "--server https://${opts.hostname}:${opts.ports.k3s-control-plane}" ];
+in
 {
   ##### FIREWALL ####
 
@@ -21,14 +27,18 @@
   services.k3s = {
     enable = true;
     role = "server";
-    token = secrets.k3s-token;
     clusterInit = (opts.hostname == "nullptrderef1");
-    extraFlags = toString ([
-      "--write-kubeconfig-mode \"0644\""
-      "--cluster-init"
-      "--disable=servicelb"
-      "--disable=traefik"
-      "--disable=local-storage"
-    ] ++ (if opts.hostname == "nullptrderef1" then [ ] else [ "--server https://${opts.hostname}:${opts.ports.k3s-control-plane}" ]));
+    extraFlags =
+      let
+        flags = [
+          "--token-file=${config.age.secrets.k3s_token.path}"
+          "--write-kubeconfig-mode \"0644\""
+          "--cluster-init"
+          "--disable=servicelb"
+          "--disable=traefik"
+          "--disable=local-storage"
+        ];
+      in
+      toString flags ++ node_server_opts;
   };
 }
