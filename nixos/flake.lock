@@ -382,25 +382,7 @@
         "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
-        "secrets": "secrets",
         "stylix": "stylix"
-      }
-    },
-    "secrets": {
-      "locked": {
-        "lastModified": 1724889000,
-        "narHash": "sha256-SDVbso9QdLO5IsodnzF61P5TWAlOe+sHg7zUkDmmDfA=",
-        "ref": "main",
-        "rev": "66400ebbad40a28a94adb0c952131e1cf94ce44b",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git"
-      },
-      "original": {
-        "ref": "main",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git"
       }
     },
     "stylix": {

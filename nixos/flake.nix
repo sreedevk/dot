@@ -3,7 +3,6 @@
     "NixOS System Configuration Management Flake for Multiple Hosts";
 
   inputs = {
-    secrets.url = "git+ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git?ref=main&shallow=1";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.05-small&shallow=1";
     agenix.url = "github:ryantm/agenix";
@@ -24,7 +23,7 @@
     };
   };
 
-  outputs = { self, secrets, agenix, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
+  outputs = { self, agenix, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
     let
       opts = (import ./opts.nix);
 
@@ -50,7 +49,7 @@
             }
           ];
           specialArgs = {
-            inherit secrets system;
+            inherit system;
             nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
             opts = opts // (import ./hosts/${hostname}/opts.nix);
           };
@@ -68,7 +67,7 @@
             ./users/${username}
           ];
           extraSpecialArgs = {
-            inherit firefox-addons secrets system username host;
+            inherit firefox-addons system username host;
             nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
             opts = opts // (import ./hosts/${host}/opts.nix) // (import ./users/${username}/opts.nix);
           };
