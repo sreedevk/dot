@@ -1,4 +1,4 @@
-{ pkgs, secrets, ... }:
+{ pkgs, ... }:
 {
   programs.irssi = {
     enable = true;
@@ -27,9 +27,6 @@
           max_kicks = "1";
           max_msgs = "4";
           max_whois = "1";
-          sasl_mechanism = "PLAIN";
-          sasl_username = "sreedev";
-          sasl_password = "${secrets.irssi_liberachat_password}";
         };
       };
       channels = (
