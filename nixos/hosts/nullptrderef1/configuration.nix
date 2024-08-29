@@ -136,7 +136,6 @@
     gnumake
     home-manager
     hwinfo
-    icecast
     iwd
     kexec-tools
     lshw

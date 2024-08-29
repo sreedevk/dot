@@ -2,7 +2,6 @@
   imports = [
     ./adguard.nix
     ./mullvad.nix
-    ./icecast.nix
     ./taskchampion.nix
     ./clamav.nix
   ];
