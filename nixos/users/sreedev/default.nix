@@ -1,4 +1,4 @@
-{ pkgs, age, username, ... }:
+{ pkgs, age, config, username, ... }:
 {
   imports = [
     ../../../secrets/mappings.nix
@@ -86,4 +86,22 @@
       yt-dlp
       zola
     ];
+
+  home.file.".zshenv" = {
+    enable = true;
+    text = ''
+      [ -f "$HOME/.zshenv_lc" ] && . "$HOME/.zshenv_lc"
+      export JIRA_API_TOKEN="$(cat ${config.age.secrets.jira-token.path})"
+      export CARGO_REGISTRY_TOKEN="$(cat ${config.age.secrets.cargo-token.path})"
+      export DIGITAL_OCEAN_TOKEN="$(cat ${config.age.secrets.digitalocean-token.path})"
+      export OPEN_WEATHER_API_KEY="$(cat ${config.age.secrets.openweather-token.path})"
+      export PASTEBIN_API_KEY="$(cat ${config.age.secrets.pastebin-token.path})"
+      export WALLHAVEN_API_KEY="$(cat ${config.age.secrets.wallhaven-token.path})"
+      export GH_TOKEN="$(cat ${config.age.secrets.gh-token.path})"
+      export SPOTIFY_CLIENT_ID="$(cat ${config.age.secrets.spotify_client_id.path})"
+      export SPOTIFY_CLIENT_SECRET="$(cat ${config.age.secrets.spotify_client_secret.path})"
+      export TASKWARRIOR_CLIENT_ID="$(cat ${config.age.secrets.taskwarrior_client_id.path})"
+      export TASKWARRIOR_ENCRYPTION_SECRET="$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})"
+    '';
+  };
 }
