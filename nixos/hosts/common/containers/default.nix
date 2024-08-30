@@ -9,7 +9,6 @@
     ./cloudbeaver.nix
     ./container-registry.nix
     ./docuseal.nix
-    ./exportify.nix
     ./firefly.nix
     ./flaresolverr.nix
     ./freshrss.nix
