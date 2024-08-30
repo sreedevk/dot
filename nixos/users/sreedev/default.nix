@@ -2,6 +2,7 @@
 {
   imports = [
     ../../../secrets/mappings.nix
+    ../common/spotube.nix
     ../common/alacritty.nix
     ../common/autorandr.nix
     ../common/awscli.nix
@@ -79,7 +80,6 @@
       rofi
       slack
       sonic-pi
-      spotube
       tea
       texliveFull
       tmuxinator
