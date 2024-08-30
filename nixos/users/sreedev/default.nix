@@ -79,7 +79,7 @@
       rofi
       slack
       sonic-pi
-      spotify
+      spotube
       tea
       texliveFull
       tmuxinator
