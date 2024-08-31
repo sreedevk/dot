@@ -1,6 +1,7 @@
 { pkgs, lib, system, ... }: {
   stylix = {
     enable = true;
+    autoEnable = true;
 
     image = pkgs.fetchurl {
       url = "https://www.pixelstalk.net/wp-content/uploads/images2/Free-download-Computer-Art-Photo.jpg";
@@ -46,12 +47,13 @@
       feh.enable = true;
       fzf.enable = true;
       gtk.enable = true;
+      hyprland.enable = false;
       i3.enable = false;
       nushell.enable = true;
       rofi.enable = false;
+      sxiv.enable = true;
       tmux.enable = true;
       xresources.enable = true;
-      sxiv.enable = true;
       zellij.enable = true;
     };
   };
