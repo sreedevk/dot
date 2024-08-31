@@ -51,6 +51,7 @@ rec {
     cockpit = "8008";
     container-registry-server = "5500";
     container-registry-web = "5600";
+    watch-your-lan = "8840";
     docuseal = "6008";
     firefly_app = "6003";
     firefly_db = "3306";
