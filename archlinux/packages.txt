@@ -44,6 +44,7 @@ luarocks
 mariadb-clients
 mesa-utils
 mesa-vdpau
+meson
 mpv
 neovim
 noto-fonts
@@ -74,6 +75,7 @@ powertop
 pulsemixer
 raylib
 reflector
+sc3-plugins
 sdl2_image
 sdl2_ttf
 snd
@@ -83,6 +85,7 @@ sof-tools
 squashfs-tools
 strace
 sudo
+supercollider
 tailscale
 thunderbird
 ttf-dejavu
