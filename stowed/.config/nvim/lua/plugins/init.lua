@@ -9,6 +9,7 @@ return {
   'tpope/vim-ragtag',
   'tpope/vim-rails',
   'tpope/vim-repeat',
+  'preservim/vim-indent-guides',
   'jbyuki/venn.nvim',
   'tpope/vim-surround',
   'lervag/vimtex',
