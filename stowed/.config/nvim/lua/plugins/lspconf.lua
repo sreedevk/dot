@@ -13,7 +13,11 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-nvim-lsp',
     'ray-x/cmp-treesitter',
-    'L3MON4D3/LuaSnip',
+    {
+      'L3MON4D3/LuaSnip',
+      tag = "v2.*",
+      build = "make install_jsregexp"
+    },
     {
       'glepnir/lspsaga.nvim',
       cmd = "Lspsaga",
