@@ -1,4 +1,4 @@
-{ config, nixpkgs-stable, pkgs, opts, ... }: {
+{ config, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts =
     builtins.map pkgs.lib.strings.toInt (with opts.ports; [
       taskchampion
@@ -11,7 +11,7 @@
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = ''
-        ${nixpkgs-stable.taskchampion-sync-server}/bin/taskchampion-sync-server --port ${opts.ports.taskchampion} --data-dir ${opts.paths.application_data}/TaskChampion
+        ${pkgs.taskchampion-sync-server}/bin/taskchampion-sync-server --port ${opts.ports.taskchampion} --data-dir ${opts.paths.application_data}/TaskChampion
       '';
       Restart = "always";
     };
