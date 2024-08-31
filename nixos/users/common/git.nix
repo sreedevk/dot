@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-stable, opts, ... }:
+{ pkgs, opts, ... }:
 let
   gpgsign = if opts.git.enable-signing then "true" else "false";
 in
@@ -56,7 +56,7 @@ in
         [core]
           attributesfile = ~/.gitattributes
           editor = ${pkgs.neovim}/bin/nvim
-          pager = ${nixpkgs-stable.delta}/bin/delta
+          pager = ${pkgs.delta}/bin/delta
         [commit]
           gpgsign = ${gpgsign}
         [init]

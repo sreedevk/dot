@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-stable, config, ... }: {
+{ pkgs, config, ... }: {
 
   programs.awscli = {
     enable = true;
