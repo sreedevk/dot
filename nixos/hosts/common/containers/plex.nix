@@ -10,6 +10,7 @@
         "${opts.paths.application_data}/plex/transcode/:/transcode"
         "${opts.paths.movies}:/movies"
         "${opts.paths.television}:/television"
+        "${opts.paths.music}:/music"
       ];
       ports = [ "${opts.ports.plex}:32400" ];
       environmentFiles = [ config.age.secrets.plex_env.path ];
