@@ -60,6 +60,7 @@
       just
       k9s
       kubectl
+      librecad
       libreoffice-fresh
       lmms
       maim
