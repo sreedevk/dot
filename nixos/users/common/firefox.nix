@@ -153,7 +153,6 @@ in
         };
       };
       settings = {
-        # https://mozilla.github.io/policy-templates/
         "app.normandy.first_run" = false;
         "app.shield.optoutstudies.enabled" = false;
         "app.update.channel" = "default";
@@ -165,13 +164,15 @@ in
         "browser.discovery.enabled" = false;
         "browser.download.panel.shown" = true;
         "browser.download.useDownloadDir" = true;
+        "browser.download.viewableInternally.typeWasRegistered.atom" = true;
         "browser.download.viewableInternally.typeWasRegistered.markdown" = true;
         "browser.download.viewableInternally.typeWasRegistered.md" = true;
+        "browser.download.viewableInternally.typeWasRegistered.rss" = true;
         "browser.download.viewableInternally.typeWasRegistered.svg" = true;
         "browser.download.viewableInternally.typeWasRegistered.webp" = true;
+        "network.http.pipelining" = true;
+        "network.http.pipelining.maxrequests" = 10;
         "browser.download.viewableInternally.typeWasRegistered.xml" = true;
-        "browser.download.viewableInternally.typeWasRegistered.atom" = true;
-        "browser.download.viewableInternally.typeWasRegistered.rss" = true;
         "browser.helperApps.deleteTempFileOnExit" = true;
         "browser.link.open_newwindow" = true;
         "browser.newtabpage.activity-stream.default.sites" = "";
@@ -222,7 +223,9 @@ in
         "general.useragent.locale" = "en-US";
         "geo.provider.use_geoclue" = false;
         "geo.provider.use_gpsd" = false;
+        "gfx.webrender.all" = true;
         "identity.fxaccounts.enabled" = false;
+        "layers.acceleration.force-enabled" = true;
         "media.ffmpeg.vaapi.enabled" = true;
         "network.allow-experiments" = false;
         "network.connectivity-service.enabled" = false;
@@ -254,6 +257,7 @@ in
         "toolkit.telemetry.shutdownPingSender.enabledFirstsession" = false;
         "toolkit.telemetry.unified" = false;
         "toolkit.telemetry.updatePing.enabled" = false;
+        # https://mozilla.github.io/policy-templates/
       };
       bookmarks = [
         {

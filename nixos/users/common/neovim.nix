@@ -8,7 +8,7 @@ let
   neovim_pkgs =
     with pkgs; [
       neovim
-      nodejs-slim
+      nodejs_22
       tree-sitter
     ];
 in
