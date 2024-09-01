@@ -63,6 +63,8 @@ rec {
     gitea_http = "3000";
     gitea_ssh = "222";
     gotify = "8773";
+    livebook_http = "8090";
+    livebook_api = "8091";
     grafana = "2442";
     homebox = "3100";
     homer = "82";
@@ -85,12 +87,10 @@ rec {
     memos = "5230";
     metube = "8081";
     navidrome = "4533";
-    netdata = "19999";
     ntfy = "7777";
     olivetin = "1337";
     ollama-api = "11434";
     ollama-web = "3134";
-    openbooks = "8004";
     paperless-app = "8991";
     paperless-db = "3316";
     paperless-redis = "6340";
@@ -109,7 +109,6 @@ rec {
     radarr = "7878";
     readarr = "8787";
     rss-bridge = "8768";
-    searxng = "9199";
     sonarr = "8989";
     ssh = "22";
     stirling-pdf = "9987";

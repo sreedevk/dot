@@ -3,7 +3,6 @@
   networking.firewall.allowedTCPPorts =
     builtins.map pkgs.lib.strings.toInt (with opts.ports; [
       grafana
-      netdata
       influxdb
       prometheus_app
       prometheus_node
