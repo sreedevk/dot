@@ -1,6 +1,10 @@
 { config, lib, pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ metube ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.downloads}/Metube 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ metube ]);
   virtualisation.oci-containers.containers = {
     "metube" = {
       autoStart = true;
