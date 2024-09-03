@@ -4,7 +4,7 @@
     "plex" = {
       autoStart = true;
       image = "plexinc/pms-docker";
-      extraOptions = [ "--no-healthcheck" ];
+      extraOptions = [ "--network=host" "--no-healthcheck" ];
       volumes = [
         "${opts.paths.application_data}/plex/database/:/config"
         "${opts.paths.application_data}/plex/transcode/:/transcode"
