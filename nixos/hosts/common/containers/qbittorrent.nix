@@ -33,11 +33,6 @@ in
     "qbittorrent-nox" = {
       autoStart = true;
       image = "qbittorrentofficial/qbittorrent-nox:latest";
-      ports = [
-        "${opts.ports.qbittorrent-p2p}:6881/tcp"
-        "${opts.ports.qbittorrent-p2p}:6881/udp"
-        "${opts.ports.qbittorrent-web}:8001/tcp"
-      ];
       environment = {
         QBT_EULA = "accept";
         QBT_VERSION = "latest";
