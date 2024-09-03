@@ -55,11 +55,13 @@
       glow
       graphviz
       hledger
+      hugo
       instaloader
       jira-cli-go
       just
       k9s
       kubectl
+      ledger
       librecad
       libreoffice-fresh
       lmms
@@ -78,6 +80,7 @@
       python311Packages.i3ipc
       python312Packages.supervisor
       qflipper
+      qrencode
       rofi
       slack
       sonic-pi
@@ -85,7 +88,6 @@
       texliveFull
       tmuxinator
       yt-dlp
-      zola
     ];
 
   home.file.".zshenv" = {
