@@ -2,7 +2,6 @@
 {
   imports = [
     ../../../secrets/mappings.nix
-    ../common/spotube.nix
     ../common/alacritty.nix
     ../common/autorandr.nix
     ../common/awscli.nix
@@ -24,7 +23,9 @@
     ../common/neovide.nix
     ../common/neovim.nix
     ../common/newsboat.nix
+    ../common/obs.nix
     ../common/opentabletdriver.nix
+    ../common/spotube.nix
     ../common/stylix.nix
     ../common/taskwarrior.nix
     ../common/tmux-sessionizer.nix

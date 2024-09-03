@@ -22,7 +22,6 @@ fprintd
 fuse2
 gdb
 git
-git-delta
 git-lfs
 grub
 gst-libav
