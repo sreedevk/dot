@@ -51,7 +51,6 @@ rec {
     cockpit = "8008";
     container-registry-server = "5500";
     container-registry-web = "5600";
-    watch-your-lan = "8840";
     docuseal = "6008";
     firefly_app = "6003";
     firefly_db = "3306";
@@ -63,8 +62,6 @@ rec {
     gitea_http = "3000";
     gitea_ssh = "222";
     gotify = "8773";
-    livebook_http = "8090";
-    livebook_api = "8091";
     grafana = "2442";
     homebox = "3100";
     homer = "82";
@@ -83,6 +80,8 @@ rec {
     lidarr = "8686";
     linkding-app = "9090";
     linkding-db = "5432";
+    livebook_api = "8091";
+    livebook_http = "8090";
     llama-cpp-server = "8100";
     memos = "5230";
     metube = "8081";
@@ -109,6 +108,7 @@ rec {
     radarr = "7878";
     readarr = "8787";
     rss-bridge = "8768";
+    searxng-www = "8798";
     sonarr = "8989";
     ssh = "22";
     stirling-pdf = "9987";
@@ -118,6 +118,7 @@ rec {
     tubearchivist-redis = "6379";
     uptime-kuma = "3001";
     vaultwarden = "9801";
+    watch-your-lan = "8840";
   };
 
   mountpoints = [

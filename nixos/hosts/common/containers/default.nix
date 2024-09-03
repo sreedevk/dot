@@ -36,6 +36,7 @@
     ./podgrab.nix
     ./portrainer.nix
     ./qbittorrent.nix
+    ./searxng.nix
     ./servarr.nix
     ./stirling-pdf.nix
     ./telemetry.nix
