@@ -74,6 +74,7 @@
       nmap
       nsxiv
       nushell
+      nvtop
       openttd
       pandoc
       playerctl

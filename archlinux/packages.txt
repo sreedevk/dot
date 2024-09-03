@@ -52,7 +52,6 @@ noto-fonts-cjk
 noto-fonts-emoji
 nvidia
 nvidia-settings
-nvtop
 obs-studio
 openblas
 opencl-nvidia
