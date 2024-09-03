@@ -39,11 +39,9 @@ linux-firmware
 linux-firmware-qlogic
 linux-headers
 lsof
-luarocks
 mariadb-clients
 mesa-utils
 mesa-vdpau
-meson
 mpv
 neovim
 noto-fonts
@@ -51,7 +49,6 @@ noto-fonts-cjk
 noto-fonts-emoji
 nvidia
 nvidia-settings
-obs-studio
 openblas
 opencl-nvidia
 openresolv
