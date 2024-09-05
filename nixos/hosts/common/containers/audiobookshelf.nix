@@ -17,6 +17,10 @@
       ports = [
         "${opts.ports.audiobookshelf}:80"
       ];
+      labels = {
+        "kuma.audiobookshelf.http.name" = "AudioBookShelf";
+        "kuma.audiobookshelf.http.url" = "http://${opts.lanAddress}:${opts.ports.audiobookshelf}/healthcheck";
+      };
       volumes = [
         "${opts.paths.application_data}/AudioBookShelf:/config"
         "${opts.paths.audiobooks}:/audiobooks"
