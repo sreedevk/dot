@@ -7,6 +7,10 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.flaresolverr}:8191" ];
+      labels = {
+        "kuma.flaresolverr.http.name" = "FlareSolverr";
+        "kuma.flaresolverr.http.url" = "http://${opts.lanAddress}:${opts.ports.flaresolverr}";
+      };
       environment = {
         LOG_LEVEL = "info";
         TZ = opts.timeZone;
