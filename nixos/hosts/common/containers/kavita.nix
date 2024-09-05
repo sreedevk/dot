@@ -13,6 +13,11 @@
         "${opts.paths.magazines}:/magazines"
       ];
 
+      labels = {
+        "kuma.kavita.http.name" = "Kavita";
+        "kuma.kavita.http.url" = "http://${opts.lanAddress}:${opts.ports.kavita}";
+      };
+
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
