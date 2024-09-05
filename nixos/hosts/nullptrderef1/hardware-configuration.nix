@@ -33,6 +33,15 @@
       "vm.dirty_background_ratio" = 10;
     };
 
+
+    services.smartd = {
+      enable = true;
+      devices = [
+        { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000002-0:0"; }
+        { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000001-0:0"; }
+      ];
+    };
+
     supportedFilesystems = [ "zfs" ];
     extraModulePackages = [ ];
     zfs = {
