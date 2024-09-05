@@ -15,6 +15,10 @@
         "${opts.paths.audiobooks}:/audiobooks"
         "${opts.paths.music}:/music"
       ];
+      labels = {
+        "kuma.jellyfin.http.name" = "Jellyfin";
+        "kuma.jellyfin.http.url" = "http://${opts.lanAddress}:${opts.ports.jellyfin}/health";
+      };
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.jellyfin}:8096" ];
