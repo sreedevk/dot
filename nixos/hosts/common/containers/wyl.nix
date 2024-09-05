@@ -11,6 +11,10 @@
       image = "aceberg/watchyourlan:v2";
       extraOptions = [ "--network=host" "--no-healthcheck" "--privileged" ];
       volumes = [ "${opts.paths.application_data}/WatchYourLan:/data/WatchYourLAN" ];
+      labels = {
+        "kuma.wyl.http.name" = "Watch Your LAN";
+        "kuma.wyl.http.url" = "http://${opts.lanAddress}:${opts.ports.watch-your-lan}/api/all";
+      };
       environmentFiles = [ config.age.secrets.wyl_env.path ];
       environment = {
         TZ = opts.timeZone;
