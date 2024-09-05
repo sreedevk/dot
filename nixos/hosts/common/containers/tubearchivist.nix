@@ -21,10 +21,6 @@
         "${opts.paths.videos}/YouTube:/youtube"
         "${opts.paths.application_data}/tubearchivist/cache:/cache"
       ];
-      labels = {
-        "kuma.tubearchivist.http.name" = "TubeArchivist";
-        "kuma.tubearchivist.http.url" = "http://${opts.lanAddress}:${opts.ports.tubearchivist}/health";
-      };
       environmentFiles = [ config.age.secrets.tubearchivist_env.path ];
       environment = {
         ES_URL = "http://${opts.hostname}:${opts.ports.tubearchivist-es}";
