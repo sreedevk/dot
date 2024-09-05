@@ -12,6 +12,10 @@
         "${opts.paths.application_data}/freshrss/data/:/var/www/FreshRSS/data"
         "${opts.paths.application_data}/freshrss/extensions/:/var/www/FreshRSS/extensions"
       ];
+      labels = {
+        "kuma.freshrss.http.name" = "FreshRSS";
+        "kuma.freshrss.http.url" = "http://${opts.lanAddress}:${opts.ports.freshrss-app}/api/fever.php";
+      };
       ports = [ "${opts.ports.freshrss-app}:80" ];
       environmentFiles = [ config.age.secrets.freshrss_env.path ];
       environment = {
