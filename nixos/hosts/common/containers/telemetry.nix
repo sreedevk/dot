@@ -73,6 +73,7 @@
       "--collector.zfs"
       "--collector.processes"
       "--collector.filesystem"
+      "--collector.smartctl"
     ];
   };
 
