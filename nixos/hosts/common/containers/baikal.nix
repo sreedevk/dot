@@ -18,7 +18,7 @@
       ];
       labels = {
         "kuma.baikal.http.name" = "Baikal";
-        "kuma.baikal.http.url" = "https://${opts.hostname}:${opts.ports.baikal}";
+        "kuma.baikal.http.url" = "http://${opts.hostname}:${opts.ports.baikal}";
       };
       volumes = [
         "${opts.paths.application_data}/Baikal:/var/www/baikal/Specific"
