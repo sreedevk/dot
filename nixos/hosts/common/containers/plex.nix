@@ -13,6 +13,10 @@
         "${opts.paths.music}:/music"
       ];
       ports = [ "${opts.ports.plex}:32400" ];
+      labels = {
+        "kuma.plex.http.name" = "Plex Media Server";
+        "kuma.plex.http.url" = "http://${opts.lanAddress}:${opts.ports.plex}/identity";
+      };
       environmentFiles = [ config.age.secrets.plex_env.path ];
       environment = {
         TZ = opts.timeZone;
