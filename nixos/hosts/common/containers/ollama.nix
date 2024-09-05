@@ -11,6 +11,10 @@
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_data}/Ollama:/root/.ollama" ];
       ports = [ "${opts.ports.ollama-api}:11434" ];
+      labels = {
+        "kuma.ollama.http.name" = "Ollama API";
+        "kuma.ollama.http.url" = "http://${opts.lanAddress}:${opts.ports.ollama-api}";
+      };
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
