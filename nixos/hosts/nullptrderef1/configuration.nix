@@ -36,11 +36,11 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
+      intel-compute-runtime
       intel-media-driver
+      libvdpau-va-gl
       vaapiIntel
       vaapiVdpau
-      libvdpau-va-gl
-      intel-compute-runtime
     ];
   };
 
@@ -133,6 +133,7 @@
     ffmpeg
     git
     git-crypt
+    smartmontools
     gnumake
     home-manager
     hwinfo
