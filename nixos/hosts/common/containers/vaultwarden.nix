@@ -8,6 +8,10 @@
     "vaultwarden" = {
       autoStart = true;
       image = "vaultwarden/server:latest ";
+      labels = {
+        "kuma.vw.http.name" = "VaultWarden";
+        "kuma.vw.http.url" = "http://${opts.lanAddress}:${opts.ports.vaultwarden}/alive";
+      };
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.vaultwarden}:80" ];
