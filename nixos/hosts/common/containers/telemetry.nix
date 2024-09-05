@@ -121,6 +121,10 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.influxdb}:8086" ];
+      labels = {
+        "kuma.influxdb.http.name" = "InfluxDB";
+        "kuma.influxdb.http.url" = "http://${opts.lanAddress}:${opts.ports.influxdb}/health";
+      };
       volumes = [
         "${opts.paths.application_databases}/InfluxDB:/var/lib/influxdb2"
         "${opts.paths.application_data}/InfluxDB/config:/etc/influxdb2"
