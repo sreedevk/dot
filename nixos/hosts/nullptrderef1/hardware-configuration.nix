@@ -33,15 +33,6 @@
       "vm.dirty_background_ratio" = 10;
     };
 
-
-    services.smartd = {
-      enable = true;
-      devices = [
-        { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000002-0:0"; }
-        { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000001-0:0"; }
-      ];
-    };
-
     supportedFilesystems = [ "zfs" ];
     extraModulePackages = [ ];
     zfs = {
@@ -55,6 +46,14 @@
       availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "uas" "usb_storage" "sd_mod" ];
     };
 
+  };
+
+  services.smartd = {
+    enable = true;
+    devices = [
+      { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000002-0:0"; }
+      { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000001-0:0"; }
+    ];
   };
 
   # NOTE: OpenZFS Does not support swap on zvols or datasets
