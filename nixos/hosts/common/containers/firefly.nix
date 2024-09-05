@@ -32,6 +32,10 @@
       volumes = [
         "${opts.paths.application_data}/firefly/uploads/:/var/www/html/storage/upload"
       ];
+      labels = {
+        "kuma.firefly.http.name" = "Firefly";
+        "kuma.firefly.http.url" = "http://${opts.lanAddress}:${opts.ports.firefly_app}/health";
+      };
       environmentFiles = [ config.age.secrets.firefly_env.path ];
       environment = {
         APP_ENV = "production";
