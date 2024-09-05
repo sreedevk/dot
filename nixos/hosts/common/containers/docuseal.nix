@@ -8,6 +8,10 @@
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.docuseal}:3000" ];
       volumes = [ "${opts.paths.application_data}/docuseal:/data" ];
+      labels = {
+        "kuma.docuseal.http.name" = "Docuseal";
+        "kuma.docuseal.http.url" = "http://${opts.lanAddress}:${opts.ports.docuseal}/up";
+      };
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
