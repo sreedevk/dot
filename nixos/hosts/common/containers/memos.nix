@@ -8,6 +8,10 @@
       image = "neosmemo/memos:stable";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      labels = {
+        "kuma.memos.http.name" = "Memos";
+        "kuma.memos.http.url" = "http://${opts.lanAddress}:${opts.ports.memos}/healthz";
+      };
       volumes = [
         "${opts.paths.application_data}/memos:/var/opt/memos"
       ];
