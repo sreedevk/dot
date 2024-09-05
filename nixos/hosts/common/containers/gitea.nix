@@ -20,6 +20,10 @@
       volumes = [
         "${opts.paths.application_data}/gitea:/data"
       ];
+      labels = {
+        "kuma.gitea.http.name" = "Gitea";
+        "kuma.gitea.http.url" = "http://${opts.lanAddress}:${opts.ports.gitea_http}/api/v1/version";
+      };
       ports = [
         "${opts.ports.gitea_http}:3000"
         "${opts.ports.gitea_ssh}:22"
