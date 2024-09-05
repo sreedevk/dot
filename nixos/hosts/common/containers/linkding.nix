@@ -12,6 +12,10 @@
       volumes =
         [ "${opts.paths.application_data}/linkding:/etc/linkding/data" ];
       ports = [ "${opts.ports.linkding-app}:9090" ];
+      labels = {
+        "kuma.linkding.http.name" = "Linkding";
+        "kuma.linkding.http.url" = "http://${opts.lanAddress}:${opts.ports.linkding-app}/health";
+      };
       environmentFiles = [ config.age.secrets.linkding_env.path ];
       environment = {
         LD_DB_PORT = opts.ports.linkding-db;
