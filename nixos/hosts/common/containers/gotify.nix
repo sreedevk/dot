@@ -9,6 +9,10 @@
       ports = [ "${opts.ports.gotify}:80" ];
       volumes = [ "${opts.paths.application_data}/gotify:/app/data" ];
       environmentFiles = [ config.age.secrets.gotify_env.path ];
+      labels = {
+        "kuma.gotify.http.name" = "Gotify";
+        "kuma.gotify.http.url" = "http://${opts.lanAddress}:${opts.ports.gotify}/health";
+      };
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
