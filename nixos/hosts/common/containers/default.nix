@@ -26,6 +26,7 @@
     ./llama-cpp.nix
     ./memos.nix
     ./metube.nix
+    ./minio.nix
     ./navidrome.nix
     ./ntfy.nix
     ./olivetin.nix

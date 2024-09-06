@@ -85,6 +85,8 @@ rec {
     llama-cpp-server = "8100";
     memos = "5230";
     metube = "8081";
+    minio-console = "9899";
+    minio-api = "9000";
     navidrome = "4533";
     ntfy = "7777";
     olivetin = "1337";
