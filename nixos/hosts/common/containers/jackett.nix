@@ -14,6 +14,12 @@
         PUID = opts.adminUID;
         PGID = opts.adminGID;
       };
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.jackett.http.parent_name" = "${opts.hostname}";
+        "kuma.jackett.http.name" = "Jackett";
+        "kuma.jackett.http.url" = "http://${opts.lanAddress}:${opts.ports.jackett}/health";
+      };
       volumes = [
         "${opts.paths.application_data}/Jackett:/config"
         "${opts.paths.downloads}:/downloads"
