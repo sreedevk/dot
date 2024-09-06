@@ -13,6 +13,12 @@
         "--no-healthcheck"
       ];
       image = "archivebox/archivebox";
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.archivebox.http.parent_name" = "${opts.hostname}";
+        "kuma.archivebox.http.name" = "ArchiveBox";
+        "kuma.archivebox.http.url" = "http://${opts.lanAddress}:${opts.ports.archivebox}/health";
+      };
       ports = [
         "${opts.ports.archivebox}:8000"
       ];
