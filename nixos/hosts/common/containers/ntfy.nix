@@ -15,6 +15,8 @@
       };
       ports = [ "${opts.ports.ntfy}:80" ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.ntfy.http.parent_name" = "${opts.hostname}";
         "kuma.ntfy.http.name" = "Ntfy";
         "kuma.ntfy.http.url" = "http://${opts.lanAddress}:${opts.ports.ntfy}";
       };

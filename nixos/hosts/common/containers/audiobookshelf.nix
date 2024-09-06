@@ -18,6 +18,8 @@
         "${opts.ports.audiobookshelf}:80"
       ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.audiobookshelf.http.parent_name" = "${opts.hostname}";
         "kuma.audiobookshelf.http.name" = "AudioBookShelf";
         "kuma.audiobookshelf.http.url" = "http://${opts.lanAddress}:${opts.ports.audiobookshelf}/healthcheck";
       };
