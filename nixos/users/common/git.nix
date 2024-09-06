@@ -84,6 +84,8 @@ in
           lg     = log --decorate --oneline --graph
           s      = status
           st     = status
+          ps     = push
+          pl     = pull
           wta    = worktree add
           wtr    = worktree remove
         [rerere]
