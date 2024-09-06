@@ -36,6 +36,7 @@
     ./plex.nix
     ./podgrab.nix
     ./portrainer.nix
+    ./qbit_manage.nix
     ./qbittorrent.nix
     ./searxng.nix
     ./servarr.nix
