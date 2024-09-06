@@ -46,8 +46,8 @@ in
       ];
       search = {
         force = true;
-        default = "DuckDuckGo";
-        privateDefault = "DuckDuckGo";
+        default = "Brave";
+        privateDefault = "Brave";
         engines = {
           "Nix Packages" = {
             urls = [{
