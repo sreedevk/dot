@@ -110,7 +110,7 @@ in
               template =
                 "https://duckduckgo.com?q={searchTerms}";
             }];
-            definedAliases = [ "@ddg" ];
+            definedAliases = [ "@d" ];
           };
 
           "Brave" = {
