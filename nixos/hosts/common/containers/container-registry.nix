@@ -12,6 +12,10 @@
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.container-registry-server}:5000" ];
       volumes = [ "${opts.paths.application_data}/containers/server:/var/lib/registry" ];
+      labels = {
+        "kuma.registry.http.name" = "Docker Container Registry";
+        "kuma.registry.http.url" = "http://${opts.lanAddress}:${opts.ports.container-registry-server}";
+      };
       environmentFiles = [ config.age.secrets.container_registry_env.path ];
       environment = {
         TZ = opts.timeZone;
