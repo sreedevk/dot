@@ -17,6 +17,8 @@
         "${opts.ports.baikal}:80"
       ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.baikal.http.parent_name" = "${opts.hostname}";
         "kuma.baikal.http.name" = "Baikal";
         "kuma.baikal.http.url" = "http://${opts.lanAddress}:${opts.ports.baikal}";
       };

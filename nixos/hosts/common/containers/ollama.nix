@@ -12,6 +12,8 @@
       volumes = [ "${opts.paths.application_data}/Ollama:/root/.ollama" ];
       ports = [ "${opts.ports.ollama-api}:11434" ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.ollama.http.parent_name" = "${opts.hostname}";
         "kuma.ollama.http.name" = "Ollama API";
         "kuma.ollama.http.url" = "http://${opts.lanAddress}:${opts.ports.ollama-api}";
       };

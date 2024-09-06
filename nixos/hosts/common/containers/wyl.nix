@@ -12,6 +12,8 @@
       extraOptions = [ "--network=host" "--no-healthcheck" "--privileged" ];
       volumes = [ "${opts.paths.application_data}/WatchYourLan:/data/WatchYourLAN" ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.wyl.http.parent_name" = "${opts.hostname}";
         "kuma.wyl.http.name" = "Watch Your LAN";
         "kuma.wyl.http.url" = "http://${opts.lanAddress}:${opts.ports.watch-your-lan}/api/all";
       };

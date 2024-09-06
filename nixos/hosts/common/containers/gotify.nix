@@ -10,6 +10,8 @@
       volumes = [ "${opts.paths.application_data}/gotify:/app/data" ];
       environmentFiles = [ config.age.secrets.gotify_env.path ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.gotify.http.parent_name" = "${opts.hostname}";
         "kuma.gotify.http.name" = "Gotify";
         "kuma.gotify.http.url" = "http://${opts.lanAddress}:${opts.ports.gotify}/health";
       };

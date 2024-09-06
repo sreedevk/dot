@@ -14,6 +14,12 @@
         "${opts.paths.application_data}/MinIO:/mnt/data"
         "${config.age.secrets.minio_env.path}:/etc/config.env"
       ];
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.minio.http.parent_name" = "${opts.hostname}";
+        "kuma.minio.http.name" = "MinIO";
+        "kuma.minio.http.url" = "http://${opts.lanAddress}:${opts.ports.minio-api}/minio/health/live";
+      };
       cmd = [ "server" "--console-address=:9001" ];
       ports = [
         "${opts.ports.minio-console}:9001"

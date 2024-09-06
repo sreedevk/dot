@@ -13,6 +13,8 @@
         [ "${opts.paths.application_data}/linkding:/etc/linkding/data" ];
       ports = [ "${opts.ports.linkding-app}:9090" ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.linkding.http.parent_name" = "${opts.hostname}";
         "kuma.linkding.http.name" = "Linkding";
         "kuma.linkding.http.url" = "http://${opts.lanAddress}:${opts.ports.linkding-app}/health";
       };

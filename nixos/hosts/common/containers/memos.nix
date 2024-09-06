@@ -9,6 +9,8 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.memos.http.parent_name" = "${opts.hostname}";
         "kuma.memos.http.name" = "Memos";
         "kuma.memos.http.url" = "http://${opts.lanAddress}:${opts.ports.memos}/healthz";
       };

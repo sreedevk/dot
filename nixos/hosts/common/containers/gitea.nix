@@ -21,6 +21,8 @@
         "${opts.paths.application_data}/gitea:/data"
       ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.gitea.http.parent_name" = "${opts.hostname}";
         "kuma.gitea.http.name" = "Gitea";
         "kuma.gitea.http.url" = "http://${opts.lanAddress}:${opts.ports.gitea_http}/api/v1/version";
       };

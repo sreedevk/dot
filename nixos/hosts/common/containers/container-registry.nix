@@ -13,6 +13,8 @@
       ports = [ "${opts.ports.container-registry-server}:5000" ];
       volumes = [ "${opts.paths.application_data}/containers/server:/var/lib/registry" ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.registry.http.parent_name" = "${opts.hostname}";
         "kuma.registry.http.name" = "Docker Container Registry";
         "kuma.registry.http.url" = "http://${opts.lanAddress}:${opts.ports.container-registry-server}";
       };

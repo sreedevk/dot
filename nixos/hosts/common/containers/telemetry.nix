@@ -122,6 +122,8 @@
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.influxdb}:8086" ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.influxdb.http.parent_name" = "${opts.hostname}";
         "kuma.influxdb.http.name" = "InfluxDB";
         "kuma.influxdb.http.url" = "http://${opts.lanAddress}:${opts.ports.influxdb}/health";
       };

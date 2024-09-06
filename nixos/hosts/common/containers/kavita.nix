@@ -14,6 +14,8 @@
       ];
 
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.kavita.http.parent_name" = "${opts.hostname}";
         "kuma.kavita.http.name" = "Kavita";
         "kuma.kavita.http.url" = "http://${opts.lanAddress}:${opts.ports.kavita}";
       };

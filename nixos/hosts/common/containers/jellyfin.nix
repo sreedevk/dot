@@ -16,6 +16,8 @@
         "${opts.paths.music}:/music"
       ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.jellyfin.http.parent_name" = "${opts.hostname}";
         "kuma.jellyfin.http.name" = "Jellyfin";
         "kuma.jellyfin.http.url" = "http://${opts.lanAddress}:${opts.ports.jellyfin}/health";
       };

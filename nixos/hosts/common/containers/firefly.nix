@@ -33,6 +33,8 @@
         "${opts.paths.application_data}/firefly/uploads/:/var/www/html/storage/upload"
       ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.firefly.http.parent_name" = "${opts.hostname}";
         "kuma.firefly.http.name" = "Firefly";
         "kuma.firefly.http.url" = "http://${opts.lanAddress}:${opts.ports.firefly_app}/health";
       };

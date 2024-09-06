@@ -14,6 +14,8 @@
       ];
       ports = [ "${opts.ports.plex}:32400" ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.plex.http.parent_name" = "${opts.hostname}";
         "kuma.plex.http.name" = "Plex Media Server";
         "kuma.plex.http.url" = "http://${opts.lanAddress}:${opts.ports.plex}/identity";
       };

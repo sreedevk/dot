@@ -13,6 +13,8 @@
         "${opts.paths.application_data}/freshrss/extensions/:/var/www/FreshRSS/extensions"
       ];
       labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.freshrss.http.parent_name" = "${opts.hostname}";
         "kuma.freshrss.http.name" = "FreshRSS";
         "kuma.freshrss.http.url" = "http://${opts.lanAddress}:${opts.ports.freshrss-app}/api/fever.php";
       };
