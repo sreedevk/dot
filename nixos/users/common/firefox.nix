@@ -27,6 +27,7 @@ in
         adnauseam
         bitwarden
         buster-captcha-solver
+        clearcache
         consent-o-matic
         darkreader
         duckduckgo-privacy-essentials
