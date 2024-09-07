@@ -58,11 +58,12 @@ in
         "/etc/vuetorrent:/vuetorrent:ro"
       ];
       extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--cpus=4"
+        "--memory-swap=16g"
+        "--memory=8g"
         "--network=host"
         "--no-healthcheck"
-        "--memory=8g"
-        "--memory-swap=16g"
-        "--cpus=4"
         "--read-only"
         "--stop-timeout=1800"
         "--tmpfs=/tmp"
