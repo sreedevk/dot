@@ -10,6 +10,12 @@
         "--privileged"
         "--no-healthcheck"
       ];
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.photoprism.http.parent_name" = "${opts.hostname}";
+        "kuma.photoprism.http.name" = "Photoprism";
+        "kuma.photoprism.http.url" = "http://${opts.lanAddress}:${opts.ports.photoprism_app}/health";
+      };
       volumes = [
         "${opts.paths.application_data}/photoprism/app:/photoprism/storage"
         "${opts.paths.images}:/photoprism/originals"
