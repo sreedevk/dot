@@ -133,7 +133,6 @@
     ffmpeg
     git
     git-crypt
-    smartmontools
     gnumake
     home-manager
     hwinfo
@@ -149,11 +148,13 @@
     openssl
     openvpn
     ouch
+    oxker
     p7zip
     parallel
     parted
     pciutils
     progress
+    smartmontools
     sshfs
     strace
     traceroute

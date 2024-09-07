@@ -77,6 +77,7 @@
       nushell
       nvtopPackages.full
       openttd
+      oxker
       pandoc
       playerctl
       python311Packages.i3ipc
