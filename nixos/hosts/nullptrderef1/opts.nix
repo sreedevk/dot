@@ -99,9 +99,9 @@ rec {
     photoprism_db = "3307";
     plex = "32400";
     podgrab = "8567";
-    portrainer_misc = "8024";
-    portrainer_web = "9080";
-    portrainer_web_secure = "9443";
+    portainer_misc = "8024";
+    portainer_web = "9080";
+    portainer_web_secure = "9443";
     prometheus_app = "9001";
     prometheus_node = "9002";
     prowlarr = "9696";
