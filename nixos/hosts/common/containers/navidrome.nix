@@ -11,6 +11,7 @@
       volumes = [
         "${opts.paths.application_data}/navidrome:/data"
         "${opts.paths.music}:/music:ro"
+        "${opts.paths.podcasts}:/podcasts:ro"
       ];
       environment = {
         TZ = opts.timeZone;
