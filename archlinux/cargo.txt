@@ -3,4 +3,3 @@ cargo-expand v1.0.90
 cargo-update v14.1.0
 cargo-watch v8.5.2
 deduplicator v0.2.2
-nil v0.0.0 (https//github.com/oxalica/nil#4f3081d1)
