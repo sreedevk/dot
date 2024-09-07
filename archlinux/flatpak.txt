@@ -1,0 +1,8 @@
+Plexamp
+Supersonic
+Freedesktop
+Mesa
+Mesa
+nvidia-560-35-03
+Intel
+openh264
