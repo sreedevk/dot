@@ -57,6 +57,7 @@
     nettools
     nmap
     ouch
+    oxker
     p7zip
     pass
     procs
