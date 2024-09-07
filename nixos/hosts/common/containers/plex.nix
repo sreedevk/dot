@@ -1,6 +1,8 @@
 { config, lib, pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ plex ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ plex tautulli ]);
+
   virtualisation.oci-containers.containers = {
+
     "plex" = {
       autoStart = true;
       image = "plexinc/pms-docker";
@@ -12,7 +14,6 @@
         "${opts.paths.television}:/television"
         "${opts.paths.music}:/music"
       ];
-      ports = [ "${opts.ports.plex}:32400" ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
         "kuma.plex.http.parent_name" = "${opts.hostname}";
@@ -26,5 +27,20 @@
         PGID = opts.adminGID;
       };
     };
+
+    tautulli = {
+      autoStart = true;
+      dependsOn = [ "plex" ];
+      image = "ghcr.io/tautulli/tautulli";
+      extraOptions = [ "--no-healthcheck" "--network=host" ];
+      volumes = [ "${opts.paths.application_data}/Tautulli:/config" ];
+      ports = [ "${opts.ports.tautulli}:8181" ];
+      environment = {
+        TZ = opts.timeZone;
+        PUID = opts.adminUID;
+        PGID = opts.adminGID;
+      };
+    };
+
   };
 }

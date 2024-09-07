@@ -85,8 +85,8 @@ rec {
     llama-cpp-server = "8100";
     memos = "5230";
     metube = "8081";
-    minio-console = "9899";
     minio-api = "9000";
+    minio-console = "9899";
     navidrome = "4533";
     ntfy = "7777";
     olivetin = "1337";
@@ -115,6 +115,7 @@ rec {
     ssh = "22";
     stirling-pdf = "9987";
     taskchampion = "8080";
+    tautulli = "8181";
     tubearchivist = "8780";
     tubearchivist-es = "9200";
     tubearchivist-redis = "6379";
