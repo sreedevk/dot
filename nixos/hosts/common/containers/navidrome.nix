@@ -20,7 +20,7 @@
         ND_SCANSCHEDULE = "1h";
         ND_LOGLEVEL = "info";
         ND_SESSIONTIMEOUT = "24h";
-        ND_BASEURL = "";
+        ND_BASEURL = "https://music.nullptr.sh";
       };
     };
   };
