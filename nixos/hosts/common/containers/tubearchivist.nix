@@ -15,6 +15,12 @@
         "tubearchivist-es"
         "tubearchivist-redis"
       ];
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.tube.http.parent_name" = "${opts.hostname}";
+        "kuma.tube.http.name" = "TubeArchivist";
+        "kuma.tube.http.url" = "http://${opts.lanAddress}:${opts.ports.tubearchivist}/health";
+      };
       autoStart = true;
       ports = [ "${opts.ports.tubearchivist}:8000" ];
       volumes = [
