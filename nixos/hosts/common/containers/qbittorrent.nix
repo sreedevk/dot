@@ -41,12 +41,12 @@ in
         USER_UID = opts.adminUID;
         USER_GID = opts.adminGID;
       };
-      labels = {
-        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
-        "kuma.qbt.http.parent_name" = "${opts.hostname}";
-        "kuma.qbt.http.name" = "qBittorrent";
-        "kuma.qbt.http.url" = "http://${opts.lanAddress}:${opts.ports.qbittorrent-web}/api/v2/app/version";
-      };
+      # labels = {
+      #   "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+      #   "kuma.qbt.http.parent_name" = "${opts.hostname}";
+      #   "kuma.qbt.http.name" = "qBittorrent";
+      #   "kuma.qbt.http.url" = "http://${opts.lanAddress}:${opts.ports.qbittorrent-web}/api/v2/app/version";
+      # };
       volumes = [
         "${opts.paths.application_data}/qbittorrent:/config"
         "${opts.paths.downloads}:/downloads"
