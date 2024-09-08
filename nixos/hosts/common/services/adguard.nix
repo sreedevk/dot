@@ -87,12 +87,13 @@
         "@@||download.nvidia.com^$important"
         "@@||engineering.fb.com^$important"
         "@@||feeds.hanselman.com^$important"
-        "@@||yahoo.com^$important"
         "@@||kickasstorrents.to^$important"
         "@@||maheshba.bitbucket.io^$important"
         "@@||one.newrelic.com^$important"
+        "@@||portainer.io^$important"
         "@@||thepiratebay.org^$important"
         "@@||torlock.com^$important"
+        "@@||yahoo.com^$important"
       ];
       filtering = {
         protection_enabled = true;
