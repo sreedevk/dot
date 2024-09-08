@@ -2,6 +2,15 @@
 
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ bazarr lidarr prowlarr radarr readarr sonarr ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.application_data}/Bazarr/config 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.application_data}/Lidarr 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.application_data}/Prowlarr 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.application_data}/Radarr 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.application_data}/Readarr 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.application_data}/Sonarr 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "radarr" = {
       autoStart = true;
@@ -105,7 +114,6 @@
       dependsOn = [ "flareSolverr" ];
       volumes = [
         "${opts.paths.application_data}/Prowlarr/:/config"
-        "${opts.paths.downloads}:/downloads"
       ];
       ports = [ "${opts.ports.prowlarr}:9696" ];
       environment = {
