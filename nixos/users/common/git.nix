@@ -82,10 +82,11 @@ in
           fucked = reset --hard
           l      = log
           lg     = log --decorate --oneline --graph
+          pl     = pull
+          ps     = push
+          rb     = rebase
           s      = status
           st     = status
-          ps     = push
-          pl     = pull
           wta    = worktree add
           wtr    = worktree remove
         [rerere]
