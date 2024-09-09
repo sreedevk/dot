@@ -87,6 +87,7 @@
         "@@||download.nvidia.com^$important"
         "@@||engineering.fb.com^$important"
         "@@||feeds.hanselman.com^$important"
+        "@@||gitbutler.com^$important"
         "@@||kickasstorrents.to^$important"
         "@@||maheshba.bitbucket.io^$important"
         "@@||one.newrelic.com^$important"
