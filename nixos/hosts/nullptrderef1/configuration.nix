@@ -168,6 +168,7 @@
   services = {
     flatpak.enable = false;
     packagekit.enable = true;
+    timesyncd.enable = true;
     udisks2.enable = true;
     dbus.enable = true;
     printing.enable = false;
