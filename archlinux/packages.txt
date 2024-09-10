@@ -27,8 +27,8 @@ grub
 gst-libav
 gst-plugins-good
 gstreamer
+i2pd
 i3-wm
-incus
 intel-media-driver
 iwd
 less
