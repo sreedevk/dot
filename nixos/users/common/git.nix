@@ -99,7 +99,7 @@ in
           process = git-lfs filter-process
           required = true
         [interactive]
-          diffFilter = delta --color-only
+          diffFilter = ${pkgs.delta}/bin/delta --color-only
         [add.interactive]
           useBuiltin = false # required for git 2.37.0
         [delta]
