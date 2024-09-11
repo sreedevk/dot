@@ -48,8 +48,6 @@
       ];
       environment = {
         TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
       };
       volumes = [
         "${opts.paths.application_data}/NginxProxyManager:/data"
