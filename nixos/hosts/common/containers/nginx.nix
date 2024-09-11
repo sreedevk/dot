@@ -17,6 +17,11 @@
         "${opts.paths.application_data}/tailscale-nginx/state:/var/lib/tailscale"
         "/dev/net/tun:/dev/net/tun"
       ];
+      ports = [
+        "${opts.ports.http}:80"
+        "${opts.ports.nginx-proxy-manager}:81"
+        "${opts.ports.https}:443"
+      ];
       extraOptions = [
         "--cap-add=NET_ADMIN"
         "--cap-add=SYS_MODULE"
@@ -40,11 +45,6 @@
         "--network=container:tailscale-nginx"
         "--privileged"
         "--no-healthcheck"
-      ];
-      ports = [
-        "${opts.ports.http}:80"
-        "${opts.ports.nginx-proxy-manager}:81"
-        "${opts.ports.https}:443"
       ];
       environment = {
         TZ = opts.timeZone;
