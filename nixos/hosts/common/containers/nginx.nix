@@ -17,7 +17,12 @@
         "${opts.paths.application_data}/tailscale-nginx/state:/var/lib/tailscale"
         "/dev/net/tun:/dev/net/tun"
       ];
-      extraOptions = [ "--cap-add=NET_ADMIN" "--cap-add=SYS_MODULE" "--privileged" ];
+      extraOptions = [
+        "--cap-add=NET_ADMIN"
+        "--cap-add=SYS_MODULE"
+        "--privileged"
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+      ];
       environmentFiles = [ config.age.secrets.tailscale_nginx_env.path ];
       environment = {
         TS_EXTRA_ARGS = "--advertise-exit-node --advertise-tags=tag:container"; # 
@@ -34,7 +39,6 @@
       extraOptions = [
         "--network=container:tailscale-nginx"
         "--privileged"
-        "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
       ];
       ports = [
