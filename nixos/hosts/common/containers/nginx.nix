@@ -31,7 +31,12 @@
       autoStart = true;
       dependsOn = [ "tailscale-nginx" ];
       image = "jc21/nginx-proxy-manager:latest";
-      extraOptions = [ "--network=container:tailscale-nginx" "--privileged" ];
+      extraOptions = [
+        "--network=container:tailscale-nginx"
+        "--privileged"
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       ports = [
         "${opts.ports.http}:80"
         "${opts.ports.nginx-proxy-manager}:81"
