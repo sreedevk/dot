@@ -65,6 +65,7 @@ rec {
     grafana = "2442";
     homebox = "3100";
     homer = "82";
+    http = "80";
     https = "443";
     influxdb = "8086";
     jackett = "9117";
@@ -88,6 +89,7 @@ rec {
     minio-api = "9000";
     minio-console = "9899";
     navidrome = "4533";
+    nginx-proxy-manager = "81";
     ntfy = "7777";
     olivetin = "1337";
     ollama-api = "11434";
