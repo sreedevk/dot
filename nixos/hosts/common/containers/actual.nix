@@ -12,6 +12,12 @@
       image = "docker.io/actualbudget/actual-server:latest";
       ports = [ "${opts.ports.actual-app}:5006" ];
       volumes = [ "${opts.paths.application_data}/Actual:/data" ];
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.actual.http.parent_name" = "${opts.hostname}";
+        "kuma.actual.http.name" = "Actual";
+        "kuma.actual.http.url" = "http://${opts.lanAddress}:${opts.ports.memos}/";
+      };
       environment = {
         PGID = opts.adminGID;
         PUID = opts.adminUID;
