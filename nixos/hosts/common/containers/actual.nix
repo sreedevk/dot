@@ -7,7 +7,7 @@
 
   virtualisation.oci-containers.containers = {
     actual-app = {
-      autoStart = false;
+      autoStart = true;
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       image = "docker.io/actualbudget/actual-server:latest";
       ports = [ "${opts.ports.actual-app}:5006" ];

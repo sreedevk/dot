@@ -3,7 +3,7 @@
 
   virtualisation.oci-containers.containers = {
     "cloudbeaver" = {
-      autoStart = false;
+      autoStart = true;
       image = "dbeaver/cloudbeaver:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

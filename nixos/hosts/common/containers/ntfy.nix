@@ -3,7 +3,7 @@
 
   virtualisation.oci-containers.containers = {
     "ntfy" = {
-      autoStart = false;
+      autoStart = true;
       image = "binwiederhier/ntfy";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

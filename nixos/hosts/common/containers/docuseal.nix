@@ -3,7 +3,7 @@
 
   virtualisation.oci-containers.containers = {
     "docuseal" = {
-      autoStart = false;
+      autoStart = true;
       image = "docuseal/docuseal";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.docuseal}:3000" ];

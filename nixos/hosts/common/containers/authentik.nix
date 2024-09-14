@@ -10,7 +10,7 @@
 
   virtualisation.oci-containers.containers = {
     "authentik-db" = {
-      autoStart = false;
+      autoStart = true;
       image = "docker.io/library/postgres:16-alpine";
       ports = [ "${opts.ports.authentik-db}:5432" ];
       volumes = [ "${opts.paths.application_databases}/Authentik/Postgres:/var/lib/postgresql/data" ];
@@ -25,7 +25,7 @@
     };
 
     "authentik-redis" = {
-      autoStart = false;
+      autoStart = true;
       image = "docker.io/library/redis:alpine";
       ports = [ "${opts.ports.authentik-redis}:6379" ];
       cmd = [ "--save" "60" "1" "--loglevel" "warning" ];
@@ -41,7 +41,7 @@
     };
 
     "authentik-server" = {
-      autoStart = false;
+      autoStart = true;
       image = "ghcr.io/goauthentik/server:2024.6.4";
       extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       cmd = [ "server" ];
@@ -66,7 +66,7 @@
     };
 
     "authentik-worker" = {
-      autoStart = false;
+      autoStart = true;
       image = "ghcr.io/goauthentik/server:2024.6.4";
       extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "authentik-db" "authentik-redis" ];
