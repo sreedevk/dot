@@ -2,7 +2,7 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ homebox ]);
   virtualisation.oci-containers.containers = {
     "homebox" = {
-      autoStart = true;
+      autoStart = false;
       image = "ghcr.io/hay-kot/homebox:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
