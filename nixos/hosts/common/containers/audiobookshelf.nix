@@ -28,6 +28,7 @@
         "${opts.paths.audiobooks}:/audiobooks"
         "${opts.paths.books}:/books"
         "${opts.paths.podcasts}:/podcasts"
+        "${opts.paths.magazines}:/magazines"
       ];
     };
   };
