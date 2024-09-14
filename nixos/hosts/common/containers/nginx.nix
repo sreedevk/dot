@@ -30,7 +30,7 @@
       ];
       environmentFiles = [ config.age.secrets.tailscale_nginx_env.path ];
       environment = {
-        TS_EXTRA_ARGS = "--advertise-exit-node --advertise-tags=tag:container"; # 
+        # TS_EXTRA_ARGS = "--advertise-exit-node --advertise-tags=tag:container";
         TS_STATE_DIR = "/var/lib/tailscale";
         TS_USERSPACE = "false";
         TZ = opts.timeZone;
