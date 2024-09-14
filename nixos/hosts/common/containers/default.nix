@@ -13,6 +13,7 @@
     ./flaresolverr.nix
     ./freshrss.nix
     ./gitea.nix
+    ./glance.nix
     ./gotify.nix
     ./homebox.nix
     ./homer.nix

@@ -65,6 +65,7 @@ rec {
     grafana = "2442";
     homebox = "3100";
     homer = "82";
+    glance = "83";
     http = "80";
     https = "443";
     influxdb = "8086";
