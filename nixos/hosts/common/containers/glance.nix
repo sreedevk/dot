@@ -3,7 +3,7 @@
   virtualisation.oci-containers.containers = {
 
     "glance" = {
-      autoStart = true;
+      autoStart = false;
       image = "glanceapp/glance";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.application_data}/Glance/glance.yml:/app/glance.yml" ];
