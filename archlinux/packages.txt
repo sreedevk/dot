@@ -1,6 +1,7 @@
 alsa-firmware
 alsa-plugins
 alsa-utils
+android-tools
 base
 base-devel
 bind
@@ -29,6 +30,7 @@ gst-plugins-good
 gstreamer
 i2pd
 i3-wm
+inotify-tools
 intel-media-driver
 iwd
 less
