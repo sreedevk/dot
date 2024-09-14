@@ -27,6 +27,7 @@
         "${opts.paths.application_data}/AudioBookShelf:/config"
         "${opts.paths.audiobooks}:/audiobooks"
         "${opts.paths.books}:/books"
+        "${opts.paths.podcasts}:/podcasts"
       ];
     };
   };
