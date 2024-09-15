@@ -111,7 +111,7 @@ in
               template =
                 "https://duckduckgo.com?q={searchTerms}";
             }];
-            definedAliases = [ "@d" ];
+            definedAliases = [ "@dd" ];
           };
 
           "Brave" = {
