@@ -32,6 +32,7 @@ in
         darkreader
         duckduckgo-privacy-essentials
         enhancer-for-youtube
+        keybase
         linkding-extension
         mullvad
         multi-account-containers
