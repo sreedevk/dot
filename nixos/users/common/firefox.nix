@@ -31,6 +31,7 @@ in
         consent-o-matic
         darkreader
         duckduckgo-privacy-essentials
+        enhancer-for-youtube
         linkding-extension
         mullvad
         multi-account-containers
