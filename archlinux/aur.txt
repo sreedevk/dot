@@ -1,5 +1,5 @@
 aic94xx-firmware 30-10
-aura-bin 4.0.4-1
+aura-bin 4.0.7-1
 brave-bin 1:1.69.168-1
 droidcam 1:2.1.3-2
 envycontrol 3.5.1-1
