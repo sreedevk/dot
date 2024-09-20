@@ -1,6 +1,5 @@
 { config, lib, pkgs, opts, ... }: {
   imports = [
-    # ./nginx.nix
     ./actual.nix
     ./archivebox.nix
     ./aria2.nix
@@ -30,6 +29,7 @@
     ./metube.nix
     ./minio.nix
     ./navidrome.nix
+    ./nginx.nix
     ./ntfy.nix
     ./olivetin.nix
     ./ollama.nix
