@@ -131,7 +131,6 @@
           "https://dns.cloudflare.com/dns-query"
           "https://dns.google/dns-query"
           "https://dns.quad9.net/dns-query"
-          "https://dns11.quad9.net/dns-query"
         ];
         upstream_mode = "load_balance";
       };
