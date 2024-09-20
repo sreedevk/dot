@@ -4,10 +4,11 @@ rec {
   adminUID = "1000";
   adminGID = "100";
   nameservers = [
-    lanAddress # AdGuard
-    "9.9.9.9" # Quad9
-    "149.112.112.112" # Quad9
-    "194.242.2.5" # Mullvad
+    "9.9.9.9"
+    "1.0.0.1"
+    "1.1.1.1"
+    "8.8.8.8"
+    "149.112.112.112"
   ];
 
   paths = {
