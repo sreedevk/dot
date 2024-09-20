@@ -47,7 +47,6 @@
         user = "admin";
         identitiesOnly = true;
         identityFile = "~/.ssh/devtechnica";
-        proxyJump = "rpi4b";
       };
 
       "gitea.nullptr.sh" = {
@@ -56,7 +55,6 @@
         port = 222;
         identitiesOnly = true;
         identityFile = "~/.ssh/devtechnica";
-        proxyJump = "rpi4b";
       };
 
       "gitlab.com" = {
@@ -67,7 +65,7 @@
       };
 
       "rpi4b" = {
-        hostname = "100.66.42.90";
+        hostname = "192.168.1.152";
         user = "pi";
         identitiesOnly = true;
         identityFile = "~/.ssh/devtechnica";

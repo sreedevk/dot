@@ -28,13 +28,6 @@
     };
 
     matchBlocks = {
-      "sree.dev" = {
-        hostname = "sree.dev";
-        user = "deploy";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/devtechnica";
-      };
-
       "github.com" = {
         hostname = "github.com";
         user = "git";
@@ -47,7 +40,6 @@
         user = "admin";
         identitiesOnly = true;
         identityFile = "~/.ssh/devtechnica";
-        proxyJump = "rpi4b";
       };
 
       "gitea.nullptr.sh" = {
@@ -56,7 +48,6 @@
         port = 222;
         identitiesOnly = true;
         identityFile = "~/.ssh/devtechnica";
-        proxyJump = "rpi4b";
       };
 
       "gitlab.com" = {
