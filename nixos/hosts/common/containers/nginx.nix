@@ -49,6 +49,12 @@
       environment = {
         TZ = opts.timeZone;
       };
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.nginx.http.parent_name" = "${opts.hostname}";
+        "kuma.nginx.http.name" = "Nginx Proxy Manager";
+        "kuma.nginx.http.url" = "http://${opts.lanAddress}:${opts.ports.nginx-proxy-manager}";
+      };
       volumes = [
         "${opts.paths.application_data}/NginxProxyManager:/data"
         "${opts.paths.application_data}/LetsEncrypt:/etc/letsencrypt"
