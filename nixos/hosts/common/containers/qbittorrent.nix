@@ -67,7 +67,6 @@ in
         "--read-only"
         "--stop-timeout=1800"
         "--tmpfs=/tmp"
-        "--dns=1.1.1.1"
       ];
     };
   };
