@@ -90,6 +90,7 @@
         "@@||bitbucket.io^$important"
         "@@||one.newrelic.com^$important"
         "@@||portainer.io^$important"
+        "@@||torlock.com^$important"
         "||ads.yahoo.com^$important"
         "||geo.yahoo.com^$important"
         "||udc.yahoo.com^$important"
