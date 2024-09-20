@@ -128,11 +128,10 @@
         bootstrap_dns = [ "9.9.9.9" "1.1.1.1" "1.0.0.1" ];
         ratelimit = 500;
         upstream_dns = [
-          "https://extended.dns.mullvad.net/dns-query"
-          "https://dns10.quad9.net/dns-query"
           "https://dns.cloudflare.com/dns-query"
-          "https://adblock.doh.mullvad.net/dns-query"
-          "https://dns.nextdns.io"
+          "https://dns.google/dns-query"
+          "https://dns.quad9.net/dns-query"
+          "https://dns11.quad9.net/dns-query"
         ];
         upstream_mode = "load_balance";
       };
