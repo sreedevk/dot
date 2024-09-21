@@ -62,11 +62,11 @@ rec {
     gitea_db = "3309";
     gitea_http = "3000";
     gitea_ssh = "222";
+    glance = "83";
     gotify = "8773";
     grafana = "2442";
     homebox = "3100";
     homer = "82";
-    glance = "83";
     http = "80";
     https = "443";
     influxdb = "8086";
@@ -118,6 +118,8 @@ rec {
     sonarr = "8989";
     ssh = "22";
     stirling-pdf = "9987";
+    tailscale_direct = "39158";
+    tailscale_p2p = "41641";
     taskchampion = "8080";
     tautulli = "8181";
     tubearchivist = "8780";
