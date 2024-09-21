@@ -17,9 +17,14 @@
       options = "--delete-older-than 7d";
     };
     settings = {
-      warn-dirty = true;
+      allowed-users = [ "admin" ];
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [ "nix-command" "flakes" "recursive-nix" ];
+      fallback = true;
+      show-trace = true;
+      trusted-substituters = [ "admin" ];
+      trusted-users = [ "admin" ];
+      warn-dirty = true;
     };
     package = pkgs.nixFlakes;
   };
