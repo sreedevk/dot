@@ -45,6 +45,9 @@
         "--network=container:tailscale-nginx"
         "--privileged"
         "--no-healthcheck"
+        "--health-cmd=/usr/bin/check-health"
+        "--health-interval=10s"
+        "--health-timeout=3s"
       ];
       environment = {
         DISABLE_IPV6 = "true";
