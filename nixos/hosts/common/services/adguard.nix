@@ -111,20 +111,16 @@
         filters_update_interval = 8;
         rewrites = [
           {
+            domain = "nullptr.sh";
+            answer = "100.117.8.42";
+          }
+          {
             domain = opts.hostname;
             answer = opts.lanAddress;
           }
           {
             domain = "${opts.hostname}.internal";
             answer = opts.lanAddress;
-          }
-          {
-            domain = "rpi4b.internal";
-            answer = "192.168.1.152";
-          }
-          {
-            domain = "devstation.internal";
-            answer = "192.168.1.249";
           }
         ];
       };
