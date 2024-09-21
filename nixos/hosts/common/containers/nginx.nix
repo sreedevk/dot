@@ -47,6 +47,7 @@
         "--no-healthcheck"
       ];
       environment = {
+        DISABLE_IPV6 = "true";
         TZ = opts.timeZone;
       };
       labels = {
