@@ -459,6 +459,14 @@ in
               name = "Excalidraw";
               url = "https://excalidraw.com/";
             }
+            {
+              name = "ProtonDrive";
+              url = "https://drive.proton.me";
+            }
+            {
+              name = "ProtonMail";
+              url = "https://mail.proton.me";
+            }
           ];
         }
       ];
