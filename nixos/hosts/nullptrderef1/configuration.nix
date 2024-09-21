@@ -159,6 +159,7 @@
     parted
     pciutils
     progress
+    sabnzbd
     smartmontools
     sshfs
     strace
