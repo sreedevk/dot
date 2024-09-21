@@ -51,6 +51,7 @@
       duckdb
       emacs
       feh
+      filezilla
       gimp-with-plugins
       glab
       glow
