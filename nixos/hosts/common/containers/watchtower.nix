@@ -15,7 +15,7 @@
         WATCHTOWER_NOTIFICATIONS = "gotify";
         WATCHTOWER_NOTIFICATION_GOTIFY_TLS_SKIP_VERIFY = "true";
         WATCHTOWER_NOTIFICATION_GOTIFY_URL = "http://${opts.hostname}:${opts.ports.gotify}";
-        WATCHTOWER_ROLLING_RESTART = "true";
+        WATCHTOWER_ROLLING_RESTART = "false";
       };
     };
   };
