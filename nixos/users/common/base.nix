@@ -126,6 +126,7 @@
   };
 
   nix = {
+    package = pkgs.nixVersions.nix_2_21;
     gc = {
       automatic = true;
       frequency = "weekly";
