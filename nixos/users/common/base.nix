@@ -126,7 +126,6 @@
   };
 
   nix = {
-    package = pkgs.nix;
     gc = {
       automatic = true;
       frequency = "weekly";
