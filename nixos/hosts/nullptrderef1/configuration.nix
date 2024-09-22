@@ -19,14 +19,14 @@
     settings = {
       allowed-users = [ "admin" ];
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" "recursive-nix" ];
-      fallback = true;
+      experimental-features = [ "nix-command" "flakes" ];
       show-trace = true;
       trusted-substituters = [ "admin" ];
       trusted-users = [ "admin" ];
       warn-dirty = true;
     };
-    package = pkgs.nixFlakes;
+    # package = pkgs.nixVersions.nix_2_21
+    package = pkgs.nix;
   };
 
   nixpkgs = {
