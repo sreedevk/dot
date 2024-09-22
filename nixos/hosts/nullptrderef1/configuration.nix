@@ -11,6 +11,7 @@
   documentation.nixos.enable = true;
 
   nix = {
+    package = pkgs.nixFlakes;
     gc = {
       automatic = true;
       dates = "weekly";
