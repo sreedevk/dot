@@ -1,4 +1,4 @@
-{ pkgs, opts, ... }:
+{ pkgs, opts, config, ... }:
 {
   virtualisation.oci-containers.containers = {
     "watchtower" = {
@@ -6,12 +6,17 @@
       image = "containrrr/watchtower";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.podmanSocket}:/var/run/docker.sock" ];
+      environmentFiles = [ config.age.secrets.watchtower_env.path ];
+      cmd = [ "--cleanup" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
+        WATCHTOWER_NOTIFICATIONS = "gotify";
+        WATCHTOWER_NOTIFICATION_GOTIFY_TLS_SKIP_VERIFY = "true";
+        WATCHTOWER_NOTIFICATION_GOTIFY_URL = "http://${opts.hostname}:${opts.ports.gotify}";
+        WATCHTOWER_ROLLING_RESTART = "true";
       };
     };
   };
-
 }
