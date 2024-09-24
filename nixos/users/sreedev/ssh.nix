@@ -29,6 +29,13 @@
         identityFile = "~/.ssh/devtechnica";
       };
 
+      "nullptrderef1" = {
+        hostname = "192.168.1.179";
+        user = "admin";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/devtechnica";
+      };
+
       "gitea.nullptr.sh" = {
         hostname = "100.117.8.42";
         user = "git";
