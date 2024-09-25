@@ -53,10 +53,8 @@
           static_configs:
             - targets:
               - ${opts.hostname}:${opts.ports.prometheus_node}
-              - ${opts.hostname}:9134
       '';
     };
-
   };
 
   services.prometheus.exporters.node = {
