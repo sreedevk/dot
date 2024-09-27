@@ -3,12 +3,12 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ bazarr lidarr prowlarr radarr readarr sonarr ]);
 
   systemd.tmpfiles.rules = [
-    "d ${opts.paths.application_data}/Bazarr/config 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.application_data}/Lidarr 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.application_data}/Prowlarr 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.application_data}/Radarr 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.application_data}/Readarr 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.application_data}/Sonarr 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/Bazarr/config 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/Lidarr 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/Prowlarr 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/Radarr 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/Readarr 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/Sonarr 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {
@@ -18,7 +18,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.application_data}/Radarr/:/config"
+        "${opts.paths.app_datafiles}/Radarr/:/config"
         "${opts.paths.movies}:/movies"
         "${opts.paths.downloads}:/downloads"
       ];
@@ -37,7 +37,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.application_data}/Sonarr/:/config"
+        "${opts.paths.app_datafiles}/Sonarr/:/config"
         "${opts.paths.television}:/tv"
         "${opts.paths.downloads}:/downloads"
       ];
@@ -56,7 +56,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.application_data}/Lidarr/:/config"
+        "${opts.paths.app_datafiles}/Lidarr/:/config"
         "${opts.paths.music}:/music"
         "${opts.paths.downloads}:/downloads"
       ];
@@ -75,7 +75,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.application_data}/Readarr/:/config"
+        "${opts.paths.app_datafiles}/Readarr/:/config"
         "${opts.paths.books}:/books"
         "${opts.paths.audiobooks}:/audiobooks"
         "${opts.paths.downloads}:/downloads"
@@ -95,7 +95,7 @@
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.bazarr}:6767" ];
       volumes = [
-        "${opts.paths.application_data}/Bazarr/config:/config"
+        "${opts.paths.app_datafiles}/Bazarr/config:/config"
         "${opts.paths.television}:/tv"
         "${opts.paths.movies}:/movies"
       ];
@@ -113,7 +113,7 @@
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "flareSolverr" ];
       volumes = [
-        "${opts.paths.application_data}/Prowlarr/:/config"
+        "${opts.paths.app_datafiles}/Prowlarr/:/config"
       ];
       ports = [ "${opts.ports.prowlarr}:9696" ];
       environment = {
