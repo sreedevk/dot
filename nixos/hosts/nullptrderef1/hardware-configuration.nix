@@ -71,13 +71,13 @@
       zfs_mountpoints = opts.mountpoints;
       sys_mountpoints = {
         "/boot" = {
-          device = "/dev/disk/by-uuid/20AA-8810";
+          device = "/dev/disk/by-uuid/97AF-2A23";
           fsType = "vfat";
+          options = [ "fmask=0077" "dmask=0077" ];
         };
         "/" = {
-          device = "/dev/disk/by-uuid/a6e313c7-0bfc-42d7-bb73-039b5ca3cfc1";
+          device = "/dev/disk/by-uuid/b288df5a-e70a-4d35-ae8d-629b331b0e3e";
           fsType = "ext4";
-          options = [ "fmask=0077" "dmask=0077" ];
         };
       };
 
