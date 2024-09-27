@@ -100,7 +100,6 @@ rec {
     paperless-redis = "6340";
     photoprism_app = "2342";
     photoprism_db = "3307";
-    plex = "32400";
     podgrab = "8567";
     portainer_misc = "8024";
     portainer_web = "9080";

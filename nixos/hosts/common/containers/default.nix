@@ -33,7 +33,6 @@
     ./ollama.nix
     ./paperless.nix
     ./photoprism.nix
-    ./plex.nix
     ./podgrab.nix
     ./portainer.nix
     ./qbit_manage.nix
