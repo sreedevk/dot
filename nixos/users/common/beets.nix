@@ -3,6 +3,10 @@
     beets
   ];
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_databases}/beets/musiclibrary.db 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   home.file = {
     ".config/beets/config.yaml" = {
       target = ".config/beets/config.yaml";
@@ -11,7 +15,7 @@
       enable = true;
       text = ''
         directory: ${opts.paths.music}
-        library: ${opts.paths.application_databases}/beets/musiclibrary.db
+        library: ${opts.paths.app_databases}/beets/musiclibrary.db
         plugins: fetchart lyrics lastgenre
         import:
           move: yes
