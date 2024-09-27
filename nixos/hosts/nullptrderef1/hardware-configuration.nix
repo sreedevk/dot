@@ -48,16 +48,15 @@
 
   };
 
-  services.smartd = {
-    enable = true;
-    autodetect = false;
-    devices = [
-      { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000002-0:0"; }
-      { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000001-0:0"; }
-    ];
-  };
+  # services.smartd = {
+  #   enable = true;
+  #   autodetect = false;
+  #   devices = [
+  #     { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000002-0:0"; }
+  #     { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000001-0:0"; }
+  #   ];
+  # };
 
-  # NOTE: OpenZFS Does not support swap on zvols or datasets
   swapDevices = [
     {
       device = "/var/lib/swapfile";
@@ -68,19 +67,6 @@
 
   fileSystems =
     let
-      zfs_mountpoints = opts.mountpoints;
-      sys_mountpoints = {
-        "/boot" = {
-          device = "/dev/disk/by-uuid/E4C3-D57E";
-          fsType = "vfat";
-          options = [ "fmask=0077" "dmask=0077" ];
-        };
-        "/" = {
-          device = "/dev/disk/by-uuid/5ba27c3a-7614-4950-858b-673bf1488ccc";
-          fsType = "ext4";
-        };
-      };
-
       mkzfsmount = mountpoint: {
         name = mountpoint.path;
         value = {
@@ -90,9 +76,22 @@
         };
       };
 
-      mkzfsmounts = mountpoints: builtins.map mkzfsmount mountpoints;
+      sys_mountpoints = {
+        "/boot" = {
+          device = "/dev/disk/by-uuid/336E-023D";
+          fsType = "vfat";
+          options = [ "fmask=0077" "dmask=0077" ];
+        };
+        "/" = {
+          device = "/dev/disk/by-uuid/db18f4e1-9c29-41da-a57a-2c2a9d405cd8";
+          fsType = "ext4";
+        };
+      };
+
+      # zfs_mountpoints = builtins.listToAttrs (builtins.map mkzfsmount opts.mountpoints);
+      zfs_mountpoints = { };
     in
-    sys_mountpoints // builtins.listToAttrs (mkzfsmounts zfs_mountpoints);
+    sys_mountpoints // zfs_mountpoints;
 
   networking = {
     useDHCP = lib.mkDefault false;
