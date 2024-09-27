@@ -12,6 +12,8 @@ rec {
   ];
 
   paths = {
+    app_datafiles = "/opt/appdata/files";
+    app_databases = "/opt/appdata/databases";
     application_data = "/mnt/dpool1/appdata/files";
     application_data_archive = "/mnt/dpool0/appdata/files";
     application_databases = "/mnt/dpool1/appdata/databases";

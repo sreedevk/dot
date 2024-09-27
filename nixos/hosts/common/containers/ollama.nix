@@ -9,7 +9,7 @@
       image = "ollama/ollama";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/Ollama:/root/.ollama" ];
+      volumes = [ "${opts.paths.app_datafiles}/Ollama:/root/.ollama" ];
       ports = [ "${opts.ports.ollama-api}:11434" ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
@@ -33,7 +33,7 @@
         "--no-healthcheck"
       ];
       volumes = [
-        "${opts.paths.application_data}/OllamaWeb:/app/backend/data"
+        "${opts.paths.app_datafiles}/OllamaWeb:/app/backend/data"
       ];
       ports = [ "${opts.ports.ollama-web}:8080" ];
       environment = {
