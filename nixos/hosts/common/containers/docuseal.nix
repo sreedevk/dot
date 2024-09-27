@@ -7,7 +7,7 @@
       image = "docuseal/docuseal";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.docuseal}:3000" ];
-      volumes = [ "${opts.paths.application_data}/docuseal:/data" ];
+      volumes = [ "${opts.paths.app_datafiles}/docuseal:/data" ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
         "kuma.docuseal.http.parent_name" = "${opts.hostname}";
