@@ -1,6 +1,10 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ jackett ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/Jackett 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "jackett" = {
       autoStart = true;
@@ -21,7 +25,7 @@
         "kuma.jackett.http.url" = "http://${opts.lanAddress}:${opts.ports.jackett}/health";
       };
       volumes = [
-        "${opts.paths.application_data}/Jackett:/config"
+        "${opts.paths.app_datafiles}/jackett:/config"
         "${opts.paths.downloads}:/downloads"
       ];
       ports = [ "${opts.ports.jackett}:9117" ];
