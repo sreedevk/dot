@@ -1,6 +1,11 @@
 { pkgs, opts, config, ... }:
 {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ podgrab ]);
+
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/podgrab/config 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     podgrab = {
       autoStart = true;
@@ -14,7 +19,7 @@
         "${opts.ports.podgrab}:8080"
       ];
       volumes = [
-        "${opts.paths.application_data}/podgrab/config:/config"
+        "${opts.paths.app_datafiles}/podgrab/config:/config"
         "${opts.paths.podcasts}:/assets"
       ];
       environmentFiles = [ config.age.secrets.podgrab_env.path ];

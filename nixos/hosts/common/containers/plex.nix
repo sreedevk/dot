@@ -1,6 +1,12 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ plex tautulli ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/plex/database 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/plex/transcode 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/tautulli 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
 
     "plex" = {
@@ -8,8 +14,8 @@
       image = "plexinc/pms-docker";
       extraOptions = [ "--network=host" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.application_data}/plex/database/:/config"
-        "${opts.paths.application_data}/plex/transcode/:/transcode"
+        "${opts.paths.app_datafiles}/plex/database:/config"
+        "${opts.paths.app_datafiles}/plex/transcode:/transcode"
         "${opts.paths.movies}:/movies"
         "${opts.paths.television}:/television"
         "${opts.paths.music}:/music"
@@ -33,7 +39,7 @@
       dependsOn = [ "plex" ];
       image = "ghcr.io/tautulli/tautulli";
       extraOptions = [ "--no-healthcheck" "--network=host" ];
-      volumes = [ "${opts.paths.application_data}/Tautulli:/config" ];
+      volumes = [ "${opts.paths.app_datafiles}/tautulli:/config" ];
       ports = [ "${opts.ports.tautulli}:8181" ];
       environment = {
         TZ = opts.timeZone;
