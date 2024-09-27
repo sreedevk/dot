@@ -1,5 +1,10 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ kavita ]);
+
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/kavita 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "kavita" = {
       autoStart = true;
@@ -8,7 +13,7 @@
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.kavita}:5000" ];
       volumes = [
-        "${opts.paths.application_data}/kavita:/kavita/config"
+        "${opts.paths.app_datafiles}/kavita:/kavita/config"
         "${opts.paths.books}:/books"
         "${opts.paths.magazines}:/magazines"
       ];
