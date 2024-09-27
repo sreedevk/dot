@@ -29,7 +29,7 @@
 
     "linkding-db" = {
       autoStart = true;
-      image = "postgres:latest";
+      image = "postgres:16.4";
       volumes = [ "${opts.paths.application_databases}/linkding:/var/lib/postgresql/data" ];
       ports = [ "${opts.ports.linkding-db}:5432" ];
       extraOptions =
