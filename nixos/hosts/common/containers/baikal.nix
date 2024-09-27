@@ -1,5 +1,10 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ baikal ]);
+
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/Baikal 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "baikal" = {
       autoStart = true;
@@ -23,8 +28,8 @@
         "kuma.baikal.http.url" = "http://${opts.lanAddress}:${opts.ports.baikal}";
       };
       volumes = [
-        "${opts.paths.application_data}/Baikal:/var/www/baikal/Specific"
-        "${opts.paths.application_data}/Baikal:/var/www/baikal/config"
+        "${opts.paths.app_datafiles}/Baikal:/var/www/baikal/Specific"
+        "${opts.paths.app_datafiles}/Baikal:/var/www/baikal/config"
       ];
     };
   };
