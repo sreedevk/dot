@@ -2,7 +2,7 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ jackett ]);
 
   systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/Jackett 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/jackett 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {

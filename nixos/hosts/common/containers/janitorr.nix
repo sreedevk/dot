@@ -1,5 +1,10 @@
 { opts, ... }:
 {
+
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/janitorr 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     janitorr = {
       autoStart = true;
@@ -11,7 +16,7 @@
         PGID = opts.adminGID;
       };
       volumes = [
-        "${opts.paths.application_data}/Janitorr:/config"
+        "${opts.paths.app_datafiles}/janitorr:/config"
         "${opts.paths.movies}:/data/movies"
         "${opts.paths.television}:/data/television"
       ];
