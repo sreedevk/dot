@@ -1,5 +1,10 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ archivebox ]);
+
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/archivebox 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "archivebox" = {
       autoStart = true;
@@ -23,8 +28,9 @@
         "${opts.ports.archivebox}:8000"
       ];
       volumes = [
-        "${opts.paths.application_data}/archivebox:/data"
+        "${opts.paths.app_datafiles}/archivebox:/data"
       ];
     };
   };
+
 }
