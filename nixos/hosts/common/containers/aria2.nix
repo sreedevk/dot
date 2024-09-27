@@ -1,5 +1,10 @@
 { opts, config, pkgs, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ aria_rpc aria_web ]);
+
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/aria2 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "aria2" = {
       autoStart = true;
@@ -20,7 +25,7 @@
         "${opts.ports.aria_web}:8080"
       ];
       volumes = [
-        "${opts.paths.application_data}/aria2:/aria2/conf"
+        "${opts.paths.app_datafiles}/aria2:/aria2/conf"
         "${opts.paths.downloads}/Aria2:/aria2/data"
       ];
     };
