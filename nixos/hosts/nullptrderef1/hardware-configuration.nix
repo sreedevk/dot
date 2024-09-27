@@ -70,8 +70,15 @@
     let
       zfs_mountpoints = opts.mountpoints;
       sys_mountpoints = {
-        "/boot" = { device = "/dev/disk/by-uuid/0B7B-5F96"; fsType = "vfat"; };
-        "/" = { device = "/dev/disk/by-uuid/66773c39-ea86-4b86-ae8b-31a4e56bf46b"; fsType = "ext4"; };
+        "/boot" = {
+          device = "/dev/disk/by-uuid/20AA-8810";
+          fsType = "vfat";
+        };
+        "/" = {
+          device = "/dev/disk/by-uuid/a6e313c7-0bfc-42d7-bb73-039b5ca3cfc1";
+          fsType = "ext4";
+          options = [ "fmask=0077" "dmask=0077" ];
+        };
       };
 
       mkzfsmount = mountpoint: {
