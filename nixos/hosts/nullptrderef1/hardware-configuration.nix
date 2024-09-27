@@ -48,14 +48,14 @@
 
   };
 
-  # services.smartd = {
-  #   enable = true;
-  #   autodetect = false;
-  #   devices = [
-  #     { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000002-0:0"; }
-  #     { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000001-0:0"; }
-  #   ];
-  # };
+  services.smartd = {
+    enable = true;
+    autodetect = false;
+    devices = [
+      { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000002-0:0"; }
+      { device = "/dev/disk/by-id/usb-ST8000DM_004-2U9188_0000000000000001-0:0"; }
+    ];
+  };
 
   swapDevices = [
     {
@@ -88,8 +88,7 @@
         };
       };
 
-      # zfs_mountpoints = builtins.listToAttrs (builtins.map mkzfsmount opts.mountpoints);
-      zfs_mountpoints = { };
+      zfs_mountpoints = builtins.listToAttrs (builtins.map mkzfsmount opts.mountpoints);
     in
     sys_mountpoints // zfs_mountpoints;
 
