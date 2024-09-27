@@ -1,6 +1,16 @@
 { pkgs, opts, config, ... }:
 {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ paperless-app paperless-db paperless-redis ]);
+
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/paperless/consume 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/paperless/data 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/paperless/export 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/paperless/media 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_databases}/paperless/redis 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_databases}/paperless/mysql 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     paperless-app = {
       autoStart = true;
@@ -8,10 +18,10 @@
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "paperless-db" "paperless-redis" ];
       volumes = [
-        "${opts.paths.application_data}/paperless/consume:/usr/src/paperless/consume"
-        "${opts.paths.application_data}/paperless/data:/usr/src/paperless/data"
-        "${opts.paths.application_data}/paperless/export:/usr/src/paperless/export"
-        "${opts.paths.application_data}/paperless/media:/usr/src/paperless/media"
+        "${opts.paths.app_datafiles}/paperless/consume:/usr/src/paperless/consume"
+        "${opts.paths.app_datafiles}/paperless/data:/usr/src/paperless/data"
+        "${opts.paths.app_datafiles}/paperless/export:/usr/src/paperless/export"
+        "${opts.paths.app_datafiles}/paperless/media:/usr/src/paperless/media"
       ];
       ports = [ "${opts.ports.paperless-app}:8000" ];
       environmentFiles = [ config.age.secrets.paperless_env.path ];
@@ -35,7 +45,7 @@
     paperless-db = {
       autoStart = true;
       image = "docker.io/library/mariadb:11";
-      volumes = [ "${opts.paths.application_databases}/paperless:/var/lib/mysql" ];
+      volumes = [ "${opts.paths.app_databases}/paperless/mysql:/var/lib/mysql" ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.paperless-db}:3306" ];
       environmentFiles = [ config.age.secrets.paperless_env.path ];
@@ -55,7 +65,7 @@
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.paperless-redis}:6379" ];
       volumes = [
-        "${opts.paths.application_data}/paperless/redis:/data"
+        "${opts.paths.app_databases}/paperless/redis:/data"
       ];
     };
   };
