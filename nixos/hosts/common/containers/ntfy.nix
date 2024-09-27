@@ -1,6 +1,11 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ntfy ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/ntfy/cache 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/ntfy/data 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "ntfy" = {
       autoStart = true;
@@ -22,7 +27,7 @@
       };
       volumes = [
         "${opts.paths.application_data}/ntfy/cache:/var/cache/ntfy"
-        "${opts.paths.application_data}/ntfy/data/:/etc/ntfy"
+        "${opts.paths.application_data}/ntfy/data:/etc/ntfy"
       ];
     };
   };
