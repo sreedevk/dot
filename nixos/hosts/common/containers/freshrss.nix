@@ -1,6 +1,13 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ freshrss-app freshrss-db rss-bridge ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/freshrss/data 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/freshrss/extensions 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_databases}/freshrss 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/rss-bridge 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "freshrss-app" = {
       autoStart = true;
@@ -9,8 +16,8 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.application_data}/freshrss/data/:/var/www/FreshRSS/data"
-        "${opts.paths.application_data}/freshrss/extensions/:/var/www/FreshRSS/extensions"
+        "${opts.paths.app_datafiles}/freshrss/data/:/var/www/FreshRSS/data"
+        "${opts.paths.app_datafiles}/freshrss/extensions/:/var/www/FreshRSS/extensions"
       ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
@@ -40,7 +47,7 @@
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
       ];
-      volumes = [ "${opts.paths.application_databases}/freshrss:/var/lib/mysql" ];
+      volumes = [ "${opts.paths.app_databases}/freshrss:/var/lib/mysql" ];
       environmentFiles = [ config.age.secrets.freshrss_env.path ];
       environment = {
         PGID = opts.adminGID;
@@ -55,7 +62,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.rss-bridge}:80" ];
-      volumes = [ "${opts.paths.application_data}/rss-bridge:/config" ];
+      volumes = [ "${opts.paths.app_datafiles}/rss-bridge:/config" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
