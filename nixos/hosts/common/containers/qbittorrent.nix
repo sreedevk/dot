@@ -10,6 +10,10 @@ let
 in
 {
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/qbittorrent 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   environment.etc = {
     "vuetorrent" = {
       enable = true;
@@ -48,7 +52,7 @@ in
       #   "kuma.qbt.http.url" = "http://${opts.lanAddress}:${opts.ports.qbittorrent-web}/api/v2/app/version";
       # };
       volumes = [
-        "${opts.paths.application_data}/qbittorrent:/config"
+        "${opts.paths.app_datafiles}/qbittorrent:/config"
         "${opts.paths.downloads}:/downloads"
         "${opts.paths.torrent_watch}:/torrents"
         "${opts.paths.qbt_images}:/images"

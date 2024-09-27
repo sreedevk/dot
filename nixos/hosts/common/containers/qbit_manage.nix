@@ -1,5 +1,9 @@
 { config, lib, pkgs, opts, ... }: {
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/qbitmanage 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     qbitmanage = {
       autoStart = true;
@@ -7,9 +11,9 @@
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       image = "ghcr.io/stuffanthings/qbit_manage:latest";
       volumes = [
-        "${opts.paths.application_data}/QbitManage:/config:rw"
+        "${opts.paths.app_datafiles}/qbitmanage:/config:rw"
+        "${opts.paths.app_datafiles}/qbittorrent:/qbittorrent:ro"
         "${opts.paths.torrent_watch}:/data/torrents:rw"
-        "${opts.paths.application_data}/qbittorrent:/qbittorrent:ro"
       ];
       environment = {
         QBT_RUN = "false";
