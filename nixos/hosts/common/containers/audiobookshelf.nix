@@ -3,7 +3,7 @@
   networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ audiobookshelf ]);
 
   systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/AudioBookShelf 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/audiobookshelf 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {
@@ -29,7 +29,7 @@
         "kuma.audiobookshelf.http.url" = "http://${opts.lanAddress}:${opts.ports.audiobookshelf}/healthcheck";
       };
       volumes = [
-        "${opts.paths.app_datafiles}/AudioBookShelf:/config"
+        "${opts.paths.app_datafiles}/audiobookshelf:/config"
         "${opts.paths.audiobooks}:/audiobooks"
         "${opts.paths.books}:/books"
         "${opts.paths.podcasts}:/podcasts"
