@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, opts, ... }:
 {
   services.clamav = {
     package = pkgs.clamav;
@@ -11,7 +11,7 @@
       enable = true;
       interval = "weekly";
       scanDirectories = [
-        "/mnt/dpool1/appdata/files"
+        opts.paths.app_datafiles
       ];
     };
 

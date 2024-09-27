@@ -2,8 +2,8 @@
 let
   appdata-sync =
     pkgs.writeShellScriptBin "appdata-sync" ''
-      ${pkgs.rsync}/bin/rsync -aAXv --progress --delete --size-only "${opts.paths.application_data}/" "${opts.paths.application_data_archive}/"
-      ${pkgs.rsync}/bin/rsync -aAXv --progress --delete --size-only "${opts.paths.application_databases}/" "${opts.paths.application_databases_archive}/"
+      ${pkgs.rsync}/bin/rsync -aAXv --progress --delete --size-only "${opts.paths.app_datafiles}/" "${opts.paths.application_data_archive}/"
+      ${pkgs.rsync}/bin/rsync -aAXv --progress --delete --size-only "${opts.paths.app_databases}/" "${opts.paths.application_databases_archive}/"
     '';
 in
 {

@@ -43,7 +43,7 @@
     zfs = {
       forceImportRoot = false;
       forceImportAll = false;
-      extraPools = [ "dpool0" "dpool1" ];
+      extraPools = [ "dpool0" ];
     };
 
     initrd = {

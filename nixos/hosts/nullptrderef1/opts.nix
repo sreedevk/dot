@@ -14,9 +14,7 @@ rec {
   paths = {
     app_datafiles = "/opt/appdata/files";
     app_databases = "/opt/appdata/databases";
-    application_data = "/mnt/dpool1/appdata/files";
     application_data_archive = "/mnt/dpool0/appdata/files";
-    application_databases = "/mnt/dpool1/appdata/databases";
     application_databases_archive = "/mnt/dpool0/appdata/databases";
     audiobooks = "/mnt/dpool0/media/audiobooks";
     books = "/mnt/dpool0/media/books";
@@ -162,10 +160,5 @@ rec {
     { device = "dpool0/appdata/databases"; path = "/mnt/dpool0/appdata/databases"; }
     { device = "dpool0/appdata/files"; path = "/mnt/dpool0/appdata/files"; }
     { device = "dpool0/media/podcasts"; path = "/mnt/dpool0/media/podcasts"; }
-
-    # DPOOL1
-    { device = "dpool1/appdata"; path = "/mnt/dpool1/appdata"; }
-    { device = "dpool1/appdata/files"; path = "/mnt/dpool1/appdata/files"; }
-    { device = "dpool1/appdata/databases"; path = "/mnt/dpool1/appdata/databases"; }
   ];
 }

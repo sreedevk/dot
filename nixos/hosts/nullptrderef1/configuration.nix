@@ -216,7 +216,7 @@
       autoScrub = {
         enable = true;
         interval = "monthly";
-        pools = [ "dpool0" "dpool1" ];
+        pools = [ "dpool0" ];
       };
 
       autoSnapshot = {
