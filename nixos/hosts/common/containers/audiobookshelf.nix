@@ -1,6 +1,11 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ audiobookshelf ]);
   networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ audiobookshelf ]);
+
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/AudioBookShelf 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "audiobookshelf" = {
       autoStart = true;
@@ -24,7 +29,7 @@
         "kuma.audiobookshelf.http.url" = "http://${opts.lanAddress}:${opts.ports.audiobookshelf}/healthcheck";
       };
       volumes = [
-        "${opts.paths.application_data}/AudioBookShelf:/config"
+        "${opts.paths.app_datafiles}/AudioBookShelf:/config"
         "${opts.paths.audiobooks}:/audiobooks"
         "${opts.paths.books}:/books"
         "${opts.paths.podcasts}:/podcasts"
