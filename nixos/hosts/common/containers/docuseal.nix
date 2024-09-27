@@ -1,6 +1,10 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ docuseal ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/docuseal 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "docuseal" = {
       autoStart = true;

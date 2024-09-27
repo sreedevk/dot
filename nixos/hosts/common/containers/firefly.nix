@@ -1,6 +1,11 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ firefly_app firefly_db ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_databases}/firefly 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/firefly/uploads 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "firefly-db" = {
       autoStart = true;
@@ -11,7 +16,7 @@
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
       ];
-      volumes = [ "${opts.paths.application_databases}/firefly:/var/lib/mysql" ];
+      volumes = [ "${opts.paths.app_databases}/firefly:/var/lib/mysql" ];
       environmentFiles = [ config.age.secrets.firefly_env.path ];
       environment = {
         PGID = opts.adminGID;
@@ -30,7 +35,7 @@
       dependsOn = [ "firefly-db" ];
       ports = [ "${opts.ports.firefly_app}:8080" ];
       volumes = [
-        "${opts.paths.application_data}/firefly/uploads/:/var/www/html/storage/upload"
+        "${opts.paths.app_datafiles}/firefly/uploads/:/var/www/html/storage/upload"
       ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
