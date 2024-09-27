@@ -2,14 +2,20 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ jellyfin ]);
   networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ jellyfin ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/jellyfin/config 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/jellyfin/cache 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/jellyfin/log 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "jellyfin" = {
       autoStart = true;
       image = "jellyfin/jellyfin";
       volumes = [
-        "${opts.paths.application_data}/Jellyfin/config:/config"
-        "${opts.paths.application_data}/Jellyfin/cache/:/cache"
-        "${opts.paths.application_data}/Jellyfin/log/:/log"
+        "${opts.paths.app_datafiles}/jellyfin/config:/config"
+        "${opts.paths.app_datafiles}/jellyfin/cache:/cache"
+        "${opts.paths.app_datafiles}/jellyfin/log:/log"
         "${opts.paths.movies}:/movies"
         "${opts.paths.television}:/tv"
         "${opts.paths.audiobooks}:/audiobooks"
