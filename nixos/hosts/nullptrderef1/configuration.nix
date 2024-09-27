@@ -2,7 +2,7 @@
 {
   imports = [
     # ../common/containers
-    # ../common/scripts
+    ../common/scripts
     ../common/services
     ../../../secrets/mappings.nix
     ./hardware-configuration.nix
