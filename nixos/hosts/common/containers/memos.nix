@@ -1,6 +1,10 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ memos ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/memos 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "memos" = {
       autoStart = true;
@@ -15,7 +19,7 @@
         "kuma.memos.http.url" = "http://${opts.lanAddress}:${opts.ports.memos}/healthz";
       };
       volumes = [
-        "${opts.paths.application_data}/memos:/var/opt/memos"
+        "${opts.paths.app_datafiles}/memos:/var/opt/memos"
       ];
       environment = {
         TZ = opts.timeZone;

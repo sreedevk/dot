@@ -4,7 +4,10 @@
   networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ http https nginx-proxy-manager ]);
 
   systemd.tmpfiles.rules = [
-    "d ${opts.paths.application_data}/tailscale-nginx/state 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/tailscale-nginx/state 0755 ${opts.adminUID} ${opts.adminGID} -"
+
+    "d ${opts.paths.app_datafiles}/nginxproxymanager 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/letsencrypt 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {
@@ -14,7 +17,7 @@
       image = "tailscale/tailscale:latest";
       hostname = "tailscale-nginx";
       volumes = [
-        "${opts.paths.application_data}/tailscale-nginx/state:/var/lib/tailscale"
+        "${opts.paths.app_datafiles}/tailscale-nginx/state:/var/lib/tailscale"
         "/dev/net/tun:/dev/net/tun"
       ];
       ports = [
@@ -59,8 +62,8 @@
         "kuma.nginx.http.url" = "http://${opts.lanAddress}:${opts.ports.nginx-proxy-manager}";
       };
       volumes = [
-        "${opts.paths.application_data}/NginxProxyManager:/data"
-        "${opts.paths.application_data}/LetsEncrypt:/etc/letsencrypt"
+        "${opts.paths.app_datafiles}/nginxproxymanager:/data"
+        "${opts.paths.app_datafiles}/letsencrypt:/etc/letsencrypt"
       ];
     };
 

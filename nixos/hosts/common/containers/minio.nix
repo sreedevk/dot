@@ -3,6 +3,10 @@
   networking.firewall.allowedTCPPorts =
     builtins.map pkgs.lib.strings.toInt (with opts.ports; [ minio-console minio-api ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/minio 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     minio = {
       autoStart = true;
@@ -11,7 +15,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.application_data}/MinIO:/mnt/data"
+        "${opts.paths.app_datafiles}/minio:/mnt/data"
         "${config.age.secrets.minio_env.path}:/etc/config.env"
       ];
       labels = {

@@ -23,7 +23,6 @@
     ./kavita.nix
     ./linkding.nix
     ./livebook.nix
-    ./llama-cpp.nix
     ./memos.nix
     ./metube.nix
     ./minio.nix

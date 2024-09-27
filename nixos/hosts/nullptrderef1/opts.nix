@@ -23,7 +23,6 @@ rec {
     documents = "/mnt/dpool0/personal/documents";
     downloads = "/mnt/dpool0/downloads";
     images = "/mnt/dpool0/media/photos";
-    llama-cpp-models = "/mnt/dpool0/resources/llms/llama-cpp-models";
     magazines = "/mnt/dpool0/media/magazines";
     movies = "/mnt/dpool0/media/movies";
     music = "/mnt/dpool0/media/music";
@@ -64,7 +63,6 @@ rec {
     gitea_db = "3309";
     gitea_http = "3000";
     gitea_ssh = "222";
-    glance = "83";
     gotify = "8773";
     grafana = "2442";
     homebox = "3100";
@@ -87,7 +85,6 @@ rec {
     linkding-db = "5432";
     livebook_api = "8091";
     livebook_http = "8090";
-    llama-cpp-server = "8100";
     memos = "5230";
     metube = "8081";
     minio-api = "9000";
