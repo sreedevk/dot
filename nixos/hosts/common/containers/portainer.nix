@@ -7,6 +7,10 @@
       portainer_web_secure
     ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/Portainer 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     portainer = {
       autoStart = true;
@@ -16,7 +20,7 @@
       ports = [ "${opts.ports.portainer_misc}:8000" "${opts.ports.portainer_web_secure}:9443" "${opts.ports.portainer_web}:9000" ];
       volumes = [
         "${opts.paths.podmanSocket}:/var/run/docker.sock"
-        "${opts.paths.application_data}/Portainer:/data"
+        "${opts.paths.app_datafiles}/Portainer:/data"
       ];
       environment = {
         TZ = opts.timeZone;
