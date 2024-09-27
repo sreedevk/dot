@@ -8,6 +8,16 @@
       prometheus_node
     ]);
 
+
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/Prometheus/data 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_databases}/Grafana 0755 ${opts.adminUID} ${opts.adminGID} -"
+
+    "d ${opts.paths.app_databases}/InfluxDB 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/InfluxDB/config 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/InfluxDB/scripts 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   environment.etc = {
 
     "grafana/datasource.yml" = {
@@ -85,7 +95,7 @@
       ports = [ "${opts.ports.prometheus_app}:9090" ];
       volumes = [
         "/etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro"
-        "${opts.paths.application_data}/Prometheus/data:/prometheus"
+        "${opts.paths.app_datafiles}/Prometheus/data:/prometheus"
       ];
       cmd = [ "--config.file=/etc/prometheus/prometheus.yml" ];
       environment = {
@@ -104,7 +114,7 @@
       ports = [ "${opts.ports.grafana}:3000" ];
       volumes = [
         "/etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml:ro"
-        "${opts.paths.application_databases}/Grafana:/var/lib/grafana"
+        "${opts.paths.app_databases}/Grafana:/var/lib/grafana"
       ];
       environment = {
         TZ = opts.timeZone;
@@ -126,9 +136,9 @@
         "kuma.influxdb.http.url" = "http://${opts.lanAddress}:${opts.ports.influxdb}/health";
       };
       volumes = [
-        "${opts.paths.application_databases}/InfluxDB:/var/lib/influxdb2"
-        "${opts.paths.application_data}/InfluxDB/config:/etc/influxdb2"
-        "${opts.paths.application_data}/InfluxDB/scripts:/docker-entrypoint-initdb.d"
+        "${opts.paths.app_databases}/InfluxDB:/var/lib/influxdb2"
+        "${opts.paths.app_datafiles}/InfluxDB/config:/etc/influxdb2"
+        "${opts.paths.app_datafiles}/InfluxDB/scripts:/docker-entrypoint-initdb.d"
       ];
       environment = {
         TZ = opts.timeZone;
