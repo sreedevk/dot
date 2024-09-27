@@ -26,8 +26,8 @@
         "kuma.ntfy.http.url" = "http://${opts.lanAddress}:${opts.ports.ntfy}";
       };
       volumes = [
-        "${opts.paths.application_data}/ntfy/cache:/var/cache/ntfy"
-        "${opts.paths.application_data}/ntfy/data:/etc/ntfy"
+        "${opts.paths.app_datafiles}/ntfy/cache:/var/cache/ntfy"
+        "${opts.paths.app_datafiles}/ntfy/data:/etc/ntfy"
       ];
     };
   };
