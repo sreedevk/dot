@@ -1,5 +1,10 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ uptime-kuma ]);
+
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/uptime-kuma 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     # Service Health Monitoring
     "uptime-kuma" = {
@@ -7,7 +12,7 @@
       image = "louislam/uptime-kuma:1";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.application_data}/uptime-kuma/:/app/data" ];
+      volumes = [ "${opts.paths.app_datafiles}/uptime-kuma:/app/data" ];
       ports = [ "${opts.ports.uptime-kuma}:3001" ];
       environment = {
         TZ = opts.timeZone;

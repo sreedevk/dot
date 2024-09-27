@@ -6,6 +6,13 @@
       tubearchivist-redis
     ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/tubearchivist/cache 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/tubearchivist/es 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/tubearchivist/redis 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
+
   virtualisation.oci-containers.containers = {
     tubearchivist-app = {
       image = "bbilly1/tubearchivist";
@@ -19,7 +26,7 @@
       ports = [ "${opts.ports.tubearchivist}:8000" ];
       volumes = [
         "${opts.paths.videos}/YouTube:/youtube"
-        "${opts.paths.application_data}/tubearchivist/cache:/cache"
+        "${opts.paths.app_datafiles}/tubearchivist/cache:/cache"
       ];
       environmentFiles = [ config.age.secrets.tubearchivist_env.path ];
       environment = {
@@ -44,7 +51,7 @@
         ];
       ports = [ "${opts.ports.tubearchivist-es}:9200" ];
       volumes = [
-        "${opts.paths.application_data}/tubearchivist/es:/usr/share/elasticsearch/data"
+        "${opts.paths.app_datafiles}/tubearchivist/es:/usr/share/elasticsearch/data"
       ];
       environmentFiles = [ config.age.secrets.tubearchivist_env.path ];
       environment = {
@@ -65,7 +72,7 @@
       ];
       ports = [ "${opts.ports.tubearchivist-redis}:6379" ];
       volumes = [
-        "${opts.paths.application_data}/tubearchivist/redis:/data"
+        "${opts.paths.app_datafiles}/tubearchivist/redis:/data"
       ];
     };
   };
