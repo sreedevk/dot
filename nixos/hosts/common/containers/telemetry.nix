@@ -84,10 +84,13 @@
       ports = [ "${opts.ports.prometheus_app}:9090" ];
       volumes = [
         "/etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro"
+        "prometheus_data:/prometheus:z"
       ];
       cmd = [ "--config.file=/etc/prometheus/prometheus.yml" ];
       environment = {
         TZ = opts.timeZone;
+        PGID = "65534";
+        PUID = "65534";
       };
     };
 
