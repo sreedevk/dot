@@ -1,12 +1,6 @@
 { config, lib, pkgs, opts, ... }: {
 
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ linkding-app linkding-db ]);
-
-  systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/linkding 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_databases}/linkding 0755 ${opts.adminUID} ${opts.adminGID} -"
-  ];
-
   virtualisation.oci-containers.containers = {
 
     "linkding-app" = {
@@ -16,7 +10,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes =
-        [ "${opts.paths.app_datafiles}/linkding:/etc/linkding/data" ];
+        [ "linkding_app:/etc/linkding/data" ];
       ports = [ "${opts.ports.linkding-app}:9090" ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
@@ -36,7 +30,7 @@
     "linkding-db" = {
       autoStart = true;
       image = "postgres:16.4";
-      volumes = [ "${opts.paths.app_databases}/linkding:/var/lib/postgresql/data" ];
+      volumes = [ "linkding_db:/var/lib/postgresql/data" ];
       ports = [ "${opts.ports.linkding-db}:5432" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
