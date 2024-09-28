@@ -1,11 +1,5 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ photoprism_app photoprism_db ]);
-
-  systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/photoprism/app 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_databases}/photoprism 0755 ${opts.adminUID} ${opts.adminGID} -"
-  ];
-
   virtualisation.oci-containers.containers = {
     "photoprism-app" = {
       autoStart = true;
@@ -23,7 +17,7 @@
         "kuma.photoprism.http.url" = "http://${opts.lanAddress}:${opts.ports.photoprism_app}/health";
       };
       volumes = [
-        "${opts.paths.app_datafiles}/photoprism/app:/photoprism/storage"
+        "photoprism_app:/photoprism/storage"
         "${opts.paths.images}:/photoprism/originals"
       ];
       ports = [ "${opts.ports.photoprism_app}:2342" ];
@@ -80,7 +74,7 @@
         "--innodb-lock-wait-timeout=120"
       ];
       volumes = [
-        "${opts.paths.app_databases}/photoprism:/var/lib/mysql"
+        "photoprism_db:/var/lib/mysql"
       ];
 
       extraOptions = [
