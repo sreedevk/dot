@@ -53,6 +53,8 @@ rec {
     container-registry-web = "5600";
     docuseal = "6008";
     filebrowser = "8980";
+    firefly_app = "10800";
+    firefly_db = "3338";
     flaresolverr = "8191";
     ftp = "21";
     gitea_db = "3309";
@@ -69,8 +71,6 @@ rec {
     jellyfin = "8096";
     jellyseer = "5055";
     jellystat-app = "8906";
-    miniflux-app = "10000";
-    miniflux-db = "3311";
     jellystat-db = "5433";
     k3s-control-plane = "6443";
     k3s-etcd-clients = "2379";
@@ -84,6 +84,8 @@ rec {
     livebook_http = "8090";
     memos = "5230";
     metube = "8081";
+    miniflux-app = "10000";
+    miniflux-db = "3311";
     minio-api = "9000";
     minio-console = "9899";
     navidrome = "4533";

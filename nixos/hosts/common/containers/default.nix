@@ -10,6 +10,7 @@
     ./container-registry.nix
     ./docuseal.nix
     ./filebrowser.nix
+    ./firefly.nix
     ./flaresolverr.nix
     ./gitea.nix
     ./gotify.nix
