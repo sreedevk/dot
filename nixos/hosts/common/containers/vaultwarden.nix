@@ -1,13 +1,6 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
-      vaultwarden
-    ]);
-
-
-  systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/vw-data 0755 ${opts.adminUID} ${opts.adminGID} -"
-  ];
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ vaultwarden ]);
 
   virtualisation.oci-containers.containers = {
     "vaultwarden" = {
@@ -22,7 +15,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.vaultwarden}:80" ];
-      volumes = [ "${opts.paths.app_datafiles}/vw-data:/data/" ];
+      volumes = [ "vaultwarden:/data" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
