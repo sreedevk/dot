@@ -83,6 +83,13 @@
       feedlist-format "%?T?║%n %12u %t &╠ %t?"
       highlight feedlist "[║│]" color3 color0
       highlight feedlist "╠.*" color3 color0
+
+      urls-source "miniflux"
+      miniflux-url "https://miniflux.nullptr.sh"
+      miniflux-login "admin"
+      miniflux-passwordeval "${pkgs.coreutils}/bin/cat ${config.age.secrets.miniflux_app_password.path}"
+      miniflux-min-items 100
+      miniflux-flag-star "s"
     '';
   };
 }

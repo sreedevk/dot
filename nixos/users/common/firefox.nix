@@ -421,6 +421,10 @@ in
           toolbar = true;
           bookmarks = [
             {
+              name = "Subscribe (miniflux)";
+              url = "javascript:location.href='https://miniflux.nullptr.sh/bookmarklet?uri='+encodeURIComponent(window.location.href)";
+            }
+            {
               name = "Bookmark (Linkding)";
               url = ''
                 javascript: (function () {
