@@ -52,6 +52,7 @@ rec {
     container-registry-server = "5500";
     container-registry-web = "5600";
     docuseal = "6008";
+    filebrowser = "8980";
     firefly_app = "6003";
     firefly_db = "3306";
     flaresolverr = "8191";
@@ -81,7 +82,6 @@ rec {
     lidarr = "8686";
     linkding-app = "9090";
     linkding-db = "5432";
-    filebrowser = "8980";
     livebook_api = "8091";
     livebook_http = "8090";
     memos = "5230";
