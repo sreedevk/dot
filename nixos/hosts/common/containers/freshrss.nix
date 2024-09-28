@@ -4,7 +4,6 @@
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/freshrss/data 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/freshrss/extensions 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_databases}/freshrss 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/rss-bridge 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
