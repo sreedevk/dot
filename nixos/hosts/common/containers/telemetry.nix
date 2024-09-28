@@ -8,6 +8,10 @@
       prometheus_node
     ]);
 
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/prometheus 0755 65534 65534 -"
+  ];
+
   environment.etc = {
     "grafana/datasource.yml" = {
       enable = true;
@@ -84,7 +88,7 @@
       ports = [ "${opts.ports.prometheus_app}:9090" ];
       volumes = [
         "/etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro"
-        "prometheus_data:/prometheus:z"
+        "${opts.paths.app_datafiles}/prometheus:/prometheus"
       ];
       cmd = [ "--config.file=/etc/prometheus/prometheus.yml" ];
       environment = {
