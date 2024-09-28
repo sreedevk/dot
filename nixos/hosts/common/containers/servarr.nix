@@ -71,7 +71,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.app_datafiles}/Readarr/:/config"
+        "readarr_data:/config"
         "${opts.paths.books}:/books"
         "${opts.paths.audiobooks}:/audiobooks"
         "${opts.paths.downloads}:/downloads"
