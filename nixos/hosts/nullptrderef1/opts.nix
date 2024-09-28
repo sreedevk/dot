@@ -81,6 +81,7 @@ rec {
     lidarr = "8686";
     linkding-app = "9090";
     linkding-db = "5432";
+    filebrowser = "8980";
     livebook_api = "8091";
     livebook_http = "8090";
     memos = "5230";
