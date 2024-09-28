@@ -1,6 +1,4 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./appdata-sync.nix
-  ];
+  imports = [ ];
 }
