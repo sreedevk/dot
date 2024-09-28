@@ -11,7 +11,6 @@
     ./docuseal.nix
     ./filebrowser.nix
     ./flaresolverr.nix
-    ./freshrss.nix
     ./gitea.nix
     ./gotify.nix
     ./homebox.nix

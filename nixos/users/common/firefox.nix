@@ -421,17 +421,6 @@ in
           toolbar = true;
           bookmarks = [
             {
-              name = "Subscribe (FreshRSS)";
-              url = ''
-                javascript: (function () {
-                  var url = location.href;
-                  var otherWindow = window.open('about:blank','_blank');
-                  otherWindow.opener = null;
-                  otherWindow.location = 'https://freshrss.nullptr.sh/i/?c=feed&a=add&url_rss='+encodeURIComponent(url);
-                })();
-              '';
-            }
-            {
               name = "Bookmark (Linkding)";
               url = ''
                 javascript: (function () {

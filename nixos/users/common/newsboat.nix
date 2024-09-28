@@ -83,13 +83,6 @@
       feedlist-format "%?T?║%n %12u %t &╠ %t?"
       highlight feedlist "[║│]" color3 color0
       highlight feedlist "╠.*" color3 color0
-
-      urls-source "freshrss"
-      freshrss-url "https://freshrss.nullptr.sh/api/greader.php"
-      freshrss-login "admin"
-      freshrss-passwordeval "${pkgs.coreutils}/bin/cat ${config.age.secrets.freshrss_app_password.path}"
-      freshrss-min-items 100
-      freshrss-flag-star "s"
     '';
   };
 }
