@@ -3,7 +3,6 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ bazarr lidarr prowlarr radarr readarr sonarr ]);
 
   systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/Prowlarr 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/Readarr 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/Sonarr 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
@@ -110,7 +109,7 @@
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "flareSolverr" ];
       volumes = [
-        "${opts.paths.app_datafiles}/Prowlarr/:/config"
+        "prowlarr_data:/config"
       ];
       ports = [ "${opts.ports.prowlarr}:9696" ];
       environment = {
