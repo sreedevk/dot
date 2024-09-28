@@ -28,6 +28,20 @@
       };
     };
 
+    "rss-bridge" = {
+      autoStart = true;
+      image = "rssbridge/rss-bridge:latest";
+      extraOptions =
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      ports = [ "${opts.ports.rss-bridge}:80" ];
+      volumes = [ "rss-bridge-config:/config" ];
+      environment = {
+        TZ = opts.timeZone;
+        PUID = opts.adminUID;
+        PGID = opts.adminGID;
+      };
+    };
+
     "miniflux-db" = {
       autoStart = true;
       image = "postgres:15";
