@@ -2,11 +2,6 @@
 
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ bazarr lidarr prowlarr radarr readarr sonarr ]);
 
-  systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/Readarr 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/Sonarr 0755 ${opts.adminUID} ${opts.adminGID} -"
-  ];
-
   virtualisation.oci-containers.containers = {
     "radarr" = {
       autoStart = true;
@@ -33,7 +28,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.app_datafiles}/Sonarr/:/config"
+        "sonarr_data:/config"
         "${opts.paths.television}:/tv"
         "${opts.paths.downloads}:/downloads"
       ];
