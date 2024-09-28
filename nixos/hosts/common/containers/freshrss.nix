@@ -10,7 +10,7 @@
   virtualisation.oci-containers.containers = {
     "freshrss-app" = {
       autoStart = true;
-      image = "freshrss/freshrss:edge";
+      image = "freshrss/freshrss:latest";
       dependsOn = [ "freshrss-db" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
