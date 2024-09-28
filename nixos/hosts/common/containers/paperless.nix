@@ -3,7 +3,10 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ paperless-app paperless-db paperless-redis ]);
 
   systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/paperless/export 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.documents}/consume 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.documents}/export 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.documents}/data 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.documents}/media 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {
@@ -13,10 +16,10 @@
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "paperless-db" "paperless-redis" ];
       volumes = [
-        "${opts.paths.documents}:/usr/src/paperless/consume:ro"
-        "${opts.paths.app_datafiles}/paperless/export:/usr/src/paperless/export"
-        "paperless_data:/usr/src/paperless/data"
-        "paperless_media:/usr/src/paperless/media"
+        "${opts.paths.documents}/consume:/usr/src/paperless/consume"
+        "${opts.paths.documents}/export:/usr/src/paperless/export"
+        "${opts.paths.documents}/data:/usr/src/paperless/data"
+        "${opts.paths.documents}/media:/usr/src/paperless/media"
       ];
       ports = [ "${opts.ports.paperless-app}:8000" ];
       environmentFiles = [ config.age.secrets.paperless_env.path ];
