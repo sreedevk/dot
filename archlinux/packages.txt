@@ -30,6 +30,8 @@ gst-plugins-good
 gstreamer
 i2pd
 i3-wm
+incus
+incus-tools
 inotify-tools
 intel-media-driver
 iwd
@@ -69,6 +71,7 @@ polkit-qt6
 polybar
 postgresql-libs
 powertop
+progress
 pulsemixer
 raylib
 reflector
