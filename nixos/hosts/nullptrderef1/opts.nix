@@ -136,7 +136,6 @@ rec {
     { device = "dpool0/other"; path = "/mnt/dpool0/other"; }
     { device = "dpool0/secrets"; path = "/mnt/dpool0/secrets"; }
     { device = "dpool0/notes"; path = "/mnt/dpool0/notes"; }
-    { device = "dpool0/appdata"; path = "/mnt/dpool0/appdata"; }
     { device = "dpool0/backups"; path = "/mnt/dpool0/backups"; }
     { device = "dpool0/resources"; path = "/mnt/dpool0/resources"; }
     { device = "dpool0/resources/llms"; path = "/mnt/dpool0/resources/llms"; }
@@ -155,8 +154,6 @@ rec {
     { device = "dpool0/downloads"; path = "/mnt/dpool0/downloads"; }
     { device = "dpool0/downloads/torrents"; path = "/mnt/dpool0/downloads/torrents"; }
     { device = "dpool0/media/audio"; path = "/mnt/dpool0/media/audio"; }
-    { device = "dpool0/appdata/databases"; path = "/mnt/dpool0/appdata/databases"; }
-    { device = "dpool0/appdata/files"; path = "/mnt/dpool0/appdata/files"; }
     { device = "dpool0/media/podcasts"; path = "/mnt/dpool0/media/podcasts"; }
   ];
 }

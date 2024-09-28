@@ -30,6 +30,7 @@
         "${opts.paths.music}:/srv/music"
         "${opts.paths.audiobooks}:/srv/audiobooks"
         "${opts.paths.books}:/srv/books"
+        "${opts.paths.app_datafiles}:/srv/appdata/files"
         "/etc/filebrowser/.filebrowser.json:/.filebrowser.json:ro"
       ];
       labels = {
