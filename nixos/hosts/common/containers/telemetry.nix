@@ -8,18 +8,7 @@
       prometheus_node
     ]);
 
-
-  systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/Prometheus/data 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_databases}/Grafana 0755 ${opts.adminUID} ${opts.adminGID} -"
-
-    "d ${opts.paths.app_databases}/InfluxDB 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/InfluxDB/config 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/InfluxDB/scripts 0755 ${opts.adminUID} ${opts.adminGID} -"
-  ];
-
   environment.etc = {
-
     "grafana/datasource.yml" = {
       enable = true;
       text = ''
@@ -95,7 +84,7 @@
       ports = [ "${opts.ports.prometheus_app}:9090" ];
       volumes = [
         "/etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro"
-        "${opts.paths.app_datafiles}/Prometheus/data:/prometheus"
+        "prometheus_data:/prometheus"
       ];
       cmd = [ "--config.file=/etc/prometheus/prometheus.yml" ];
       environment = {
@@ -114,7 +103,7 @@
       ports = [ "${opts.ports.grafana}:3000" ];
       volumes = [
         "/etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml:ro"
-        "${opts.paths.app_databases}/Grafana:/var/lib/grafana"
+        "grafana_db:/var/lib/grafana"
       ];
       environment = {
         TZ = opts.timeZone;
@@ -136,9 +125,9 @@
         "kuma.influxdb.http.url" = "http://${opts.lanAddress}:${opts.ports.influxdb}/health";
       };
       volumes = [
-        "${opts.paths.app_databases}/InfluxDB:/var/lib/influxdb2"
-        "${opts.paths.app_datafiles}/InfluxDB/config:/etc/influxdb2"
-        "${opts.paths.app_datafiles}/InfluxDB/scripts:/docker-entrypoint-initdb.d"
+        "influx_db:/var/lib/influxdb2"
+        "influx_config:/etc/influxdb2"
+        "influx_scripts:/docker-entrypoint-initdb.d"
       ];
       environment = {
         TZ = opts.timeZone;
