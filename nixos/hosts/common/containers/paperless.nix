@@ -3,12 +3,7 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ paperless-app paperless-db paperless-redis ]);
 
   systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/paperless/consume 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/paperless/data 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/paperless/export 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/paperless/media 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_databases}/paperless/redis 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_databases}/paperless/mysql 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {
@@ -18,10 +13,10 @@
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "paperless-db" "paperless-redis" ];
       volumes = [
-        "${opts.paths.app_datafiles}/paperless/consume:/usr/src/paperless/consume"
-        "${opts.paths.app_datafiles}/paperless/data:/usr/src/paperless/data"
+        "${opts.paths.documents}:/usr/src/paperless/consume:ro"
         "${opts.paths.app_datafiles}/paperless/export:/usr/src/paperless/export"
-        "${opts.paths.app_datafiles}/paperless/media:/usr/src/paperless/media"
+        "paperless_data:/usr/src/paperless/data"
+        "paperless_media:/usr/src/paperless/media"
       ];
       ports = [ "${opts.ports.paperless-app}:8000" ];
       environmentFiles = [ config.age.secrets.paperless_env.path ];
@@ -45,7 +40,7 @@
     paperless-db = {
       autoStart = true;
       image = "docker.io/library/mariadb:11";
-      volumes = [ "${opts.paths.app_databases}/paperless/mysql:/var/lib/mysql" ];
+      volumes = [ "paperless_db:/var/lib/mysql" ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.paperless-db}:3306" ];
       environmentFiles = [ config.age.secrets.paperless_env.path ];
@@ -65,7 +60,7 @@
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.paperless-redis}:6379" ];
       volumes = [
-        "${opts.paths.app_databases}/paperless/redis:/data"
+        "paperless_redis:/data"
       ];
     };
   };
