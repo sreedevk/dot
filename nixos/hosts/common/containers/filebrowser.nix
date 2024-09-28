@@ -1,10 +1,6 @@
 { opts, pkgs, ... }:
 {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ filebrowser ]);
-  systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_databases}/filebrowser 0755 ${opts.adminUID} ${opts.adminGID} -"
-  ];
-
   environment.etc = {
     "filebrowser/.filebrowser.json" = {
       enable = true;
@@ -28,8 +24,12 @@
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.filebrowser}:80" ];
       volumes = [
-        "${opts.paths.app_databases}/filebrowser:/database"
+        "filebrowser_database:/database"
         "${opts.paths.downloads}:/srv/downloads"
+        "${opts.paths.movies}:/srv/movies"
+        "${opts.paths.music}:/srv/music"
+        "${opts.paths.audiobooks}:/srv/audiobooks"
+        "${opts.paths.books}:/srv/books"
         "/etc/filebrowser/.filebrowser.json:/.filebrowser.json:ro"
       ];
       labels = {

@@ -1,10 +1,5 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ cloudbeaver ]);
-
-  systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/Cloudbeaver 0755 ${opts.adminUID} ${opts.adminGID} -"
-  ];
-
   virtualisation.oci-containers.containers = {
     "cloudbeaver" = {
       autoStart = true;
@@ -13,7 +8,7 @@
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.cloudbeaver}:8978" ];
       volumes = [
-        "${opts.paths.app_datafiles}/Cloudbeaver:/opt/cloudbeaver/workspace"
+        "cloudbeaver_data:/opt/cloudbeaver/workspace"
       ];
       environment = {
         TZ = opts.timeZone;
