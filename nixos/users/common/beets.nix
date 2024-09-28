@@ -3,7 +3,7 @@
     beets
   ];
 
-  systemd.tmpfiles.rules = [
+  systemd.user.tmpfiles.rules = [
     "d /home/${username}/.config/beets 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
