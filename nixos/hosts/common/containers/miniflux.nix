@@ -47,7 +47,7 @@
       image = "postgres:15";
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"
-        "--health-cmd='pg_isready -U miniflux'"
+        "--health-cmd=/usr/bin/pg_isready -U miniflux"
         "--health-interval=10s"
         "--health-timeout=30s"
       ];
