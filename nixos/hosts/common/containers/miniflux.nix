@@ -1,0 +1,48 @@
+{ pkgs, opts, config, ... }:
+{
+
+  networking.firewall.allowedTCPPorts =
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ miniflux-db miniflux-app ]);
+
+  virtualisation.oci-containers.containers = {
+    "miniflux-app" = {
+      autoStart = true;
+      ports = [ "${opts.ports.miniflux-app}:8080" ];
+      image = "miniflux/miniflux:latest";
+      dependsOn = "miniflux-db";
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.miniflux.http.parent_name" = "${opts.hostname}";
+        "kuma.miniflux.http.name" = "MiniFlux";
+        "kuma.miniflux.http.url" = "http://${opts.lanAddress}:${opts.ports.miniflux-app}";
+      };
+      environmentFiles = [ config.age.secrets.miniflux_env.path ];
+      environment = {
+        TZ = opts.timeZone;
+        CREATE_ADMIN = "1";
+        RUN_MIGRATIONS = "1";
+        BATCH_SIZE = "250";
+        BASE_URL = "https://miniflux.nullptr.sh";
+        WORKER_POOL_SIZE = "20";
+      };
+    };
+
+    "miniflux-db" = {
+      autoStart = true;
+      image = "postgres:15";
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--health-cmd='pg_isready -U miniflux'"
+        "--health-interval=10s"
+        "--health-timeout=30s"
+      ];
+      environmentFiles = [ config.age.secrets.miniflux_env.path ];
+      ports = [ "${opts.ports.miniflux-db}:5432" ];
+      volumes = [ "miniflux_db:/var/lib/postgresql/data" ];
+      environment = {
+        TZ = opts.timeZone;
+      };
+    };
+  };
+}

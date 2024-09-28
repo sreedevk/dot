@@ -24,6 +24,7 @@
     ./livebook.nix
     ./memos.nix
     ./metube.nix
+    ./miniflux.nix
     ./minio.nix
     ./navidrome.nix
     ./nginx.nix

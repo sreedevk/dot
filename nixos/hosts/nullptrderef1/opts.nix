@@ -69,6 +69,8 @@ rec {
     jellyfin = "8096";
     jellyseer = "5055";
     jellystat-app = "8906";
+    miniflux-app = "8808";
+    miniflux-db = "3311";
     jellystat-db = "5433";
     k3s-control-plane = "6443";
     k3s-etcd-clients = "2379";
