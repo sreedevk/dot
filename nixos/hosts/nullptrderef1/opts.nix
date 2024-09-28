@@ -53,8 +53,6 @@ rec {
     container-registry-web = "5600";
     docuseal = "6008";
     filebrowser = "8980";
-    firefly_app = "6003";
-    firefly_db = "3306";
     flaresolverr = "8191";
     freshrss-app = "8808";
     freshrss-db = "3311";
