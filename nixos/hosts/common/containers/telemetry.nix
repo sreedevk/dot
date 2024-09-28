@@ -10,6 +10,7 @@
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/prometheus 0755 65534 65534 -"
+    "f ${opts.paths.app_datafiles}/prometheus/queries.active 0755 65534 65534 -"
   ];
 
   environment.etc = {
