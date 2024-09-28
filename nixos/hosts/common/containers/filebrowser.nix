@@ -11,7 +11,7 @@
       text = ''
         {
           "port": 80,
-          "baseURL": "https://fb.nullptr.sh",
+          "baseURL": "",
           "address": "",
           "log": "stdout",
           "database": "/database/filebrowser.db",
