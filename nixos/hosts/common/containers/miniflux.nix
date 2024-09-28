@@ -9,7 +9,7 @@
       autoStart = true;
       ports = [ "${opts.ports.miniflux-app}:8080" ];
       image = "miniflux/miniflux:latest";
-      dependsOn = "miniflux-db";
+      dependsOn = [ "miniflux-db" ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
