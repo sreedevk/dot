@@ -6,7 +6,6 @@
     "d ${opts.paths.app_datafiles}/Bazarr/config 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/Lidarr 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/Prowlarr 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/Radarr 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/Readarr 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/Sonarr 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
@@ -18,7 +17,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.app_datafiles}/Radarr/:/config"
+        "radarr_data:/config"
         "${opts.paths.movies}:/movies"
         "${opts.paths.downloads}:/downloads"
       ];
