@@ -9,8 +9,8 @@
     ]);
 
   systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/prometheus 0755 65534 65534 -"
-    "f ${opts.paths.app_datafiles}/prometheus/queries.active 0755 65534 65534 -"
+    "d ${opts.paths.app_datafiles}/prometheus 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "f ${opts.paths.app_datafiles}/prometheus/queries.active 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   environment.etc = {
@@ -94,6 +94,8 @@
       cmd = [ "--config.file=/etc/prometheus/prometheus.yml" ];
       environment = {
         TZ = opts.timeZone;
+        PUID = opts.adminUID;
+        PGID = opts.adminGID;
       };
     };
 
