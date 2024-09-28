@@ -93,8 +93,6 @@
       cmd = [ "--config.file=/etc/prometheus/prometheus.yml" ];
       environment = {
         TZ = opts.timeZone;
-        PGID = "65534";
-        PUID = "65534";
       };
     };
 
