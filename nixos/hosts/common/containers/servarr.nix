@@ -3,7 +3,6 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ bazarr lidarr prowlarr radarr readarr sonarr ]);
 
   systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/Lidarr 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/Prowlarr 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/Readarr 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/Sonarr 0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -54,7 +53,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "${opts.paths.app_datafiles}/Lidarr/:/config"
+        "lidarr_data:/config"
         "${opts.paths.music}:/music"
         "${opts.paths.downloads}:/downloads"
       ];
