@@ -8,22 +8,12 @@
     authentik-redis
   ]);
 
-
-  systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/authentik/media 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/authentik/templates 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/authentik/certs 0755 ${opts.adminUID} ${opts.adminGID} -"
-
-    "d ${opts.paths.app_databases}/authentik/Postgres 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_databases}/authentik/Redis 0755 ${opts.adminUID} ${opts.adminGID} -"
-  ];
-
   virtualisation.oci-containers.containers = {
     "authentik-db" = {
       autoStart = true;
       image = "docker.io/library/postgres:16-alpine";
       ports = [ "${opts.ports.authentik-db}:5432" ];
-      volumes = [ "${opts.paths.app_databases}/authentik/Postgres:/var/lib/postgresql/data" ];
+      volumes = [ "authentik_postgres:/var/lib/postgresql/data" ];
       extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       environmentFiles = [ config.age.secrets.authentik_env.path ];
       environment = {
@@ -40,7 +30,7 @@
       ports = [ "${opts.ports.authentik-redis}:6379" ];
       cmd = [ "--save" "60" "1" "--loglevel" "warning" ];
       extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.app_databases}/authentik/Redis:/data" ];
+      volumes = [ "authentik_redis:/data" ];
       environmentFiles = [ config.age.secrets.authentik_env.path ];
       environment = {
         AUTHENTIK_ERROR_REPORTING__ENABLED = "true";
@@ -57,8 +47,8 @@
       cmd = [ "server" ];
       dependsOn = [ "authentik-db" "authentik-redis" ];
       volumes = [
-        "${opts.paths.app_datafiles}/authentik/media:/media"
-        "${opts.paths.app_datafiles}/authentik/templates:/templates"
+        "authentik_media:/media"
+        "authentik_templates:/templates"
       ];
 
       ports = [
@@ -83,9 +73,9 @@
       cmd = [ "worker" ];
       volumes = [
         "${opts.paths.podmanSocket}:/var/run/docker.sock"
-        "${opts.paths.app_datafiles}/authentik/media:/media"
-        "${opts.paths.app_datafiles}/authentik/templates:/templates"
-        "${opts.paths.app_datafiles}/authentik/certs:/certs"
+        "authentik_media:/media"
+        "authentik_templates:/templates"
+        "authentik_certs:/certs"
       ];
       environmentFiles = [ config.age.secrets.authentik_env.path ];
       environment = {
