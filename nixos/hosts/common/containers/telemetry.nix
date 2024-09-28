@@ -89,8 +89,6 @@
       cmd = [ "--config.file=/etc/prometheus/prometheus.yml" ];
       environment = {
         TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
       };
     };
 
@@ -107,8 +105,6 @@
       ];
       environment = {
         TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
       };
     };
 
@@ -131,8 +127,6 @@
       ];
       environment = {
         TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
       };
     };
 
