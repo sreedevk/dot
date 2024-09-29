@@ -138,6 +138,7 @@
           "https://dns.cloudflare.com/dns-query"
           "https://dns.google/dns-query"
           "https://dns.quad9.net/dns-query"
+          "https://adblock.dns.mullvad.net/dns-query"
         ];
         upstream_mode = "load_balance";
       };
