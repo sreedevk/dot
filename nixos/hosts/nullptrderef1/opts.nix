@@ -84,7 +84,7 @@ rec {
     metube = "8081";
     miniflux-app = "10000";
     miniflux-db = "3311";
-    minio-api = "9000";
+    minio-api = "30000";
     minio-console = "9899";
     navidrome = "4533";
     nginx-proxy-manager = "81";
