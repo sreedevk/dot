@@ -3,18 +3,12 @@
   networking.firewall.allowedTCPPorts =
     builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ollama-api ollama-web ]);
 
-  systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/Ollama 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/OllamaWeb 0755 ${opts.adminUID} ${opts.adminGID} -"
-  ];
-
   virtualisation.oci-containers.containers = {
     "ollama" = {
       autoStart = true;
       image = "ollama/ollama";
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.app_datafiles}/Ollama:/root/.ollama" ];
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      volumes = [ "ollama_api:/root/.ollama" ];
       ports = [ "${opts.ports.ollama-api}:11434" ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
@@ -38,7 +32,7 @@
         "--no-healthcheck"
       ];
       volumes = [
-        "${opts.paths.app_datafiles}/OllamaWeb:/app/backend/data"
+        "ollama_web:/app/backend/data"
       ];
       ports = [ "${opts.ports.ollama-web}:8080" ];
       environment = {
