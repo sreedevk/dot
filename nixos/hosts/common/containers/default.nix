@@ -27,6 +27,7 @@
     ./metube.nix
     ./miniflux.nix
     ./minio.nix
+    ./n8n.nix
     ./navidrome.nix
     ./nginx.nix
     ./ntfy.nix
