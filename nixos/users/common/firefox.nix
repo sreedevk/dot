@@ -441,6 +441,10 @@ in
               url = "https://nullptr.sh";
             }
             {
+              name = "bookmarks";
+              url = "https://links.nullptr.sh";
+            }
+            {
               name = "hackernews";
               url = "https://news.ycombinator.com/";
             }
