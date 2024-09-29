@@ -20,10 +20,10 @@
         "kuma.minio.http.name" = "MinIO";
         "kuma.minio.http.url" = "http://${opts.lanAddress}:${opts.ports.minio-api}/minio/health/live";
       };
-      cmd = [ "server" "--console-address=:9001" ];
+      cmd = [ "server" "--console-address=:16000" "--address=:17000" ];
       ports = [
-        "${opts.ports.minio-console}:9001"
-        "${opts.ports.minio-api}:9000"
+        "${opts.ports.minio-console}:16000"
+        "${opts.ports.minio-api}:17000"
       ];
       environment = {
         TZ = opts.timeZone;
