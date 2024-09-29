@@ -19,6 +19,7 @@ rec {
     downloads = "/mnt/dpool0/downloads";
     images = "/mnt/dpool0/media/photos";
     magazines = "/mnt/dpool0/media/magazines";
+    media = "/mnt/dpool0/media";
     movies = "/mnt/dpool0/media/movies";
     music = "/mnt/dpool0/media/music";
     other = "/mnt/dpool0/other";

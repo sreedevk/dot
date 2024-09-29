@@ -25,13 +25,11 @@
       ports = [ "${opts.ports.filebrowser}:80" ];
       volumes = [
         "filebrowser_database:/database"
-        "${opts.paths.downloads}:/srv/downloads"
-        "${opts.paths.movies}:/srv/movies"
-        "${opts.paths.music}:/srv/music"
-        "${opts.paths.audiobooks}:/srv/audiobooks"
-        "${opts.paths.books}:/srv/books"
-        "${opts.paths.app_datafiles}:/srv/appdata/files"
         "/etc/filebrowser/.filebrowser.json:/.filebrowser.json:ro"
+        "${opts.paths.media}:/srv/media"
+        "${opts.paths.downloads}:/srv/downloads"
+        "${opts.paths.app_datafiles}:/srv/appdata/files"
+        "${opts.paths.other}:/srv/other"
       ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
