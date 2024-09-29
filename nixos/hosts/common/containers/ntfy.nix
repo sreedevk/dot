@@ -1,11 +1,5 @@
 { config, lib, pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ntfy ]);
-
-  systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/ntfy/cache 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/ntfy/data 0755 ${opts.adminUID} ${opts.adminGID} -"
-  ];
-
   virtualisation.oci-containers.containers = {
     "ntfy" = {
       autoStart = true;
@@ -26,8 +20,8 @@
         "kuma.ntfy.http.url" = "http://${opts.lanAddress}:${opts.ports.ntfy}";
       };
       volumes = [
-        "${opts.paths.app_datafiles}/ntfy/cache:/var/cache/ntfy"
-        "${opts.paths.app_datafiles}/ntfy/data:/etc/ntfy"
+        "ntfy_cache:/var/cache/ntfy"
+        "ntfy_data:/etc/ntfy"
       ];
     };
   };
