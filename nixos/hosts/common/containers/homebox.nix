@@ -1,5 +1,4 @@
 { config, lib, pkgs, opts, ... }: {
-  # networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ homebox ]);
   virtualisation.oci-containers.containers = {
     "homebox" = {
       autoStart = true;
