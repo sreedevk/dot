@@ -60,7 +60,7 @@ rec {
     gitea_ssh = "222";
     gotify = "8773";
     grafana = "2442";
-    homebox = "3100";
+    homebox = "7745";
     homer = "82";
     http = "80";
     https = "443";

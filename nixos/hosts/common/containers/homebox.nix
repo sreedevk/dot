@@ -1,10 +1,5 @@
 { config, lib, pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ homebox ]);
-
-  systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/homebox 0755 ${opts.adminUID} ${opts.adminGID} -"
-  ];
-
+  # networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ homebox ]);
   virtualisation.oci-containers.containers = {
     "homebox" = {
       autoStart = true;
@@ -12,7 +7,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.homebox}:7745" ];
-      volumes = [ "${opts.paths.app_datafiles}/homebox:/data" ];
+      volumes = [ "homebox_data:/data" ];
       environment = {
         HBOX_LOG_LEVEL = "info";
         HBOX_LOG_FORMAT = "text";
