@@ -110,7 +110,6 @@
       "docker"
       "lp"
       "networkmanager"
-      "ntfy-sh"
       "scanner"
       "sshd"
       "vboxusers"
