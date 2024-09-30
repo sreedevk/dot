@@ -10,7 +10,7 @@
     bitmagnet-app = {
       autoStart = true;
       image = "ghcr.io/bitmagnet-io/bitmagnet:latest";
-      dependsOn = "bitmagnet-db";
+      dependsOn = [ "bitmagnet-db" ];
       hostname = "bitmagnet";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [
