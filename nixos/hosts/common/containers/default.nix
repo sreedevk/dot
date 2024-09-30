@@ -6,7 +6,6 @@
     ./audiobookshelf.nix
     ./authentik.nix
     ./baikal.nix
-    ./bitmagnet.nix
     ./cloudbeaver.nix
     ./container-registry.nix
     ./docuseal.nix
@@ -54,7 +53,7 @@
     enable = true;
     dockerCompat = true;
     dockerSocket.enable = true;
-    defaultNetwork.settings.dns_enabled = true;
+    defaultNetwork.settings.dns_enabled = false;
     autoPrune.enable = true;
   };
 
