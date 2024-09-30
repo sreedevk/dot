@@ -14,6 +14,7 @@ rec {
   paths = {
     app_datafiles = "/opt/appdata/files";
     audiobooks = "/mnt/dpool0/media/audiobooks";
+    backups = "/mnt/dpool0/backups";
     books = "/mnt/dpool0/media/books";
     documents = "/mnt/dpool0/personal/documents";
     downloads = "/mnt/dpool0/downloads";
