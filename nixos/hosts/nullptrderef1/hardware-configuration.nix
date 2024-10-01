@@ -11,10 +11,10 @@
 
     kernelParams =
       let
-        force_sync_at_x_dirty_gb = 6;
-        hung_task_timeout_secs = 800;
-        zfs_arc_max_gb = 25;
-        zfs_dirty_data_max_gb = 6;
+        force_sync_at_x_dirty_gb = 4;
+        hung_task_timeout_secs = 300;
+        zfs_arc_max_gb = 20;
+        zfs_dirty_data_max_gb = 8;
       in
       [
         "hung_task_timeout_secs=${builtins.toString hung_task_timeout_secs}"
