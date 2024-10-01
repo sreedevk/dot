@@ -46,8 +46,6 @@ rec {
     authentik-redis = "6388";
     baikal = "8945";
     bazarr = "6767";
-    bitmagnet-web = "3333";
-    bitmagnet-bittorrent = "3334";
     cloudbeaver = "8079";
     cockpit = "8008";
     container-registry-server = "5500";
@@ -121,6 +119,9 @@ rec {
     tailscale_p2p = "41641";
     taskchampion = "8080";
     tautulli = "8181";
+    tdarr-node = "8268";
+    tdarr-server = "8266";
+    tdarr-web = "8265";
     tubearchivist = "8780";
     tubearchivist-es = "9200";
     tubearchivist-redis = "6379";

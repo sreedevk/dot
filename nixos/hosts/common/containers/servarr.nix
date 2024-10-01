@@ -6,8 +6,7 @@
     "radarr" = {
       autoStart = true;
       image = "ghcr.io/hotio/radarr";
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
         "radarr_data:/config"
         "${opts.paths.movies}:/movies"

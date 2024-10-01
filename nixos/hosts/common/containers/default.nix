@@ -41,6 +41,7 @@
     ./searxng.nix
     ./servarr.nix
     ./stirling-pdf.nix
+    ./tdarr.nix
     ./telemetry.nix
     ./tubearchivist.nix
     ./uptime-kuma.nix
