@@ -65,7 +65,7 @@
         PUID = opts.adminUID;
         PGID = opts.adminGID;
         nodeName = "tdarr-${opts.hostname}-node";
-        serverIP = "nullptrderef1";
+        serverIP = opts.lanAddress;
         serverPort = "8266";
         inContainer = "true";
         ffmpegVersion = "6";
