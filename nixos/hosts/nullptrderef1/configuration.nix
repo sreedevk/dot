@@ -243,7 +243,7 @@
               prefix = "zrepl_snapjob_";
             };
             pruning = {
-              keep = [{ type = "last_n"; count = "7"; }];
+              keep = [{ type = "last_n"; count = 7; }];
             };
           }
         ];
