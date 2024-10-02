@@ -26,10 +26,7 @@
       volumes = [
         "filebrowser_database:/database"
         "/etc/filebrowser/.filebrowser.json:/.filebrowser.json:ro"
-        "${opts.paths.media}:/srv/media"
-        "${opts.paths.downloads}:/srv/downloads"
-        "${opts.paths.app_datafiles}:/srv/appdata/files"
-        "${opts.paths.other}:/srv/other"
+        "/mnt/dpool0:/srv/media"
       ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
