@@ -228,14 +228,11 @@
             type = "snap";
             filesystems = {
               "dpool0/backups" = true;
-              "dpool0/media/photos" = true;
               "dpool0/notes" = true;
-              "dpool0/personal/archives" = true;
-              "dpool0/personal/documents" = true;
-              "dpool0/personal/finances" = true;
-              "dpool0/personal/other" = true;
-              "dpool0/personal/projects" = true;
+              "dpool0/personal" = true;
               "dpool0/secrets" = true;
+              "dpool0/media" = true;
+              "dpool0/downloads" = true;
             };
             snapshotting = {
               type = "periodic";
@@ -243,7 +240,7 @@
               prefix = "zrepl_snapjob_";
             };
             pruning = {
-              keep = [{ type = "last_n"; count = 7; }];
+              keep = [{ type = "last_n"; count = 2; }];
             };
           }
         ];
