@@ -2,7 +2,7 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ aria_rpc aria_web ]);
 
   systemd.tmpfiles.rules = [
-    "d ${opts.paths.downloads}/aria2 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.downloads}/Aria 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {
@@ -26,7 +26,7 @@
       ];
       volumes = [
         "aria2_conf:/aria2/conf"
-        "${opts.paths.downloads}/aria2:/aria2/data"
+        "${opts.paths.downloads}/Aria:/aria2/data"
       ];
     };
   };
