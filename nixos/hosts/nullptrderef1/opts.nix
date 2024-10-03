@@ -156,7 +156,6 @@ rec {
     { device = "dpool0/media/audiobooks"; path = "/mnt/dpool0/media/audiobooks"; }
     { device = "dpool0/media/books"; path = "/mnt/dpool0/media/books"; }
     { device = "dpool0/downloads"; path = "/mnt/dpool0/downloads"; }
-    { device = "dpool0/downloads/torrents"; path = "/mnt/dpool0/downloads/torrents"; }
     { device = "dpool0/media/audio"; path = "/mnt/dpool0/media/audio"; }
     { device = "dpool0/media/podcasts"; path = "/mnt/dpool0/media/podcasts"; }
   ];
