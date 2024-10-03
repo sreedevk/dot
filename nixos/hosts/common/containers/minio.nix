@@ -6,7 +6,7 @@
   virtualisation.oci-containers.containers = {
     minio = {
       autoStart = true;
-      image = "quay.io/minio/minio";
+      image = "minio/minio:latest";
       environmentFiles = [ config.age.secrets.minio_env.path ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

@@ -12,6 +12,8 @@ in
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/qbittorrent 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.downloads}/Qbittorrent 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.downloads}/Watch 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   environment.etc = {
@@ -53,8 +55,8 @@ in
       # };
       volumes = [
         "${opts.paths.app_datafiles}/qbittorrent:/config"
-        "${opts.paths.downloads}:/downloads"
-        "${opts.paths.torrent_watch}:/torrents"
+        "${opts.paths.downloads}/Qbittorrent:/downloads"
+        "${opts.paths.downloads}/Watch:/torrents"
         "${opts.paths.qbt_images}:/images"
         "${opts.paths.videos}:/videos"
         "${opts.paths.books}:/books"

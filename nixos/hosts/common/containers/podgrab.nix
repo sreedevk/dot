@@ -9,7 +9,7 @@
   virtualisation.oci-containers.containers = {
     podgrab = {
       autoStart = true;
-      image = "akhilrex/podgrab";
+      image = "akhilrex/podgrab:latest";
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--privileged"

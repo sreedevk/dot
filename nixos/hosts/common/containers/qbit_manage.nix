@@ -2,6 +2,8 @@
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/qbitmanage 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.downloads}/Qbittorrent 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.downloads}/Watch 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {
@@ -11,9 +13,9 @@
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       image = "ghcr.io/stuffanthings/qbit_manage:latest";
       volumes = [
-        "${opts.paths.app_datafiles}/qbitmanage:/config:rw"
-        "${opts.paths.app_datafiles}/qbittorrent:/qbittorrent:ro"
-        "${opts.paths.torrent_watch}:/data/torrents:rw"
+        "${opts.paths.app_datafiles}/qbitmanage:/config"
+        "${opts.paths.downloads}/Qbittorrent:/data/torrents"
+        "${opts.paths.downloads}/Watch:/data/watch"
       ];
       environment = {
         QBT_RUN = "false";
@@ -25,7 +27,7 @@
         QBT_CAT_UPDATE = "false";
         QBT_TAG_UPDATE = "false";
         QBT_REM_UNREGISTERED = "false";
-        QBT_REM_ORPHANED = "false";
+        QBT_REM_ORPHANED = "true";
         QBT_TAG_TRACKER_ERROR = "false";
         QBT_TAG_NOHARDLINKS = "false";
         QBT_SHARE_LIMITS = "false";

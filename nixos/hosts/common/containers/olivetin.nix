@@ -3,7 +3,7 @@
   virtualisation.oci-containers.containers = {
     "olivetin" = {
       autoStart = true;
-      image = "jamesread/olivetin";
+      image = "jamesread/olivetin:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--cap-add=NET_RAW" "--no-healthcheck" ];
       volumes = [

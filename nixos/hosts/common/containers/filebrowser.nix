@@ -20,7 +20,7 @@
   virtualisation.oci-containers.containers = {
     "filebrowser" = {
       autoStart = true;
-      image = "filebrowser/filebrowser";
+      image = "filebrowser/filebrowser:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.filebrowser}:80" ];
       volumes = [

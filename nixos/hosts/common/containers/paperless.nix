@@ -12,7 +12,7 @@
   virtualisation.oci-containers.containers = {
     paperless-app = {
       autoStart = true;
-      image = "ghcr.io/paperless-ngx/paperless-ngx:latest";
+      image = "paperless-ngx/paperless-ngx:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "paperless-db" "paperless-redis" ];
       volumes = [

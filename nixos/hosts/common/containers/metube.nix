@@ -8,7 +8,7 @@
   virtualisation.oci-containers.containers = {
     "metube" = {
       autoStart = true;
-      image = "ghcr.io/alexta69/metube";
+      image = "alexta69/metube:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.metube}:8081" ];

@@ -11,7 +11,7 @@
   virtualisation.oci-containers.containers = {
     "authentik-db" = {
       autoStart = true;
-      image = "docker.io/library/postgres:16-alpine";
+      image = "postgres:16-alpine";
       ports = [ "${opts.ports.authentik-db}:5432" ];
       volumes = [ "authentik_postgres:/var/lib/postgresql/data" ];
       extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
@@ -26,7 +26,7 @@
 
     "authentik-redis" = {
       autoStart = true;
-      image = "docker.io/library/redis:alpine";
+      image = "redis:alpine";
       ports = [ "${opts.ports.authentik-redis}:6379" ];
       cmd = [ "--save" "60" "1" "--loglevel" "warning" ];
       extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];

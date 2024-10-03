@@ -28,7 +28,6 @@ rec {
     podmanSocket = "/var/run/podman/podman.sock";
     qbt_images = "/mnt/dpool0/media/photos/other";
     television = "/mnt/dpool0/media/shows";
-    torrent_watch = "/mnt/dpool0/downloads/torrents";
     videos = "/mnt/dpool0/media/videos";
   };
 
@@ -61,7 +60,6 @@ rec {
     gitea_ssh = "222";
     gotify = "8773";
     grafana = "2442";
-    homebox = "17745";
     homer = "82";
     http = "80";
     https = "443";

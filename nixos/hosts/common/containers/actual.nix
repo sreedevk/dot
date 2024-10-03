@@ -4,7 +4,7 @@
     actual-app = {
       autoStart = true;
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      image = "docker.io/actualbudget/actual-server:latest";
+      image = "actualbudget/actual-server:latest-alpine";
       ports = [ "${opts.ports.actual-app}:5006" ];
       volumes = [ "actual_budget_data:/data" ];
       labels = {

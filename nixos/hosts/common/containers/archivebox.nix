@@ -17,7 +17,7 @@
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
       ];
-      image = "archivebox/archivebox";
+      image = "archivebox/archivebox:latest";
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
         "kuma.archivebox.http.parent_name" = "${opts.hostname}";

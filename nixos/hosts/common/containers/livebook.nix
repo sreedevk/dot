@@ -3,7 +3,7 @@
   virtualisation.oci-containers.containers = {
     "livebook" = {
       autoStart = true;
-      image = "ghcr.io/livebook-dev/livebook";
+      image = "ghcr.io/livebook-dev/livebook:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.livebook_http}:8080" "${opts.ports.livebook_api}:8081" ];

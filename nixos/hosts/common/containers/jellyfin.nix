@@ -11,7 +11,7 @@
   virtualisation.oci-containers.containers = {
     "jellyfin" = {
       autoStart = true;
-      image = "jellyfin/jellyfin";
+      image = "jellyfin/jellyfin:latest";
       volumes = [
         "${opts.paths.app_datafiles}/jellyfin/config:/config"
         "${opts.paths.app_datafiles}/jellyfin/cache:/cache"

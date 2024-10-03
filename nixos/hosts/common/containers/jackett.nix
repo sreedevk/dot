@@ -8,7 +8,7 @@
   virtualisation.oci-containers.containers = {
     "jackett" = {
       autoStart = true;
-      image = "lscr.io/linuxserver/jackett:latest";
+      image = "linuxserver/jackett:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "flareSolverr" ];

@@ -19,7 +19,7 @@
         "--no-healthcheck"
         "--privileged"
       ];
-      image = "hurlenko/aria2-ariang";
+      image = "hurlenko/aria2-ariang:latest";
       ports = [
         "${opts.ports.aria_rpc}:6800"
         "${opts.ports.aria_web}:8080"

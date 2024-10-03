@@ -6,7 +6,7 @@
   virtualisation.oci-containers.containers = {
     "ollama" = {
       autoStart = true;
-      image = "ollama/ollama";
+      image = "ollama/ollama:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "ollama_api:/root/.ollama" ];
       ports = [ "${opts.ports.ollama-api}:11434" ];

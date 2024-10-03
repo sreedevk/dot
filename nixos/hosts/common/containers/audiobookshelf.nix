@@ -14,7 +14,7 @@
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
       ];
-      image = "ghcr.io/advplyr/audiobookshelf:latest";
+      image = "advplyr/audiobookshelf:latest";
       ports = [
         "${opts.ports.audiobookshelf}:80"
       ];

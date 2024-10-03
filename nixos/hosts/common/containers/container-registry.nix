@@ -34,7 +34,7 @@
     "container-registry-web" = {
       autoStart = true;
       dependsOn = [ "container-registry-server" ];
-      image = "quiq/registry-ui";
+      image = "quiq/registry-ui:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--privileged" ];
       ports = [ "${opts.ports.container-registry-web}:8000" ];
       volumes = [

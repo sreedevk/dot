@@ -21,7 +21,7 @@
     };
     n8n-app = {
       autoStart = true;
-      image = "docker.n8n.io/n8nio/n8n";
+      image = "n8nio/n8n:latest";
       dependsOn = [ "n8n-db" ];
       volumes = [ "n8n_app:/home/node/.n8n" ];
       ports = [ "${opts.ports.n8n-app}:5678" ];

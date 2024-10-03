@@ -4,7 +4,7 @@
   virtualisation.oci-containers.containers = {
     "gotify" = {
       autoStart = true;
-      image = "gotify/server";
+      image = "gotify/server:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.gotify}:80" ];
       volumes = [ "gotify_data:/app/data" ];

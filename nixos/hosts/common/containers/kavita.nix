@@ -8,7 +8,7 @@
   virtualisation.oci-containers.containers = {
     "kavita" = {
       autoStart = true;
-      image = "jvmilazz0/kavita";
+      image = "jvmilazz0/kavita:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.kavita}:5000" ];
