@@ -3,7 +3,7 @@
   virtualisation.oci-containers.containers = {
     "watchtower" = {
       autoStart = true;
-      image = "containrrr/watchtower";
+      image = "containrrr/watchtower:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.podmanSocket}:/var/run/docker.sock" ];
       environmentFiles = [ config.age.secrets.watchtower_env.path ];

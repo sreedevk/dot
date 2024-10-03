@@ -12,7 +12,7 @@
   virtualisation.oci-containers.containers = {
     tdarr-server = {
       autoStart = true;
-      image = "ghcr.io/haveagitgat/tdarr";
+      image = "haveagitgat/tdarr:latest";
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
@@ -46,7 +46,7 @@
     tdarr-node = {
       autoStart = true;
       dependsOn = [ "tdarr-server" ];
-      image = "ghcr.io/haveagitgat/tdarr_node";
+      image = "haveagitgat/tdarr_node:latest";
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"

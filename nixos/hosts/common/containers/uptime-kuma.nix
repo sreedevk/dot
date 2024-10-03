@@ -9,7 +9,7 @@
     # Service Health Monitoring
     "uptime-kuma" = {
       autoStart = true;
-      image = "louislam/uptime-kuma:1";
+      image = "louislam/uptime-kuma:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.app_datafiles}/uptime-kuma:/app/data" ];

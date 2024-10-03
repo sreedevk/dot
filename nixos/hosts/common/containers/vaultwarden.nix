@@ -5,7 +5,7 @@
   virtualisation.oci-containers.containers = {
     "vaultwarden" = {
       autoStart = true;
-      image = "vaultwarden/server:latest ";
+      image = "vaultwarden/server:1.32.1";
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
         "kuma.vw.http.parent_name" = "${opts.hostname}";

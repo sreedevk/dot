@@ -15,7 +15,7 @@
 
   virtualisation.oci-containers.containers = {
     tubearchivist-app = {
-      image = "bbilly1/tubearchivist";
+      image = "bbilly1/tubearchivist:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [
@@ -42,7 +42,7 @@
 
     tubearchivist-es = {
       autoStart = true;
-      image = "bbilly1/tubearchivist-es";
+      image = "bbilly1/tubearchivist-es:latest";
       extraOptions =
         [
           "--add-host=${opts.hostname}:${opts.lanAddress}"
@@ -64,7 +64,7 @@
 
     tubearchivist-redis = {
       autoStart = true;
-      image = "redis/redis-stack-server";
+      image = "redis/redis-stack-server:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [

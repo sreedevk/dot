@@ -82,7 +82,7 @@
 
     "prometheus" = {
       autoStart = true;
-      image = "prom/prometheus";
+      image = "prom/prometheus:latest";
       dependsOn = [ "influxdb" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
@@ -101,7 +101,7 @@
 
     "grafana" = {
       autoStart = true;
-      image = "grafana/grafana";
+      image = "grafana/grafana:latest";
       dependsOn = [ "influxdb" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];

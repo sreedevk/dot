@@ -11,7 +11,7 @@
   virtualisation.oci-containers.containers = {
     "searxng" = {
       autoStart = true;
-      image = "docker.io/searxng/searxng:latest";
+      image = "searxng/searxng:latest";
       ports = [ "${opts.ports.searxng-www}:8080" ];
       volumes = [
         "${opts.paths.app_datafiles}/searxng:/etc/searxng:rw"

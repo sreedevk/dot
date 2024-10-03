@@ -5,7 +5,7 @@
   virtualisation.oci-containers.containers = {
     "radarr" = {
       autoStart = true;
-      image = "ghcr.io/hotio/radarr";
+      image = "hotio/radarr:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
         "radarr_data:/config"
@@ -23,7 +23,7 @@
     # Sonarr TV Indexer
     "sonarr" = {
       autoStart = true;
-      image = "ghcr.io/hotio/sonarr";
+      image = "hotio/sonarr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
@@ -42,7 +42,7 @@
     # Lidarr Music Indexer
     "lidarr" = {
       autoStart = true;
-      image = "ghcr.io/hotio/lidarr";
+      image = "hotio/lidarr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
@@ -61,7 +61,7 @@
     # Readarr Books Indexer
     "readarr" = {
       autoStart = true;
-      image = "ghcr.io/hotio/readarr";
+      image = "hotio/readarr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
@@ -80,7 +80,7 @@
 
     "bazarr" = {
       autoStart = true;
-      image = "lscr.io/linuxserver/bazarr:latest";
+      image = "hotio/bazarr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.bazarr}:6767" ];
@@ -98,7 +98,7 @@
 
     "prowlarr" = {
       autoStart = true;
-      image = "ghcr.io/hotio/prowlarr";
+      image = "hotio/prowlarr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "flareSolverr" ];
