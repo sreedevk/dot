@@ -238,11 +238,11 @@
             };
             snapshotting = {
               type = "periodic";
-              interval = "24h";
+              interval = "72h";
               prefix = "zrepl_snapjob_";
             };
             pruning = {
-              keep = [{ type = "last_n"; count = 2; }];
+              keep = [{ type = "last_n"; count = 3; }];
             };
           }
         ];
