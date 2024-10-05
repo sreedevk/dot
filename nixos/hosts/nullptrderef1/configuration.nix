@@ -229,8 +229,12 @@
             filesystems = {
               "dpool0/backups" = true;
               "dpool0/notes" = true;
-              "dpool0/personal" = true;
+              "dpool0/personal/archives" = true;
+              "dpool0/personal/documents" = true;
+              "dpool0/personal/finances" = true;
+              "dpool0/personal/other" = true;
               "dpool0/secrets" = true;
+              "dpool0/personal/projects" = true;
             };
             snapshotting = {
               type = "periodic";
