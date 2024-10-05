@@ -4,7 +4,6 @@
 
   systemd.tmpfiles.rules = [
     "d /mnt/dpool0 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d /mnt/dpool1 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   boot = {

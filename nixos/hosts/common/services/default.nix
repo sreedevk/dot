@@ -4,5 +4,6 @@
     ./mullvad.nix
     ./taskchampion.nix
     ./clamav.nix
+    ./zrepl.nix
   ];
 }
