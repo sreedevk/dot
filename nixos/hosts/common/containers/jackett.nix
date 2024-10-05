@@ -3,6 +3,7 @@
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/jackett 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.downloads} 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {

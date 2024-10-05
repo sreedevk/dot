@@ -231,8 +231,6 @@
               "dpool0/notes" = true;
               "dpool0/personal" = true;
               "dpool0/secrets" = true;
-              "dpool0/media" = true;
-              "dpool0/downloads" = true;
             };
             snapshotting = {
               type = "periodic";

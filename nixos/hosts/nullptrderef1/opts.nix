@@ -17,7 +17,7 @@ rec {
     backups = "/mnt/dpool0/backups";
     books = "/mnt/dpool0/media/books";
     documents = "/mnt/dpool0/personal/documents";
-    downloads = "/mnt/dpool0/downloads";
+    downloads = "/opt/downloads";
     images = "/mnt/dpool0/media/photos";
     magazines = "/mnt/dpool0/media/magazines";
     media = "/mnt/dpool0/media";
@@ -155,7 +155,6 @@ rec {
     { device = "dpool0/media/magazines"; path = "/mnt/dpool0/media/magazines"; }
     { device = "dpool0/media/audiobooks"; path = "/mnt/dpool0/media/audiobooks"; }
     { device = "dpool0/media/books"; path = "/mnt/dpool0/media/books"; }
-    { device = "dpool0/downloads"; path = "/mnt/dpool0/downloads"; }
     { device = "dpool0/media/audio"; path = "/mnt/dpool0/media/audio"; }
     { device = "dpool0/media/podcasts"; path = "/mnt/dpool0/media/podcasts"; }
   ];
