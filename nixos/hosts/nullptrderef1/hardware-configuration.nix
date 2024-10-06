@@ -32,9 +32,9 @@
 
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = "1048576";
-      "vm.swappiness" = 70;
-      "vm.dirty_ratio" = 20;
-      "vm.dirty_background_ratio" = 10;
+      "vm.swappiness" = 10;
+      "vm.dirty_ratio" = 15;
+      "vm.dirty_background_ratio" = 5;
     };
 
     supportedFilesystems = [ "zfs" ];
@@ -64,8 +64,8 @@
   swapDevices = [
     {
       device = "/var/lib/swapfile";
-      size = 128 * 1024;
-      randomEncryption.enable = true;
+      size = 16 * 1024;
+      randomEncryption.enable = false;
     }
   ];
 
