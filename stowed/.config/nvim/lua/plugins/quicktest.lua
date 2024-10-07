@@ -40,18 +40,14 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    -- "m00qek/baleia.nvim",
+    "folke/trouble.nvim"
   },
   keys = {
     {
       "<leader>tl",
       function()
         local qt = require("quicktest")
-        -- current_win_mode return currently opened panel, split or popup
         qt.run_line()
-        -- You can force open split or popup like this:
-        -- qt.run_line('split')
-        -- qt.run_line('popup')
       end,
       desc = "[T]est Run [L]line",
     },
