@@ -67,6 +67,10 @@ autocmd({ "BufRead", "BufNewFile" }, {
   command = "set filetype=elixir"
 })
 
+autocmd("FileType", {
+  pattern = "*",
+  command = "setlocal formatoptions-=o"
+})
 
 autocmd("FileType", {
   pattern = {
