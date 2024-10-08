@@ -9,16 +9,17 @@
 
     scanner = {
       enable = true;
-      interval = "weekly";
+      interval = "daily";
       scanDirectories = [
         opts.paths.app_datafiles
+        opts.paths.downloads
       ];
     };
 
     updater = {
       enable = true;
       interval = "weekly";
-      frequency = 12;
+      frequency = 1;
       settings = { };
     };
 
