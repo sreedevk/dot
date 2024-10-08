@@ -3,6 +3,7 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ bazarr lidarr prowlarr radarr readarr sonarr ]);
   systemd.tmpfiles.rules = [
     "d ${opts.paths.downloads} 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/recyclarr 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {
@@ -10,7 +11,7 @@
       autoStart = true;
       image = "recyclarr/recyclarr:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "recyclarr_config:/config" ];
+      volumes = [ "${opts.paths.app_datafiles}/recyclarr:/config" ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
