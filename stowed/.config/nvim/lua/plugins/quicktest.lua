@@ -88,7 +88,7 @@ return {
       desc = "[T]est Run [P]revious",
     },
     {
-      "<leader>tt",
+      "<leader>qt",
       function()
         local qt = require("quicktest")
 
