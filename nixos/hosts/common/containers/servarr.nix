@@ -10,7 +10,10 @@
     recyclarr = {
       autoStart = true;
       image = "recyclarr/recyclarr:latest";
-      dependsOn = [ sonarr radarr ];
+      dependsOn = [
+        "sonarr"
+        "radarr"
+      ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.app_datafiles}/recyclarr:/config" ];
       environment = {
