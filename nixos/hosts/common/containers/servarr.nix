@@ -6,6 +6,18 @@
   ];
 
   virtualisation.oci-containers.containers = {
+    "recyclarr" = {
+      autoStart = true;
+      image = "recyclarr/recyclarr:latest";
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      volumes = [ "recyclarr_config:/config" ];
+      environment = {
+        TZ = opts.timeZone;
+        PUID = opts.adminUID;
+        PGID = opts.adminGID;
+      };
+    };
+
     "radarr" = {
       autoStart = true;
       image = "hotio/radarr:latest";
