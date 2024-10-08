@@ -11,7 +11,6 @@
       enable = true;
       interval = "daily";
       scanDirectories = [
-        opts.paths.app_datafiles
         opts.paths.downloads
       ];
     };
