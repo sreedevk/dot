@@ -29,7 +29,7 @@ map('n', '<Leader>x', "<cmd>! chmod +x %<CR>")
 map("n", "<leader><leader>s", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
 
 -- diffview
-map('n', '<Leader>dvo', "<cmd>DiffviewOpen<CR>")
+map('n', '<Leader>dvo', ":DiffviewOpen ")
 map('n', '<Leader>dvc', "<cmd>DiffviewClose<CR>")
 map('n', '<Leader>dvh', "<cmd>DiffviewFileHistory %<CR>")
 
