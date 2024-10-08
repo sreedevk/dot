@@ -7,9 +7,10 @@
   ];
 
   virtualisation.oci-containers.containers = {
-    "recyclarr" = {
+    recyclarr = {
       autoStart = true;
       image = "recyclarr/recyclarr:latest";
+      dependsOn = [ sonarr radarr ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.app_datafiles}/recyclarr:/config" ];
       environment = {
@@ -19,7 +20,7 @@
       };
     };
 
-    "radarr" = {
+    radarr = {
       autoStart = true;
       image = "hotio/radarr:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
@@ -37,7 +38,7 @@
     };
 
     # Sonarr TV Indexer
-    "sonarr" = {
+    sonarr = {
       autoStart = true;
       image = "hotio/sonarr:latest";
       extraOptions =
@@ -56,7 +57,7 @@
     };
 
     # Lidarr Music Indexer
-    "lidarr" = {
+    lidarr = {
       autoStart = true;
       image = "hotio/lidarr:latest";
       extraOptions =
@@ -75,7 +76,7 @@
     };
 
     # Readarr Books Indexer
-    "readarr" = {
+    readarr = {
       autoStart = true;
       image = "hotio/readarr:latest";
       extraOptions =
@@ -94,7 +95,7 @@
       };
     };
 
-    "bazarr" = {
+    bazarr = {
       autoStart = true;
       image = "hotio/bazarr:latest";
       extraOptions =
@@ -112,7 +113,7 @@
       };
     };
 
-    "prowlarr" = {
+    prowlarr = {
       autoStart = true;
       image = "hotio/prowlarr:latest";
       extraOptions =
