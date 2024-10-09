@@ -6,6 +6,7 @@
       influxdb
       prometheus_app
       prometheus_node
+      promtail
     ]);
 
   systemd.tmpfiles.rules = [
