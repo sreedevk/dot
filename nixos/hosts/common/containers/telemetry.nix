@@ -148,7 +148,7 @@
     loki = {
       autoStart = true;
       image = "grafana/loki:3.0.0";
-      ports = [ "3100:3100" ];
+      ports = [ "${opts.ports.loki}:3100" ];
       cmd = [ "-config.file=/etc/loki/local.yaml" ];
       volumes = [ "/etc/loki/local.yaml:/etc/loki/local.yaml:ro" ];
       extraOptions =
@@ -168,6 +168,7 @@
         "/var/log:/var/log"
         "/etc/promtail/config.yaml:/etc/promtail/config.yaml:ro"
       ];
+      ports = [ "${opts.ports.promtail}:9080" ];
       cmd = [ "-config.file=/etc/promtail/config.yml" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];

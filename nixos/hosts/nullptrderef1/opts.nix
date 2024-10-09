@@ -104,6 +104,7 @@ rec {
     portainer_web_secure = "9443";
     prometheus_app = "9001";
     prometheus_node = "9002";
+    promtail = "3800";
     prowlarr = "9696";
     qbittorrent-p2p = "6881";
     qbittorrent-web = "8001";
