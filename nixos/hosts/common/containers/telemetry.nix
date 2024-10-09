@@ -14,30 +14,6 @@
   ];
 
   environment.etc = {
-    "promtail/config.yaml" = {
-      text = ''
-        server:
-          http_listen_port: 9080
-          grpc_listen_port: 0
-
-        positions:
-          filename: /tmp/positions.yaml
-
-        clients:
-          - url: http://${opts.hostname}:${opts.ports.loki}/loki/api/v1/push
-
-        scrape_configs:
-          - job_name: system
-            journal:
-              path: /var/log/journal
-              max_age: 12h
-              labels:
-                job: systemd-journal
-            relabel_configs:
-              - source_labels: ['__journal__systemd_unit']
-                target_label: 'unit'
-      '';
-    };
     "loki/local.yaml" = {
       enable = true;
       text = ''
@@ -146,6 +122,37 @@
     ];
   };
 
+  services.promtail = {
+    enable = true;
+    configuration = {
+      server = {
+        http_listen_port = opts.ports.promtail;
+        grpc_listen_port = 0;
+      };
+
+      clients = {
+        url = "http://${opts.hostname}:${opts.ports.loki}/loki/api/v1/push";
+      };
+
+      scrape_configs = [
+        {
+          job_name = "system";
+          journal = {
+            path = "/var/log/journal";
+            max_age = "12h";
+            labels = {
+              job = "systemd-journal";
+            };
+          };
+          relabel_configs = {
+            source_labels = [ "__journal__systemd_unit" ];
+            target_label = "unit";
+          };
+        }
+      ];
+    };
+  };
+
   virtualisation.oci-containers.containers = {
     loki = {
       autoStart = true;
@@ -161,39 +168,6 @@
         "kuma.loki.http.name" = "Loki";
         "kuma.loki.http.url" = "http://${opts.lanAddress}:${opts.ports.loki}/ready";
       };
-      environment = {
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
-      };
-    };
-
-    promtail = {
-      autoStart = true;
-      image = "grafana/promtail:2.9.2";
-      volumes = [
-        "/var/log:/var/log"
-        "/etc/promtail/config.yaml:/etc/promtail/config.yaml:ro"
-        "/etc/machine-id:/etc/machine-id:ro"
-        "${opts.paths.podmanSocket}:/var/run/docker.sock"
-      ];
-      labels = {
-        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
-        "kuma.promtail.http.parent_name" = "${opts.hostname}";
-        "kuma.promtail.http.name" = "Promtail";
-        "kuma.promtail.http.url" = "http://${opts.lanAddress}:${opts.ports.promtail}/ready";
-      };
-      ports = [ "${opts.ports.promtail}:9080" ];
-      cmd = [ "-config.file=/etc/promtail/config.yml" ];
-      extraOptions =
-        [
-          "--add-host=${opts.hostname}:${opts.lanAddress}"
-          "--no-healthcheck"
-          "--user=${opts.adminUID}"
-          "--cap-add=syslog"
-          "--cap-add=SYS_ADMIN"
-          "--privileged"
-        ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
