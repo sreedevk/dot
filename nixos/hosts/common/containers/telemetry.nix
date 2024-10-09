@@ -96,7 +96,7 @@
       image = "grafana/loki:3.0.0";
       ports = [ "3100:3100" ];
       cmd = [ "-config.file=/etc/loki/loki-config.yaml" ];
-      volumes = [ "${opts.paths.app_datafiles}/loki/loki-config.yaml:/etc/loki/loki-config.yaml:ro" ];
+      volumes = [ "${opts.paths.app_datafiles}/loki/loki-config.yaml:/etc/loki/loki-config.yaml" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
 
