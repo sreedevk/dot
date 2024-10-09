@@ -12,7 +12,6 @@
       image = "akhilrex/podgrab:latest";
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"
-        "--privileged"
         "--no-healthcheck"
       ];
       ports = [

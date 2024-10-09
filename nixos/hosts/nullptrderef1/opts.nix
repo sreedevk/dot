@@ -101,6 +101,7 @@ rec {
     photoprism_app = "2342";
     photoprism_db = "3307";
     podgrab = "8567";
+    podfetch = "8587";
     portainer_misc = "8024";
     portainer_web = "9080";
     portainer_web_secure = "9443";

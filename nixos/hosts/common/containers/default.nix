@@ -34,6 +34,7 @@
     ./ollama.nix
     ./paperless.nix
     ./photoprism.nix
+    ./podfetch.nix
     ./podgrab.nix
     ./portainer.nix
     ./qbittorrent.nix
