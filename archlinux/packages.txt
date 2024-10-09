@@ -30,8 +30,6 @@ gst-plugins-good
 gstreamer
 i2pd
 i3-wm
-incus
-incus-tools
 inotify-tools
 intel-media-driver
 iwd
@@ -48,6 +46,7 @@ mesa-utils
 mesa-vdpau
 mpv
 neovim
+nmap
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
