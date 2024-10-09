@@ -20,6 +20,7 @@
     ./jellyseer.nix
     ./jellystat.nix
     ./kavita.nix
+    ./kiwix.nix
     ./linkding.nix
     ./livebook.nix
     ./memos.nix

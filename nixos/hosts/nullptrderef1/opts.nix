@@ -29,6 +29,7 @@ rec {
     qbt_images = "/mnt/dpool0/media/photos/other";
     television = "/mnt/dpool0/media/shows";
     videos = "/mnt/dpool0/media/videos";
+    zim = "/mnt/dpool0/resources/zim";
   };
 
   ports = {
@@ -74,6 +75,7 @@ rec {
     k3s-etcd-peers = "2380";
     k3s-inter-node-net = "8472";
     kavita = "5000";
+    kiwix = "8888";
     lidarr = "8686";
     linkding-app = "9090";
     linkding-db = "5432";
