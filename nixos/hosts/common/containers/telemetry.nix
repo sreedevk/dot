@@ -153,7 +153,12 @@
       volumes = [ "/etc/loki/local.yaml:/etc/loki/local.yaml:ro" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
-
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.loki.http.parent_name" = "${opts.hostname}";
+        "kuma.loki.http.name" = "Loki";
+        "kuma.loki.http.url" = "http://${opts.lanAddress}:${opts.ports.loki}/ready";
+      };
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
@@ -168,6 +173,12 @@
         "/var/log:/var/log"
         "/etc/promtail/config.yaml:/etc/promtail/config.yaml:ro"
       ];
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.promtail.http.parent_name" = "${opts.hostname}";
+        "kuma.promtail.http.name" = "Promtail";
+        "kuma.promtail.http.url" = "http://${opts.lanAddress}:${opts.ports.promtail}/ready";
+      };
       ports = [ "${opts.ports.promtail}:9080" ];
       cmd = [ "-config.file=/etc/promtail/config.yml" ];
       extraOptions =
@@ -190,6 +201,12 @@
         "/etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro"
         "${opts.paths.app_datafiles}/prometheus:/prometheus"
       ];
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.prometheus.http.parent_name" = "${opts.hostname}";
+        "kuma.prometheus.http.name" = "Prometheus";
+        "kuma.prometheus.http.url" = "http://${opts.lanAddress}:${opts.ports.prometheus_app}/-/healthy";
+      };
       cmd = [ "--config.file=/etc/prometheus/prometheus.yml" ];
       environment = {
         TZ = opts.timeZone;
@@ -209,6 +226,12 @@
         "/etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml:ro"
         "grafana_db:/var/lib/grafana"
       ];
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.grafana.http.parent_name" = "${opts.hostname}";
+        "kuma.grafana.http.name" = "Grafana";
+        "kuma.grafana.http.url" = "http://${opts.lanAddress}:${opts.ports.grafana}/api/health";
+      };
       environment = {
         TZ = opts.timeZone;
       };
