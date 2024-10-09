@@ -27,6 +27,15 @@
           - url: http://${opts.hostname}:${opts.ports.loki}/loki/api/v1/push
 
         scrape_configs:
+        - job_name: journal
+          journal:
+            max_age: 12h
+            labels:
+              job: systemd-journal
+              host: nullptrderef1
+          relabel_configs:
+            - source_labels: ["__journal__systemd_unit"]
+              target_label: "unit"
         - job_name: system
           static_configs:
           - targets:
