@@ -148,6 +148,7 @@ rec {
     { device = "dpool0/resources/databases"; path = "/mnt/dpool0/resources/databases"; }
     { device = "dpool0/resources/wordlists"; path = "/mnt/dpool0/resources/wordlists"; }
     { device = "dpool0/resources/other"; path = "/mnt/dpool0/resources/other"; }
+    { device = "dpool0/resources/zim"; path = "/mnt/dpool0/resources/zim"; }
     { device = "dpool0/personal"; path = "/mnt/dpool0/personal"; }
     { device = "dpool0/personal/documents"; path = "/mnt/dpool0/personal/documents"; }
     { device = "dpool0/personal/finances"; path = "/mnt/dpool0/personal/finances"; }
