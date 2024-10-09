@@ -27,22 +27,15 @@
           - url: http://${opts.hostname}:${opts.ports.loki}/loki/api/v1/push
 
         scrape_configs:
-        - job_name: journal
-          journal:
-            max_age: 12h
-            labels:
-              job: systemd-journal
-              host: nullptrderef1
-          relabel_configs:
-            - source_labels: ["__journal__systemd_unit"]
-              target_label: "unit"
-        - job_name: system
-          static_configs:
-          - targets:
-              - localhost
-            labels:
-              job: varlogs
-              __path__: /var/log/*log
+          - job_name: system
+            journal:
+              path: /var/log/journal
+              max_age: 12h
+              labels:
+                job: systemd-journal
+            relabel_configs:
+              - source_labels: ['__journal__systemd_unit']
+                target_label: 'unit'
       '';
     };
     "loki/local.yaml" = {
@@ -181,6 +174,8 @@
       volumes = [
         "/var/log:/var/log"
         "/etc/promtail/config.yaml:/etc/promtail/config.yaml:ro"
+        "/etc/machine-id:/etc/machine-id:ro"
+        "${opts.paths.podmanSocket}:/var/run/docker.sock"
       ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
@@ -191,7 +186,14 @@
       ports = [ "${opts.ports.promtail}:9080" ];
       cmd = [ "-config.file=/etc/promtail/config.yml" ];
       extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
+        [
+          "--add-host=${opts.hostname}:${opts.lanAddress}"
+          "--no-healthcheck"
+          "--user=${opts.adminUID}"
+          "--cap-add=syslog"
+          "--cap-add=SYS_ADMIN"
+          "--privileged"
+        ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
