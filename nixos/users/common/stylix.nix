@@ -11,6 +11,9 @@
     imageScalingMode = "fill"; # fill,fit,stretch,center,tile
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    opacity = {
+      terminal = 0.8;
+    };
 
     fonts = {
       sizes = {
