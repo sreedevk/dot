@@ -11,6 +11,7 @@
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/prometheus 0755 ${opts.adminUID} ${opts.adminGID} -"
     "f ${opts.paths.app_datafiles}/prometheus/queries.active 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/loki 0755 ${opts.adminUID} ${opts.adminGID} -"
     "f ${opts.paths.app_datafiles}/loki/loki-config.yaml 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
