@@ -11,6 +11,7 @@
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/prometheus 0755 ${opts.adminUID} ${opts.adminGID} -"
     "f ${opts.paths.app_datafiles}/prometheus/queries.active 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "f ${opts.paths.app_datafiles}/loki/loki-config.yaml 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   environment.etc = {
@@ -26,6 +27,16 @@
           isDefault: true
           access: proxy
           editable: true
+
+        - name: Loki
+          type: loki
+          access: proxy 
+          orgId: 1
+          url: http://${opts.hostname}:${opts.ports.loki}
+          basicAuth: false
+          isDefault: true
+          version: 1
+          editable: false
       '';
     };
 
@@ -79,8 +90,37 @@
   };
 
   virtualisation.oci-containers.containers = {
+    loki = {
+      autoStart = true;
+      image = "grafana/loki:3.0.0";
+      ports = [ "3100:3100" ];
+      cmd = [ "-config.file=/etc/loki/loki-config.yaml" ];
+      volumes = [ "${opts.paths.app_datafiles}/loki/loki-config.yaml:/etc/loki/loki-config.yaml:ro" ];
+      extraOptions =
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
 
-    "prometheus" = {
+      environment = {
+        TZ = opts.timeZone;
+        PUID = opts.adminUID;
+        PGID = opts.adminGID;
+      };
+    };
+
+    promtail = {
+      autoStart = true;
+      image = "grafana/promtail:2.9.2";
+      volumes = "/var/log:/var/log";
+      cmd = [ "-config.file=/etc/promtail/config.yml" ];
+      extraOptions =
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
+      environment = {
+        TZ = opts.timeZone;
+        PUID = opts.adminUID;
+        PGID = opts.adminGID;
+      };
+    };
+
+    prometheus = {
       autoStart = true;
       image = "prom/prometheus:latest";
       dependsOn = [ "influxdb" ];
@@ -99,10 +139,10 @@
       };
     };
 
-    "grafana" = {
+    grafana = {
       autoStart = true;
       image = "grafana/grafana:latest";
-      dependsOn = [ "influxdb" ];
+      dependsOn = [ "influxdb" "loki" "prometheus" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
       ports = [ "${opts.ports.grafana}:3000" ];
@@ -115,7 +155,7 @@
       };
     };
 
-    "influxdb" = {
+    influxdb = {
       autoStart = true;
       image = "influxdb:2.7.6-alpine";
       extraOptions =

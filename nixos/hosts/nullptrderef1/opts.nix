@@ -79,6 +79,7 @@ rec {
     linkding-db = "5432";
     livebook_api = "8091";
     livebook_http = "8090";
+    loki = "3100";
     memos = "5230";
     metube = "8081";
     miniflux-app = "10000";
