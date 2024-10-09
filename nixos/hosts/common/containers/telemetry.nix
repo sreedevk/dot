@@ -109,7 +109,7 @@
     promtail = {
       autoStart = true;
       image = "grafana/promtail:2.9.2";
-      volumes = "/var/log:/var/log";
+      volumes = [ "/var/log:/var/log" ];
       cmd = [ "-config.file=/etc/promtail/config.yml" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
