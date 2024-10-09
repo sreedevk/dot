@@ -126,7 +126,7 @@
     enable = true;
     configuration = {
       server = {
-        http_listen_port = opts.ports.promtail;
+        http_listen_port = pkgs.lib.strings.toInt opts.ports.promtail;
         grpc_listen_port = 0;
       };
 
