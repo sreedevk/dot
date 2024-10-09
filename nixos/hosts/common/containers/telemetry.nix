@@ -11,11 +11,65 @@
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/prometheus 0755 ${opts.adminUID} ${opts.adminGID} -"
     "f ${opts.paths.app_datafiles}/prometheus/queries.active 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/loki 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "f ${opts.paths.app_datafiles}/loki/loki-config.yaml 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   environment.etc = {
+    "promtail/config.yaml" = {
+      text = ''
+        server:
+          http_listen_port: 9080
+          grpc_listen_port: 0
+
+        positions:
+          filename: /tmp/positions.yaml
+
+        clients:
+          - url: http://${opts.hostname}:${opts.ports.loki}/loki/api/v1/push
+
+        scrape_configs:
+        - job_name: system
+          static_configs:
+          - targets:
+              - localhost
+            labels:
+              job: varlogs
+              __path__: /var/log/*log
+      '';
+    };
+    "loki/local.yaml" = {
+      enable = true;
+      text = ''
+        # This is a complete configuration to deploy Loki backed by the filesystem.
+        # The index will be shipped to the storage via tsdb-shipper.
+
+        auth_enabled: false
+
+        server:
+          http_listen_port: 3100
+
+        common:
+          ring:
+            instance_addr: 127.0.0.1
+            kvstore:
+              store: inmemory
+          replication_factor: 1
+          path_prefix: /tmp/loki
+
+        schema_config:
+          configs:
+          - from: 2020-05-15
+            store: tsdb
+            object_store: filesystem
+            schema: v13
+            index:
+              prefix: index_
+              period: 24h
+
+        storage_config:
+          filesystem:
+            directory: /tmp/loki/chunks
+      '';
+    };
     "grafana/datasource.yml" = {
       enable = true;
       text = ''
@@ -35,7 +89,7 @@
           orgId: 1
           url: http://${opts.hostname}:${opts.ports.loki}
           basicAuth: false
-          isDefault: true
+          isDefault: false
           version: 1
           editable: false
       '';
@@ -95,8 +149,8 @@
       autoStart = true;
       image = "grafana/loki:3.0.0";
       ports = [ "3100:3100" ];
-      cmd = [ "-config.file=/etc/loki/loki-config.yaml" ];
-      volumes = [ "${opts.paths.app_datafiles}/loki/loki-config.yaml:/etc/loki/loki-config.yaml" ];
+      cmd = [ "-config.file=/etc/loki/local.yaml" ];
+      volumes = [ "/etc/loki/local.yaml:/etc/loki/local.yaml:ro" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
 
@@ -110,7 +164,10 @@
     promtail = {
       autoStart = true;
       image = "grafana/promtail:2.9.2";
-      volumes = [ "/var/log:/var/log" ];
+      volumes = [
+        "/var/log:/var/log"
+        "/etc/promtail/config.yaml:/etc/promtail/config.yaml:ro"
+      ];
       cmd = [ "-config.file=/etc/promtail/config.yml" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
