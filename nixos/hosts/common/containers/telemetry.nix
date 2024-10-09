@@ -130,9 +130,9 @@
         grpc_listen_port = 0;
       };
 
-      clients = {
-        url = "http://${opts.hostname}:${opts.ports.loki}/loki/api/v1/push";
-      };
+      clients = [
+        { url = "http://${opts.hostname}:${opts.ports.loki}/loki/api/v1/push"; }
+      ];
 
       scrape_configs = [
         {
@@ -144,10 +144,12 @@
               job = "systemd-journal";
             };
           };
-          relabel_configs = {
-            source_labels = [ "__journal__systemd_unit" ];
-            target_label = "unit";
-          };
+          relabel_configs = [
+            {
+              source_labels = [ "__journal__systemd_unit" ];
+              target_label = "unit";
+            }
+          ];
         }
       ];
     };
