@@ -115,6 +115,7 @@ rec {
     radarr = "7878";
     readarr = "8787";
     rss-bridge = "8768";
+    sabnzbd = "8099";
     searxng-www = "8798";
     sonarr = "8989";
     ssh = "22";
