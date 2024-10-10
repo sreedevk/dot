@@ -6,6 +6,7 @@
     ./audiobookshelf.nix
     ./authentik.nix
     ./baikal.nix
+    ./beets.nix
     ./cloudbeaver.nix
     ./container-registry.nix
     ./dockge.nix

@@ -46,6 +46,7 @@ rec {
     authentik-redis = "6388";
     baikal = "8945";
     bazarr = "6767";
+    beets = "8337";
     cloudbeaver = "8079";
     cockpit = "8008";
     container-registry-server = "5500";
