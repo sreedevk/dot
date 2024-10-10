@@ -50,6 +50,7 @@ rec {
     cockpit = "8008";
     container-registry-server = "5500";
     container-registry-web = "5600";
+    dockge = "5001";
     docuseal = "6008";
     filebrowser = "8980";
     firefly_app = "10800";
