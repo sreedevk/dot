@@ -7,6 +7,7 @@
     "d ${opts.paths.app_datafiles}/dockge 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/dockge/data 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/dockge/stacks 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/dockge/volumes 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {
@@ -20,6 +21,7 @@
         "${opts.paths.podmanSocket}:/var/run/docker.sock"
         "${opts.paths.app_datafiles}/dockge/data:/app/data"
         "${opts.paths.app_datafiles}/dockge/stacks:/opt/stacks"
+        "${opts.paths.app_datafiles}/dockge/volumes:/opt/volumes"
       ];
       environment = {
         TZ = opts.timeZone;
