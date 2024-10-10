@@ -90,7 +90,7 @@
     };
 
     "mimeapps.list" = {
-      enable = true;
+      enable = false;
       recursive = false;
       executable = false;
       target = ".config/mimeapps.list";
