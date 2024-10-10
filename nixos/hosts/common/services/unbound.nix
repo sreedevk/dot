@@ -3,8 +3,9 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ unbound_dns ]);
   networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ unbound_dns ]);
 
+  # TODO: reconfigure unbound to work with adguard
   services.unbound = {
-    enable = true;
+    enable = false;
     settings = {
       server = {
         interface = "127.0.0.1";
@@ -19,13 +20,6 @@
         {
           name = ".";
           forward-addr = "1.1.1.1@853#cloudflare-dns.com";
-        }
-        {
-          name = "example.org.";
-          forward-addr = [
-            "1.1.1.1@853#cloudflare-dns.com"
-            "1.0.0.1@853#cloudflare-dns.com"
-          ];
         }
       ];
       remote-control.control-enable = true;
