@@ -28,7 +28,7 @@
         "/etc/filebrowser/.filebrowser.json:/.filebrowser.json:ro"
         "/mnt/dpool0:/srv/dpool0"
         "${opts.paths.downloads}:/srv/downloads"
-        "${opts.paths.app_datafiles}:/srv/downloads"
+        "${opts.paths.app_datafiles}:/srv/appdata"
       ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
