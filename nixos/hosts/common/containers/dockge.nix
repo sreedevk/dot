@@ -4,6 +4,7 @@
     builtins.map pkgs.lib.strings.toInt (with opts.ports; [ dockge ]);
 
   systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/dockge 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/dockge/data 0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/dockge/stacks 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
