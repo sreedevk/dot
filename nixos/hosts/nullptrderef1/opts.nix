@@ -128,6 +128,7 @@ rec {
     tubearchivist = "8780";
     tubearchivist-es = "9200";
     tubearchivist-redis = "6379";
+    unbound_dns = "5053";
     uptime-kuma = "3001";
     vaultwarden = "9801";
     watch-your-lan = "8840";
