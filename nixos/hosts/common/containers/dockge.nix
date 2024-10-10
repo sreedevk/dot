@@ -15,7 +15,11 @@
       autoStart = true;
       image = "louislam/dockge:1";
       extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+        [
+          "--add-host=${opts.hostname}:${opts.lanAddress}"
+          "--no-healthcheck"
+          "--cap-add=NET_ADMIN"
+        ];
       ports = [ "${opts.ports.dockge}:5001" ];
       volumes = [
         "${opts.paths.podmanSocket}:/var/run/docker.sock"
