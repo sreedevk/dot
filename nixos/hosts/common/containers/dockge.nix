@@ -19,6 +19,7 @@
           "--add-host=${opts.hostname}:${opts.lanAddress}"
           "--no-healthcheck"
           "--cap-add=NET_ADMIN"
+          "--user=${opts.adminUID}"
         ];
       ports = [ "${opts.ports.dockge}:5001" ];
       volumes = [
@@ -31,6 +32,8 @@
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
+        USER_UID = opts.adminUID;
+        USER_GID = opts.adminGID;
         DOCKGE_STACKS_DIR = "/opt/stacks";
       };
     };
