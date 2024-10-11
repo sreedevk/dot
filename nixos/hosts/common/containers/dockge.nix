@@ -19,7 +19,6 @@
           "--add-host=${opts.hostname}:${opts.lanAddress}"
           "--no-healthcheck"
           "--cap-add=NET_ADMIN"
-          "--user=${opts.adminUID}"
         ];
       ports = [ "${opts.ports.dockge}:5001" ];
       volumes = [
