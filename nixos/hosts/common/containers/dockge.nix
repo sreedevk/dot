@@ -32,8 +32,6 @@
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
-        USER_UID = opts.adminUID;
-        USER_GID = opts.adminGID;
         DOCKGE_STACKS_DIR = "/opt/stacks";
       };
     };
