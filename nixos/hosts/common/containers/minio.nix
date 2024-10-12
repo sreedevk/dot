@@ -11,7 +11,7 @@
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        "minio_data:/mnt/data"
+        "minio_data:/data"
         "${config.age.secrets.minio_env.path}:/etc/config.env"
       ];
       labels = {
