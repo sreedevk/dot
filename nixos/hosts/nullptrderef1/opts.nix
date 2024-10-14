@@ -54,8 +54,6 @@ rec {
     container-registry-web = "5600";
     dockge = "5001";
     docuseal = "6008";
-    romm-app = "8900";
-    romm-db = "5466";
     filebrowser = "8980";
     firefly_app = "10800";
     firefly_db = "3338";
@@ -117,6 +115,8 @@ rec {
     qbittorrent-web = "8001";
     radarr = "7878";
     readarr = "8787";
+    romm-app = "8900";
+    romm-db = "5466";
     rss-bridge = "8768";
     searxng-www = "8798";
     sonarr = "8989";

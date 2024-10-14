@@ -39,6 +39,7 @@
     ./podgrab.nix
     ./portainer.nix
     ./qbittorrent.nix
+    ./romm.nix
     ./searxng.nix
     ./servarr.nix
     ./stirling-pdf.nix
