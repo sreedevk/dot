@@ -16,6 +16,10 @@
       autoStart = true;
       image = "rommapp/romm:latest";
       ports = [ "${opts.ports.romm-app}:8080" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       volumes = [
         "${opts.paths.roms}/resources:/romm/resources"
         "${opts.paths.app_datafiles}/romm/redis:/redis-data"
@@ -44,6 +48,17 @@
       autoStart = true;
       image = "rommapp/romm:latest";
       ports = [ "${opts.ports.romm-db}:3306" ];
+      environmentFiles = [ config.age.secrets.romm_env.path ];
+      volumes = [ "romm_db_data:/var/lib/mysql" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
+      environment = {
+        TZ = opts.timeZone;
+        PUID = opts.adminUID;
+        PGID = opts.adminGID;
+      };
     };
   };
 }
