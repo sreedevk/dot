@@ -46,7 +46,7 @@
 
     romm-db = {
       autoStart = true;
-      image = "rommapp/romm:latest";
+      image = "mariadb:latest";
       ports = [ "${opts.ports.romm-db}:3306" ];
       environmentFiles = [ config.age.secrets.romm_env.path ];
       volumes = [ "romm_db_data:/var/lib/mysql" ];
