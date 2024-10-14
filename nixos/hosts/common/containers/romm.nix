@@ -19,6 +19,7 @@
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
+        "--user=${opts.adminUID}"
       ];
       volumes = [
         "${opts.paths.roms}/resources:/romm/resources"
