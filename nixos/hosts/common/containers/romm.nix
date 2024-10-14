@@ -33,11 +33,11 @@
         ROMM_HOST = opts.hostname;
         DB_HOST = opts.hostname;
         DB_PORT = opts.ports.romm-db;
-        DISABLE_CSRF_PROTECTION = "true";
-        DISABLE_DOWNLOAD_ENDPOINT_AUTH = "true";
-        ENABLE_RESCAN_ON_FILESYSTEM_CHANGE = "true";
+        DISABLE_CSRF_PROTECTION = "false";
+        DISABLE_DOWNLOAD_ENDPOINT_AUTH = "false";
+        ENABLE_RESCAN_ON_FILESYSTEM_CHANGE = "false";
         RESCAN_ON_FILESYSTEM_CHANGE_DELAY = "10";
-        ENABLE_SCHEDULED_RESCAN = "true";
+        ENABLE_SCHEDULED_RESCAN = "false";
         SCHEDULED_RESCAN_CRON = "0 3 * * *";
         TZ = opts.timeZone;
         PUID = opts.adminUID;
