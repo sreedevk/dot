@@ -26,8 +26,6 @@
         INFLUX_ENABLE = "true";
         INFLUX_SKIP_TLS = "true";
         INFLUX_ADDR = "http://${opts.hostname}:${opts.ports.influxdb}";
-        INFLUX_BUCKET = "WYL";
-        INFLUX_ORG = opts.hostname;
       };
     };
   };
