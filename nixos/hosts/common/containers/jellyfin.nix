@@ -28,7 +28,14 @@
         "kuma.jellyfin.http.url" = "http://${opts.lanAddress}:${opts.ports.jellyfin}/health";
       };
       extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+        [
+          "--add-host=${opts.hostname}:${opts.lanAddress}"
+          "--no-healthcheck"
+          "--device=/dev/dri/renderD128:/dev/dri/renderD128"
+          "--device=/dev/dri/card1:/dev/dri/card1"
+          "--user=${opts.adminUID}:65534"
+          "--group-add=303"
+        ];
       ports = [ "${opts.ports.jellyfin}:8096" ];
       environment = {
         JELLYFIN_LOG_DIR = "/log";

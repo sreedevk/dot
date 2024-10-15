@@ -115,6 +115,7 @@
       "vboxusers"
       "video"
       "wheel"
+      "render"
     ];
   };
 
@@ -218,7 +219,10 @@
         pools = [ "dpool0" ];
       };
     };
+
   };
+
+  services.udev.packages = [ pkgs.vaapiIntel pkgs.intel-media-driver ];
 
   security.sudo.wheelNeedsPassword = false;
   security.rtkit.enable = true;
