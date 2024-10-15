@@ -7,7 +7,7 @@ in
 
   programs.firefox = {
     enable = true;
-    package = nixglmod.nixGLWrapped pkgs.firefox-beta-bin "firefox-beta";
+    package = nixglmod.nixGLWrapped pkgs.firefox-bin "firefox";
     profiles.main = {
       isDefault = true;
       containersForce = true;
