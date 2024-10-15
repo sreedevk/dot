@@ -295,22 +295,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-stable": {
-      "locked": {
-        "lastModified": 1728980750,
-        "narHash": "sha256-riQS0mvwePOVYxnhywipmESG4qBiMkuV7YRiTvWZnxE=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "dea2c6565d78ec2c49055e34150f9488a9370b6d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-24.05-small",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1728538411,
@@ -333,7 +317,6 @@
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-stable": "nixpkgs-stable",
         "stylix": "stylix"
       }
     },

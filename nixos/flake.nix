@@ -4,7 +4,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
-    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.05-small&shallow=1";
     agenix.url = "github:ryantm/agenix";
 
     stylix = {
@@ -50,7 +49,6 @@
           ];
           specialArgs = {
             inherit system;
-            nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
             opts = opts // (import ./hosts/${hostname}/opts.nix);
           };
         };
@@ -68,7 +66,6 @@
           ];
           extraSpecialArgs = {
             inherit firefox-addons system username host;
-            nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
             opts = opts // (import ./hosts/${host}/opts.nix) // (import ./users/${username}/opts.nix);
           };
         };
