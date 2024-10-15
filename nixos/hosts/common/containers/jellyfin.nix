@@ -16,10 +16,10 @@
         "${opts.paths.app_datafiles}/jellyfin/config:/config"
         "${opts.paths.app_datafiles}/jellyfin/cache:/cache"
         "${opts.paths.app_datafiles}/jellyfin/log:/log"
-        "${opts.paths.movies}:/movies"
-        "${opts.paths.television}:/tv"
-        "${opts.paths.audiobooks}:/audiobooks"
-        "${opts.paths.music}:/music"
+        "${opts.paths.movies}:/movies:ro"
+        "${opts.paths.television}:/tv:ro"
+        "${opts.paths.audiobooks}:/audiobooks:ro"
+        "${opts.paths.music}:/music:ro"
       ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
@@ -33,15 +33,11 @@
           "--no-healthcheck"
           "--device=/dev/dri/renderD128:/dev/dri/renderD128"
           "--device=/dev/dri/card1:/dev/dri/card1"
-          "--user=${opts.adminUID}:65534"
-          "--group-add=303"
         ];
       ports = [ "${opts.ports.jellyfin}:8096" ];
       environment = {
         JELLYFIN_LOG_DIR = "/log";
         TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
       };
     };
   };
