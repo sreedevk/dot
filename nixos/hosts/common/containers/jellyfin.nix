@@ -33,6 +33,9 @@
           "--no-healthcheck"
           "--device=/dev/dri/renderD128:/dev/dri/renderD128"
           "--device=/dev/dri/card1:/dev/dri/card1"
+          "--group-add=303"
+          "--group-add=26"
+          "--privileged"
         ];
       ports = [ "${opts.ports.jellyfin}:8096" ];
       environment = {
