@@ -119,8 +119,6 @@ rec {
     romm-db = "5466";
     rss-bridge = "8768";
     searxng-www = "8798";
-    slskd-incoming = "50300";
-    slskd-web = "5030";
     sonarr = "8989";
     ssh = "22";
     stirling-pdf = "9987";

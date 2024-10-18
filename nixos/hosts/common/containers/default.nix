@@ -42,7 +42,6 @@
     ./romm.nix
     ./searxng.nix
     ./servarr.nix
-    ./slskd.nix
     ./stirling-pdf.nix
     ./tdarr.nix
     ./telemetry.nix
