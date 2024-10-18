@@ -5,6 +5,7 @@ Mesa
 Mesa
 nvidia-560-35-03
 Intel
+ffmpeg-full
 openh264
 GNOME
 Upscayl
