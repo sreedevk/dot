@@ -4,6 +4,7 @@ alsa-utils
 android-tools
 base
 base-devel
+batsignal
 bind
 clang
 cmake

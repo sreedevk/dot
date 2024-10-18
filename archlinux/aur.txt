@@ -8,6 +8,7 @@ fjira-bin 1.4.2-1
 floorp-bin 11.19.1-1
 janet-lang 1.36.0-1
 jellyfin-media-player 1.11.1-2
+laptop-mode-tools 1.74-1
 minecraft-launcher 1:1.0.1221-3
 mullvad-vpn-bin 2024.5-1
 openssh-askpass 2.1.0-4
