@@ -6,6 +6,7 @@
       influxdb
       prometheus_app
       prometheus_node
+      prometheus_smartctl
       promtail
     ]);
 
@@ -98,6 +99,10 @@
           static_configs:
           - targets:
             - localhost:9090
+        - job_name: smartctl_exporter
+          static_configs:
+            - targets:
+              - ${opts.hostname}:${opts.ports.prometheus_smartctl}
         - job_name: node_exporter
           static_configs:
             - targets:
@@ -106,21 +111,27 @@
     };
   };
 
-  services.prometheus.exporters.node = {
-    enable = true;
-    port = pkgs.lib.strings.toInt opts.ports.prometheus_node;
-    # https://github.com/NixOS/nixpkgs/blob/nixos-24.05/nixos/modules/services/monitoring/prometheus/exporters.nix
-    enabledCollectors = [ "systemd" ];
-    # /nix/store/zgsw0yx18v10xa58psanfabmg95nl2bb-node_exporter-1.8.1/bin/node_exporter  --help
-    extraFlags = [
-      "--collector.ethtool"
-      "--collector.softirqs"
-      "--collector.tcpstat"
-      "--collector.wifi"
-      "--collector.zfs"
-      "--collector.processes"
-      "--collector.filesystem"
-    ];
+  services.prometheus.exporters = {
+    smartctl = {
+      enable = true;
+      port = pkgs.lib.strings.toInt opts.ports.prometheus_smartctl;
+    };
+    node = {
+      enable = true;
+      port = pkgs.lib.strings.toInt opts.ports.prometheus_node;
+      # https://github.com/NixOS/nixpkgs/blob/nixos-24.05/nixos/modules/services/monitoring/prometheus/exporters.nix
+      enabledCollectors = [ "systemd" ];
+      # /nix/store/zgsw0yx18v10xa58psanfabmg95nl2bb-node_exporter-1.8.1/bin/node_exporter  --help
+      extraFlags = [
+        "--collector.ethtool"
+        "--collector.softirqs"
+        "--collector.tcpstat"
+        "--collector.wifi"
+        "--collector.zfs"
+        "--collector.processes"
+        "--collector.filesystem"
+      ];
+    };
   };
 
   services.promtail = {
