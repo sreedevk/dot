@@ -7,6 +7,7 @@
       prometheus_app
       prometheus_node
       prometheus_smartctl
+      prometheus_zfs
       promtail
     ]);
 
@@ -103,6 +104,10 @@
           static_configs:
             - targets:
               - ${opts.hostname}:${opts.ports.prometheus_smartctl}
+        - job_name: zfs_exporter
+          static_configs:
+            - targets:
+              - ${opts.hostname}:${opts.ports.prometheus_zfs}
         - job_name: node_exporter
           static_configs:
             - targets:
@@ -115,6 +120,10 @@
     smartctl = {
       enable = true;
       port = pkgs.lib.strings.toInt opts.ports.prometheus_smartctl;
+    };
+    zfs = {
+      enable = true;
+      port = pkgs.lib.strings.toInt opts.ports.prometheus_zfs;
     };
     node = {
       enable = true;
