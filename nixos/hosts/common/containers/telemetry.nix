@@ -119,6 +119,7 @@
   services.prometheus.exporters = {
     smartctl = {
       enable = true;
+      user = "root";
       port = pkgs.lib.strings.toInt opts.ports.prometheus_smartctl;
     };
     zfs = {
