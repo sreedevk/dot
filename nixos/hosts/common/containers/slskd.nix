@@ -5,21 +5,23 @@
   ];
 
   virtualisation.oci-containers.containers = {
-    autoStart = true;
-    image = "slskd/slskd";
-    ports = [
-      "${opts.ports.slskd-web}:5030"
-      "${opts.ports.slskd-incoming}:50300"
-    ];
-    volumes = [
-      "${opts.paths.app_datafiles}/slskd:/app"
-    ];
-    extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-    environment = {
-      SLSKD_REMOTE_CONFIGURATION = "true";
-      TZ = opts.timeZone;
-      PUID = opts.adminUID;
-      PGID = opts.adminGID;
+    slskd = {
+      autoStart = true;
+      image = "slskd/slskd";
+      ports = [
+        "${opts.ports.slskd-web}:5030"
+        "${opts.ports.slskd-incoming}:50300"
+      ];
+      volumes = [
+        "${opts.paths.app_datafiles}/slskd:/app"
+      ];
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      environment = {
+        SLSKD_REMOTE_CONFIGURATION = "true";
+        TZ = opts.timeZone;
+        PUID = opts.adminUID;
+        PGID = opts.adminGID;
+      };
     };
   };
 }
