@@ -6,6 +6,8 @@ base
 base-devel
 batsignal
 bind
+blueman
+bluez-tools
 clang
 cmake
 cuda
