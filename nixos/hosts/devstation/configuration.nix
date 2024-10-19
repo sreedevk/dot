@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }:
 {
+  boot.isContainer = true;
   system.stateVersion = "24.11";
   fileSystems = {
     "/boot" = { device = "/dev/disk/by-uuid/4B48-1137"; fsType = "vfat"; };
