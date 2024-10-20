@@ -40,6 +40,7 @@
     ./portainer.nix
     ./qbittorrent.nix
     ./romm.nix
+    ./sabnzbd.nix
     ./searxng.nix
     ./servarr.nix
     ./stirling-pdf.nix
