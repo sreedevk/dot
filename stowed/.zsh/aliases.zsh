@@ -38,6 +38,7 @@ alias zl="zellij"
 
 # git
 alias g='git'
+alias gg='jj'
 
 # Docker
 alias dc='docker compose'
