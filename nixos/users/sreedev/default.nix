@@ -18,6 +18,7 @@
     ../common/hyprland.nix
     ../common/i3.nix
     ../common/irssi.nix
+    ../common/jujutsu.nix
     ../common/keybase.nix
     ../common/keyboard.nix
     ../common/kitty.nix
