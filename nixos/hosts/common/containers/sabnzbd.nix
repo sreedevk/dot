@@ -23,7 +23,6 @@
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
-        "--user=${opts.adminUID}:${opts.adminGID}"
       ];
       volumes = [
         "${opts.paths.app_datafiles}/sabnzbd:/config"
