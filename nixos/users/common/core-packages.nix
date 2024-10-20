@@ -50,7 +50,6 @@
           ipcalc
           jaq
           jq
-          jujutsu
           less
           lf
           lua
