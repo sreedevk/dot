@@ -20,6 +20,11 @@
       autoStart = true;
       image = "lscr.io/linuxserver/sabnzbd:latest";
       ports = [ "${opts.ports.sabnzbd}:8080" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+        "--user=${opts.adminUID}"
+      ];
       volumes = [
         "${opts.paths.app_datafiles}/sabnzbd:/config"
         "${opts.paths.downloads}/Sabnzbd/completed:/downloads"
