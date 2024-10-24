@@ -48,9 +48,11 @@ in
         semantic_escape_chars = ",│`|:\"' ()[]{}<>\t";
       };
 
-      shell = {
-        args = [ "--login" ];
-        program = "/usr/bin/zsh";
+      terminal = {
+        shell = {
+          args = [ "--login" ];
+          program = "/usr/bin/zsh";
+        };
       };
 
       window = {
