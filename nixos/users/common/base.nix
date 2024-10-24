@@ -90,18 +90,17 @@
     };
 
     "mimeapps.list" = {
-      enable = false;
+      enable = true;
       recursive = false;
       executable = false;
       target = ".config/mimeapps.list";
       text = ''
         [Default Applications]
-        text/html=firefox.desktop
+        text/html=${opts.default-web-browser.xdg-desktop}
         x-scheme-handler/http=${opts.default-web-browser.xdg-desktop}
         x-scheme-handler/https=${opts.default-web-browser.xdg-desktop}
         x-scheme-handler/about=${opts.default-web-browser.xdg-desktop}
         x-scheme-handler/unknown=${opts.default-web-browser.xdg-desktop}
-        x-scheme-handler/discord-1176718791388975124=${opts.default-web-browser.xdg-desktop}
       '';
     };
   };
