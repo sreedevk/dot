@@ -1,6 +1,6 @@
 { config, pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ adguard_dns adguard_web adguard_tls ]);
-  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ adguard_dns adguard_tls ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ adguard_dns adguard_web ]);
+  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ adguard_dns ]);
   services.adguardhome = {
     enable = true;
     host = "0.0.0.0";
@@ -126,11 +126,6 @@
           }
         ];
       };
-      tls = {
-        enabled = true;
-        server_name = opts.hostname;
-        port_https = pkgs.lib.strings.toInt opts.ports.adguard_tls;
-      };
       dns = {
         bind_host = "0.0.0.0";
         cache_size = 1000000;
@@ -138,7 +133,6 @@
         cache_ttl_max = 86400;
         cache_optimistic = true;
         bootstrap_dns = [ "9.9.9.9" "1.1.1.1" "1.0.0.1" ];
-        trusted_proxies = [ opts.lanAddress ];
         ratelimit = 500;
         upstream_dns = [
           "https://dns.cloudflare.com/dns-query"

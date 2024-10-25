@@ -37,7 +37,6 @@ rec {
     actual-app = "5006";
     adguard_dns = "53";
     adguard_web = "8000";
-    adguard_tls = "8443";
     archivebox = "8089";
     aria_rpc = "6800";
     aria_web = "6880";
