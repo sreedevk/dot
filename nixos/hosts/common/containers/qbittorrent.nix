@@ -60,7 +60,7 @@ in
         "${opts.paths.books}:/books"
         "${opts.paths.downloads}:/downloads"
         "${opts.paths.magazines}:/magazines"
-        "${opts.paths.qbt_images}:/images"
+        "${opts.paths.other}:/other"
         "${opts.paths.videos}:/videos"
         "/etc/vuetorrent:/vuetorrent:ro"
       ];

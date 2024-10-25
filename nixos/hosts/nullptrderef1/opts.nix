@@ -26,7 +26,6 @@ rec {
     other = "/mnt/dpool0/other";
     podcasts = "/mnt/dpool0/media/podcasts";
     podmanSocket = "/var/run/podman/podman.sock";
-    qbt_images = "/mnt/dpool0/media/photos/other";
     television = "/mnt/dpool0/media/shows";
     videos = "/mnt/dpool0/media/videos";
     zim = "/mnt/dpool0/resources/zim";
