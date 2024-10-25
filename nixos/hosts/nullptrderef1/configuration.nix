@@ -98,7 +98,6 @@
     hashedPasswordFile = config.age.secrets.nullptrderef1_admin_password.path;
     openssh.authorizedKeys.keys = with opts.publicKeys; [
       devstation
-      neoserver
       olivetin
       rpi4b
       terminus

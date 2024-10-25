@@ -8,7 +8,6 @@
       recursive = false;
       text = builtins.concatStringsSep "\n" (with opts.publicKeys; [
         devstation
-        neoserver
         olivetin
         rpi4b
         terminus

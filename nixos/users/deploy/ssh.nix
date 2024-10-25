@@ -6,7 +6,10 @@
       target = ".ssh/authorized_keys.source";
       executable = false;
       recursive = false;
-      text = builtins.concatStringsSep "\n" (with opts.publicKeys; [ devstation rpi4b ]);
+      text = builtins.concatStringsSep "\n" (with opts.publicKeys; [
+        devstation
+        rpi4b
+      ]);
       onChange = ''
         rm -rf ~/.ssh/authorized_keys && cat ~/.ssh/authorized_keys.source > ~/.ssh/authorized_keys && chmod 400 ~/.ssh/authorized_keys
       '';
