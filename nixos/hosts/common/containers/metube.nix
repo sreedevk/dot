@@ -4,14 +4,15 @@
     "d ${opts.paths.downloads}/Metube 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ metube ]);
+  # networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ metube ]);
+
   virtualisation.oci-containers.containers = {
     "metube" = {
       autoStart = true;
       image = "alexta69/metube:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.ports.metube}:8081" ];
+      ports = [ "127.0.0.1:${opts.ports.metube}:8081" ];
       volumes = [ "${opts.paths.downloads}/Metube:/downloads" ];
       environment = {
         TZ = opts.timeZone;

@@ -1,6 +1,14 @@
 { opts, pkgs, ... }:
 {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ filebrowser ]);
+
+  # networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ filebrowser ]);
+  # networking.firewall.extraCommands =
+  #   builtins.concatStringsSep "\n"
+  #     [
+  #       "iptables -A INPUT  -p tcp --dport ${opts.ports.filebrowser} -j DROP"
+  #       "iptables -A OUTPUT -p tcp --dport ${opts.ports.filebrowser} -j DROP"
+  #     ];
+
   environment.etc = {
     "filebrowser/.filebrowser.json" = {
       enable = true;
@@ -22,7 +30,7 @@
       autoStart = true;
       image = "filebrowser/filebrowser:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.ports.filebrowser}:80" ];
+      ports = [ "127.0.0.1:${opts.ports.filebrowser}:80" ];
       volumes = [
         "filebrowser_database:/database"
         "/etc/filebrowser/.filebrowser.json:/.filebrowser.json:ro"
