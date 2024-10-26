@@ -29,14 +29,14 @@
         hostname = "github.com";
         user = "git";
         identitiesOnly = true;
-        identityFile = "~/.ssh/devtechnica";
+        identityFile = "~/.ssh/id_ed25519";
       };
 
       "gitlab.com" = {
         hostname = "gitlab.com";
         user = "git";
         identitiesOnly = true;
-        identityFile = "~/.ssh/devtechnica";
+        identityFile = "~/.ssh/id_ed25519";
       };
     };
   };
