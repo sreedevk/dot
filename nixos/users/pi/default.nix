@@ -10,7 +10,6 @@
     ../common/neovim.nix
     ../common/tmux.nix
     ../common/vim.nix
-    ../common/zsh.nix
     ./ssh.nix
   ];
 }
