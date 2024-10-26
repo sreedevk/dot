@@ -8,7 +8,7 @@
     host = "0.0.0.0";
     port = pkgs.lib.strings.toInt opts.ports.adguard_web;
     mutableSettings = false;
-    openFirewall = false;
+    openFirewall = true;
     extraArgs = [ ];
     settings = {
       statistics = {
