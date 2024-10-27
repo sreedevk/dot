@@ -4,6 +4,7 @@
     ../common/containers
     ../common/scripts
     ../common/services
+    ../common/k3s
     ../../../secrets/mappings.nix
     ./hardware-configuration.nix
   ];
