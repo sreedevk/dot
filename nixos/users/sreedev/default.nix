@@ -88,6 +88,7 @@
       qflipper
       qrencode
       rofi
+      scdl
       slack
       sonic-pi
       tea
