@@ -39,6 +39,6 @@ in
           "--disable=local-storage"
         ];
       in
-      toString flags ++ node_server_opts;
+      flags ++ node_server_opts;
   };
 }
