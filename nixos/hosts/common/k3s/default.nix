@@ -37,6 +37,7 @@ in
           "--disable=servicelb"
           "--disable=traefik"
           "--disable=local-storage"
+          "--cluster-init-namespace=default"
         ];
       in
       flags ++ node_server_opts;
