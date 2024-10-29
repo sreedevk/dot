@@ -16,13 +16,8 @@ if vim.g.neovide then
   vim.g.neovide_scroll_animation_length = 0.3
   vim.g.neovide_refresh_rate            = 90
 
-  local function map(mode, lhs, rhs, opts)
-    local options = { noremap = true }
-    if opts then options = vim.tbl_extend('force', options, opts) end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-  end
-
-  map('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor+0.1<CR>')
-  map('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor-0.1<CR>')
-  map('n', '<C-0>', '<cmd>lua vim.g.neovide_scale_factor=1.0<CR>')
+  local map                             = vim.api.nvim_set_keymap
+  map('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor+0.1<CR>', { noremap = true })
+  map('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor-0.1<CR>', { noremap = true })
+  map('n', '<C-0>', '<cmd>lua vim.g.neovide_scale_factor=1.0<CR>', { noremap = true })
 end

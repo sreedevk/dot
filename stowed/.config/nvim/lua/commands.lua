@@ -1,16 +1,11 @@
-local api = vim.api
-local autocmd = api.nvim_create_autocmd
-local usercmd = api.nvim_create_user_command
+local autocmd = vim.api.nvim_create_autocmd
+local usercmd = vim.api.nvim_create_user_command
 
 usercmd('W', 'w', {})
 usercmd('Wq', 'wq', {})
 usercmd('WQ', 'wq', {})
 usercmd('Q', 'q', {})
-usercmd(
-  'WipeReg',
-  'for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor',
-  {}
-)
+usercmd('FetchUrl', ':lua require("utils").fetchjson()', {})
 
 autocmd("FileType", {
   pattern = "qf",
@@ -22,16 +17,6 @@ autocmd("FileType", {
 autocmd("TextYankPost", {
   pattern = "*",
   command = "silent! lua vim.highlight.on_yank()"
-})
-
-autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "*.norg", "*.org" },
-  command = "silent! TableModeEnable"
-})
-
-autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "*.norg", "*.org" },
-  command = "silent! TableModeEnable"
 })
 
 autocmd({ "BufRead", "BufNewFile" }, {
