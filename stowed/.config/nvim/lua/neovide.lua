@@ -1,22 +1,26 @@
 if vim.g.neovide then
-  vim.g.neovide_transparency             = 0.5
-  vim.g.neovide_floating_blur_amount_x   = 0.0
-  vim.g.neovide_floating_blur_amount_y   = 0.0
-  vim.g.neovide_window_blurred           = true
-  vim.g.neovide_profiler                 = false
-  vim.g.neovide_cursor_antialiasing      = true
-  vim.o.guifont                          = "Iosevka NF:h14"
-  vim.g.neovide_fullscreen               = false
-  vim.g.neovide_padding_top              = 0
-  vim.g.neovide_padding_bottom           = 0
-  vim.g.neovide_padding_right            = 0
-  vim.g.neovide_padding_left             = 0
-  vim.g.neovide_hide_mouse_when_typing   = true
-  vim.g.neovide_scale_factor             = 1.0
-  vim.g.neovide_scroll_animation_length  = 0.3
-  vim.g.neovide_refresh_rate             = 90
+  vim.g.neovide_transparency            = 0.5
+  vim.g.neovide_floating_blur_amount_x  = 0.0
+  vim.g.neovide_floating_blur_amount_y  = 0.0
+  vim.g.neovide_window_blurred          = true
+  vim.g.neovide_profiler                = false
+  vim.g.neovide_cursor_antialiasing     = true
+  vim.o.guifont                         = "Iosevka NF:h14"
+  vim.g.neovide_fullscreen              = false
+  vim.g.neovide_padding_top             = 0
+  vim.g.neovide_padding_bottom          = 0
+  vim.g.neovide_padding_right           = 0
+  vim.g.neovide_padding_left            = 0
+  vim.g.neovide_hide_mouse_when_typing  = true
+  vim.g.neovide_scale_factor            = 1.0
+  vim.g.neovide_scroll_animation_length = 0.3
+  vim.g.neovide_refresh_rate            = 90
 
-  local map                            = require('helpers').map
+  local function map(mode, lhs, rhs, opts)
+    local options = { noremap = true }
+    if opts then options = vim.tbl_extend('force', options, opts) end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  end
 
   map('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor+0.1<CR>')
   map('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor-0.1<CR>')

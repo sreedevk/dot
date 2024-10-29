@@ -31,7 +31,7 @@ return {
     },
     cmd = { "EasyAlign" },
     config = function()
-      require('helpers').map('v', '<Leader>al', ":EasyAlign")
+      vim.api.nvim_set_keymap('v', '<Leader>al', ":EasyAlign", { noremap = true })
     end
   },
   {
@@ -149,16 +149,6 @@ return {
     lazy = true,
     event = 'InsertEnter',
     config = true
-  },
-
-  {
-    'akinsho/toggleterm.nvim',
-    lazy = true,
-    version = '*',
-    cmd = "ToggleTerm",
-    config = function()
-      require('toggleterm').setup()
-    end
   },
 
   {

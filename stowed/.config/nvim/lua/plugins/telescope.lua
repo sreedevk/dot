@@ -37,5 +37,7 @@ return {
         }
       },
     }
+
+    vim.api.nvim_create_user_command('Filetypes', 'Telescope filetypes', {})
   end
 }

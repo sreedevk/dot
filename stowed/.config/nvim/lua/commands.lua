@@ -6,8 +6,6 @@ usercmd('W', 'w', {})
 usercmd('Wq', 'wq', {})
 usercmd('WQ', 'wq', {})
 usercmd('Q', 'q', {})
-usercmd('Filetypes', 'Telescope filetypes', {})
-usercmd('EmptySwap', ":lua require('utils').emptyswap()", {})
 usercmd(
   'WipeReg',
   'for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor',

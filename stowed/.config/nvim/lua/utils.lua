@@ -63,26 +63,4 @@ end
 
 --------------- END FETCH JSON UTILS ---------------
 
---------------- START RUN CMD UTILS ---------------
-function M.arun()
-  local term    = require('toggleterm.terminal').Terminal
-  local command = vim.fn.input("async cmd: ", "", "file")
-  command       = string.gsub(command, '%%', vim.fn.expand('%'))
-  local cmdterm = term:new({ cmd = command, hidden = false })
-  cmdterm:spawn()
-end
-
---------------- END RUN CMD UTILS ---------------
-
--- empty swap
-function M.emptyswap()
-  local swap_dir = vim.fn.expand('$HOME') .. '/.local/state/nvim/swap/'
-  local files = vim.fn.glob(swap_dir .. '*.swp', false, true)
-  for _, file in ipairs(files) do
-    os.remove(file)
-  end
-
-  print('deleted ' .. #files .. ' swap files')
-end
-
 return M
