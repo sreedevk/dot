@@ -1,8 +1,25 @@
 local M = {}
 
+--------------- START CONVERT CASE UTILS ---------------
+local function snake_to_camel(word)
+  return word:gsub("_(.)", function(c)
+    return c:upper()
+  end)
+end
+
+function M.convert_cword_to_camel()
+  local cword = vim.fn.expand("<cword>")
+  local camelCaseWord = snake_to_camel(cword)
+  vim.cmd('normal! "_ciw' .. camelCaseWord)
+end
+
+--------------- END CONVERT CASE UTILS ---------------
+
+
+--------------- START FETCH JSON UTILS ---------------
 function M.fetchjson()
   local url    = vim.fn.expand('<cWORD>')
-  local handle = io.popen('curl '.. url)
+  local handle = io.popen('curl ' .. url)
 
   if handle == nil then
     print('Error: Failed to load httpie')
@@ -44,7 +61,9 @@ function M.fetchjson()
   print('Success: Fetched URL')
 end
 
--- run command asynchronously
+--------------- END FETCH JSON UTILS ---------------
+
+--------------- START RUN CMD UTILS ---------------
 function M.arun()
   local term    = require('toggleterm.terminal').Terminal
   local command = vim.fn.input("async cmd: ", "", "file")
@@ -52,6 +71,8 @@ function M.arun()
   local cmdterm = term:new({ cmd = command, hidden = false })
   cmdterm:spawn()
 end
+
+--------------- END RUN CMD UTILS ---------------
 
 -- empty swap
 function M.emptyswap()
@@ -62,26 +83,6 @@ function M.emptyswap()
   end
 
   print('deleted ' .. #files .. ' swap files')
-end
-
--- venn.nvim: enable or disable keymappings
-function M.toggle_venn()
-  local venn_enabled = vim.inspect(vim.b.venn_enabled)
-  if venn_enabled == "nil" then
-    vim.b.venn_enabled = true
-    vim.cmd [[setlocal ve=all]]
-    -- draw a line on HJKL keystokes
-    vim.api.nvim_buf_set_keymap(0, "n", "J", "<C-v>j:VBox<CR>", { noremap = true })
-    vim.api.nvim_buf_set_keymap(0, "n", "K", "<C-v>k:VBox<CR>", { noremap = true })
-    vim.api.nvim_buf_set_keymap(0, "n", "L", "<C-v>l:VBox<CR>", { noremap = true })
-    vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
-    -- draw a box by pressing "f" with visual selection
-    vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
-  else
-    vim.cmd [[setlocal ve=]]
-    vim.cmd [[mapclear <buffer>]]
-    vim.b.venn_enabled = nil
-  end
 end
 
 return M

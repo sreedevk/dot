@@ -7,7 +7,6 @@ usercmd('Wq', 'wq', {})
 usercmd('WQ', 'wq', {})
 usercmd('Q', 'q', {})
 usercmd('Filetypes', 'Telescope filetypes', {})
-usercmd('ToggleVenn', ":lua require('utils').toggle_venn()", {})
 usercmd('EmptySwap', ":lua require('utils').emptyswap()", {})
 usercmd(
   'WipeReg',
