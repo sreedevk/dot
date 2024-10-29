@@ -87,3 +87,10 @@ map("n", "<leader>j", [[<cmd>TSJToggle<cr>]])
 -- zoxide
 map('n', '<Leader>zi', [[<cmd>Zi<cr>]])
 map('n', '<Leader>zz', ':Z ')
+
+-- case conv
+map('n', '<Leader>cml', [[:lua require("utils").convert_cword_to_camel()<CR>]])
+map('n', '<Leader>snk', [[:lua require("utils").convert_cword_to_snake()<CR>]])
+
+-- fetch url
+map('n', '<Leader>fch', [[:lua require("utils").fetchjson()<CR>]])

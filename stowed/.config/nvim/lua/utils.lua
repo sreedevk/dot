@@ -1,10 +1,13 @@
 local M = {}
 
---------------- START CONVERT CASE UTILS ---------------
 local function snake_to_camel(word)
   return word:gsub("_(.)", function(c)
     return c:upper()
   end)
+end
+
+local function camel_to_snake(word)
+  return word:gsub("(%u)", "_%1"):lower()
 end
 
 function M.convert_cword_to_camel()
@@ -13,10 +16,12 @@ function M.convert_cword_to_camel()
   vim.cmd('normal! "_ciw' .. camelCaseWord)
 end
 
---------------- END CONVERT CASE UTILS ---------------
+function M.convert_cword_to_snake()
+  local cword = vim.fn.expand("<cword>")
+  local snakeCaseWord = camel_to_snake(cword)
+  vim.cmd('normal! "_ciw' .. snakeCaseWord)
+end
 
-
---------------- START FETCH JSON UTILS ---------------
 function M.fetchjson()
   local url    = vim.fn.expand('<cWORD>')
   local handle = io.popen('curl ' .. url)
@@ -60,7 +65,5 @@ function M.fetchjson()
 
   print('Success: Fetched URL')
 end
-
---------------- END FETCH JSON UTILS ---------------
 
 return M

@@ -5,7 +5,11 @@ usercmd('W', 'w', {})
 usercmd('Wq', 'wq', {})
 usercmd('WQ', 'wq', {})
 usercmd('Q', 'q', {})
+
 usercmd('FetchUrl', ':lua require("utils").fetchjson()', {})
+usercmd('Camelize', ':lua require("utils").convert_cword_to_camel()', {})
+usercmd('Snakeize', ':lua require("utils").convert_cword_to_snake()', {})
+
 
 autocmd("FileType", {
   pattern = "qf",
