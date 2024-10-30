@@ -4,9 +4,6 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- git
-map("n", "<Leader>gi", "<cmd>Neogit<CR>")
-
 -- inc/dev
 map("n", "+", "<C-a>")
 map("n", "-", "<C-x>")

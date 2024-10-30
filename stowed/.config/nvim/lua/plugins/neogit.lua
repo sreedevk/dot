@@ -8,5 +8,9 @@ return {
     "nvim-telescope/telescope.nvim",
     "ibhagwan/fzf-lua",
   },
-  config = true
+  config = function()
+    vim.api.nvim_set_keymap('n', '<Leader>gi', "<cmd>Neogit<CR>", { noremap = true })
+
+    return true
+  end
 }
