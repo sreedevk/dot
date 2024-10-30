@@ -36,7 +36,6 @@ map('n', '<C-t>', "<cmd>tabnew<CR>")
 map("n", "<Leader>ca", "<cmd>tabonly<cr>")
 
 -- buffers
-map('n', '<Leader>bd', "<cmd>Bdelete<CR>")
 map('n', '<Leader>bb', '<cmd>bnext<CR>')
 map('n', '<Leader>bB', '<cmd>bprev<CR>')
 

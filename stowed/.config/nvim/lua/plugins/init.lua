@@ -1,6 +1,5 @@
 return {
   'chrisbra/unicode.vim',
-  'famiu/bufdelete.nvim',
   'kevinhwang91/nvim-bqf',
   'mattn/emmet-vim',
   'tpope/vim-characterize',
@@ -12,11 +11,21 @@ return {
   'preservim/vim-indent-guides',
   'tpope/vim-surround',
   'lervag/vimtex',
+
   {
     'MeanderingProgrammer/render-markdown.nvim',
     opts = {},
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
   },
+
+  {
+    'famiu/bufdelete.nvim',
+    keys = { "<Leader>bd" },
+    config = function()
+      vim.api.nvim_set_keymap('n', '<Leader>bd', [[<cmd>Bdelete<CR>]], { noremap = true })
+    end
+  },
+
   {
     'nanotee/zoxide.vim',
     dependencies = {
