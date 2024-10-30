@@ -32,10 +32,6 @@ map('v', '<M-k>', ":m '<-2<CR>gv=gv")
 map('n', '<Leader>x', "<cmd>! chmod +x %<CR>")
 map("n", "<leader><leader>s", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
 
-
--- Neotree
-map('n', '<C-n>', "<cmd>Neotree filesystem toggle<CR>")
-
 -- telescope
 map('n', '<Leader>cd', "<cmd>lua vim.cmd('cd ' .. vim.fn.expand('%:p:h'))<CR>")
 map('n', '<C-p>', "<cmd>Telescope find_files<CR>")
