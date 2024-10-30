@@ -20,15 +20,12 @@ return {
     },
     {
       'glepnir/lspsaga.nvim',
-      cmd = "Lspsaga",
+      event = { "BufReadPost", "BufAdd", "BufNewFile" },
       dependencies = {
         { "nvim-tree/nvim-web-devicons" },
         { "nvim-treesitter/nvim-treesitter" }
       },
-      keys = { "<Leader>cv" },
       config = function()
-        vim.api.nvim_set_keymap('n', '<Leader>cv', "<cmd>Lspsaga outline<CR>", { noremap = true })
-
         require("lspsaga").setup({
           symbol_in_winbar = {
             enable = true,
@@ -48,6 +45,7 @@ return {
             virtual_text = false,
           },
         })
+        vim.api.nvim_set_keymap('n', '<Leader>cv', "<cmd>Lspsaga outline<CR>", { noremap = true })
       end,
     }
   },
