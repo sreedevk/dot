@@ -1,7 +1,7 @@
 return {
   "folke/persistence.nvim",
   lazy = true,
-  event = "BufReadPre", -- this will only start session saving when an actual file was opened
+  event = "BufReadPre",
   keys = { '<leader>sp', '<leader>so', '<leader>sd' },
   module = "persistence",
   config = function()

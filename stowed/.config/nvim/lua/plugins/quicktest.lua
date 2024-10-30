@@ -2,38 +2,23 @@ return {
   "quolpr/quicktest.nvim",
   config = function()
     local qt = require("quicktest")
-
     local ruby = require("rubytest")
 
     qt.setup({
-      -- Choose your adapter, here all supported adapters are listed
       adapters = {
         ruby,
-
         require("quicktest.adapters.golang")({
           additional_args = function(bufnr)
             return { "-race", "-count=1" }
           end,
-          -- bin = function(bufnr) return 'go' end
-          -- cwd = function(bufnr) return 'your-cwd' end
         }),
-        require("quicktest.adapters.vitest")({
-          -- bin = function(bufnr) return 'vitest' end
-          -- cwd = function(bufnr) return bufnr end
-          -- config_path = function(bufnr) return 'vitest.config.js' end
-        }),
-        require("quicktest.adapters.playwright")({
-          -- bin = function(bufnr) return 'playwright' end
-          -- cwd = function(bufnr) return bufnr end
-          -- config_path = function(bufnr) return 'playwright.config.js' end
-        }),
+        require("quicktest.adapters.vitest")({}),
+        require("quicktest.adapters.playwright")({}),
         require("quicktest.adapters.elixir"),
         require("quicktest.adapters.criterion"),
         require("quicktest.adapters.dart"),
       },
-      -- split or popup mode, when argument not specified
       default_win_mode = "split",
-      -- Baleia make coloured output. Requires baleia package. Can cause crashes https://github.com/quolpr/quicktest.nvim/issues/11
       use_baleia = false,
     })
   end,
