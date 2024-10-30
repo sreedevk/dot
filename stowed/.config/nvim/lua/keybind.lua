@@ -32,11 +32,6 @@ map('v', '<M-k>', ":m '<-2<CR>gv=gv")
 map('n', '<Leader>x', "<cmd>! chmod +x %<CR>")
 map("n", "<leader><leader>s", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
 
--- diffview
-map('n', '<Leader>dvo', ":DiffviewOpen ")
-map('n', '<Leader>dvc', "<cmd>DiffviewClose<CR>")
-map('n', '<Leader>dvh', "<cmd>DiffviewFileHistory %<CR>")
-
 
 -- Neotree
 map('n', '<C-n>', "<cmd>Neotree filesystem toggle<CR>")

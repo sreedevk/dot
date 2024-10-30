@@ -80,18 +80,6 @@ return {
     lazy = true,
     event = { "CursorHold", "CursorHoldI" }
   },
-
-  {
-    "sindrets/diffview.nvim",
-    lazy = true,
-    cmd = {
-      "DiffviewOpen",
-      "DiffviewFileHistory",
-      "DiffviewFocusFiles",
-      "DiffviewToggleFiles",
-      "DiffviewRefresh",
-    },
-  },
   {
     "folke/todo-comments.nvim",
     lazy = true,
