@@ -24,6 +24,7 @@
         "${opts.paths.app_datafiles}/tdarr/configs:/app/configs"
         "${opts.paths.app_datafiles}/tdarr/logs:/app/logs"
         "${opts.paths.media}:/media"
+        "${opts.paths.other}:/other"
         "${opts.paths.app_datafiles}/tdarr/transcode-cache:/temp"
       ];
       ports = [
