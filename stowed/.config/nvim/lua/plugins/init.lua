@@ -22,7 +22,12 @@ return {
     dependencies = {
       'junegunn/fzf',
       'junegunn/fzf.vim'
-    }
+    },
+    keys = { '<Leader>zi', '<Leader>zz' },
+    config = function()
+      vim.api.nvim_set_keymap('n', '<Leader>zi', [[<cmd>Zi<cr>]], { noremap = true })
+      vim.api.nvim_set_keymap('n', '<Leader>zz', ':Z ', { noremap = true })
+    end
   },
   {
     'junegunn/vim-easy-align',
@@ -43,13 +48,21 @@ return {
   {
     'dhruvasagar/vim-table-mode',
     lazy = true,
-    cmd = "TableModeToggle"
+    cmd = "TableModeToggle",
+    keys = { '<Leader>tm' },
+    config = function()
+      vim.api.nvim_set_keymap('v', '<Leader>tm', "<cmd>TableModeToggle<CR>", { noremap = true })
+    end
   },
 
   {
     'mbbill/undotree',
     lazy = true,
     cmd = "UndotreeToggle",
+    keys = { '<Leader>u' },
+    config = function()
+      vim.api.nvim_set_keymap('n', '<Leader>u', "<cmd>UndotreeToggle<CR>", { noremap = true })
+    end
   },
   {
     "danymat/neogen",

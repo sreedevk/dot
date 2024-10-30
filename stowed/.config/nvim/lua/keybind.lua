@@ -41,18 +41,9 @@ map('n', '<Leader>bb', '<cmd>bnext<CR>')
 map('n', '<Leader>bB', '<cmd>bprev<CR>')
 
 -- toggle
-map('n', '<Leader>tm', "<cmd>TableModeToggle<CR>")
 map('n', '<leader>ts', "<cmd>set spell!<CR>")
-map('n', '<Leader>tr', "<cmd>ToggleTerm<CR>")
-map('n', '<Leader>tf', "<cmd>ToggleTerm direction=float<CR>")
 map('n', '<Leader>tz', '<cmd>ZenMode<CR>')
 map('n', '<Leader>tt', '<cmd>TroubleToggle quickfix<CR>')
-
--- alt toggle
-map('n', '<Leader>u', "<cmd>UndotreeToggle<CR>")
-
--- Run Command
-map('v', '<Leader>rs', ":'>ToggleTermSendVisualLine<CR>")
 
 -- persistence
 map('n', '<leader>sp', [[<cmd>lua require("persistence").load({last=true})<cr>]])
@@ -61,10 +52,6 @@ map("n", "<leader>sd", [[<cmd>lua require("persistence").stop()<cr>]])
 
 -- leader
 map("n", "<leader>j", [[<cmd>TSJToggle<cr>]])
-
--- zoxide
-map('n', '<Leader>zi', [[<cmd>Zi<cr>]])
-map('n', '<Leader>zz', ':Z ')
 
 -- case conv
 map('n', '<Leader>cml', [[:lua require("utils").convert_cword_to_camel()<CR>]])

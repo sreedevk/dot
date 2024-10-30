@@ -3,6 +3,7 @@ return {
   lazy = true,
   version = '*',
   cmd = "ToggleTerm",
+  keys = { '<Leader>tr', '<Leader>tf', '<Leader>rs', '<Leader>rn' },
   config = function()
     require('toggleterm').setup()
 
@@ -15,6 +16,10 @@ return {
     end
 
     vim.api.nvim_create_user_command('RunAsync', ":lua arun()", {})
-    vim.api.nvim_set_keymap('n', '<Leader>rn', ':RunAsync ')
+
+    vim.api.nvim_set_keymap('n', '<Leader>tr', "<cmd>ToggleTerm<CR>", { noremap = true })
+    vim.api.nvim_set_keymap('n', '<Leader>tf', "<cmd>ToggleTerm direction=float<CR>", { noremap = true })
+    vim.api.nvim_set_keymap('v', '<Leader>rs', ":'>ToggleTermSendVisualLine<CR>", { noremap = true })
+    vim.api.nvim_set_keymap('n', '<Leader>rn', ':RunAsync ', { noremap = true })
   end
 }
