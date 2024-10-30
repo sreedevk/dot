@@ -42,8 +42,6 @@ map('n', '<Leader>bB', '<cmd>bprev<CR>')
 
 -- toggle
 map('n', '<leader>ts', "<cmd>set spell!<CR>")
-map('n', '<Leader>tz', '<cmd>ZenMode<CR>')
-map('n', '<Leader>tt', '<cmd>TroubleToggle quickfix<CR>')
 
 -- persistence
 map('n', '<leader>sp', [[<cmd>lua require("persistence").load({last=true})<cr>]])

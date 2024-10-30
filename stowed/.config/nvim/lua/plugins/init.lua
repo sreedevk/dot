@@ -130,8 +130,11 @@ return {
     'folke/zen-mode.nvim',
     lazy = true,
     cmd = "ZenMode",
+    keys = { '<Leader>tz' },
     config = function()
       require('zen-mode').setup()
+
+      vim.api.nvim_set_keymap('v', '<Leader>tz', "<cmd>ZenMode<CR>", { noremap = true })
     end
   },
 
