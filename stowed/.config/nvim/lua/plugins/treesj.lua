@@ -1,6 +1,7 @@
 return {
   'Wansmer/treesj',
   dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  keys = { '<leader>j' },
   config = function()
     require('treesj').setup({
       use_default_keymaps = false,
@@ -11,5 +12,7 @@ return {
       dot_repeat = true,
       on_error = nil,
     })
+
+    vim.api.nvim_set_keymap('n', '<leader>j', [[<cmd>TSJToggle<cr>]], { noremap = true })
   end,
 }

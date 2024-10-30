@@ -42,14 +42,6 @@ map('n', '<Leader>bB', '<cmd>bprev<CR>')
 -- toggle
 map('n', '<leader>ts', "<cmd>set spell!<CR>")
 
--- persistence
-map('n', '<leader>sp', [[<cmd>lua require("persistence").load({last=true})<cr>]])
-map("n", "<leader>so", [[<cmd>lua require("persistence").load()<cr>]])
-map("n", "<leader>sd", [[<cmd>lua require("persistence").stop()<cr>]])
-
--- leader
-map("n", "<leader>j", [[<cmd>TSJToggle<cr>]])
-
 -- case conv
 map('n', '<Leader>cml', [[:lua require("utils").convert_cword_to_camel()<CR>]])
 map('n', '<Leader>snk', [[:lua require("utils").convert_cword_to_snake()<CR>]])
