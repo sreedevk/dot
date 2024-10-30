@@ -29,13 +29,7 @@ map('v', '<M-k>', ":m '<-2<CR>gv=gv")
 map('n', '<Leader>x', "<cmd>! chmod +x %<CR>")
 map("n", "<leader><leader>s", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
 
--- telescope
 map('n', '<Leader>cd', "<cmd>lua vim.cmd('cd ' .. vim.fn.expand('%:p:h'))<CR>")
-map('n', '<C-p>', "<cmd>Telescope find_files<CR>")
-map('n', '<Leader>p', "<cmd>Telescope git_files<CR>")
-map('n', '<C-s>', "<cmd>Telescope<CR>")
-map('n', '<leader>fw', "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') })<CR>")
-map('n', '<Leader>rg', "<cmd>Telescope live_grep<CR>")
 
 -- lspsaga
 map('n', '<Leader>cv', "<cmd>Lspsaga outline<CR>")
@@ -45,7 +39,6 @@ map('n', '<C-t>', "<cmd>tabnew<CR>")
 map("n", "<Leader>ca", "<cmd>tabonly<cr>")
 
 -- buffers
-map('n', '<Leader>bl', "<cmd>Telescope buffers<CR>")
 map('n', '<Leader>bd', "<cmd>Bdelete<CR>")
 map('n', '<Leader>bb', '<cmd>bnext<CR>')
 map('n', '<Leader>bB', '<cmd>bprev<CR>')
