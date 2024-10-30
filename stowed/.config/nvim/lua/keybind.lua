@@ -31,9 +31,6 @@ map("n", "<leader><leader>s", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
 
 map('n', '<Leader>cd', "<cmd>lua vim.cmd('cd ' .. vim.fn.expand('%:p:h'))<CR>")
 
--- lspsaga
-map('n', '<Leader>cv', "<cmd>Lspsaga outline<CR>")
-
 -- Tabs
 map('n', '<C-t>', "<cmd>tabnew<CR>")
 map("n", "<Leader>ca", "<cmd>tabonly<cr>")
