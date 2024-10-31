@@ -31,6 +31,7 @@
     ./n8n.nix
     ./navidrome.nix
     ./nginx.nix
+    ./nzbhydra.nix
     ./olivetin.nix
     ./ollama.nix
     ./paperless.nix

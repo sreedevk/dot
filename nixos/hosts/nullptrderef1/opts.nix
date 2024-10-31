@@ -93,6 +93,7 @@ rec {
     n8n-db = "5435";
     navidrome = "4533";
     nginx-proxy-manager = "81";
+    nzbhydra = "5076";
     olivetin = "1337";
     ollama-api = "11434";
     ollama-web = "3134";
