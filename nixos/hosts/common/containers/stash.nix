@@ -1,4 +1,8 @@
 { config, lib, pkgs, opts, ... }: {
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/stash 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     "whisparr" = {
       autoStart = true;
@@ -23,7 +27,7 @@
       image = "ghcr.io/hotio/stash";
       volumes = [
         "stash_db:/databases"
-        "stash_config:/config"
+        "${opts.paths.app_datafiles}/stash:/config"
         "${opts.paths.other}/nsfw/images:/images"
         "${opts.paths.other}/nsfw/videos:/videos"
       ];
