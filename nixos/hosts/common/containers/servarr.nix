@@ -6,7 +6,64 @@
     "d ${opts.paths.app_datafiles}/recyclarr 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
+
+  environment.etc = {
+    "flemmarr/config.yml" = {
+      enable = true;
+      text = ''
+        sonarr:
+          address: sonarr
+          port: 8989
+          config:
+            host:
+              analyticsEnabled: false
+            ui:
+              firstDayOfWeek: 1 # 0 = Sunday, 1 = Monday
+              timeFormat: HH:mm # HH:mm = 17:30, h(:mm)a = 5:30PM
+            rootfolder:
+                - name: Series
+                  path: /tv
+                  defaultTags: []
+                  defaultQualityProfileId: 1
+                  defaultMetadataProfileId: 1
+            downloadclient:
+                - name: qBittorrent
+                  enable: true
+                  protocol: torrent
+                  priority: 2
+                  removeCompletedDownloads: true
+                  removeFailedDownloads: true
+                  fields:
+                  - name: host
+                    value: nullptrderef1
+                  - name: port
+                    value: 8001
+                  - name: username
+                    value: admin
+                  - name: password
+                    value: changeme
+                  - name: tvCategory
+                    value: Sonarr
+                  implementation: QBittorrent
+                  configContract: QBittorrentSettings
+      '';
+    };
+  };
+
   virtualisation.oci-containers.containers = {
+    flemmarr = {
+      autoStart = false;
+      image = "pierremesure/flemmarr";
+      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      dependsOn = [ "sonarr" "radarr" "readarr" "lidarr" ];
+      volumes = [ "/etc/flemmarr:/config" ];
+      environment = {
+        TZ = opts.timeZone;
+        PUID = opts.adminUID;
+        PGID = opts.adminGID;
+      };
+    };
+
     recyclarr = {
       autoStart = true;
       image = "recyclarr/recyclarr:latest";
