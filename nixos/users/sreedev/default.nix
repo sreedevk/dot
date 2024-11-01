@@ -27,6 +27,7 @@
     ../common/newsboat.nix
     ../common/obs.nix
     ../common/opentabletdriver.nix
+    ../common/radicle.nix
     ../common/spotube.nix
     ../common/stylix.nix
     ../common/taskwarrior.nix
