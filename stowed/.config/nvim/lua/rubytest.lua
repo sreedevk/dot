@@ -1,29 +1,23 @@
 local Job = require("plenary.job")
--- local fs = require("quicktest.fs_utils")
 
 local M = {
-  name = "myadapter",
+  name = "rspec-adapter",
 }
+
 ---@class MyRunParams
 ---@field func_names string[]
 ---@field bufnr integer
 ---@field cursor_pos integer[]
-
 M.get_cwd = function(bufnr)
   return vim.fn.getcwd()
 end
 
---- Optional:
---- Builds parameters for running tests based on buffer number and cursor position.
---- This function should be customized to extract necessary information from the buffer.
 ---@param bufnr integer
 ---@param cursor_pos integer[]
 ---@return MyRunParams, nil | string
 M.build_line_run_params = function(bufnr, cursor_pos)
-  -- You can get current function name to run based on bufnr and cursor_pos
-  -- Check hot it is done for golang at `lua/quicktest/adapters/golang`
   local cwd = M.get_cwd(bufnr)
-  local file = vim.api.nvim_buf_get_name(bufnr) -- Get the current buffer's file path
+  local file = vim.api.nvim_buf_get_name(bufnr)
 
   return {
         bufnr = bufnr,
@@ -37,7 +31,6 @@ M.build_line_run_params = function(bufnr, cursor_pos)
       nil
 end
 
---- Optional:
 ---@param bufnr integer
 ---@param cursor_pos integer[]
 ---@return MyRunParams, nil | string
@@ -55,17 +48,20 @@ M.build_file_run_params = function(bufnr, cursor_pos)
       nil
 end
 
---- Optional:
 ---@param bufnr integer
 ---@param cursor_pos integer[]
 ---@return MyRunParams, nil | string
--- M.build_dir_run_params = function(bufnr, cursor_pos)
---   return {
---     bufnr = bufnr,
---     cursor_pos = cursor_pos,
---     -- Add other parameters as needed
---   }, nil
--- end
+---M.build_dir_run_params = function(bufnr, cursor_pos)
+---  local cwd = M.get_cwd(bufnr)
+---
+---  return {
+---    bufnr = bufnr,
+---    cursor_pos = cursor_pos,
+---    cwd = cwd,
+---    -- Add other parameters as needed
+---  }, 
+---  nil
+---end
 
 --- Optional:
 ---@param bufnr integer

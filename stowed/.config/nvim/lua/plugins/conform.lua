@@ -5,7 +5,6 @@ return {
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
       require("conform").setup({
         format_on_save = {
-          -- These options will be passed to conform.format()
           timeout_ms = 500,
           lsp_format = "fallback",
         },
@@ -16,6 +15,9 @@ return {
           python = {
             "isort",
             "black",
+          },
+          nix = {
+            "nixpkgs-fmt"
           },
           rust = {
             "rustfmt",
