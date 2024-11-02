@@ -2,12 +2,14 @@ alsa-firmware
 alsa-plugins
 alsa-utils
 android-tools
+autoconf-archive
 base
 base-devel
 batsignal
 bind
 blueman
 bluez-tools
+ccache
 clang
 cmake
 cuda
@@ -31,6 +33,7 @@ grub
 gst-libav
 gst-plugins-good
 gstreamer
+hyprland
 i2pd
 i3-wm
 incus
@@ -50,7 +53,9 @@ mariadb-clients
 mesa-utils
 mesa-vdpau
 mpv
+nasm
 neovim
+ninja
 nmap
 noto-fonts
 noto-fonts-cjk
@@ -77,6 +82,7 @@ postgresql-libs
 powertop
 progress
 pulsemixer
+qt6-tools
 raylib
 reflector
 sc3-plugins
@@ -102,6 +108,7 @@ unixodbc
 unzip
 upower
 usbutils
+vcpkg
 vulkan-intel
 webkit2gtk
 wireguard-tools
