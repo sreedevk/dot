@@ -14,6 +14,7 @@
         env = XDG_SESSION_TYPE,wayland
         env = GBM_BACKEND,nvidia-drm
         env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+        env = __NV_PRIME_RENDER_OFFLOAD,1
         env = XCURSOR_SIZE,24
         env = HYPRCURSOR_SIZE,24
 
@@ -32,6 +33,8 @@
         bind = $mainMod SHIFT, Q, killactive
         bind = $mainMod SHIFT, E, exit
         bind = $mainMod SHIFT, Space, togglefloating
+        bind = $mainMod, F, fullscreen
+
         bind = $mainMod, D, exec, $menu
         bind = $mainMod, left, movefocus, l
         bind = $mainMod, H, movefocus, l
