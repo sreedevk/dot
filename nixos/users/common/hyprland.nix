@@ -4,9 +4,9 @@
     ".config/hypr/hyprland.conf" = {
       enable = true;
       text = ''
-        monitor = DP-2,  3840x2160@60, 1920x0, 3
-        monitor = DP-3,  1920x1080@60, 0x0, 2
-        monitor = eDP-1, 1920x1200@60, 0x1080, 2
+        monitor = DP-2,  3840x2160@60, 1920x0, 1
+        monitor = DP-3,  1920x1080@60, 0x0, 1
+        monitor = eDP-1, 1920x1200@60, 0x1080, 1
 
 
         exec-once = dunst
