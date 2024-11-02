@@ -4,9 +4,10 @@
     ".config/hypr/hyprland.conf" = {
       enable = true;
       text = ''
-        monitor = DP-1-2,  3840x2160@60, 1920x0, auto
-        monitor = DP-1-3,  1920x1080,    0x0,    auto
-        monitor = eDP-1-1, 1920x1200,    0x1080, auto
+        monitor = DP-2,  3840x2160@60, 1920x0, 3
+        monitor = DP-3,  1920x1080@144, 0x0,    2
+        monitor = eDP-1, 1920x1200@60, 0x1080, 2
+
 
         exec-once = dunst
 
@@ -18,16 +19,28 @@
         env = XCURSOR_SIZE,24
         env = HYPRCURSOR_SIZE,24
 
+
+        env = XDG_DATA_DIRS,"$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+        env = GDK_SCALE,1.2
+        env = GDK_DPI_SCALE,1.2
+        env = QT_AUTO_SCREEN_SCALE_FACTOR,1.1
+        env = QT_SCALE_FACTOR,1.1
+        env = WINIT_X11_SCALE_FACTOR,1.1
+
         cursor {
             no_hardware_cursors = true
         }
 
         $terminal = alacritty
         $fileManager = nemo
-        $menu = wofi --show drun
+        $menu = rofi --show drun
+        
+        xwayland {
+          force_zero_scaling = true
+        }
 
 
-        $mainMod = SUPER # Sets "Windows" key as main modifier
+        $mainMod = SUPER
 
         bind = $mainMod, Return, exec, $terminal
         bind = $mainMod SHIFT, Q, killactive
