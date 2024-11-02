@@ -5,19 +5,20 @@
       enable = true;
       text = ''
         monitor = DP-2,  3840x2160@60, 1920x0, 3
-        monitor = DP-3,  1920x1080@144, 0x0,    2
+        monitor = DP-3,  1920x1080@60, 0x0, 2
         monitor = eDP-1, 1920x1200@60, 0x1080, 2
 
 
         exec-once = dunst
+        exec-once = hyprpaper
 
         env = LIBVA_DRIVER_NAME,nvidia
         env = XDG_SESSION_TYPE,wayland
         env = GBM_BACKEND,nvidia-drm
         env = __GLX_VENDOR_LIBRARY_NAME,nvidia
         env = __NV_PRIME_RENDER_OFFLOAD,1
-        env = XCURSOR_SIZE,24
-        env = HYPRCURSOR_SIZE,24
+        env = XCURSOR_SIZE,12
+        env = HYPRCURSOR_SIZE,12
 
 
         env = XDG_DATA_DIRS,"$HOME/.nix-profile/share:$XDG_DATA_DIRS"
@@ -33,7 +34,7 @@
 
         $terminal = alacritty
         $fileManager = nemo
-        $menu = rofi --show drun
+        $menu = rofi -show drun
         
         xwayland {
           force_zero_scaling = true
@@ -75,7 +76,7 @@
         bind = $mainMod SHIFT, 9, movetoworkspace, 9
         bind = $mainMod SHIFT, 0, movetoworkspace, 10
         # bind = $mainMod, S, togglespecialworkspace, magic
-        # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+        # bind = $mainMod SHIFT, Sa movetoworkspace, special:magic
         bind = $mainMod, mouse_down, workspace, e+1
         bind = $mainMod, mouse_up, workspace, e-1
         bindm = $mainMod, mouse:272, movewindow
@@ -165,6 +166,20 @@
               natural_scroll = false
           }
         }
+      '';
+    };
+
+    ".config/hypr/hyprpaper.conf" = {
+      enable = true;
+      text = ''
+        preload = ~/Media/wallpapers/foresty-beach.jpg
+        preload = ~/Media/wallpapers/japanese-building.png
+        preload = ~/Media/wallpapers/grass.jpg
+        wallpaper = DP-2,~/Media/wallpapers/foresty-beach.jpg
+        wallpaper = DP-3,~/Media/wallpapers/japanese-building.png
+        wallpaper = eDP-1,~/Media/wallpapers/grass.jpg
+        splash = true
+        # ipc = off
       '';
     };
   };
