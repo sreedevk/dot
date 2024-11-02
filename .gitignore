@@ -34,5 +34,6 @@
 !/stowed/.config/vimb
 !/stowed/.config/zathura
 !/stowed/.config/nixpkgs
+!/stowed/.config/hypr
 !/stowed/.taskrc
 !/wallpapers/leaves.jpg

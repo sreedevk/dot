@@ -8,7 +8,8 @@ in
 
   programs.alacritty = {
     enable = true;
-    package = nixglmod.nixGLWrapped pkgs.alacritty "alacritty";
+    # package = nixglmod.nixGLWrapped pkgs.alacritty "alacritty";
+    package = pkgs.writeShellScriptBin "none" "";
     settings = {
       colors = {
         draw_bold_text_with_bright_colors = true;
