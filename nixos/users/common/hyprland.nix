@@ -34,9 +34,10 @@
         bind = $mainMod SHIFT, Space, togglefloating
         bind = $mainMod, D, exec, $menu
         bind = $mainMod, left, movefocus, l
-        bind = $mainMod, right, movefocus, r
-        bind = $mainMod, up, movefocus, u
-        bind = $mainMod, down, movefocus, d
+        bind = $mainMod, H, movefocus, l
+        bind = $mainMod, L, movefocus, r
+        bind = $mainMod, K, movefocus, u
+        bind = $mainMod, J, movefocus, d
         bind = $mainMod, 1, workspace, 1
         bind = $mainMod, 2, workspace, 2
         bind = $mainMod, 3, workspace, 3
@@ -57,8 +58,8 @@
         bind = $mainMod SHIFT, 8, movetoworkspace, 8
         bind = $mainMod SHIFT, 9, movetoworkspace, 9
         bind = $mainMod SHIFT, 0, movetoworkspace, 10
-        bind = $mainMod, S, togglespecialworkspace, magic
-        bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+        # bind = $mainMod, S, togglespecialworkspace, magic
+        # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
         bind = $mainMod, mouse_down, workspace, e+1
         bind = $mainMod, mouse_up, workspace, e-1
         bindm = $mainMod, mouse:272, movewindow
