@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
-    enable = true;
+    enable = false;
     settings = {
 
       # autostart

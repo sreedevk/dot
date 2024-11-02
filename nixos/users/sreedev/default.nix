@@ -15,7 +15,6 @@
     ../common/github.nix
     ../common/gpg.nix
     ../common/htop.nix
-    ../common/hyprland.nix
     ../common/i3.nix
     ../common/irssi.nix
     ../common/jujutsu.nix
