@@ -34,6 +34,7 @@ gst-libav
 gst-plugins-good
 gstreamer
 hyprland
+hyprpaper
 i2pd
 i3-wm
 incus
@@ -82,6 +83,7 @@ postgresql-libs
 powertop
 progress
 pulsemixer
+qt5-wayland
 qt6-tools
 raylib
 reflector
@@ -110,11 +112,13 @@ upower
 usbutils
 vcpkg
 vulkan-intel
+waybar
 webkit2gtk
 wireguard-tools
 wireless_tools
 wmctrl
 xclip
+xdg-desktop-portal-hyprland
 xdo
 xf86-video-vesa
 xorg-server
