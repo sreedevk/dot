@@ -9,7 +9,7 @@
     ],
     "modules-center": [
         "custom/dnd",
-        "wireplumber"
+        "wireplumber",
         "custom/memory",
         "custom/gpu",
         "custom/cpu-temp",
@@ -56,9 +56,8 @@
         "spacing": 10
     },
     "clock": {
-        "tooltip-format": "{calendar}",
-        "format-alt": "  {%a %B %d }",
-        "format": "  {%l:%M:%S %p %Z}"
+        "format": "  {:%a %B %d  %I:%M:%S %p %Z}",
+        "interval": 1
     },
     "network": {
         "format-wifi" : "{icon}",
