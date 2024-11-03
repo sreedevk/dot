@@ -20,7 +20,7 @@
         desc = "XEC ES-24X3A 0x00000022";
         resolution = { x = 1920; y = 1080; };
         position = { x = 0; y = 0; };
-        rate = 60;
+        rate = 100.00;
         scale = 1;
       }
       {
