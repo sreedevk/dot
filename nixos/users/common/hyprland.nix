@@ -100,7 +100,7 @@ in
         $fileManager     = ${hyprconf.filemanager}
         $menu            = ${hyprconf.menu}
         $window_switcher = ${hyprconf.window_switcher}
-        $mainMod         = ${hyprconf.mod-key}
+        $mod             = ${hyprconf.mod-key}
 
         cursor {
             no_hardware_cursors = true
@@ -110,102 +110,104 @@ in
           force_zero_scaling = true
         }
 
-        bind = $mainMod, Return, exec, $terminal
-        bind = $mainMod, KP_Enter, exec, $terminal
-        bind = $mainMod SHIFT, Q, killactive
-        bind = $mainMod SHIFT, E, exit
-        bind = $mainMod, Tab, exec, $window_switcher
-        bind = $mainMod SHIFT, Space, togglefloating
-        bind = $mainMod, F, fullscreen
-        bind = $mainMod, D, exec, $menu
-        bind = $mainMod SHIFT, C, exec, hyprctl reload
+        bind = $mod       , Return   , exec            , $terminal
+        bind = $mod       , KP_Enter , exec            , $terminal
+        bind = $mod SHIFT , Q        , killactive
+        bind = $mod SHIFT , E        , exit
+        bind = $mod       , Tab      , exec            , $window_switcher
+        bind = $mod SHIFT , Space    , togglefloating
+        bind = $mod       , F        , fullscreen
+        bind = $mod       , D        , exec            , $menu
+        bind = $mod SHIFT , C        , exec            , hyprctl reload
 
-        bind = CTRL, Space, exec, ${pkgs.dunst}/bin/dunstctl close-all
-        bind = $mainMod, N, exec, ${pkgs.dunst}/bin/dunstctl set-paused toggle
+        bind = CTRL       , Space    , exec            , ${pkgs.dunst}/bin/dunstctl close-all
+        bind = $mod       , N        , exec            , ${pkgs.dunst}/bin/dunstctl set-paused toggle
 
-        bind = $mainMod, H, movefocus, l
-        bind = $mainMod, L, movefocus, r
-        bind = $mainMod, K, movefocus, u
-        bind = $mainMod, J, movefocus, d
+        bind = $mod       , H        , movefocus       , l
+        bind = $mod       , L        , movefocus       , r
+        bind = $mod       , K        , movefocus       , u
+        bind = $mod       , J        , movefocus       , d
 
-        bind = $mainMod SHIFT, H, swapwindow, l
-        bind = $mainMod SHIFT, L, swapwindow, r
-        bind = $mainMod SHIFT, K, swapwindow, u
-        bind = $mainMod SHIFT, J, swapwindow, d
+        bind = $mod SHIFT , H        , swapwindow      , l
+        bind = $mod SHIFT , L        , swapwindow      , r
+        bind = $mod SHIFT , K        , swapwindow      , u
+        bind = $mod SHIFT , J        , swapwindow      , d
 
-        bind = $mainMod, 1, workspace, 1
-        bind = $mainMod, 2, workspace, 2
-        bind = $mainMod, 3, workspace, 3
-        bind = $mainMod, 4, workspace, 4
-        bind = $mainMod, 5, workspace, 5
-        bind = $mainMod, 6, workspace, 6
-        bind = $mainMod, 7, workspace, 7
-        bind = $mainMod, 8, workspace, 8
-        bind = $mainMod, 9, workspace, 9
-        bind = $mainMod, 0, workspace, 10
+        bind = $mod       , 1        , workspace       , 1
+        bind = $mod       , 2        , workspace       , 2
+        bind = $mod       , 3        , workspace       , 3
+        bind = $mod       , 4        , workspace       , 4
+        bind = $mod       , 5        , workspace       , 5
+        bind = $mod       , 6        , workspace       , 6
+        bind = $mod       , 7        , workspace       , 7
+        bind = $mod       , 8        , workspace       , 8
+        bind = $mod       , 9        , workspace       , 9
+        bind = $mod       , 0        , workspace       , 10
 
-        bind = $mainMod SHIFT, 1, movetoworkspace, 1
-        bind = $mainMod SHIFT, 2, movetoworkspace, 2
-        bind = $mainMod SHIFT, 3, movetoworkspace, 3
-        bind = $mainMod SHIFT, 4, movetoworkspace, 4
-        bind = $mainMod SHIFT, 5, movetoworkspace, 5
-        bind = $mainMod SHIFT, 6, movetoworkspace, 6
-        bind = $mainMod SHIFT, 7, movetoworkspace, 7
-        bind = $mainMod SHIFT, 8, movetoworkspace, 8
-        bind = $mainMod SHIFT, 9, movetoworkspace, 9
-        bind = $mainMod SHIFT, 0, movetoworkspace, 10
+        bind = $mod SHIFT , 1        , movetoworkspace , 1
+        bind = $mod SHIFT , 2        , movetoworkspace , 2
+        bind = $mod SHIFT , 3        , movetoworkspace , 3
+        bind = $mod SHIFT , 4        , movetoworkspace , 4
+        bind = $mod SHIFT , 5        , movetoworkspace , 5
+        bind = $mod SHIFT , 6        , movetoworkspace , 6
+        bind = $mod SHIFT , 7        , movetoworkspace , 7
+        bind = $mod SHIFT , 8        , movetoworkspace , 8
+        bind = $mod SHIFT , 9        , movetoworkspace , 9
+        bind = $mod SHIFT , 0        , movetoworkspace , 10
 
-        bind = $mainMod SHIFT, S, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | wl-copy
+        bind = $mod SHIFT , S        , exec            , ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | wl-copy
 
-        bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-        bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-        bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-        bindel = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-        bindel = ,XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl s 10%+
-        bindel = ,XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl s 10%-
-        bindl = , XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next
-        bindl = , XF86AudioPause, exec, ${pkgs.playerctl}/bin/playerctl play-pause
-        bindl = , XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause
-        bindl = , XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous
+        bindel = , XF86AudioRaiseVolume  , exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+        bindel = , XF86AudioLowerVolume  , exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+        bindel = , XF86AudioMute         , exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+        bindel = , XF86AudioMicMute      , exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+        bindel = , XF86MonBrightnessUp   , exec, ${pkgs.brightnessctl}/bin/brightnessctl s 10%+
+        bindel = , XF86MonBrightnessDown , exec, ${pkgs.brightnessctl}/bin/brightnessctl s 10%-
+
+        bindl =  , XF86AudioNext         , exec, ${pkgs.playerctl}/bin/playerctl next
+        bindl =  , XF86AudioPause        , exec, ${pkgs.playerctl}/bin/playerctl play-pause
+        bindl =  , XF86AudioPlay         , exec, ${pkgs.playerctl}/bin/playerctl play-pause
+        bindl =  , XF86AudioPrev         , exec, ${pkgs.playerctl}/bin/playerctl previous
 
         windowrulev2 = suppressevent maximize, class:.*
         windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
 
         general {
-          gaps_in = 5
-          gaps_out = 20
-          border_size = 2
-          col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+          gaps_in             = 5
+          gaps_out            = 20
+          border_size         = 2
+          col.active_border   = rgba(33ccffee) rgba(00ff99ee) 45deg
           col.inactive_border = rgba(595959aa)
-          resize_on_border = false
-          allow_tearing = false
-          layout = dwindle
+          resize_on_border    = false
+          allow_tearing       = false
+          layout              = dwindle
         }
 
         decoration {
-            rounding = 10
-            active_opacity = 1.0
-            inactive_opacity = 1.0
-            drop_shadow = true
-            shadow_range = 4
+            rounding            = 10
+            active_opacity      = 1.0
+            inactive_opacity    = 1.0
+            drop_shadow         = true
+            shadow_range        = 4
             shadow_render_power = 3
-            col.shadow = rgba(1a1a1aee)
+            col.shadow          = rgba(1a1a1aee)
+
             blur {
-              enabled = true
-              size = 3
-              passes = 1
-              vibrancy = 0.1696
+              enabled   = true
+              size      = 3
+              passes    = 1
+              vibrancy  = 0.1696
             }
         }
 
         dwindle {
-            pseudotile = true
+            pseudotile     = true
             preserve_split = true
         }
 
         animations {
-            enabled = true
-            bezier = myBezier, 0.05, 0.9, 0.1, 1.05
+            enabled   = true
+            bezier    = myBezier, 0.05, 0.9, 0.1, 1.05
             animation = windows, 1, 7, myBezier
             animation = windowsOut, 1, 7, default, popin 80%
             animation = border, 1, 10, default
@@ -219,8 +221,8 @@ in
         }
 
         misc {
-            force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
-            disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background. :(
+            force_default_wallpaper = 0
+            disable_hyprland_logo   = true
         }
 
         gestures {
@@ -228,20 +230,20 @@ in
         }
 
         device {
-            name = epic-mouse-v1
+            name        = epic-mouse-v1
             sensitivity = -0.5
         }
 
         input {
-          kb_layout = us
-          kb_variant =
-          kb_model =
-          kb_options = ctrl:nocaps
-          kb_rules =
-          follow_mouse = 1
-          sensitivity = 0
+          kb_layout           = us
+          kb_variant          =
+          kb_model            =
+          kb_options          = ctrl:nocaps
+          kb_rules            =
+          follow_mouse        = 1
+          sensitivity         = 0
           touchpad {
-              natural_scroll = false
+              natural_scroll  = false
           }
         }
       '';
