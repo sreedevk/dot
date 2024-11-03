@@ -116,7 +116,7 @@ in
             format-bluetooth = "󰂰";
             nospacing = 1;
             tooltip = false;
-            format-muted = "󰝟";
+            format-muted = "muted";
             format-icons = {
               headphone = "";
               default = [ "󰕿" "󰖀" "󰕾" "󰕾" "󰕾" ];

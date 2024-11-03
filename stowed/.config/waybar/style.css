@@ -76,6 +76,10 @@ window#waybar.hidden {
   color: #cad3f5;
 }
 
+#wireplumber.muted {
+  color: #a6da95;
+}
+
 #network {
   background-color: transparent;
   padding-right: 17px;
