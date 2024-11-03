@@ -1,31 +1,81 @@
 { pkgs, config, ... }:
 let
-  monitor-configs = [
-    {
-      name = "eDP-1";
-      resolution = { x = 1920; y = 1200; };
-      position = { x = 0; y = 1080; };
-      rate = 60;
-      scale = 1;
-    }
-    {
-      name = "DP-3";
-      resolution = { x = 1920; y = 1080; };
-      position = { x = 0; y = 0; };
-      rate = 60;
-      scale = 1;
-    }
-    {
-      name = "DP-2";
-      resolution = { x = 3840; y = 2160; };
-      position = { x = 1920; y = 0; };
-      rate = 60;
-      scale = 1;
-    }
-  ];
+  hyprconf = {
+    mod-key = "SUPER";
+    terminal = "alacritty";
+    filemanager = "nemo";
+    menu = "rofi -show drun";
+    envs = {
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      __NV_PRIME_RENDER_OFFLOAD = "1";
+      LIBVA_DRIVER_NAME = "nvidia";
+      XDG_SESSION_TYPE = "wayland";
+      GBM_BACKEND = "nvidia-drm";
+      XCURSOR_SIZE = "12";
+      HYPRCURSOR_SIZE = "12";
+      AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
+      XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
+      GDK_SCALE = "1.2";
+      GDK_DPI_SCALE = "1.2";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1.1";
+      QT_SCALE_FACTOR = "1.1";
+      WINIT_X11_SCALE_FACTOR = "1.1";
+    };
 
-  monitor = conf: "monitor = ${conf.name}, ${conf.resolution.x}x${conf.resolution.y}@${conf.rate}, ${conf.position.x}x${conf.position.y}, ${conf.scale}";
-  monitors = builtins.concatStringsSep "\n" (builtins.map monitor monitor-configs);
+    exec-once = [
+      "waybar"
+      "dunst"
+      "hyprpaper"
+    ];
+
+    monitors = [
+      {
+        name = "eDP-1";
+        resolution = { x = 1920; y = 1200; };
+        position = { x = 0; y = 1080; };
+        rate = 60;
+        scale = 1;
+      }
+      {
+        name = "DP-3";
+        resolution = { x = 1920; y = 1080; };
+        position = { x = 0; y = 0; };
+        rate = 60;
+        scale = 1;
+      }
+      {
+        name = "DP-2";
+        resolution = { x = 3840; y = 2160; };
+        position = { x = 1920; y = 0; };
+        rate = 60;
+        scale = 1;
+      }
+    ];
+  };
+
+  genEnvs =
+    envs: builtins.concatStringsSep "\n"
+      (builtins.attrValues
+        (builtins.mapAttrs (key: value: "env = ${key},${value}") envs));
+
+  genExecOnces =
+    exec-onces: builtins.concatStringsSep "\n" (builtins.map (program: "exec-once = ${program}") exec-onces);
+
+  genMonitors =
+    monitors:
+    let
+      genMonitor =
+        monitor:
+        let
+          res = "${builtins.toString monitor.resolution.x}x${builtins.toString monitor.resolution.y}";
+          position = "${builtins.toString monitor.position.x}x${builtins.toString monitor.position.y}";
+          rate = builtins.toString monitor.rate;
+          scale = builtins.toString monitor.scale;
+          rhs = builtins.concatStringsSep ", " [ monitor.name "${res}@${rate}" position scale ];
+        in
+        "monitor = ${rhs}";
+    in
+    builtins.concatStringsSep "\n" (builtins.map genMonitor monitors);
 in
 {
 
@@ -35,60 +85,40 @@ in
     ".config/hypr/hyprland.conf" = {
       enable = true;
       text = ''
-        ${monitors}
+        ${genMonitors  hyprconf.monitors}
+        ${genExecOnces hyprconf.exec-once}
+        ${genEnvs      hyprconf.envs}
 
-        exec-once = waybar 
-        exec-once = dunst
-        exec-once = hyprpaper
-
-        env = LIBVA_DRIVER_NAME,nvidia
-        env = XDG_SESSION_TYPE,wayland
-        env = GBM_BACKEND,nvidia-drm
-        env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-        env = __NV_PRIME_RENDER_OFFLOAD,1
-        env = XCURSOR_SIZE,12
-        env = HYPRCURSOR_SIZE,12
-        env = AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1
-
-
-        env = XDG_DATA_DIRS,"$HOME/.nix-profile/share:$XDG_DATA_DIRS"
-        env = GDK_SCALE,1.2
-        env = GDK_DPI_SCALE,1.2
-        env = QT_AUTO_SCREEN_SCALE_FACTOR,1.1
-        env = QT_SCALE_FACTOR,1.1
-        env = WINIT_X11_SCALE_FACTOR,1.1
+        $terminal    = ${hyprconf.terminal}
+        $fileManager = ${hyprconf.filemanager}
+        $menu        = ${hyprconf.menu}
+        $mainMod     = ${hyprconf.mod-key}
 
         cursor {
             no_hardware_cursors = true
         }
 
-        $terminal = alacritty
-        $fileManager = nemo
-        $menu = rofi -show drun
-        
         xwayland {
           force_zero_scaling = true
         }
-
-
-        $mainMod = SUPER
 
         bind = $mainMod, Return, exec, $terminal
         bind = $mainMod SHIFT, Q, killactive
         bind = $mainMod SHIFT, E, exit
         bind = $mainMod SHIFT, Space, togglefloating
         bind = $mainMod, F, fullscreen
-
         bind = $mainMod, D, exec, $menu
-        bind = $mainMod, left, movefocus, l
+
         bind = $mainMod, H, movefocus, l
-        bind = $mainMod SHIFT, H, swapwindow, l
         bind = $mainMod, L, movefocus, r
-        bind = $mainMod SHIFT, L, swapwindow, r
         bind = $mainMod, K, movefocus, u
-        bind = $mainMod SHIFT, K, swapwindow, u
         bind = $mainMod, J, movefocus, d
+
+        bind = $mainMod SHIFT, H, swapwindow, l
+        bind = $mainMod SHIFT, L, swapwindow, r
+        bind = $mainMod SHIFT, K, swapwindow, u
         bind = $mainMod SHIFT, J, swapwindow, d
+
         bind = $mainMod, 1, workspace, 1
         bind = $mainMod, 2, workspace, 2
         bind = $mainMod, 3, workspace, 3
@@ -99,6 +129,7 @@ in
         bind = $mainMod, 8, workspace, 8
         bind = $mainMod, 9, workspace, 9
         bind = $mainMod, 0, workspace, 10
+
         bind = $mainMod SHIFT, 1, movetoworkspace, 1
         bind = $mainMod SHIFT, 2, movetoworkspace, 2
         bind = $mainMod SHIFT, 3, movetoworkspace, 3
@@ -109,12 +140,10 @@ in
         bind = $mainMod SHIFT, 8, movetoworkspace, 8
         bind = $mainMod SHIFT, 9, movetoworkspace, 9
         bind = $mainMod SHIFT, 0, movetoworkspace, 10
+
         # bind = $mainMod, S, togglespecialworkspace, magic
         # bind = $mainMod SHIFT, Sa movetoworkspace, special:magic
-        bind = $mainMod, mouse_down, workspace, e+1
-        bind = $mainMod, mouse_up, workspace, e-1
-        bindm = $mainMod, mouse:272, movewindow
-        bindm = $mainMod, mouse:273, resizewindow
+
         bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
         bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
         bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
@@ -125,6 +154,7 @@ in
         bindl = , XF86AudioPause, exec, playerctl play-pause
         bindl = , XF86AudioPlay, exec, playerctl play-pause
         bindl = , XF86AudioPrev, exec, playerctl previous
+
         windowrulev2 = suppressevent maximize, class:.*
         windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
 
@@ -138,6 +168,7 @@ in
           allow_tearing = false
           layout = dwindle
         }
+
         decoration {
             rounding = 10
             active_opacity = 1.0
@@ -154,11 +185,11 @@ in
             }
         }
 
-
         dwindle {
             pseudotile = true
             preserve_split = true
         }
+
         animations {
             enabled = true
             bezier = myBezier, 0.05, 0.9, 0.1, 1.05

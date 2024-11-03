@@ -1,4 +1,4 @@
-{ pkgs, config, opts }:
+{ pkgs, config, opts, ... }:
 {
   home.file = {
     ".config/hypr/hyprpaper.conf" = {

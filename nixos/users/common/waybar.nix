@@ -9,7 +9,7 @@ in
   home.file = {
     ".config/waybar/config" = {
       enable = true;
-      source = builtins.toJSON
+      text = builtins.toJSON
         {
           layer = "top";
           position = "top";
