@@ -120,6 +120,7 @@ in
         bind = $mainMod, D, exec, $menu
 
         bind = CTRL, Space, exec, ${pkgs.dunst}/bin/dunstctl close-all
+        bind = $mainMod, N, exec, ${pkgs.dunst}/bin/dunstctl set-paused toggle
 
         bind = $mainMod, H, movefocus, l
         bind = $mainMod, L, movefocus, r
@@ -153,10 +154,8 @@ in
         bind = $mainMod SHIFT, 9, movetoworkspace, 9
         bind = $mainMod SHIFT, 0, movetoworkspace, 10
 
-        # bind = $mainMod, S, togglespecialworkspace, magic
-        # bind = $mainMod SHIFT, Sa movetoworkspace, special:magic
-
         bind = $mainMod SHIFT, S, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | wl-copy
+
         bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
         bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
         bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
