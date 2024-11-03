@@ -2,15 +2,14 @@
 let
   walldir = "~/Media/wallpapers";
   wallpaper = "${walldir}/park.jpg";
+
   hyprpaperConf =
-    builtins.concatStringsSep
-      "\n"
+    builtins.concatStringsSep "\n"
       [
         "preload = ${wallpaper}"
         "splash = true"
-        (builtins.map
-          (monitor: "wallpaper = desc:${monitor.desc},${wallpaper}")
-          opts.hyprland.monitors)
+        (builtins.concatStringsSep "\n"
+          (builtins.map (monitor: "wallpaper = desc:${monitor.desc},${wallpaper}") opts.hyprland.monitors))
       ];
 in
 {
