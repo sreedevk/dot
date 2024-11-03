@@ -70,11 +70,11 @@ openssh
 openssl-1.1
 openvpn
 os-prober
+pamixer
 parallel
 pavucontrol
 picom
 pipewire-alsa
-pipewire-media-session
 pipewire-pulse
 pipewire-v4l2
 polkit-qt6
@@ -116,6 +116,8 @@ waybar
 webkit2gtk
 wireguard-tools
 wireless_tools
+wireplumber
+wl-clipboard
 wmctrl
 xclip
 xdg-desktop-portal-hyprland

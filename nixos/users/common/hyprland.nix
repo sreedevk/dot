@@ -4,15 +4,16 @@ let
     mod-key = "SUPER";
     terminal = "alacritty";
     filemanager = "nemo";
-    menu = "rofi -show drun";
+    menu = "${pkgs.rofi}/bin/rofi -show drun";
+    window_switcher = "${pkgs.rofi}/bin/rofi -show window";
     envs = {
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       __NV_PRIME_RENDER_OFFLOAD = "1";
       LIBVA_DRIVER_NAME = "nvidia";
       XDG_SESSION_TYPE = "wayland";
       GBM_BACKEND = "nvidia-drm";
-      XCURSOR_SIZE = "16";
-      HYPRCURSOR_SIZE = "16";
+      XCURSOR_SIZE = "28";
+      HYPRCURSOR_SIZE = "28";
       AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
       XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
       GDK_SCALE = "1";
@@ -27,6 +28,8 @@ let
       "dunst"
       "hyprpaper"
     ];
+
+    exec = [ ];
 
     monitors = [
       {
@@ -58,8 +61,11 @@ let
       (builtins.attrValues
         (builtins.mapAttrs (key: value: "env = ${key},${value}") envs));
 
-  genExecOnces =
-    exec-onces: builtins.concatStringsSep "\n" (builtins.map (program: "exec-once = ${program}") exec-onces);
+  genExec =
+    exectype: pgms: builtins.concatStringsSep "\n" (builtins.map (program: "${exectype} = ${program}") pgms);
+
+  genExecOnce = genExec "exec-once";
+  genExecAlways = genExec "exec";
 
   genMonitors =
     monitors:
@@ -85,14 +91,16 @@ in
     ".config/hypr/hyprland.conf" = {
       enable = true;
       text = ''
-        ${genMonitors  hyprconf.monitors}
-        ${genExecOnces hyprconf.exec-once}
-        ${genEnvs      hyprconf.envs}
+        ${genMonitors   hyprconf.monitors}
+        ${genExecOnce   hyprconf.exec-once}
+        ${genExecAlways hyprconf.exec}
+        ${genEnvs       hyprconf.envs}
 
-        $terminal    = ${hyprconf.terminal}
-        $fileManager = ${hyprconf.filemanager}
-        $menu        = ${hyprconf.menu}
-        $mainMod     = ${hyprconf.mod-key}
+        $terminal        = ${hyprconf.terminal}
+        $fileManager     = ${hyprconf.filemanager}
+        $menu            = ${hyprconf.menu}
+        $window_switcher = ${hyprconf.window_switcher}
+        $mainMod         = ${hyprconf.mod-key}
 
         cursor {
             no_hardware_cursors = true
@@ -103,11 +111,15 @@ in
         }
 
         bind = $mainMod, Return, exec, $terminal
+        bind = $mainMod, KP_Enter, exec, $terminal
         bind = $mainMod SHIFT, Q, killactive
         bind = $mainMod SHIFT, E, exit
+        bind = $mainMod, Tab, exec, $window_switcher
         bind = $mainMod SHIFT, Space, togglefloating
         bind = $mainMod, F, fullscreen
         bind = $mainMod, D, exec, $menu
+
+        bind = CTRL, Space, exec, ${pkgs.dunst}/bin/dunstctl close-all
 
         bind = $mainMod, H, movefocus, l
         bind = $mainMod, L, movefocus, r
@@ -144,16 +156,17 @@ in
         # bind = $mainMod, S, togglespecialworkspace, magic
         # bind = $mainMod SHIFT, Sa movetoworkspace, special:magic
 
+        bind = $mainMod SHIFT, S, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | wl-copy
         bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
         bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
         bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
         bindel = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-        bindel = ,XF86MonBrightnessUp, exec, brightnessctl s 10%+
-        bindel = ,XF86MonBrightnessDown, exec, brightnessctl s 10%-
-        bindl = , XF86AudioNext, exec, playerctl next
-        bindl = , XF86AudioPause, exec, playerctl play-pause
-        bindl = , XF86AudioPlay, exec, playerctl play-pause
-        bindl = , XF86AudioPrev, exec, playerctl previous
+        bindel = ,XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl s 10%+
+        bindel = ,XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl s 10%-
+        bindl = , XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next
+        bindl = , XF86AudioPause, exec, ${pkgs.playerctl}/bin/playerctl play-pause
+        bindl = , XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause
+        bindl = , XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous
 
         windowrulev2 = suppressevent maximize, class:.*
         windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
