@@ -150,7 +150,7 @@ in
           "custom/dnd" = {
             format = "{}";
             exec = "${dnd-script}/bin/dnd";
-            restart-interval = 5;
+            restart-interval = 2;
           };
           "battery" = {
             format = "{capacity}% {icon}";
