@@ -7,10 +7,11 @@ in
     enable = true;
     package = nixglmod.nixGLWrapped pkgs.obs-studio "obs";
     plugins = with pkgs.obs-studio-plugins; [
+      droidcam-obs
       obs-backgroundremoval
       obs-pipewire-audio-capture
-      droidcam-obs
       waveform
+      wlrobs
     ];
   };
 }
