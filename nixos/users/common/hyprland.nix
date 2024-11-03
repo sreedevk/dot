@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, opts, ... }:
 let
   hyprconf = {
     mod-key = "SUPER";
@@ -30,30 +30,6 @@ let
     ];
 
     exec = [ ];
-
-    monitors = [
-      {
-        name = "eDP-1";
-        resolution = { x = 1920; y = 1200; };
-        position = { x = 0; y = 1080; };
-        rate = 60;
-        scale = 1;
-      }
-      {
-        name = "DP-3";
-        resolution = { x = 1920; y = 1080; };
-        position = { x = 0; y = 0; };
-        rate = 60;
-        scale = 1;
-      }
-      {
-        name = "DP-2";
-        resolution = { x = 3840; y = 2160; };
-        position = { x = 1920; y = 0; };
-        rate = 60;
-        scale = 1.33333;
-      }
-    ];
   };
 
   genEnvs =
@@ -77,7 +53,7 @@ let
           position = "${builtins.toString monitor.position.x}x${builtins.toString monitor.position.y}";
           rate = builtins.toString monitor.rate;
           scale = builtins.toString monitor.scale;
-          rhs = builtins.concatStringsSep ", " [ monitor.name "${res}@${rate}" position scale ];
+          rhs = builtins.concatStringsSep ", " [ "desc:${monitor.desc}" "${res}@${rate}" position scale ];
         in
         "monitor = ${rhs}";
     in
@@ -91,7 +67,7 @@ in
     ".config/hypr/hyprland.conf" = {
       enable = true;
       text = ''
-        ${genMonitors   hyprconf.monitors}
+        ${genMonitors   opts.hyprland.monitors}
         ${genExecOnce   hyprconf.exec-once}
         ${genExecAlways hyprconf.exec}
         ${genEnvs       hyprconf.envs}
