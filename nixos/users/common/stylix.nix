@@ -20,7 +20,7 @@
         applications = 14;
         desktop = 14;
         popups = 18;
-        terminal = 22;
+        terminal = 14;
       };
 
       serif = {

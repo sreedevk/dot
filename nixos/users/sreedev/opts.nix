@@ -29,7 +29,7 @@
         resolution = { x = 3840; y = 2160; };
         position = { x = 1920; y = 0; };
         rate = 60;
-        scale = 1.33333;
+        scale = 1.6;
       }
     ];
   };
