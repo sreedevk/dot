@@ -19,6 +19,7 @@
         env = __NV_PRIME_RENDER_OFFLOAD,1
         env = XCURSOR_SIZE,12
         env = HYPRCURSOR_SIZE,12
+        env = AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1
 
 
         env = XDG_DATA_DIRS,"$HOME/.nix-profile/share:$XDG_DATA_DIRS"
