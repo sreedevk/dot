@@ -11,15 +11,15 @@ let
       LIBVA_DRIVER_NAME = "nvidia";
       XDG_SESSION_TYPE = "wayland";
       GBM_BACKEND = "nvidia-drm";
-      XCURSOR_SIZE = "12";
-      HYPRCURSOR_SIZE = "12";
+      XCURSOR_SIZE = "16";
+      HYPRCURSOR_SIZE = "16";
       AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
       XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
-      GDK_SCALE = "1.2";
-      GDK_DPI_SCALE = "1.2";
-      QT_AUTO_SCREEN_SCALE_FACTOR = "1.1";
-      QT_SCALE_FACTOR = "1.1";
-      WINIT_X11_SCALE_FACTOR = "1.1";
+      GDK_SCALE = "1";
+      GDK_DPI_SCALE = "1";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+      QT_SCALE_FACTOR = "1";
+      WINIT_X11_SCALE_FACTOR = "1";
     };
 
     exec-once = [
@@ -48,7 +48,7 @@ let
         resolution = { x = 3840; y = 2160; };
         position = { x = 1920; y = 0; };
         rate = 60;
-        scale = 1;
+        scale = 1.33333;
       }
     ];
   };
