@@ -32,36 +32,34 @@ in
           ];
     };
 
-    ".config/hypr/hyprland.conf" = {
+    ".config/hypr/general.conf" = {
       enable = true;
       text = ''
-        source = ~/.config/hypr/monitors.conf
-        source = ~/.config/hypr/envs.conf
-        source = ~/.config/hypr/keybinds.conf
-        source = ~/.config/hypr/execs.conf
-
-        cursor {
-            no_hardware_cursors = true
-        }
-
-        xwayland {
-          force_zero_scaling = true
-        }
-
-        windowrulev2 = suppressevent maximize, class:.*
-        windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
-
         general {
           gaps_in             = 5
           gaps_out            = 20
           border_size         = 2
-          col.active_border   = rgba(33ccffee) rgba(00ff99ee) 45deg
-          col.inactive_border = rgba(595959aa)
           resize_on_border    = false
           allow_tearing       = false
           layout              = dwindle
+          col.active_border   = rgba (33ccffee) rgba (00ff99ee) 45deg
+          col.inactive_border = rgba (595959aa)
         }
+      '';
+    };
 
+    ".config/hypr/cursor.conf" = {
+      enable = true;
+      text = ''
+        cursor {
+            no_hardware_cursors = true
+        }
+      '';
+    };
+
+    ".config/hypr/decoration.conf" = {
+      enable = true;
+      text = ''
         decoration {
             rounding            = 10
             active_opacity      = 1.0
@@ -78,12 +76,12 @@ in
               vibrancy  = 0.1696
             }
         }
+      '';
+    };
 
-        dwindle {
-            pseudotile     = true
-            preserve_split = true
-        }
-
+    ".config/hypr/animations.conf" = {
+      enable = true;
+      text = ''
         animations {
             enabled   = true
             bezier    = myBezier, 0.05, 0.9, 0.1, 1.05
@@ -94,6 +92,33 @@ in
             animation = fade, 1, 7, default
             animation = workspaces, 1, 6, default
         }
+      '';
+    };
+
+    ".config/hypr/hyprland.conf" = {
+      enable = true;
+      text = ''
+        source = ~/.config/hypr/monitors.conf
+        source = ~/.config/hypr/envs.conf
+        source = ~/.config/hypr/keybinds.conf
+        source = ~/.config/hypr/execs.conf
+        source = ~/.config/hypr/general.conf
+        source = ~/.config/hypr/cursor.conf
+        source = ~/.config/hypr/decoration.conf
+        source = ~/.config/hypr/animations.conf
+
+        xwayland {
+          force_zero_scaling = true
+        }
+
+        windowrulev2 = suppressevent maximize, class:.*
+        windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+
+        dwindle {
+            pseudotile     = true
+            preserve_split = true
+        }
+
 
         master {
             new_status = master
