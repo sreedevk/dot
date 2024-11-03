@@ -62,6 +62,10 @@ window#waybar.hidden {
   color: #181825;
 }
 
+#custom-dnd {
+  color: #cad3f5;
+}
+
 #custom-logo {
   padding-right: 7px;
   padding-left: 7px;
@@ -72,6 +76,12 @@ window#waybar.hidden {
 }
 
 #custom-memory {
+  background-color: transparent;
+  color: #cad3f5;
+  padding: 0px 10px;
+}
+
+#custom-gpu {
   background-color: transparent;
   color: #cad3f5;
   padding: 0px 10px;
