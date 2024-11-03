@@ -65,22 +65,19 @@ window#waybar.hidden {
   color: #181825;
 }
 
-#custom-power {
-  margin-right: 6px;
-}
-
 #custom-logo {
   padding-right: 7px;
   padding-left: 7px;
   margin-left: 5px;
   font-size: 15px;
   border-radius: 8px 0px 0px 8px;
-  color: #1793d1;
+  color: #cad3f5;
 }
 
-#memory {
+#custom-memory {
   background-color: transparent;
   color: #cad3f5;
+  padding: 0px 10px;
 }
 
 #battery {
@@ -104,7 +101,8 @@ window#waybar.hidden {
 }
 
 #wireplumber {
-  background-color: #f9e2af;
+  background-color: transparent;
+  color: #cad3f5;
 }
 
 #network {
@@ -114,7 +112,8 @@ window#waybar.hidden {
 
 #clock {
   font-family: JetBrainsMono Nerd Font;
-  background-color: #cba6f7;
+  background-color: transparent;
+  color: #cad3f5;
 }
 
 #custom-power {
