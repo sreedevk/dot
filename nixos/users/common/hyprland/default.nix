@@ -4,7 +4,7 @@ let
   utils = import ./utils.nix;
 in
 {
-  imports = [ ../waybar.nix ../hyprpaper.nix ];
+  imports = [ ../waybar ../hyprpaper.nix ];
 
   home.file = {
     ".config/hypr/monitors.conf" = {
