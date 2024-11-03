@@ -118,6 +118,7 @@ in
         bind = $mainMod SHIFT, Space, togglefloating
         bind = $mainMod, F, fullscreen
         bind = $mainMod, D, exec, $menu
+        bind = $mainMod SHIFT, C, exec, hyprctl reload
 
         bind = CTRL, Space, exec, ${pkgs.dunst}/bin/dunstctl close-all
         bind = $mainMod, N, exec, ${pkgs.dunst}/bin/dunstctl set-paused toggle
