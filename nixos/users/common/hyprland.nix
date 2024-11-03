@@ -64,10 +64,15 @@ in
   imports = [ ./waybar.nix ./hyprpaper.nix ];
 
   home.file = {
+    ".config/hypr/monitors.conf" = {
+      enable = true;
+      text = genMonitors opts.hyprland.monitors;
+    };
+
     ".config/hypr/hyprland.conf" = {
       enable = true;
       text = ''
-        ${genMonitors   opts.hyprland.monitors}
+        source = ~/.config/hypr/monitors.conf
         ${genExecOnce   hyprconf.exec-once}
         ${genExecAlways hyprconf.exec}
         ${genEnvs       hyprconf.envs}
