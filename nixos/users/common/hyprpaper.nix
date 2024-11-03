@@ -2,6 +2,7 @@
 let
   walldir = "~/Media/wallpapers";
   wallpaper = "${walldir}/park.jpg";
+  hyprconf = import ./hyprland/opts.nix { inherit pkgs config opts; };
 
   hyprpaperConf =
     builtins.concatStringsSep "\n"
@@ -9,7 +10,7 @@ let
         "preload = ${wallpaper}"
         "splash = true"
         (builtins.concatStringsSep "\n"
-          (builtins.map (monitor: "wallpaper = desc:${monitor.desc},${wallpaper}") opts.hyprland.monitors))
+          (builtins.map (monitor: "wallpaper = desc:${monitor.desc},${wallpaper}") hyprconf.monitors))
       ];
 in
 {
