@@ -47,48 +47,64 @@ window#waybar.hidden {
   background-color: #f38ba8;
 }
 
-#memory,
-#custom-power,
+#custom-memory,
 #battery,
-#backlight,
 #wireplumber,
 #network,
 #clock,
 #tray {
-  border-radius: 4px;
-  margin: 6px 3px;
+  border-radius: 0px;
+  margin: 5px 5px;
   padding: 6px 12px;
   background-color: #1e1e2e;
   color: #181825;
-}
-
-#custom-dnd {
-  color: #cad3f5;
 }
 
 #custom-logo {
   padding-right: 7px;
   padding-left: 7px;
   margin-left: 5px;
-  font-size: 15px;
-  border-radius: 8px 0px 0px 8px;
+  font-size: 16px;
   color: #cad3f5;
+}
+
+#custom-dnd {
+  color: #cad3f5;
+  border-right: 1px solid #5b6268;
+  background-color: transparent;
+  margin: 10px 5px;
+  padding: 0px 10px;
 }
 
 #custom-memory {
   background-color: transparent;
   color: #cad3f5;
-  padding: 0px 10px;
+  margin: 10px 5px;
+  padding-right: 10px;
+  padding-left: 15px;
+  border-left: 1px solid #5b6268;
+}
+
+#custom-cpu-temp {
+  background-color: transparent;
+  color: #cad3f5;
+  margin: 8px 5px;
+  padding-right: 10px;
+  padding-left: 15px;
+  border-left: 1px solid #5b6268;
 }
 
 #custom-gpu {
   background-color: transparent;
   color: #cad3f5;
-  padding: 0px 10px;
+  padding-right: 10px;
+  padding-left: 15px;
+  margin: 8px 5px;
+  border-left: 1px solid #5b6268;
 }
 
 #battery {
-  background-color: #f38ba8;
+  background-color: transparent;
 }
 
 #battery.warning,
@@ -103,17 +119,13 @@ window#waybar.hidden {
   color: #181825;
 }
 
-#backlight {
-  background-color: #fab387;
-}
-
 #wireplumber {
   background-color: transparent;
   color: #cad3f5;
 }
 
 #network {
-  background-color: #94e2d5;
+  background-color: transparent;
   padding-right: 17px;
 }
 
@@ -121,6 +133,7 @@ window#waybar.hidden {
   font-family: CozetteVector Nerd Font;
   background-color: transparent;
   color: #cad3f5;
+  font-size: 14px;
 }
 
 tooltip {

@@ -1,12 +1,41 @@
 { pkgs, config, ... }:
+let
+  monitor-configs = [
+    {
+      name = "eDP-1";
+      resolution = { x = 1920; y = 1200; };
+      position = { x = 0; y = 1080; };
+      rate = 60;
+      scale = 1;
+    }
+    {
+      name = "DP-3";
+      resolution = { x = 1920; y = 1080; };
+      position = { x = 0; y = 0; };
+      rate = 60;
+      scale = 1;
+    }
+    {
+      name = "DP-2";
+      resolution = { x = 3840; y = 2160; };
+      position = { x = 1920; y = 0; };
+      rate = 60;
+      scale = 1;
+    }
+  ];
+
+  monitor = conf: "monitor = ${conf.name}, ${conf.resolution.x}x${conf.resolution.y}@${conf.rate}, ${conf.position.x}x${conf.position.y}, ${conf.scale}";
+  monitors = builtins.concatStringsSep "\n" (builtins.map monitor monitor-configs);
+in
 {
+
+  imports = [ ./waybar.nix ./hyprpaper.nix ];
+
   home.file = {
     ".config/hypr/hyprland.conf" = {
       enable = true;
       text = ''
-        monitor = DP-2,  3840x2160@60, 1920x0, 1
-        monitor = DP-3,  1920x1080@60, 0x0, 1
-        monitor = eDP-1, 1920x1200@60, 0x1080, 1
+        ${monitors}
 
         exec-once = waybar 
         exec-once = dunst
@@ -171,20 +200,6 @@
               natural_scroll = false
           }
         }
-      '';
-    };
-
-    ".config/hypr/hyprpaper.conf" = {
-      enable = true;
-      text = ''
-        preload = ~/Media/wallpapers/foresty-beach.jpg
-        preload = ~/Media/wallpapers/japanese-building.png
-        preload = ~/Media/wallpapers/grass.jpg
-        wallpaper = DP-2,~/Media/wallpapers/foresty-beach.jpg
-        wallpaper = DP-3,~/Media/wallpapers/japanese-building.png
-        wallpaper = eDP-1,~/Media/wallpapers/grass.jpg
-        splash = true
-        # ipc = off
       '';
     };
   };
