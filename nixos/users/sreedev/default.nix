@@ -29,6 +29,7 @@
     ../common/obs.nix
     ../common/opentabletdriver.nix
     ../common/radicle.nix
+    ../common/slack.nix
     ../common/spotube.nix
     ../common/stylix.nix
     ../common/taskwarrior.nix
@@ -91,7 +92,6 @@
       qrencode
       rofi
       scdl
-      slack
       sonic-pi
       tea
       texliveFull
