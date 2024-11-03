@@ -8,7 +8,7 @@
         monitor = DP-3,  1920x1080@60, 0x0, 1
         monitor = eDP-1, 1920x1200@60, 0x1080, 1
 
-
+        exec-once = waybar 
         exec-once = dunst
         exec-once = hyprpaper
 
