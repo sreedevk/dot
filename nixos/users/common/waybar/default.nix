@@ -75,10 +75,10 @@ in
           network = {
             format-wifi = "{icon}";
             format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
-            format-ethernet = "󰀂 {essid} ({ipaddr})";
-            format-alt = "󱛇  {essid} ({ipaddr})";
+            format-ethernet = "󰀂  {ipaddr}";
+            format-alt = "󱛇  {essid} {ipaddr}";
             format-disconnected = "󰖪";
-            tooltip-format-wifi = "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}";
+            tooltip-format-wifi = "{icon} {essid}\n ";
             tooltip-format-ethernet = "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}";
             tooltip-format-disconnected = "Disconnected";
             interval = 5;
