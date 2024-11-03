@@ -24,8 +24,8 @@ window#waybar.hidden {
   all: initial;
   min-width: 0;
   box-shadow: inset 0 -3px transparent;
-  padding: 5px 10px;
-  margin: 5px 0px;
+  padding: 2px 15px;
+  margin: 2px;
   border-radius: 5px;
   background-color: #1e1e2e;
   color: #cdd6f4;
@@ -47,64 +47,58 @@ window#waybar.hidden {
   background-color: #f38ba8;
 }
 
-#custom-memory,
-#battery,
-#wireplumber,
-#network,
-#clock,
-#tray {
-  border-radius: 0px;
-  margin: 5px 5px;
-  padding: 6px 12px;
-  background-color: #1e1e2e;
-  color: #181825;
-}
-
 #custom-logo {
-  padding-right: 7px;
-  padding-left: 7px;
-  margin-left: 5px;
-  font-size: 16px;
+  padding: 2px 15px;
+  margin: 2px;
+  font-size: 18px;
   color: #cad3f5;
 }
 
-#custom-dnd {
+#custom-separator {
+  color: #5b6268;
+  margin: 0px 5px;
+}
+
+#custom-dnd,
+#custom-memory,
+#custom-cpu-temp,
+#custom-gpu,
+#network
+{
+  margin: 0px;
+  padding: 0px;
   color: #cad3f5;
-  border-right: 1px solid #5b6268;
   background-color: transparent;
-  margin: 10px 5px;
+}
+
+#wireplumber {
+  background-color: transparent;
+  color: #cad3f5;
+}
+
+#network {
+  background-color: transparent;
+  padding-right: 17px;
+}
+
+#tray {
   padding: 0px 10px;
+  margin: 0px 5px;
 }
 
-#custom-memory {
+#clock {
+  font-family: CozetteVector Nerd Font;
   background-color: transparent;
   color: #cad3f5;
-  margin: 10px 5px;
-  padding-right: 10px;
-  padding-left: 15px;
-  border-left: 1px solid #5b6268;
-}
-
-#custom-cpu-temp {
-  background-color: transparent;
-  color: #cad3f5;
-  margin: 8px 5px;
-  padding-right: 10px;
-  padding-left: 15px;
-  border-left: 1px solid #5b6268;
-}
-
-#custom-gpu {
-  background-color: transparent;
-  color: #cad3f5;
-  padding-right: 10px;
-  padding-left: 15px;
-  margin: 8px 5px;
-  border-left: 1px solid #5b6268;
+  font-size: 14px;
+  padding: 0px 10px;
+  margin: 0px 5px;
 }
 
 #battery {
   background-color: transparent;
+  padding: 0px 10px;
+  margin: 0px 5px;
 }
 
 #battery.warning,
@@ -119,22 +113,6 @@ window#waybar.hidden {
   color: #181825;
 }
 
-#wireplumber {
-  background-color: transparent;
-  color: #cad3f5;
-}
-
-#network {
-  background-color: transparent;
-  padding-right: 17px;
-}
-
-#clock {
-  font-family: CozetteVector Nerd Font;
-  background-color: transparent;
-  color: #cad3f5;
-  font-size: 14px;
-}
 
 tooltip {
   border-radius: 8px;
