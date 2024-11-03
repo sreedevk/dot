@@ -2,12 +2,12 @@
   border: none;
   border-radius: 0;
   min-height: 0;
-  font-family: JetBrainsMono Nerd Font;
+  font-family: Iosevka NF;
   font-size: 13px;
 }
 
 window#waybar {
-  background-color: #181825;
+  background-color: #1e2030;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -79,7 +79,8 @@ window#waybar.hidden {
 }
 
 #memory {
-  background-color: #fab387;
+  background-color: transparent;
+  color: #cad3f5;
 }
 
 #battery {

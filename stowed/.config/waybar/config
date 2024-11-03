@@ -8,15 +8,18 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "clock"
+        "custom/dnd",
+        "wireplumber"
+        "custom/memory",
+        "custom/gpu",
+        "custom/cpu-temp",
+        "custom/network"
     ],
     "modules-right": [
-        "tray",
-        "memory",
-        "network",
-        "wireplumber",
+        "clock",
         "battery",
-        "custom/power"
+        "custom/power",
+        "tray"
     ],
     "wlr/taskbar": {
         "format": "{icon}",
@@ -49,18 +52,13 @@
             "5": []
         }
     },
-    "memory": {
-        "interval": 5,
-        "format": "󰍛 {}%",
-        "max-length": 10
-    },
     "tray": {
         "spacing": 10
     },
     "clock": {
         "tooltip-format": "{calendar}",
-        "format-alt": "  {:%a, %d %b %Y}",
-        "format": "  {:%I:%M %p}"
+        "format-alt": "  {%a %B %d }",
+        "format": "  {%l:%M:%S %p %Z}"
     },
     "network": {
         "format-wifi" : "{icon}",
@@ -90,6 +88,26 @@
     "custom/logo": {
         "format": "  ",
         "tooltip": false,
+    },
+    "custom/memory": {
+      "format": "󰘚  {}",
+      "exec": "~/.config/waybar/blocks/memory.sh",
+      "restart-interval": 5,
+    },
+    "custom/cpu-temp": {
+      "format": "󰍛  {}",
+      "exec": "~/.config/waybar/blocks/cpu-temp.sh",
+      "restart-interval": 5,
+    },
+    "custom/gpu": {
+      "format": "󰟽 {}",
+      "exec": "~/.config/waybar/blocks/gpu.sh",
+      "restart-interval": 2,
+    },
+    "custom/dnd": {
+      "format": "{}",
+      "exec": "~/.config/waybar/blocks/dnd.sh",
+      "restart-interval": 5,
     },
     "battery": {
         "format": "{capacity}% {icon}",
