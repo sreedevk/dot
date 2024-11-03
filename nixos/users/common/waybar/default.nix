@@ -85,7 +85,7 @@ in
             nospacing = 1;
           };
           wireplumber = {
-            format = "{icon} {volume}%";
+            format = "{icon}  {volume}%";
             format-bluetooth = "󰂰";
             nospacing = 1;
             tooltip = false;

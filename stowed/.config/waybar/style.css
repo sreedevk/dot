@@ -69,6 +69,7 @@ window#waybar.hidden {
   padding: 0px;
   color: #cad3f5;
   background-color: transparent;
+  font-weight: bolder;
 }
 
 #wireplumber {
