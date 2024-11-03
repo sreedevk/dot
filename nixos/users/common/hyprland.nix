@@ -52,9 +52,13 @@
         bind = $mainMod, D, exec, $menu
         bind = $mainMod, left, movefocus, l
         bind = $mainMod, H, movefocus, l
+        bind = $mainMod SHIFT, H, swapwindow, l
         bind = $mainMod, L, movefocus, r
+        bind = $mainMod SHIFT, L, swapwindow, r
         bind = $mainMod, K, movefocus, u
+        bind = $mainMod SHIFT, K, swapwindow, u
         bind = $mainMod, J, movefocus, d
+        bind = $mainMod SHIFT, J, swapwindow, d
         bind = $mainMod, 1, workspace, 1
         bind = $mainMod, 2, workspace, 2
         bind = $mainMod, 3, workspace, 3
