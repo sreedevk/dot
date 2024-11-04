@@ -135,7 +135,8 @@
     "waybar"
     "dunst"
     "hyprpaper"
-    "wl-paste --watch cliphist store"
+    "wl-paste --type text --watch cliphist store"
+    "wl-paste --type image --watch cliphist store"
   ];
 
   exec = [ ];
