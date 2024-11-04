@@ -26,6 +26,7 @@ exfatprogs
 flatpak
 fprintd
 fuse2
+gamescope
 gdb
 git
 git-lfs
