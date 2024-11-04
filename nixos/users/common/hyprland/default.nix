@@ -71,9 +71,17 @@ in
 
             blur {
               enabled   = true
-              size      = 3
-              passes    = 1
+              noise = 0.01
+              special = false
+              new_optimizations = true
+              brightness = 1
+              xray      = true
+              size      = 6
+              passes    = 4
               vibrancy  = 0.1696
+              popups = true
+              contrast = 1
+              popups_ignorealpha = 0.6
             }
         }
       '';
@@ -107,8 +115,21 @@ in
           follow_mouse        = 1
           sensitivity         = 0
           touchpad {
-              natural_scroll  = false
+            natural_scroll       = yes
+            disable_while_typing = true
+            clickfinger_behavior = true
           }
+        }
+
+        gestures {
+          workspace_swipe = true
+          workspace_swipe_distance = 700
+          workspace_swipe_fingers = 4
+          workspace_swipe_cancel_ratio = 0.2
+          workspace_swipe_min_speed_to_force = 5
+          workspace_swipe_direction_lock = true
+          workspace_swipe_direction_lock_threshold = 10
+          workspace_swipe_create_new = true
         }
       '';
     };
