@@ -17,6 +17,7 @@ in
             "hyprland/workspaces"
           ];
           "modules-center" = [
+            "privacy"
             "custom/dnd"
             "custom/separator"
             "pulseaudio"
@@ -90,6 +91,28 @@ in
             format = "{format_source}";
             format-source = "mic {volume}%";
             format-source-muted = "mic OFF";
+          };
+          privacy = {
+            icon-spacing = 4;
+            icon-size = 18;
+            transition-duration = 250;
+            modules = [
+              {
+                type = "screenshare";
+                tooltip = true;
+                tooltip-icon-size = 24;
+              }
+              {
+                type = "audio-out";
+                tooltip = true;
+                tooltip-icon-size = 24;
+              }
+              {
+                type = "audio-in";
+                tooltip = true;
+                tooltip-icon-size = 24;
+              }
+            ];
           };
           wireplumber = {
             format = "{icon}  {volume}%";
