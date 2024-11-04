@@ -19,6 +19,8 @@ in
           "modules-center" = [
             "custom/dnd"
             "custom/separator"
+            "pulseaudio"
+            "custom/separator"
             "wireplumber"
             "custom/separator"
             "custom/memory"
@@ -83,6 +85,11 @@ in
             tooltip-format-disconnected = "Disconnected";
             interval = 5;
             nospacing = 1;
+          };
+          pulseaudio = {
+            format = "{format_source}";
+            format-source = "mic {volume}%";
+            format-source-muted = "mic OFF";
           };
           wireplumber = {
             format = "{icon}  {volume}%";

@@ -72,11 +72,13 @@ window#waybar.hidden {
   font-weight: bolder;
 }
 
+#pulseaudio,
 #wireplumber {
   background-color: transparent;
   color: #cad3f5;
 }
 
+#pulseaudio.muted,
 #wireplumber.muted {
   color: #a6da95;
 }
