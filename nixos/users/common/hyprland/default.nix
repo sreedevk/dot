@@ -159,8 +159,16 @@ in
     ".config/hypr/rules.conf" = {
       enable = true;
       text = ''
-        windowrule   = center, title:^(Open File)(.*)$
-        windowrule   = center, title:^(Select a File)(.*)$
+        workspace = 1, monitor:desc:LG Electronics LG Ultra HD 0x00073F78, default:true
+        workspace = 2, monitor:desc:LG Electronics LG Ultra HD 0x00073F78, default:true
+        workspace = 3, monitor:desc:LG Electronics LG Ultra HD 0x00073F78, default:true
+        workspace = 4, monitor:desc:AU Optronics 0xF99A, default:true
+        workspace = 5, monitor:desc:XEC ES-24X3A 0x00000022, default:true
+        workspace = 6, monitor:desc:XEC ES-24X3A 0x00000022, default:true
+        workspace = 7, monitor:desc:XEC ES-24X3A 0x00000022, default:true
+
+        windowrule = center, title:^(Open File)(.*)$
+        windowrule = center, title:^(Select a File)(.*)$
         windowrule = center, title:^(Choose wallpaper)(.*)$
         windowrule = center, title:^(File Upload)(.*)$
         windowrule = center, title:^(Library)(.*)$
