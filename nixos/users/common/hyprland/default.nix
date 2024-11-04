@@ -41,7 +41,7 @@ in
           border_size         = 2
           resize_on_border    = false
           allow_tearing       = false
-          layout              = dwindle
+          layout              = master
           col.active_border   = rgba(33ccffee) rgba(00ff99ee) 45deg
           col.inactive_border = rgba(595959aa)
         }
@@ -95,6 +95,24 @@ in
       '';
     };
 
+    ".config/hypr/inputs.conf" = {
+      enable = true;
+      text = ''
+        input {
+          kb_layout           = us
+          kb_variant          =
+          kb_model            =
+          kb_options          = ctrl:nocaps
+          kb_rules            =
+          follow_mouse        = 1
+          sensitivity         = 0
+          touchpad {
+              natural_scroll  = false
+          }
+        }
+      '';
+    };
+
     ".config/hypr/hyprland.conf" = {
       enable = true;
       text = ''
@@ -106,6 +124,7 @@ in
         source = ~/.config/hypr/cursor.conf
         source = ~/.config/hypr/decoration.conf
         source = ~/.config/hypr/animations.conf
+        source = ~/.config/hypr/inputs.conf
 
         xwayland {
           force_zero_scaling = true
@@ -118,7 +137,6 @@ in
             pseudotile     = true
             preserve_split = true
         }
-
 
         master {
             new_status = master
@@ -136,19 +154,6 @@ in
         device {
             name        = epic-mouse-v1
             sensitivity = -0.5
-        }
-
-        input {
-          kb_layout           = us
-          kb_variant          =
-          kb_model            =
-          kb_options          = ctrl:nocaps
-          kb_rules            =
-          follow_mouse        = 1
-          sensitivity         = 0
-          touchpad {
-              natural_scroll  = false
-          }
         }
       '';
     };

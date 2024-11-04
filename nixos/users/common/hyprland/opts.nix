@@ -50,7 +50,11 @@
     { mod = "SUPER"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
     { mod = "SUPER SHIFT"; keys = "Q"; dispatcher = "killactive"; args = ""; }
     { mod = "SUPER SHIFT"; keys = "E"; dispatcher = "exit"; args = ""; }
-    { mod = "SUPER"; keys = "Tab"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show window"; }
+
+    { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; }
+    { mod = "SUPER SHIFT"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollprev"; }
+    { mod = "SUPER"; keys = "m"; dispatcher = "layoutmsg"; args = "swapwithmaster"; }
+
     { mod = "SUPER SHIFT"; keys = "Space"; dispatcher = "togglefloating"; args = ""; }
     { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
     { mod = "SUPER"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; }
