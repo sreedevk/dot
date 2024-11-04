@@ -140,6 +140,7 @@ in
 
         master {
             new_status = master
+            mfact = 0.8
         }
 
         misc {
