@@ -28,6 +28,11 @@ keycode () {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
+# cliphist interface
+clip() {
+  cliphist list | fzf --no-sort | cliphist decode | wl-copy
+}
+
 # APL Keyboard - Alt + Key
 setxkbmap-apl () {
   setxkbmap -layout us,apl -variant ,dyalog -option grp:switch

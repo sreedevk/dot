@@ -11,6 +11,7 @@ blueman
 bluez-tools
 ccache
 clang
+cliphist
 cmake
 cuda
 dhcpcd
@@ -46,6 +47,7 @@ iwd
 less
 libnotify
 libpam-google-authenticator
+libva-nvidia-driver
 linux
 linux-firmware
 linux-firmware-qlogic
