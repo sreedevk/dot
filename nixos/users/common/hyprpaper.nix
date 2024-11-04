@@ -8,7 +8,7 @@ let
     builtins.concatStringsSep "\n"
       [
         "preload = ${wallpaper}"
-        "splash = true"
+        "splash = false"
         (builtins.concatStringsSep "\n"
           (builtins.map (monitor: "wallpaper = desc:${monitor.desc},${wallpaper}") hyprconf.monitors))
       ];
