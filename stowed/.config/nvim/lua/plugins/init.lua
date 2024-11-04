@@ -39,6 +39,11 @@ return {
     end
   },
   {
+    "chrisgrieser/nvim-early-retirement",
+    config = true,
+    event = "VeryLazy",
+  },
+  {
     'junegunn/vim-easy-align',
     keys = {
       { "<Leader>al", mode = "v" }
