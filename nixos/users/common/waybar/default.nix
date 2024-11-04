@@ -89,8 +89,8 @@ in
           };
           pulseaudio = {
             format = "{format_source}";
-            format-source = "mic {volume}%";
-            format-source-muted = "mic OFF";
+            format-source = "∿ {volume}%";
+            format-source-muted = "─ OFF";
           };
           privacy = {
             icon-spacing = 4;
