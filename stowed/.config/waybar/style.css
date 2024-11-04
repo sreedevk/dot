@@ -75,12 +75,14 @@ window#waybar.hidden {
 #privacy {
   padding: 0px 5px;
   margin: 0px 10px;
+  font-weight: bolder;
 }
 
 #pulseaudio,
 #wireplumber {
   background-color: transparent;
   color: #cad3f5;
+  font-weight: bolder;
 }
 
 #pulseaudio.muted,
@@ -101,6 +103,7 @@ window#waybar.hidden {
 #clock {
   font-family: CozetteVector Nerd Font;
   background-color: transparent;
+  font-weight: bolder;
   color: #cad3f5;
   font-size: 16px;
   padding: 0px 10px;
