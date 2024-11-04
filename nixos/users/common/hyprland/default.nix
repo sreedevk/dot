@@ -213,7 +213,7 @@ in
 
         master {
             new_status = master
-            mfact = 0.8
+            mfact = 0.70
         }
 
         misc {
