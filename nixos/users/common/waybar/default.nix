@@ -93,8 +93,8 @@ in
             format-source-muted = "─ OFF";
           };
           privacy = {
-            icon-spacing = 4;
-            icon-size = 18;
+            icon-spacing = 12;
+            icon-size = 16;
             transition-duration = 250;
             modules = [
               {
