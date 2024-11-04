@@ -36,6 +36,7 @@ gst-libav
 gst-plugins-good
 gstreamer
 hyprland
+hyprlock
 hyprpaper
 i2pd
 i3-wm
