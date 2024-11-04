@@ -55,8 +55,28 @@
     { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
     { mod = "SUPER"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; }
     { mod = "SUPER SHIFT"; keys = "C"; dispatcher = "exec"; args = "hyprctl reload"; }
-    { mod = "SUPER SHIFT"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | wl-copy"; }
 
+    {
+      mod = "SUPER SHIFT";
+      keys = "S";
+      dispatcher = "exec";
+      args = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | wl-copy";
+    }
+
+    {
+      mod = "SUPER CTRL";
+      keys = "S";
+      dispatcher = "exec";
+      args = "${pkgs.grim}/bin/grim -o $(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name') - | wl-copy";
+    }
+
+    {
+      mod = "SUPER ALT";
+      keys = "S";
+      dispatcher = "exec";
+      args = "${pkgs.grim}/bin/grim -g \"$(hyprctl activewindow -j | jq '(.at | \"\\(.[0]),\\(.[1])\"),(.size | \"\\(.[0])x\\(.[1])\")' | xargs)\" - | wl-copy";
+
+    }
 
     { mod = "CTRL"; keys = "Space"; dispatcher = "exec"; args = "${pkgs.dunst}/bin/dunstctl close-all"; }
     { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "${pkgs.dunst}/bin/dunstctl set-paused toggle"; }
