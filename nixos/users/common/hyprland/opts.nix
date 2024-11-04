@@ -15,6 +15,7 @@
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_SCALE_FACTOR = "1";
     WINIT_X11_SCALE_FACTOR = "1";
+    QT_QPA_PLATFORM = "xcb";
   };
 
   monitors = [
