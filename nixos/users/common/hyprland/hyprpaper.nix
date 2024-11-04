@@ -2,7 +2,7 @@
 let
   walldir = "~/Media/wallpapers";
   wallpaper = "${walldir}/park.jpg";
-  hyprconf = import ./hyprland/opts.nix { inherit pkgs config opts; };
+  hyprconf = import ./opts.nix { inherit pkgs config opts; };
 
   hyprpaperConf =
     builtins.concatStringsSep "\n"

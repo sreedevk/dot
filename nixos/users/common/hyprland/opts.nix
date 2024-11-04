@@ -60,6 +60,8 @@
     { mod = "SUPER"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; }
     { mod = "SUPER SHIFT"; keys = "C"; dispatcher = "exec"; args = "hyprctl reload"; }
 
+    { mod = "SUPER CTRL"; keys = "0"; dispatcher = "exec"; args = "hyprlock"; }
+
     {
       mod = "SUPER SHIFT";
       keys = "S";
