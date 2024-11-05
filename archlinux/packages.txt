@@ -44,6 +44,7 @@ incus
 incus-tools
 inotify-tools
 intel-media-driver
+iw
 iwd
 less
 libnotify
