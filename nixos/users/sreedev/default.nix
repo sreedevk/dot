@@ -3,6 +3,7 @@
   imports = [
     ../../../secrets/mappings.nix
     ../common/alacritty.nix
+    ../common/audioctrl.nix
     ../common/autorandr.nix
     ../common/awscli.nix
     ../common/base.nix
@@ -84,6 +85,7 @@
       oxker
       pandoc
       playerctl
+      pwvucontrol
       python311Packages.i3ipc
       python312Packages.supervisor
       qflipper
