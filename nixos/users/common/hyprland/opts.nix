@@ -173,7 +173,7 @@
     ];
 
     windowv2 = [
-      { rule = "float"; window_identifiers = [ "title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$" ]; }
+      { rule = "float"; window_identifiers = [ "title:^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" ]; }
       { rule = "nofocus"; window_identifiers = [ "class:^$" "title:^$" "xwayland:1" "floating:1" "fullscreen:0" "pinned:0" ]; }
       { rule = "suppressevent maximize"; window_identifiers = [ "class:.*" ]; }
       { rule = "tile"; window_identifiers = [ "class:(dev.warp.Warp)" ]; }
