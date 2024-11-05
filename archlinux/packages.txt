@@ -77,7 +77,6 @@ openvpn
 os-prober
 pamixer
 parallel
-pavucontrol
 picom
 pipewire-alsa
 pipewire-pulse
