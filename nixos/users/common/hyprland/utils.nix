@@ -7,8 +7,11 @@
   genExec =
     exectype: pgms: builtins.concatStringsSep "\n" (builtins.map (program: "${exectype} = ${program}") pgms);
 
-  genBinds = binds:
+  genKeyboardBinds = binds:
     builtins.concatStringsSep "\n" (builtins.map (bind: "bind = ${bind.mod}, ${bind.keys}, ${bind.dispatcher}, ${bind.args}") binds);
+
+  genMouseBinds = binds:
+    builtins.concatStringsSep "\n" (builtins.map (bind: "bindm = ${bind.mod}, ${bind.button}, ${bind.dispatcher}") binds);
 
   genWorkspaceRules =
     let

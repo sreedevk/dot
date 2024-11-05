@@ -23,7 +23,12 @@ in
 
     ".config/hypr/keybinds.conf" = {
       enable = true;
-      text = utils.genBinds hyprconf.binds;
+      text =
+        builtins.concatStringsSep "\n"
+          [
+            (utils.genKeyboardBinds hyprconf.binds.keyboard)
+            (utils.genMouseBinds hyprconf.binds.mouse)
+          ];
     };
 
     ".config/hypr/execs.conf" = {
