@@ -2,7 +2,6 @@
   home.packages =
     let
       stable-packages = with nixpkgs-stable; [
-        csvlens
         tailspin
       ];
       unstable-packages =
@@ -25,6 +24,7 @@
           clang
           cmake
           cmatrix
+          csvlens
           dig
           direnv
           duf
