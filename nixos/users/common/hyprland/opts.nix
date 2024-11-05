@@ -69,6 +69,10 @@
 
       { mod = "SUPER CTRL"; keys = "0"; dispatcher = "exec"; args = "hyprlock"; }
 
+      { mod = "SUPER"; keys = "G"; dispatcher = "togglegroup"; args = ""; }
+      { mod = "SUPER CTRL"; keys = "H"; dispatcher = "changegroupactive"; args = "b"; }
+      { mod = "SUPER CTRL"; keys = "L"; dispatcher = "changegroupactive"; args = "f"; }
+
       {
         mod = "SUPER SHIFT";
         keys = "S";
