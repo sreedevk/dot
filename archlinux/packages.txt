@@ -5,7 +5,6 @@ android-tools
 autoconf-archive
 base
 base-devel
-batsignal
 bind
 blueman
 bluez-tools
@@ -23,6 +22,7 @@ easyeffects
 efibootmgr
 eglexternalplatform
 egl-wayland
+evtest
 exfatprogs
 flatpak
 fprintd
@@ -84,7 +84,6 @@ pipewire-v4l2
 polkit-qt6
 polybar
 postgresql-libs
-powertop
 progress
 pulsemixer
 qt5-wayland
@@ -122,7 +121,6 @@ wireguard-tools
 wireless_tools
 wireplumber
 wl-clipboard
-wmctrl
 xclip
 xdg-desktop-portal-hyprland
 xdo
