@@ -38,7 +38,6 @@ gstreamer
 hyprland
 hyprlock
 hyprpaper
-i2pd
 i3-wm
 incus
 incus-tools
@@ -46,7 +45,6 @@ inotify-tools
 intel-media-driver
 iw
 iwd
-less
 libnotify
 libpam-google-authenticator
 libva-nvidia-driver
@@ -59,7 +57,6 @@ mariadb-clients
 mesa-utils
 mesa-vdpau
 mpv
-nasm
 neovim
 ninja
 nmap
