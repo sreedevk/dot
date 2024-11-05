@@ -1,22 +1,25 @@
 { pkgs, config, ... }:
 {
   envs = {
+    AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
+    GBM_BACKEND = "nvidia-drm";
+    GDK_DPI_SCALE = "1";
+    GDK_SCALE = "1";
+    HYPRCURSOR_SIZE = "28";
+    LIBVA_DRIVER_NAME = "nvidia";
+    MOZ_ENABLE_WAYLAND = "1";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    QT_SCALE_FACTOR = "1";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    WINIT_X11_SCALE_FACTOR = "1";
+    XCURSOR_SIZE = "28";
+    XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     __NV_PRIME_RENDER_OFFLOAD = "1";
-    LIBVA_DRIVER_NAME = "nvidia";
-    XDG_SESSION_TYPE = "wayland";
-    GBM_BACKEND = "nvidia-drm";
-    XCURSOR_SIZE = "28";
-    HYPRCURSOR_SIZE = "28";
-    AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
-    XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
-    GDK_SCALE = "1";
-    GDK_DPI_SCALE = "1";
-    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    QT_SCALE_FACTOR = "1";
-    WINIT_X11_SCALE_FACTOR = "1";
-    QT_QPA_PLATFORM = "xcb";
-    MOZ_ENABLE_WAYLAND = "1";
   };
 
   monitors = [

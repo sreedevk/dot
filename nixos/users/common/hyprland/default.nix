@@ -163,7 +163,7 @@ in
         gestures {
           workspace_swipe = true
           workspace_swipe_distance = 700
-          workspace_swipe_fingers = 4
+          workspace_swipe_fingers = 3
           workspace_swipe_cancel_ratio = 0.2
           workspace_swipe_min_speed_to_force = 5
           workspace_swipe_direction_lock = true
@@ -205,6 +205,7 @@ in
         misc {
             force_default_wallpaper = 0
             disable_hyprland_logo   = true
+            vrr = 0
         }
 
         gestures {
@@ -212,7 +213,7 @@ in
         }
 
         device {
-            name        = epic-mouse-v1
+            name        = epic mouse v1
             sensitivity = -0.5
         }
       '';
