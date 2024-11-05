@@ -18,6 +18,8 @@
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "Hyprland";
     XDG_CURRENT_DESKTOP = "Hyprland";
+    WLR_DRM_NO_ATOMIC = "1";
+    __GL_VRR_ALLOWED = "1";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     __NV_PRIME_RENDER_OFFLOAD = "1";
   };

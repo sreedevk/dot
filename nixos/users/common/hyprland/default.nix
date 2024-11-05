@@ -72,9 +72,7 @@ in
     ".config/hypr/cursor.conf" = {
       enable = true;
       text = ''
-        cursor {
-            no_hardware_cursors = true
-        }
+        cursor:no_hardware_cursors = true
       '';
     };
 
