@@ -190,6 +190,10 @@
       { rule = "float"; window_identifiers = [ "title:^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" ]; }
       { rule = "nofocus"; window_identifiers = [ "class:^$" "title:^$" "xwayland:1" "floating:1" "fullscreen:0" "pinned:0" ]; }
       { rule = "suppressevent maximize"; window_identifiers = [ "class:.*" ]; }
+      { rule = "float"; window_identifiers = [ "class:^(firefox)$" "title:^(Picture-in-Picture)$" ]; }
+      { rule = "float"; window_identifiers = [ "class:^(firefox)$" "title:^(Library)$" ]; }
+      { rule = "float"; window_identifiers = [ "class:^(Signal)$" ]; }
+      { rule = "float"; window_identifiers = [ "title:^(About Mozilla Firefox)$" ]; }
       { rule = "tile"; window_identifiers = [ "class:(dev.warp.Warp)" ]; }
       { rule = "keepaspectratio"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
       { rule = "move 73% 72%"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
@@ -201,6 +205,11 @@
     ];
 
     layer = [
+      { rule = "blur"; addr = "rofi"; }
+      { rule = "ignorezero"; addr = "rofi"; }
+      { rule = "blur"; addr = "notifications"; }
+      { rule = "ignorezero"; addr = "notifications"; }
+      { rule = "ignorezero"; addr = "notifications"; }
       { rule = "animation slide left"; addr = "sideleft.*"; }
       { rule = "animation slide right"; addr = "sideright.*"; }
       { rule = "blur"; addr = "bar"; }
