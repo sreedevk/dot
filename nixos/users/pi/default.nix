@@ -1,4 +1,5 @@
-{ configs, pkgs, username, ... }: {
+{ configs, opts, pkgs, username, ... }: {
+
   imports = [
     ../../../secrets/mappings.nix
     ../common/base.nix
