@@ -118,6 +118,7 @@ wireguard-tools
 wireless_tools
 wireplumber
 wl-clipboard
+wlsunset
 xclip
 xdg-desktop-portal-hyprland
 xdo
