@@ -139,6 +139,18 @@
     { mod = ""; keys = "XF86AudioPrev"; dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl previous"; }
   ];
 
+  rules = {
+    workspace = [
+      { workspace_label = "1"; rules = [ "monitor:desc:LG Electronics LG Ultra HD 0x00073F78" "default:true" ]; }
+      { workspace_label = "2"; rules = [ "monitor:desc:LG Electronics LG Ultra HD 0x00073F78" "default:false" ]; }
+      { workspace_label = "3"; rules = [ "monitor:desc:LG Electronics LG Ultra HD 0x00073F78" "default:false" ]; }
+      { workspace_label = "4"; rules = [ "monitor:desc:AU Optronics 0xF99A" "default:true" ]; }
+      { workspace_label = "5"; rules = [ "monitor:desc:XEC ES-24X3A 0x00000022" "default:true" ]; }
+      { workspace_label = "6"; rules = [ "monitor:desc:XEC ES-24X3A 0x00000022" "default:false" ]; }
+      { workspace_label = "7"; rules = [ "monitor:desc:XEC ES-24X3A 0x00000022" "default:false" ]; }
+    ];
+  };
+
   exec-once = [
     "waybar"
     "dunst"

@@ -10,6 +10,12 @@
   genBinds = binds:
     builtins.concatStringsSep "\n" (builtins.map (bind: "bind = ${bind.mod}, ${bind.keys}, ${bind.dispatcher}, ${bind.args}") binds);
 
+  genWorkspaceRules =
+    let
+      genWorkspaceRule = ruleconf: "workspace = ${ruleconf.workspace_label},${builtins.concatStringsSep "," ruleconf.rules}";
+    in
+    ruleconfs: builtins.concatStringsSep "\n" (builtins.map genWorkspaceRule ruleconfs);
+
   genMonitors =
     monitors:
     let
