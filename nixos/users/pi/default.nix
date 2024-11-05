@@ -13,8 +13,6 @@
     ../common/vim.nix
   ];
 
-  services.ssh-agent.enable = true;
-
   home.file = {
     "authorized_keys" = {
       enable = true;
