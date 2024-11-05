@@ -3,6 +3,7 @@
     let
       stable-packages = with nixpkgs-stable; [
         csvlens
+        tailspin
       ];
       unstable-packages =
         with pkgs; [
@@ -75,7 +76,6 @@
           sc-im
           sshfs
           starship
-          tailspin
           tokei
           traceroute
           tree
