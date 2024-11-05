@@ -55,7 +55,7 @@
 
       { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; }
       { mod = "SUPER SHIFT"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollprev"; }
-      { mod = "SUPER"; keys = "m"; dispatcher = "layoutmsg"; args = "swapwithmaster"; }
+      { mod = "SUPER"; keys = "m"; dispatcher = "layoutmsg"; args = "swapwithmaster master"; }
 
       { mod = "SUPER SHIFT"; keys = "Space"; dispatcher = "togglefloating"; args = ""; }
       { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
