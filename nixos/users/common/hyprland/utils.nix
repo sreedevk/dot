@@ -16,6 +16,25 @@
     in
     ruleconfs: builtins.concatStringsSep "\n" (builtins.map genWorkspaceRule ruleconfs);
 
+  genWindowRules =
+    let
+      genWindowRule = ruleconf: "windowrule = ${ruleconf.rule},${ruleconf.window_identifiers}";
+    in
+    ruleconfs: builtins.concatStringsSep "\n" (builtins.map genWindowRule ruleconfs);
+
+
+  genLayerRules =
+    let
+      genLayerRule = ruleconf: "layerrule = ${ruleconf.rule},${ruleconf.addr}";
+    in
+    ruleconfs: builtins.concatStringsSep "\n" (builtins.map genLayerRule ruleconfs);
+
+  genWindowv2Rules =
+    let
+      genWindowRule = ruleconf: "windowrulev2 = ${ruleconf.rule},${builtins.concatStringsSep "," ruleconf.window_identifiers}";
+    in
+    ruleconfs: builtins.concatStringsSep "\n" (builtins.map genWindowRule ruleconfs);
+
   genMonitors =
     monitors:
     let

@@ -149,6 +149,84 @@
       { workspace_label = "6"; rules = [ "monitor:desc:XEC ES-24X3A 0x00000022" "default:false" ]; }
       { workspace_label = "7"; rules = [ "monitor:desc:XEC ES-24X3A 0x00000022" "default:false" ]; }
     ];
+
+    window = [
+      { rule = "center"; window_identifiers = "title:^(Open File)(.*)$"; }
+      { rule = "center"; window_identifiers = "title:^(Select a File)(.*)$"; }
+      { rule = "center"; window_identifiers = "title:^(Choose wallpaper)(.*)$"; }
+      { rule = "center"; window_identifiers = "title:^(File Upload)(.*)$"; }
+      { rule = "center"; window_identifiers = "title:^(Library)(.*)$"; }
+      { rule = "center"; window_identifiers = "title:^(Open Folder)(.*)$"; }
+      { rule = "center"; window_identifiers = "title:^(Save As)(.*)$"; }
+
+      { rule = "float"; window_identifiers = "^(blueberry.py)$"; }
+      { rule = "float"; window_identifiers = "^(guifetch)$"; }
+      { rule = "float"; window_identifiers = "^(steam)$"; }
+      { rule = "float"; window_identifiers = "title:^(Open File)(.*)$"; }
+      { rule = "float"; window_identifiers = "title:^(Select a File)(.*)$"; }
+      { rule = "float"; window_identifiers = "title:^(Choose wallpaper)(.*)$"; }
+      { rule = "float"; window_identifiers = "title:^(Open Folder)(.*)$"; }
+      { rule = "float"; window_identifiers = "title:^(Save As)(.*)$"; }
+      { rule = "float"; window_identifiers = "title:^(Library)(.*)$"; }
+      { rule = "float"; window_identifiers = "title:^(File Upload)(.*)$"; }
+    ];
+
+    windowv2 = [
+      { rule = "float"; window_identifiers = [ "title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$" ]; }
+      { rule = "nofocus"; window_identifiers = [ "class:^$" "title:^$" "xwayland:1" "floating:1" "fullscreen:0" "pinned:0" ]; }
+      { rule = "suppressevent maximize"; window_identifiers = [ "class:.*" ]; }
+      { rule = "tile"; window_identifiers = [ "class:(dev.warp.Warp)" ]; }
+      { rule = "keepaspectratio"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
+      { rule = "move 73% 72%"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
+      { rule = "size 25%"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
+      { rule = "float"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
+      { rule = "pin"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
+      { rule = "immediate"; window_identifiers = [ "class:(steam_app)" ]; }
+      { rule = "noshadow"; window_identifiers = [ "floating:0" ]; }
+    ];
+
+    layer = [
+      { rule = "animation slide left"; addr = "sideleft.*"; }
+      { rule = "animation slide right"; addr = "sideright.*"; }
+      { rule = "blur"; addr = "bar"; }
+      { rule = "blur"; addr = "cheatsheet"; }
+      { rule = "blur"; addr = "corner.*"; }
+      { rule = "blur"; addr = "dock"; }
+      { rule = "blur"; addr = "gtk-layer-shell"; }
+      { rule = "blur"; addr = "indicator*"; }
+      { rule = "blur"; addr = "indicator.*"; }
+      { rule = "blur"; addr = "launcher"; }
+      { rule = "blur"; addr = "notifications"; }
+      { rule = "blur"; addr = "osk"; }
+      { rule = "blur"; addr = "overview"; }
+      { rule = "blur"; addr = "session"; }
+      { rule = "blur"; addr = "shell:*"; }
+      { rule = "blur"; addr = "sideleft"; }
+      { rule = "blur"; addr = "sideright"; }
+      { rule = "ignorealpha 0.5"; addr = "launcher"; }
+      { rule = "ignorealpha 0.6"; addr = "bar"; }
+      { rule = "ignorealpha 0.6"; addr = "cheatsheet"; }
+      { rule = "ignorealpha 0.6"; addr = "corner.*"; }
+      { rule = "ignorealpha 0.6"; addr = "dock"; }
+      { rule = "ignorealpha 0.6"; addr = "indicator*"; }
+      { rule = "ignorealpha 0.6"; addr = "indicator.*"; }
+      { rule = "ignorealpha 0.6"; addr = "osk"; }
+      { rule = "ignorealpha 0.6"; addr = "overview"; }
+      { rule = "ignorealpha 0.6"; addr = "shell:*"; }
+      { rule = "ignorealpha 0.6"; addr = "sideleft"; }
+      { rule = "ignorealpha 0.6"; addr = "sideright"; }
+      { rule = "ignorealpha 0.69"; addr = "notifications"; }
+      { rule = "ignorezero"; addr = "gtk-layer-shell"; }
+      { rule = "noanim"; addr = "anyrun"; }
+      { rule = "noanim"; addr = "hyprpicker"; }
+      { rule = "noanim"; addr = "indicator.*"; }
+      { rule = "noanim"; addr = "noanim"; }
+      { rule = "noanim"; addr = "osk"; }
+      { rule = "noanim"; addr = "overview"; }
+      { rule = "noanim"; addr = "selection"; }
+      { rule = "noanim"; addr = "walker"; }
+      { rule = "xray 1"; addr = ".*"; }
+    ];
   };
 
   exec-once = [
