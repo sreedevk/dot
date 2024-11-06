@@ -12,6 +12,7 @@
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
+        WATCHTOWER_POLL_INTERVAL = "86400";
         WATCHTOWER_NOTIFICATIONS = "gotify";
         WATCHTOWER_NOTIFICATION_GOTIFY_TLS_SKIP_VERIFY = "true";
         WATCHTOWER_NOTIFICATION_GOTIFY_URL = "http://${opts.hostname}:${opts.ports.gotify}";
