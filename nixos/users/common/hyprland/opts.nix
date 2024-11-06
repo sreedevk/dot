@@ -76,7 +76,7 @@ in
 
       { mod = "SUPER"; keys = "x"; dispatcher = "exec"; args = "hyprctl kill"; }
 
-      { mod = "SUPER CTRL"; keys = "Tab"; dispatcher = "exec"; args = "${hypr-switchlayout}/bin/hypr-switchlayout"; }
+      { mod = "SUPER ALT"; keys = "Tab"; dispatcher = "exec"; args = "${hypr-switchlayout}/bin/hypr-switchlayout"; }
 
       { mod = "SUPER SHIFT"; keys = "Space"; dispatcher = "togglefloating"; args = ""; }
       { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
