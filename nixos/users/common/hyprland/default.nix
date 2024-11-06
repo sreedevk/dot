@@ -97,8 +97,17 @@ in
 
     ".config/hypr/animations.conf" = {
       enable = true;
-      text = ''
-      '';
+      text =
+        let
+          flattenWithConcat = sep: nestedList:
+            builtins.map
+              (item:
+                if builtins.typeOf (item) == "string"
+                then item
+                else (builtins.concatStringsSep sep item))
+              nestedList;
+        in
+        builtins.concatStringsSep "\n" (flattenWithConcat "\n" (utils.genNested "animations" hyprconf.animations));
     };
 
     ".config/hypr/inputs.conf" = {

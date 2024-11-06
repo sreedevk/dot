@@ -1,4 +1,4 @@
-{
+rec {
   genEnvs =
     envs: builtins.concatStringsSep "\n"
       (builtins.attrValues
@@ -7,14 +7,18 @@
   genNested =
     namespace: confs:
     let
-      transformer =
+      arraytransformer =
+        value: "${namespace} = ${value}";
+
+      settransformer =
         key: value:
-        if typeOf (value) == "string"
+        if builtins.typeOf (value) == "string"
         then "${namespace}:${key} = ${value}"
-        else getNested "${namespace}:${key}" value;
+        else genNested "${namespace}:${key}" value;
     in
-    (builtins.attrValues
-      (builtins.mapAttrs transformer confs));
+    if builtins.typeOf (confs) == "set"
+    then builtins.attrValues (builtins.mapAttrs settransformer confs)
+    else builtins.map arraytransformer confs;
 
   genExec =
     exectype: pgms: builtins.concatStringsSep "\n" (builtins.map (program: "${exectype} = ${program}") pgms);
