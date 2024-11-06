@@ -6,6 +6,15 @@
     settings = {
       ui = {
         default-command = "log";
+        editor = "neovim";
+        pager = "${pkgs.delta}/bin/delta";
+        graph = {
+          style = "square";
+        };
+        diff = {
+          format = "git";
+          tool = [ "${pkgs.difftastic}/bin/difft" "--color=always" "$left" "$right" ];
+        };
       };
       signing = {
         sign-all = true;
