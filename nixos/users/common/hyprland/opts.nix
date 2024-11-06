@@ -166,24 +166,36 @@
     ];
 
     window = [
-      { rule = "center"; window_identifiers = "title:^(Open File)(.*)$"; }
-      { rule = "center"; window_identifiers = "title:^(Select a File)(.*)$"; }
       { rule = "center"; window_identifiers = "title:^(Choose wallpaper)(.*)$"; }
-      { rule = "center"; window_identifiers = "title:^(File Upload)(.*)$"; }
-      { rule = "center"; window_identifiers = "title:^(Library)(.*)$"; }
-      { rule = "center"; window_identifiers = "title:^(Open Folder)(.*)$"; }
-      { rule = "center"; window_identifiers = "title:^(Save As)(.*)$"; }
-
-      { rule = "float"; window_identifiers = "^(blueberry.py)$"; }
-      { rule = "float"; window_identifiers = "^(guifetch)$"; }
-      { rule = "float"; window_identifiers = "^(steam)$"; }
-      { rule = "float"; window_identifiers = "title:^(Open File)(.*)$"; }
-      { rule = "float"; window_identifiers = "title:^(Select a File)(.*)$"; }
       { rule = "float"; window_identifiers = "title:^(Choose wallpaper)(.*)$"; }
-      { rule = "float"; window_identifiers = "title:^(Open Folder)(.*)$"; }
-      { rule = "float"; window_identifiers = "title:^(Save As)(.*)$"; }
+      { rule = "size 1000 600"; window_identifiers = "title:^(Choose wallpaper)(.*)$"; }
+
+      { rule = "center"; window_identifiers = "title:^(Library)(.*)$"; }
       { rule = "float"; window_identifiers = "title:^(Library)(.*)$"; }
+      { rule = "size 1000 600"; window_identifiers = "title:^(Library)(.*)$"; }
+
+      { rule = "center"; window_identifiers = "title:^(Open Folder)(.*)$"; }
+      { rule = "float"; window_identifiers = "title:^(Open Folder)(.*)$"; }
+      { rule = "size 1000 600"; window_identifiers = "title:^(Open Folder)(.*)$"; }
+
+
+      { rule = "center"; window_identifiers = "title:^(File Upload)(.*)$"; }
       { rule = "float"; window_identifiers = "title:^(File Upload)(.*)$"; }
+      { rule = "size 1000 600"; window_identifiers = "title:^(File Upload)(.*)$"; }
+
+      { rule = "center"; window_identifiers = "title:^(Select a File)(.*)$"; }
+      { rule = "float"; window_identifiers = "title:^(Select a File)(.*)$"; }
+      { rule = "size 1000 600"; window_identifiers = "title:^(Select a File)(.*)$"; }
+
+
+      { rule = "center"; window_identifiers = "title:^(Save As)(.*)$"; }
+      { rule = "float"; window_identifiers = "title:^(Save As)(.*)$"; }
+      { rule = "size 1000 600"; window_identifiers = "title:^(Save As)(.*)$"; }
+
+
+      { rule = "center"; window_identifiers = "title:^(Open File)(.*)$"; }
+      { rule = "float"; window_identifiers = "title:^(Open File)(.*)$"; }
+      { rule = "size 1000 600"; window_identifiers = "title:^(Open File)(.*)$"; }
     ];
 
     windowv2 = [
@@ -194,7 +206,6 @@
       { rule = "float"; window_identifiers = [ "class:^(firefox)$" "title:^(Library)$" ]; }
       { rule = "float"; window_identifiers = [ "class:^(Signal)$" ]; }
       { rule = "float"; window_identifiers = [ "title:^(About Mozilla Firefox)$" ]; }
-      { rule = "tile"; window_identifiers = [ "class:(dev.warp.Warp)" ]; }
       { rule = "keepaspectratio"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
       { rule = "move 73% 72%"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
       { rule = "size 25%"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
