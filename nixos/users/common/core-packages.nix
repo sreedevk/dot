@@ -22,9 +22,7 @@
           btop
           cava
           clang
-          cmake
           cmatrix
-          cpio
           csvlens
           dig
           direnv
@@ -57,7 +55,6 @@
           lua
           luau
           mediainfo
-          meson
           mosh
           nasm
           ncdu

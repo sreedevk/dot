@@ -12,6 +12,7 @@ ccache
 clang
 cliphist
 cmake
+cpio
 cuda
 dhcpcd
 dmidecode
@@ -56,6 +57,7 @@ lsof
 mariadb-clients
 mesa-utils
 mesa-vdpau
+meson
 mpv
 neovim
 ninja
@@ -114,6 +116,7 @@ vcpkg
 vulkan-intel
 waybar
 webkit2gtk
+wev
 wireguard-tools
 wireless_tools
 wireplumber
