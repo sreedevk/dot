@@ -23,15 +23,11 @@ in
 
     ".config/hypr/keybinds.conf" = {
       enable = true;
-      text =
-        let
-          reduce = x: if builtins.typeOf (x) == "string" then x else builtins.concatStringsSep "\n" x;
-        in
-        builtins.concatStringsSep "\n"
-          [
-            (utils.genKeyboardBinds hyprconf.binds.keyboard)
-            (utils.genMouseBinds hyprconf.binds.mouse)
-          ];
+      text = builtins.concatStringsSep "\n"
+        [
+          (utils.genKeyboardBinds hyprconf.binds.keyboard)
+          (utils.genMouseBinds hyprconf.binds.mouse)
+        ];
     };
 
     ".config/hypr/execs.conf" = {
@@ -58,7 +54,8 @@ in
 
     ".config/hypr/general.conf" = {
       enable = true;
-      text = builtins.concatStringsSep "\n" (utils.genNested "general" hyprconf.general);
+      text = builtins.concatStringsSep "\n"
+        (utils.genNested "general" hyprconf.general);
     };
 
     ".config/hypr/cursor.conf" = {
@@ -93,8 +90,7 @@ in
           dwindle = (utils.genNested "dwindle" hyprconf.dwindle);
           master = (utils.genNested "master" hyprconf.master);
           misc = (utils.genNested "misc" hyprconf.misc);
-          device = (utils.genNested "device" hyprconf.device);
-          parsedconfs = xwayland ++ dwindle ++ master ++ misc ++ device;
+          parsedconfs = xwayland ++ dwindle ++ master ++ misc;
         in
         builtins.concatStringsSep "\n" (utils.flattenList parsedconfs);
     };
@@ -133,6 +129,16 @@ in
       '';
     };
 
+    ".config/hypr/custom_devs.conf" = {
+      enable = true;
+      text = ''
+        device {
+            name        = epic mouse v1
+            sensitivity = -0.5
+        }
+      '';
+    };
+
     ".config/hypr/hyprland.conf" = {
       enable = true;
       text = ''
@@ -147,6 +153,7 @@ in
         source = ~/.config/hypr/inputs.conf
         source = ~/.config/hypr/rules.conf
         source = ~/.config/hypr/extra.conf
+        source = ~/.config/hypr/custom_devs.conf
       '';
     };
   };
