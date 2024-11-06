@@ -1,4 +1,14 @@
 { pkgs, config, ... }:
+let
+  hypr-switchlayout = pkgs.writeShellScriptBin "hypr-switchlayout" ''
+    current_layout=$(hyprctl getoption general:layout -j | jq -M .str)
+    if [ "$current_layout" == "\"master\"" ]; then
+      hyprctl keyword general:layout dwindle
+    elif [ "$current_layout" == "\"dwindle\"" ]; then
+      hyprctl keyword general:layout master
+    fi
+  '';
+in
 {
   envs = {
     AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
@@ -66,8 +76,7 @@
 
       { mod = "SUPER"; keys = "x"; dispatcher = "exec"; args = "hyprctl kill"; }
 
-      { mod = "SUPER ALT"; keys = "m"; dispatcher = "exec"; args = "hyprctl keyword general:layout master"; }
-      { mod = "SUPER ALT"; keys = "d"; dispatcher = "exec"; args = "hyprctl keyword general:layout dwindle"; }
+      { mod = "SUPER CTRL"; keys = "Tab"; dispatcher = "exec"; args = "${hypr-switchlayout}/bin/hypr-switchlayout"; }
 
       { mod = "SUPER SHIFT"; keys = "Space"; dispatcher = "togglefloating"; args = ""; }
       { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
