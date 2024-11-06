@@ -4,7 +4,6 @@ return {
   'mattn/emmet-vim',
   'tpope/vim-characterize',
   'tpope/vim-dispatch',
-  'tpope/vim-fugitive',
   'tpope/vim-ragtag',
   'tpope/vim-rails',
   'tpope/vim-repeat',
