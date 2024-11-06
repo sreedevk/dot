@@ -4,6 +4,11 @@
       (builtins.attrValues
         (builtins.mapAttrs (key: value: "env = ${key},${value}") envs));
 
+  genNested =
+    namespace: confs:
+    (builtins.attrValues
+      (builtins.mapAttrs (key: value: "${namespace}:${key} = ${value}") confs));
+
   genExec =
     exectype: pgms: builtins.concatStringsSep "\n" (builtins.map (program: "${exectype} = ${program}") pgms);
 

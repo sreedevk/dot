@@ -55,18 +55,7 @@ in
 
     ".config/hypr/general.conf" = {
       enable = true;
-      text = ''
-        general {
-          gaps_in             = 5
-          gaps_out            = 10
-          border_size         = 2
-          resize_on_border    = false
-          allow_tearing       = false
-          layout              = master
-          col.active_border   = rgba(33ccffee) rgba(00ff99ee) 45deg
-          col.inactive_border = rgba(595959aa)
-        }
-      '';
+      text = builtins.concatStringsSep "\n" (utils.genNested "general" hyprconf.general);
     };
 
     ".config/hypr/cursor.conf" = {
