@@ -80,32 +80,23 @@ in
 
     ".config/hypr/decoration.conf" = {
       enable = true;
-      text = ''
-        decoration {
-            rounding            = 10
-            active_opacity      = 1.0
-            inactive_opacity    = 1.0
-            drop_shadow         = true
-            shadow_range        = 4
-            shadow_render_power = 3
-            col.shadow          = rgba(1a1a1aee)
+      text =
+        builtins.concatStringsSep "\n"
+          (utils.flattenList (utils.genNested "decoration" hyprconf.decoration));
+    };
 
-            blur {
-              enabled            = true
-              noise              = 0.01
-              special            = false
-              new_optimizations  = true
-              brightness         = 1
-              xray               = true
-              size               = 3
-              passes             = 4
-              vibrancy           = 0.1696
-              popups             = true
-              contrast           = 1
-              popups_ignorealpha = 0.6
-            }
-        }
-      '';
+    ".config/hypr/extra.conf" = {
+      enable = true;
+      text =
+        let
+          xwayland = (utils.genNested "xwayland" hyprconf.xwayland);
+          dwindle = (utils.genNested "dwindle" hyprconf.dwindle);
+          master = (utils.genNested "master" hyprconf.master);
+          misc = (utils.genNested "misc" hyprconf.misc);
+          device = (utils.genNested "device" hyprconf.device);
+          parsedconfs = xwayland ++ dwindle ++ master ++ misc ++ device;
+        in
+        builtins.concatStringsSep "\n" (utils.flattenList parsedconfs);
     };
 
     ".config/hypr/animations.conf" = {
@@ -155,34 +146,7 @@ in
         source = ~/.config/hypr/animations.conf
         source = ~/.config/hypr/inputs.conf
         source = ~/.config/hypr/rules.conf
-
-        xwayland {
-          force_zero_scaling = true
-        }
-
-        dwindle {
-            pseudotile     = true
-            preserve_split = true
-        }
-
-        master {
-            mfact = 0.70
-        }
-
-        misc {
-            force_default_wallpaper = 0
-            disable_hyprland_logo   = true
-            vrr = 0
-        }
-
-        gestures {
-            workspace_swipe = false
-        }
-
-        device {
-            name        = epic mouse v1
-            sensitivity = -0.5
-        }
+        source = ~/.config/hypr/extra.conf
       '';
     };
   };

@@ -74,6 +74,32 @@ in
     workspace_swipe_create_new = "true";
   };
 
+
+  decoration = {
+    rounding = "10";
+    active_opacity = "1.0";
+    inactive_opacity = "1.0";
+    drop_shadow = "true";
+    shadow_range = "4";
+    shadow_render_power = "3";
+    "col.shadow" = "rgba(1a1a1aee)";
+
+    blur = {
+      enabled = "true";
+      noise = "0.01";
+      special = "false";
+      new_optimizations = "true";
+      brightness = "1";
+      xray = "true";
+      size = "3";
+      passes = "4";
+      vibrancy = "0.1696";
+      popups = "true";
+      contrast = "1";
+      popups_ignorealpha = "0.6";
+    };
+  };
+
   inputs = {
     kb_layout = "us";
     kb_variant = "";
@@ -90,6 +116,30 @@ in
     tablet = {
       transform = "2";
     };
+  };
+
+  xwayland = {
+    force_zero_scaling = "true";
+  };
+
+  dwindle = {
+    pseudotile = "true";
+    preserve_split = "true";
+  };
+
+  master = {
+    mfact = "0.70";
+  };
+
+  misc = {
+    force_default_wallpaper = "0";
+    disable_hyprland_logo = "true";
+    vrr = "0";
+  };
+
+  device = {
+    name = "epic mouse v1";
+    sensitivity = "-0.5";
   };
 
   animations = {
