@@ -122,6 +122,7 @@ in
         [merge]
             conflictstyle = diff3
         [diff]
+            external = ${pkgs.difftastic}/bin/difft
             colorMoved = default
         [safe]
         	directory = /etc/nixos
