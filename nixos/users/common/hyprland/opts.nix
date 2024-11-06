@@ -18,8 +18,10 @@
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "Hyprland";
     XDG_CURRENT_DESKTOP = "Hyprland";
-    WLR_DRM_NO_ATOMIC = "1";
+    # NOTE: Legacy DRM interface. Might fix flickering issues.
+    # WLR_DRM_NO_ATOMIC = "1";
     __GL_VRR_ALLOWED = "1";
+    __GL_GSYNC_ALLOWED = "1";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     __NV_PRIME_RENDER_OFFLOAD = "1";
   };
@@ -61,6 +63,11 @@
       { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; }
       { mod = "SUPER SHIFT"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollprev"; }
       { mod = "SUPER"; keys = "m"; dispatcher = "layoutmsg"; args = "swapwithmaster master"; }
+
+      { mod = "SUPER"; keys = "x"; dispatcher = "exec"; args = "hyprctl kill"; }
+
+      { mod = "SUPER ALT"; keys = "m"; dispatcher = "exec"; args = "hyprctl keyword general:layout master"; }
+      { mod = "SUPER ALT"; keys = "d"; dispatcher = "exec"; args = "hyprctl keyword general:layout dwindle"; }
 
       { mod = "SUPER SHIFT"; keys = "Space"; dispatcher = "togglefloating"; args = ""; }
       { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }

@@ -199,7 +199,6 @@ in
         }
 
         master {
-            new_status = master
             mfact = 0.70
         }
 
