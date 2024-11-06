@@ -47,7 +47,7 @@ in
 
         background {
             color = rgba(0D0D17FF)
-            path = ~/Media/wallpapers/grass.jpg
+            path = ${opts.paths.wallpapers}/grass.jpg
             blur_size = 5
             blur_passes = 4
         }
