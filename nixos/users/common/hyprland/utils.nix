@@ -6,8 +6,15 @@
 
   genNested =
     namespace: confs:
+    let
+      transformer =
+        key: value:
+        if typeOf (value) == "string"
+        then "${namespace}:${key} = ${value}"
+        else getNested "${namespace}:${key}" value;
+    in
     (builtins.attrValues
-      (builtins.mapAttrs (key: value: "${namespace}:${key} = ${value}") confs));
+      (builtins.mapAttrs transformer confs));
 
   genExec =
     exectype: pgms: builtins.concatStringsSep "\n" (builtins.map (program: "${exectype} = ${program}") pgms);
