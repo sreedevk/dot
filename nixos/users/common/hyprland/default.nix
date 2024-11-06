@@ -156,13 +156,16 @@ in
             disable_while_typing = true
             clickfinger_behavior = true
           }
+          tablet {
+            transform = 2
+          }
         }
 
         gestures {
           workspace_swipe = true
-          workspace_swipe_distance = 700
+          workspace_swipe_distance = 300
           workspace_swipe_fingers = 3
-          workspace_swipe_cancel_ratio = 0.2
+          workspace_swipe_cancel_ratio = 0.5
           workspace_swipe_min_speed_to_force = 5
           workspace_swipe_direction_lock = true
           workspace_swipe_direction_lock_threshold = 10
