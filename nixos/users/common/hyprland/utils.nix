@@ -4,6 +4,20 @@ rec {
       (builtins.attrValues
         (builtins.mapAttrs (key: value: "env = ${key},${value}") envs));
 
+  flattenList =
+    let
+      func = x: y:
+        let
+          wrap = elem:
+            if builtins.typeOf (elem) == "string"
+            then [ elem ]
+            else elem;
+        in
+        (wrap x) ++ (wrap y);
+    in
+    mixarray: builtins.foldl' func [ ] mixarray;
+
+
   genNested =
     namespace: confs:
     let

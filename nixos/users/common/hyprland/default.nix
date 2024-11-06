@@ -24,6 +24,9 @@ in
     ".config/hypr/keybinds.conf" = {
       enable = true;
       text =
+        let
+          reduce = x: if builtins.typeOf (x) == "string" then x else builtins.concatStringsSep "\n" x;
+        in
         builtins.concatStringsSep "\n"
           [
             (utils.genKeyboardBinds hyprconf.binds.keyboard)
@@ -63,6 +66,16 @@ in
       text = ''
         cursor:no_hardware_cursors = true
       '';
+    };
+
+    ".config/hypr/inputs.conf" = {
+      enable = true;
+      text =
+        let
+          inputs = utils.flattenList (utils.genNested "input" hyprconf.inputs);
+          gestures = utils.flattenList (utils.genNested "gestures" hyprconf.gestures);
+        in
+        builtins.concatStringsSep "\n" (inputs ++ gestures);
     };
 
     ".config/hypr/decoration.conf" = {
@@ -128,41 +141,6 @@ in
         }
       '';
     };
-
-    ".config/hypr/inputs.conf" = {
-      enable = true;
-      text = ''
-        input {
-          kb_layout           = us
-          kb_variant          =
-          kb_model            =
-          kb_options          = ctrl:nocaps
-          kb_rules            =
-          follow_mouse        = 1
-          sensitivity         = 0
-          touchpad {
-            natural_scroll       = yes
-            disable_while_typing = true
-            clickfinger_behavior = true
-          }
-          tablet {
-            transform = 2
-          }
-        }
-
-        gestures {
-          workspace_swipe = true
-          workspace_swipe_distance = 300
-          workspace_swipe_fingers = 3
-          workspace_swipe_cancel_ratio = 0.5
-          workspace_swipe_min_speed_to_force = 5
-          workspace_swipe_direction_lock = true
-          workspace_swipe_direction_lock_threshold = 10
-          workspace_swipe_create_new = true
-        }
-      '';
-    };
-
 
     ".config/hypr/hyprland.conf" = {
       enable = true;

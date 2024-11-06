@@ -63,6 +63,35 @@ in
     }
   ];
 
+  gestures = {
+    workspace_swipe = "true";
+    workspace_swipe_distance = "300";
+    workspace_swipe_fingers = "3";
+    workspace_swipe_cancel_ratio = "0.5";
+    workspace_swipe_min_speed_to_force = "5";
+    workspace_swipe_direction_lock = "true";
+    workspace_swipe_direction_lock_threshold = "10";
+    workspace_swipe_create_new = "true";
+  };
+
+  inputs = {
+    kb_layout = "us";
+    kb_variant = "";
+    kb_model = "";
+    kb_options = "ctrl:nocaps";
+    kb_rules = "";
+    follow_mouse = "1";
+    sensitivity = "0";
+    touchpad = {
+      natural_scroll = "yes";
+      disable_while_typing = "true";
+      clickfinger_behavior = "true";
+    };
+    tablet = {
+      transform = "2";
+    };
+  };
+
   animations = {
     enabled = "true";
     bezier = [
