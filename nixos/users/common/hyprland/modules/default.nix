@@ -1,6 +1,6 @@
 { pkgs, config, opts, ... }:
 {
-  import = [
+  imports = [
     ./animations.nix
     ./cursor.nix
     ./decorations.nix
