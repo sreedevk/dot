@@ -27,6 +27,7 @@
     ../common/neovide.nix
     ../common/neovim.nix
     ../common/newsboat.nix
+    ../common/nsxiv.nix
     ../common/obs.nix
     ../common/opentabletdriver.nix
     ../common/radicle.nix
