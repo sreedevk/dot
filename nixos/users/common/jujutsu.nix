@@ -6,7 +6,7 @@
     settings = {
       ui = {
         default-command = "log";
-        editor = "neovim";
+        editor = "${pkgs.neovim}/bin/nvim";
         pager = "${pkgs.delta}/bin/delta";
         graph = {
           style = "square";
