@@ -3,7 +3,7 @@
     enable-signing = true;
   };
 
-  paths = {
+  directories = {
     wallpapers = "~/Media/wallpapers";
   };
 }
