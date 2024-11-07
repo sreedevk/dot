@@ -16,11 +16,6 @@ if command -v starship &> /dev/null; then
   eval "$(starship init zsh)"
 fi
 
-# JJ
-if command -v jj &> /dev/null; then
-  eval "$(jj util completion zsh)"
-fi
-
 # ZOXIDE - MODERN CD
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh --no-aliases)"

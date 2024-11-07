@@ -1,3 +1,5 @@
+#!/usr/bin/zsh
+
 # TITLE: Zsh Functions
 # AUTHOR: Sreedev Kodichath
 

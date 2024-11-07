@@ -60,6 +60,8 @@ autoload -U colors && colors
 autoload -U compinit && compinit
 autoload edit-command-line
 
+[ -f "$HOME/.zsh/post-compinit.zsh" ] && source "$HOME/.zsh/post-compinit.zsh"
+
 # ZSH OPTS
 setopt   COMPLETE_ALIASES
 setopt   PROMPT_SUBST

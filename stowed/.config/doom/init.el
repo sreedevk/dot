@@ -20,7 +20,7 @@
        ophints
        (popup +all +defaults)
        tabs
-       (treemacs +lsp)
+       treemacs
        unicode
        (vc-gutter +pretty)
        vi-tilde-fringe
@@ -145,7 +145,6 @@
        ;;everywhere
        irc
        (rss +org)
-       twitter
 
        :config
        (default +bindings +smartparens))

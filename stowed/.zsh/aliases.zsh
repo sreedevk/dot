@@ -1,3 +1,5 @@
+#!/usr/bin/zsh
+
 # TITLE: ZSH (Z Shell) Aliases
 # AUTHOR: Sreedev Kodichath
 
@@ -41,7 +43,7 @@ alias g='git'
 alias gg='jj'
 
 # Docker
-alias dc='docker compose'
+alias dk='docker compose'
 alias d='docker'
 
 # yt-dlp

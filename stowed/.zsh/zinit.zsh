@@ -1,3 +1,5 @@
+#!/usr/bin/zsh
+
 # VI MODE
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 [ -f "/usr/share/fzf/key-bindings.zsh" ] && zvm_after_init_commands+=('source /usr/share/fzf/key-bindings.zsh')
