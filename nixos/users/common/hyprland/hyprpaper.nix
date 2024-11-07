@@ -1,7 +1,6 @@
 { pkgs, config, opts, ... }:
 let
-  walldir = "~/Media/wallpapers";
-  wallpaper = "${walldir}/park.jpg";
+  wallpaper = "${opts.directories.wallpapers}/${opts.wallpaper}";
   hyprconf = import ./opts.nix { inherit pkgs config opts; };
 
   hyprpaperConf =
