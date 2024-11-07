@@ -19,7 +19,7 @@ fi
 # JJ
 if command -v jj &> /dev/null; then
   eval "$(jj util completion zsh)"
-end
+fi
 
 # ZOXIDE - MODERN CD
 if command -v zoxide &> /dev/null; then
