@@ -13,6 +13,8 @@ export FZF_TAB_GROUP_COLORS=(
     $'\033[38;5;214m' $'\033[38;5;165m' $'\033[38;5;124m' $'\033[38;5;120m'
 )
 
+export FZF_COMPLETION_OPTS="--select-1 --exit-0"
+
 zstyle ':fzf-tab:*' group-colors $FZF_TAB_GROUP_COLORS
 zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview 'git diff $word | delta'
