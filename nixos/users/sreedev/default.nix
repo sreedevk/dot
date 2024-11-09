@@ -53,6 +53,7 @@
       bitwarden-cli
       brightnessctl
       dbeaver-bin
+      delta
       doctl
       duckdb
       emacs
