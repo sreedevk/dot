@@ -137,7 +137,7 @@ in
       nnoremap <Leader>w :w!<CR>
       nnoremap <Leader>fs :w!<CR>
       nnoremap <Leader>wq :wq<CR>
-      nnoremap <Leader>q :q<CR>
+      nnoremap <Leader>qq :q<CR>
       nnoremap <Leader>h :noh<CR>
       nnoremap <C-d> <C-d>zz
       nnoremap <C-u> <C-u>zz
