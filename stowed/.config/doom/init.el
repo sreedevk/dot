@@ -83,6 +83,7 @@
        common-lisp
        crystal
        data
+       (nix +lsp +tree-sitter)
        ;;(dart +flutter)
        elixir
        elm
