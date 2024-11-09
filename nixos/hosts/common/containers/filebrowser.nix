@@ -3,16 +3,15 @@
   environment.etc = {
     "filebrowser/.filebrowser.json" = {
       enable = true;
-      text = ''
+      text = builtins.toJSON
         {
-          "port": 80,
-          "baseURL": "",
-          "address": "",
-          "log": "stdout",
-          "database": "/database/filebrowser.db",
-          "root": "/srv"
-        }
-      '';
+          port = "80";
+          baseURL = "";
+          address = "";
+          log = "stdout";
+          database = "/database/filebrowser.db";
+          root = "/srv";
+        };
     };
   };
 
