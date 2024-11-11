@@ -111,7 +111,10 @@ let
 in
 {
 
-  home.packages = with pkgs; [ taskwarrior3 ];
+  home.packages = with pkgs; [
+    taskwarrior3
+    taskwarrior-tui
+  ];
 
   home.file = {
     ".taskrc" = {
