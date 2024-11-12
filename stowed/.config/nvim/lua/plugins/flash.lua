@@ -199,13 +199,13 @@ return {
           -- [motion:match("%l") and motion:upper() or motion:lower()] = "prev",
           -- }
         end,
-        search = { wrap = false },
+        search = { wrap = true },
         highlight = { backdrop = true },
         jump = {
           register = false,
           -- when using jump labels, set to 'true' to automatically jump
           -- or execute a motion when there is only one match
-          autojump = false,
+          autojump = true,
         },
       },
       -- options used for treesitter selections
