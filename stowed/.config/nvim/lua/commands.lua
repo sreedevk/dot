@@ -28,6 +28,8 @@ autocmd("FileType", {
     end
     extend_hl("@keyword.function.ruby", { bold = true })
     extend_hl("@keyword.conditional.ruby", { bold = true })
+    extend_hl("@variable.builtin.ruby", { bold = true })
+    extend_hl("@constant.ruby", { bold = true })
   end
 })
 
