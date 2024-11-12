@@ -18,6 +18,19 @@ autocmd("FileType", {
   end
 })
 
+autocmd("FileType", {
+  pattern = "ruby",
+  callback = function()
+    local function extend_hl(name, def)
+      local old = vim.api.nvim_get_hl_by_name(name, true)
+      local new = vim.tbl_extend("force", {}, old, def)
+      vim.api.nvim_set_hl(0, name, new)
+    end
+    extend_hl("@keyword.function.ruby", { bold = true })
+    extend_hl("@keyword.conditional.ruby", { bold = true })
+  end
+})
+
 autocmd("TextYankPost", {
   pattern = "*",
   command = "silent! lua vim.highlight.on_yank()"
