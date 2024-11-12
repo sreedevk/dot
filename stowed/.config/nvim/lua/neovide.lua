@@ -35,5 +35,4 @@ if vim.g.neovide then
   map('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor+0.1<CR>', { noremap = true })
   map('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor-0.1<CR>', { noremap = true })
   map('n', '<C-0>', '<cmd>lua vim.g.neovide_scale_factor=1.0<CR>', { noremap = true })
-  map('n', '<Leader>qR', '<cmd>lua RestartNeovide()<CR>', { noremap = true })
 end
