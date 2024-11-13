@@ -28,6 +28,7 @@ in
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "Hyprland";
     XDG_CURRENT_DESKTOP = "Hyprland";
+    ELECTRON_OZONE_PLATFORM_HINT = "x11";
     # NOTE: Legacy DRM interface. Might fix flickering issues.
     # WLR_DRM_NO_ATOMIC = "1";
     __GL_VRR_ALLOWED = "1";
