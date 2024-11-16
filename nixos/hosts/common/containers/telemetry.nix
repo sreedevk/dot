@@ -89,7 +89,7 @@
             - targets: []
             scheme: http
             timeout: 10s
-            api_version: v1
+            api_version: v2
         scrape_configs:
         - job_name: prometheus
           honor_timestamps: true
