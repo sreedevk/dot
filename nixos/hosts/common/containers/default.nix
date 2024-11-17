@@ -15,6 +15,7 @@
     ./flaresolverr.nix
     ./gitea.nix
     ./gotify.nix
+    ./hoarder.nix
     ./homer.nix
     ./jackett.nix
     ./jellyfin.nix

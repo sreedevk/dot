@@ -46,6 +46,7 @@ rec {
     authentik-redis = "6388";
     baikal = "8945";
     bazarr = "6767";
+    chrome = "9222";
     cloudbeaver = "8079";
     cockpit = "8008";
     container-registry-server = "5500";
@@ -62,6 +63,7 @@ rec {
     gitea_ssh = "222";
     gotify = "8773";
     grafana = "2442";
+    hoarder_app = "3040";
     homer = "82";
     http = "80";
     https = "443";
@@ -83,6 +85,7 @@ rec {
     livebook_api = "8091";
     livebook_http = "8090";
     loki = "3100";
+    meilisearch_app = "7700";
     memos = "5230";
     metube = "8081";
     miniflux-app = "10000";
