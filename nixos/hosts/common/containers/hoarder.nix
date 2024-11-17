@@ -1,5 +1,11 @@
 { config, lib, pkgs, opts, ... }:
 {
+
+  systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/meilisearch 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/hoarder 0755 ${opts.adminUID} ${opts.adminGID} -"
+  ];
+
   virtualisation.oci-containers.containers = {
     chrome = {
       autoStart = true;
