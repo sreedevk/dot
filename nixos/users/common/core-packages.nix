@@ -3,6 +3,7 @@
     let
       stable-packages = with nixpkgs-stable; [
         tailspin
+        cava
       ];
       unstable-packages =
         with pkgs; [
@@ -20,7 +21,6 @@
           bingrep
           broot
           btop
-          cava
           clang
           cmatrix
           csvlens

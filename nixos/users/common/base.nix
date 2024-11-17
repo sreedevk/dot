@@ -1,9 +1,10 @@
 { pkgs, age, nixpkgs, username, opts, ... }: {
 
   home = {
-    username = "${username}";
+    enableNixpkgsReleaseCheck = false;
     homeDirectory = "/home/${username}";
     stateVersion = "24.11";
+    username = "${username}";
   };
 
   age = {
