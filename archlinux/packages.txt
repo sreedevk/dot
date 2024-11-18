@@ -56,7 +56,6 @@ linux-headers
 lsof
 mariadb-clients
 mesa-utils
-mesa-vdpau
 meson
 mpv
 neovim
@@ -124,6 +123,7 @@ wl-clipboard
 wlsunset
 xclip
 xdg-desktop-portal-hyprland
+xdg-desktop-portal-wlr
 xdo
 xf86-video-vesa
 xorg-server
