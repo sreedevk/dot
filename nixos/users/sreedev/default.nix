@@ -80,6 +80,9 @@
       nixops_unstable_minimal
       nixpkgs-fmt
       nmap
+      nodejs_22
+      turbo
+      yarn
       nsxiv
       nushell
       nvtopPackages.full
