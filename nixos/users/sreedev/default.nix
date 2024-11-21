@@ -1,4 +1,4 @@
-{ pkgs, age, config, username, ... }:
+{ pkgs, age, config, nixpkgs-stable, username, ... }:
 {
   imports = [
     ../../../secrets/mappings.nix
@@ -9,6 +9,7 @@
     ../common/base.nix
     ../common/core-packages.nix
     ../common/dunst.nix
+    ../common/extra-packages.nix
     ../common/fastfetch.nix
     ../common/firefox.nix
     ../common/fontconfig.nix
@@ -46,63 +47,70 @@
   ];
 
   home.packages =
-    with pkgs; [
-      (nerdfonts.override { fonts = [ "Iosevka" ]; })
-      arandr
-      autorandr
-      bitwarden-cli
-      brightnessctl
-      dbeaver-bin
-      delta
-      doctl
-      duckdb
-      emacs
-      feh
-      filezilla
-      gimp-with-plugins
-      glab
-      glow
-      graphviz
-      hledger
-      hugo
-      instaloader
-      jira-cli-go
-      just
-      k9s
-      kubectl
-      ledger
-      librecad
-      libreoffice-fresh
-      lmms
-      maim
-      mdbook
-      nemo-with-extensions
-      nixops_unstable_minimal
-      nixpkgs-fmt
-      nmap
-      nodejs_22
-      turbo
-      yarn
-      nsxiv
-      nushell
-      nvtopPackages.full
-      openttd
-      oxker
-      pandoc
-      playerctl
-      pwvucontrol
-      python311Packages.i3ipc
-      python312Packages.supervisor
-      qflipper
-      qrencode
-      rofi
-      scdl
-      sonic-pi
-      tea
-      texliveFull
-      tmuxinator
-      yt-dlp
-    ];
+    let
+      stable-packages = with nixpkgs-stable; [
+        cava
+      ];
+
+      unstable-packages = with pkgs; [
+        (nerdfonts.override { fonts = [ "Iosevka" ]; })
+        arandr
+        autorandr
+        bitwarden-cli
+        brightnessctl
+        dbeaver-bin
+        delta
+        doctl
+        duckdb
+        emacs
+        feh
+        filezilla
+        gimp-with-plugins
+        glab
+        glow
+        graphviz
+        hledger
+        hugo
+        instaloader
+        jira-cli-go
+        just
+        k9s
+        kubectl
+        ledger
+        librecad
+        libreoffice-fresh
+        lmms
+        maim
+        mdbook
+        nemo-with-extensions
+        nixops_unstable_minimal
+        nixpkgs-fmt
+        nmap
+        nodejs_22
+        nsxiv
+        nushell
+        nvtopPackages.full
+        openttd
+        oxker
+        pandoc
+        playerctl
+        pwvucontrol
+        python311Packages.i3ipc
+        python312Packages.supervisor
+        qflipper
+        qrencode
+        rofi
+        scdl
+        sonic-pi
+        tea
+        texliveFull
+        tmuxinator
+        turbo
+        yarn
+        yt-dlp
+      ];
+    in
+    stable-packages ++ unstable-packages;
 
   home.file.".zshenv" = {
     enable = true;

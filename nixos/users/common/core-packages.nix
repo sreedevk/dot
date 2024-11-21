@@ -3,27 +3,18 @@
     let
       stable-packages = with nixpkgs-stable; [
         tailspin
-        cava
       ];
       unstable-packages =
         with pkgs; [
-          amfora
-          aria2
-          asciinema
-          asciinema-agg
           aspell
           aspellDicts.en
           aspellDicts.en-computers
           aspellDicts.en-science
           babashka
           bat
-          beanstalkd
           bingrep
           broot
           btop
-          clang
-          cmatrix
-          csvlens
           dig
           direnv
           duf
@@ -38,10 +29,8 @@
           git-sizer
           gitleaks
           gperf
-          gping
           grex
           hex
-          hexyl
           html-tidy
           httpie
           hyperfine
@@ -57,7 +46,6 @@
           mediainfo
           mosh
           nasm
-          ncdu
           netcat-gnu
           nettools
           nmap
