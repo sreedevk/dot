@@ -21,6 +21,12 @@
         "--no-healthcheck"
         "--user=${opts.adminUID}"
       ];
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.romm.http.parent_name" = "${opts.hostname}";
+        "kuma.romm.http.name" = "Romm";
+        "kuma.romm.http.url" = "http://${opts.lanAddress}:${opts.ports.romm-app}/api/heartbeat";
+      };
       volumes = [
         "${opts.paths.roms}/resources:/romm/resources"
         "${opts.paths.app_datafiles}/romm/redis:/redis-data"
