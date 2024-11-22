@@ -4,7 +4,7 @@
   virtualisation.oci-containers.containers = {
     "stirling-pdf" = {
       autoStart = true;
-      image = "frooodle/s-pdf:latest";
+      image = "stirlingtools/stirling-pdf:latest";
       extraOptions = [ "--no-healthcheck" ];
       volumes = [
         "stirling_pdf_trainingdata:/usr/share/tessdata"
