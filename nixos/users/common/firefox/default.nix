@@ -1,12 +1,12 @@
 { pkgs, lib, config, stylix, firefox-addons, system, ... }:
 let
   nixglmod = import ../nixGL.nix { inherit lib config pkgs; };
-  extensions = (import ./extensions.nix { inherit firefox-addons system; });
+  extensions = import ./extensions.nix { inherit firefox-addons system; };
 
-  settings = (import ./settings.nix);
-  searchEngines = (import ./search-engines.nix);
-  bookmarks = (import ./bookmarks.nix);
-  containers = (import ./containers.nix);
+  settings = import ./settings.nix;
+  searchEngines = import ./search-engines.nix;
+  bookmarks = import ./bookmarks.nix;
+  containers = import ./containers.nix;
 in
 {
   stylix.targets.firefox.enable = true;

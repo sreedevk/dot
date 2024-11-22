@@ -10,6 +10,7 @@
     "d ${opts.paths.app_datafiles}/dockge/volumes 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
+  # https://dockge.nullptr.sh/
   virtualisation.oci-containers.containers = {
     dockge = {
       autoStart = true;
@@ -27,6 +28,12 @@
         "${opts.paths.app_datafiles}/dockge/stacks:/opt/stacks"
         "${opts.paths.app_datafiles}/dockge/volumes:/opt/volumes"
       ];
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.dockge.http.parent_name" = "${opts.hostname}";
+        "kuma.dockge.http.name" = "Dockge";
+        "kuma.dockge.http.url" = "http://${opts.lanAddress}:${opts.ports.dockge}/";
+      };
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
