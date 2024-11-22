@@ -36,7 +36,7 @@
         TZ = opts.timeZone;
       };
     };
-
+    # https://${opts.hostname}:${opts.ports.hoarder_app}
     hoarder = {
       autoStart = true;
       dependsOn = [ "meilisearch" "chrome" ];
@@ -44,6 +44,12 @@
       ports = [ "${opts.ports.hoarder_app}:3000" ];
       environmentFiles = [ config.age.secrets.hoarder_env.path ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.hoarder.http.parent_name" = "${opts.hostname}";
+        "kuma.hoarder.http.name" = "Hoarder";
+        "kuma.hoarder.http.url" = "http://${opts.lanAddress}:${opts.ports.hoarder_app}/api/health";
+      };
       volumes = [ "${opts.paths.app_datafiles}/hoarder:/data" ];
       environment = {
         BROWSER_WEB_URL = "http://${opts.hostname}:${opts.ports.chrome}";
