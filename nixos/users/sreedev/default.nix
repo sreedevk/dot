@@ -149,6 +149,13 @@
         identityFile = "~/.ssh/id_ed25519";
       };
 
+      "devtechnica.com" = {
+        hostname = "devtechnica.com";
+        user = "deploy";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
       "github.com" = {
         hostname = "github.com";
         user = "git";
