@@ -11,7 +11,7 @@
     ../common/dunst.nix
     ../common/extra-packages.nix
     ../common/fastfetch.nix
-    ../common/firefox.nix
+    ../common/firefox
     ../common/fontconfig.nix
     ../common/git.nix
     ../common/github.nix
