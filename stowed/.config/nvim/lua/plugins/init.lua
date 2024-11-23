@@ -12,14 +12,6 @@ return {
   'lervag/vimtex',
 
   {
-    'echasnovski/mini.ai',
-    version = '*',
-    config = function()
-      require('mini.ai').setup()
-    end
-  },
-
-  {
     'MeanderingProgrammer/render-markdown.nvim',
     opts = {},
     dependencies = {
@@ -167,17 +159,6 @@ return {
     config = true
   },
 
-  {
-    'echasnovski/mini.comment',
-    lazy = true,
-    keys = {
-      "gcE",
-      { "gc", mode = "v" }
-    },
-    config = function()
-      require('mini.comment').setup()
-    end
-  },
   {
     'ledger/vim-ledger',
     ft = { 'ledger', 'journal' },
