@@ -29,7 +29,7 @@ map('v', '<M-k>', ":m '<-2<CR>gv=gv")
 map('n', '<Leader>x', "<cmd>! chmod +x %<CR>")
 map("n", "<leader><leader>s", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
 
-map('n', '<Leader>cd', "<cmd>lua vim.cmd('cd ' .. vim.fn.expand('%:p:h'))<CR>")
+map('n', '<Leader>cd', "<cmd>lua vim.cmd('tcd ' .. vim.fn.expand('%:p:h'))<CR>")
 
 -- Tabs
 map('n', '<C-t>', "<cmd>tabnew<CR>")
