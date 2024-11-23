@@ -144,7 +144,7 @@ return {
 
         qt.toggle_win("split")
       end,
-      desc = "[T]est [T]oggle Window",
+      desc = "[T]est Toggle [W]indow",
     },
     {
       "<leader>tc",
