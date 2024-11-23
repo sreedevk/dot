@@ -40,7 +40,7 @@ map('n', '<Leader>bb', '<cmd>bnext<CR>')
 map('n', '<Leader>bB', '<cmd>bprev<CR>')
 
 -- toggle
-map('n', '<leader>ts', "<cmd>set spell!<CR>")
+map('n', '<leader>sp', "<cmd>set spell!<CR>")
 
 -- case conv
 map('n', '<Leader>cml', [[:lua require("utils").convert_cword_to_camel()<CR>]])
