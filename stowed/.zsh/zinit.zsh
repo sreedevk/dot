@@ -28,6 +28,14 @@ export FZF_COMPLETION_OPTS=$FZF_DEFAULT_OPTS
 export FZF_TMUX=1
 export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree"
 
+export FZF_CTRL_T_OPTS="--walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'tree -C {}'"
+
 FZF_LS_PREVIEW='[[ -d ${(Q)realpath} ]] && eza -1 --color=always ${(Q)realpath} || bat --color=always ${(Q)realpath} 2> /dev/null'
 FZF_GIT_SHOW_PREVIEW='case "$group" in
     "commit tag") git show --color=always $word ;;
