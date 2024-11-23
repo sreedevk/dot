@@ -1,9 +1,9 @@
 return {
   'Wansmer/sibling-swap.nvim',
-  dependencies = { 'nvim-treesitter' },
+  dependencies = { 'nvim-treesitter/nvim-treesitter' },
   keys = {
-    { '<C-.>', mode = "n" },
-    { '<C-,>', mode = "n" },
+    { '<C-.>',     mode = "n" },
+    { '<C-,>',     mode = "n" },
     { '<Leader>.', mode = "n" },
     { '<Leader>,', mode = "n" },
   },
