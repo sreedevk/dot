@@ -70,6 +70,10 @@
         glow
         graphviz
         hledger
+        hledger-iadd
+        hledger-ui
+        hledger-utils
+        hledger-web
         hugo
         instaloader
         jira-cli-go
@@ -93,6 +97,7 @@
         oxker
         pandoc
         playerctl
+        puffin
         pwvucontrol
         python311Packages.i3ipc
         python312Packages.supervisor
