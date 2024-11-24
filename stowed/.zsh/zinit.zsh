@@ -21,6 +21,7 @@ export FZF_DEFAULT_OPTS="--height 60% \
 --marker ⇒       \
 --select-1       \
 --exit-0         \
+--min-height=10  \
 --bind 'ctrl-y:execute-silent(echo -n {2..} | wl-copy)+abort'
 --bind tab:accept"
 
@@ -36,24 +37,27 @@ export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'tree -C {}'"
 
-FZF_LS_PREVIEW='[[ -d ${(Q)realpath} ]] && eza -1 --color=always ${(Q)realpath} || bat --color=always ${(Q)realpath} 2> /dev/null'
 FZF_GIT_SHOW_PREVIEW='case "$group" in
     "commit tag") git show --color=always $word ;;
     *) git show --color=always $word | delta ;;
     esac'
 
-zstyle ':fzf-tab:*'                                 group-colors $FZF_TAB_GROUP_COLORS
-zstyle ':completion:*:git-checkout:*'               sort false
-zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview 'git diff $word | delta'
-zstyle ':completion:*:descriptions'                 format '[%d]'
 zstyle ':completion:*'                              list-colors ${(s.:.)LS_COLORS}
-zstyle ':fzf-tab:complete:cd:*'                     fzf-preview 'eza -1 --color=always $realpath'
-zstyle ':fzf-tab:complete:systemctl-*:*'            fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
-zstyle ':fzf-tab:complete:ls:*'                     fzf-preview $FZF_LS_PREVIEW
-zstyle ':fzf-tab:complete:git-show:*'               fzf-preview $FZF_GIT_SHOW_PREVIEW
-zstyle ':fzf-tab:*'                                 use-fzf-default-opts yes
-zstyle ':fzf-tab:*'                                 switch-group '<' '>'
+zstyle ':completion:*:descriptions'                 format '[%d]'
+zstyle ':completion:*:git-checkout:*'               sort false
+
 zstyle ':fzf-tab:*'                                 fzf-command ftb-tmux-popup
+zstyle ':fzf-tab:*'                                 group-colors $FZF_TAB_GROUP_COLORS
+zstyle ':fzf-tab:*'                                 popup-min-size 50 8
+zstyle ':fzf-tab:*'                                 switch-group '<' '>'
+zstyle ':fzf-tab:*'                                 use-fzf-default-opts yes
+zstyle ':fzf-tab:*'                                 fzf-min-height 15
+zstyle ':fzf-tab:complete:cd:*'                     fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:diff:*'                   popup-min-size 80 12
+zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview 'git diff $word | delta'
+zstyle ':fzf-tab:complete:git-show:*'               fzf-preview $FZF_GIT_SHOW_PREVIEW
+zstyle ':fzf-tab:complete:ls:*'                     fzf-preview '[[ -d ${(Q)realpath} ]] && eza -1 --color=always ${(Q)realpath} || bat --color=always ${(Q)realpath} 2> /dev/null'
+zstyle ':fzf-tab:complete:systemctl-*:*'            fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
