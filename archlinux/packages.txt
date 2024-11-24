@@ -66,6 +66,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 nvidia
 nvidia-settings
+nvtop
 openblas
 opencl-nvidia
 openresolv

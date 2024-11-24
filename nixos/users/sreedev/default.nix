@@ -89,7 +89,6 @@
         nodejs_22
         nsxiv
         nushell
-        nvtopPackages.full
         openttd
         oxker
         pandoc
