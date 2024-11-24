@@ -128,6 +128,7 @@
       export TASKWARRIOR_ENCRYPTION_SECRET="$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})"
       export BW_SESSION="$(cat ${config.age.secrets.bw_session.path})"
       export HUGGING_FACE_TOKEN="$(cat ${config.age.secrets.hugging_face_token.path})"
+      export OPENAI_API_KEY="$(cat ${config.age.secrets.openai_api_key.path})"
     '';
   };
 

@@ -10,11 +10,18 @@ return {
     config = function()
       require("codecompanion").setup({
         strategies = {
-          chat = { adapter = "ollama" },
-          inline = { adapter = "ollama" },
+          chat = { adapter = "openai" },
+          inline = { adapter = "ollama_llama_3_2" },
         },
         adapters = {
-          ollama = function()
+          openai = function()
+            return require("codecompanion.adapters").extend("openai", {
+              env = {
+                api_key = "cmd:echo $OPENAI_API_KEY",
+              },
+            })
+          end,
+          ollama_llama_3_2 = function()
             return require("codecompanion.adapters").extend("ollama", {
               name = "llama3.2",
               schema = {
