@@ -30,7 +30,7 @@
             { tool = "erlang"; version = "27.0.1"; }
             { tool = "golang"; version = "1.22.5"; }
             { tool = "nodejs"; version = "22.5.1"; }
-            { tool = "ruby"; version = "3.3.0"; }
+            { tool = "ruby"; version = "3.3.6"; }
             { tool = "zig"; version = "0.13.0"; }
             { tool = "gleam"; version = "1.3.2"; }
             # { tool = "sbcl"; version = "2.4.5"; }
