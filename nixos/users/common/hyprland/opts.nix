@@ -8,6 +8,15 @@ let
       hyprctl keyword general:layout master
     fi
   '';
+
+  hypr-toggleblur = pkgs.writeShellScriptBin "hypr-toggleblur" ''
+    current_status=$(hyprctl getoption decoration:blur:enabled -j | jq -M .int)
+    if [ "$current_status" == "1" ]; then
+      hyprctl keyword decoration:blur:enabled false
+    elif [ "$current_status" == "0" ]; then
+      hyprctl keyword decoration:blur:enabled true
+    fi
+  '';
 in
 {
   envs = {
@@ -196,6 +205,7 @@ in
       { mod = "SUPER"; keys = "x"; dispatcher = "exec"; args = "hyprctl kill"; }
 
       { mod = "SUPER ALT"; keys = "Tab"; dispatcher = "exec"; args = "${hypr-switchlayout}/bin/hypr-switchlayout"; }
+      { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-toggleblur}/bin/hypr-toggleblur"; }
 
       { mod = "SUPER SHIFT"; keys = "Space"; dispatcher = "togglefloating"; args = ""; }
       { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
