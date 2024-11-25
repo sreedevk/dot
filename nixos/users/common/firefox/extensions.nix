@@ -8,6 +8,7 @@ with firefox-addons.packages."${system}"; [
   darkreader
   duckduckgo-privacy-essentials
   enhancer-for-youtube
+  hoarder
   keybase
   linkding-extension
   mullvad
