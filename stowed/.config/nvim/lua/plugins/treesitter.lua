@@ -18,6 +18,24 @@ return {
         auto_install = false,
         incremental_selection = { enable = false },
         indent = { enable = true },
+        refactor = {
+          navigation = {
+            enable = true,
+            keymaps = {
+              goto_definition_lsp_fallback = "gd",
+            },
+          },
+          smart_rename = {
+            enable = true,
+            keymaps = {
+              smart_rename = "grr",
+            },
+          },
+          highlight_definitions = {
+            enable = true,
+            clear_on_cursor_move = true
+          },
+        },
         textobjects = {
           swap = {
             enable = true,
@@ -26,6 +44,15 @@ return {
             },
             swap_previous = {
               ["<C-,>"] = "@parameter.inner",
+            },
+          },
+          lsp_interop = {
+            enable = true,
+            border = 'none',
+            floating_preview_opts = {},
+            peek_definition_code = {
+              ["<leader>gd"] = "@function.outer",
+              ["<leader>gD"] = "@class.outer",
             },
           },
           select = {
@@ -76,6 +103,10 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-refactor',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
   }
 }
