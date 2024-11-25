@@ -1,24 +1,17 @@
 return {
   {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-  },
-  {
     'nvim-treesitter/nvim-treesitter',
     lazy = true,
     event = "BufReadPost",
-    dependencies = {
-      'windwp/nvim-ts-autotag'
-    },
+    dependencies = { 'windwp/nvim-ts-autotag' },
     config = function()
       vim.api.nvim_set_option_value("foldmethod", "expr", {})
       vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
-
       require('nvim-treesitter.configs').setup({
-        ensure_installed = { "bash", "c", "cpp", "css", "diff", "eex", "elixir", "gleam", "haskell", "heex", "html", "javascript", "jq", "json", "ledger", "lua", "python", "ruby", "rust", "ssh_config", "toml", "tsv", "typescript", "yaml", "zig", },
-        autotag = {
-          enable = true,
-          filetypes = { "html" },
+        ensure_installed = {
+          "bash", "c", "cpp", "css", "diff", "eex", "elixir", "gleam", "haskell", "heex", "html", "javascript", "jq",
+          "json", "ledger", "lua", "python", "ruby", "rust", "ssh_config", "toml", "tsv", "typescript", "yaml", "zig", },
+        autotag = { enable = true, filetypes = { "html", "xml" },
         },
         sync_install = true,
         ignore_install = { "comment" },
@@ -44,6 +37,14 @@ return {
               ["ac"] = "@class.outer",
               ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
               ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
+            },
+          },
+          move = {
+            enable = true,
+            set_jumps = true,
+            goto_next_start = {
+              ["]m"] = "@function.outer",
+              ["]]"] = { query = "@class.outer", desc = "next class start" },
             },
           },
           selection_modes = {
@@ -72,5 +73,9 @@ return {
         }
       })
     end
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
   }
 }
