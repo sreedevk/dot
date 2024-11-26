@@ -24,6 +24,7 @@ return {
     'tpope/vim-fugitive',
     config = function()
       vim.api.nvim_set_keymap('n', '<Leader>gb', [[<cmd>Git blame<CR>]], { noremap = true })
+      vim.api.nvim_set_keymap('n', '<Leader>gr', [[:Git rebase -i HEAD~]], { noremap = true })
     end
   },
 
