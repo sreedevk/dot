@@ -50,10 +50,10 @@
     let
       stable-packages = with nixpkgs-stable; [
         cava
+        (nerdfonts.override { fonts = [ "Iosevka" ]; })
       ];
 
       unstable-packages = with pkgs; [
-        (nerdfonts.override { fonts = [ "Iosevka" ]; })
         arandr
         autorandr
         bitwarden-cli

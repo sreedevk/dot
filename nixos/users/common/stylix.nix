@@ -1,4 +1,4 @@
-{ pkgs, opts, lib, system, ... }: {
+{ pkgs, nixpkgs-stable, opts, lib, system, ... }: {
   stylix = {
     enable = true;
     autoEnable = true;
@@ -35,7 +35,7 @@
       };
 
       monospace = {
-        package = (pkgs.nerdfonts.override { fonts = [ "Iosevka" ]; });
+        package = (nixpkgs-stable.nerdfonts.override { fonts = [ "Iosevka" ]; });
         name = "Iosevka NF";
       };
 

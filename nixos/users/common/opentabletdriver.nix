@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs-stable, ... }:
 {
-  home.packages = with pkgs; [
+  home.packages = with nixpkgs-stable; [
     opentabletdriver
   ];
 
@@ -14,7 +14,7 @@
             After = "graphical-session.target";
           };
           Service = {
-            ExecStart = "${pkgs.opentabletdriver}/bin/otd-daemon";
+            ExecStart = "${nixpkgs-stable.opentabletdriver}/bin/otd-daemon";
             Restart = "always";
             RestartSec = 3;
           };

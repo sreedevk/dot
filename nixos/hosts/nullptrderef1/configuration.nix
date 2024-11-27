@@ -1,4 +1,4 @@
-{ config, pkgs, opts, system, ... }:
+{ config, pkgs, nixpkgs-stable, opts, system, ... }:
 {
   imports = [
     ../common/containers
@@ -119,7 +119,7 @@
   };
 
   fonts = {
-    packages = with pkgs; [ iosevka nerdfonts ];
+    packages = with nixpkgs-stable; [ iosevka nerdfonts ];
     fontconfig = { enable = true; };
   };
 
