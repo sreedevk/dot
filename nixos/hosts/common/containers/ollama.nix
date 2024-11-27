@@ -25,7 +25,7 @@
 
     "ollama-web" = {
       autoStart = true;
-      image = "ghcr.io/open-webui/open-webui:main";
+      image = "ghcr.io/open-webui/open-webui:latest";
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--add-host=host.docker.internal:host-gateway"
