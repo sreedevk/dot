@@ -1,15 +1,16 @@
 { pkgs, nixpkgs-stable, username, ... }: {
   home.packages = with pkgs; [
     amfora
+    aria2
     asciinema
     asciinema-agg
-    aria2
     beanstalkd
     clang
     cmatrix
     csvlens
-    hexyl
     gping
+    hexyl
+    id3v2
     ncdu
   ];
 }
