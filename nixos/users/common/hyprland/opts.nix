@@ -412,7 +412,7 @@ in
   exec-once = [
     "waybar"
     "dunst"
-    "wlsunset"
+    "wlsunset -l 40.7 -L -73.9"
     "hyprpaper"
     "wl-paste --type text --watch cliphist store"
     "wl-paste --type image --watch cliphist store"
