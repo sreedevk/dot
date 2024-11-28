@@ -338,6 +338,7 @@ in
       { rule = "float"; window_identifiers = [ "class:^(Signal)$" ]; }
       { rule = "float"; window_identifiers = [ "title:^(About Mozilla Firefox)$" ]; }
       { rule = "float"; window_identifiers = [ "class:^(com.saivert.pwvucontrol)$" ]; }
+      { rule = "size 1400 650"; window_identifiers = [ "class:^(com.saivert.pwvucontrol)$" ]; }
       { rule = "keepaspectratio"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
       { rule = "move 73% 72%"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
       { rule = "size 25%"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
