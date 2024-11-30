@@ -221,7 +221,7 @@ in
       { mod = "SUPER SHIFT"; keys = "7"; dispatcher = "movetoworkspace"; args = "7"; }
       { mod = "SUPER SHIFT"; keys = "8"; dispatcher = "movetoworkspace"; args = "8"; }
       { mod = "SUPER SHIFT"; keys = "9"; dispatcher = "movetoworkspace"; args = "9"; }
-      { mod = "SUPER SHIFT"; keys = "C"; dispatcher = "exec"; args = "hyprctl reload"; }
+      { mod = "SUPER SHIFT"; keys = "C"; dispatcher = "movetoworkspace"; args = "special"; }
       { mod = "SUPER SHIFT"; keys = "E"; dispatcher = "exit"; args = ""; }
       { mod = "SUPER SHIFT"; keys = "H"; dispatcher = "swapwindow"; args = "l"; }
       { mod = "SUPER SHIFT"; keys = "J"; dispatcher = "swapwindow"; args = "d"; }
@@ -241,6 +241,7 @@ in
       { mod = "SUPER"; keys = "8"; dispatcher = "workspace"; args = "8"; }
       { mod = "SUPER"; keys = "9"; dispatcher = "workspace"; args = "9"; }
       { mod = "SUPER"; keys = "A"; dispatcher = "exec"; args = "pwvucontrol"; }
+      { mod = "SUPER"; keys = "C"; dispatcher = "togglespecialworkspace"; args = ""; }
       { mod = "SUPER"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; }
       { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
       { mod = "SUPER"; keys = "G"; dispatcher = "togglegroup"; args = ""; }
