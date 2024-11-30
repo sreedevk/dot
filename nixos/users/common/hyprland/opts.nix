@@ -340,6 +340,9 @@ in
       { rule = "float"; window_identifiers = [ "class:^(Rofi)$" ]; }
       { rule = "rounding 10"; window_identifiers = [ "class:^(Rofi)$" ]; }
 
+      { rule = "workspace 4 silent"; window_identifiers = [ "class:^(Slack)$" ]; }
+      { rule = "workspace 2 silent"; window_identifiers = [ "class:^(firefox)$" ]; }
+
       { rule = "float"; window_identifiers = [ "title:^(About Mozilla Firefox)$" ]; }
       { rule = "float"; window_identifiers = [ "class:^(com.saivert.pwvucontrol)$" ]; }
       { rule = "size 1400 650"; window_identifiers = [ "class:^(com.saivert.pwvucontrol)$" ]; }
