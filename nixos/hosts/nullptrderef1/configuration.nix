@@ -119,7 +119,7 @@
   };
 
   fonts = {
-    packages = with nixpkgs-stable; [ iosevka nerdfonts ];
+    packages = with pkgs; [ nerd-fonts.iosevka nerd-fonts.iosevka-term ];
     fontconfig = { enable = true; };
   };
 

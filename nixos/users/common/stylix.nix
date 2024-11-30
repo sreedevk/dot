@@ -35,8 +35,8 @@
       };
 
       monospace = {
-        package = (nixpkgs-stable.nerdfonts.override { fonts = [ "Iosevka" ]; });
-        name = "Iosevka NF";
+        package = pkgs.nerd-fonts.iosevka-term;
+        name = "Iosevka";
       };
 
       emoji = {

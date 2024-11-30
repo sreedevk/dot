@@ -87,6 +87,8 @@
         maim
         mdbook
         nemo-with-extensions
+        nerd-fonts.iosevka
+        nerd-fonts.iosevka-term
         nixops_unstable_minimal
         nixpkgs-fmt
         nmap
