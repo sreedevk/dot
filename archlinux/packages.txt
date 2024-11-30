@@ -91,6 +91,8 @@ raylib
 reflector
 sc3-plugins
 sdl2_image
+sdl2_mixer
+sdl2_net
 sdl2_ttf
 snd
 sndio
@@ -113,6 +115,8 @@ unzip
 upower
 usbutils
 vcpkg
+virtualbox
+virtualbox-host-dkms
 vulkan-intel
 waybar
 webkit2gtk
