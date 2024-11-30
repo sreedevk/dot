@@ -342,6 +342,7 @@ in
 
       { rule = "workspace 4 silent"; window_identifiers = [ "class:^(Slack)$" ]; }
       { rule = "workspace 2 silent"; window_identifiers = [ "class:^(firefox)$" ]; }
+      { rule = "workspace 5 silent"; window_identifiers = [ "class:^(Brave-browser)$" ]; }
 
       { rule = "float"; window_identifiers = [ "title:^(About Mozilla Firefox)$" ]; }
       { rule = "float"; window_identifiers = [ "class:^(com.saivert.pwvucontrol)$" ]; }
