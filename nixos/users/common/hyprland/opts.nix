@@ -323,7 +323,6 @@ in
       { rule = "float"; window_identifiers = "title:^(Save As)(.*)$"; }
       { rule = "size 1000 600"; window_identifiers = "title:^(Save As)(.*)$"; }
 
-
       { rule = "center"; window_identifiers = "title:^(Open File)(.*)$"; }
       { rule = "float"; window_identifiers = "title:^(Open File)(.*)$"; }
       { rule = "size 1000 600"; window_identifiers = "title:^(Open File)(.*)$"; }
@@ -336,6 +335,11 @@ in
       { rule = "float"; window_identifiers = [ "class:^(firefox)$" "title:^(Picture-in-Picture)$" ]; }
       { rule = "float"; window_identifiers = [ "class:^(firefox)$" "title:^(Library)$" ]; }
       { rule = "float"; window_identifiers = [ "class:^(Signal)$" ]; }
+
+      { rule = "center"; window_identifiers = [ "class:^(Rofi)$" ]; }
+      { rule = "float"; window_identifiers = [ "class:^(Rofi)$" ]; }
+      { rule = "rounding 10"; window_identifiers = [ "class:^(Rofi)$" ]; }
+
       { rule = "float"; window_identifiers = [ "title:^(About Mozilla Firefox)$" ]; }
       { rule = "float"; window_identifiers = [ "class:^(com.saivert.pwvucontrol)$" ]; }
       { rule = "size 1400 650"; window_identifiers = [ "class:^(com.saivert.pwvucontrol)$" ]; }
