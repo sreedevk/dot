@@ -55,20 +55,48 @@ return {
       'glepnir/lspsaga.nvim'
     },
     config = function()
-      local luasnip = require('luasnip')
       local cmp = require('cmp')
       local lspkind = require('lspkind')
 
+      local lspconfig_defaults = require('lspconfig').util.default_config
+      lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+        'force',
+        lspconfig_defaults.capabilities,
+        require('cmp_nvim_lsp').default_capabilities()
+      )
+
+      vim.api.nvim_create_autocmd('LspAttach', {
+        desc = 'LSP actions',
+        callback = function(event)
+          local opts = { buffer = event.buf }
+          vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+          vim.keymap.set("n", "K", "<cmd>Lspsaga peek_definition<CR>", opts)
+          vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+          vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+          vim.keymap.set("n", "<leader>rf", "<cmd>Lspsaga lsp_finder<CR>", opts)
+          vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+          vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+          -- Diagonstics
+          vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
+          vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
+          vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
+          vim.keymap.set('n', '<Leader>ff', function() vim.lsp.buf.format({ async = true }) end, opts)
+        end,
+      })
+
+      require('lspconfig').gleam.setup({})
+      require('lspconfig').rust_analyzer.setup({})
+      require('lspconfig').ruby_lsp.setup({
+        mason = false,
+        cmd = { vim.fn.trim(vim.fn.system("which ruby-lsp")) },
+      })
+
       cmp.setup({
-        experimental = {
-          ghost_text = false
-        },
-        formatting = {
-          format = lspkind.cmp_format(),
-        },
+        experimental = { ghost_text = false },
+        formatting = { format = lspkind.cmp_format(), },
         snippet = {
           expand = function(args)
-            luasnip.lsp_expand(args.body)
+            vim.snippet.expand(args.body)
           end,
         },
         mapping = cmp.mapping.preset.insert({
@@ -88,24 +116,15 @@ return {
         }),
       })
 
-      local lsp = require('lsp-zero').preset({})
-      lsp.on_attach(function(_, bufnr)
-        local opts = { buffer = bufnr, remap = false }
-        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-        vim.keymap.set("n", "K", "<cmd>Lspsaga peek_definition<CR>", opts)
-        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-        vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-        vim.keymap.set("n", "<leader>rf", "<cmd>Lspsaga lsp_finder<CR>", opts)
-        vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-        -- Diagonstics
-        vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
-        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
-        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
-        vim.keymap.set('n', '<Leader>ff', function() vim.lsp.buf.format({ async = true }) end, opts)
+      local lsp_zero = require('lsp-zero').preset({})
+
+      lsp_zero.on_attach(function(client, bufnr)
+        lsp_zero.default_keymaps({ buffer = bufnr })
+        lsp_zero.highlight_symbol(client, bufnr)
+        lsp_zero.buffer_autoformat()
       end)
 
-      lsp.setup()
+      lsp_zero.setup()
     end
   }
 }
