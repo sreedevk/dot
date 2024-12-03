@@ -57,8 +57,9 @@ return {
     config = function()
       local cmp = require('cmp')
       local lspkind = require('lspkind')
+      local lspconfig = require('lspconfig')
+      local lspconfig_defaults = lspconfig.util.default_config
 
-      local lspconfig_defaults = require('lspconfig').util.default_config
       lspconfig_defaults.capabilities = vim.tbl_deep_extend(
         'force',
         lspconfig_defaults.capabilities,
@@ -76,7 +77,6 @@ return {
           vim.keymap.set("n", "<leader>rf", "<cmd>Lspsaga lsp_finder<CR>", opts)
           vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
           vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-          -- Diagonstics
           vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
           vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
           vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
@@ -84,9 +84,9 @@ return {
         end,
       })
 
-      require('lspconfig').gleam.setup({})
-      require('lspconfig').rust_analyzer.setup({})
-      require('lspconfig').ruby_lsp.setup({
+      lspconfig.gleam.setup({})
+      lspconfig.rust_analyzer.setup({})
+      lspconfig.ruby_lsp.setup({
         mason = false,
         cmd = { vim.fn.trim(vim.fn.system("which ruby-lsp")) },
       })
