@@ -105,6 +105,7 @@
         python312Packages.supervisor
         qflipper
         qrencode
+        rebar3
         rofi
         scdl
         sonic-pi
