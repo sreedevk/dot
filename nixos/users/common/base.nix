@@ -33,7 +33,6 @@
             { tool = "golang"; version = "1.22.5"; }
             { tool = "opam"; version = "2.3.0"; }
             { tool = "ruby"; version = "3.3.6"; }
-            { tool = "sbcl"; version = "2.4.5"; }
             { tool = "zig"; version = "0.13.0"; }
           ];
         in
