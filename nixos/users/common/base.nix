@@ -25,15 +25,16 @@
       text =
         let
           versions = [
-            { tool = "bun"; version = "1.1.20"; }
+            { tool = "bun"; version = "1.1.38"; }
+            { tool = "deno"; version = "2.1.2"; }
             { tool = "elixir"; version = "1.17.2-otp-27"; }
             { tool = "erlang"; version = "27.0.1"; }
+            { tool = "gleam"; version = "1.6.3"; }
             { tool = "golang"; version = "1.22.5"; }
-            { tool = "nodejs"; version = "22.5.1"; }
+            { tool = "opam"; version = "2.3.0"; }
             { tool = "ruby"; version = "3.3.6"; }
+            { tool = "sbcl"; version = "2.4.5"; }
             { tool = "zig"; version = "0.13.0"; }
-            { tool = "gleam"; version = "1.3.2"; }
-            # { tool = "sbcl"; version = "2.4.5"; }
           ];
         in
         builtins.concatStringsSep "\n" (builtins.map (v: "${v.tool} ${v.version}") versions);
