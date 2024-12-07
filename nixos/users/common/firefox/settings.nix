@@ -74,8 +74,9 @@
   "browser.startup.homepage" = "about:blank";
   "browser.startup.page" = 3;
   "browser.tabs.crashReporting.sendReport" = false;
-  "browser.tabs.hoverPreview.enabled" = false;
-  "browser.tabs.tabmanager.enabled" = false;
+  "browser.tabs.groups.enabled" = true;
+  "browser.tabs.hoverPreview.enabled" = true;
+  "browser.tabs.tabmanager.enabled" = true;
   "browser.toolbars.bookmarks.visibility" = "always";
   "browser.uidensity" = 1;
   "browser.uitour.enabled" = false;

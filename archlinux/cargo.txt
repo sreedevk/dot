@@ -3,3 +3,4 @@ cargo-expand v1.0.90
 cargo-update v14.1.0
 cargo-watch v8.5.2
 deduplicator v0.2.2 (https//github.com/sreedevk/deduplicator#b4bf5d4f)
+license-generator v1.3.0

@@ -16,6 +16,10 @@ return {
             "isort",
             "black",
           },
+          ruby = {
+            "trim_whitespace",
+            lsp_format = "first",
+          },
           nix = {
             "nixpkgs-fmt"
           },
