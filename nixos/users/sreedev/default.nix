@@ -113,6 +113,7 @@
         texliveFull
         tmuxinator
         turbo
+        visidata
         yarn
         yt-dlp
       ];
