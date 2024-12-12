@@ -31,6 +31,7 @@
             { tool = "erlang"; version = "27.0.1"; }
             { tool = "gleam"; version = "1.6.3"; }
             { tool = "golang"; version = "1.22.5"; }
+            { tool = "nim"; version = "2.2.0"; }
             { tool = "opam"; version = "2.3.0"; }
             { tool = "ruby"; version = "3.3.6"; }
             { tool = "zig"; version = "0.13.0"; }
