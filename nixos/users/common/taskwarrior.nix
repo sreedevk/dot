@@ -17,9 +17,29 @@ let
     };
   };
 
+  taskwarrior-notifier = pkgs.writeShellScriptBin "taskwarrior-notify-due" ''
+    export DISPLAY=:1
+    now=$(date +%s)
+    in_one_hour=$(date -d "+1 hour" +%s)
+    tasks_due_today=$(task due:today _ids)
+    tasks_due_soon=""
+    for task_id in $tasks_due_today; do
+    	task_due_date="$(task _get $task_id.due)"
+    	task_due_epoch="$(date -d "$task_due_date" +%s)"
+    	task_description="$(task _get $task_id.description)"
+    	if [ "$task_due_epoch" -gt "$now" ] && [ "$task_due_epoch" -le "$in_one_hour" ]; then
+    		tasks_due_soon+="$task_id: $task_description"$'\n'
+    	fi
+    done
+    if [ -n "$tasks_due_soon" ]; then
+    	notify-send -a "taskwarrior" -u critical -c tasks -w 'You have tasks due in the next hour:'$'\n'"$tasks_due_soon"
+    fi
+  '';
+
   taskwarriorSettings = {
     theme = "${taskwarriorOptions.themes.solarized-dark}.theme";
     clientSyncFreq = "30min";
+    notificationFreq = "4m";
     dataLocation = "~/.task/";
     hooksLocation = "~/.task/hooks";
 
@@ -172,9 +192,34 @@ in
             ExecStart = "${pkgs.taskwarrior3}/bin/task sync";
           };
         };
+
+        taskwarrior-notify = {
+          Unit = {
+            Description = "Taskwarrior3 Notification Job";
+            Documentation = "info:task man:task(1) https://taskwarrior.org/docs/";
+          };
+          Service = {
+            Type = "simple";
+            EnvironmentFile = config.age.secrets.taskwarrior_env.path;
+            ExecStart = "${taskwarrior-notifier}/bin/taskwarrior-notify-due";
+          };
+        };
       };
 
       timers = {
+        taskwarrior-notify-timers = {
+          Unit = {
+            Description = "Notifier for Taskwarrior3 Service";
+          };
+          Timer = {
+            OnBootSec = "4min";
+            OnUnitActiveSec = taskwarriorSettings.notificationFreq;
+            Unit = "taskwarrior-notify.service";
+          };
+          Install = {
+            WantedBy = [ "timers.target" ];
+          };
+        };
         taskwarrior-sync-timers = {
           Unit = {
             Description = "Timer for Taskwarrior3 (TaskChampion) Sync Service";
