@@ -78,6 +78,7 @@ pamixer
 parallel
 picom
 pipewire-alsa
+pipewire-libcamera
 pipewire-pulse
 pipewire-v4l2
 polkit-qt6
@@ -114,6 +115,7 @@ unixodbc
 unzip
 upower
 usbutils
+v4l2loopback-dkms
 vcpkg
 virtualbox
 virtualbox-host-dkms
