@@ -151,8 +151,8 @@ in
 
         url.target=annotations
         url.labelregex=".*"
-        url.regex="((?:www|http).*)"
-        url.command="open $LAST_MATCH"
+        url.regex="((?:www|http|https).*)"
+        url.command="xdg-open $LAST_MATCH"
         url.modes="batch,any,normal"
       '';
     };
