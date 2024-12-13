@@ -117,10 +117,44 @@ in
   ];
 
   home.file = {
+
     ".taskrc" = {
       enable = true;
       text = mkTaskConfig taskwarriorSettings;
       recursive = false;
+    };
+
+    ".taskopenrc" = {
+      enable = true;
+      text = ''
+        [General]
+        taskbin             = task
+        taskargs
+        no_annotation_hook  = "addnote $ID"
+        task_attributes     = "priority,project,tags,description"
+        --sort:"urgency-,annot"
+        EDITOR = nvim
+        path_ext=/usr/share/taskopen/scripts
+
+        [Actions]
+        files.target=annotations
+        files.labelregex=".*"
+        files.regex="^[\\.\\/~]+.*\\.(.*)"
+        files.command="$EDITOR $FILE"
+        files.modes="batch,any,normal"
+
+        notes.target=annotations
+        notes.labelregex=".*"
+        notes.regex="^Notes(\\..*)?"
+        notes.command="""editnote ~/Data/notebook/tasknotes/$UUID$LAST_MATCH "$TASK_DESCRIPTION" $UUID"""
+        notes.modes="batch,any,normal"
+
+        url.target=annotations
+        url.labelregex=".*"
+        url.regex="((?:www|http).*)"
+        url.command="open $LAST_MATCH"
+        url.modes="batch,any,normal"
+      '';
     };
   };
 

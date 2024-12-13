@@ -23,6 +23,7 @@ alias zxi='__zoxide_zi'
 
 # Taskwarrior
 alias tt="taskwarrior-tui"
+alias to="taskopen"
 
 # Safe Opts
 alias cp="cp -i"
