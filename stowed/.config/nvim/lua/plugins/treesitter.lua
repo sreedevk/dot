@@ -111,6 +111,8 @@ return {
   },
   {
     "aaronik/treewalker.nvim",
+    lazy = true,
+    event = "BufReadPost",
     opts = {
       highlight = true
     },
