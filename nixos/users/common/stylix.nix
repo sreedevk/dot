@@ -1,15 +1,11 @@
-{ pkgs, nixpkgs-stable, opts, lib, system, ... }: {
+{ pkgs, config, nixpkgs-stable, opts, lib, system, ... }:
+{
   stylix = {
     enable = true;
     autoEnable = true;
     polarity = "dark";
+    image = config.lib.stylix.pixel "base0A";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
-
-    image = pkgs.fetchurl {
-      url = "https://www.pixelstalk.net/wp-content/uploads/images2/Free-download-Computer-Art-Photo.jpg";
-      sha256 = "sha256-tJ8k+rdmHLwrxgplmmawDcc6ROQkN8HQhCJCpoM1CP4=";
-    };
-
     imageScalingMode = "fill"; # fill,fit,stretch,center,tile
 
     opacity = {
