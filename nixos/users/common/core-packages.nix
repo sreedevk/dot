@@ -10,7 +10,6 @@
           aspellDicts.en
           aspellDicts.en-computers
           aspellDicts.en-science
-          babashka
           bat
           bingrep
           broot
