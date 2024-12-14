@@ -28,11 +28,17 @@ return {
             "black",
           },
           ruby = {
+            "rubocop",
+            "rubyfmt",
             "trim_whitespace",
-            lsp_format = "first",
+            lsp_format = "fallback",
           },
           nix = {
             "nixpkgs-fmt"
+          },
+          gleam = {
+            "gleam",
+            lsp_format = "fallback"
           },
           rust = {
             "rustfmt",
