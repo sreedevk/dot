@@ -80,7 +80,6 @@ return {
           vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
           vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
           vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
-          vim.keymap.set('n', '<Leader>ff', function() vim.lsp.buf.format({ async = true }) end, opts)
         end,
       })
 
@@ -121,7 +120,7 @@ return {
       lsp_zero.on_attach(function(client, bufnr)
         lsp_zero.default_keymaps({ buffer = bufnr })
         lsp_zero.highlight_symbol(client, bufnr)
-        lsp_zero.buffer_autoformat()
+        -- lsp_zero.buffer_autoformat()
       end)
 
       lsp_zero.setup()
