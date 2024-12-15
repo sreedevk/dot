@@ -42,6 +42,7 @@
     ../common/vim.nix
     ../common/x86-packages.nix
     ../common/xresources.nix
+    ../common/yazi.nix
     ../common/zathura.nix
     ../common/zsh.nix
     ./backup.nix
@@ -116,7 +117,6 @@
         turbo
         visidata
         yarn
-        yazi
         yt-dlp
       ];
     in

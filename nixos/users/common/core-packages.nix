@@ -39,7 +39,6 @@
           jaq
           jq
           less
-          lf
           lua
           luau
           mediainfo

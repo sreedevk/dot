@@ -81,7 +81,7 @@ unsetopt beep
 set -o vi
 
 # KEY BINDINGS
-bindkey -s '^o'    'lfcd\n'
+bindkey -s '^o'    'ycd\n'
 bindkey    '^R'    fzf-history-widget
 bindkey    '^A'    beginning-of-line
 bindkey    '^E'    end-of-line
