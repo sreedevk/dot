@@ -116,6 +116,7 @@
         turbo
         visidata
         yarn
+        yazi
         yt-dlp
       ];
     in
