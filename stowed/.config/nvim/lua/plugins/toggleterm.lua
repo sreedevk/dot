@@ -3,14 +3,13 @@ return {
   lazy = true,
   version = '*',
   cmd = "ToggleTerm",
-  keys = { '<Leader>tr', '<Leader>tf', '<Leader>rs', '<Leader>rn' },
+  keys = { '<Leader>tro', '<Leader>trf', '<Leader>trs', '<Leader>trn' },
   config = function()
     require('toggleterm').setup()
 
     function _G.arun()
       local term    = require('toggleterm.terminal').Terminal
-      local command = vim.fn.input("async cmd: ", "", "file")
-      command       = string.gsub(command, '%%', vim.fn.expand('%'))
+      local command = string.gsub(vim.fn.input("async cmd: ", "", "file"), '%%', vim.fn.expand('%'))
       local cmdterm = term:new({ cmd = command, hidden = false })
       cmdterm:spawn()
     end

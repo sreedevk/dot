@@ -1,24 +1,20 @@
-local autocmd = vim.api.nvim_create_autocmd
-local usercmd = vim.api.nvim_create_user_command
-
-usercmd('W', 'w', {})
-usercmd('Wq', 'wq', {})
-usercmd('WQ', 'wq', {})
-usercmd('Q', 'q', {})
-
-usercmd('FetchUrl', ':lua require("utils").fetchjson()', {})
-usercmd('Camelize', ':lua require("utils").convert_cword_to_camel()', {})
-usercmd('Snakeize', ':lua require("utils").convert_cword_to_snake()', {})
+vim.api.nvim_create_user_command('W', 'w', {})
+vim.api.nvim_create_user_command('Wq', 'wq', {})
+vim.api.nvim_create_user_command('WQ', 'wq', {})
+vim.api.nvim_create_user_command('Q', 'q', {})
+vim.api.nvim_create_user_command('FetchUrl', ':lua require("utils").fetchjson()', {})
+vim.api.nvim_create_user_command('Camelize', ':lua require("utils").convert_cword_to_camel()', {})
+vim.api.nvim_create_user_command('Snakeize', ':lua require("utils").convert_cword_to_snake()', {})
 
 
-autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   pattern = "qf",
   callback = function()
     vim.opt_local_buflisted = false
   end
 })
 
-autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   pattern = "ruby",
   callback = function()
     local function extend_hl(name, def)
@@ -33,47 +29,47 @@ autocmd("FileType", {
   end
 })
 
-autocmd("TextYankPost", {
+vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
   command = "silent! lua vim.highlight.on_yank()"
 })
 
-autocmd({ "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.csv", "*.CSV" },
   command = "set filetype=csv"
 })
 
-autocmd({ "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.ex", "*.exs" },
   command = "set filetype=elixir"
 })
 
-autocmd({ "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.journal", "*.prices", "*.ledger" },
   command = "set filetype=ledger"
 })
 
-autocmd({ "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.envrc" },
   command = "set filetype=bash"
 })
 
-autocmd({ "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.eex", "*.heex", "*.leex", "*.sface", "*.lexs" },
   command = "set filetype=heex"
 })
 
-autocmd({ "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "mix.lock",
   command = "set filetype=elixir"
 })
 
-autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   command = "setlocal formatoptions-=o"
 })
 
-autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "qf", "help", "man", "notify", "nofile",
     "lspinfo", "terminal", "prompt", "toggleterm",
