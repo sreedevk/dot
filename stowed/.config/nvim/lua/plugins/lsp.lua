@@ -84,6 +84,7 @@ return {
       })
 
       lspconfig.gleam.setup({})
+      lspconfig.ocamllsp.setup({})
       lspconfig.rust_analyzer.setup({})
       lspconfig.ruby_lsp.setup({
         mason = false,
