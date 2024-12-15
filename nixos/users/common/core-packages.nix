@@ -70,6 +70,7 @@
           wget
           xh
           xxd
+          yazi
           yq
           zellij
           zoxide
