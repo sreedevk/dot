@@ -111,10 +111,10 @@ in
   };
 
   inputs = {
-    kb_layout = "us";
-    kb_variant = "";
+    kb_layout = "us,apl";
+    kb_variant = ",dyalog";
     kb_model = "";
-    kb_options = "ctrl:nocaps compose:ralt";
+    kb_options = "ctrl:nocaps,compose:ralt,grp:alt_shift_toggle";
     kb_rules = "";
     follow_mouse = "1";
     sensitivity = "0";
