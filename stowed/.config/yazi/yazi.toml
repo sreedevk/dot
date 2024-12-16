@@ -1,10 +1,10 @@
 [manager]
 sort_by = "alphabetical"
 sort_sensitive = true
-sort_reverse = false
+sort_reverse = true
 sort_dir_first = true
 sort_translit = false
-linemode = "size"
+linemode = "mtime"
 show_hidden = true
 show_symlink = true
 scrolloff = 0
