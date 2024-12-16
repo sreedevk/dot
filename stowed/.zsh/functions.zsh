@@ -20,7 +20,7 @@ ycd() {
 	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
 		builtin cd -- "$cwd"
 	fi
-	rm -f -- "$tmp"
+	rm -f "$tmp" > /dev/null 2>&1
 }
 
 # Find Keycode
