@@ -4,8 +4,9 @@
 # AUTHOR: Sreedev Kodichath
 
 # Sys
-alias ls='eza --color=always'
-alias la='eza -a --color=always'
+alias la='/usr/bin/ls'
+alias ls='eza --color=always --long --all --header --icons --git'
+alias lsa='eza --color=always --long --all --sort=age --reverse --header --icons'
 alias ll='eza -l --icons --color=always'
 alias lla='eza -la --icons --color=always'
 alias twee='eza -aT --color=always --group-directories-first'
@@ -50,3 +51,7 @@ alias d='docker'
 
 # yt-dlp
 alias yt='yt-dlp'
+
+# Firefox
+alias foxhome='setsid firefox -P "home"'
+alias foxwork='setsid firefox -P "work"'

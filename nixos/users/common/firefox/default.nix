@@ -15,11 +15,11 @@ in
     package = nixglmod.nixGLWrapped pkgs.firefox-bin "firefox";
     profiles = {
 
-      main = {
+      home = {
         isDefault = true;
         id = 0;
-        containersForce = true;
-        containers = containers;
+        containersForce = false;
+        containers = {};
         extensions = extensions;
         search = {
           force = true;
@@ -31,10 +31,10 @@ in
         bookmarks = bookmarks;
       };
 
-      personal = {
+      work = {
         isDefault = false;
         id = 1;
-        containersForce = false;
+        containersForce = true;
         containers = containers;
         extensions = extensions;
         search = {
