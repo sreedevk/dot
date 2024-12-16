@@ -15,6 +15,7 @@
       gh-notify
       gh-cal
       gh-markdown-preview
+      gh-s
     ];
     settings = {
       github_protocol = "ssh";
