@@ -2,7 +2,8 @@
 # AUTHOR: Sreedev Kodichath
 
 # PATHS
-export PATH="$PATH:$HOME/.local/bin:/opt/bin"
+export CARGO_BIN_PATH="$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.local/bin:/opt/bin:$CARGO_BIN_PATH"
 
 # XDG
 export XDG_DATA_HOME="$HOME/.local/share"
