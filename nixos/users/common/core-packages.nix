@@ -25,6 +25,7 @@
           git
           git-crypt
           git-filter-repo
+          miller
           git-sizer
           gitleaks
           gperf

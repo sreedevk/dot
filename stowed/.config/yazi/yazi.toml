@@ -14,6 +14,11 @@ wrap = "yes"
 tab_size = 4
 
 [opener]
-play = [{ run = 'mpv "$@"', orphan = true, for = "unix"}]
+play = [{ run = 'mpv "$@"', orphan = true, for = "unix" }]
 edit = [{ run = '$EDITOR "$@"', block = true, for = "unix" }]
 open = [{ run = 'xdg-open "$@"', desc = "Open" }]
+
+[plugin]
+prepend_previewers = [
+  { name = "*.md", run = "glow" },
+]
