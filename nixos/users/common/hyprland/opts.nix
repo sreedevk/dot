@@ -356,6 +356,8 @@ in
       { rule = "pin"; window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ]; }
       { rule = "immediate"; window_identifiers = [ "class:(steam_app)" ]; }
       { rule = "noshadow"; window_identifiers = [ "floating:0" ]; }
+
+      { rule = "tile"; window_identifiers = [ "class:^(Nsxiv)$" ]; }
     ];
 
     layer = [
