@@ -5,7 +5,7 @@
     autoReload = true;
     reloadThreads = 8;
     reloadTime = 120;
-    browser = "firefox";
+    browser = "brave";
     maxItems = 30;
     extraConfig = ''
       # ---- OPTS
@@ -50,8 +50,8 @@
       bind-key ^E      edit-flags
 
       # macros
-      macro y set browser "echo %u | xclip -sel clip"; open-in-browser; set browser firefox
-      macro a set browser mpv; one; set browser firefox
+      macro y set browser "echo %u | xclip -sel clip"; open-in-browser; set browser brave
+      macro a set browser mpv; one; set browser brave
 
       # notification
       notify-format "Newsboat: %f unread feeds (%n unread articles total)"

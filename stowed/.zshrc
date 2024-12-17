@@ -18,7 +18,7 @@ export VISUAL="nvim"
 export EDITOR="nvim"
 export READER="zathura"
 export TERMINAL="alacritty"
-export BROWSER="firefox"
+export BROWSER="brave"
 
 # BETTER TERM
 export KEYTIMEOUT=1

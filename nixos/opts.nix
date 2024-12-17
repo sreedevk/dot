@@ -2,8 +2,8 @@
   timeZone = "America/New_York";
 
   default-web-browser = {
-    bin = "firefox";
-    xdg-desktop = "firefox.desktop";
+    bin = "brave";
+    xdg-desktop = "brave-browser.desktop";
   };
 
   publicKeys = {
