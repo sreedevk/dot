@@ -51,7 +51,3 @@ alias d='docker'
 
 # yt-dlp
 alias yt='yt-dlp'
-
-# Firefox
-alias foxhome='setsid firefox -P "home"'
-alias foxwork='setsid firefox -P "work"'

@@ -15,27 +15,11 @@ in
     package = nixglmod.nixGLWrapped pkgs.firefox-bin "firefox";
     profiles = {
 
-      home = {
+      main = {
         isDefault = true;
         id = 0;
         containersForce = false;
         containers = {};
-        extensions = extensions;
-        search = {
-          force = true;
-          default = "Brave";
-          privateDefault = "Brave";
-          engines = searchEngines;
-        };
-        settings = settings;
-        bookmarks = bookmarks;
-      };
-
-      work = {
-        isDefault = false;
-        id = 1;
-        containersForce = true;
-        containers = containers;
         extensions = extensions;
         search = {
           force = true;
