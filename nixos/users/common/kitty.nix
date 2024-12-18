@@ -4,7 +4,7 @@ let
 in
 {
 
-  stylix.targets.kitty.enable = false;
+  stylix.targets.kitty.enable = true;
 
   xdg.desktopEntries = {
     kitty = {
