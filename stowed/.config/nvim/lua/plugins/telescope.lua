@@ -40,15 +40,16 @@ return {
       },
     }
 
+    vim.keymap.set('n', '<C-p>', function() require('telescope.builtin').find_files() end, { noremap = true })
+    vim.keymap.set('n', '<C-s>', "<cmd>Telescope<CR>", { noremap = true })
+    vim.keymap.set('n', '<Leader>rg', function() require('telescope.builtin').live_grep() end, { noremap = true })
+    vim.keymap.set('n', '<Leader>bl', function() require('telescope.builtin').buffers() end, { noremap = true })
+    vim.keymap.set('n', '<Leader>ft', function() require('telescope.builtin').filetypes() end, { noremap = true })
+    vim.keymap.set('n', '<leader>fh', function() require('telescope.builtin').help_tags() end, { noremap = true })
+    vim.keymap.set('n', '<leader>gc', function() require('telescope.builtin').git_commits() end, { noremap = true })
 
-    vim.api.nvim_set_keymap('n', '<C-p>', "<cmd>Telescope find_files<CR>", { noremap = true })
-    vim.api.nvim_set_keymap('n', '<Leader>p', "<cmd>Telescope git_files<CR>", { noremap = true })
-    vim.api.nvim_set_keymap('n', '<C-s>', "<cmd>Telescope<CR>", { noremap = true })
-    vim.api.nvim_set_keymap('n', '<Leader>rg', "<cmd>Telescope live_grep<CR>", { noremap = true })
-    vim.api.nvim_set_keymap('n', '<leader>fw',
-      "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') })<CR>", { noremap = true })
-    vim.api.nvim_set_keymap('n', '<Leader>bl', "<cmd>Telescope buffers<CR>", { noremap = true })
-
-    vim.api.nvim_create_user_command('Filetypes', 'Telescope filetypes', {})
+    vim.keymap.set('n', '<Leader>fw', function()
+      require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') })
+    end, { noremap = true })
   end
 }
