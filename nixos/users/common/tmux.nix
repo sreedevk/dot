@@ -1,18 +1,5 @@
 { pkgs, ... }:
 let
-  t-smart-manager = pkgs.tmuxPlugins.mkTmuxPlugin
-    {
-      pluginName = "t-smart-tmux-session-manager";
-      version = "unstable-2023-01-06";
-      rtpFilePath = "t-smart-tmux-session-manager.tmux";
-      src = pkgs.fetchFromGitHub {
-        owner = "joshmedeski";
-        repo = "t-smart-tmux-session-manager";
-        rev = "a1e91b427047d0224d2c9c8148fb84b47f651866";
-        sha256 = "sha256-HN0hJeB31MvkD12dbnF2SjefkAVgtUmhah598zAlhQs=";
-      };
-    };
-
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin
     {
       pluginName = "tmux-super-fingers";
@@ -34,19 +21,19 @@ in
     plugins = with pkgs; [
 
       {
-        plugin = t-smart-manager;
-        extraConfig = ''
-          set -g @t-fzf-prompt '  '
-          set -g @t-bind "T"
-        '';
-      }
-
-      {
         plugin = tmux-super-fingers;
         extraConfig = "set -g @super-fingers-key f";
       }
 
-      tmuxPlugins.extrakto
+      {
+        plugin = tmuxPlugins.extrakto;
+        extraConfig = ''
+          set -g @extrakto_key tab
+          set -g @extrakto_copy_key	enter
+          set -g @extrakto_insert_key	tab
+          set -g @extrakto_filter_key ctrl-f
+        '';
+      }
       tmuxPlugins.jump
       tmuxPlugins.tmux-thumbs
       tmuxPlugins.yank
