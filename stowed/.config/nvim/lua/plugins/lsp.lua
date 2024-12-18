@@ -24,31 +24,35 @@ return {
     config = function()
       vim.opt.signcolumn = 'yes'
       local cmp = require('cmp')
-      local lspkind = require('lspkind')
-      local lspconfig = require('lspconfig')
-      local lspconfig_defaults = lspconfig.util.default_config
+      local lsp_kind = require('lspkind')
+      local lsp_config = require('lspconfig')
+      local lsp_config_defaults = lsp_config.util.default_config
+      local lsp_on_attach_cb = function(event)
+        local opts = { buffer = event.buf }
+        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+        vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, opts)
+        vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
+        vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, opts)
+        vim.keymap.set('n', 'go', function() vim.lsp.buf.type_definition() end, opts)
+        vim.keymap.set('n', 'gr', function() vim.lsp.buf.references() end, opts)
+        vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
+        vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
+        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
+        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+        vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
+      end
 
-      lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+      lsp_config_defaults.capabilities = vim.tbl_deep_extend(
         'force',
-        lspconfig_defaults.capabilities,
+        lsp_config_defaults.capabilities,
         require('cmp_nvim_lsp').default_capabilities()
       )
 
       vim.api.nvim_create_autocmd('LspAttach', {
         desc = 'LSP actions',
-        callback = function(event)
-          local opts = { buffer = event.buf }
-          vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-          vim.keymap.set("n", "K", "<cmd>Lspsaga peek_definition<CR>", opts)
-          vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-          vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-          vim.keymap.set("n", "<leader>rf", "<cmd>Lspsaga lsp_finder<CR>", opts)
-          vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-          vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-          vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
-          vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
-          vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
-        end,
+        callback = lsp_on_attach_cb,
       })
 
       require('mason').setup({})
@@ -60,11 +64,11 @@ return {
         }
       })
 
-      lspconfig.gleam.setup {}
-      lspconfig.ocamllsp.setup {}
-      lspconfig.rust_analyzer.setup {}
-      lspconfig.lua_ls.setup {}
-      lspconfig.ruby_lsp.setup({
+      lsp_config.gleam.setup {}
+      lsp_config.ocamllsp.setup {}
+      lsp_config.rust_analyzer.setup {}
+      lsp_config.lua_ls.setup {}
+      lsp_config.ruby_lsp.setup({
         mason = false,
         cmd = { vim.fn.trim(vim.fn.system("which ruby-lsp")) },
       })
@@ -74,7 +78,7 @@ return {
       cmp.setup({
         experimental = { ghost_text = false },
         formatting = {
-          format = lspkind.cmp_format({
+          format = lsp_kind.cmp_format({
             mode = 'symbol_text',
             maxwidth = {
               menu = 50,
@@ -93,7 +97,6 @@ return {
           ["<C-j>"] = cmp.mapping.select_next_item(),
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
