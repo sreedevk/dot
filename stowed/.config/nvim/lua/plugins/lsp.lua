@@ -112,13 +112,6 @@ return {
         },
       })
 
-      cmp.setup.cmdline({ '/', '?' }, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = 'buffer' }
-        }
-      })
-
       local lsp_zero = require('lsp-zero').preset({})
 
       lsp_zero.on_attach(function(client, bufnr)
