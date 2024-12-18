@@ -20,6 +20,9 @@ let
 in
 {
   envs = {
+    __NV_PRIME_RENDER_OFFLOAD = "1";
+    __VK_LAYER_NV_optimus = "NVIDIA_only";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
     GBM_BACKEND = "nvidia-drm";
     GDK_DPI_SCALE = "1";
@@ -37,13 +40,11 @@ in
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "Hyprland";
     XDG_CURRENT_DESKTOP = "Hyprland";
-    ELECTRON_OZONE_PLATFORM_HINT = "x11";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
     # NOTE: Legacy DRM interface. Might fix flickering issues.
     # WLR_DRM_NO_ATOMIC = "1";
     __GL_VRR_ALLOWED = "1";
     __GL_GSYNC_ALLOWED = "1";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    __NV_PRIME_RENDER_OFFLOAD = "1";
   };
 
   monitors = [
