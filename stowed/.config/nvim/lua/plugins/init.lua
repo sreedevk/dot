@@ -19,14 +19,6 @@ return {
   },
 
   {
-    "AdeAttwood/ivy.nvim",
-    build = "cargo build --release",
-    config = function()
-      require("ivy").setup()
-    end
-  },
-
-  {
     'MeanderingProgrammer/render-markdown.nvim',
     opts = {},
     dependencies = {
