@@ -25,7 +25,6 @@
           git
           git-crypt
           git-filter-repo
-          miller
           git-sizer
           gitleaks
           gperf
@@ -43,10 +42,12 @@
           lua
           luau
           mediainfo
+          miller
           mosh
           nasm
           netcat-gnu
           nettools
+          nix-prefetch-git
           nmap
           ouch
           p7zip
