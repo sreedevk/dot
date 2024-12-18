@@ -2,7 +2,6 @@ return {
   "tpope/vim-vinegar",
   'chrisbra/unicode.vim',
   'kevinhwang91/nvim-bqf',
-  'lervag/vimtex',
   'preservim/vim-indent-guides',
   'tpope/vim-characterize',
   'tpope/vim-dispatch',
@@ -10,6 +9,13 @@ return {
   'tpope/vim-rails',
   'tpope/vim-repeat',
   'tpope/vim-surround',
+
+  {
+    'lervag/vimtex',
+    init = function()
+      vim.g.vimtex_view_method = "zathura"
+    end
+  },
 
   {
     'mattn/emmet-vim',
