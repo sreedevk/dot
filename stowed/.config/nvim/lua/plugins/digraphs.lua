@@ -1,9 +1,9 @@
 return {
   'protex/better-digraphs.nvim',
   dependencies = {
-    'nvim-telescope/telescope.nvim' 
+    'nvim-telescope/telescope.nvim'
   },
-  config = function ()
+  config = function()
     vim.g.BetterDigraphsAdditions = {
       {
         digraph = "TH",
