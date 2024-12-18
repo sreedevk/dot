@@ -6,55 +6,23 @@ return {
   },
 
   {
-    'glepnir/lspsaga.nvim',
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-      "nvim-treesitter/nvim-treesitter"
-    },
-    config = function()
-      require("lspsaga").setup({
-        symbol_in_winbar = {
-          enable = true,
-          separator = " ",
-          ignore_patterns = {},
-          hide_keyword = true,
-          show_file = true,
-          folder_level = 2,
-          respect_root = false,
-          color_mode = true,
-        },
-        lightbulb = {
-          enable = false,
-          enable_in_insert = false,
-          sign = false,
-          sign_priority = 40,
-          virtual_text = false,
-        },
-      })
-      vim.api.nvim_set_keymap('n', '<Leader>cv', "<cmd>Lspsaga outline<CR>", { noremap = true })
-    end,
-  },
-
-  {
     'VonHeikemen/lsp-zero.nvim',
     branch = "v2.x",
     lazy = true,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     dependencies = {
       'neovim/nvim-lspconfig',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/nvim-cmp',
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'onsails/lspkind.nvim',
-      'hrsh7th/nvim-cmp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-nvim-lsp',
-      'ray-x/cmp-treesitter',
       'L3MON4D3/LuaSnip',
-      'glepnir/lspsaga.nvim'
     },
     config = function()
+      vim.opt.signcolumn = 'yes'
       local cmp = require('cmp')
       local lspkind = require('lspkind')
       local lspconfig = require('lspconfig')
@@ -83,20 +51,41 @@ return {
         end,
       })
 
-      lspconfig.gleam.setup({})
-      lspconfig.ocamllsp.setup({})
-      lspconfig.rust_analyzer.setup({})
+      require('mason').setup({})
+      require('mason-lspconfig').setup({
+        handlers = {
+          function(server_name)
+            require('lspconfig')[server_name].setup({})
+          end,
+        }
+      })
+
+      lspconfig.gleam.setup {}
+      lspconfig.ocamllsp.setup {}
+      lspconfig.rust_analyzer.setup {}
+      lspconfig.lua_ls.setup {}
       lspconfig.ruby_lsp.setup({
         mason = false,
         cmd = { vim.fn.trim(vim.fn.system("which ruby-lsp")) },
       })
 
+      require('luasnip.loaders.from_vscode').lazy_load()
+
       cmp.setup({
         experimental = { ghost_text = false },
-        formatting = { format = lspkind.cmp_format(), },
+        formatting = {
+          format = lspkind.cmp_format({
+            mode = 'symbol_text',
+            maxwidth = {
+              menu = 50,
+              abbr = 50
+            },
+            show_labelDetails = true
+          }),
+        },
         snippet = {
           expand = function(args)
-            vim.snippet.expand(args.body)
+            require('luasnip').lsp_expand(args.body)
           end,
         },
         mapping = cmp.mapping.preset.insert({
@@ -114,6 +103,17 @@ return {
           { name = "buffer",   priority = 7, group_index = 2 },
           { name = "path",     priority = 6, group_index = 2 }
         }),
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        },
+      })
+
+      cmp.setup.cmdline({ '/', '?' }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = 'buffer' }
+        }
       })
 
       local lsp_zero = require('lsp-zero').preset({})
@@ -121,6 +121,7 @@ return {
       lsp_zero.on_attach(function(client, bufnr)
         lsp_zero.default_keymaps({ buffer = bufnr })
         lsp_zero.highlight_symbol(client, bufnr)
+        -- NOTE: uncomment to enable autoformat
         -- lsp_zero.buffer_autoformat()
       end)
 

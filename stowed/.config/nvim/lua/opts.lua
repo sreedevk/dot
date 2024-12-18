@@ -66,7 +66,6 @@ vim.opt.swapfile             = false
 vim.opt.backup               = false
 vim.opt.writebackup          = false
 
-vim.wo.signcolumn            = 'yes'
 vim.wo.wrap                  = true
 
 vim.api.nvim_set_hl(0, "CursorLine", { default = true, blend = 50 })
