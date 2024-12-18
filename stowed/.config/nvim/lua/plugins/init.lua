@@ -1,15 +1,22 @@
 return {
+  "tpope/vim-vinegar",
   'chrisbra/unicode.vim',
   'kevinhwang91/nvim-bqf',
-  'mattn/emmet-vim',
+  'lervag/vimtex',
+  'preservim/vim-indent-guides',
   'tpope/vim-characterize',
   'tpope/vim-dispatch',
   'tpope/vim-ragtag',
   'tpope/vim-rails',
   'tpope/vim-repeat',
-  'preservim/vim-indent-guides',
   'tpope/vim-surround',
-  'lervag/vimtex',
+
+  {
+    'mattn/emmet-vim',
+    config = function()
+      vim.g.user_emmet_leader_key = "<C-c>"
+    end
+  },
 
   {
     "AdeAttwood/ivy.nvim",
@@ -89,6 +96,7 @@ return {
   {
     'norcalli/nvim-colorizer.lua',
     lazy = true,
+    ft = { "css", "scss", "less" },
     cmd = {
       'ColorizerAttachToBuffer',
       'ColorizerDetachFromBuffer',
@@ -103,7 +111,11 @@ return {
   {
     'jdhao/better-escape.vim',
     lazy = true,
-    event = { "CursorHold", "CursorHoldI" }
+    event = { "CursorHold", "CursorHoldI" },
+    config = function()
+      vim.g.better_escape_shortcut = 'jj'
+      vim.g.better_escape_interval = 400
+    end
   },
   {
     "folke/todo-comments.nvim",

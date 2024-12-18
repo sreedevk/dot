@@ -9,6 +9,7 @@ return {
       's1n7ax/nvim-window-picker'
     },
     keys = { "<C-n>", },
+    lazy = true;
     config = function()
       vim.g.neo_tree_remove_legacy_commands = 1
 
@@ -147,7 +148,7 @@ return {
             leave_dirs_open = false
           },
           group_empty_dirs = false,
-          hijack_netrw_behavior = "open_default",
+          hijack_netrw_behavior = "disabled",
           use_libuv_file_watcher = true,
           window = {
             mappings = {

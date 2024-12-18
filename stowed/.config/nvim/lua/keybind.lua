@@ -4,8 +4,6 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-map("n", "+", "<C-a>")
-map("n", "-", "<C-x>")
 map('n', '<Leader>lz', "<cmd>Lazy<CR>")
 map('n', ',', ":")
 map('v', ',', ":")

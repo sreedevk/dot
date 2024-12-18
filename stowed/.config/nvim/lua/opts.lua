@@ -1,3 +1,7 @@
+vim.g.loaded                 = 1
+vim.g.loaded_matchparen      = 0
+vim.g.mapleader              = ';'
+
 vim.opt.ruler                = true
 vim.opt.tabstop              = 2
 vim.opt.softtabstop          = 2
@@ -64,15 +68,5 @@ vim.opt.writebackup          = false
 
 vim.wo.signcolumn            = 'yes'
 vim.wo.wrap                  = true
-
-vim.g.loaded                 = 1
-vim.g.loaded_netrwPlugin     = 1
-vim.g.mapleader              = ';'
-vim.g.loaded                 = 1
-vim.g.loaded_netrwPlugin     = 1
-vim.g.loaded_matchparen      = 0
-vim.g.better_escape_shortcut = 'jj'
-vim.g.better_escape_interval = 400
-vim.g.user_emmet_leader_key  = "<C-c>"
 
 vim.api.nvim_set_hl(0, "CursorLine", { default = true, blend = 50 })
