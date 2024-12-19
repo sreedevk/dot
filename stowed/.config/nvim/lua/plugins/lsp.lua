@@ -11,15 +11,16 @@ return {
     lazy = true,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     dependencies = {
-      'neovim/nvim-lspconfig',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/nvim-cmp',
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'onsails/lspkind.nvim',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
       'L3MON4D3/LuaSnip',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
+      'hrsh7th/nvim-cmp',
+      'kirasok/cmp-hledger',
+      'neovim/nvim-lspconfig',
+      'onsails/lspkind.nvim',
+      'williamboman/mason-lspconfig.nvim',
+      'williamboman/mason.nvim',
     },
     config = function()
       vim.opt.signcolumn = 'yes'
@@ -104,7 +105,8 @@ return {
           { name = "nvim_lsp", priority = 8, group_index = 2 },
           { name = "luasnip",  priority = 7, group_index = 2 },
           { name = "buffer",   priority = 7, group_index = 2 },
-          { name = "path",     priority = 6, group_index = 2 }
+          { name = "path",     priority = 6, group_index = 2 },
+          { name = 'hledger',  priority = 5, group_index = 2 }
         }),
         window = {
           completion = cmp.config.window.bordered(),
