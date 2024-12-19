@@ -111,8 +111,6 @@ return {
 
   {
     'jdhao/better-escape.vim',
-    lazy = true,
-    event = { "CursorHold", "CursorHoldI" },
     config = function()
       vim.g.better_escape_shortcut = 'jj'
       vim.g.better_escape_interval = 400
