@@ -15,8 +15,12 @@ if vim.g.neovide then
   vim.g.neovide_scale_factor            = 1.0
   vim.g.neovide_scroll_animation_length = 0.3
   vim.g.neovide_refresh_rate            = 90
+  local map                             = vim.keymap.set
 
-  function RestartNeovide()
+  map('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor+0.1<CR>', { noremap = true })
+  map('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor-0.1<CR>', { noremap = true })
+  map('n', '<C-0>', '<cmd>lua vim.g.neovide_scale_factor=1.0<CR>', { noremap = true })
+  map('n', '<Leader>rq', function()
     os.execute("neovide --fork &")
     vim.defer_fn(function()
       local handle, pid = io.popen("pgrep neovide"), nil
@@ -29,10 +33,5 @@ if vim.g.neovide then
         end
       end
     end, 500)
-  end
-
-  local map = vim.api.nvim_set_keymap
-  map('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor+0.1<CR>', { noremap = true })
-  map('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor-0.1<CR>', { noremap = true })
-  map('n', '<C-0>', '<cmd>lua vim.g.neovide_scale_factor=1.0<CR>', { noremap = true })
+  end, { noremap = true })
 end

@@ -223,7 +223,7 @@ return {
         }
       })
 
-      vim.api.nvim_set_keymap('n', '<C-n>', "<cmd>Neotree filesystem toggle<CR>", { noremap = true })
+      vim.keymap.set('n', '<C-n>', "<cmd>Neotree filesystem toggle<CR>", { noremap = true })
     end
   },
   {

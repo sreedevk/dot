@@ -15,16 +15,16 @@ return {
       "<Leader>dh",
     },
     config = function()
-      vim.api.nvim_set_keymap('n', '<Leader>do', ":DiffviewOpen ", { noremap = true })
-      vim.api.nvim_set_keymap('n', '<Leader>dc', "<cmd>DiffviewClose<CR>", { noremap = true })
-      vim.api.nvim_set_keymap('n', '<Leader>dh', "<cmd>DiffviewFileHistory %<CR>", { noremap = true })
+      vim.keymap.set('n', '<Leader>do', ":DiffviewOpen ", { noremap = true })
+      vim.keymap.set('n', '<Leader>dc', "<cmd>DiffviewClose<CR>", { noremap = true })
+      vim.keymap.set('n', '<Leader>dh', "<cmd>DiffviewFileHistory %<CR>", { noremap = true })
     end
   },
   {
     'tpope/vim-fugitive',
     config = function()
-      vim.api.nvim_set_keymap('n', '<Leader>gb', [[<cmd>Git blame<CR>]], { noremap = true })
-      vim.api.nvim_set_keymap('n', '<Leader>gr', [[:Git rebase -i HEAD~]], { noremap = true })
+      vim.keymap.set('n', '<Leader>gb', [[<cmd>Git blame<CR>]], { noremap = true })
+      vim.keymap.set('n', '<Leader>gr', [[:Git rebase -i HEAD~]], { noremap = true })
     end
   },
 
@@ -40,7 +40,7 @@ return {
       "ibhagwan/fzf-lua",
     },
     config = function()
-      vim.api.nvim_set_keymap('n', '<Leader>gi', "<cmd>Neogit<CR>", { noremap = true })
+      vim.keymap.set('n', '<Leader>gi', "<cmd>Neogit<CR>", { noremap = true })
 
       local neogit = require("neogit")
       neogit.setup({

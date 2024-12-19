@@ -117,10 +117,10 @@ return {
       highlight = true
     },
     config = function()
-      vim.api.nvim_set_keymap('n', '<C-j>', ':Treewalker Down<CR>', { noremap = true })
-      vim.api.nvim_set_keymap('n', '<C-k>', ':Treewalker Up<CR>', { noremap = true })
-      vim.api.nvim_set_keymap('n', '<C-h>', ':Treewalker Left<CR>', { noremap = true })
-      vim.api.nvim_set_keymap('n', '<C-l>', ':Treewalker Right<CR>', { noremap = true })
+      vim.keymap.set('n', '<C-j>', ':Treewalker Down<CR>', { noremap = true })
+      vim.keymap.set('n', '<C-k>', ':Treewalker Up<CR>', { noremap = true })
+      vim.keymap.set('n', '<C-h>', ':Treewalker Left<CR>', { noremap = true })
+      vim.keymap.set('n', '<C-l>', ':Treewalker Right<CR>', { noremap = true })
     end
   },
 
@@ -139,7 +139,7 @@ return {
         on_error = nil,
       })
 
-      vim.api.nvim_set_keymap('n', '<leader>j', [[<cmd>TSJToggle<cr>]], { noremap = true })
+      vim.keymap.set('n', '<leader>j', [[<cmd>TSJToggle<cr>]], { noremap = true })
     end,
   }
 }

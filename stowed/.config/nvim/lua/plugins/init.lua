@@ -46,7 +46,7 @@ return {
     lazy = true,
     keys = { "<Leader>bd" },
     config = function()
-      vim.api.nvim_set_keymap('n', '<Leader>bd', [[<cmd>Bdelete<CR>]], { noremap = true })
+      vim.keymap.set('n', '<Leader>bd', [[<cmd>Bdelete<CR>]], { noremap = true })
     end
   },
 
@@ -64,7 +64,7 @@ return {
     },
     cmd = { "EasyAlign" },
     config = function()
-      vim.api.nvim_set_keymap('v', '<Leader>al', ":EasyAlign", { noremap = true })
+      vim.keymap.set('v', '<Leader>al', ":EasyAlign", { noremap = true })
     end
   },
 
@@ -80,7 +80,7 @@ return {
     cmd = "TableModeToggle",
     keys = { '<Leader>tm' },
     config = function()
-      vim.api.nvim_set_keymap('v', '<Leader>tm', "<cmd>TableModeToggle<CR>", { noremap = true })
+      vim.keymap.set('v', '<Leader>tm', "<cmd>TableModeToggle<CR>", { noremap = true })
     end
   },
 
@@ -90,7 +90,7 @@ return {
     cmd = "UndotreeToggle",
     keys = { '<Leader>u' },
     config = function()
-      vim.api.nvim_set_keymap('n', '<Leader>u', "<cmd>UndotreeToggle<CR>", { noremap = true })
+      vim.keymap.set('n', '<Leader>u', "<cmd>UndotreeToggle<CR>", { noremap = true })
     end
   },
   {
@@ -168,7 +168,7 @@ return {
     config = function()
       require('zen-mode').setup()
 
-      vim.api.nvim_set_keymap('v', '<Leader>tz', "<cmd>ZenMode<CR>", { noremap = true })
+      vim.keymap.set('v', '<Leader>tz', "<cmd>ZenMode<CR>", { noremap = true })
     end
   },
 

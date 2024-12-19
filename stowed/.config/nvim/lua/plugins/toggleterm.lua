@@ -16,9 +16,9 @@ return {
 
     vim.api.nvim_create_user_command('RunAsync', ":lua arun()", {})
 
-    vim.api.nvim_set_keymap('n', '<Leader>tro', "<cmd>ToggleTerm<CR>", { noremap = true })
-    vim.api.nvim_set_keymap('n', '<Leader>trf', "<cmd>ToggleTerm direction=float<CR>", { noremap = true })
-    vim.api.nvim_set_keymap('v', '<Leader>trs', ":'>ToggleTermSendVisualLine<CR>", { noremap = true })
-    vim.api.nvim_set_keymap('n', '<Leader>trn', '<cmd>RunAsync<CR> ', { noremap = true })
+    vim.keymap.set('n', '<Leader>tro', "<cmd>ToggleTerm<CR>", { noremap = true })
+    vim.keymap.set('n', '<Leader>trf', "<cmd>ToggleTerm direction=float<CR>", { noremap = true })
+    vim.keymap.set('v', '<Leader>trs', ":'>ToggleTermSendVisualLine<CR>", { noremap = true })
+    vim.keymap.set('n', '<Leader>trn', '<cmd>RunAsync<CR> ', { noremap = true })
   end
 }

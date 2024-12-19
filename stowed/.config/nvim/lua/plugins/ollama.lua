@@ -45,13 +45,12 @@ return {
         },
       })
 
-      vim.api.nvim_set_keymap("v", "<Leader>ce", "", {
-        callback = function()
-          require("codecompanion").prompt("explain")
-        end,
-        noremap = true,
-        silent = true,
-      })
+      vim.keymap.set(
+        "v",
+        "<Leader>ce",
+        function() require("codecompanion").prompt("explain") end,
+        { noremap = true, silent = true }
+      )
     end
   }
 }
