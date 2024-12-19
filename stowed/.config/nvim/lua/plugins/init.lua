@@ -19,6 +19,11 @@ return {
 
   {
     'mattn/emmet-vim',
+    lazy = true,
+    keys = {
+      { "<C-c>", mode = { "i" } },
+    },
+    ft = { "html", "erb", "javascript", "typescript" },
     init = function()
       vim.g.user_emmet_leader_key = "<C-c>"
     end
