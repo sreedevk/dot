@@ -43,6 +43,7 @@ return {
 
   {
     'famiu/bufdelete.nvim',
+    lazy = true,
     keys = { "<Leader>bd" },
     config = function()
       vim.api.nvim_set_keymap('n', '<Leader>bd', [[<cmd>Bdelete<CR>]], { noremap = true })
@@ -54,8 +55,10 @@ return {
     config = true,
     event = "VeryLazy",
   },
+
   {
     'junegunn/vim-easy-align',
+    lazy = true,
     keys = {
       { "<Leader>al", mode = "v" }
     },
@@ -64,6 +67,7 @@ return {
       vim.api.nvim_set_keymap('v', '<Leader>al', ":EasyAlign", { noremap = true })
     end
   },
+
   {
     'chrisbra/csv.vim',
     lazy = true,
@@ -187,6 +191,7 @@ return {
 
   {
     'ledger/vim-ledger',
+    lazy = true,
     ft = { 'ledger', 'journal' },
   },
 
