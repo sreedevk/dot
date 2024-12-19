@@ -1,5 +1,9 @@
 return {
   'protex/better-digraphs.nvim',
+  lazy = true,
+  keys = {
+    { "<C-v><C-u>", mode = { "i" } }
+  },
   dependencies = {
     'nvim-telescope/telescope.nvim'
   },
