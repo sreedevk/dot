@@ -32,7 +32,7 @@
 
       monospace = {
         package = pkgs.nerd-fonts.iosevka-term;
-        name = "Iosevka";
+        name = "IosevkaTerm NF";
       };
 
       emoji = {
