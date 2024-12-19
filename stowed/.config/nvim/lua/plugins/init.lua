@@ -26,6 +26,9 @@ return {
 
   {
     'MeanderingProgrammer/render-markdown.nvim',
+    lazy = true,
+    ft = { "markdown", "lsp_markdown" },
+    cmd = { "EasyAlign" },
     opts = {},
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
