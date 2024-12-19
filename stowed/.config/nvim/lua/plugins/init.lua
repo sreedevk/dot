@@ -19,7 +19,7 @@ return {
 
   {
     'mattn/emmet-vim',
-    config = function()
+    init = function()
       vim.g.user_emmet_leader_key = "<C-c>"
     end
   },
@@ -111,6 +111,8 @@ return {
 
   {
     'jdhao/better-escape.vim',
+    lazy = true,
+    event = { "CursorHold", "CursorHoldI" },
     init = function()
       vim.g.better_escape_shortcut = 'jj'
       vim.g.better_escape_interval = 400
