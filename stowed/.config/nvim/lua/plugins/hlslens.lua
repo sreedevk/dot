@@ -1,5 +1,7 @@
 return {
   'kevinhwang91/nvim-hlslens',
+  lazy = true,
+  event = { "BufReadPost", "BufAdd", "BufNewFile" },
   config = function()
     require('hlslens').setup()
 

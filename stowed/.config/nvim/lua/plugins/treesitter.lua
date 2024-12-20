@@ -104,10 +104,14 @@ return {
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    lazy = true,
+    event = "BufReadPost"
   },
   {
     'nvim-treesitter/nvim-treesitter-refactor',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    lazy = true,
+    event = "BufReadPost"
   },
   {
     "aaronik/treewalker.nvim",
@@ -127,6 +131,8 @@ return {
   {
     'Wansmer/treesj',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    lazy = true,
+    event = "BufReadPost",
     keys = { '<leader>j' },
     config = function()
       require('treesj').setup({
