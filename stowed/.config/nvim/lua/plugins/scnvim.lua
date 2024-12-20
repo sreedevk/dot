@@ -1,5 +1,17 @@
 return {
   'davidgranstrom/scnvim',
+  lazy = true,
+  cmd = {
+    "SCNvimGenerateAssets",
+    "SCNvimStart",
+    "SCNvimStatusLine",
+    "SCNvimStatusLine",
+    "SCNvimTags",
+    "SCNvimExt",
+    "SCNvimRecompile",
+    "SCNvimHelp",
+  },
+  ft = { 'sc' },
   config = function()
     local scnvim = require 'scnvim'
     local map = scnvim.map

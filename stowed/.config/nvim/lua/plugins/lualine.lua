@@ -36,6 +36,7 @@ return {
         },
         lualine_x = {
           { 'macro-rec',  fmt = macro_rec_stats, color = { fg = "yellow", gui = "bold" } },
+          { '%S',         padding = 1 },
           { 'fileformat', padding = 2 },
         },
         lualine_y = {
