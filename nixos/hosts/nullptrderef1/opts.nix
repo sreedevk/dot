@@ -80,8 +80,6 @@ rec {
     kavita = "5000";
     kiwix = "8888";
     lidarr = "8686";
-    linkding-app = "9090";
-    linkding-db = "5432";
     livebook_api = "8091";
     livebook_http = "8090";
     loki = "3100";
