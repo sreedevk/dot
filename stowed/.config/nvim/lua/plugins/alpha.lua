@@ -79,6 +79,8 @@ return {
   event = "BufWinEnter",
   config = function()
     math.randomseed(os.time())
+    vim.keymap.set('n', '<Leader>da', ":Alpha<CR>", { noremap = true })
+
     local header = {
       type = "text",
       val = headerArtWorks[math.random(1, #headerArtWorks)],
