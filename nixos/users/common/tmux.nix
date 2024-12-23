@@ -42,7 +42,6 @@ in
     prefix = "C-b";
     newSession = true;
     baseIndex = 1;
-    historyLimit = "";
     mouse = true;
     aggressiveResize = true;
     disableConfirmationPrompt = true;
