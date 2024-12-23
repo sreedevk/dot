@@ -1,9 +1,12 @@
+#!/usr/bin/zsh
+
 # TITLE: ZSH (Z Shell) Aliases
 # AUTHOR: Sreedev Kodichath
 
 # Sys
-alias ls='eza --color=always'
-alias la='eza -a --color=always'
+alias la='/usr/bin/ls'
+alias ls='eza --color=always --long --all --header --icons --git'
+alias lsa='eza --color=always --long --all --sort=age --reverse --header --icons'
 alias ll='eza -l --icons --color=always'
 alias lla='eza -la --icons --color=always'
 alias twee='eza -aT --color=always --group-directories-first'
@@ -21,6 +24,8 @@ alias zxi='__zoxide_zi'
 
 # Taskwarrior
 alias tt="taskwarrior-tui"
+alias to="taskopen"
+alias tl="task list"
 
 # Safe Opts
 alias cp="cp -i"
@@ -38,9 +43,10 @@ alias zl="zellij"
 
 # git
 alias g='git'
+alias gg='jj'
 
 # Docker
-alias dc='docker compose'
+alias dk='docker compose'
 alias d='docker'
 
 # yt-dlp

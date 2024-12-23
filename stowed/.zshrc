@@ -2,7 +2,8 @@
 # AUTHOR: Sreedev Kodichath
 
 # PATHS
-export PATH="$PATH:$HOME/.local/bin:/opt/bin"
+export CARGO_BIN_PATH="$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.local/bin:/opt/bin:$CARGO_BIN_PATH"
 
 # XDG
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -18,7 +19,17 @@ export VISUAL="nvim"
 export EDITOR="nvim"
 export READER="zathura"
 export TERMINAL="alacritty"
-export BROWSER="firefox"
+export BROWSER="brave"
+
+# ENABLE NVIDIA FOR WAYLAND SESSIONS
+export AQ_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1
+export GBM_BACKEND=nvidia-drm
+export LIBVA_DRIVER_NAME=nvidia
+export __GL_VRR_ALLOWED=1
+export __GL_GSYNC_ALLOWED=1
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __VK_LAYER_NV_optimus=NVIDIA_only
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
 # BETTER TERM
 export KEYTIMEOUT=1
@@ -60,6 +71,8 @@ autoload -U colors && colors
 autoload -U compinit && compinit
 autoload edit-command-line
 
+[ -f "$HOME/.zsh/post-compinit.zsh" ] && source "$HOME/.zsh/post-compinit.zsh"
+
 # ZSH OPTS
 setopt   COMPLETE_ALIASES
 setopt   PROMPT_SUBST
@@ -79,7 +92,7 @@ unsetopt beep
 set -o vi
 
 # KEY BINDINGS
-bindkey -s '^o'    'lfcd\n'
+bindkey -s '^o'    'ycd\n'
 bindkey    '^R'    fzf-history-widget
 bindkey    '^A'    beginning-of-line
 bindkey    '^E'    end-of-line

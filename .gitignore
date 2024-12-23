@@ -17,7 +17,7 @@
 !/stowed/.config/gh
 !/stowed/.config/htop/
 !/stowed/.config/i3
-!/stowed/.config/lf/
+!/stowed/.config/yazi/
 !/stowed/.config/mimeapps.list
 !/stowed/.config/neovide/
 !/stowed/.config/newsboat/config
@@ -34,5 +34,7 @@
 !/stowed/.config/vimb
 !/stowed/.config/zathura
 !/stowed/.config/nixpkgs
+!/stowed/.config/hypr
+!/stowed/.config/waybar
 !/stowed/.taskrc
 !/wallpapers/leaves.jpg

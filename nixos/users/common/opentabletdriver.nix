@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs-stable, ... }:
 {
   home.packages = with pkgs; [
     opentabletdriver

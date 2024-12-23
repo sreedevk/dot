@@ -12,12 +12,13 @@ in
       executable = false;
       target = ".config/neovide/config.toml";
       text = ''
+        fork = true
         wsl = false
-        no-multigrid = true
+        no-multigrid = false
         vsync = true
         maximized = false
         srgb = true
-        idle = false
+        idle = true
         neovim-bin = "${pkgs.neovim}/bin/nvim" # found dynamically on $PATH if unset
         frame = "full"
       '';

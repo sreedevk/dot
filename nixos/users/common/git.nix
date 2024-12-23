@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-stable, opts, ... }:
+{ pkgs, opts, ... }:
 let
   gpgsign = if opts.git.enable-signing then "true" else "false";
 in
@@ -56,7 +56,7 @@ in
         [core]
           attributesfile = ~/.gitattributes
           editor = ${pkgs.neovim}/bin/nvim
-          pager = ${nixpkgs-stable.delta}/bin/delta
+          pager = ${pkgs.delta}/bin/delta
         [commit]
           gpgsign = ${gpgsign}
         [init]
@@ -82,6 +82,9 @@ in
           fucked = reset --hard
           l      = log
           lg     = log --decorate --oneline --graph
+          pl     = pull
+          ps     = push
+          rb     = rebase
           s      = status
           st     = status
           wta    = worktree add
@@ -96,7 +99,7 @@ in
           process = git-lfs filter-process
           required = true
         [interactive]
-          diffFilter = delta --color-only
+          diffFilter = ${pkgs.delta}/bin/delta --color-only
         [add.interactive]
           useBuiltin = false # required for git 2.37.0
         [delta]
@@ -119,6 +122,7 @@ in
         [merge]
             conflictstyle = diff3
         [diff]
+            external = ${pkgs.difftastic}/bin/difft
             colorMoved = default
         [safe]
         	directory = /etc/nixos

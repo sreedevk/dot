@@ -26,27 +26,27 @@ let
       tmux_running=$(pgrep tmux)
 
       if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-        if [[ -f "$HOME/.config/tmuxinator/$\{selected_name\}.yml" ]]; then
-          tmuxinator start $selected_name
+        if [[ -f "$HOME/.config/tmuxinator/''\${selected_name}.yml" ]]; then
+          ${pkgs.tmuxinator}/bin/tmuxinator start $selected_name
         else
-          tmux new-session -s $selected_name -c $selected
+          ${pkgs.tmux}/bin/tmux new-session -s $selected_name -c $selected
         fi
 
         exit 0
       fi
 
       if ! tmux has-session -t=$selected_name 2> /dev/null; then
-        if [[ -f "$HOME/.config/tmuxinator/$\{selected_name\}.yml" ]]; then
-          tmuxinator start $selected_name
+        if [[ -f "$HOME/.config/tmuxinator/''\${selected_name}.yml" ]]; then
+          ${pkgs.tmuxinator}/bin/tmuxinator start $selected_name
         else
-          tmux new-session -ds $selected_name -c $selected
+          ${pkgs.tmux}/bin/tmux new-session -ds $selected_name -c $selected
         fi
       fi
 
       if [[ -z $TMUX ]]; then
-        tmux attach -t $selected_name
+        ${pkgs.tmux}/bin/tmux attach -t $selected_name
       else
-        tmux switch-client -t $selected_name
+        ${pkgs.tmux}/bin/tmux switch-client -t $selected_name
       fi
     '';
 in

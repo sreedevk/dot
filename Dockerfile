@@ -1,11 +1,40 @@
-FROM nixos/nix
+FROM ubuntu:22.04
 
-# Set up environment for building the NixOS configuration
-RUN nix-channel --update
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Copy your flake files to the Docker image
-COPY ./nixos /workspace
-WORKDIR /workspace
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends \
+  curl \
+  git \
+  gnupg2 \
+  ca-certificates \
+  lsb-release \
+  sudo \
+  xz-utils \
+  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN nix --extra-experimental-features flakes --extra-experimental-features nix-command flake lock --override-input secrets "github:devtechnica/nullflake?shallow=1"
-CMD nix --extra-experimental-features flakes --extra-experimental-features nix-command build '.#nixosConfigurations.nullptrderef1.config.system.build.toplevel' --no-link
+RUN useradd -ms /bin/bash nixuser
+
+RUN echo 'nixuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+RUN sudo -u nixuser \
+  sh -c 'curl -L https://nixos.org/nix/install | bash'
+
+RUN mkdir -p /etc/nix
+
+RUN echo 'experimental-features = nix-command flakes' | tee -a /etc/nix/nix.conf
+
+ENV USER=nixuser
+ENV HOME=/home/nixuser
+ENV PATH=/home/nixuser/.nix-profile/bin:/home/nixuser/.nix-profile/sbin:/home/nixuser/.nix-defexpr/channels_root:/nix/var/nix/profiles/per-user/root/channels/root:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+
+ENV NIX_PATH=nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos
+
+RUN mkdir -p /nix && chown nixuser /nix
+
+USER nixuser
+WORKDIR /home/nixuser
+
+RUN /bin/bash -c 'source $HOME/.nix-profile/etc/profile.d/nix.sh && nix --version && nix-collect-garbage -d'
+
+CMD ["/bin/bash"]

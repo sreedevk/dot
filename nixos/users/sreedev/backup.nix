@@ -74,7 +74,7 @@ in
           Description = "Timer for syncing backup archives";
         };
         Timer = {
-          OnBootSec = "4h";
+          OnBootSec = "1w";
           OnUnitActiveSec = "1w";
           Unit = "sync-backups-archives.service";
         };
@@ -88,8 +88,8 @@ in
           Description = "Timer for creating backup archives";
         };
         Timer = {
-          OnBootSec = "4h";
-          OnUnitActiveSec = "1d";
+          OnBootSec = "1w";
+          OnUnitActiveSec = "1w";
           Unit = "create-backup-archives.service";
         };
         Install = {

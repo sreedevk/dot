@@ -3,9 +3,9 @@
     "NixOS System Configuration Management Flake for Multiple Hosts";
 
   inputs = {
-    secrets.url = "git+ssh://git@gitea.nullptr.sh/nullptrderef1/sec.git?ref=main&shallow=1";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.05-small&shallow=1";
+    agenix.url = "github:ryantm/agenix";
 
     stylix = {
       url = "github:danth/stylix";
@@ -23,12 +23,12 @@
     };
   };
 
-  outputs = { self, secrets, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
+  outputs = { self, agenix, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
     let
-      opts  = (import ./opts.nix);
+      opts = (import ./opts.nix);
 
       systems = {
-        x86   = "x86_64-linux";
+        x86 = "x86_64-linux";
         arm64 = "aarch64-linux";
       };
 
@@ -42,10 +42,14 @@
         pkgs: system: hostname: pkgs.lib.nixosSystem {
           system = system;
           modules = [
-            (import ./hosts/${hostname}/configuration.nix)
+            ./hosts/${hostname}/configuration.nix
+            agenix.nixosModules.default
+            {
+              environment.systemPackages = [ agenix.packages.${system}.default ];
+            }
           ];
           specialArgs = {
-            inherit secrets system;
+            inherit system;
             nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
             opts = opts // (import ./hosts/${hostname}/opts.nix);
           };
@@ -56,10 +60,14 @@
           pkgs = pkgs.legacyPackages."${system}";
           modules = [
             stylix.homeManagerModules.stylix
+            agenix.homeManagerModules.age
+            {
+              home.packages = [ agenix.packages.${system}.default ];
+            }
             ./users/${username}
           ];
           extraSpecialArgs = {
-            inherit firefox-addons secrets system username host;
+            inherit firefox-addons system username host;
             nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
             opts = opts // (import ./hosts/${host}/opts.nix) // (import ./users/${username}/opts.nix);
           };
@@ -70,14 +78,11 @@
       formatter = mkFormatters systems;
 
       # Operating System Level Configurations 
-      nixosConfigurations = {
-        devstation = mkSystem nixpkgs systems.x86 "devstation";
-        devtechnica = mkSystem nixpkgs systems.x86 "devtechnica";
-        rpi4b = mkSystem nixpkgs systems.x86 "rpi4b";
-      };
+      nixosConfigurations = { };
 
       # User Level Home Manager Configurations
       homeConfigurations = {
+        admin = mkHome nixpkgs systems.x86 "admin" "nullptrderef1";
         deploy = mkHome nixpkgs systems.x86 "deploy" "devtechnica";
         pi = mkHome nixpkgs systems.arm64 "pi" "rpi4b";
         sreedev = mkHome nixpkgs systems.x86 "sreedev" "devstation";

@@ -9,7 +9,7 @@
 (setq doom-theme 'doom-ir-black
       doom-font (font-spec :family "Iosevka NF" :size 28)
       doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 24)
-      doom-big-font (font-spec :family "Iosevka NF" :size 32))
+      doom-big-font (font-spec :family "Iosevka NF" :size 42))
 
 
 (after! doom-themes

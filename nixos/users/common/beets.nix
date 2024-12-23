@@ -1,6 +1,10 @@
-{ pkgs, opts, system, ... }: {
+{ pkgs, opts, username, system, ... }: {
   home.packages = with pkgs; [
     beets
+  ];
+
+  systemd.user.tmpfiles.rules = [
+    "d /home/${username}/.config/beets 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   home.file = {
@@ -11,7 +15,7 @@
       enable = true;
       text = ''
         directory: ${opts.paths.music}
-        library: ${opts.paths.application_databases}/beets/musiclibrary.db
+        library: /home/${username}/.config/beets/musiclibrary.db
         plugins: fetchart lyrics lastgenre
         import:
           move: yes

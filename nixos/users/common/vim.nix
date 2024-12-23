@@ -60,7 +60,7 @@ in
       Plug 'junegunn/fzf.vim'
       Plug 'nanotee/zoxide.vim'
       Plug 'ledger/vim-ledger'
-
+      Plug 'junegunn/vim-easy-align'
 
       call plug#end()
 
@@ -142,12 +142,16 @@ in
       nnoremap <C-d> <C-d>zz
       nnoremap <C-u> <C-u>zz
 
+      "terminal
+      nnoremap <Leader>tro :terminal<CR>
+
       " git
-      nnoremap <Leader>gi :Git<CR>
+      nnoremap <Leader>gi  :Git<CR>
       nnoremap <Leader>glg :Git log --oneline --decorate --graph<CR>
       nnoremap <Leader>glo :Git log<CR>
       nnoremap <Leader>gpu :Git push<CR>
       nnoremap <Leader>gpl :Git pull<CR>
+      nnoremap <Leader>gb  :Git blame<CR>
 
       " buffers
       nnoremap <Leader>bd :bd<CR>
@@ -156,7 +160,7 @@ in
       nnoremap <Leader>bl :CtrlPBuffer<CR>
 
       " spell
-      nnoremap <Leader>ts :setlocal spell!<CR>
+      nnoremap <Leader>sp :setlocal spell!<CR>
 
       " utils
       nnoremap <Leader>sw :execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<CR>
@@ -168,6 +172,7 @@ in
       nnoremap <Leader>zi <cmd>Zi<CR>
 
       nnoremap , :
+      vnoremap , :
       nnoremap n nzzzv
       nnoremap N Nzzzv
 
@@ -184,7 +189,6 @@ in
 
       highlight nonascii guibg=Red ctermbg=1 term=standout
       au BufReadPost * syntax match nonascii "[^\u0000-\u007F]"
-
     '';
   };
 }

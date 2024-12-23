@@ -1,34 +1,86 @@
 return {
+  "tpope/vim-vinegar",
   'chrisbra/unicode.vim',
-  'famiu/bufdelete.nvim',
   'kevinhwang91/nvim-bqf',
-  'mattn/emmet-vim',
+  'preservim/vim-indent-guides',
   'tpope/vim-characterize',
   'tpope/vim-dispatch',
-  'tpope/vim-fugitive',
   'tpope/vim-ragtag',
   'tpope/vim-rails',
   'tpope/vim-repeat',
-  'jbyuki/venn.nvim',
   'tpope/vim-surround',
-  'lervag/vimtex',
+
   {
-    'nanotee/zoxide.vim',
-    dependencies = {
-      'junegunn/fzf',
-      'junegunn/fzf.vim'
-    }
+    'lervag/vimtex',
+    init = function()
+      vim.g.vimtex_view_method = "zathura"
+    end
   },
+
+  {
+    'mattn/emmet-vim',
+    lazy = true,
+    keys = {
+      { "<C-c>", mode = { "i" } },
+    },
+    ft = { "html", "erb", "javascript", "typescript" },
+    init = function()
+      vim.g.user_emmet_leader_key = "<C-c>"
+    end
+  },
+
+  {
+    "gpanders/nvim-parinfer",
+    config = function()
+      vim.g.parinfer_filetypes = {
+        "dune",
+        "scheme",
+        "query",
+        "racket",
+        "clojure"
+      }
+    end,
+  },
+
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    lazy = true,
+    ft = { "markdown", "lsp_markdown" },
+    cmd = { "EasyAlign" },
+    opts = {},
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'echasnovski/mini.icons',
+    },
+  },
+
+  {
+    'famiu/bufdelete.nvim',
+    lazy = true,
+    keys = { "<Leader>bd" },
+    config = function()
+      vim.keymap.set('n', '<Leader>bd', [[<cmd>Bdelete<CR>]], { noremap = true })
+    end
+  },
+
+  {
+    "chrisgrieser/nvim-early-retirement",
+    config = true,
+    event = "VeryLazy",
+  },
+
   {
     'junegunn/vim-easy-align',
+    lazy = true,
     keys = {
       { "<Leader>al", mode = "v" }
     },
     cmd = { "EasyAlign" },
     config = function()
-      require('helpers').map('v', '<Leader>al', ":EasyAlign")
+      vim.keymap.set('v', '<Leader>al', ":EasyAlign", { noremap = true })
     end
   },
+
   {
     'chrisbra/csv.vim',
     lazy = true,
@@ -38,17 +90,35 @@ return {
   {
     'dhruvasagar/vim-table-mode',
     lazy = true,
-    cmd = "TableModeToggle"
+    cmd = "TableModeToggle",
+    keys = { '<Leader>tm' },
+    config = function()
+      vim.keymap.set('v', '<Leader>tm', "<cmd>TableModeToggle<CR>", { noremap = true })
+    end
   },
 
   {
     'mbbill/undotree',
     lazy = true,
     cmd = "UndotreeToggle",
+    keys = { '<Leader>u' },
+    config = function()
+      vim.keymap.set('n', '<Leader>u', "<cmd>UndotreeToggle<CR>", { noremap = true })
+    end
   },
+
   {
     "danymat/neogen",
-    config = true,
+    lazy = true,
+    keys = { '<Leader>ac', '<Leader>af', '<Leader>at' },
+    config = function()
+      local neogen = require('neogen')
+
+      neogen.setup({ snippet_engine = "luasnip" })
+      vim.keymap.set('n', '<Leader>ac', function() neogen.generate({ type = 'class' }) end)
+      vim.keymap.set('n', '<Leader>af', function() neogen.generate({ type = 'func' }) end)
+      vim.keymap.set('n', '<Leader>at', function() neogen.generate({ type = 'type' }) end)
+    end,
   },
 
   {
@@ -56,45 +126,35 @@ return {
     lazy = true,
     cmd = { "Tmux", "Tyank", "Tput", "Twrite", "Tattach" }
   },
+
   {
     'norcalli/nvim-colorizer.lua',
     lazy = true,
+    ft = { "css", "scss", "less" },
     cmd = {
       'ColorizerAttachToBuffer',
       'ColorizerDetachFromBuffer',
       'ColorizerReloadAllBuffers',
       'ColorizerToggle'
     },
-    config = function()
-      require('colorizer').setup()
-    end
+    config = true
   },
 
   {
     'jdhao/better-escape.vim',
     lazy = true,
-    event = { "CursorHold", "CursorHoldI" }
-  },
-
-  {
-    "sindrets/diffview.nvim",
-    lazy = true,
-    cmd = {
-      "DiffviewOpen",
-      "DiffviewFileHistory",
-      "DiffviewFocusFiles",
-      "DiffviewToggleFiles",
-      "DiffviewRefresh",
-    },
+    event = { "CursorHold", "CursorHoldI" },
+    init = function()
+      vim.g.better_escape_shortcut = 'jj'
+      vim.g.better_escape_interval = 400
+    end
   },
   {
     "folke/todo-comments.nvim",
     lazy = true,
     event = "BufReadPost",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("todo-comments").setup {}
-    end
+    config = true
   },
 
   {
@@ -102,41 +162,18 @@ return {
     lazy = true,
     tag = 'legacy',
     event = "BufReadPost",
-    config = function()
-      require("fidget").setup({
-        window = {
-          blend = 0,
-        },
-      })
-    end
+    opts = {
+      window = {
+        blend = 0,
+      },
+    },
   },
 
   {
     'petertriho/nvim-scrollbar',
     lazy = true,
     event = "BufReadPost",
-    config = function()
-      require('scrollbar').setup()
-    end
-  },
-
-  {
-    'folke/zen-mode.nvim',
-    lazy = true,
-    cmd = "ZenMode",
-    config = function()
-      require('zen-mode').setup()
-    end
-  },
-
-  {
-    'folke/twilight.nvim',
-    lazy = true,
-    cmd = { "ZenMode", "Twilight", "TwilightEnable", "TwilightDisable" },
-    dependencies = { 'folke/zen-mode.nvim' },
-    config = function()
-      require('twilight').setup()
-    end
+    config = true,
   },
 
   {
@@ -147,35 +184,13 @@ return {
   },
 
   {
-    'akinsho/toggleterm.nvim',
-    lazy = true,
-    version = '*',
-    cmd = "ToggleTerm",
-    config = function()
-      require('toggleterm').setup()
-    end
-  },
-
-  {
-    'echasnovski/mini.comment',
-    lazy = true,
-    keys = {
-      "gcE",
-      { "gc", mode = "v" }
-    },
-    config = function()
-      require('mini.comment').setup()
-    end
-  },
-  {
     'ledger/vim-ledger',
+    lazy = true,
     ft = { 'ledger', 'journal' },
   },
 
   {
     "tiagovla/scope.nvim",
-    config = function()
-      require("scope").setup()
-    end
+    config = true
   }
 }

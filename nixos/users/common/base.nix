@@ -1,9 +1,20 @@
-{ pkgs, nixpkgs, username, opts, ... }: {
+{ pkgs, age, nixpkgs, username, opts, ... }: {
 
   home = {
-    username = "${username}";
+    enableNixpkgsReleaseCheck = false;
     homeDirectory = "/home/${username}";
     stateVersion = "24.11";
+    username = "${username}";
+  };
+
+  age = {
+    identityPaths = [
+      "/home/${username}/.ssh/id_rsa"
+      "/home/${username}/.ssh/id_ed25519"
+      "/home/${username}/.ssh/devtechnica"
+    ];
+    secretsDir = "/home/${username}/.agenix/agenix";
+    secretsMountPoint = "/home/${username}/.agenix/agenix.d";
   };
 
   home.file = {
@@ -14,15 +25,16 @@
       text =
         let
           versions = [
-            { tool = "bun"; version = "1.1.20"; }
+            { tool = "bun"; version = "1.1.38"; }
+            { tool = "deno"; version = "2.1.2"; }
             { tool = "elixir"; version = "1.17.2-otp-27"; }
             { tool = "erlang"; version = "27.0.1"; }
+            { tool = "gleam"; version = "1.6.3"; }
             { tool = "golang"; version = "1.22.5"; }
-            { tool = "nodejs"; version = "22.5.1"; }
-            { tool = "ruby"; version = "3.2.1"; }
+            { tool = "nim"; version = "2.2.0"; }
+            { tool = "opam"; version = "2.3.0"; }
+            { tool = "ruby"; version = "3.3.6"; }
             { tool = "zig"; version = "0.13.0"; }
-            { tool = "gleam"; version = "1.3.2"; }
-            { tool = "sbcl"; version = "2.4.5"; }
           ];
         in
         builtins.concatStringsSep "\n" (builtins.map (v: "${v.tool} ${v.version}") versions);
@@ -86,12 +98,11 @@
       target = ".config/mimeapps.list";
       text = ''
         [Default Applications]
-        text/html=firefox.desktop
+        text/html=${opts.default-web-browser.xdg-desktop}
         x-scheme-handler/http=${opts.default-web-browser.xdg-desktop}
         x-scheme-handler/https=${opts.default-web-browser.xdg-desktop}
         x-scheme-handler/about=${opts.default-web-browser.xdg-desktop}
         x-scheme-handler/unknown=${opts.default-web-browser.xdg-desktop}
-        x-scheme-handler/discord-1176718791388975124=${opts.default-web-browser.xdg-desktop}
       '';
     };
   };
@@ -116,7 +127,7 @@
   };
 
   nix = {
-    package = pkgs.nix;
+    package = pkgs.nixVersions.nix_2_25;
     gc = {
       automatic = true;
       frequency = "weekly";

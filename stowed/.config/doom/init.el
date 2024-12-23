@@ -20,7 +20,7 @@
        ophints
        (popup +all +defaults)
        tabs
-       (treemacs +lsp)
+       treemacs
        unicode
        (vc-gutter +pretty)
        vi-tilde-fringe
@@ -83,6 +83,7 @@
        common-lisp
        crystal
        data
+       (nix +lsp +tree-sitter)
        ;;(dart +flutter)
        elixir
        elm
@@ -145,7 +146,6 @@
        ;;everywhere
        irc
        (rss +org)
-       twitter
 
        :config
        (default +bindings +smartparens))

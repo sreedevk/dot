@@ -1,0 +1,8 @@
+services:
+  check:
+    container_name: check
+    build: .
+    volumes:
+      - .:/home/nixuser/.dot
+    working_dir: /home/nixuser/.dot
+    command: nix flake check ./nixos --all-systems

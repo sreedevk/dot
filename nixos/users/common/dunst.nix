@@ -29,8 +29,8 @@ in
           dmenu = "/usr/bin/dmenu - p dunst: ";
           enable_recursive_icon_lookup = true;
           follow = "mouse";
-          font = lib.mkDefault "Iosevka NF 16";
-          format = "%a\\n<b>%s</b>\\n%b\\n%p";
+          font = lib.mkForce "Iosevka NF 16";
+          format = "<b>%a</b>\\n%s\\n%b\\n%p";
           frame_color = "#788388";
           frame_width = 0;
           gap_size = 4;
@@ -38,7 +38,7 @@ in
           hide_duplicate_count = true;
           history_length = 10;
           horizontal_padding = 8;
-          icon_position = "left";
+          icon_position = "off";
           idle_threshold = 120;
           ignore_newline = "no";
           indicate_hidden = "yes";

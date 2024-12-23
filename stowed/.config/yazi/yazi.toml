@@ -1,0 +1,24 @@
+[manager]
+sort_by = "alphabetical"
+sort_sensitive = true
+sort_reverse = true
+sort_dir_first = true
+sort_translit = false
+linemode = "mtime"
+show_hidden = true
+show_symlink = true
+scrolloff = 0
+
+[preview]
+wrap = "yes"
+tab_size = 4
+
+[opener]
+play = [{ run = 'mpv "$@"', orphan = true, for = "unix" }]
+edit = [{ run = '$EDITOR "$@"', block = true, for = "unix" }]
+open = [{ run = 'xdg-open "$@"', desc = "Open" }]
+
+[plugin]
+prepend_previewers = [
+  { name = "*.md", run = "glow" },
+]

@@ -1,4 +1,4 @@
-{ pkgs, secrets, ... }: {
+{ config, pkgs, ... }: {
 
   programs.zsh.enable = true;
 
@@ -47,20 +47,5 @@
         [ -f "${pkgs.fzf}/share/fzf/completion.zsh"   ] && zvm_after_init_commands+=("source ${pkgs.fzf}/share/fzf/completion.zsh")
       '';
     };
-
-    ".zshenv" = {
-      enable = true;
-      text = ''
-        [ -f "$HOME/.zshenv_lc" ] && . "$HOME/.zshenv_lc"
-        export JIRA_API_TOKEN="${secrets.jira_token or ""}"
-        export CARGO_REGISTRY_TOKEN="${secrets.cargo_token or ""}"
-        export DIGITAL_OCEAN_TOKEN="${secrets.digital_ocean_token or ""}"
-        export OPEN_WEATHER_API_KEY="${secrets.openweather_token or ""}"
-        export PASTEBIN_API_KEY="${secrets.pastebin_token or ""}"
-        export WALLHAVEN_API_KEY="${secrets.wallhaven_token or ""}"
-        export GH_TOKEN="${secrets.github_token or ""}"
-      '';
-    };
-
   };
 }

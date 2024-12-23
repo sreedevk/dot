@@ -1,5 +1,6 @@
-blaze-ssh v0.0.5 (https//github.com/sreedevk/blaze-ssh#515e6fe1)
-cargo-expand v1.0.89
-cargo-update v14.0.2
-cargo-watch v8.5.2
+blaze-ssh v0.0.6 (https//github.com/sreedevk/blaze-ssh#2cf361c5)
+cargo-expand v1.0.95
+cargo-update v16.0.0
+cargo-watch v8.5.3
 deduplicator v0.2.2
+license-generator v1.3.0

@@ -151,7 +151,7 @@
         bindsym $mod+Ctrl+l          workspace next
         bindsym $mod+Ctrl+h          workspace prev
 
-        bindsym $mod+0               exec --no-startup-id ${pkgs.i3lock-pixeled}/bin/i3lock-pixeled
+        bindsym $mod+0               exec --no-startup-id ${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid
 
         # Workspace Control
         set $ws1 1

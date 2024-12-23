@@ -1,20 +1,26 @@
 return {
-  'nvim-neo-tree/neo-tree.nvim',
-  branch = 'v3.x',
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-    'nvim-tree/nvim-web-devicons',
-    'MunifTanjim/nui.nvim',
-  },
-  config = function()
-    vim.g.neo_tree_remove_legacy_commands = 1
-    require('neo-tree').setup(
-      {
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons',
+      'MunifTanjim/nui.nvim',
+      's1n7ax/nvim-window-picker'
+    },
+    keys = { "<C-n>", },
+    lazy = true;
+    config = function()
+      vim.g.neo_tree_remove_legacy_commands = 1
+
+      require('neo-tree').setup({
         close_if_last_window = true,
         popup_border_style = "rounded",
         enable_git_status = true,
         enable_diagnostics = false,
-        sort_case_insensitive = true,
+        sort_case_insensitive = false,
+        sort_function = nil,
+
         open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
         default_component_configs = {
           container = { enable_character_fade = true },
@@ -40,6 +46,29 @@ return {
           modified = {
             symbol = "[+]",
             highlight = "NeoTreeModified",
+          },
+          file_size = {
+            enabled = true,
+            width = 12,
+            required_width = 64,
+          },
+          type = {
+            enabled = true,
+            width = 10,
+            required_width = 122,
+          },
+          last_modified = {
+            enabled = true,
+            width = 20,
+            required_width = 88,
+          },
+          created = {
+            enabled = true,
+            width = 20,
+            required_width = 110,
+          },
+          symlink_target = {
+            enabled = false,
           },
           name = {
             trailing_slash = false,
@@ -68,10 +97,7 @@ return {
             nowait = true,
           },
           mappings = {
-            ["<space>"] = {
-              "toggle_node",
-              nowait = false,
-            },
+            ["<space>"] = { "toggle_node", nowait = true, },
             ["<2-LeftMouse>"] = "open",
             ["<cr>"] = "open",
             ["<esc>"] = "revert_preview",
@@ -118,10 +144,11 @@ return {
             never_show_by_pattern = {},
           },
           follow_current_file = {
-            enabled = true
+            enabled = false,
+            leave_dirs_open = true
           },
           group_empty_dirs = false,
-          hijack_netrw_behavior = "open_current",
+          hijack_netrw_behavior = "disabled",
           use_libuv_file_watcher = true,
           window = {
             mappings = {
@@ -130,22 +157,32 @@ return {
               ["I"] = "toggle_hidden",
               ["/"] = "fuzzy_finder",
               ["D"] = "fuzzy_finder_directory",
+              ["#"] = "fuzzy_sorter",
               ["f"] = "filter_on_submit",
               ["<c-x>"] = "clear_filter",
               ["[g"] = "prev_git_modified",
               ["]g"] = "next_git_modified",
+              ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
+              ["oc"] = { "order_by_created", nowait = false },
+              ["od"] = { "order_by_diagnostics", nowait = false },
+              ["og"] = { "order_by_git_status", nowait = false },
+              ["om"] = { "order_by_modified", nowait = false },
+              ["on"] = { "order_by_name", nowait = false },
+              ["os"] = { "order_by_size", nowait = false },
+              ["ot"] = { "order_by_type", nowait = false },
             },
             fuzzy_finder_mappings = {
               ["<down>"] = "move_cursor_down",
-              ["<C-j>"] = "move_cursor_down",
+              ["<C-M-j>"] = "move_cursor_down",
               ["<up>"] = "move_cursor_up",
-              ["<C-k>"] = "move_cursor_up",
+              ["<C-M-k>"] = "move_cursor_up",
             },
           }
         },
         buffers = {
           follow_current_file = {
-            enabled = true
+            enabled = false,
+            leave_dirs_open = true
           },
           group_empty_dirs = true,
           show_unloaded = true,
@@ -154,6 +191,13 @@ return {
               ["bd"] = "buffer_delete",
               ["<bs>"] = "navigate_up",
               ["."] = "set_root",
+              ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
+              ["oc"] = { "order_by_created", nowait = false },
+              ["od"] = { "order_by_diagnostics", nowait = false },
+              ["om"] = { "order_by_modified", nowait = false },
+              ["on"] = { "order_by_name", nowait = false },
+              ["os"] = { "order_by_size", nowait = false },
+              ["ot"] = { "order_by_type", nowait = false },
             }
           },
         },
@@ -168,10 +212,35 @@ return {
               ["gc"] = "git_commit",
               ["gp"] = "git_push",
               ["gg"] = "git_commit_and_push",
+              ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
+              ["oc"] = { "order_by_created", nowait = false },
+              ["od"] = { "order_by_diagnostics", nowait = false },
+              ["om"] = { "order_by_modified", nowait = false },
+              ["on"] = { "order_by_name", nowait = false },
+              ["os"] = { "order_by_size", nowait = false },
+              ["ot"] = { "order_by_type", nowait = false },
             }
           }
         }
-      }
-    )
-  end
+      })
+
+      vim.api.nvim_set_keymap('n', '<C-n>', "<cmd>Neotree filesystem toggle<CR>", { noremap = true })
+    end
+  },
+  {
+    's1n7ax/nvim-window-picker',
+    version = '2.*',
+    config = function()
+      require 'window-picker'.setup({
+        filter_rules = {
+          include_current_win = false,
+          autoselect_one = true,
+          bo = {
+            filetype = { 'neo-tree', "neo-tree-popup", "notify" },
+            buftype = { 'terminal', "quickfix" },
+          },
+        },
+      })
+    end,
+  },
 }

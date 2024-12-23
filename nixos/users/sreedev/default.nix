@@ -1,28 +1,40 @@
-{ pkgs, nixpkgs-stable, ... }:
+{ pkgs, age, config, nixpkgs-stable, username, ... }:
 {
   imports = [
+    ../../../secrets/mappings.nix
     ../common/alacritty.nix
+    ../common/audioctrl.nix
     ../common/autorandr.nix
     ../common/awscli.nix
     ../common/base.nix
+    ../common/cargo.nix
     ../common/core-packages.nix
     ../common/dunst.nix
+    ../common/extra-packages.nix
     ../common/fastfetch.nix
-    ../common/firefox.nix
+    ../common/firefox
     ../common/fontconfig.nix
     ../common/git.nix
     ../common/github.nix
     ../common/gpg.nix
     ../common/htop.nix
+    ../common/hyprland
     ../common/i3.nix
     ../common/irssi.nix
+    ../common/jujutsu.nix
     ../common/keybase.nix
     ../common/keyboard.nix
     ../common/kitty.nix
+    ../common/ladybird.nix
     ../common/neovide.nix
     ../common/neovim.nix
     ../common/newsboat.nix
+    ../common/nsxiv.nix
+    ../common/obs.nix
     ../common/opentabletdriver.nix
+    ../common/radicle.nix
+    ../common/slack.nix
+    ../common/spotube.nix
     ../common/stylix.nix
     ../common/taskwarrior.nix
     ../common/tmux-sessionizer.nix
@@ -33,55 +45,169 @@
     ../common/zathura.nix
     ../common/zsh.nix
     ./backup.nix
-    ./ssh.nix
   ];
 
   home.packages =
-    with pkgs; [
-      (nerdfonts.override { fonts = [ "Iosevka" ]; })
-      arandr
-      autorandr
-      bitwarden-cli
-      brightnessctl
-      dbeaver-bin
-      doctl
-      duckdb
-      emacs
-      feh
-      gimp-with-plugins
-      glab
-      glow
-      graphviz
-      hledger
-      instaloader
-      jira-cli-go
-      just
-      k9s
-      kubectl
-      libreoffice-fresh
-      lmms
-      maim
-      mdbook
-      nemo-with-extensions
-      nicotine-plus
-      nixops_unstable_minimal
-      nixpkgs-fmt
-      nmap
-      nsxiv
-      nushell
-      openttd
-      pandoc
-      playerctl
-      python311Packages.i3ipc
-      python312Packages.supervisor
-      qflipper
-      rofi
-      slack
-      spotify
-      tea
-      texliveFull
-      tmuxinator
-      yt-dlp
-      zola
-    ];
+    let
+      stable-packages = with nixpkgs-stable; [
+        cava
+        (nerdfonts.override { fonts = [ "Iosevka" ]; })
+      ];
+
+      unstable-packages = with pkgs; [
+        arandr
+        autorandr
+        bitwarden-cli
+        brightnessctl
+        dbeaver-bin
+        delta
+        doctl
+        duckdb
+        emacs
+        feh
+        filezilla
+        gimp-with-plugins
+        glab
+        glow
+        graphviz
+        hledger
+        hledger-iadd
+        hledger-ui
+        hledger-utils
+        hledger-web
+        hugo
+        instaloader
+        jira-cli-go
+        just
+        k9s
+        kubectl
+        ledger
+        librecad
+        libreoffice-fresh
+        lmms
+        maim
+        mdbook
+        nemo-with-extensions
+        nerd-fonts.iosevka
+        nerd-fonts.iosevka-term
+        nixops_unstable_minimal
+        nixpkgs-fmt
+        nmap
+        nodejs_22
+        nsxiv
+        nushell
+        openttd
+        oxker
+        pandoc
+        playerctl
+        puffin
+        pwvucontrol
+        python311Packages.i3ipc
+        python312Packages.supervisor
+        qflipper
+        qrencode
+        rebar3
+        rofi
+        scdl
+        sonic-pi
+        tea
+        texliveFull
+        tmuxinator
+        turbo
+        visidata
+        yarn
+        yt-dlp
+      ];
+    in
+    stable-packages ++ unstable-packages;
+
+  home.file.".zshenv" = {
+    enable = true;
+    text = ''
+      export JIRA_API_TOKEN="$(cat ${config.age.secrets.jira-token.path})"
+      export CARGO_REGISTRY_TOKEN="$(cat ${config.age.secrets.cargo-token.path})"
+      export DIGITAL_OCEAN_TOKEN="$(cat ${config.age.secrets.digitalocean-token.path})"
+      export OPEN_WEATHER_API_KEY="$(cat ${config.age.secrets.openweather-token.path})"
+      export PASTEBIN_API_KEY="$(cat ${config.age.secrets.pastebin-token.path})"
+      export WALLHAVEN_API_KEY="$(cat ${config.age.secrets.wallhaven-token.path})"
+      export GH_TOKEN="$(cat ${config.age.secrets.gh-token.path})"
+      export SPOTIFY_CLIENT_ID="$(cat ${config.age.secrets.spotify_client_id.path})"
+      export SPOTIFY_CLIENT_SECRET="$(cat ${config.age.secrets.spotify_client_secret.path})"
+      export TASKWARRIOR_CLIENT_ID="$(cat ${config.age.secrets.taskwarrior_client_id.path})"
+      export TASKWARRIOR_ENCRYPTION_SECRET="$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})"
+      export BW_SESSION="$(cat ${config.age.secrets.bw_session.path})"
+      export HUGGING_FACE_TOKEN="$(cat ${config.age.secrets.hugging_face_token.path})"
+      export OPENAI_API_KEY="$(cat ${config.age.secrets.openai_api_key.path})"
+    '';
+  };
+
+  services.ssh-agent.enable = true;
+  programs.ssh = {
+    enable = true;
+    userKnownHostsFile = "/dev/null";
+    extraOptionOverrides = {
+      StrictHostKeyChecking = "no";
+      LogLevel = "ERROR";
+    };
+
+    matchBlocks = {
+      "sree.dev" = {
+        hostname = "sree.dev";
+        user = "deploy";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
+      "devtechnica.com" = {
+        hostname = "devtechnica.com";
+        user = "deploy";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
+      "github.com" = {
+        hostname = "github.com";
+        user = "git";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
+      "nullptr.sh" = {
+        hostname = "100.117.8.42";
+        user = "admin";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
+      "nullptrderef1" = {
+        hostname = "192.168.1.179";
+        user = "admin";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
+      "gitea.nullptr.sh" = {
+        hostname = "100.117.8.42";
+        user = "git";
+        port = 222;
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
+      "gitlab.com" = {
+        hostname = "gitlab.com";
+        user = "git";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
+      "rpi4b" = {
+        hostname = "192.168.1.152";
+        user = "pi";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+    };
+  };
+
 }

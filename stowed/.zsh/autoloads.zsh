@@ -25,3 +25,7 @@ fi
 if [ -f "$HOME/.cargo/env" ]; then
   . $HOME/.cargo/env
 fi
+
+if command -v opam &> /dev/null; then
+  eval $(opam env)
+fi

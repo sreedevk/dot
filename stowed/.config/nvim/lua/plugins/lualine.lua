@@ -10,7 +10,7 @@ return {
       if recording_register == "" then
         return ""
       else
-        return "Recording @ " .. recording_register
+        return "rec @" .. recording_register
       end
     end
 
@@ -22,15 +22,31 @@ return {
       },
       sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch' },
-        lualine_c = { 'buffers' },
-        lualine_x = {
-          { 'macro-rec', fmt = macro_rec_stats },
-          '%S',
-          'fileformat',
-          'tabs'
+        lualine_b = { 'branch', 'diff' },
+        lualine_c = {
+          {
+            'buffers',
+            mode = 2,
+            symbols = {
+              modified = ' ●',
+              alternate_file = '#',
+              directory = '',
+            },
+          },
         },
-        lualine_y = { 'filetype', 'progress' },
+        lualine_x = {
+          { 'macro-rec',  fmt = macro_rec_stats, color = { fg = "yellow", gui = "bold" } },
+          { '%S',         padding = 1 },
+          { 'fileformat', padding = 2 },
+        },
+        lualine_y = {
+          'filetype',
+          'filesize',
+          {
+            'encoding',
+            show_bomb = false,
+          }
+        },
         lualine_z = {
           {
             'diagnostics',
@@ -46,7 +62,9 @@ return {
             colored = true,
             update_in_insert = false,
             always_visible = false,
-          }
+          },
+          'location',
+          'progress'
         },
       },
     }

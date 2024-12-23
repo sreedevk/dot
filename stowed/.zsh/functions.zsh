@@ -1,26 +1,12 @@
-# TITLE: Zsh Functions
-# AUTHOR: Sreedev Kodichath
+#!/usr/bin/zsh
 
-# move files to trash instead of removing
-trash () {
-  mkdir -p /tmp/trash
-  mv $1 /tmp/trash
-}
-
-# compile plugins after change in .zsh_plugins
-antibody-compile () {
-  antibody bundle < ~/.zsh/plugins > ~/.zsh/plugins.sh
-}
-
-# change directories in style
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
+ycd() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f "$tmp" > /dev/null 2>&1
 }
 
 # Find Keycode
@@ -28,14 +14,9 @@ keycode () {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
-# APL Keyboard - Alt + Key
-setxkbmap-apl () {
-  setxkbmap -layout us,apl -variant ,dyalog -option grp:switch
-}
-
-cls () {
-  echo "" | xclip -sel clip
-  truncate -s0 $HOME/.cache/zsh/history
+# cliphist interface
+clip() {
+  cliphist list | fzf --no-sort | cliphist decode | wl-copy
 }
 
 randstr() {

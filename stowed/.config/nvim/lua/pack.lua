@@ -12,7 +12,10 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup('plugins', {
+require('lazy').setup({ import = 'plugins' }, {
+  change_detection = {
+    notify = false,
+  },
   performance = {
     cache = { enabled = false },
     rtp = {
@@ -25,10 +28,6 @@ require('lazy').setup('plugins', {
         "getscriptPlugin",
         "gzip",
         "logipat",
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
         "matchit",
         "tar",
         "tarPlugin",
