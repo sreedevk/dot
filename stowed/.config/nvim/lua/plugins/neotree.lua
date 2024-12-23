@@ -144,8 +144,8 @@ return {
             never_show_by_pattern = {},
           },
           follow_current_file = {
-            enabled = true,
-            leave_dirs_open = false
+            enabled = false,
+            leave_dirs_open = true
           },
           group_empty_dirs = false,
           hijack_netrw_behavior = "disabled",
@@ -181,7 +181,8 @@ return {
         },
         buffers = {
           follow_current_file = {
-            enabled = true
+            enabled = false,
+            leave_dirs_open = true
           },
           group_empty_dirs = true,
           show_unloaded = true,
@@ -223,7 +224,7 @@ return {
         }
       })
 
-      vim.keymap.set('n', '<C-n>', "<cmd>Neotree filesystem toggle<CR>", { noremap = true })
+      vim.api.nvim_set_keymap('n', '<C-n>', "<cmd>Neotree filesystem toggle<CR>", { noremap = true })
     end
   },
   {
