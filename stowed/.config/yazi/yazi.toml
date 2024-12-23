@@ -12,13 +12,20 @@ scrolloff = 0
 [preview]
 wrap = "yes"
 tab_size = 4
+max_width = 1200
+max_height = 1000
+cache_dir = ""
+image_delay = 30
+image_filter = "triangle"
+image_quality = 75
+sixel_fraction = 15
+ueberzug_scale = 1
+ueberzug_offset = [0, 0, 0, 0]
 
 [opener]
 play = [{ run = 'mpv "$@"', orphan = true, for = "unix" }]
-edit = [{ run = '$EDITOR "$@"', block = true, for = "unix" }]
+edit = [{ run = '${EDITOR:-nvim} "$@"', block = true, for = "unix" }]
 open = [{ run = 'xdg-open "$@"', desc = "Open" }]
 
 [plugin]
-prepend_previewers = [
-  { name = "*.md", run = "glow" },
-]
+prepend_previewers = [{ name = "*.md", run = "glow" }]
