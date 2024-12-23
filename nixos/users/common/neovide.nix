@@ -19,7 +19,7 @@ in
         maximized = false
         srgb = true
         idle = true
-        neovim-bin = "${pkgs.neovim}/bin/nvim" # found dynamically on $PATH if unset
+        neovim-bin = "${pkgs.neovim}/bin/nvim"
         frame = "full"
       '';
     };

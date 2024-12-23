@@ -24,13 +24,14 @@
       recursive = true;
       text =
         let
+
           versions = [
-            { tool = "bun"; version = "1.1.38"; }
-            { tool = "deno"; version = "2.1.2"; }
-            { tool = "elixir"; version = "1.17.2-otp-27"; }
-            { tool = "erlang"; version = "27.0.1"; }
+            { tool = "bun"; version = "1.1.42"; }
+            { tool = "deno"; version = "2.1.4"; }
+            { tool = "elixir"; version = "1.18.0-otp-27"; }
+            { tool = "erlang"; version = "27.2"; }
             { tool = "gleam"; version = "1.6.3"; }
-            { tool = "golang"; version = "1.22.5"; }
+            { tool = "golang"; version = "1.23.4"; }
             { tool = "nim"; version = "2.2.0"; }
             { tool = "opam"; version = "2.3.0"; }
             { tool = "ruby"; version = "3.3.6"; }

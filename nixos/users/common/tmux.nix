@@ -18,6 +18,7 @@ in
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "tmux-256color";
     historyLimit = 100000;
+    keyMode = "vi";
     plugins = with pkgs; [
 
       {
@@ -38,13 +39,14 @@ in
       tmuxPlugins.tmux-thumbs
       tmuxPlugins.yank
     ];
+    prefix = "C-b";
+    newSession = true;
+    baseIndex = 1;
+    mouse = true;
+    aggressiveResize = true;
+    disableConfirmationPrompt = true;
     extraConfig = ''
-      # BIND-KEY CTRL-Q ON REMOTE SESSION
-      set -g prefix C-b
       bind -n C-q send-prefix
-
-      # BE LIKE VIM
-      set -g mode-keys vi
       set -g status-keys emacs
 
       # SWITCHING PANES WITH C-M
@@ -83,7 +85,6 @@ in
       bind -T copy-mode-vi L send-keys -X end-of-line
 
       # MOUSE SUPPORT
-      set -g mouse on
       bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
       bind -n WheelDownPane select-pane -t= \;                 send-keys -M
 
@@ -105,20 +106,13 @@ in
       set -g window-status-current-format "#[fg=yellow]#I#[fg=green]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},)}}#[fg=default]#F#[fg=yellow]#[fg=default]"
 
       # MAKE IT PRETTY + SANE DEFAULTS
-      set -g  default-shell $SHELL
-      set -g  default-command "$SHELL --login"
+      set -g  default-command "${pkgs.zsh}/bin/zsh --login"
       set -g  xterm-keys on
       set -g  default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"
-      set -g  history-limit 100000
       set -g  buffer-limit  20
       set -g  set-titles on
       set -g  set-titles-string "#I:#W"
-      set -g  base-index 1
-      setw -g pane-base-index 1
-
-      # RESIZING
-      setw -g aggressive-resize on
 
       # DISPLAY TMUX MESSAGES LONGER
       set  -g display-time 4000

@@ -8,18 +8,6 @@
         url = "javascript:location.href='https://miniflux.nullptr.sh/bookmarklet?uri='+encodeURIComponent(window.location.href)";
       }
       {
-        name = "Bookmark (Linkding)";
-        url = ''
-          javascript: (function () {
-            var bookmarkUrl = window.location;
-            var applicationUrl = 'https://links.nullptr.sh/bookmarks/new';
-            applicationUrl += '?url=' + encodeURIComponent(bookmarkUrl);
-            applicationUrl += '&auto_close';
-            window.open(applicationUrl);
-          })();
-        '';
-      }
-      {
         name = "nullptr.sh";
         url = "https://nullptr.sh";
       }

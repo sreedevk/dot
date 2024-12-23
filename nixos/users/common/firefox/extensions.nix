@@ -7,7 +7,6 @@ with firefox-addons.packages."${system}"; [
   enhancer-for-youtube
   hoarder
   multi-account-containers
-  noscript
   open-url-in-container
   reddit-enhancement-suite
   sponsorblock

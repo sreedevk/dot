@@ -33,6 +33,7 @@
     ../common/obs.nix
     ../common/opentabletdriver.nix
     ../common/radicle.nix
+    ../common/rofi
     ../common/slack.nix
     ../common/spotube.nix
     ../common/stylix.nix
@@ -107,7 +108,6 @@
         qflipper
         qrencode
         rebar3
-        rofi
         scdl
         sonic-pi
         tea
