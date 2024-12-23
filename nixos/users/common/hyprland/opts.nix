@@ -414,7 +414,7 @@ in
     "waybar"
     "dunst"
     "wlsunset -l 40.7 -L -73.9"
-    "hyprpaper"
+    "${pkgs.hyprpaper}/bin/hyprpaper"
     "wl-paste --type text --watch cliphist store"
     "wl-paste --type image --watch cliphist store"
     "hyprpm reload -n"
