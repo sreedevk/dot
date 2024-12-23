@@ -13,6 +13,12 @@ nix-channel --update
 nix-shell '<home-manager>' -A install
 ```
 
+## Using Docker Compose to Check Configs
+
+```bash
+docker compose run --remove-orphans check
+```
+
 ## File Structure
 
 ### nixos/hosts
