@@ -30,6 +30,19 @@ return {
   },
 
   {
+    "gpanders/nvim-parinfer",
+    config = function()
+      vim.g.parinfer_filetypes = {
+        "dune",
+        "scheme",
+        "query",
+        "racket",
+        "clojure"
+      }
+    end,
+  },
+
+  {
     'MeanderingProgrammer/render-markdown.nvim',
     lazy = true,
     ft = { "markdown", "lsp_markdown" },
@@ -93,9 +106,19 @@ return {
       vim.keymap.set('n', '<Leader>u', "<cmd>UndotreeToggle<CR>", { noremap = true })
     end
   },
+
   {
     "danymat/neogen",
-    config = true,
+    lazy = true,
+    keys = { '<Leader>ac', '<Leader>af', '<Leader>at' },
+    config = function()
+      local neogen = require('neogen')
+
+      neogen.setup({ snippet_engine = "luasnip" })
+      vim.keymap.set('n', '<Leader>ac', function() neogen.generate({ type = 'class' }) end)
+      vim.keymap.set('n', '<Leader>af', function() neogen.generate({ type = 'func' }) end)
+      vim.keymap.set('n', '<Leader>at', function() neogen.generate({ type = 'type' }) end)
+    end,
   },
 
   {
@@ -103,6 +126,7 @@ return {
     lazy = true,
     cmd = { "Tmux", "Tyank", "Tput", "Twrite", "Tattach" }
   },
+
   {
     'norcalli/nvim-colorizer.lua',
     lazy = true,
@@ -113,9 +137,7 @@ return {
       'ColorizerReloadAllBuffers',
       'ColorizerToggle'
     },
-    config = function()
-      require('colorizer').setup()
-    end
+    config = true
   },
 
   {
@@ -132,9 +154,7 @@ return {
     lazy = true,
     event = "BufReadPost",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("todo-comments").setup {}
-    end
+    config = true
   },
 
   {
@@ -142,44 +162,18 @@ return {
     lazy = true,
     tag = 'legacy',
     event = "BufReadPost",
-    config = function()
-      require("fidget").setup({
-        window = {
-          blend = 0,
-        },
-      })
-    end
+    opts = {
+      window = {
+        blend = 0,
+      },
+    },
   },
 
   {
     'petertriho/nvim-scrollbar',
     lazy = true,
     event = "BufReadPost",
-    config = function()
-      require('scrollbar').setup()
-    end
-  },
-
-  {
-    'folke/zen-mode.nvim',
-    lazy = true,
-    cmd = "ZenMode",
-    keys = { '<Leader>tz' },
-    config = function()
-      require('zen-mode').setup()
-
-      vim.keymap.set('v', '<Leader>tz', "<cmd>ZenMode<CR>", { noremap = true })
-    end
-  },
-
-  {
-    'folke/twilight.nvim',
-    lazy = true,
-    cmd = { "ZenMode", "Twilight", "TwilightEnable", "TwilightDisable" },
-    dependencies = { 'folke/zen-mode.nvim' },
-    config = function()
-      require('twilight').setup()
-    end
+    config = true,
   },
 
   {
@@ -197,8 +191,6 @@ return {
 
   {
     "tiagovla/scope.nvim",
-    config = function()
-      require("scope").setup()
-    end
+    config = true
   }
 }
