@@ -16,8 +16,11 @@ Mesa
 Mesa
 Mesa
 nvidia-565-57-01
+nvidia-565-77
+Mesa
 Mesa
 nvidia-565-57-01
+nvidia-565-77
 Intel
 Intel
 i386

@@ -46,6 +46,7 @@ inotify-tools
 intel-media-driver
 iw
 iwd
+less
 libnotify
 libpam-google-authenticator
 libva-nvidia-driver
