@@ -9,6 +9,5 @@ return {
   config = function()
     vim.keymap.set('n', '<Leader>zi', [[<cmd>Tzi<cr>]], { noremap = true })
     vim.keymap.set('n', '<Leader>zz', ':Tz ', { noremap = true })
-    vim.keymap.set('n', '<Leader>fp', [[<cmd>Tz ~/.dot<cr>]], { noremap = true })
   end
 }
