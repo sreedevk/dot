@@ -36,9 +36,6 @@ grub
 gst-libav
 gst-plugins-good
 gstreamer
-hyprland
-hyprlock
-hyprpaper
 i3-wm
 incus
 incus-tools
@@ -130,8 +127,6 @@ wireplumber
 wl-clipboard
 wlsunset
 xclip
-xdg-desktop-portal-hyprland
-xdg-desktop-portal-wlr
 xdo
 xf86-video-vesa
 xorg-server
