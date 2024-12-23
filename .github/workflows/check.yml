@@ -21,4 +21,4 @@ jobs:
 
       - name: Build and run tests
         run: |
-          docker-compose run check
+          docker compose run check
