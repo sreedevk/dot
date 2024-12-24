@@ -18,7 +18,8 @@ return {
 
     vim.keymap.set('n', '<Leader>tro', "<cmd>ToggleTerm<CR>", { noremap = true })
     vim.keymap.set('n', '<Leader>trf', "<cmd>ToggleTerm direction=float<CR>", { noremap = true })
-    vim.keymap.set('v', '<Leader>trs', ":'>ToggleTermSendVisualLine<CR>", { noremap = true })
+    vim.keymap.set('v', '<Leader>trs', ":'>ToggleTermSendVisualSelection<CR>", { noremap = true })
+    vim.keymap.set('n', '<Leader>trs', ":ToggleTermSendCurrentLine<CR>", { noremap = true })
     vim.keymap.set('n', '<Leader>trn', '<cmd>RunAsync<CR> ', { noremap = true })
   end
 }
