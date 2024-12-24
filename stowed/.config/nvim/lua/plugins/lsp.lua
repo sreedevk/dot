@@ -18,6 +18,7 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/nvim-cmp',
+      'PaterJason/cmp-conjure',
       'kirasok/cmp-hledger',
       'neovim/nvim-lspconfig',
       'onsails/lspkind.nvim',
@@ -108,7 +109,8 @@ return {
           { name = "luasnip",  priority = 7, group_index = 2 },
           { name = "buffer",   priority = 7, group_index = 2 },
           { name = "path",     priority = 6, group_index = 2 },
-          { name = 'hledger',  priority = 5, group_index = 2 }
+          { name = 'hledger',  priority = 5, group_index = 2 },
+          { name = 'conjure',  priority = 5, group_index = 2 }
         }),
         window = {
           completion = cmp.config.window.bordered(),

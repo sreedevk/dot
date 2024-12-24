@@ -30,6 +30,12 @@ return {
   },
 
   {
+    "Olical/conjure",
+    lazy = true,
+    ft = { "clojure", "fennel", "python", "janet" }
+  },
+
+  {
     "gpanders/nvim-parinfer",
     config = function()
       vim.g.parinfer_filetypes = {
