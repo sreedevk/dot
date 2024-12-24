@@ -80,9 +80,9 @@
       "Nsxiv.background" = lib.mkForce "#141c21";
       "Nsxiv.font" = lib.mkForce "DejaVu Sans-14";
       "Nsxiv.foreground" = lib.mkForce "#1f1d2e";
-      "Sxiv.background" = "#908caa";
+      "Sxiv.background" = lib.mkForce "#908caa";
       "Sxiv.font" = "DejaVu Sans-14";
-      "Sxiv.foreground" = "#1f1d2e";
+      "Sxiv.foreground" = lib.mkForce "#1f1d2e";
       "Xft.antialias" = 1;
       "Xft.autohint" = 0;
       "Xft.dpi" = 128;
