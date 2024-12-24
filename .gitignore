@@ -33,6 +33,8 @@
 !/stowed/.config/user-dirs.locale
 !/stowed/.config/vimb
 !/stowed/.config/zathura
+!/stowed/.config/brave-beta-flags.conf
+!/stowed/.config/brave-flags.conf
 !/stowed/.config/nixpkgs
 !/stowed/.config/hypr
 !/stowed/.config/waybar
