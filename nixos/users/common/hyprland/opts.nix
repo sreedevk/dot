@@ -53,6 +53,7 @@ in
       desc = "AU Optronics 0xF99A";
       resolution = { x = 1920; y = 1200; };
       position = { x = 0; y = 1080; };
+      bitdepth = 10;
       rate = 60;
       scale = 1;
     }
@@ -62,6 +63,7 @@ in
       resolution = { x = 1920; y = 1080; };
       position = { x = 0; y = 0; };
       rate = 100.00;
+      bitdepth = 10;
       scale = 1;
     }
     {
@@ -70,6 +72,7 @@ in
       resolution = { x = 3840; y = 2160; };
       position = { x = 1920; y = 0; };
       rate = 60;
+      bitdepth = 10;
       scale = 1.6;
     }
   ];
