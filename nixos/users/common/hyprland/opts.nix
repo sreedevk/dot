@@ -419,6 +419,7 @@ in
     "wl-paste --type image --watch cliphist store"
     "hyprpm reload -n"
     "xrdb ~/.Xresources"
+    "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
   ];
 
   exec = [ ];
