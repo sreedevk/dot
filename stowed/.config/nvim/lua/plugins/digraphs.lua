@@ -10,6 +10,7 @@ return {
       mode = { "i" },
     }
   },
+  dependencies = { 'nvim-telescope/telescope.nvim' },
   init = function()
     vim.g.BetterDigraphsAdditions = {
       { digraph = "TH", symbol = "ø", name = "theta" },
