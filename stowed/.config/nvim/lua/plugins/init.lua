@@ -30,19 +30,6 @@ return {
   },
 
   {
-    "gpanders/nvim-parinfer",
-    config = function()
-      vim.g.parinfer_filetypes = {
-        "dune",
-        "scheme",
-        "query",
-        "racket",
-        "clojure"
-      }
-    end,
-  },
-
-  {
     'MeanderingProgrammer/render-markdown.nvim',
     lazy = true,
     ft = { "markdown", "lsp_markdown" },
@@ -174,13 +161,6 @@ return {
     lazy = true,
     event = "BufReadPost",
     config = true,
-  },
-
-  {
-    'windwp/nvim-autopairs',
-    lazy = true,
-    event = 'InsertEnter',
-    config = true
   },
 
   {
