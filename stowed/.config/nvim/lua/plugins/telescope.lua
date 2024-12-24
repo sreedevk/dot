@@ -2,6 +2,7 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope-symbols.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
   cmd = "Telescope",
@@ -16,6 +17,19 @@ return {
     { '<Leader>/',  require('telescope.builtin').current_buffer_fuzzy_find, desc = 'Current Buff Fuzzy Find' },
     { '<Leader>cc', require('telescope.builtin').commands,                  desc = 'Commands List' },
     { "<Leader>'",  require('telescope.builtin').marks,                     desc = 'Marks List' },
+    {
+      "<Leader>ej",
+      function()
+        require 'telescope.builtin'.symbols {
+          sources = {
+            'emoji',
+            'kaomoji',
+            'gitmoji',
+          },
+        }
+      end,
+      desc = 'Emojis',
+    },
     {
       '<Leader>fp',
       function()
@@ -38,7 +52,6 @@ return {
     require("telescope").setup({
       pickers = {
         find_files = {
-          -- find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
           find_command = { "fd", "--type", "f", "--hidden", "--glob", "--strip-cwd-prefix", "--exclude", ".git" }
         }
       },
