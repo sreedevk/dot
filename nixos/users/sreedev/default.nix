@@ -51,8 +51,10 @@
   home.packages =
     let
       stable-packages = with nixpkgs-stable; [
-        cava
         (nerdfonts.override { fonts = [ "Iosevka" ]; })
+        cava
+        gimp-with-plugins
+        ledger
       ];
 
       unstable-packages = with pkgs; [
@@ -67,7 +69,6 @@
         emacs
         feh
         filezilla
-        gimp-with-plugins
         glab
         glow
         graphviz
@@ -82,7 +83,6 @@
         just
         k9s
         kubectl
-        ledger
         librecad
         libreoffice-fresh
         lmms
