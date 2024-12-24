@@ -1,5 +1,10 @@
 return {
   {
+    'akinsho/git-conflict.nvim',
+    version = "*",
+    config = true,
+  },
+  {
     "sindrets/diffview.nvim",
     lazy = true,
     cmd = {
@@ -50,7 +55,6 @@ return {
       },
     },
   },
-
   {
     'lewis6991/gitsigns.nvim',
     config = true,
@@ -60,9 +64,7 @@ return {
         local mapping_opts = { noremap = true, buffer = bufnr }
 
         vim.keymap.set('n', '<Leader>sh', gitsigns.stage_hunk, mapping_opts)
-        vim.keymap.set('n', '<Leader>rh', gitsigns.reset_hunk, mapping_opts)
         vim.keymap.set('v', '<leader>sh', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, mapping_opts)
-        vim.keymap.set('v', '<leader>rh', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end, mapping_opts)
         vim.keymap.set('n', '<leader>tb', gitsigns.toggle_current_line_blame, mapping_opts)
         vim.keymap.set({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
       end
