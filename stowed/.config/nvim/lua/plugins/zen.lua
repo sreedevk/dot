@@ -3,25 +3,23 @@ return {
     "folke/zen-mode.nvim",
     lazy = true,
     cmd = "ZenMode",
-    keys = { '<Leader>tz' },
-    config = function()
-      require("zen-mode").setup {
-        window = {
-          backdrop = 1,
-          height = 0.9,
-          width = 0.8,
-          options = {
-            number = false,
-            relativenumber = false,
-            signcolumn = "no",
-            list = false,
-            cursorline = false,
-          },
+    keys = {
+      { '<Leader>tz', "<cmd>ZenMode<CR>", desc = "Toggle Zen Mode" },
+    },
+    opts = {
+      window = {
+        backdrop = 1,
+        height = 0.9,
+        width = 0.8,
+        options = {
+          number = false,
+          relativenumber = false,
+          signcolumn = "no",
+          list = false,
+          cursorline = false,
         },
-      }
-
-      vim.keymap.set('v', '<Leader>tz', "<cmd>ZenMode<CR>")
-    end,
+      },
+    },
   },
 
   {
