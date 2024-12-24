@@ -35,7 +35,9 @@ return {
           "yaml",
           "zig",
         },
-        autotag = { enable = true, filetypes = { "html", "xml" },
+        autotag = {
+          enable = true,
+          filetypes = { "html", "xml" },
         },
         sync_install = true,
         ignore_install = { "comment" },
@@ -141,15 +143,15 @@ return {
     "aaronik/treewalker.nvim",
     lazy = true,
     event = "BufReadPost",
-    opts = {
-      highlight = true
+    opts = { highlight = true },
+    keys = {
+      { '<C-j>',   ':Treewalker Down<CR>',     noremap = true, desc = "Treewalker Down" },
+      { '<C-k>',   ':Treewalker Up<CR>',       noremap = true, desc = "Treewalker Up" },
+      { '<C-h>',   ':Treewalker Left<CR>',     noremap = true, desc = "Treewalker Left" },
+      { '<C-l>',   ':Treewalker Right<CR>',    noremap = true, desc = "Treewalker Right" },
+      { '<C-S-j>', ':Treewalker SwapDown<CR>', noremap = true, desc = "Treesitter SwapUp",   silent = true },
+      { '<C-S-k>', ':Treewalker SwapUp<CR>',   noremap = true, desc = "Treesitter SwapDown", silent = true }
     },
-    config = function()
-      vim.keymap.set('n', '<C-j>', ':Treewalker Down<CR>', { noremap = true })
-      vim.keymap.set('n', '<C-k>', ':Treewalker Up<CR>', { noremap = true })
-      vim.keymap.set('n', '<C-h>', ':Treewalker Left<CR>', { noremap = true })
-      vim.keymap.set('n', '<C-l>', ':Treewalker Right<CR>', { noremap = true })
-    end
   },
 
   {
@@ -157,19 +159,17 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     lazy = true,
     event = "BufReadPost",
-    keys = { '<leader>j' },
-    config = function()
-      require('treesj').setup({
-        use_default_keymaps = false,
-        check_syntax_error = true,
-        max_join_length = 512,
-        cursor_behavior = 'hold',
-        notify = false,
-        dot_repeat = true,
-        on_error = nil,
-      })
-
-      vim.keymap.set('n', '<leader>j', [[<cmd>TSJToggle<cr>]], { noremap = true })
-    end,
+    keys = {
+      { '<leader>j', [[<cmd>TSJToggle<cr>]], noremap = true, desc = "TreeSJ" },
+    },
+    opts = {
+      use_default_keymaps = false,
+      check_syntax_error = true,
+      max_join_length = 512,
+      cursor_behavior = 'hold',
+      notify = false,
+      dot_repeat = true,
+      on_error = nil,
+    }
   }
 }

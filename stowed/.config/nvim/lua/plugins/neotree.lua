@@ -8,7 +8,10 @@ return {
       'MunifTanjim/nui.nvim',
       's1n7ax/nvim-window-picker'
     },
-    keys = { "<C-n>", "<Leader>n" },
+    keys = {
+      { "<C-n>",     [[<cmd>Neotree filesystem reveal toggle<CR>]], desc = "Toggle Neotree" },
+      { "<Leader>n", [[<cmd>Neotree reveal<CR>]],                   desc = "Reveal File in Neotree" },
+    },
     lazy = true,
     config = function()
       vim.g.neo_tree_remove_legacy_commands = 1
@@ -223,9 +226,6 @@ return {
           }
         }
       })
-
-      vim.keymap.set('n', '<C-n>', [[<cmd>Neotree filesystem reveal toggle<CR>]], { noremap = true })
-      vim.keymap.set('n', '<Leader>n', [[<cmd>Neotree reveal<CR>]], { noremap = true })
     end
   },
   {
