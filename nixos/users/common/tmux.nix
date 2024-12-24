@@ -40,7 +40,6 @@ in
       tmuxPlugins.yank
     ];
     prefix = "C-b";
-    newSession = true;
     baseIndex = 1;
     mouse = true;
     aggressiveResize = true;
