@@ -121,8 +121,6 @@ return {
         button("z", "Zoxide", ":Zi<CR>"),
         button("l", "Last Session", "<cmd>lua require('persistence').load({last=true})<cr>"),
         button("o", "Last Session (CWD)", "<cmd>lua require('persistence').load()<cr>"),
-        button("f", "Find Files", ":Telescope find_files<CR>"),
-        button("/", "Live Grep", ":Telescope live_grep<CR>"),
         button("p", "Lazy Dash", ":Lazy show<CR>"),
         button("g", "Neogit Dash", ":Neogit<CR>"),
         button("q", "Quit Neovim", ":q<CR>"),
