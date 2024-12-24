@@ -2,6 +2,7 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim',
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
   cmd = "Telescope",
   keys = {
@@ -34,28 +35,23 @@ return {
   },
   config = function()
     local t_actions = require("telescope.actions")
-    pcall(require("telescope").load_extension, "fzf")
-    pcall(require("telescope").load_extension, "smart_history")
-    pcall(require("telescope").load_extension, "ui-select")
-
-    require("telescope").setup {
+    require("telescope").setup({
       pickers = {
         find_files = {
-          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+          -- find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+          find_command = { "fd", "--type", "f", "--hidden", "--glob", "--strip-cwd-prefix", "--exclude", ".git" }
         }
       },
       defaults = {
         file_ignore_patterns = { "dune.lock" },
-        vimgrep_arguments = {
-          'rg',
-          '--color=never',
-          '--no-heading',
-          '--with-filename',
-          '--line-number',
-          '--column',
-          '--smart-case',
-          '--no-ignore',
-          '--hidden'
+        vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--no-ignore', '--hidden', '--glob', "!**/.git/*" },
+        extensions = {
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+          }
         },
         mappings = {
           n = {
@@ -68,6 +64,8 @@ return {
           },
         }
       },
-    }
+    })
+
+    require('telescope').load_extension('fzf')
   end
 }
