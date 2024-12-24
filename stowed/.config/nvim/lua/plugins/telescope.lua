@@ -52,12 +52,33 @@ return {
     require("telescope").setup({
       pickers = {
         find_files = {
-          find_command = { "fd", "--type", "f", "--hidden", "--glob", "--strip-cwd-prefix", "--exclude", ".git" }
+          find_command = {
+            "fd",
+            "--type",
+            "f",
+            "--hidden",
+            "--glob",
+            "--strip-cwd-prefix",
+            "--exclude",
+            ".git",
+          }
         }
       },
       defaults = {
         file_ignore_patterns = { "dune.lock" },
-        vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--no-ignore', '--hidden', '--glob', "!**/.git/*" },
+        vimgrep_arguments = {
+          'rg',
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--smart-case',
+          '--no-ignore',
+          '--hidden',
+          '--glob',
+          "!**/.git/*",
+        },
         extensions = {
           fzf = {
             fuzzy = true,
