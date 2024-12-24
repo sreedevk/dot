@@ -5,20 +5,22 @@ return {
   },
   cmd = "Telescope",
   keys = {
-    { "<C-p>",      require('telescope.builtin').find_files,                desc = "Find Files" },
-    { '<Leader>rg', require('telescope.builtin').live_grep,                 desc = "Live Grep" },
-    { "<C-s>",      "<cmd>Telescope<CR>",                                   desc = "Telescope" },
-    { "<Leader>bl", require('telescope.builtin').buffers,                   desc = "Buffer List" },
-    { '<Leader>ft', require('telescope.builtin').filetypes,                 desc = "Filetypes List" },
-    { '<leader>fh', require('telescope.builtin').help_tags,                 desc = "Help Tags List" },
-    { '<leader>gc', require('telescope.builtin').git_commits,               desc = "Git Commit List" },
-    { '<Leader>/',  require('telescope.builtin').current_buffer_fuzzy_find, desc = "Current Buff Fuzzy Find" },
+    { '<C-p>',      require('telescope.builtin').find_files,                desc = 'Find Files' },
+    { '<Leader>rg', require('telescope.builtin').live_grep,                 desc = 'Live Grep' },
+    { '<C-s>',      '<cmd>Telescope<CR>',                                   desc = 'Telescope' },
+    { "<Leader>bl", require('telescope.builtin').buffers,                   desc = 'Buffer List' },
+    { '<Leader>ft', require('telescope.builtin').filetypes,                 desc = 'Filetypes List' },
+    { '<leader>fh', require('telescope.builtin').help_tags,                 desc = 'Help Tags List' },
+    { '<leader>gc', require('telescope.builtin').git_commits,               desc = 'Git Commit List' },
+    { '<Leader>/',  require('telescope.builtin').current_buffer_fuzzy_find, desc = 'Current Buff Fuzzy Find' },
+    { '<Leader>cc', require('telescope.builtin').commands,                  desc = 'Commands List' },
+    { "<Leader>'",  require('telescope.builtin').marks,                     desc = 'Marks List' },
     {
-      "<Leader>fp",
+      '<Leader>fp',
       function()
         require('telescope.builtin').find_files { cwd = "~/.dot" }
       end,
-      desc = "Find Config Files"
+      desc = 'Find Config Files'
     },
     {
       '<Leader>fw',
@@ -27,7 +29,7 @@ return {
           search = vim.fn.expand('<cword>'),
         })
       end,
-      desc = "Find CWord"
+      desc = 'Find CWord'
     },
   },
   config = function()
