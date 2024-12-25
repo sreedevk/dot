@@ -96,7 +96,7 @@ return {
     lazy = true,
     cmd = "TableModeToggle",
     keys = {
-      { '<Leader>tm', mode = "v", "<cmd>TableModeToggle<CR>" },
+      { '<Leader>tm', mode = "v", "<cmd>TableModeToggle<CR>", desc = "Vim Table Mode" },
     }
   },
 
