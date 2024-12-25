@@ -41,8 +41,7 @@ return {
         vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, { buffer = event.buf, desc = "Rename Variable" })
         vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = event.buf, desc = "Next Diagnostic Msg" })
         vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = event.buf, desc = "Prev Diagnostic Msg" })
-        vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol,
-          { buffer = event.buf, desc = "Find Workspace Symbol" })
+        vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, { buffer = event.buf, desc = "Find Workspace Symbol" })
         vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, { buffer = event.buf, desc = "Signature Help" })
         vim.keymap.set("n", "gl", vim.diagnostic.open_float, { buffer = event.buf, desc = "Jump Into Float" })
       end

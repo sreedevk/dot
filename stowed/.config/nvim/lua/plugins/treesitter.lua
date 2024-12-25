@@ -46,9 +46,9 @@ return {
           enable = true,
           keymaps = {
             init_selection = "<CR>",
-            scope_incremental = "<CR>",
-            node_incremental = "<CR>",
-            node_decremental = "<TAB>",
+            scope_incremental = "grn",
+            node_incremental = "grc",
+            node_decremental = "grm",
           },
         },
         indent = { enable = true },
