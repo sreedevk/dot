@@ -43,18 +43,6 @@ return {
   },
 
   {
-    'MeanderingProgrammer/render-markdown.nvim',
-    lazy = true,
-    ft = { "markdown", "lsp_markdown" },
-    cmd = { "EasyAlign" },
-    opts = {},
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'echasnovski/mini.icons',
-    },
-  },
-
-  {
     'famiu/bufdelete.nvim',
     lazy = true,
     keys = {

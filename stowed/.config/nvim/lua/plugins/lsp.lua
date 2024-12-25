@@ -103,11 +103,12 @@ return {
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
-          { name = "nvim_lsp", priority = 8, group_index = 2 },
-          { name = "luasnip",  priority = 7, group_index = 2 },
-          { name = "buffer",   priority = 7, group_index = 2 },
-          { name = "path",     priority = 6, group_index = 2 },
-          { name = 'hledger',  priority = 5, group_index = 2 }
+          { name = "nvim_lsp",        priority = 8, group_index = 2 },
+          { name = "luasnip",         priority = 7, group_index = 2 },
+          { name = "buffer",          priority = 7, group_index = 2 },
+          { name = "path",            priority = 6, group_index = 2 },
+          { name = 'hledger',         priority = 5, group_index = 2 },
+          { name = 'render-markdown', priority = 5, group_index = 2 }
         }),
         window = {
           completion = cmp.config.window.bordered(),
