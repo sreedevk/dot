@@ -39,6 +39,13 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "html", "markdown", "text" },
+  callback = function()
+    vim.opt_local.spell = true
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
   pattern = "ruby",
   callback = function()
     local function extend_hl(name, def)

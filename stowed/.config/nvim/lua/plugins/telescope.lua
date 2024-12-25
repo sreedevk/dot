@@ -2,23 +2,41 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope-symbols.nvim',
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
   cmd = "Telescope",
   keys = {
-    { "<C-p>",      require('telescope.builtin').find_files,                desc = "Find Files" },
-    { '<Leader>rg', require('telescope.builtin').live_grep,                 desc = "Live Grep" },
-    { "<C-s>",      "<cmd>Telescope<CR>",                                   desc = "Telescope" },
-    { "<Leader>bl", require('telescope.builtin').buffers,                   desc = "Buffer List" },
-    { '<Leader>ft', require('telescope.builtin').filetypes,                 desc = "Filetypes List" },
-    { '<leader>fh', require('telescope.builtin').help_tags,                 desc = "Help Tags List" },
-    { '<leader>gc', require('telescope.builtin').git_commits,               desc = "Git Commit List" },
-    { '<Leader>/',  require('telescope.builtin').current_buffer_fuzzy_find, desc = "Current Buff Fuzzy Find" },
+    { '<C-p>',      require('telescope.builtin').find_files,                desc = 'Find Files' },
+    { '<Leader>rg', require('telescope.builtin').live_grep,                 desc = 'Live Grep' },
+    { '<C-s>',      '<cmd>Telescope<CR>',                                   desc = 'Telescope' },
+    { "<Leader>bl", require('telescope.builtin').buffers,                   desc = 'Buffer List' },
+    { '<Leader>ft', require('telescope.builtin').filetypes,                 desc = 'Filetypes List' },
+    { '<leader>fh', require('telescope.builtin').help_tags,                 desc = 'Help Tags List' },
+    { '<leader>gc', require('telescope.builtin').git_commits,               desc = 'Git Commit List' },
+    { '<Leader>/',  require('telescope.builtin').current_buffer_fuzzy_find, desc = 'Current Buff Fuzzy Find' },
+    { '<Leader>cc', require('telescope.builtin').commands,                  desc = 'Commands List' },
+    { "<Leader>'",  require('telescope.builtin').marks,                     desc = 'Marks List' },
+    { "<Leader>sp", require('telescope.builtin').spell_suggest,             desc = 'Suggest Spellings' },
     {
-      "<Leader>fp",
+      "<Leader>ej",
+      function()
+        require 'telescope.builtin'.symbols {
+          sources = {
+            'emoji',
+            'kaomoji',
+            'gitmoji',
+          },
+        }
+      end,
+      desc = 'Emojis',
+    },
+    {
+      '<Leader>fp',
       function()
         require('telescope.builtin').find_files { cwd = "~/.dot" }
       end,
-      desc = "Find Config Files"
+      desc = 'Find Config Files'
     },
     {
       '<Leader>fw',
@@ -27,19 +45,41 @@ return {
           search = vim.fn.expand('<cword>'),
         })
       end,
-      desc = "Find CWord"
+      desc = 'Find CWord'
     },
   },
   config = function()
     local t_actions = require("telescope.actions")
-    pcall(require("telescope").load_extension, "fzf")
-    pcall(require("telescope").load_extension, "smart_history")
-    pcall(require("telescope").load_extension, "ui-select")
-
-    require("telescope").setup {
+    require("telescope").setup({
       pickers = {
+        live_grep = {
+          theme = "ivy",
+        },
+        buffers = {
+          theme = "ivy",
+          sort_mru = true,
+          ignore_current_buffer = true,
+          mappings = {
+            i = {
+              ["<C-w>"] = "delete_buffer",
+            },
+            n = {
+              ["<C-w>"] = "delete_buffer",
+            },
+          },
+        },
         find_files = {
-          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+          theme = "ivy",
+          find_command = {
+            "fd",
+            "--type",
+            "f",
+            "--hidden",
+            "--glob",
+            "--strip-cwd-prefix",
+            "--exclude",
+            ".git",
+          }
         }
       },
       defaults = {
@@ -53,7 +93,17 @@ return {
           '--column',
           '--smart-case',
           '--no-ignore',
-          '--hidden'
+          '--hidden',
+          '--glob',
+          "!**/.git/*",
+        },
+        extensions = {
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+          }
         },
         mappings = {
           n = {
@@ -66,6 +116,8 @@ return {
           },
         }
       },
-    }
+    })
+
+    require('telescope').load_extension('fzf')
   end
 }

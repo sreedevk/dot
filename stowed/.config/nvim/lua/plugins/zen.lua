@@ -4,9 +4,49 @@ return {
     lazy = true,
     cmd = "ZenMode",
     keys = {
-      { '<Leader>tz', "<cmd>ZenMode<CR>", desc = "Toggle Zen Mode" },
+      {
+        '<Leader>tz',
+        function()
+          require("zen-mode").toggle({
+            window = {
+              width = .85
+            }
+          })
+        end,
+        desc = "Toggle Zen Mode"
+      },
     },
     opts = {
+      plugins = {
+        options = {
+          enabled = true,
+          ruler = false,
+          showcmd = false,
+          laststatus = 0,
+        },
+        twilight = { enabled = true },
+        gitsigns = { enabled = true },
+        kitty = {
+          enabled = false,
+          font = "+4",
+        },
+        alacritty = {
+          enabled = true,
+          font = "18"
+        },
+        neovide = {
+          enabled = true,
+          scale = 1.2,
+          disable_animations = {
+            neovide_animation_length = 0,
+            neovide_cursor_animate_command_line = false,
+            neovide_scroll_animation_length = 0,
+            neovide_position_animation_length = 0,
+            neovide_cursor_animation_length = 0,
+            neovide_cursor_vfx_mode = "",
+          }
+        },
+      },
       window = {
         backdrop = 1,
         height = 0.9,
@@ -25,7 +65,7 @@ return {
   {
     'folke/twilight.nvim',
     lazy = true,
-    cmd = { "ZenMode", "Twilight", "TwilightEnable", "TwilightDisable" },
+    cmd = { "Twilight", "TwilightEnable", "TwilightDisable" },
     dependencies = { 'folke/zen-mode.nvim' },
     opts = { context = -1, treesitter = true }
   },
