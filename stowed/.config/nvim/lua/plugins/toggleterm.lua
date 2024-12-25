@@ -4,10 +4,10 @@ return {
   version = '*',
   cmd = "ToggleTerm",
   keys = {
-    { '<Leader>tro', "<cmd>ToggleTerm<CR>",                  noremap = true },
-    { '<Leader>trf', "<cmd>ToggleTerm direction=float<CR>",  noremap = true },
-    { '<Leader>trs', ":'>ToggleTermSendVisualSelection<CR>", noremap = true, mode = 'v' },
-    { '<Leader>trs', ":ToggleTermSendCurrentLine<CR>",       noremap = true }
+    { '<Leader>tro', "<cmd>ToggleTerm<CR>",                  noremap = true, desc = "Toggle Terminal (Bottom)" },
+    { '<Leader>trf', "<cmd>ToggleTerm direction=float<CR>",  noremap = true, desc = "Toggle Terminal (Floating)" },
+    { '<Leader>trs', ":'>ToggleTermSendVisualSelection<CR>", noremap = true, desc = "Send Selection to Terminal",   mode = "v" },
+    { '<Leader>trs', ":ToggleTermSendCurrentLine<CR>",       noremap = true, desc = "Send Current Line to Terminal" }
   },
   config = function()
     require('toggleterm').setup()
