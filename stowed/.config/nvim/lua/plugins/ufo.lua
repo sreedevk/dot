@@ -2,8 +2,9 @@ return {
   {
     'kevinhwang91/nvim-ufo',
     lazy = true,
+    depedencies = { 'kevinhwang91/promise-async' },
     keys = {
-      { 'zR', function() require("ufo").openAllFolds() end, noremap = true, desc = "Open All Folds" },
+      { 'zR', function() require("ufo").openAllFolds() end,  noremap = true, desc = "Open All Folds" },
       { 'zM', function() require("ufo").closeAllFolds() end, noremap = true, desc = "Close All Folds" }
     },
     opts = {
@@ -30,4 +31,3 @@ return {
     config = true,
   }
 }
-
