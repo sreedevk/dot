@@ -16,8 +16,6 @@ vim.keymap.set('n', 'n', 'nzzzv', { noremap = true })
 vim.keymap.set('n', 'N', 'Nzzzv', { noremap = true })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
-vim.keymap.set('v', '<M-j>', ":m '>+1<CR>gv=gv", { noremap = true })
-vim.keymap.set('v', '<M-k>', ":m '<-2<CR>gv=gv", { noremap = true })
 vim.keymap.set('n', '<C-t>', '<cmd>tabnew<CR>', { noremap = true })
 
 vim.keymap.set('n', '<Leader>sw', "<cmd>execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<cr>",
@@ -36,7 +34,7 @@ vim.keymap.set('n', '<Leader>x', '<cmd>! chmod +x %<CR>', { desc = "Mark Current
 vim.keymap.set('n', '<Leader>to', "<cmd>tabonly<cr>", { desc = "Delete All Other Tabs", noremap = true })
 vim.keymap.set('n', '<Leader>bb', '<cmd>bnext<CR>', { desc = "Buffer Next", noremap = true })
 vim.keymap.set('n', '<Leader>bB', '<cmd>bprev<CR>', { desc = "Buffer Previous", noremap = true })
-vim.keymap.set('n', '<leader>sp', '<cmd>set spell!<CR>', { desc = "Enable Spell Check", noremap = true })
+vim.keymap.set('n', '<leader>ssp', '<cmd>set spell!<CR>', { desc = "Enable Spell Check", noremap = true })
 vim.keymap.set('n', '<Leader>cml', require("utils").convert_cword_to_camel, { desc = "Camelize cword", noremap = true })
 vim.keymap.set('n', '<Leader>snk', require("utils").convert_cword_to_snake, { desc = "Snakeize cword", noremap = true })
 vim.keymap.set('n', '<Leader>fch', require("utils").fetchjson, { desc = "Fetch JSON HTTP API Response", noremap = true })

@@ -17,6 +17,7 @@ return {
     { '<Leader>/',  require('telescope.builtin').current_buffer_fuzzy_find, desc = 'Current Buff Fuzzy Find' },
     { '<Leader>cc', require('telescope.builtin').commands,                  desc = 'Commands List' },
     { "<Leader>'",  require('telescope.builtin').marks,                     desc = 'Marks List' },
+    { "<Leader>sp", require('telescope.builtin').spell_suggest,             desc = 'Suggest Spellings' },
     {
       "<Leader>ej",
       function()
