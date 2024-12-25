@@ -4,7 +4,11 @@
     enable = true;
     settings = {
       logo = {
-        type = "auto";
+        type = "small";
+        padding = {
+          top = 0;
+          left = 2;
+        };
       };
       display = {
         size.binaryPrefix = "si";
@@ -12,27 +16,37 @@
         separator = "   ";
       };
       modules = [
-        "title"
-        "separator"
-        {
-          type = "datetime";
-          key = "TimeStamp";
-          format = "{1}-{3}-{11} {14}:{17}:{20}";
-        }
-        "Host"
-        "Chassis"
-        "Bios"
-        "Board"
-        "OS"
-        "Kernel"
-        "Uptime"
-        "LocalIp"
-        "CPU"
-        "GPU"
-        "Memory"
-        "Disk"
         "Break"
-        "Colors"
+        {
+          type = "kernel";
+          key = "  KERN";
+          format = "{1} {2}";
+        }
+        {
+          type = "cpu";
+          key = "  CPU ";
+          format = "{1}";
+        }
+        {
+          "type" = "terminal";
+          "key" = "  TERM";
+          "format" = "{5}";
+        }
+        {
+          type = "memory";
+          key = "  MEM ";
+          format = "{1} / {2} ({3})";
+        }
+        {
+          type = "Disk";
+          key = "🖴  DISK";
+        }
+        "Break"
+        {
+          type = "colors";
+          paddingLeft = 12;
+          symbol = "circle";
+        }
       ];
     };
   };
