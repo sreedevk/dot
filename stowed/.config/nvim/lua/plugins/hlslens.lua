@@ -6,14 +6,22 @@ return {
     require('hlslens').setup()
 
     local kopts = { noremap = true, silent = true }
-    local map = vim.keymap.set
+    vim.keymap.set('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+      kopts)
+    vim.keymap.set('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+      kopts)
+    vim.keymap.set('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+    vim.keymap.set('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+    vim.keymap.set('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+    vim.keymap.set('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 
-    map('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], kopts)
-    map('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], kopts)
-    map('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-    map('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-    map('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-    map('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-    map('n', '<Leader>l', '<Cmd>noh<CR>', kopts)
+    vim.keymap.set({ 'n', 'x' }, '<Leader>L', function()
+      vim.schedule(function()
+        if require('hlslens').exportLastSearchToQuickfix() then
+          vim.cmd('cw')
+        end
+      end)
+      return ':noh<CR>'
+    end, { expr = true })
   end
 }
