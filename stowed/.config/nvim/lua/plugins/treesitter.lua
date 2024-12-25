@@ -42,7 +42,15 @@ return {
         sync_install = true,
         ignore_install = { "comment" },
         auto_install = false,
-        incremental_selection = { enable = false },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "<CR>",
+            scope_incremental = "<CR>",
+            node_incremental = "<CR>",
+            node_decremental = "<TAB>",
+          },
+        },
         indent = { enable = true },
         refactor = {
           navigation = {

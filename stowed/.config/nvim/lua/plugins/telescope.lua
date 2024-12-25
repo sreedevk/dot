@@ -51,7 +51,24 @@ return {
     local t_actions = require("telescope.actions")
     require("telescope").setup({
       pickers = {
+        live_grep = {
+          theme = "ivy",
+        },
+        buffers = {
+          theme = "ivy",
+          sort_mru = true,
+          ignore_current_buffer = true,
+          mappings = {
+            i = {
+              ["<C-w>"] = "delete_buffer",
+            },
+            n = {
+              ["<C-w>"] = "delete_buffer",
+            },
+          },
+        },
         find_files = {
+          theme = "ivy",
           find_command = {
             "fd",
             "--type",
