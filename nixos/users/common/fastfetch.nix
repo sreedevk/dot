@@ -19,27 +19,27 @@
         "Break"
         {
           type = "kernel";
-          key = "  KERN";
+          key = "  KERNEL  ";
           format = "{1} {2}";
         }
         {
           type = "cpu";
-          key = "  CPU ";
+          key = "  CPU     ";
           format = "{1}";
         }
         {
           "type" = "terminal";
-          "key" = "  TERM";
+          "key" = "  TERMINAL";
           "format" = "{5}";
         }
         {
           type = "memory";
-          key = "  MEM ";
+          key = "  MEMORY  ";
           format = "{1} / {2} ({3})";
         }
         {
           type = "Disk";
-          key = "🖴  DISK";
+          key = "🖴  DISK    ";
         }
         "Break"
         {
