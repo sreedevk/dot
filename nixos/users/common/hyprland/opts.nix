@@ -53,6 +53,7 @@ in
       desc = "AU Optronics 0xF99A";
       resolution = { x = 1920; y = 1200; };
       position = { x = 0; y = 1080; };
+      bitdepth = 10;
       rate = 60;
       scale = 1;
     }
@@ -62,6 +63,7 @@ in
       resolution = { x = 1920; y = 1080; };
       position = { x = 0; y = 0; };
       rate = 100.00;
+      bitdepth = 10;
       scale = 1;
     }
     {
@@ -70,6 +72,7 @@ in
       resolution = { x = 3840; y = 2160; };
       position = { x = 1920; y = 0; };
       rate = 60;
+      bitdepth = 10;
       scale = 1.6;
     }
   ];
@@ -209,7 +212,7 @@ in
       { mod = "CTRL"; keys = "XF86AudioMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
       { mod = "CTRL"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+"; }
       { mod = "SUPER ALT"; keys = "Tab"; dispatcher = "exec"; args = "${hypr-switchlayout}/bin/hypr-switchlayout"; }
-      { mod = "SUPER CTRL"; keys = "0"; dispatcher = "exec"; args = "hyprlock"; }
+      { mod = "SUPER CTRL"; keys = "0"; dispatcher = "exec"; args = "${pkgs.hyprlock}/bin/hyprlock"; }
       { mod = "SUPER CTRL"; keys = "H"; dispatcher = "changegroupactive"; args = "b"; }
       { mod = "SUPER CTRL"; keys = "L"; dispatcher = "changegroupactive"; args = "f"; }
       { mod = "SUPER SHIFT"; keys = "0"; dispatcher = "movetoworkspace"; args = "10"; }
@@ -254,6 +257,8 @@ in
       { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "${pkgs.dunst}/bin/dunstctl set-paused toggle"; }
       { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-toggleblur}/bin/hypr-toggleblur"; }
       { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
+      { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty"; }
+      { mod = "SUPER SHIFT"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty"; }
       { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; }
       { mod = "SUPER"; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-"; }
       { mod = "SUPER"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+"; }
@@ -414,11 +419,12 @@ in
     "waybar"
     "dunst"
     "wlsunset -l 40.7 -L -73.9"
-    "hyprpaper"
+    "${pkgs.hyprpaper}/bin/hyprpaper"
     "wl-paste --type text --watch cliphist store"
     "wl-paste --type image --watch cliphist store"
     "hyprpm reload -n"
     "xrdb ~/.Xresources"
+    "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
   ];
 
   exec = [ ];

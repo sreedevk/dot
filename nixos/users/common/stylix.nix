@@ -6,7 +6,7 @@
     polarity = "dark";
     image = config.lib.stylix.pixel "base0A";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
-    imageScalingMode = "fill"; # fill,fit,stretch,center,tile
+    imageScalingMode = "fill";
 
     opacity = {
       terminal = 0.8;
