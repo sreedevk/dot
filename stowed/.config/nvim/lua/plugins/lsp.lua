@@ -59,6 +59,25 @@ return {
 
       require('mason').setup({})
       require('mason-lspconfig').setup({
+        ensure_installed = {
+          "lua_ls",
+          "clojure_lsp",
+          "docker_compose_language_service",
+          "dockerls",
+          "elixirls",
+          "elmls",
+          "fennel_ls",
+          "jsonls",
+          "lemminx",
+          "rnix",
+          "rust_analyzer",
+          "tailwindcss",
+          "taplo",
+          "ts_ls",
+          "vimls",
+          "xmlformatter",
+          "yamlls",
+        },
         handlers = {
           function(server_name)
             require('lspconfig')[server_name].setup({})
@@ -68,8 +87,6 @@ return {
 
       lsp_config.gleam.setup {}
       lsp_config.ocamllsp.setup {}
-      lsp_config.rust_analyzer.setup {}
-      lsp_config.lua_ls.setup {}
       lsp_config.ruby_lsp.setup({
         mason = false,
         cmd = { vim.fn.trim(vim.fn.system("which ruby-lsp")) },
