@@ -18,6 +18,17 @@ return {
   { "tiagovla/scope.nvim",                lazy = false, config = true },
 
   {
+    "folke/which-key.nvim",
+    enabled = true,
+    opts = {
+      preset = "helix",
+      debug = vim.uv.cwd():find("which%-key"),
+      win = {},
+      spec = {},
+    },
+  },
+
+  {
     'RaafatTurki/hex.nvim',
     opts = {
       dump_cmd = 'xxd -g 1 -u',
