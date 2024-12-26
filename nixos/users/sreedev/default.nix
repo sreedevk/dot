@@ -111,6 +111,7 @@
         rebar3
         scdl
         sonic-pi
+        superfile
         tea
         texliveFull
         tmuxinator
