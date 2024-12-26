@@ -43,7 +43,6 @@
 
     targets = {
       bat.enable = true;
-      btop.enable = true;
       feh.enable = true;
       fzf.enable = true;
       gtk.enable = true;
