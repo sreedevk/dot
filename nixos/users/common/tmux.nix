@@ -49,10 +49,10 @@ in
       set -g status-keys emacs
 
       # SWITCHING PANES WITH C-M
-      bind -n C-M-h select-pane -L
-      bind -n C-M-l select-pane -R
-      bind -n C-M-k select-pane -U
-      bind -n C-M-j select-pane -D
+      bind h select-pane -L
+      bind l select-pane -R
+      bind k select-pane -U
+      bind j select-pane -D
 
       # SCROLL USING M-u & M-d
       bind -n M-u copy-mode
@@ -60,10 +60,10 @@ in
       bind -T copy-mode-vi M-d send-keys -X halfpage-down
 
       # RESIZING PANELS
-      bind -n M-J resize-pane -D 5
-      bind -n M-K resize-pane -U 5
-      bind -n M-H resize-pane -L 5
-      bind -n M-L resize-pane -R 5
+      bind -n C-M-j resize-pane -D 5
+      bind -n C-M-k resize-pane -U 5
+      bind -n C-M-h resize-pane -L 5
+      bind -n C-M-l resize-pane -R 5
 
       # CLEAR SESSION WINDOW WITH CTRL-L
       bind C-l send-keys -R \; clear-history
