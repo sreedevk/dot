@@ -8,8 +8,7 @@ vim.keymap.set("n", "<right>", "<c-w>l", { noremap = true })
 vim.keymap.set("n", "<down>", "<C-w>j", { noremap = true })
 vim.keymap.set("n", "<up>", "<C-w>-k", { noremap = true })
 
-vim.keymap.set('n', ',', ':', { noremap = true })
-vim.keymap.set('v', ',', ':', { noremap = true })
+vim.keymap.set({ 'n', 'v' }, ',', ':', { noremap = true })
 vim.keymap.set('n', '<esc>', '<cmd>noh<cr>', { noremap = true })
 vim.keymap.set('t', "<C-\\><C-\\>", "<C-\\><C-n>", { noremap = true })
 vim.keymap.set('n', 'n', 'nzzzv', { noremap = true })
@@ -41,6 +40,3 @@ vim.keymap.set('n', '<Leader>fch', require("utils").fetchjson, { desc = "Fetch J
 vim.keymap.set('v', '<Leader>la', ':lua<CR>', { desc = "Lua Execute Selection", noremap = true })
 vim.keymap.set("n", "<leader>la", "<cmd>.lua<CR>", { desc = "Lua Execute Current Line", noremap = true })
 vim.keymap.set("n", "<leader><leader>la", "<cmd>source %<CR>", { desc = "Lua Execute Buffer", noremap = true })
-
-vim.keymap.set({ 'n', 'v' }, "ScrollWheelUp", "<nop>", { noremap = true })
-vim.keymap.set({ 'n', 'v' }, "ScrollWheelDown", "<nop>", { noremap = true })
