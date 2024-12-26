@@ -17,4 +17,20 @@ in
     language_servers
     neovim_pkgs
   ];
+
+  xdg.desktopEntries = {
+    neovim = {
+      name = "Neovim";
+      genericName = "Text Editor";
+      exec = "nvim %F";
+      comment = "Text Editor";
+      mimeType = [
+        "text/plain"
+        "text/html"
+      ];
+      terminal = false;
+      type = "Application";
+    };
+  };
+
 }
