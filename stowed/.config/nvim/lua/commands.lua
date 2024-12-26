@@ -17,6 +17,9 @@ vim.filetype.add {
   },
 }
 
+vim.treesitter.language.register("bash", "apkbuild")
+vim.treesitter.language.register("journal", "ledger")
+
 vim.api.nvim_create_user_command('W', 'w', {})
 vim.api.nvim_create_user_command('Wq', 'wq', {})
 vim.api.nvim_create_user_command('WQ', 'wq', {})
