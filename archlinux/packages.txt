@@ -52,6 +52,7 @@ linux-firmware
 linux-firmware-qlogic
 linux-headers
 lsof
+luarocks
 mariadb-clients
 mesa-utils
 meson
@@ -127,6 +128,7 @@ wireplumber
 wl-clipboard
 wlsunset
 xclip
+xdg-desktop-portal-gtk
 xdo
 xf86-video-vesa
 xorg-server
