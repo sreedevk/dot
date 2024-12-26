@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, opts, ... }:
 let
+  tmux-time-display = pkgs.writeShellScriptBin "ttd" ''
+    TZ=${opts.timeZone} date "+%a %B %d %l:%M:%S %p"
+  '';
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin
     {
       pluginName = "tmux-super-fingers";
@@ -99,7 +102,7 @@ in
       set -g status-position bottom
       set -g status-justify centre
       set -g status-left '#[fg=green]λ: #[fg=cyan]#S'
-      set -g status-right "#[fg=cyan]#(date +'%a %B %d %l:%M:%S %p')"
+      set -g status-right "#[fg=cyan]#(${tmux-time-display}/bin/ttd)"
       set -g automatic-rename on
       set -g window-status-format "#[fg=blue]#I#[fg=default]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},}}#F"
       set -g window-status-current-format "#[fg=yellow]#I#[fg=green]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},)}}#[fg=default]#F#[fg=yellow]#[fg=default]"
