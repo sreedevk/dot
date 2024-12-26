@@ -45,3 +45,4 @@ vim.keymap.set('n', '<C-w>s', "<cmd>new<cr>", { desc = "New Horizontal Window", 
 vim.keymap.set('v', '<Leader>srr', "<cmd>sort<cr>", { desc = "Sort Numeric", noremap = true })
 vim.keymap.set('v', '<Leader>srn', "<cmd>sort n<cr>", { desc = "Sort Numeric", noremap = true })
 vim.keymap.set('v', '<Leader>sru', "<cmd>sort u<cr>", { desc = "Sort Uniq", noremap = true })
+vim.keymap.set('n', '<Leader>dt', "<cmd>r ! date<cr>", { desc = "Insert Date", noremap = true })
