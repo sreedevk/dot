@@ -7,6 +7,7 @@
     ../common/autorandr.nix
     ../common/awscli.nix
     ../common/base.nix
+    ../common/btop.nix
     ../common/cargo.nix
     ../common/core-packages.nix
     ../common/dunst.nix
