@@ -66,18 +66,13 @@ return {
           "docker_compose_language_service",
           "dockerls",
           "elixirls",
-          "elmls",
           "fennel_ls",
           "jsonls",
-          "lemminx",
           "rnix",
           "rust_analyzer",
           "tailwindcss",
           "taplo",
           "ts_ls",
-          "vimls",
-          "xmlformatter",
-          "yamlls",
         },
         handlers = {
           function(server_name)
