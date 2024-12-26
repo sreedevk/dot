@@ -104,6 +104,9 @@
         x-scheme-handler/https=${opts.default-web-browser.xdg-desktop}
         x-scheme-handler/about=${opts.default-web-browser.xdg-desktop}
         x-scheme-handler/unknown=${opts.default-web-browser.xdg-desktop}
+        image/png=nsxiv.desktop
+        image/jpeg=nsxiv.desktop
+        image/gif=nsxiv.desktop
       '';
     };
   };

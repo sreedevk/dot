@@ -27,4 +27,36 @@
     };
   };
 
+  xdg.desktopEntries = {
+    nsxiv = {
+      name = "nsxiv";
+      genericName = "Image viewer";
+      exec = "nsxiv %f";
+      comment = "Image Viewer & Cataloguer";
+      mimeType = [
+        "image/bmp"
+        "image/gif"
+        "image/heic"
+        "image/jpeg"
+        "image/jpg"
+        "image/pjpeg"
+        "image/png"
+        "image/tiff"
+        "image/webp"
+        "image/x-bmp"
+        "image/x-pcx"
+        "image/x-png"
+        "image/x-portable-anymap"
+        "image/x-portable-bitmap"
+        "image/x-portable-graymap"
+        "image/x-portable-pixmap"
+        "image/x-tga"
+        "image/x-xbitmap"
+        "image/x-xcf"
+      ];
+      terminal = false;
+      type = "Application";
+      categories = [ "Graphics" "2DGraphics" "Viewer" ];
+    };
+  };
 }
