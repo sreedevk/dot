@@ -5,8 +5,9 @@ return {
     event = "BufReadPost",
     dependencies = { 'windwp/nvim-ts-autotag' },
     config = function()
-      vim.api.nvim_set_option_value("foldmethod", "expr", {})
-      vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
+      vim.o.foldmethod = 'expr'
+      vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
       require('nvim-treesitter.configs').setup({
         ensure_installed = {
           "bash",
@@ -25,6 +26,8 @@ return {
           "json",
           "ledger",
           "lua",
+          "markdown",
+          "markdown_inline",
           "python",
           "ruby",
           "rust",
@@ -67,7 +70,8 @@ return {
           },
           highlight_definitions = {
             enable = true,
-            clear_on_cursor_move = true
+            clear_on_cursor_move = true,
+            additional_vim_regex_highlighting = false,
           },
         },
         textobjects = {
