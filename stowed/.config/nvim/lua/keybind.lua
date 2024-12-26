@@ -41,3 +41,6 @@ vim.keymap.set('n', '<Leader>fch', require("utils").fetchjson, { desc = "Fetch J
 vim.keymap.set('v', '<Leader>la', ':lua<CR>', { desc = "Lua Execute Selection", noremap = true })
 vim.keymap.set("n", "<leader>la", "<cmd>.lua<CR>", { desc = "Lua Execute Current Line", noremap = true })
 vim.keymap.set("n", "<leader><leader>la", "<cmd>source %<CR>", { desc = "Lua Execute Buffer", noremap = true })
+
+vim.keymap.set({ 'n', 'v' }, "ScrollWheelUp", "<nop>", { noremap = true })
+vim.keymap.set({ 'n', 'v' }, "ScrollWheelDown", "<nop>", { noremap = true })
