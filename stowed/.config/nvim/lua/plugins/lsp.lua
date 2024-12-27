@@ -8,6 +8,11 @@ return {
   },
 
   {
+    "Gelio/cmp-natdat",
+    config = true,
+  },
+
+  {
     'VonHeikemen/lsp-zero.nvim',
     branch = "v2.x",
     lazy = true,
@@ -20,6 +25,7 @@ return {
       'hrsh7th/nvim-cmp',
       'kirasok/cmp-hledger',
       'neovim/nvim-lspconfig',
+      "Gelio/cmp-natdat",
       'onsails/lspkind.nvim',
       'williamboman/mason-lspconfig.nvim',
       'williamboman/mason.nvim',
@@ -123,7 +129,8 @@ return {
           { name = "buffer",          priority = 7, group_index = 2 },
           { name = "path",            priority = 6, group_index = 2 },
           { name = 'hledger',         priority = 5, group_index = 2 },
-          { name = 'render-markdown', priority = 5, group_index = 2 }
+          { name = 'render-markdown', priority = 5, group_index = 2 },
+          { name = "natdat",          priority = 5, group_index = 2 },
         }),
         window = {
           completion = cmp.config.window.bordered(),
