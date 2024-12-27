@@ -18,6 +18,8 @@ return {
     lazy = true,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     dependencies = {
+      "Gelio/cmp-natdat",
+      "hrsh7th/cmp-calc",
       'L3MON4D3/LuaSnip',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
@@ -25,7 +27,6 @@ return {
       'hrsh7th/nvim-cmp',
       'kirasok/cmp-hledger',
       'neovim/nvim-lspconfig',
-      "Gelio/cmp-natdat",
       'onsails/lspkind.nvim',
       'williamboman/mason-lspconfig.nvim',
       'williamboman/mason.nvim',
@@ -131,6 +132,7 @@ return {
           { name = 'hledger',         priority = 5, group_index = 2 },
           { name = 'render-markdown', priority = 5, group_index = 2 },
           { name = "natdat",          priority = 5, group_index = 2 },
+          { name = "calc",            priority = 4, group_index = 3 },
         }),
         window = {
           completion = cmp.config.window.bordered(),
