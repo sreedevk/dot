@@ -10,6 +10,8 @@ return {
   {
     "Gelio/cmp-natdat",
     config = true,
+    lazy = true,
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
   },
 
   {
