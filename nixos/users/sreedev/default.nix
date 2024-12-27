@@ -7,6 +7,7 @@
     ../common/autorandr.nix
     ../common/awscli.nix
     ../common/base.nix
+    ../common/btop.nix
     ../common/cargo.nix
     ../common/core-packages.nix
     ../common/dunst.nix
@@ -14,6 +15,7 @@
     ../common/fastfetch.nix
     ../common/firefox
     ../common/fontconfig.nix
+    ../common/ghostty.nix
     ../common/git.nix
     ../common/github.nix
     ../common/gpg.nix
@@ -110,6 +112,7 @@
         rebar3
         scdl
         sonic-pi
+        superfile
         tea
         texliveFull
         tmuxinator

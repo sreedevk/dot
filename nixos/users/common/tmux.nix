@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, opts, ... }:
 let
+  tmux-time-display = pkgs.writeShellScriptBin "ttd" ''
+    TZ=${opts.timeZone} date "+%a %B %d %l:%M:%S %p"
+  '';
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin
     {
       pluginName = "tmux-super-fingers";
@@ -49,10 +52,10 @@ in
       set -g status-keys emacs
 
       # SWITCHING PANES WITH C-M
-      bind -n C-M-h select-pane -L
-      bind -n C-M-l select-pane -R
-      bind -n C-M-k select-pane -U
-      bind -n C-M-j select-pane -D
+      bind h select-pane -L
+      bind l select-pane -R
+      bind k select-pane -U
+      bind j select-pane -D
 
       # SCROLL USING M-u & M-d
       bind -n M-u copy-mode
@@ -60,10 +63,10 @@ in
       bind -T copy-mode-vi M-d send-keys -X halfpage-down
 
       # RESIZING PANELS
-      bind -n M-J resize-pane -D 5
-      bind -n M-K resize-pane -U 5
-      bind -n M-H resize-pane -L 5
-      bind -n M-L resize-pane -R 5
+      bind -n C-M-j resize-pane -D 5
+      bind -n C-M-k resize-pane -U 5
+      bind -n C-M-h resize-pane -L 5
+      bind -n C-M-l resize-pane -R 5
 
       # CLEAR SESSION WINDOW WITH CTRL-L
       bind C-l send-keys -R \; clear-history
@@ -99,7 +102,7 @@ in
       set -g status-position bottom
       set -g status-justify centre
       set -g status-left '#[fg=green]λ: #[fg=cyan]#S'
-      set -g status-right "#[fg=cyan]#(date +'%a %B %d %l:%M:%S %p')"
+      set -g status-right "#[fg=cyan]#(${tmux-time-display}/bin/ttd)"
       set -g automatic-rename on
       set -g window-status-format "#[fg=blue]#I#[fg=default]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},}}#F"
       set -g window-status-current-format "#[fg=yellow]#I#[fg=green]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},)}}#[fg=default]#F#[fg=yellow]#[fg=default]"

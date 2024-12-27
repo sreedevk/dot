@@ -3,6 +3,7 @@
     ../../../secrets/mappings.nix
     ../common/base.nix
     ../common/beets.nix
+    ../common/btop.nix
     ../common/cargo.nix
     ../common/core-packages.nix
     ../common/extra-packages.nix

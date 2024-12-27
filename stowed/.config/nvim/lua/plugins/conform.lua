@@ -20,12 +20,29 @@ return {
       require("conform").setup({
         format_on_save = nil,
         formatters_by_ft = {
-          lua = {
-            "stylua",
+          lua = { "stylua", },
+          python = { "isort", "black", },
+          nix = { "nixpkgs-fmt" },
+          javascript = { "prettierd", "prettier" },
+          javascriptreact = { "prettierd", "prettier" },
+          typescriptreact = { "prettierd", "prettier" },
+          typescript = { "prettierd", "prettier" },
+          css = { "prettierd", "prettier" },
+          scss = { "prettierd", "prettier" },
+          markdown = { "prettierd", "prettier" },
+          html = { "prettierd", "prettier" },
+          json = { "prettierd", "prettier" },
+          yaml = { "prettierd", "prettier" },
+          graphql = { "prettierd", "prettier" },
+          md = { "prettierd", "prettier" },
+          txt = { "prettierd", "prettier" },
+          gleam = {
+            "gleam",
+            lsp_format = "fallback",
           },
-          python = {
-            "isort",
-            "black",
+          rust = {
+            "rustfmt",
+            lsp_format = "fallback",
           },
           ruby = {
             "rubocop",
@@ -33,21 +50,27 @@ return {
             "trim_whitespace",
             lsp_format = "fallback",
           },
-          nix = {
-            "nixpkgs-fmt"
+        },
+        formatters = {
+          stylua = {
+            args = { "--indent-width", "2", "--indent-type", "Spaces", "-" },
           },
-          gleam = {
-            "gleam",
-            lsp_format = "fallback"
-          },
-          rust = {
-            "rustfmt",
-            lsp_format = "fallback",
-          },
-          javascript = {
-            "prettierd",
-            "prettier",
-            stop_after_first = true,
+          prettier = {
+            require_cwd = true,
+            cwd = require("conform.util").root_file({
+              ".prettierrc",
+              ".prettierrc.json",
+              ".prettierrc.yml",
+              ".prettierrc.yaml",
+              ".prettierrc.json5",
+              ".prettierrc.js",
+              ".prettierrc.cjs",
+              ".prettierrc.mjs",
+              ".prettierrc.toml",
+              "prettier.config.js",
+              "prettier.config.cjs",
+              "prettier.config.mjs",
+            }),
           },
         },
       })

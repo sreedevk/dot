@@ -13,7 +13,6 @@
           bat
           bingrep
           broot
-          btop
           dig
           direnv
           duf
