@@ -23,8 +23,20 @@ return {
       desc = "send visual to term",
       mode = "v",
     },
-    { '<C-4><C-4>', "<cmd>ToggleTerm direction=horizontal<CR>", noremap = true, desc = "Toggle Terminal (Bottom)", mode = { "t", "n", "i" } },
-    { '<C-3><C-3>', "<cmd>ToggleTerm direction=float<CR>",      noremap = true, desc = "Toggle Terminal (Float)",  mode = { "t", "n", "i" } },
+    {
+      '<C-4><C-4>',
+      "<cmd>ToggleTerm direction=horizontal<CR>",
+      noremap = true,
+      desc = "Toggle Terminal (Bottom)",
+      mode = { "t", "n", "i" },
+    },
+    {
+      '<C-3><C-3>',
+      "<cmd>ToggleTerm direction=float<CR>",
+      noremap = true,
+      desc = "Toggle Terminal (Float)",
+      mode = { "t", "n", "i" },
+    },
     {
       '<Leader>arn',
       function()
