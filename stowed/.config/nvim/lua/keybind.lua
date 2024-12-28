@@ -17,9 +17,6 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
 vim.keymap.set('n', '<C-t>', '<cmd>tabnew<CR>', { noremap = true })
 
-vim.keymap.set('n', '<Leader>sw', "<cmd>execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<cr>", { desc = "Sudo Write!", noremap = true })
-vim.keymap.set('n', '<leader><leader>s', ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>", { desc = "Find & Replace", noremap = true })
-
 vim.keymap.set('n', '<Leader>lz', '<cmd>Lazy<CR>', { desc = "Lazy Dashboard", noremap = true })
 vim.keymap.set('n', '<Leader>rr', '<cmd>e!<CR>', { desc = "Reload File From Disk", noremap = true })
 vim.keymap.set('n', '<Leader>fs', '<cmd>w<CR>', { desc = "File Save", noremap = true })
@@ -42,13 +39,37 @@ vim.keymap.set('v', '<Leader>sru', "<cmd>sort u<cr>", { desc = "Sort Uniq", nore
 vim.keymap.set('n', '<Leader>cml', require("utils").convert_cword_to_camel, { desc = "Camelize cword", noremap = true })
 vim.keymap.set('n', '<Leader>snk', require("utils").convert_cword_to_snake, { desc = "Snakeize cword", noremap = true })
 vim.keymap.set('n', '<Leader>fch', require("utils").fetchjson, { desc = "Fetch JSON HTTP API Response", noremap = true })
+vim.keymap.set({ "n", "v" }, "<Leader>ff", vim.lsp.buf.format, { noremap = true, desc = "Format Buffer (LSP)" })
 
-vim.keymap.set('n', '<Leader>cd', function()
-  vim.cmd('tcd ' .. vim.fn.expand('%:p:h'))
-end, { desc = "CD Into Current Buffer Directory", noremap = true })
+vim.keymap.set(
+  'n',
+  '<Leader>sw',
+  "<cmd>execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<cr>",
+  { desc = "Sudo Write!", noremap = true }
+)
 
-vim.keymap.set("n", "<leader>dt", function()
-  local date = vim.fn.system("date"):gsub("\n", "")
-  vim.api.nvim_put({ " " .. date }, "c", true, true)
-end, { desc = "Insert TimeStamp" })
+vim.keymap.set(
+  'n',
+  '<leader><leader>s',
+  ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>",
+  { desc = "Find & Replace", noremap = true }
+)
 
+vim.keymap.set(
+  'n',
+  '<Leader>cd',
+  function()
+    vim.cmd('tcd ' .. vim.fn.expand('%:p:h'))
+  end,
+  { desc = "CD Into Current Buffer Directory", noremap = true }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>dt",
+  function()
+    local date = vim.fn.system("date"):gsub("\n", "")
+    vim.api.nvim_put({ " " .. date }, "c", true, true)
+  end,
+  { desc = "Insert TimeStamp" }
+)
