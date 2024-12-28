@@ -6,20 +6,25 @@ return {
   keys = {
     {
       '<Leader>tt',
-      function() require("toggleterm").send_lines_to_terminal("single_line", false, { args = vim.v.count }) end,
+      function()
+        local trim_spaces = false
+        require("toggleterm").send_lines_to_terminal("single_line", trim_spaces, { args = vim.v.count, })
+      end,
       noremap = true,
       desc = "send line to term",
     },
     {
       '<Leader>tt',
-      function() require("toggleterm").send_lines_to_terminal("visual_selection", false, { args = vim.v.count }) end,
+      function()
+        local trim_spaces = false
+        require("toggleterm").send_lines_to_terminal("visual_selection", trim_spaces, { args = vim.v.count })
+      end,
       noremap = true,
       desc = "send visual to term",
       mode = "v",
     },
-    { '<Leader>tro', "<cmd>ToggleTerm<CR>",                 noremap = true, desc = "Toggle Terminal (Bottom)" },
-    { '<Leader>trf', "<cmd>ToggleTerm direction=float<CR>", noremap = true, desc = "Toggle Terminal (Floating)" },
-    { '<C-4><C-4>',  "<cmd>ToggleTerm<CR>",                 noremap = true, desc = "Toggle Terminal (Bottom)",  mode = { "t", "n", "i" } },
+    { '<C-4><C-4>', "<cmd>ToggleTerm direction=horizontal<CR>", noremap = true, desc = "Toggle Terminal (Bottom)", mode = { "t", "n", "i" } },
+    { '<C-3><C-3>', "<cmd>ToggleTerm direction=float<CR>",      noremap = true, desc = "Toggle Terminal (Float)",  mode = { "t", "n", "i" } },
     {
       '<Leader>arn',
       function()
