@@ -1,11 +1,8 @@
 { pkgs, config, lib, ... }:
-let
-  nixglmod = import ./nixGL.nix { inherit lib config pkgs; };
-in
 {
   programs.obs-studio = {
     enable = true;
-    package = nixglmod.nixGLWrapped pkgs.obs-studio "obs";
+    package = (config.lib.nixGL.wrap pkgs.obs-studio);
     plugins = with pkgs.obs-studio-plugins; [
       droidcam-obs
       obs-backgroundremoval
