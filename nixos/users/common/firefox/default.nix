@@ -19,7 +19,7 @@ in
         isDefault = true;
         id = 0;
         containersForce = false;
-        containers = {};
+        containers = { };
         extensions = extensions;
         search = {
           force = true;

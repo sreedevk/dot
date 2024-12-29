@@ -56,7 +56,6 @@ mariadb-clients
 mesa-utils
 meson
 mpv
-neovim
 ninja
 nmap
 noto-fonts

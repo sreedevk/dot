@@ -46,7 +46,7 @@ return {
           enable = true,
           filetypes = { "html", "xml" },
         },
-        sync_install = true,
+        sync_install = false,
         ignore_install = { "comment" },
         auto_install = false,
         incremental_selection = {

@@ -18,6 +18,16 @@ return {
   { "tiagovla/scope.nvim",                lazy = false, config = true },
 
   {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+
+  {
     'RaafatTurki/hex.nvim',
     opts = {
       dump_cmd = 'xxd -g 1 -u',
