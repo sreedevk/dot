@@ -212,7 +212,7 @@ in
             Description = "Notifier for Taskwarrior3 Service";
           };
           Timer = {
-            OnBootSec = "4min";
+            OnBootSec = "15min";
             OnUnitActiveSec = taskwarriorSettings.notificationFreq;
             Unit = "taskwarrior-notify.service";
           };

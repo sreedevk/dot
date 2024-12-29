@@ -114,6 +114,7 @@ in
       let g:user_emmet_expandabbr_key = '<C-c>,'
       let g:ctrlp_map = '<C-p>'
       let g:ctrlp_cmd = 'CtrlP'
+      let g:ctrlp_show_hidden = 1
       let g:deoplete#enable_at_startup = 1
       let g:airline_powerline_fonts = 1
       let g:airline#extensions#whitespace#mixed_indent_algo = 0 

@@ -39,6 +39,7 @@
           jq
           less
           lua
+          lua52Packages.lpeg
           luau
           mediainfo
           miller

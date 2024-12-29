@@ -8,6 +8,9 @@ return {
       vim.o.foldmethod = 'expr'
       vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
+      vim.treesitter.language.register("bash", "apkbuild")
+      vim.treesitter.language.register("journal", "ledger")
+
       require('nvim-treesitter.configs').setup({
         ensure_installed = {
           "bash",
@@ -17,6 +20,7 @@ return {
           "diff",
           "eex",
           "elixir",
+          "fennel",
           "gleam",
           "haskell",
           "heex",

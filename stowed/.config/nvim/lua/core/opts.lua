@@ -73,3 +73,7 @@ vim.wo.wrap             = true
 
 vim.api.nvim_set_hl(0, "CursorLine", { default = true, blend = 50 })
 vim.opt.formatoptions:remove "o"
+
+-- debugger options
+vim.cmd[[packadd termdebug]]
+vim.g.termdebugger = "rust-gdb"

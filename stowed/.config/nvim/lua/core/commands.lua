@@ -1,45 +1,11 @@
-vim.filetype.add {
-  extension = {
-    h = "c",
-    CSV = "csv",
-    scheme = "scheme",
-    ex = "elixir",
-    exs = "elixir",
-    journal = "ledger",
-    prices = "ledger",
-    ledger = "ledger",
-    envrc = "bash",
-    eex = "heex",
-    heex = "heex",
-    leex = "leex",
-    sface = "heex",
-    lexs = "heex",
-  },
-}
-
-vim.treesitter.language.register("bash", "apkbuild")
-vim.treesitter.language.register("journal", "ledger")
-
 vim.api.nvim_create_user_command('W', 'w', {})
 vim.api.nvim_create_user_command('Wq', 'wq', {})
 vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
 
-vim.api.nvim_create_user_command('FetchUrl', ':lua require("utils").fetchjson()', {})
-vim.api.nvim_create_user_command('Camelize', ':lua require("utils").convert_cword_to_camel()', {})
-vim.api.nvim_create_user_command('Snakeize', ':lua require("utils").convert_cword_to_snake()', {})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = "mix.lock",
-  command = "set filetype=elixir"
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "qf",
-  callback = function()
-    vim.opt_local_buflisted = false
-  end
-})
+vim.api.nvim_create_user_command('FetchUrl', require("core.utils").fetchjson, {})
+vim.api.nvim_create_user_command('Camelize', require("core.utils").convert_cword_to_camel, {})
+vim.api.nvim_create_user_command('Snakeize', require("core.utils").convert_cword_to_snake, {})
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "html", "markdown", "text" },
@@ -67,7 +33,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
   command = "silent! lua vim.highlight.on_yank()"
 })
-
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",

@@ -79,6 +79,8 @@ return {
             "--strip-cwd-prefix",
             "--exclude",
             ".git",
+            "--exclude",
+            "*.age"
           }
         }
       },
@@ -118,6 +120,6 @@ return {
       },
     })
 
-    require('telescope').load_extension('fzf')
+    pcall(require('telescope').load_extension, 'fzf')
   end
 }

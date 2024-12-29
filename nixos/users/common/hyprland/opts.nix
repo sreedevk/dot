@@ -417,7 +417,6 @@ in
 
   exec-once = [
     "waybar"
-    "dunst"
     "wlsunset -l 40.7 -L -73.9"
     "${pkgs.hyprpaper}/bin/hyprpaper"
     "wl-paste --type text --watch cliphist store"

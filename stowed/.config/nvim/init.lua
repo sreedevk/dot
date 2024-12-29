@@ -10,10 +10,10 @@
 --      ░                           ░
 -- AUTHOR: SREEDEV KODICHATH
 
-require 'opts'
+require 'core.opts'
+require 'core.filetypes'
 require 'pack'
-require 'commands'
-require 'debugger'
-require 'clipboard'
-require 'keybind'
+require 'core.commands'
+require 'core.clipboard'
+require 'core.keybind'
 require 'neovide'

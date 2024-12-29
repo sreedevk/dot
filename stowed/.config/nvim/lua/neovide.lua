@@ -15,23 +15,67 @@ if vim.g.neovide then
   vim.g.neovide_scale_factor            = 1.0
   vim.g.neovide_scroll_animation_length = 0.3
   vim.g.neovide_refresh_rate            = 90
-  local map                             = vim.keymap.set
 
-  map('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor+0.1<CR>', { noremap = true })
-  map('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor-0.1<CR>', { noremap = true })
-  map('n', '<C-0>', '<cmd>lua vim.g.neovide_scale_factor=1.0<CR>', { noremap = true })
-  map('n', '<Leader>rq', function()
-    os.execute("neovide --fork &")
-    vim.defer_fn(function()
-      local handle, pid = io.popen("pgrep neovide"), nil
-      if handle then
-        pid = handle:read("*a")
-        handle:close()
+  local function kill_neovide()
+    local handle, pid = io.popen("pgrep neovide"), nil
+    if handle then
+      pid = handle:read("*a")
+      handle:close()
 
-        if pid ~= nil and pid ~= "" then
-          os.execute("kill " .. pid)
-        end
+      if pid ~= nil and pid ~= "" then
+        os.execute("kill " .. pid)
       end
-    end, 500)
-  end, { noremap = true })
+    end
+  end
+
+  local function restart_neovide()
+    os.execute("neovide --fork &")
+    vim.defer_fn(kill_neovide, 500)
+  end
+
+  vim.keymap.set(
+    'n',
+    '<C-=>',
+    function()
+      vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1
+    end,
+    {
+      noremap = true,
+      desc = "Zoom In (+)"
+    }
+  )
+
+  vim.keymap.set(
+    'n',
+    '<C-->',
+    function()
+      vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1
+    end,
+    {
+      noremap = true,
+      desc = "Zoom Out (-)"
+    }
+  )
+
+  vim.keymap.set(
+    'n',
+    '<C-0>',
+    function()
+      vim.g.neovide_scale_factor = 1.0
+    end,
+    {
+      noremap = true,
+      desc = "Zoom Reset (=)"
+    }
+  )
+
+  vim.keymap.set(
+    'n',
+    '<Leader>rq',
+    restart_neovide,
+    {
+      noremap = true,
+      desc = "Restart Neovide",
+    }
+  )
 end

@@ -15,7 +15,7 @@ in
         font-family = Iosevka Nerd Font
         font-size = 16
         background-opacity = 0.9
-        theme = catppuccin-mocha
+        theme = Floraverse
         window-decoration = false
         # initial-command = tmux new -A -s system
 
