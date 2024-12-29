@@ -39,9 +39,9 @@ vim.keymap.set('v', '<Leader>sru', "<cmd>sort u<cr>", { desc = "Sort Uniq", nore
 
 vim.keymap.set({ "n", "v" }, "<Leader>ff", vim.lsp.buf.format, { noremap = true, desc = "Format Buffer (LSP)" })
 
-vim.keymap.set('n', '<Leader>cml', require("utils").convert_cword_to_camel, { desc = "Camelize cword", noremap = true })
-vim.keymap.set('n', '<Leader>snk', require("utils").convert_cword_to_snake, { desc = "Snakeize cword", noremap = true })
-vim.keymap.set('n', '<Leader>fch', require("utils").fetchjson, { desc = "Fetch JSON HTTP API Response", noremap = true })
+vim.keymap.set('n', '<Leader>cml', require("core.utils").convert_cword_to_camel, { desc = "Camelize cword", noremap = true })
+vim.keymap.set('n', '<Leader>snk', require("core.utils").convert_cword_to_snake, { desc = "Snakeize cword", noremap = true })
+vim.keymap.set('n', '<Leader>fch', require("core.utils").fetchjson, { desc = "Fetch JSON HTTP API Response", noremap = true })
 
 vim.keymap.set(
   'n',
