@@ -52,7 +52,6 @@ linux-firmware
 linux-firmware-qlogic
 linux-headers
 lsof
-luarocks
 mariadb-clients
 mesa-utils
 meson
