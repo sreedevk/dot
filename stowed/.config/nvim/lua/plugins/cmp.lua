@@ -19,6 +19,8 @@ return {
       cmp.setup({
         experimental = { ghost_text = false },
         formatting = {
+          expandable_indicator = false,
+          fields = {},
           format = lsp_kind.cmp_format({
             mode = 'symbol_text',
             maxwidth = {
