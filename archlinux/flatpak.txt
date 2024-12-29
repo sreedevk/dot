@@ -1,6 +1,4 @@
 Flatseal
-draw.io
-OBS
 Steam
 Boxtron
 Proton-GE
@@ -30,4 +28,3 @@ openh264
 openh264
 GNOME
 Adwaita
-KDE
