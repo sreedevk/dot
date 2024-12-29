@@ -68,6 +68,7 @@ return {
     tag = "v2.3.0",
     build = "make install_jsregexp",
     lazy = true,
+    dependencies = { "rafamadriz/friendly-snippets" },
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
   },
 
