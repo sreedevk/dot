@@ -32,7 +32,6 @@ require('lazy').setup({ import = 'plugins' }, {
         "tar",
         "tarPlugin",
         "rrhelper",
-        "spellfile_plugin",
         "vimball",
         "vimballPlugin",
         "zip",

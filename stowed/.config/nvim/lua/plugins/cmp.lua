@@ -20,7 +20,7 @@ return {
         experimental = { ghost_text = false },
         formatting = {
           expandable_indicator = false,
-          fields = {},
+          fields = { 'menu', 'abbr', 'kind' },
           format = lsp_kind.cmp_format({
             mode = 'symbol_text',
             maxwidth = {
