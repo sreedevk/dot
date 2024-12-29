@@ -4,7 +4,6 @@
     ../../../secrets/mappings.nix
     ../common/alacritty.nix
     ../common/audioctrl.nix
-    ../common/autorandr.nix
     ../common/awscli.nix
     ../common/base.nix
     ../common/btop.nix
@@ -21,13 +20,11 @@
     ../common/gpg.nix
     ../common/htop.nix
     ../common/hyprland
-    ../common/i3.nix
     ../common/irssi.nix
     ../common/jujutsu.nix
     ../common/keybase.nix
     ../common/keyboard.nix
     ../common/kitty.nix
-    ../common/ladybird.nix
     ../common/neovide.nix
     ../common/neovim.nix
     ../common/newsboat.nix
@@ -43,7 +40,6 @@
     ../common/tmux-sessionizer.nix
     ../common/tmux.nix
     ../common/vim.nix
-    ../common/x86-packages.nix
     ../common/xresources.nix
     ../common/zathura.nix
     ../common/zsh.nix
@@ -60,8 +56,6 @@
       ];
 
       unstable-packages = with pkgs; [
-        arandr
-        autorandr
         bitwarden-cli
         brightnessctl
         dbeaver-bin
