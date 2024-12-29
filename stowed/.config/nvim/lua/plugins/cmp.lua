@@ -27,6 +27,7 @@ return {
               menu = 50,
               abbr = 50
             },
+            ellipsis_char = '...',
             show_labelDetails = true
           }),
         },
