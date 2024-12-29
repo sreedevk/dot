@@ -11,6 +11,7 @@
 -- AUTHOR: SREEDEV KODICHATH
 
 require 'opts'
+require 'filetypes'
 require 'pack'
 require 'commands'
 require 'clipboard'

@@ -1,9 +1,20 @@
-{ pkgs, username, ... }:
+{ pkgs, ... }:
 let
-  language_servers =
-    with pkgs; [
-      glas # gleam
-    ];
+  language_servers = with pkgs; [
+    clojure-lsp
+    docker-compose-language-service
+    dockerfile-language-server-nodejs
+    elixir-ls
+    fennel-ls
+    lua-language-server
+    nil
+    nodePackages.vscode-json-languageserver
+    rust-analyzer
+    tailwindcss-language-server
+    taplo
+    typescript-language-server
+    yaml-language-server
+  ];
 
   neovim_pkgs =
     with pkgs; [
