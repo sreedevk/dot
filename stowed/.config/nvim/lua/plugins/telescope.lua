@@ -79,6 +79,8 @@ return {
             "--strip-cwd-prefix",
             "--exclude",
             ".git",
+            "--exclude",
+            "*.age"
           }
         }
       },
