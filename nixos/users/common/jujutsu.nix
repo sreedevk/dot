@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs.jujutsu = {
     enable = true;
@@ -6,7 +6,7 @@
     settings = {
       ui = {
         default-command = "log";
-        editor = "${pkgs.neovim}/bin/nvim";
+        editor = "${config.programs.neovim.package}/bin/nvim";
         pager = "${pkgs.delta}/bin/delta";
         graph = {
           style = "square";

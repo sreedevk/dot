@@ -34,7 +34,7 @@ in
 
     extraConfig = ''
       # Config
-      scrollback_pager         ${pkgs.neovim}/bin/nvim -c "lua require('utils'):colorize()"
+      scrollback_pager         ${config.programs.neovim.package}/bin/nvim -c "lua require('core.utils'):colorize()"
       copy_on_select           yes
       scrollback_lines         10000
       font_family              Iosevka NF
