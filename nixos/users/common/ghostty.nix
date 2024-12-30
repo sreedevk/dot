@@ -24,7 +24,6 @@ in
         keybind = ctrl+a>g=scroll_to_top
         keybind = ctrl+a>shift+g=scroll_to_bottom
         keybind = ctrl+a>.=write_scrollback_file:open
-        keybind = ctrl+enter=unbind
       '';
     };
   };
