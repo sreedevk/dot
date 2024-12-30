@@ -4,7 +4,6 @@ return {
   'kevinhwang91/nvim-bqf',
   'preservim/vim-indent-guides',
   'tpope/vim-characterize',
-  'tpope/vim-dispatch',
   'tpope/vim-ragtag',
   'tpope/vim-rails',
   'tpope/vim-repeat',
