@@ -87,7 +87,7 @@ function M.fetchjson()
   local buf = vim.api.nvim_create_buf(false, true)
 
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
-  vim.api.nvim_buf_set_option(buf, 'filetype', 'json')
+  vim.api.nvim_set_option_value('filetype', 'json', { buf = buf })
   vim.api.nvim_win_set_buf(win, buf)
 
   print('Success: Fetched URL')

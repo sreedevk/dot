@@ -187,5 +187,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set("n", "<leader>vws", lsp_buf.workspace_symbol, keymap_opts(event, "Find Workspace Symbol"))
     vim.keymap.set("i", "<C-h>", lsp_buf.signature_help, keymap_opts(event, "Signature Help"))
     vim.keymap.set('n', '<Leader>ff', format_buf_async, { noremap = true })
+    vim.keymap.set({ "n", "v" }, "<Leader>ff", vim.lsp.buf.format, { noremap = true, desc = "LSP Format" })
   end
 })
