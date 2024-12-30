@@ -10,7 +10,6 @@
     ../common/cargo.nix
     ../common/core-packages.nix
     ../common/dunst.nix
-    ../common/extra-packages.nix
     ../common/fastfetch.nix
     ../common/firefox
     ../common/fontconfig.nix
@@ -54,8 +53,20 @@
       ];
 
       unstable-packages = with pkgs; [
+        amfora
+        aria2
+        asciinema
+        asciinema-agg
+        aspell
+        aspellDicts.en
+        aspellDicts.en-computers
+        aspellDicts.en-science
+        beanstalkd
         bitwarden-cli
         brightnessctl
+        clang
+        cmatrix
+        csvlens
         dbeaver-bin
         delta
         doctl
@@ -65,13 +76,16 @@
         filezilla
         glab
         glow
+        gping
         graphviz
+        hexyl
         hledger
         hledger-iadd
         hledger-ui
         hledger-utils
         hledger-web
         hugo
+        id3v2
         instaloader
         jira-cli-go
         just
@@ -82,6 +96,7 @@
         lmms
         maim
         mdbook
+        ncdu
         nemo-with-extensions
         nerd-fonts.iosevka
         nerd-fonts.iosevka-term
@@ -112,6 +127,7 @@
         visidata
         yarn
         yt-dlp
+        zellij
       ];
     in
     stable-packages ++ unstable-packages;

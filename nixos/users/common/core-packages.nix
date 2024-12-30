@@ -6,10 +6,6 @@
       ];
       unstable-packages =
         with pkgs; [
-          aspell
-          aspellDicts.en
-          aspellDicts.en-computers
-          aspellDicts.en-science
           bat
           bingrep
           broot
@@ -39,7 +35,6 @@
           jq
           less
           lua
-          lua52Packages.lpeg
           luau
           mediainfo
           miller
@@ -74,7 +69,6 @@
           xxd
           yazi
           yq
-          zellij
           zoxide
         ];
     in

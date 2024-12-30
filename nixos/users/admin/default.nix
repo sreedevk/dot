@@ -6,7 +6,6 @@
     ../common/btop.nix
     ../common/cargo.nix
     ../common/core-packages.nix
-    ../common/extra-packages.nix
     ../common/fastfetch.nix
     ../common/git.nix
     ../common/htop.nix
