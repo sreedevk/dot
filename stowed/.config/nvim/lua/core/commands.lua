@@ -37,6 +37,22 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "janet",
+  callback = function()
+    vim.keymap.set(
+      "n",
+      "<Leader>re",
+      '<cmd>TermExec cmd="janet -l ./%:r" direction=horizontal<cr>',
+      {
+        buffer = true,
+        desc = "Open Repl",
+        noremap = true,
+      }
+    )
+  end
+})
+
 vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
   command = "silent! lua vim.highlight.on_yank()"
