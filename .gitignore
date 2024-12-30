@@ -10,6 +10,7 @@
 !/stowed/.config/awesome
 !/stowed/.config/beets
 !/stowed/.config/cava
+!/stowed/.config/bat
 !/stowed/.config/doom
 !/stowed/.config/dunst
 !/stowed/.config/dwmblocks
