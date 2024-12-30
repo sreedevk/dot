@@ -3,7 +3,6 @@ return {
     'nvim-treesitter/nvim-treesitter',
     lazy = true,
     event = "BufReadPost",
-    dependencies = { 'windwp/nvim-ts-autotag' },
     config = function()
       vim.o.foldmethod = 'expr'
       vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
@@ -41,10 +40,6 @@ return {
           "typescript",
           "yaml",
           "zig",
-        },
-        autotag = {
-          enable = true,
-          filetypes = { "html", "xml" },
         },
         sync_install = false,
         ignore_install = { "comment" },
@@ -142,6 +137,28 @@ return {
         }
       })
     end
+  },
+  {
+    'windwp/nvim-ts-autotag',
+    lazy = true,
+    event = "BufReadPost",
+    ft = { "html", "xml", "erb", "heex" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter"
+    },
+    config = true,
+    opts = {
+      opts = {
+        enable_close = true,
+        enable_rename = true,
+        enable_close_on_slash = false
+      },
+      per_filetype = {
+        ["html"] = {
+          enable_close = false
+        }
+      }
+    }
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
