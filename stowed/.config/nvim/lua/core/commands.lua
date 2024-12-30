@@ -17,6 +17,13 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+  pattern = "janet",
+  callback = function()
+    vim.bo.commentstring = "# %s"
+  end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
   pattern = "ruby",
   callback = function()
     local function extend_hl(name, def)
