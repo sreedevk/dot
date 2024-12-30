@@ -13,7 +13,7 @@ in
       text = ''
         # Appearance
         font-family = Iosevka Nerd Font
-        font-size = 16
+        font-size = 14
         background-opacity = 0.9
         theme = Floraverse
         window-decoration = false
