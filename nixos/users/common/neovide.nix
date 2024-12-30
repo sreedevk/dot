@@ -19,7 +19,7 @@ in
         maximized = false
         srgb = true
         idle = true
-        neovim-bin = "${pkgs.neovim}/bin/nvim"
+        neovim-bin = "${config.programs.neovim.package}/bin/nvim"
         frame = "full"
       '';
     };
