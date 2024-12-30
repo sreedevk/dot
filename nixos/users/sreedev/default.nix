@@ -20,7 +20,6 @@
     ../common/gpg.nix
     ../common/htop.nix
     ../common/hyprland
-    ../common/irssi.nix
     ../common/jujutsu.nix
     ../common/keybase.nix
     ../common/keyboard.nix
