@@ -31,7 +31,6 @@ return {
           "gitignore",
           "gleam",
           "haskell",
-          "haskell",
           "haskell_persistent",
           "heex",
           "html",
