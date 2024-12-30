@@ -1,4 +1,4 @@
-{ pkgs, config, opts, ... }:
+{ pkgs, opts, ... }:
 let
   hyprlock-status-script =
     pkgs.writeShellScriptBin "hyprlock-status" ''

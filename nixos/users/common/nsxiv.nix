@@ -1,4 +1,4 @@
-{ pkgs, config, opts, ... }:
+{ pkgs, ... }:
 {
   home.file = {
     ".config/nsxiv/exec/key-handler" = {

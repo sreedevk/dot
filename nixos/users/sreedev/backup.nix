@@ -1,4 +1,4 @@
-{ pkgs, opts, username, ... }:
+{ pkgs, username, ... }:
 let
   sync-backups-archives =
     pkgs.writeShellScriptBin "sync-backups-archives" ''

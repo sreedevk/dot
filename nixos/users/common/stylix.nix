@@ -1,4 +1,4 @@
-{ pkgs, config, nixpkgs-stable, opts, lib, system, ... }:
+{ pkgs, config, ... }:
 {
   stylix = {
     enable = true;

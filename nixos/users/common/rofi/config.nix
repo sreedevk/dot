@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
   home.file = {
     ".config/rofi/colors.rasi" = {

@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-stable, username, ... }: {
+{ pkgs, nixpkgs-stable, ... }: {
   home.packages =
     let
       stable-packages = with nixpkgs-stable; [

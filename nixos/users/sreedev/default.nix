@@ -1,4 +1,4 @@
-{ pkgs, age, config, nixpkgs-stable, username, ... }:
+{ pkgs, config, nixpkgs-stable, ... }:
 {
   imports = [
     ../../../secrets/mappings.nix

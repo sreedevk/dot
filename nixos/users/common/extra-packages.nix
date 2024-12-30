@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-stable, username, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     amfora
     aria2

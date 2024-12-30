@@ -1,4 +1,4 @@
-{ pkgs, stylix, ... }:
+{ ... }:
 {
   stylix.targets.btop.enable = true;
 

@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ ... }:
 {
   home.file = {
     ".config/rofi/colors/adapta.rasi" = {

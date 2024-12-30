@@ -1,4 +1,4 @@
-{ pkgs, opts, username, nixpkgs-stable, system, ... }: {
+{ opts, username, nixpkgs-stable, ... }: {
   home.packages = with nixpkgs-stable; [
     beets
   ];

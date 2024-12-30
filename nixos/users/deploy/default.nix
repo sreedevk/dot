@@ -1,4 +1,4 @@
-{ pkgs, lib, opts, system, username, ... }: {
+{ opts, ... }: {
 
   imports = [
     ../../../secrets/mappings.nix

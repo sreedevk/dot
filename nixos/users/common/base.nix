@@ -1,4 +1,4 @@
-{ pkgs, age, nixpkgs, username, opts, ... }: {
+{ pkgs, username, opts, ... }: {
 
   home = {
     enableNixpkgsReleaseCheck = false;
