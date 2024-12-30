@@ -15,15 +15,27 @@ in
         font-family = Iosevka Nerd Font
         font-size = 14
         background-opacity = 0.9
+        adjust-underline-position = 6
+        adjust-underline-thickness = 2
+        mouse-hide-while-typing = true
         theme = ayu
         window-decoration = false
         # initial-command = tmux new -A -s system
 
         # Keybindings 
+        keybind = clear
+        keybind = ctrl+shift+r=reload_config
         keybind = ctrl+a>t=new_tab
         keybind = ctrl+a>g=scroll_to_top
         keybind = ctrl+a>shift+g=scroll_to_bottom
         keybind = ctrl+a>.=write_scrollback_file:open
+        keybind = ctrl+equal=increase_font_size:1
+        keybind = ctrl+minus=decrease_font_size:1
+        keybind = ctrl+shift+c=copy_to_clipboard
+        keybind = ctrl+shift+v=paste_from_clipboard
+        keybind = ctrl+shift+t=new_tab
+        keybind = ctrl+shift+h=previous_tab
+        keybind = ctrl+shift+l=next_tab
       '';
     };
   };
