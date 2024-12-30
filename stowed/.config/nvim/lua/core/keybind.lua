@@ -23,8 +23,10 @@ vim.keymap.set('n', '<Leader>bb', '<cmd>bnext<CR>', { desc = "Buffer Next", nore
 vim.keymap.set('n', '<Leader>bB', '<cmd>bprev<CR>', { desc = "Buffer Previous", noremap = true })
 vim.keymap.set("n", "<leader><leader>la", "<cmd>source %<CR>", { desc = "Lua Execute Buffer", noremap = true })
 
-vim.keymap.set('n', '<Leader>ww', '<cmd>vnew', { desc = "Window Vertical (New Buffer)" })
-vim.keymap.set('n', '<Leader>ws', '<cmd>new', { desc = "Window Horizontal (New Buffer)" })
+vim.keymap.set('n', '<Leader>ww', '<cmd>vnew<cr>', { desc = "New Vertical Window" })
+vim.keymap.set('n', '<Leader>ws', '<cmd>new<cr>', { desc = "New Horizontal Window" })
+vim.keymap.set('n', '<C-w>v', "<cmd>vnew<cr>", { desc = "New Vertical Window", noremap = true })
+vim.keymap.set('n', '<C-w>s', "<cmd>new<cr>", { desc = "New Horizontal Window", noremap = true })
 
 vim.keymap.set('n', '<Leader>lz', '<cmd>Lazy<CR>', { desc = "Lazy Dashboard", noremap = true })
 vim.keymap.set('n', '<Leader>rr', '<cmd>e!<CR>', { desc = "Reload File From Disk", noremap = true })
@@ -36,8 +38,6 @@ vim.keymap.set('n', '<Leader>to', "<cmd>tabonly<cr>", { desc = "Delete All Other
 vim.keymap.set('n', '<leader>ssp', '<cmd>set spell!<CR>', { desc = "Enable Spell Check", noremap = true })
 vim.keymap.set('v', '<Leader>la', ':lua<CR>', { desc = "Lua Execute Selection", noremap = true })
 vim.keymap.set("n", "<leader>la", "<cmd>.lua<CR>", { desc = "Lua Execute Current Line", noremap = true })
-vim.keymap.set('n', '<C-w>v', "<cmd>vnew<cr>", { desc = "New Vertical Window", noremap = true })
-vim.keymap.set('n', '<C-w>s', "<cmd>new<cr>", { desc = "New Horizontal Window", noremap = true })
 vim.keymap.set('v', '<Leader>srr', "<cmd>sort<cr>", { desc = "Sort Numeric", noremap = true })
 vim.keymap.set('v', '<Leader>srn', "<cmd>sort n<cr>", { desc = "Sort Numeric", noremap = true })
 vim.keymap.set('v', '<Leader>sru', "<cmd>sort u<cr>", { desc = "Sort Uniq", noremap = true })
