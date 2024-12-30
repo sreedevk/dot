@@ -44,7 +44,6 @@ vim.keymap.set('v', '<Leader>sru', "<cmd>sort u<cr>", { desc = "Sort Uniq", nore
 
 vim.keymap.set('n', '<Leader>cml', utils.convert_cword_to_camel, { desc = "Camelize cword", noremap = true })
 vim.keymap.set('n', '<Leader>snk', utils.convert_cword_to_snake, { desc = "Snakeize cword", noremap = true })
-vim.keymap.set('n', '<Leader>fch', utils.fetchjson, { desc = "Fetch JSON HTTP API Response", noremap = true })
 
 vim.keymap.set(
   'n',

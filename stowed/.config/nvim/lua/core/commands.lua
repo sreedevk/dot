@@ -3,7 +3,6 @@ vim.api.nvim_create_user_command('Wq', 'wq', {})
 vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
 
-vim.api.nvim_create_user_command('FetchUrl', require("core.utils").fetchjson, {})
 vim.api.nvim_create_user_command('Camelize', require("core.utils").convert_cword_to_camel, {})
 vim.api.nvim_create_user_command('Snakeize', require("core.utils").convert_cword_to_snake, {})
 
