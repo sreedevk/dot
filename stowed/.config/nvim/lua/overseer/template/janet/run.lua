@@ -8,6 +8,7 @@ return {
       args = { vim.fn.expand("%") },
       name = "janet run",
       components = {
+        "on_exit_set_status",
         {
           "on_output_quickfix",
           open = true,
