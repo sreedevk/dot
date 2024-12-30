@@ -25,10 +25,8 @@ return {
       template_dirs = { "overseer.template" },
       templates = {
         "builtin",
-        "nix.home-manager",
-        "nix.nixos",
-        "nix.flake",
-        "janet.compiler",
+        "nix",
+        "janet",
       },
       auto_detect_success_color = true,
       dap = false,

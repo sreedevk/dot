@@ -1,0 +1,3 @@
+return {
+  "janet.compile",
+}
