@@ -35,12 +35,14 @@ in
       Plug 'ayu-theme/ayu-vim'
       Plug 'bling/vim-airline'
       Plug 'chrisbra/csv.vim'
+      Plug 'chrisbra/csv.vim'
       Plug 'ctrlpvim/ctrlp.vim'
       Plug 'easymotion/vim-easymotion'
       Plug 'jdhao/better-escape.vim'
       Plug 'junegunn/fzf'
       Plug 'junegunn/fzf.vim'
       Plug 'junegunn/vim-easy-align'
+      Plug 'ledger/vim-ledger'
       Plug 'ledger/vim-ledger'
       Plug 'lervag/vimtex'
       Plug 'mattn/emmet-vim'
@@ -51,6 +53,7 @@ in
       Plug 'sheerun/vim-polyglot'
       Plug 'tpope/vim-characterize'
       Plug 'tpope/vim-commentary'
+      Plug 'tpope/vim-dadbod',
       Plug 'tpope/vim-dispatch'
       Plug 'tpope/vim-endwise'
       Plug 'tpope/vim-eunuch'
@@ -59,11 +62,10 @@ in
       Plug 'tpope/vim-rails'
       Plug 'tpope/vim-repeat'
       Plug 'tpope/vim-surround'
+      Plug 'tpope/vim-tbone'
       Plug 'tpope/vim-unimpaired'
       Plug 'tpope/vim-vinegar',
       Plug 'vim-ruby/vim-ruby'
-      Plug 'chrisbra/csv.vim'
-      Plug 'ledger/vim-ledger'
 
       call plug#end()
 
@@ -138,9 +140,7 @@ in
       noremap <C-t> :tabnew <CR>
       nnoremap <leader>u :UndotreeToggle<CR>
       nnoremap <silent> <Leader>v :NERDTreeFind<CR> 
-      nnoremap <Leader>w :w!<CR>
       nnoremap <Leader>fs :w!<CR>
-      nnoremap <Leader>wq :wq<CR>
       nnoremap <Leader>q :q<CR>
       nnoremap <Leader>h :noh<CR>
       nnoremap <C-d> <C-d>zz

@@ -1,0 +1,58 @@
+return {
+  {
+    'stevearc/overseer.nvim',
+    cmd = {
+      "OverseerBuild",
+      "OverseerClearCache",
+      "OverseerClose",
+      "OverseerDeleteBundle",
+      "OverseerInfo",
+      "OverseerLoadBundle",
+      "OverseerOpen",
+      "OverseerQuickAction",
+      "OverseerRun",
+      "OverseerRunCmd",
+      "OversenrSaveBundle",
+      "OverseerTaskAction",
+      "OverseerToggle",
+    },
+    keys = {
+      { '<Leader>rnn', '<cmd>OverseerRun<cr>',    desc = "Run Command",           noremap = true },
+      { '<Leader>rno', '<cmd>OverseerToggle<cr>', desc = "Toggle Command Runner", noremap = true }
+    },
+    opts = {
+      strategy = "terminal",
+      template_dirs = { "overseer.template" },
+      templates = {
+        "builtin",
+        "nix",
+        "janet",
+      },
+      auto_detect_success_color = true,
+      dap = false,
+      bindings = {
+        ["?"] = "ShowHelp",
+        ["g?"] = "ShowHelp",
+        ["<CR>"] = "RunAction",
+        ["<C-e>"] = "Edit",
+        ["o"] = "Open",
+        ["<C-v>"] = "OpenVsplit",
+        ["<C-s>"] = "OpenSplit",
+        ["<C-f>"] = "OpenFloat",
+        ["<C-q>"] = "OpenQuickFix",
+        ["p"] = "TogglePreview",
+        ["<C-l>"] = "IncreaseDetail",
+        ["<C-h>"] = "DecreaseDetail",
+        ["L"] = "IncreaseAllDetail",
+        ["H"] = "DecreaseAllDetail",
+        ["["] = "DecreaseWidth",
+        ["]"] = "IncreaseWidth",
+        ["{"] = "PrevTask",
+        ["}"] = "NextTask",
+        ["<C-u>"] = "ScrollOutputUp",
+        ["<C-d>"] = "ScrollOutputDown",
+        ["q"] = "Close",
+      },
+    },
+  }
+}

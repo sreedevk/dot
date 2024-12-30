@@ -1,4 +1,4 @@
-{ pkgs, opts, ... }:
+{ pkgs, opts, config, ... }:
 let
   gpgsign = if opts.git.enable-signing then "true" else "false";
 in
@@ -55,7 +55,7 @@ in
           signingkey = B8C402B16E80E17C
         [core]
           attributesfile = ~/.gitattributes
-          editor = ${pkgs.neovim}/bin/nvim
+          editor = ${config.programs.neovim.package}/bin/nvim
           pager = ${pkgs.delta}/bin/delta
         [commit]
           gpgsign = ${gpgsign}

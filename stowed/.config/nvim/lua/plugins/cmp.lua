@@ -27,6 +27,7 @@ return {
               menu = 50,
               abbr = 50
             },
+            ellipsis_char = '...',
             show_labelDetails = true
           }),
         },
@@ -67,6 +68,7 @@ return {
     tag = "v2.3.0",
     build = "make install_jsregexp",
     lazy = true,
+    dependencies = { "rafamadriz/friendly-snippets" },
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
   },
 

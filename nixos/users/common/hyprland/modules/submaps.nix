@@ -1,4 +1,4 @@
-{ pkgs, opts, config, ... }:
+{ ... }:
 {
   home.file = {
     ".config/hypr/submaps.conf" = {

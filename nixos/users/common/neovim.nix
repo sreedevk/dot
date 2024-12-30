@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   language_servers = with pkgs; [
     clojure-lsp
@@ -18,7 +18,6 @@ let
 
   neovim_pkgs =
     with pkgs; [
-      neovim
       nodejs_22
       tree-sitter
     ];
@@ -28,6 +27,11 @@ in
     language_servers
     neovim_pkgs
   ];
+
+  programs.neovim = {
+    enable = true;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+  };
 
   xdg.desktopEntries = {
     neovim = {

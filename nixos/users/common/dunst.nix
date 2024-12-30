@@ -1,4 +1,4 @@
-{ pkgs, stylix, lib, system, opts, ... }:
+{ pkgs, lib, opts, ... }:
 let
   dunstctl = pkgs.writeShellScriptBin "dunstctl" ''
     DISPLAY=:0 ${pkgs.dunst}/bin/dunstctl $@

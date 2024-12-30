@@ -6,7 +6,6 @@
     ../common/btop.nix
     ../common/cargo.nix
     ../common/core-packages.nix
-    ../common/extra-packages.nix
     ../common/fastfetch.nix
     ../common/git.nix
     ../common/htop.nix
@@ -15,7 +14,6 @@
     ../common/neovim.nix
     ../common/tmux.nix
     ../common/vim.nix
-    ../common/x86-packages.nix
     ../common/zsh.nix
   ];
 

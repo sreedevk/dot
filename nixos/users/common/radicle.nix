@@ -1,4 +1,4 @@
-{ pkgs, config, opts, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     radicle-node

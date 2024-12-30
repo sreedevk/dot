@@ -1,16 +1,14 @@
-{ configs, opts, pkgs, username, ... }: {
+{ opts, ... }: {
 
   imports = [
     ../../../secrets/mappings.nix
     ../common/base.nix
     ../common/btop.nix
     ../common/core-packages.nix
-    ../common/extra-packages.nix
     ../common/fastfetch.nix
     ../common/git.nix
     ../common/htop.nix
     ../common/jujutsu.nix
-    ../common/neovim.nix
     ../common/tmux.nix
     ../common/vim.nix
   ];

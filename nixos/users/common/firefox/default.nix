@@ -1,4 +1,4 @@
-{ pkgs, lib, config, stylix, firefox-addons, system, ... }:
+{ pkgs, lib, config, firefox-addons, system, ... }:
 let
   nixglmod = import ../nixGL.nix { inherit lib config pkgs; };
   extensions = import ./extensions.nix { inherit firefox-addons system; };
@@ -19,7 +19,7 @@ in
         isDefault = true;
         id = 0;
         containersForce = false;
-        containers = {};
+        containers = { };
         extensions = extensions;
         search = {
           force = true;

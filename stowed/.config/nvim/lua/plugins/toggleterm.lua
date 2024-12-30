@@ -37,28 +37,6 @@ return {
       desc = "Toggle Terminal (Float)",
       mode = { "t", "n", "i" },
     },
-    {
-      '<Leader>arn',
-      function()
-        local term    = require('toggleterm.terminal').Terminal
-        local command = string.gsub(vim.fn.input("cmd: ", "", "file"), '%%', vim.fn.expand('%'))
-        local cmdterm = term:new({ cmd = command, hidden = false })
-        cmdterm:spawn()
-      end,
-      noremap = true,
-      desc = "Run Async (ToggleTerm)",
-    },
-    {
-      '<Leader>srn',
-      function()
-        local term    = require('toggleterm.terminal').Terminal
-        local command = string.gsub(vim.fn.input("cmd: ", "", "file"), '%%', vim.fn.expand('%'))
-        local cmdterm = term:new({ cmd = command, hidden = true })
-        cmdterm:toggle()
-      end,
-      noremap = true,
-      desc = "Run Blocking (ToggleTerm)"
-    },
   },
   opts = {},
   config = true

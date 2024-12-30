@@ -3,7 +3,6 @@ return {
     'nvim-treesitter/nvim-treesitter',
     lazy = true,
     event = "BufReadPost",
-    dependencies = { 'windwp/nvim-ts-autotag' },
     config = function()
       vim.o.foldmethod = 'expr'
       vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
@@ -17,36 +16,59 @@ return {
           "c",
           "cpp",
           "css",
+          "csv",
+          "desktop",
           "diff",
+          "dockerfile",
           "eex",
           "elixir",
+          "erlang",
           "fennel",
+          "git_config",
+          "git_rebase",
+          "gitattributes",
+          "gitcommit",
+          "gitignore",
           "gleam",
           "haskell",
+          "haskell_persistent",
           "heex",
           "html",
+          "http",
+          "hyprlang",
+          "janet_simple",
           "javascript",
           "jq",
           "json",
+          "latex",
           "ledger",
           "lua",
+          "make",
           "markdown",
           "markdown_inline",
+          "nginx",
+          "nix",
+          "ocaml",
+          "ocaml_interface",
+          "ocamllex",
+          "org",
           "python",
           "ruby",
           "rust",
+          "sql",
           "ssh_config",
+          "supercollider",
+          "tmux",
+          "todotxt",
           "toml",
           "tsv",
           "typescript",
+          "xml",
           "yaml",
+          "zathurarc",
           "zig",
         },
-        autotag = {
-          enable = true,
-          filetypes = { "html", "xml" },
-        },
-        sync_install = true,
+        sync_install = false,
         ignore_install = { "comment" },
         auto_install = false,
         incremental_selection = {
@@ -142,6 +164,28 @@ return {
         }
       })
     end
+  },
+  {
+    'windwp/nvim-ts-autotag',
+    lazy = true,
+    event = "BufReadPost",
+    ft = { "html", "xml", "erb", "heex" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter"
+    },
+    config = true,
+    opts = {
+      opts = {
+        enable_close = true,
+        enable_rename = true,
+        enable_close_on_slash = false
+      },
+      per_filetype = {
+        ["html"] = {
+          enable_close = false
+        }
+      }
+    }
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',

@@ -1,4 +1,4 @@
-{ pkgs, lib, opts, system, username, ... }: {
+{ opts, ... }: {
 
   imports = [
     ../../../secrets/mappings.nix
@@ -10,7 +10,6 @@
     ../common/git.nix
     ../common/htop.nix
     ../common/jujutsu.nix
-    ../common/neovim.nix
     ../common/tmux.nix
     ../common/vim.nix
     ../common/zsh.nix

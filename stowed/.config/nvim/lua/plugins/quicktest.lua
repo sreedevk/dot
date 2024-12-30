@@ -2,6 +2,7 @@ return {
   "quolpr/quicktest.nvim",
   config = function()
     require("quicktest").setup({
+      use_experimental_colorizer = true,
       adapters = {
         require("quicktest.adapters.rspec"),
         require("quicktest.adapters.elixir"),

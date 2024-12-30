@@ -1,4 +1,4 @@
-{ pkgs, opts, config, ... }:
+{ pkgs, ... }:
 let
   audio-source-select-script =
     pkgs.writeShellScriptBin "audio-source-select"

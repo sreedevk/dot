@@ -4,7 +4,6 @@ return {
   'kevinhwang91/nvim-bqf',
   'preservim/vim-indent-guides',
   'tpope/vim-characterize',
-  'tpope/vim-dispatch',
   'tpope/vim-ragtag',
   'tpope/vim-rails',
   'tpope/vim-repeat',
@@ -16,6 +15,16 @@ return {
   { 'ledger/vim-ledger',                  lazy = true,  config = false, ft = { 'ledger', 'journal' } },
   { "tpope/vim-tbone",                    lazy = true,  config = false, cmd = { "Tmux", "Tyank", "Tput", "Twrite", "Tattach" } },
   { "tiagovla/scope.nvim",                lazy = false, config = true },
+
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
 
   {
     'RaafatTurki/hex.nvim',

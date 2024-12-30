@@ -1,4 +1,4 @@
-{ pkgs, config, opts, ... }:
+{ ... }:
 {
   imports = [
     ./hyprlock.nix

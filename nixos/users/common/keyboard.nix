@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{ ... }: {
   home.keyboard = {
     layout = "us,apl";
     variant = ",dyalog";
