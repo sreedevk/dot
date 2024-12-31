@@ -52,3 +52,6 @@ require('lazy').setup({ import = 'plugins' }, {
     fallback = false
   },
 })
+
+vim.cmd.packadd "termdebug"
+vim.cmd.packadd "cfilter"

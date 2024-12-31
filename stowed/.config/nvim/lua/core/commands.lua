@@ -74,5 +74,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = event.buf, silent = true })
   end,
 })
-
-vim.cmd.packadd "termdebug"
