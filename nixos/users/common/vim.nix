@@ -40,7 +40,7 @@ in
       Plug 'ctrlpvim/ctrlp.vim'
       Plug 'easymotion/vim-easymotion'
       Plug 'jdhao/better-escape.vim'
-      Plug 'junegunn/fzf', #{dir: '~/.fzf', do: './install --all'}
+      Plug 'junegunn/fzf'
       Plug 'junegunn/fzf.vim'
       Plug 'junegunn/vim-easy-align'
       Plug 'ledger/vim-ledger'
@@ -170,7 +170,7 @@ in
       nnoremap <Leader>sp :setlocal spell!<CR>
 
       " utils
-      nnoremap <Leader>sw :execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<CR>
+      nnoremap <Leader>sw <cmd>SudoWrite<cr>
       vnoremap <M-j> :m '>+1<CR>gv=gv
       vnoremap <M-k> :m '<-2<CR>gv=gv
       nnoremap <Leader>x <cmd>! chmod +x %<CR>
