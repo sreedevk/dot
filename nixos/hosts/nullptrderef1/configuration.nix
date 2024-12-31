@@ -198,19 +198,6 @@
       alsa.support32Bit = true;
     };
 
-    cockpit = {
-      enable = true;
-      port = pkgs.lib.strings.toInt opts.ports.cockpit;
-      openFirewall = true;
-      settings = {
-        WebService =
-          {
-            AllowUnencrypted = true;
-            Origins = "https://cockpit.nullptr.sh";
-          };
-      };
-    };
-
     zfs = {
       autoScrub = {
         enable = true;

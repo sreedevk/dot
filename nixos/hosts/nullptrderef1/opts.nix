@@ -48,7 +48,6 @@ rec {
     bazarr = "6767";
     chrome = "9222";
     cloudbeaver = "8079";
-    cockpit = "8008";
     container-registry-server = "5500";
     container-registry-web = "5600";
     dockge = "5001";
