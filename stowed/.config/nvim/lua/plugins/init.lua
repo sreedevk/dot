@@ -8,6 +8,7 @@ return {
   'tpope/vim-rails',
   'tpope/vim-repeat',
   'tpope/vim-surround',
+  'tpope/vim-apathy',
 
   { "chrisgrieser/nvim-early-retirement", lazy = true,  config = true,  event = "VeryLazy" },
   { 'petertriho/nvim-scrollbar',          lazy = true,  config = true,  event = "BufReadPost" },
@@ -18,8 +19,26 @@ return {
 
   {
     'tpope/vim-eunuch',
-    lazy = true,
-    cmd = { 'Move', 'Rename', 'Remove', 'Delete', 'Mkdir' },
+    lazy = false,
+    keys = {
+      { '<Leader>sw', '<cmd>SudoWrite<cr>', noremap = true, desc = "Sudo Write!" }
+    },
+    cmd = {
+      'Move',
+      'Rename',
+      'Copy',
+      'Duplicate',
+      'Remove',
+      'Delete',
+      'Mkdir',
+      'SudoWrite',
+      'SudoEdit',
+      'Wall',
+      'Lfind',
+      'Llocate',
+      'Cfind',
+      'CLocate',
+    },
   },
 
   {

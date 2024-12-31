@@ -32,6 +32,7 @@ in
 
       call plug#begin('~/.vim/plugged')
 
+      Plug 'airblade/vim-rooter'
       Plug 'ayu-theme/ayu-vim'
       Plug 'bling/vim-airline'
       Plug 'chrisbra/csv.vim'
@@ -39,10 +40,9 @@ in
       Plug 'ctrlpvim/ctrlp.vim'
       Plug 'easymotion/vim-easymotion'
       Plug 'jdhao/better-escape.vim'
-      Plug 'junegunn/fzf'
+      Plug 'junegunn/fzf', #{dir: '~/.fzf', do: './install --all'}
       Plug 'junegunn/fzf.vim'
       Plug 'junegunn/vim-easy-align'
-      Plug 'ledger/vim-ledger'
       Plug 'ledger/vim-ledger'
       Plug 'lervag/vimtex'
       Plug 'mattn/emmet-vim'
@@ -60,12 +60,15 @@ in
       Plug 'tpope/vim-fugitive'
       Plug 'tpope/vim-ragtag'
       Plug 'tpope/vim-rails'
+      Plug 'tpope/vim-abolish'
       Plug 'tpope/vim-repeat'
+      Plug 'tpope/vim-apathy'
       Plug 'tpope/vim-surround'
       Plug 'tpope/vim-tbone'
       Plug 'tpope/vim-unimpaired'
       Plug 'tpope/vim-vinegar',
       Plug 'vim-ruby/vim-ruby'
+      Plug 'tommcdo/vim-exchange'
 
       call plug#end()
 

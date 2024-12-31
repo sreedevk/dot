@@ -49,13 +49,6 @@ vim.keymap.set(
 
 vim.keymap.set(
   'n',
-  '<Leader>sw',
-  "<cmd>execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<cr>",
-  { desc = "Sudo Write!", noremap = true }
-)
-
-vim.keymap.set(
-  'n',
   '<Leader>cd',
   function() vim.cmd('tcd ' .. vim.fn.expand('%:p:h')) end,
   { desc = "CD Into Current Buffer Directory", noremap = true }
