@@ -13,7 +13,6 @@
     ../common/fastfetch.nix
     ../common/firefox
     ../common/fontconfig.nix
-    ../common/ghostty.nix
     ../common/git.nix
     ../common/github.nix
     ../common/gpg.nix
