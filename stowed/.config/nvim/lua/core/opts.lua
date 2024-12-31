@@ -2,6 +2,7 @@ vim.g.loaded            = 1
 vim.g.loaded_matchparen = 0
 vim.g.mapleader         = ';'
 vim.g.termdebugger      = "rust-gdb"
+vim.g.dotfiles          = vim.env.DOTFILES or vim.fn.expand('~/.dot')
 
 vim.opt.ruler           = true
 vim.opt.tabstop         = 2
@@ -89,4 +90,3 @@ vim.opt.shortmess = {
 vim.wo.wrap       = true
 
 vim.api.nvim_set_hl(0, "CursorLine", { default = true, blend = 50 })
-

@@ -20,6 +20,7 @@ export EDITOR="nvim"
 export READER="zathura"
 export TERMINAL="alacritty"
 export BROWSER="brave"
+export DOTFILES="$HOME/.dot"
 
 # ENABLE NVIDIA FOR WAYLAND SESSIONS
 export AQ_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1
