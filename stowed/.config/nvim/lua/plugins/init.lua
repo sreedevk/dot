@@ -147,13 +147,6 @@ return {
   },
 
   {
-    'willothy/flatten.nvim',
-    lazy = false,
-    priority = 1001,
-    config = true,
-  },
-
-  {
     'jdhao/better-escape.vim',
     lazy = true,
     event = { "CursorHold", "CursorHoldI" },
