@@ -1,4 +1,5 @@
 return {
+  "janet.run",
   "janet.compile",
-  "janet.run"
+  "janet.jpm-build"
 }

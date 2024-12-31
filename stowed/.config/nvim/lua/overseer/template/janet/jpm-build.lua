@@ -1,12 +1,12 @@
 local overseer = require("overseer")
 
 return {
-  name = "Janet Compile",
+  name = "JPM Build",
   builder = function()
     return {
-      cmd = { 'janet' },
-      args = { "--compile", vim.fn.expand("%"), vim.fn.expand("%:r") .. ".jimage" },
-      name = "janet compile",
+      cmd = { 'jpm' },
+      args = { "build" },
+      name = "jpm build",
       components = {
         "on_exit_set_status",
         {
@@ -23,11 +23,17 @@ return {
       metadata = {},
     }
   end,
-  desc = "Janet Compile Jimage",
+  desc = "JPM Build Project",
   tags = { overseer.TAG.BUILD },
   params = {},
   priority = 50,
   condition = {
-    filetype = { "janet" },
+    callback = function()
+      if vim.fn.filereadable('project.janet') == 1 then
+        return true
+      else
+        return false
+      end
+    end
   },
 }
