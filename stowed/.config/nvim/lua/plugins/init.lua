@@ -17,6 +17,12 @@ return {
   { "tiagovla/scope.nvim",                lazy = false, config = true },
 
   {
+    'tpope/vim-eunuch',
+    lazy = true,
+    cmd = { 'Move', 'Rename', 'Remove', 'Delete', 'Mkdir' },
+  },
+
+  {
     'chaoren/vim-wordmotion',
     lazy = false,
     init = function()
@@ -24,6 +30,7 @@ return {
       vim.g.wordmotion_prefix = "<space>"
     end,
   },
+
   {
     "folke/lazydev.nvim",
     ft = "lua",
@@ -109,6 +116,10 @@ return {
     keys = {
       { '<Leader>u', "<cmd>UndotreeToggle<CR>", desc = "Toggle Undotree" },
     },
+    init = function()
+      vim.g.undotree_TreeNodeShape = '◉'
+      vim.g.undotree_SetFocusWhenToggle = 1
+    end,
   },
 
   {
@@ -133,6 +144,13 @@ return {
       'ColorizerToggle'
     },
     config = true
+  },
+
+  {
+    'willothy/flatten.nvim',
+    lazy = false,
+    priority = 1001,
+    config = true,
   },
 
   {

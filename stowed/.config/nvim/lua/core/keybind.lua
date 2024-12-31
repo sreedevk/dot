@@ -61,13 +61,6 @@ vim.keymap.set(
 
 vim.keymap.set(
   'n',
-  '<leader><leader>s',
-  ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>",
-  { desc = "Find & Replace", noremap = true }
-)
-
-vim.keymap.set(
-  'n',
   '<Leader>cd',
   function() vim.cmd('tcd ' .. vim.fn.expand('%:p:h')) end,
   { desc = "CD Into Current Buffer Directory", noremap = true }
