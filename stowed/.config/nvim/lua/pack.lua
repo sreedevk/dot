@@ -53,5 +53,15 @@ require('lazy').setup({ import = 'plugins' }, {
   },
 })
 
+vim.keymap.set(
+  'n',
+  '<Leader>lz',
+  '<cmd>Lazy<CR>',
+  {
+    desc = "Lazy Dashboard",
+    noremap = true,
+  }
+)
+
 vim.cmd.packadd "termdebug"
 vim.cmd.packadd "cfilter"
