@@ -81,7 +81,7 @@ in
           dfs    = diff --staged
           fucked = reset --hard
           l      = log
-          lg     = log --decorate --oneline --graph
+          lg     = log --decorate --oneline --graph -n 20
           pl     = pull
           ps     = push
           rb     = rebase
@@ -91,6 +91,8 @@ in
           wtr    = worktree remove
         [rerere]
           enabled = false
+        [fetch]
+          prune = true
         [advice]
           detachedHead = false
         [filter "lfs"]
@@ -126,6 +128,18 @@ in
             colorMoved = default
         [safe]
         	directory = /etc/nixos
+        [url "git@github.com:"]
+          insteadOf = "gh:"
+          pushInsteadOf = "github:"
+          pushInsteadOf = "git://github.com/"
+        [url "git://github.com/"]
+          insteadOf = "github:"
+        [url "git@gist.github.com:"]
+          insteadOf = "gst:"
+          pushInsteadOf = "gist:"
+          pushInsteadOf = "git://gist.github.com/"
+        [url "git://gist.github.com/"]
+          insteadOf = "gist:"
       '';
     };
   };
