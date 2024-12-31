@@ -1,5 +1,3 @@
-local utils = require("core.utils")
-
 vim.keymap.set("n", "<M-,>", "<c-w>5<", { noremap = true })
 vim.keymap.set("n", "<M-.>", "<c-w>5>", { noremap = true })
 vim.keymap.set("n", "<M-d>", "<C-W>+", { noremap = true })
@@ -41,9 +39,6 @@ vim.keymap.set("n", "<leader>la", "<cmd>.lua<CR>", { desc = "Lua Execute Current
 vim.keymap.set('v', '<Leader>srr', "<cmd>sort<cr>", { desc = "Sort Numeric", noremap = true })
 vim.keymap.set('v', '<Leader>srn', "<cmd>sort n<cr>", { desc = "Sort Numeric", noremap = true })
 vim.keymap.set('v', '<Leader>sru', "<cmd>sort u<cr>", { desc = "Sort Uniq", noremap = true })
-
-vim.keymap.set('n', '<Leader>cml', utils.convert_cword_to_camel, { desc = "Camelize cword", noremap = true })
-vim.keymap.set('n', '<Leader>snk', utils.convert_cword_to_snake, { desc = "Snakeize cword", noremap = true })
 
 vim.keymap.set(
   'n',

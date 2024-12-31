@@ -1,8 +1,14 @@
 return {
   {
     'tpope/vim-abolish',
-    event = 'CmdlineEnter',
+    lazy = true,
     keys = {
+      { 'crc', desc = "camelCase cWord" },
+      { 'crs', desc = "snake_case cWord" },
+      { 'crm', desc = "MixedCase cWord" },
+      { 'cru', desc = "UPPER_CASE cWord" },
+      { 'cr-', desc = "dash-case cWord" },
+      { 'cr.', desc = "dot.case cWord" },
       {
         '<leader><leader>s',
         ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>",
