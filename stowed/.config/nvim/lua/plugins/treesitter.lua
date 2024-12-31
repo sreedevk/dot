@@ -166,6 +166,25 @@ return {
     end
   },
   {
+    'kana/vim-textobj-user',
+    dependencies = {
+      'kana/vim-operator-user',
+    },
+  },
+  {
+    'glts/vim-textobj-comment',
+    dependencies = {
+      'kana/vim-textobj-user'
+    },
+    init = function()
+      vim.g.textobj_comment_no_default_key_mappings = 1
+    end,
+    keys = {
+      { 'ac', '<Plug>(textobj-comment-a)', mode = { 'x', 'o' } },
+      { 'ic', '<Plug>(textobj-comment-i)', mode = { 'x', 'o' } },
+    },
+  },
+  {
     'windwp/nvim-ts-autotag',
     lazy = true,
     event = "BufReadPost",

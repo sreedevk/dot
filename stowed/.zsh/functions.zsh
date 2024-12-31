@@ -27,3 +27,8 @@ randstr() {
     fi
     openssl rand -base64 $((length * 3 / 4)) | tr -d '\n' | cut -c1-$length
 }
+
+bwfzf() {
+  systemd-run --user --unit=clipboard-clear.service --on-active=30s --timer-property=AccuracySec=1ms wl-copy --clear
+  bw get password "$(bw list items | jq -r '.[].name' | fzf)" | wl-copy
+}

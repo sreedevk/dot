@@ -47,6 +47,13 @@ vim.keymap.set('n', '<Leader>snk', utils.convert_cword_to_snake, { desc = "Snake
 
 vim.keymap.set(
   'n',
+  '<Leader>vh',
+  function() vim.cmd("h " .. vim.fn.expand('<cword>')) end,
+  { desc = "Search help docs for cword", noremap = true }
+)
+
+vim.keymap.set(
+  'n',
   '<Leader>sw',
   "<cmd>execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<cr>",
   { desc = "Sudo Write!", noremap = true }
@@ -62,18 +69,13 @@ vim.keymap.set(
 vim.keymap.set(
   'n',
   '<Leader>cd',
-  function()
-    vim.cmd('tcd ' .. vim.fn.expand('%:p:h'))
-  end,
+  function() vim.cmd('tcd ' .. vim.fn.expand('%:p:h')) end,
   { desc = "CD Into Current Buffer Directory", noremap = true }
 )
 
 vim.keymap.set(
   "n",
   "<leader>dt",
-  function()
-    local date = vim.fn.system("date"):gsub("\n", "")
-    vim.api.nvim_put({ " " .. date }, "c", true, true)
-  end,
+  function() vim.api.nvim_put({ " " .. vim.fn.system("date"):gsub("\n", "") }, "c", true, true) end,
   { desc = "Insert TimeStamp" }
 )

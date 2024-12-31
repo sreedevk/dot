@@ -17,6 +17,14 @@ return {
   { "tiagovla/scope.nvim",                lazy = false, config = true },
 
   {
+    'chaoren/vim-wordmotion',
+    lazy = false,
+    init = function()
+      vim.g.wordmotion_spaces = { '-', '_', '\\/', '\\.' }
+      vim.g.wordmotion_prefix = "<space>"
+    end,
+  },
+  {
     "folke/lazydev.nvim",
     ft = "lua",
     opts = {
@@ -32,6 +40,14 @@ return {
       dump_cmd = 'xxd -g 1 -u',
       assemble_cmd = 'xxd -r',
     },
+  },
+
+  {
+    "psliwka/vim-dirtytalk",
+    build = ":DirtytalkUpdate",
+    config = function()
+      vim.opt.spelllang = { "en", "programming" }
+    end,
   },
 
   {

@@ -1,6 +1,7 @@
 vim.g.loaded            = 1
 vim.g.loaded_matchparen = 0
 vim.g.mapleader         = ';'
+vim.g.termdebugger      = "rust-gdb"
 
 vim.opt.ruler           = true
 vim.opt.tabstop         = 2
@@ -58,7 +59,7 @@ vim.opt.pumheight       = 10
 vim.opt.winblend        = 10
 vim.opt.listchars       = 'extends:…,precedes:…,nbsp:␣'
 vim.opt.scrolloff       = 10
-vim.opt.shortmess       = "aoOTIcF"
+
 vim.opt.showcmd         = true
 vim.opt.showcmdloc      = "statusline"
 vim.opt.showtabline     = 1
@@ -69,11 +70,23 @@ vim.opt.swapfile        = false
 vim.opt.backup          = false
 vim.opt.writebackup     = false
 
-vim.wo.wrap             = true
-
-vim.api.nvim_set_hl(0, "CursorLine", { default = true, blend = 50 })
 vim.opt.formatoptions:remove "o"
 
--- debugger options
-vim.cmd[[packadd termdebug]]
-vim.g.termdebugger = "rust-gdb"
+vim.opt.shortmess = {
+  A = true, -- ignore annoying swap file messages
+  F = true, -- Don't give file info when editing a file
+  I = true, -- don't give the intro message when starting Vim
+  O = true, -- file-read message overwrites previous
+  T = true, -- truncate non-file messages in middle
+  W = true, -- Don't show [w] or written when writing
+  a = true, -- lmrw abbreviations
+  c = true,
+  o = true, -- file-read message overwrites previous
+  r = true, -- use "[RO]" instead of "[readonly]"
+  s = true, -- don't give "search hit BOTTOM, continuing at TOP"
+  t = true, -- truncate file messages at start
+}
+vim.wo.wrap       = true
+
+vim.api.nvim_set_hl(0, "CursorLine", { default = true, blend = 50 })
+
