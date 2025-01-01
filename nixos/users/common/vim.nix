@@ -110,6 +110,11 @@ in
       autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
       autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
+
+      if &term =~ '256color'
+        set t_ut=
+      endif
+
       let mapleader = ";"
       let g:better_escape_shortcut = 'jj'
       let g:better_escape_interval = 400
