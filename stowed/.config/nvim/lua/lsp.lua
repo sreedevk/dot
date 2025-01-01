@@ -138,6 +138,13 @@ setup_lsp {
 }
 
 setup_lsp {
+  name = 'marksman',
+  custom = false,
+  filetypes = { 'markdown', 'markdown.mdx' },
+  cmd = { vim.fn.trim(vim.fn.system("which marksman")), "server" }
+}
+
+setup_lsp {
   name = 'ts_ls',
   custom = false,
   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },

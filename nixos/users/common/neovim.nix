@@ -7,6 +7,7 @@ let
     elixir-ls
     fennel-ls
     lua-language-server
+    marksman
     nil
     nodePackages.vscode-json-languageserver
     rust-analyzer
