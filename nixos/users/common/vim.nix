@@ -150,7 +150,7 @@ in
       nnoremap <C-u> <C-u>zz
 
       "terminal
-      nnoremap <Leader>tro :terminal<CR>
+      nnoremap <C-4><C-4> :terminal<CR>
 
       " git
       nnoremap <Leader>gi  :Git<CR>

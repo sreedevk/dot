@@ -18,6 +18,7 @@ return {
     { '<Leader>cc', require('telescope.builtin').commands,                  desc = 'Commands List' },
     { "<Leader>'",  require('telescope.builtin').marks,                     desc = 'Marks List' },
     { "<Leader>sp", require('telescope.builtin').spell_suggest,             desc = 'Suggest Spellings' },
+    { "<Leader>tr", "<cmd>Telescope resume<cr>",                            desc = "Resume Last Telescope Search" },
     {
       "<Leader>ej",
       function()
@@ -34,7 +35,7 @@ return {
     {
       '<Leader>fp',
       function()
-        require('telescope.builtin').find_files { cwd = "~/.dot" }
+        require('telescope.builtin').find_files { cwd = vim.g.dotfiles }
       end,
       desc = 'Find Config Files'
     },

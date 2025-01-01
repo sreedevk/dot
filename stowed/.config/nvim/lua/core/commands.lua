@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "html", "markdown", "text" },
   callback = function()
     vim.opt_local.spelllang = "en"
-    vim.opt_local.spellfile = vim.fn.expand("~/.dot/stowed/.config/nvim/spell/en.utf-8.add")
+    vim.opt_local.spellfile = vim.fn.expand(vim.g.dotfiles .. "/stowed/.config/nvim/spell/en.utf-8.add")
     vim.opt_local.spell = true
   end,
 })
