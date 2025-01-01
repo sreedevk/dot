@@ -120,6 +120,7 @@
         sonic-pi
         superfile
         tea
+        terminaltexteffects
         texliveFull
         tmuxinator
         turbo
