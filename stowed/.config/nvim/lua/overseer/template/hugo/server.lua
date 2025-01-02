@@ -1,13 +1,12 @@
-local overseer = require "overseer"
+local overseer = require 'overseer'
 
 return {
-  name = "HomeManager Switch",
+  name = "Hugo Server",
   builder = function()
     return {
-      cmd = { 'home-manager' },
-      args = { "switch", "--flake", "./nixos", "--impure", "-j", "20" },
-      name = "home-manager switch",
-      cwd = vim.fn.expand("~") .. "/.dot",
+      cmd = { 'hugo' },
+      args = { "server" },
+      name = "Hugo Server",
       env = {},
       components = {
         "default",
@@ -24,11 +23,17 @@ return {
       metadata = {},
     }
   end,
-  desc = "Home Manager Configuration Apply",
+  desc = "Hugo Static Site Generator Server",
   tags = { overseer.TAG.BUILD },
   params = {},
   priority = 50,
   condition = {
-    dir = vim.fn.expand("~") .. "/.dot",
+    callback = function()
+      if vim.fn.filereadable('hugo.toml') == 1 then
+        return true
+      else
+        return false
+      end
+    end
   },
 }
