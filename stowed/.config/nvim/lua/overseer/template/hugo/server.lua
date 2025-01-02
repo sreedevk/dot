@@ -1,29 +1,29 @@
 local overseer = require 'overseer'
 
 return {
-  name = "Hugo Server",
+  name = 'Hugo Server',
   builder = function()
     return {
       cmd = { 'hugo' },
-      args = { "server" },
-      name = "Hugo Server",
+      args = { 'server', '-D' },
+      name = 'Hugo Server',
       env = {},
       components = {
-        "default",
+        'default',
         {
-          "open_output",
-          on_complete = "never",
-          on_start = "always"
+          'open_output',
+          on_complete = 'never',
+          on_start = 'always'
         },
         {
-          "on_complete_dispose",
-          statuses = { "success" }
+          'on_complete_dispose',
+          statuses = { 'success' }
         }
       },
       metadata = {},
     }
   end,
-  desc = "Hugo Static Site Generator Server",
+  desc = 'Hugo Static Site Generator Server',
   tags = { overseer.TAG.BUILD },
   params = {},
   priority = 50,
