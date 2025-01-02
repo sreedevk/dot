@@ -29,11 +29,7 @@ return {
   priority = 50,
   condition = {
     callback = function()
-      if vim.env.LEDGER_FILE ~= "" then
-        return false
-      else
-        return true
-      end
+      return vim.env.LEDGER_FILE ~= nil
     end,
   },
 }

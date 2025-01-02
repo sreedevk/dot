@@ -29,11 +29,7 @@ return {
   priority = 50,
   condition = {
     callback = function()
-      if vim.fn.filereadable('project.janet') == 1 then
-        return true
-      else
-        return false
-      end
+      return vim.fn.filereadable('project.janet') == 1
     end
   },
 }
