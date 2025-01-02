@@ -3,7 +3,6 @@
   imports = [
     ../../../secrets/mappings.nix
     ../common/alacritty.nix
-    ../common/audioctrl.nix
     ../common/awscli.nix
     ../common/base.nix
     ../common/btop.nix
@@ -18,6 +17,7 @@
     ../common/gpg.nix
     ../common/htop.nix
     ../common/hyprland
+    ../common/i3.nix
     ../common/jujutsu.nix
     ../common/keybase.nix
     ../common/keyboard.nix
@@ -36,9 +36,11 @@
     ../common/tmux-sessionizer.nix
     ../common/tmux.nix
     ../common/vim.nix
+    ../common/x86-packages.nix
     ../common/xresources.nix
     ../common/zathura.nix
     ../common/zsh.nix
+    ./autorandr.nix
     ./backup.nix
   ];
 
@@ -49,6 +51,7 @@
         cava
         gimp-with-plugins
         ledger
+        lmms
       ];
 
       unstable-packages = with pkgs; [
@@ -61,6 +64,8 @@
         aspellDicts.en-computers
         aspellDicts.en-science
         beanstalkd
+        arandr
+        autorandr
         bitwarden-cli
         brightnessctl
         clang
@@ -92,7 +97,6 @@
         kubectl
         librecad
         libreoffice-fresh
-        lmms
         maim
         mdbook
         ncdu

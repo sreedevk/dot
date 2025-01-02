@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 {
   home.packages = [
-    (config.lib.nixGL.wrap pkgs.slack)
+    (config.lib.nixGL.wrap pkgs.brave)
   ];
 }

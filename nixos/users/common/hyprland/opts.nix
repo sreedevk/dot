@@ -316,6 +316,12 @@ in
       { rule = "float"; window_identifiers = "title:^(Open Folder)(.*)$"; }
       { rule = "size 1000 600"; window_identifiers = "title:^(Open Folder)(.*)$"; }
 
+      { rule = "opacity 0.0 override"; window_identifiers = "class:^(xwaylandvideobridge)$"; }
+      { rule = "noanim"; window_identifiers = "class:^(xwaylandvideobridge)$"; }
+      { rule = "noinitialfocus"; window_identifiers = "class:^(xwaylandvideobridge)$"; }
+      { rule = "maxsize 1 1"; window_identifiers = "class:^(xwaylandvideobridge)$"; }
+      { rule = "noblur"; window_identifiers = "class:^(xwaylandvideobridge)$"; }
+      { rule = "nofocus"; window_identifiers = "class:^(xwaylandvideobridge)$"; }
 
       { rule = "center"; window_identifiers = "title:^(File Upload)(.*)$"; }
       { rule = "float"; window_identifiers = "title:^(File Upload)(.*)$"; }

@@ -32,6 +32,7 @@ gamescope
 gdb
 git
 git-lfs
+grim
 grub
 gst-libav
 gst-plugins-good
@@ -93,6 +94,7 @@ sdl2_image
 sdl2_mixer
 sdl2_net
 sdl2_ttf
+slurp
 snd
 sndio
 sof-firmware
@@ -127,7 +129,6 @@ wireplumber
 wl-clipboard
 wlsunset
 xclip
-xdg-desktop-portal-gtk
 xdo
 xf86-video-vesa
 xorg-server

@@ -180,6 +180,7 @@
   "media.cache_resume_threshold" = 3600;
   "media.ffmpeg.vaapi.enabled" = true;
   "media.memory_cache_max_size" = 65536;
+  "media.peerconnection.enabled" = true;
   "media.peerconnection.ice.default_address_only" = true;
   "media.peerconnection.ice.proxy_only_if_behind_proxy" = true;
   "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;

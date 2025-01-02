@@ -29,6 +29,8 @@ randstr() {
 }
 
 bwfzf() {
-  systemd-run --user --unit=clipboard-clear.service --on-active=30s --timer-property=AccuracySec=1ms wl-copy --clear
-  bw get password "$(bw list items | jq -r '.[].name' | fzf)" | wl-copy
+  bw get password "$(bw list items 2&> /dev/null | jq -r '.[].name' | fzf)" 2&> /dev/null | wl-copy
+  if [[ "$(systemctl --user is-enabled clipboard-clear.service)" == "not-found" ]]; then
+    systemd-run --user --unit=clipboard-clear.service --on-active=30s --timer-property=AccuracySec=1ms wl-copy --clear
+  fi
 }
