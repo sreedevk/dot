@@ -27,7 +27,8 @@ return {
         "builtin",
         "nix",
         "janet",
-        "hugo"
+        "hugo",
+        "hledger"
       },
       auto_detect_success_color = true,
       dap = false,
