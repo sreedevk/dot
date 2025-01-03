@@ -1,6 +1,9 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
+let
+  nixglmod = import ./nixGL.nix { inherit lib config pkgs; };
+in
 {
   home.packages = [
-    (config.lib.nixGL.wrap pkgs.brave)
+    (nixglmod.nixGLWrapped pkgs.brave "brave")
   ];
 }
