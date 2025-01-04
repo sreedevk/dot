@@ -1,4 +1,4 @@
-{ configs, pkgs, opts, username, ... }: {
+{ ... }: {
   imports = [
     ../../../secrets/mappings.nix
     ../common/base.nix
@@ -14,7 +14,6 @@
     ../common/neovim.nix
     ../common/tmux.nix
     ../common/vim.nix
-    ../common/x86-packages.nix
     ../common/zsh.nix
   ];
 

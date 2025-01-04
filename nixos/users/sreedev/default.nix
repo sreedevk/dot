@@ -36,7 +36,6 @@
     ../common/tmux-sessionizer.nix
     ../common/tmux.nix
     ../common/vim.nix
-    ../common/x86-packages.nix
     ../common/xresources.nix
     ../common/zathura.nix
     ../common/zsh.nix
@@ -56,6 +55,7 @@
 
       unstable-packages = with pkgs; [
         amfora
+        arandr
         aria2
         asciinema
         asciinema-agg
@@ -63,9 +63,8 @@
         aspellDicts.en
         aspellDicts.en-computers
         aspellDicts.en-science
-        beanstalkd
-        arandr
         autorandr
+        beanstalkd
         bitwarden-cli
         brightnessctl
         clang
@@ -76,6 +75,7 @@
         doctl
         duckdb
         emacs
+        fasm
         feh
         filezilla
         glab
