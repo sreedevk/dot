@@ -106,7 +106,7 @@
         nixops_unstable_minimal
         nixpkgs-fmt
         nmap
-        nodejs_22
+        nodejs_23
         nsxiv
         nushell
         openttd

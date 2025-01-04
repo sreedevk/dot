@@ -19,7 +19,7 @@ let
 
   neovim_pkgs =
     with pkgs; [
-      nodejs_22
+      nodejs_23
       tree-sitter
     ];
 in
