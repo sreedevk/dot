@@ -8,3 +8,5 @@
 
 ### Kitty Existing Neovim After Opening "Overseer nvim" Puts Prompt at "execute:3u"
 
+
+### Neotree Buffers should be excuded from mksession!
