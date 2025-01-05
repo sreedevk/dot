@@ -28,6 +28,7 @@ export FZF_DEFAULT_OPTS="--height 60% \
 export FZF_COMPLETION_OPTS=$FZF_DEFAULT_OPTS
 export FZF_TMUX=1
 export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
 export FZF_CTRL_T_OPTS="--walker-skip .git,node_modules,target
   --preview 'bat -n --color=always {}'
@@ -71,3 +72,4 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light jeffreytse/zsh-vi-mode
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light ajeetdsouza/zoxide
+zinit light hlissner/zsh-autopair
