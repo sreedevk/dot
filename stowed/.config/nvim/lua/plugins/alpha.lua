@@ -100,8 +100,6 @@ local headerArtWorks = {
 return {
   'goolord/alpha-nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
-  lazy = true,
-  event = "BufWinEnter",
   config = function()
     math.randomseed(os.time())
     vim.keymap.set('n', '<Leader>da', ":Alpha<CR>", { noremap = true })
@@ -153,13 +151,23 @@ return {
       }
     end
 
+    local pesistance_load_session_with_nocwd = function()
+      vim.cmd("Alpha")
+      require('persistence').load({ last = true })
+    end
+
+    local pesistance_load_session_with_cwd = function()
+      vim.cmd("Alpha")
+      require('persistence').load()
+    end
+
     local buttons = {
       type = "group",
       val = {
         button("e", "New File", ":enew<cr>"),
         button("z", "Zoxide", ":Zi<CR>"),
-        button("l", "Last Session", "<cmd>lua require('persistence').load({last=true})<cr>"),
-        button("o", "Last Session (CWD)", "<cmd>lua require('persistence').load()<cr>"),
+        button("l", "Last Session", pesistance_load_session_with_nocwd),
+        button("o", "Last Session (CWD)", pesistance_load_session_with_cwd),
         button("f", "Find Files", ":Telescope find_files<CR>"),
         button("/", "Live Grep", ":Telescope live_grep<CR>"),
         button("p", "Lazy Dash", ":Lazy show<CR>"),
