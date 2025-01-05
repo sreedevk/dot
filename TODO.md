@@ -1,4 +1,10 @@
 # Neovim
+### Alacritty Multi Key Sends Inside Neovim
+- Alacritty has an issue where inside neovim "backspace" character is sent multiple times 
+- fixed in: [8397](https://github.com/alacritty/alacritty/pull/8397)
 
-1. CodeCompanion depends on $OPENAI_API_KEY env variable, move this config to nix to rely on agenix directly
-2. Issue with neovim + alacritty where in command mode, a single backspace moves 2 spaces back
+### Code Companion Plugin Read OPENAI_API_KEY from env rather than agenix file
+- CodeCompanion depends on $OPENAI_API_KEY env variable, move this config to nix to rely on agenix directly
+
+### Kitty Existing Neovim After Opening "Overseer nvim" Puts Prompt at "execute:3u"
+
