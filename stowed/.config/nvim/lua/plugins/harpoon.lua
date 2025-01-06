@@ -7,7 +7,9 @@ return {
     { "<M-i>",      function() require("harpoon"):list():next() end, desc = "Harpoon File Next" },
     {
       "<Leader>fl",
-      function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end,
+      function()
+        require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+      end,
       desc = "Harpoon File List",
     },
   },

@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "ruby",
   callback = function()
     local function extend_hl(name, def)
-      local old = vim.api.nvim_get_hl_by_name(name, true)
+      local old = vim.api.nvim_get_hl(0, { name = name })
       local new = vim.tbl_extend("force", {}, old, def)
       vim.api.nvim_set_hl(0, name, new)
     end
