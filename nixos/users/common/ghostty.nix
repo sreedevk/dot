@@ -25,10 +25,11 @@ in
         # Keybindings 
         keybind = clear
         keybind = ctrl+shift+r=reload_config
-        keybind = ctrl+a>t=new_tab
-        keybind = ctrl+a>g=scroll_to_top
-        keybind = ctrl+a>shift+g=scroll_to_bottom
-        keybind = ctrl+a>.=write_scrollback_file:open
+        keybind = ctrl+g=scroll_to_top
+        keybind = ctrl+shift+g=scroll_to_bottom
+        keybind = ctrl+shift+u=scroll_page_up
+        keybind = ctrl+shift+d=scroll_page_down
+        keybind = ctrl+shift+.=write_scrollback_file:paste
         keybind = ctrl+equal=increase_font_size:1
         keybind = ctrl+minus=decrease_font_size:1
         keybind = ctrl+shift+c=copy_to_clipboard
