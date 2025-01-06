@@ -3,12 +3,15 @@ let
   nixglmod = import ../nixGL.nix { inherit lib config pkgs; };
 in
 {
-  stylix.targets.kitty.enable = false;
+  stylix.targets.kitty = {
+    enable = true;
+    variant256Colors = true;
+  };
 
   programs.kitty = {
     enable = true;
     package = nixglmod.nixGLWrapped pkgs.kitty "kitty";
-    settings = (import ./settings.nix { inherit config; }) // (import ./theme.nix);
+    settings = (import ./settings.nix { inherit config; });
     keybindings = (import ./keybindings.nix);
   };
 

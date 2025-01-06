@@ -10,6 +10,7 @@
 
     opacity = {
       terminal = 0.8;
+      popups = 0.8;
     };
 
     fonts = {
@@ -46,10 +47,7 @@
       feh.enable = true;
       fzf.enable = true;
       gtk.enable = true;
-      hyprland.enable = false;
-      i3.enable = false;
       nushell.enable = true;
-      rofi.enable = false;
       sxiv.enable = true;
       tmux.enable = true;
       xresources.enable = true;
