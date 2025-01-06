@@ -1,8 +1,8 @@
-{ pkgs, nixpkgs-stable, config, ... }: {
+{ pkgs, config, ... }: {
 
   programs.awscli = {
     enable = true;
-    package = nixpkgs-stable.awscli2;
+    package = pkgs.awscli2;
     settings = {
       "default" = {
         region = "us-east-1";
