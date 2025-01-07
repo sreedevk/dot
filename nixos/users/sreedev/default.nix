@@ -1,4 +1,7 @@
-{ pkgs, config, nixpkgs-stable, ... }:
+{ pkgs, lib, config, nixpkgs-stable, ... }:
+let
+  nixglmod = import ../common/nixGL.nix { inherit lib config pkgs; };
+in
 {
   imports = [
     ../../../secrets/mappings.nix
@@ -28,10 +31,7 @@
     ../common/newsboat.nix
     ../common/nsxiv.nix
     ../common/opentabletdriver.nix
-    ../common/radicle.nix
     ../common/rofi
-    ../common/slack.nix
-    ../common/spotube.nix
     ../common/stylix.nix
     ../common/taskwarrior.nix
     ../common/tmux-sessionizer.nix
@@ -52,6 +52,11 @@
         gimp-with-plugins
         ledger
         lmms
+      ];
+
+      nixgl-packages = [
+        (nixglmod.nixGLWrapped pkgs.slack "slack")
+        (nixglmod.nixGLWrapped pkgs.spotube "spotube")
       ];
 
       unstable-packages = with pkgs; [
@@ -120,6 +125,8 @@
         python312Packages.supervisor
         qflipper
         qrencode
+        radicle-httpd
+        radicle-node
         rebar3
         scdl
         sonic-pi
@@ -135,7 +142,7 @@
         zellij
       ];
     in
-    stable-packages ++ unstable-packages;
+    stable-packages ++ unstable-packages ++ nixgl-packages;
 
   home.file.".zshenv" = {
     enable = true;
