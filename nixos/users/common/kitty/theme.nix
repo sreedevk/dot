@@ -19,7 +19,7 @@
   color14 = "#6ebad7";
   color15 = "#937b99";
   cursor = "#8443e3";
-  cursor_text_color = "#8443e3";
+  cursor_text_color = "#937b99";
   foreground = "#8443e3";
   background = "#0d0910";
   selection_background = "#e49068";
