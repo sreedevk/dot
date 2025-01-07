@@ -7,3 +7,4 @@
 - [ ] Kitty Existing Neovim After Opening "Overseer nvim" Puts Prompt at "execute:3u"
 - [x] Neotree Buffers should be excuded from mksession!
     - Fixed using `auto_clean_after_session_restore` option in neo-tree
+- [ ] flash nvim's range of search is limited to N lines before or after current line, expand this
