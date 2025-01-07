@@ -79,7 +79,7 @@ rec {
           rate = builtins.toString monitor.rate;
           scale = builtins.toString monitor.scale;
           bitdepth = if (builtins.typeOf monitor.bitdepth) == "int" then monitor.bitdepth else 10;
-          rhs = builtins.concatStringsSep ", " [ "desc:${monitor.desc}" "${res}@${rate}" position scale "bitdepth,${builtins.toString bitdepth}" ];
+          rhs = builtins.concatStringsSep "," [ "desc:${monitor.desc}" "${res}@${rate}" position scale "bitdepth,${builtins.toString bitdepth}" ];
         in
         "monitor = ${rhs}";
     in
