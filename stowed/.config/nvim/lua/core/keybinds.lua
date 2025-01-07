@@ -8,7 +8,9 @@ vim.keymap.set("n", "<M-u>", "<C-W>-", { noremap = true })
 vim.keymap.set("n", "<left>", "<c-w>h", { noremap = true })
 vim.keymap.set("n", "<right>", "<c-w>l", { noremap = true })
 vim.keymap.set("n", "<down>", "<C-w>j", { noremap = true })
-vim.keymap.set("n", "<up>", "<C-w>-k", { noremap = true })
+vim.keymap.set("n", "<up>", "<C-w>k", { noremap = true })
+vim.keymap.set("n", "]w", "<C-w>l", { noremap = true, desc = "Move to Window on Right" })
+vim.keymap.set("n", "[w", "<C-w>h", { noremap = true, desc = "Move to Window on Left" })
 
 -- Keep Center {{{1
 vim.keymap.set('n', 'n', 'nzzzv', { noremap = true })
@@ -27,6 +29,8 @@ vim.keymap.set('n', '<C-w>s', "<cmd>new<cr>", { desc = "New Horizontal Window", 
 -- Buffer Navigation {{{1
 vim.keymap.set('n', '<Leader>bb', '<cmd>bnext<CR>', { desc = "Buffer Next", noremap = true })
 vim.keymap.set('n', '<Leader>bB', '<cmd>bprev<CR>', { desc = "Buffer Previous", noremap = true })
+vim.keymap.set('n', '<M-[>', '<cmd>bprev<CR>', { desc = "Buffer Previous", noremap = true })
+vim.keymap.set('n', '<M-]>', '<cmd>bnext<CR>', { desc = "Buffer Next", noremap = true })
 
 vim.keymap.set('n', '<Leader>x', '<cmd>! chmod +x %<CR>', { desc = "Mark Current File Executable", noremap = true })
 vim.keymap.set('n', '<leader>ssp', '<cmd>set spell!<CR>', { desc = "Enable Spell Check", noremap = true })
