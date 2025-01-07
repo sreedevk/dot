@@ -22,8 +22,8 @@
   cursor_text_color = "#8443e3";
   foreground = "#8443e3";
   background = "#0d0910";
-  selection_background = "#120c16";
-  selection_foreground = "#8443e3";
+  selection_background = "#e49068";
+  selection_foreground = "#ffffff";
   url_color = "#c4a7e7";
   inactive_tab_background = "#191724";
   inactive_tab_foreground = "#6e6a86";
