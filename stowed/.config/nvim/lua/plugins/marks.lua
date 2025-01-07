@@ -4,7 +4,7 @@ return {
     lazy = true,
     event = "BufReadPost",
     keys = {
-      { '<leader>mb', '<Cmd>MarksListBuf<CR>',      desc = 'list buffer marks',  noremap = true },
+      { '<leader>mm', '<Cmd>MarksListBuf<CR>',      desc = 'list buffer marks',  noremap = true },
       { '<leader>mg', '<Cmd>MarksQFListGlobal<CR>', desc = 'list global marks',  noremap = true },
       { '<leader>m0', '<Cmd>BookmarksQFList 0<CR>', desc = 'list bookmarks',     noremap = true },
     },
