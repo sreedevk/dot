@@ -91,12 +91,13 @@ unsetopt beep
 set -o vi
 
 # KEY BINDINGS
-bindkey -s '^o'    'ycd\n'
-bindkey    '^R'    fzf-history-widget
-bindkey    '^A'    beginning-of-line
-bindkey    '^E'    end-of-line
-bindkey    '^x'    edit-command-line
-bindkey    '^[[Z'  autosuggest-accept
+bindkey -s    '^o'    'ycd\n'
+bindkey       '^R'    fzf-history-widget
+bindkey       '^A'    beginning-of-line
+bindkey       '^E'    end-of-line
+bindkey       '^x'    edit-command-line
+bindkey       '^[[Z'  autosuggest-accept
+bindkey -a -r ':'
 
 # FASTFETCH @ SHELL INIT
 if [ -f "$(command -v fastfetch)" ]; then
