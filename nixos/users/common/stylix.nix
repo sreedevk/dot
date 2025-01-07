@@ -43,15 +43,10 @@
     };
 
     targets = {
-      bat.enable = true;
-      feh.enable = true;
-      fzf.enable = true;
       gtk.enable = true;
       nushell.enable = true;
       sxiv.enable = true;
-      tmux.enable = true;
       xresources.enable = true;
-      zellij.enable = true;
     };
   };
 }

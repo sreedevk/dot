@@ -18,16 +18,9 @@ export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
 export VISUAL="nvim"
 export EDITOR="nvim"
 export READER="zathura"
-export TERMINAL="alacritty"
+export TERMINAL="kitty"
 export BROWSER="brave"
 export DOTFILES="$HOME/.dot"
-
-# ENABLE NVIDIA FOR WAYLAND SESSIONS
-export AQ_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1
-export GBM_BACKEND=nvidia-drm
-export LIBVA_DRIVER_NAME=nvidia
-export __GL_VRR_ALLOWED=1
-export __GL_GSYNC_ALLOWED=1
 
 # BETTER TERM
 export KEYTIMEOUT=1
