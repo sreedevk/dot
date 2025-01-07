@@ -4,14 +4,14 @@ let
 in
 {
   stylix.targets.kitty = {
-    enable = true;
-    variant256Colors = true;
+    enable = false;
+    variant256Colors = false;
   };
 
   programs.kitty = {
     enable = true;
     package = nixglmod.nixGLWrapped pkgs.kitty "kitty";
-    settings = (import ./settings.nix { inherit config; });
+    settings = (import ./settings.nix { inherit config; }) // (import ./theme.nix { inherit lib; });
     keybindings = (import ./keybindings.nix);
   };
 

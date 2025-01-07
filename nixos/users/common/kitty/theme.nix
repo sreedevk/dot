@@ -1,29 +1,32 @@
+{ lib, ... }:
 {
-  active_tab_background = "#26233a";
-  active_tab_foreground = "#e0def4";
-  background = "#191724";
-  color0 = "#26233a";
-  color1 = "#eb6f92";
-  color2 = "#31748f";
-  color3 = "#f6c177";
-  color4 = "#9ccfd8";
-  color5 = "#c4a7e7";
-  color6 = "#ebbcba";
-  color7 = "#e0def4";
-  color8 = "#6e6a86";
-  color9 = "#eb6f92";
-  color10 = "#31748f";
-  color11 = "#f6c177";
-  color12 = "#9ccfd8";
-  color13 = "#c4a7e7";
-  color14 = "#ebbcba";
-  color15 = "#e0def4";
-  cursor = "#524f67";
-  cursor_text_color = "#e0def4";
-  foreground = "#e0def4";
+  background_opacity = lib.mkForce 0.8;
+  color0 = "#0d0910";
+  color1 = "#e4374b";
+  color2 = "#46cea9";
+  color3 = "#e49068";
+  color4 = "#65aae3";
+  color5 = "#8443e3";
+  color6 = "#18c6cd";
+  color7 = "#f6ceff";
+
+  color8 = "#2c1e36";
+  color9 = "#a22533";
+  color10 = "#33857f";
+  color11 = "#a25846";
+  color12 = "#4568a1";
+  color13 = "#5a2ca1";
+  color14 = "#6ebad7";
+  color15 = "#937b99";
+  cursor = "#8443e3";
+  cursor_text_color = "#8443e3";
+  foreground = "#8443e3";
+  background = "#0d0910";
+  selection_background = "#120c16";
+  selection_foreground = "#8443e3";
+  url_color = "#c4a7e7";
   inactive_tab_background = "#191724";
   inactive_tab_foreground = "#6e6a86";
-  selection_background = "#403d52";
-  selection_foreground = "#e0def4";
-  url_color = "#c4a7e7";
+  active_tab_background = "#26233a";
+  active_tab_foreground = "#e0def4";
 }
