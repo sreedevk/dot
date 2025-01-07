@@ -18,7 +18,7 @@ in
         adjust-underline-position = 6
         adjust-underline-thickness = 2
         mouse-hide-while-typing = true
-        theme = ayu
+        theme = Banana Blueberry
         window-decoration = false
         # initial-command = tmux new -A -s system
 
