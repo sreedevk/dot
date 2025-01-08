@@ -1,18 +1,17 @@
 { pkgs, lib, config, ... }:
 let
   nixglmod = import ../nixGL.nix { inherit lib config pkgs; };
-  themes = (import ../themes.nix);
 in
 {
   stylix.targets.kitty = {
-    enable = false;
-    variant256Colors = false;
+    enable = true;
+    variant256Colors = true;
   };
 
   programs.kitty = {
     enable = true;
     package = nixglmod.nixGLWrapped pkgs.kitty "kitty";
-    settings = themes.zitchdog-grape // (import ./settings.nix { inherit config lib; });
+    settings = (import ./settings.nix { inherit config lib; });
     keybindings = (import ./keybindings.nix);
   };
 
