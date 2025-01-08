@@ -1,7 +1,7 @@
 { ... }:
 let
   themes = import ../themes.nix;
-  theme = themes.zitchdog-grape;
+  theme = themes.zitchdog-pine;
 in
 {
   home.file = {
