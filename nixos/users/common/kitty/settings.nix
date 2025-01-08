@@ -1,7 +1,7 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
-  # background_opacity = 0.8;
   active_tab_font_style = "italic";
+  background_opacity = lib.mkForce 0.8;
   bell_on_tab = " ";
   close_on_child_death = true;
   copy_on_select = true;
