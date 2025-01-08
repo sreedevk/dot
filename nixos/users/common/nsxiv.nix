@@ -1,5 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
+
+  home.packages = with pkgs; [ nsxiv ];
   home.file = {
     ".config/nsxiv/exec/key-handler" = {
       enable = true;
@@ -85,11 +87,18 @@
     };
   };
 
+  xresources.properties = {
+    "Nsxiv.background" = lib.mkForce "#141c21";
+    "Nsxiv.font" = lib.mkForce "DejaVu Sans-14";
+    "Nsxiv.foreground" = lib.mkForce "#1f1d2e";
+  };
+
   xdg.desktopEntries = {
     nsxiv = {
-      name = "nsxiv";
+      name = "Neo Simple X Image Viewer";
+      icon = "nsxiv";
       genericName = "Image viewer";
-      exec = "nsxiv %f";
+      exec = "${pkgs.nsxiv}/bin/nsxiv %F";
       comment = "Image Viewer & Cataloguer";
       mimeType = [
         "image/bmp"

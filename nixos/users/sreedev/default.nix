@@ -113,7 +113,6 @@ in
         nixpkgs-fmt
         nmap
         nodejs_23
-        nsxiv
         nushell
         openttd
         oxker

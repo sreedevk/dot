@@ -81,9 +81,6 @@
       "*color8" = lib.mkForce "#4a697d";
       "*color9" = lib.mkForce "#fa3935";
       "*foreground" = lib.mkForce "#bdcfe3";
-      "Nsxiv.background" = lib.mkForce "#141c21";
-      "Nsxiv.font" = lib.mkForce "DejaVu Sans-14";
-      "Nsxiv.foreground" = lib.mkForce "#1f1d2e";
       "Sxiv.background" = lib.mkForce "#908caa";
       "Sxiv.font" = "DejaVu Sans-14";
       "Sxiv.foreground" = lib.mkForce "#1f1d2e";
