@@ -18,9 +18,14 @@ in
   xdg.desktopEntries = {
     kitty = {
       name = "Kitty";
+      type = "Application";
+      settings = {
+        Keywords = "terminal;tty;pty";
+      };
       genericName = "Terminal";
+      comment = "A terminal emulator";
       exec = "kitty";
-      icon = "Kitty";
+      icon = "kitty";
       terminal = false;
       categories = [ "System" "TerminalEmulator" ];
     };
