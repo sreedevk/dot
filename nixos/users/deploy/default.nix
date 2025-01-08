@@ -2,6 +2,7 @@
 
   imports = [
     ../../../secrets/mappings.nix
+    ../common/asdf.nix
     ../common/base.nix
     ../common/btop.nix
     ../common/cargo.nix

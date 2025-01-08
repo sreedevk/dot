@@ -6,6 +6,7 @@ in
   imports = [
     ../../../secrets/mappings.nix
     ../common/alacritty.nix
+    ../common/asdf.nix
     ../common/awscli.nix
     ../common/base.nix
     ../common/btop.nix
