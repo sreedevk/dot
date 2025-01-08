@@ -12,7 +12,7 @@ in
   programs.kitty = {
     enable = true;
     package = nixglmod.nixGLWrapped pkgs.kitty "kitty";
-    settings = (import ./settings.nix { inherit config lib; }) // themes.zitchdog-grape;
+    settings = themes.zitchdog-grape // (import ./settings.nix { inherit config lib; });
     keybindings = (import ./keybindings.nix);
   };
 

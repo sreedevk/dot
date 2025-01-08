@@ -20,4 +20,6 @@
   tab_bar_edge = "top";
   touch_scroll_multiplier = 2.0;
   update_check_interval = 0;
+  selection_background = "none";
+  selection_foreground = "none";
 }

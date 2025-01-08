@@ -28,8 +28,8 @@ in
         background = ${theme.background}
         foreground = ${theme.foreground}
         cursor-color = ${theme.cursor}
-        selection-background = ${theme.selection_background}
-        selection-foreground = ${theme.selection_foreground}
+        # selection-background = ${theme.selection_background}
+        # selection-foreground = ${theme.selection_foreground}
       '';
     };
   };
