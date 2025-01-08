@@ -15,6 +15,7 @@
     - Issue raised [here](https://github.com/theamallalgi/zitchdog/issues/2)
     - temporarily using tokyonight
     - Fixed in Commit [85caa7c094d6481b985a8280d2f77ab7a45c44ec](https://github.com/theamallalgi/zitchdog/commit/85caa7c094d6481b985a8280d2f77ab7a45c44ec)
+- [ ] Treewalker plugin will fail on empty buffers verbosely. Prevent it from loading if treesitter is not available for buffer
 
 # Hyprland
 - [ ] Screensharing does not work. Options Tried:

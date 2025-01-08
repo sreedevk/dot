@@ -3,6 +3,7 @@
   # background_opacity = 0.8;
   active_tab_font_style = "italic";
   bell_on_tab = " ";
+  close_on_child_death = true;
   copy_on_select = true;
   cursor_blink_interval = 0;
   cursor_trail = 0;

@@ -15,7 +15,7 @@ keycode () {
 }
 
 # cliphist interface
-clip() {
+clipman() {
   cliphist list | fzf --no-sort | cliphist decode | wl-copy
 }
 
@@ -29,8 +29,6 @@ randstr() {
 }
 
 bwfzf() {
-  bw get password "$(bw list items 2&> /dev/null | jq -r '.[].name' | fzf)" 2&> /dev/null | wl-copy
-  if [[ "$(systemctl --user is-enabled clipboard-clear.service)" == "not-found" ]]; then
-    systemd-run --user --unit=clipboard-clear.service --on-active=30s --timer-property=AccuracySec=1ms wl-copy --clear
-  fi
+  local item="$(bw list items 2&> /dev/null | jq -r '.[].name' | fzf)"
+  bw get password "$item" 2&> /dev/null | wl-copy
 }
