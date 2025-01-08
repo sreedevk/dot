@@ -99,20 +99,22 @@ vim.opt.guicursor       = {
   'a:blinkon0',
 }
 
-vim.opt.sessionoptions = {
+vim.opt.sessionoptions  = {
   'buffers',
   'curdir',
   'folds',
+  'localoptions',
+  'options',
 }
 
-vim.opt.completeopt   = {
+vim.opt.completeopt     = {
   'menuone',  -- show menu even if there's only one item
   'noinsert', -- no insertions until user selects
   'noselect', -- no preselection
   'fuzzy'     -- enable fuzzy matching
 }
 
-vim.opt.fillchars     = {
+vim.opt.fillchars       = {
   eob = ' ',
   diff = '⣿',
   msgsep = '─',
@@ -122,7 +124,7 @@ vim.opt.fillchars     = {
   foldsep = ' ',
 }
 
-vim.opt.listchars     = {
+vim.opt.listchars       = {
   eol = nil,
   tab = '▷▷',
   extends = '»',
@@ -130,7 +132,7 @@ vim.opt.listchars     = {
   trail = '•',
 }
 
-vim.opt.diffopt       = vim.opt.diffopt
+vim.opt.diffopt         = vim.opt.diffopt
     + {
       'vertical',
       'filler',
@@ -143,7 +145,7 @@ vim.opt.diffopt       = vim.opt.diffopt
       'linematch:60',
     }
 
-vim.opt.shortmess     = {
+vim.opt.shortmess       = {
   A = true, -- ignore annoying swap file messages
   F = true, -- Don't give file info when editing a file
   I = true, -- don't give the intro message when starting Vim
@@ -158,7 +160,7 @@ vim.opt.shortmess     = {
   t = true, -- truncate file messages at start
 }
 
-vim.opt.formatoptions = {
+vim.opt.formatoptions   = {
   ['1'] = true,
   ['2'] = true, -- Use indent from 2nd line of a paragraph
   q = true,     -- continue comments with gq"
