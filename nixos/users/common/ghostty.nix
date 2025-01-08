@@ -8,6 +8,33 @@ in
   ];
 
   home.file = {
+    ".config/ghostty/themes/zitchdog-grape" = {
+      enable = true;
+      text = ''
+        palette = 0=#0d0910
+        palette = 1=#e4374b
+        palette = 2=#46cea9
+        palette = 3=#e49068
+        palette = 4=#65aae3
+        palette = 5=#8443e3
+        palette = 6=#18c6cd
+        palette = 7=#f6ceff
+        palette = 8=#2c1e36
+        palette = 9=#a22533
+        palette = 10=#33857f
+        palette = 11=#a25846
+        palette = 12=#4568a1
+        palette = 13=#5a2ca1
+        palette = 14=#6ebad7
+        palette = 15=#937b99
+
+        background = #0d0910
+        foreground = #8443e3
+        cursor-color = #8443e3
+        selection-background = #e49068
+        selection-foreground = #ffffff
+      '';
+    };
     ".config/ghostty/config" = {
       enable = true;
       text = ''
@@ -18,7 +45,7 @@ in
         adjust-underline-position = 6
         adjust-underline-thickness = 2
         mouse-hide-while-typing = true
-        theme = Banana Blueberry
+        theme = zitchdog-grape
         window-decoration = false
         # initial-command = tmux new -A -s system
 
