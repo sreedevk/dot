@@ -11,9 +11,10 @@
 - [x] Neotree Buffers should be excuded from mksession!
     - Fixed using `auto_clean_after_session_restore` option in neo-tree
 - [ ] flash nvim's range of search is limited to N lines before or after current line, expand this
-- [ ] Neovim Zitchdog colorscheme causes issues with diffview inside neogit
+- [x] Neovim Zitchdog colorscheme causes issues with diffview inside neogit
     - Issue raised [here](https://github.com/theamallalgi/zitchdog/issues/2)
     - temporarily using tokyonight
+    - Fixed in Commit [85caa7c094d6481b985a8280d2f77ab7a45c44ec](https://github.com/theamallalgi/zitchdog/commit/85caa7c094d6481b985a8280d2f77ab7a45c44ec)
 
 # Hyprland
 - [ ] Screensharing does not work. Options Tried:
