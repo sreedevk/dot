@@ -255,8 +255,8 @@ in
       { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; }
       { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "${pkgs.dunst}/bin/dunstctl set-paused toggle"; }
       { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-toggleblur}/bin/hypr-toggleblur"; }
-      { mod = "SUPER"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty"; }
-      { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty"; }
+      { mod = "SUPER"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty -1"; }
+      { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty -1"; }
       { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
       { mod = "SUPER SHIFT"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
       { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; }
