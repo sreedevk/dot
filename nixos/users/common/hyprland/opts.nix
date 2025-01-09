@@ -208,7 +208,6 @@ in
       { mod = ""; keys = "XF86MonBrightnessDown"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-"; }
       { mod = ""; keys = "XF86MonBrightnessUp"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+"; }
       { mod = "CTRL"; keys = "Space"; dispatcher = "exec"; args = "${pkgs.dunst}/bin/dunstctl close-all"; }
-      { mod = "CTRL"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.ghostty.package}/bin/ghostty"; }
       { mod = "CTRL"; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"; }
       { mod = "CTRL"; keys = "XF86AudioMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
       { mod = "CTRL"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+"; }
@@ -256,10 +255,12 @@ in
       { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; }
       { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "${pkgs.dunst}/bin/dunstctl set-paused toggle"; }
       { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-toggleblur}/bin/hypr-toggleblur"; }
-      { mod = "SUPER"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty -1"; }
-      { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty -1"; }
-      { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
-      { mod = "SUPER SHIFT"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
+      # { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/alacritty"; }
+      # { mod = "SUPER SHIFT"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
+      { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.ghostty.package}/bin/ghostty"; }
+      { mod = "SUPER"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.ghostty.package}/bin/ghostty"; }
+      { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty -1"; }
+      { mod = "SUPER SHIFT"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty -1"; }
       { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; }
       { mod = "SUPER"; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-"; }
       { mod = "SUPER"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+"; }
