@@ -16,6 +16,9 @@
     - temporarily using tokyonight
     - Fixed in Commit [85caa7c094d6481b985a8280d2f77ab7a45c44ec](https://github.com/theamallalgi/zitchdog/commit/85caa7c094d6481b985a8280d2f77ab7a45c44ec)
 - [ ] Treewalker plugin will fail on empty buffers verbosely. Prevent it from loading if treesitter is not available for buffer
+- [ ] in Neovim, add a custom dial.nvim set to alternate
+between `[ '*', '!']` for hledger transaction status
+- [ ] Build / Find a Hledger Treesitter Library
 
 # Hyprland
 - [ ] Screensharing does not work. Options Tried:
