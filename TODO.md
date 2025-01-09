@@ -1,4 +1,4 @@
-# Neovim
+# NeoVim
 - [ ] Alacritty Multi Key Sends Inside Neovim
     - Alacritty has an issue where inside neovim "backspace" character is sent multiple times 
     - fixed in: [8397](https://github.com/alacritty/alacritty/pull/8397) waiting for release
