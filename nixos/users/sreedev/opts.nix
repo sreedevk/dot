@@ -3,7 +3,7 @@
     enable-signing = true;
   };
 
-  wallpaper = "linux-penguin.jpg";
+  wallpaper = "wallhaven-d61kgg.jpg";
 
   directories = {
     wallpapers = "~/Media/wallpapers";
