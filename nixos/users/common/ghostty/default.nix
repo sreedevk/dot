@@ -32,7 +32,7 @@ in
         keybind = ctrl+shift+g=scroll_to_bottom
         keybind = ctrl+shift+u=scroll_page_up
         keybind = ctrl+shift+d=scroll_page_down
-        keybind = ctrl+shift+.=write_scrollback_file:paste
+        keybind = ctrl+shift+space=write_scrollback_file:open
         keybind = ctrl+equal=increase_font_size:1
         keybind = ctrl+minus=decrease_font_size:1
         keybind = ctrl+shift+c=copy_to_clipboard

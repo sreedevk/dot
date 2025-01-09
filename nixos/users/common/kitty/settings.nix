@@ -1,4 +1,7 @@
 { config, lib, ... }:
+# BUG: running kitty in xwayland mode automatically 
+#      starts kitty in floating mode in hyprland.
+#      -- linux_display_server = "x11";
 {
   active_tab_font_style = "italic";
   background_opacity = lib.mkForce 0.8;
@@ -12,14 +15,15 @@
   enable_audio_bell = false;
   font_family = "Iosevka NF";
   font_size = 14.0;
+  input_delay = 3;
   pointer_shape_when_dragging = "hand";
-  resize_draw_strategy = "scale";
   scrollback_lines = 10000;
   scrollback_pager = "${config.programs.neovim.package}/bin/nvim -c \"lua require('core.utils'):colorize()\"";
+  selection_background = "none";
+  selection_foreground = "none";
+  shell_integration = "disabled";
   tab_bar_align = "left";
   tab_bar_edge = "top";
   touch_scroll_multiplier = 2.0;
   update_check_interval = 0;
-  selection_background = "none";
-  selection_foreground = "none";
 }
