@@ -37,7 +37,7 @@ in
           height = 150;
           hide_duplicate_count = true;
           history_length = 10;
-          horizontal_padding = 8;
+          horizontal_padding = 15;
           icon_position = "off";
           idle_threshold = 120;
           ignore_newline = "no";
@@ -51,7 +51,7 @@ in
           notification_height = 0;
           offset = 20;
           origin = "top-right";
-          padding = 12;
+          padding = 15;
           progress_bar = true;
           show_age_threshold = 60;
           show_indicators = "yes";

@@ -5,7 +5,7 @@
     autoEnable = false;
     polarity = "dark";
     image = config.lib.stylix.pixel "base0A";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     imageScalingMode = "fill";
 
     opacity = {
