@@ -13,8 +13,6 @@ vim.keymap.set("n", "]w", "<C-w>l", { noremap = true, desc = "Move to Window on 
 vim.keymap.set("n", "[w", "<C-w>h", { noremap = true, desc = "Move to Window on Left" })
 
 -- Keep Center {{{1
-vim.keymap.set('n', 'n', 'nzzzv', { noremap = true })
-vim.keymap.set('n', 'N', 'Nzzzv', { noremap = true })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
 
