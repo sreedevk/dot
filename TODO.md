@@ -36,3 +36,6 @@ between `[ '*', '!']` for hledger transaction status
 
 # Tmux
 - restore ctrl+b plus [  to enter scrollback mode in tmux
+
+# Wayland / Xorg
+- [ ] setup a global wayland = true option for nix users to switch options everywhere

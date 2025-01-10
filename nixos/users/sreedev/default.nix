@@ -40,6 +40,7 @@ in
     ../common/vim.nix
     ../common/xresources.nix
     ../common/zathura.nix
+    ../common/zellij.nix
     ../common/zsh.nix
     ./autorandr.nix
     ./backup.nix
@@ -139,7 +140,6 @@ in
         visidata
         yarn
         yt-dlp
-        zellij
       ];
     in
     stable-packages ++ unstable-packages ++ nixgl-packages;
