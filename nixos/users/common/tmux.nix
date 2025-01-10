@@ -23,12 +23,10 @@ in
     historyLimit = 100000;
     keyMode = "vi";
     plugins = with pkgs; [
-
       {
         plugin = tmux-super-fingers;
         extraConfig = "set -g @super-fingers-key f";
       }
-
       {
         plugin = tmuxPlugins.extrakto;
         extraConfig = ''
@@ -38,9 +36,25 @@ in
           set -g @extrakto_filter_key ctrl-f
         '';
       }
-      tmuxPlugins.jump
-      tmuxPlugins.tmux-thumbs
-      tmuxPlugins.yank
+      {
+        plugin = tmuxPlugins.jump;
+        extraConfig = ''
+          set -g @jump-key 's'
+          set -g @jump-keys-position 'left'
+        '';
+      }
+      {
+        plugin = tmuxPlugins.tmux-thumbs;
+        extraConfig = ''
+          set -g @thumbs-key space
+        '';
+      }
+      {
+        plugin = tmuxPlugins.yank;
+        extraConfig = ''
+          set -g @custom_copy_command 'wl-copy'
+        '';
+      }
     ];
     prefix = "C-b";
     baseIndex = 1;
@@ -53,13 +67,8 @@ in
       bind l select-pane -R
       bind k select-pane -U
       bind j select-pane -D
-      bind -r [ select-pane -t :.-
-      bind -r ] select-pane -t :.+
 
       # SCROLL USING M-u & M-d
-      bind -n M-u copy-mode
-      bind -n C-, send-keys C-,  
-      bind -n C-. send-keys C-.
       bind -T copy-mode-vi M-u send-keys -X halfpage-up
       bind -T copy-mode-vi M-d send-keys -X halfpage-down
 
@@ -78,8 +87,8 @@ in
       bind -T copy-mode-vi Escape send-keys -X cancel
       bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'wl-copy'
       bind -T copy-mode-vi C-g send-keys -X cancel
-      bind -T copy-mode-vi H send-keys -X start-of-line
-      bind -T copy-mode-vi L send-keys -X end-of-line
+      bind -T copy-mode-vi 0 send-keys -X start-of-line
+      bind -T copy-mode-vi $ send-keys -X end-of-line
       bind p paste-buffer
       bind C-p choose-buffer
 
@@ -104,13 +113,14 @@ in
       set -g status-justify centre
       set -g status-left '#[fg=green]λ: #[fg=cyan]#S'
       set -g status-right "#[fg=cyan]#(${tmux-time-display}/bin/ttd)"
-      set -g automatic-rename on
       set -g window-status-format "#[fg=blue]#I#[fg=default]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},}}#F"
       set -g window-status-current-format "#[fg=yellow]#I#[fg=green]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},)}}#[fg=default]#F#[fg=yellow]#[fg=default]"
 
       # MAKE IT PRETTY + SANE DEFAULTS
       set -g  default-command "${pkgs.zsh}/bin/zsh --login"
       set -g  xterm-keys on
+      set -s  extended-keys on
+      set -as terminal-features 'xterm*:extkeys'
       set -g  default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"
       set -g  buffer-limit  20
@@ -119,8 +129,8 @@ in
       set -g  remain-on-exit off
       set -g  @copy_use_osc52_fallback on
 
-      setw -g allow-rename off
-      setw -g automatic-rename off
+      setw -g allow-rename on
+      setw -g automatic-rename on
       setw -g aggressive-resize on
 
       # DISPLAY TMUX MESSAGES LONGER
@@ -128,7 +138,7 @@ in
       set  -g display-panes-time 800
 
       # HOOKS
-      set-hook -g after-new-window 'command-prompt -I "#{window_name}" "rename-window '%%'"'
+      # set-hook -g after-new-window 'command-prompt -I "#{window_name}" "rename-window '%%'"'
 
       # ADDRESS VIM-MODE SWITCHING DELAY (HTTP://SUPERUSER.COM/A/252717/65504)
       set -s  escape-time   0
