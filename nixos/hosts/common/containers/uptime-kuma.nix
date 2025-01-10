@@ -33,6 +33,7 @@
         PUID = opts.adminUID;
         PGID = opts.adminGID;
         AUTOKUMA__KUMA__URL = "http://${opts.hostname}:${opts.ports.uptime-kuma}";
+        AUTOKUMA__ON_DELETE = "keep";
       };
     };
   };
