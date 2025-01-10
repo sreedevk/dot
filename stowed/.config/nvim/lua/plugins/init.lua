@@ -176,6 +176,9 @@ return {
     'norcalli/nvim-colorizer.lua',
     lazy = true,
     ft = { "css", "scss", "less" },
+    keys = {
+      { '<Leader>co', function() vim.cmd([[ColorizerToggle]]) end, desc = "Toggle Colorizer", noremap = true }
+    },
     cmd = {
       'ColorizerAttachToBuffer',
       'ColorizerDetachFromBuffer',
