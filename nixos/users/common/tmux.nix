@@ -48,14 +48,13 @@ in
     aggressiveResize = true;
     disableConfirmationPrompt = true;
     extraConfig = ''
-      bind -n C-q send-prefix
-      set -g status-keys emacs
-
-      # SWITCHING PANES WITH C-M
+      # SWITCHING PANES
       bind h select-pane -L
       bind l select-pane -R
       bind k select-pane -U
       bind j select-pane -D
+      bind -r [ select-pane -t :.-
+      bind -r ] select-pane -t :.+
 
       # SCROLL USING M-u & M-d
       bind -n M-u copy-mode
@@ -63,35 +62,35 @@ in
       bind -T copy-mode-vi M-d send-keys -X halfpage-down
 
       # RESIZING PANELS
-      bind -n C-M-j resize-pane -D 5
-      bind -n C-M-k resize-pane -U 5
-      bind -n C-M-h resize-pane -L 5
-      bind -n C-M-l resize-pane -R 5
+      bind J resize-pane -D 5
+      bind K resize-pane -U 5
+      bind H resize-pane -L 5
+      bind L resize-pane -R 5
 
       # CLEAR SESSION WINDOW WITH CTRL-L
       bind C-l send-keys -R \; clear-history
-
-      # BUFFER COPY
-      bind b choose-buffer
-      bind B list-buffers
-      bind p paste-buffer
-      bind P run "xclip -selection clipboard -o | tmux load-buffer - ; tmux paste-buffer"
 
       # COPY MODE
       bind -T copy-mode-vi v send-keys -X begin-selection
       bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
       bind -T copy-mode-vi Escape send-keys -X cancel
-      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
+      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'wl-copy'
       bind -T copy-mode-vi C-g send-keys -X cancel
       bind -T copy-mode-vi H send-keys -X start-of-line
       bind -T copy-mode-vi L send-keys -X end-of-line
+      bind p paste-buffer
+      bind C-p choose-buffer
 
       # MOUSE SUPPORT
       bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
       bind -n WheelDownPane select-pane -t= \;                 send-keys -M
 
       # SOURCING CONFIG
-      bind r source-file ~/.tmux.conf \; display '~/.tmux.conf sourced'
+      bind r source-file ~/.config/tmux/tmux.conf \; display '~/.config/tmux/tmux.conf sourced'
+
+      # SESSION MERGE
+      bind C-u command-prompt -p "Session to merge with: " \
+         "run-shell 'yes | head -n #{session_windows} | xargs -I {} -n 1 tmux movew -t %%'"
 
       # STATUS BAR
       set -g status on
@@ -115,10 +114,19 @@ in
       set -g  buffer-limit  20
       set -g  set-titles on
       set -g  set-titles-string "#I:#W"
+      set -g  remain-on-exit off
+      set -g  @copy_use_osc52_fallback on
+
+      setw -g allow-rename off
+      setw -g automatic-rename off
+      setw -g aggressive-resize on
 
       # DISPLAY TMUX MESSAGES LONGER
-      set  -g display-time 4000
+      set  -g display-time 1500
       set  -g display-panes-time 800
+
+      # HOOKS
+      set-hook -g after-new-window 'command-prompt -I "#{window_name}" "rename-window '%%'"'
 
       # ADDRESS VIM-MODE SWITCHING DELAY (HTTP://SUPERUSER.COM/A/252717/65504)
       set -s  escape-time   0
