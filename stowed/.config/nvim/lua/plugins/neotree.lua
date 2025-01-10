@@ -10,9 +10,9 @@ return {
     },
     cmd = { "Neotree" },
     keys = {
-      { "<C-n>",      [[<cmd>Neotree filesystem reveal toggle<CR>]], desc = "Toggle Neotree" },
-      { "<Leader>nf", [[<cmd>Neotree filesystem reveal toggle<CR>]], desc = "Reveal File in Neotree" },
-      { "<Leader>nb", [[<cmd>Neotree buffers reveal toggle<CR>]],    desc = "Reveal Buffers in Neotree" },
+      { "<C-n>",      function() vim.cmd("Neotree filesystem reveal toggle") end, desc = "Toggle Neotree" },
+      { "<Leader>nf", function() vim.cmd("Neotree filesystem reveal toggle") end, desc = "Reveal File in Neotree" },
+      { "<Leader>nb", function() vim.cmd("Neotree buffers reveal toggle") end,    desc = "Reveal Buffers in Neotree" },
     },
     lazy = true,
     opts = {
