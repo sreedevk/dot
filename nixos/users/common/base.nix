@@ -118,6 +118,7 @@
     };
     settings = {
       trusted-users = [ "${username}" ];
+      http2 = false;
       allowed-users = [ "${username}" ];
       trusted-substituters = [ "${username}" ];
       show-trace = true;

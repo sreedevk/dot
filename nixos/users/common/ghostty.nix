@@ -47,7 +47,6 @@ in
       window-decoration = false;
       gtk-single-instance = true;
       config-file = "keybindings";
-      initial-command = "tmux new -A -s system";
     };
   };
 

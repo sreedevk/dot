@@ -58,6 +58,8 @@ in
 
       # SCROLL USING M-u & M-d
       bind -n M-u copy-mode
+      bind -n C-, send-keys C-,  
+      bind -n C-. send-keys C-.
       bind -T copy-mode-vi M-u send-keys -X halfpage-up
       bind -T copy-mode-vi M-d send-keys -X halfpage-down
 

@@ -3,24 +3,22 @@ return {
   lazy = false,
   keys = {
     {
-      'n',
+      "n",
       function()
-        vim.cmd([[execute('normal! ' . v:count1 . 'n')]])
+        vim.cmd("normal! " .. vim.v.count1 .. 'n')
         require('hlslens').start()
       end,
-      mode = 'n',
       noremap = true,
-      silent = true,
+      silent = true
     },
     {
-      'N',
+      "N",
       function()
-        vim.cmd([[execute('normal! ' . v:count1 . 'N')]])
+        vim.cmd("normal! " .. vim.v.count1 .. "N")
         require('hlslens').start()
       end,
-      mode = 'n',
       noremap = true,
-      silent = true,
+      silent = true
     },
     {
       '*',

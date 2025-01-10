@@ -144,7 +144,7 @@ return {
     lazy = true,
     cmd = "TableModeToggle",
     keys = {
-      { '<Leader>tm', mode = "n", "<cmd>TableModeToggle<CR>", desc = "Vim Table Mode" },
+      { '<Leader>tm', mode = "n", function() vim.cmd([[TableModeToggle]]) end, desc = "Vim Table Mode Toggle" },
     }
   },
 
@@ -153,7 +153,7 @@ return {
     lazy = true,
     cmd = "UndotreeToggle",
     keys = {
-      { '<Leader>u', "<cmd>UndotreeToggle<CR>", desc = "Toggle Undotree" },
+      { '<Leader>uu', function() vim.cmd([[UndotreeToggle]]) end, desc = "Toggle Undotree" },
     },
     init = function()
       vim.g.undotree_TreeNodeShape = '◉'
