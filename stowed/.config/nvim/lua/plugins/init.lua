@@ -5,7 +5,6 @@ return {
   'preservim/vim-indent-guides',
   'tpope/vim-characterize',
   'tpope/vim-ragtag',
-  'tpope/vim-rails',
   'tpope/vim-repeat',
   'tpope/vim-surround',
   'tpope/vim-apathy',
@@ -15,6 +14,19 @@ return {
   { 'ledger/vim-ledger',                  lazy = true,  config = false, ft = { 'ledger', 'journal' } },
   { "tpope/vim-tbone",                    lazy = true,  config = false, cmd = { "Tmux", "Tyank", "Tput", "Twrite", "Tattach" } },
   { "tiagovla/scope.nvim",                lazy = false, config = true },
+
+  {
+    'tpope/vim-rails',
+    lazy = false,
+    config = function()
+      vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPost' }, {
+        pattern = { '*.yml' },
+        callback = function()
+          vim.bo.filetype = 'yaml'
+        end
+      })
+    end
+  },
 
   {
     'hat0uma/csvview.nvim',
