@@ -27,6 +27,11 @@ return {
           {
             'buffers',
             mode = 2,
+            use_mode_colors = false,
+            buffers_color = {
+              active = { fg = '#8443e3', gui = 'italic,bold' },
+              inactive = { fg = 'grey' },
+            },
             symbols = {
               modified = ' ●',
               alternate_file = '#',
