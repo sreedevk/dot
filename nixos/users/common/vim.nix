@@ -36,7 +36,6 @@ in
       Plug 'ayu-theme/ayu-vim'
       Plug 'bling/vim-airline'
       Plug 'chrisbra/csv.vim'
-      Plug 'chrisbra/csv.vim'
       Plug 'ctrlpvim/ctrlp.vim'
       Plug 'easymotion/vim-easymotion'
       Plug 'jdhao/better-escape.vim'
