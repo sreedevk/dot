@@ -20,6 +20,13 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+  pattern = "csv",
+  callback = function()
+    vim.opt.wrap = false
+  end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
   pattern = "ruby",
   callback = function()
     local function extend_hl(name, def)

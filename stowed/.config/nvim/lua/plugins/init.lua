@@ -12,10 +12,18 @@ return {
 
   { "chrisgrieser/nvim-early-retirement", lazy = true,  config = true,  event = "VeryLazy" },
   { 'petertriho/nvim-scrollbar',          lazy = true,  config = true,  event = "BufReadPost" },
-  { 'chrisbra/csv.vim',                   lazy = true,  config = false, ft = "csv" },
   { 'ledger/vim-ledger',                  lazy = true,  config = false, ft = { 'ledger', 'journal' } },
   { "tpope/vim-tbone",                    lazy = true,  config = false, cmd = { "Tmux", "Tyank", "Tput", "Twrite", "Tattach" } },
   { "tiagovla/scope.nvim",                lazy = false, config = true },
+
+  {
+    'hat0uma/csvview.nvim',
+    lazy = true,
+    config = true,
+    keys = {
+      { '<Leader>csv', function() require('csvview').toggle() end, desc = "Toggle CSV View" }
+    }
+  },
 
   {
     'tpope/vim-eunuch',
