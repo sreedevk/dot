@@ -16,6 +16,14 @@
             bind "Esc" "Esc" { SwitchToMode "Scroll"; }
             bind "Enter" { SwitchToMode "Search"; }
           }
+          move {
+            bind "Esc" { SwitchToMode "Normal"; }
+            bind "Enter" { SwitchToMode "Normal"; }
+            bind "h" { MovePane "Left"; }
+            bind "l" { MovePane "Right"; }
+            bind "k" { MovePane "Up"; }
+            bind "j" { MovePane "Down"; }
+          }
           search {
             bind "Esc" { ScrollToBottom; SwitchToMode "Normal"; }
             bind "j" "Down" { ScrollDown; }
@@ -63,6 +71,7 @@
           }
           pane {
             bind "Esc" { SwitchToMode "Normal"; }
+            bind "Enter" { SwitchToMode "Normal"; }
             bind "h" "Left" { MoveFocus "Left"; }
             bind "l" "Right" { MoveFocus "Right"; }
             bind "j" "Down" { MoveFocus "Down"; }
@@ -109,8 +118,8 @@
             bind "[" { SwitchToMode "Scroll"; }
             bind "p" { SwitchToMode "Pane"; }
             bind "%" { NewPane "Right"; SwitchToMode "Normal"; }
-            bind "," { SwitchToMode "RenameTab"; }
             bind "\"" { NewPane "Down"; SwitchToMode "Normal"; }
+            bind "," { SwitchToMode "RenameTab"; }
             bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
             bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
             bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
@@ -118,6 +127,7 @@
             bind "o" { FocusNextPane; }
             bind "d" { Detach; }
             bind "s" { SwitchToMode "Session"; }
+            bind "m" { SwitchToMode "Move"; }
             bind "Space" { NextSwapLayout; }
             bind "x" { CloseFocus; SwitchToMode "Normal"; }
             bind "r" { SwitchToMode "Resize"; }
