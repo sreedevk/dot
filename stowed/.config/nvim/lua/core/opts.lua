@@ -103,8 +103,6 @@ vim.opt.sessionoptions  = {
   'buffers',
   'curdir',
   'folds',
-  'localoptions',
-  'options',
 }
 
 vim.opt.completeopt     = {
