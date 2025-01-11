@@ -1,6 +1,6 @@
 return {
   'kevinhwang91/nvim-hlslens',
-  lazy = false,
+  lazy = true,
   keys = {
     {
       'n',
