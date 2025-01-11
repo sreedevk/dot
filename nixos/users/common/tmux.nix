@@ -21,7 +21,7 @@ in
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "tmux-256color";
     historyLimit = 100000;
-    keyMode = "vi";
+    keyMode = "emacs";
     plugins = with pkgs; [
       {
         plugin = tmux-super-fingers;
@@ -128,6 +128,7 @@ in
       set -g  set-titles-string "#I:#W"
       set -g  remain-on-exit off
       set -g  @copy_use_osc52_fallback on
+      set -g allow-passthrough on
 
       setw -g allow-rename on
       setw -g automatic-rename on
