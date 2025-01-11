@@ -2,7 +2,7 @@
 {
   programs.newsboat = {
     enable = true;
-    autoReload = true;
+    autoReload = false;
     reloadThreads = 8;
     reloadTime = 120;
     browser = "brave";
