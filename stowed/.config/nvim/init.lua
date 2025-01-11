@@ -12,7 +12,7 @@
 
 require 'core.opts'
 require 'core.filetypes'
-require 'clipboard'
+require 'core.functions'
 require 'pack'
 require 'lsp'
 require 'core.commands'

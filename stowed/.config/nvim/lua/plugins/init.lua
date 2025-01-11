@@ -144,7 +144,7 @@ return {
     lazy = true,
     cmd = "TableModeToggle",
     keys = {
-      { '<Leader>tm', mode = "n", function() vim.cmd([[TableModeToggle]]) end, desc = "Vim Table Mode Toggle" },
+      { '<Leader>tm', mode = "n", wrap_cmd("TableModeToggle"), desc = "Vim Table Mode Toggle" },
     }
   },
 
@@ -153,7 +153,7 @@ return {
     lazy = true,
     cmd = "UndotreeToggle",
     keys = {
-      { '<Leader>uu', function() vim.cmd([[UndotreeToggle]]) end, desc = "Toggle Undotree" },
+      { '<Leader>uu', wrap_cmd("UndotreeToggle"), desc = "Toggle Undotree" },
     },
     init = function()
       vim.g.undotree_TreeNodeShape = '◉'
@@ -177,7 +177,7 @@ return {
     lazy = true,
     ft = { "css", "scss", "less" },
     keys = {
-      { '<Leader>co', function() vim.cmd([[ColorizerToggle]]) end, desc = "Toggle Colorizer", noremap = true }
+      { '<Leader>co', wrap_cmd("ColorizerToggle"), desc = "Toggle Colorizer", noremap = true }
     },
     cmd = {
       'ColorizerAttachToBuffer',
