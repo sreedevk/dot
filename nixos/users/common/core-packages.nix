@@ -19,25 +19,19 @@
     gperf
     grex
     hex
-    html-tidy
     httpie
-    hyperfine
     id3v2
     imagemagick
-    ipcalc
     jaq
     jq
     less
     lua
     luau
     mediainfo
-    miller
     mosh
-    nasm
     netcat-gnu
     nettools
     nix-prefetch-git
-    nmap
     ouch
     p7zip
     pass
@@ -49,15 +43,11 @@
     ripgrep
     ripgrep-all
     rsync
-    sc-im
     sshfs
     starship
     tailspin
-    tokei
     traceroute
     tree
-    tty-clock
-    uiua
     unrar
     wget
     xh

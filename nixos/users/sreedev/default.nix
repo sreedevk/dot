@@ -48,87 +48,108 @@ in
 
   home.packages =
     let
-      stable-packages = with nixpkgs-stable; [
-        (nerdfonts.override { fonts = [ "Iosevka" ]; })
-      ];
-
       nixgl-packages = [
         (nixglmod.nixGLWrapped pkgs.slack "slack")
         (nixglmod.nixGLWrapped pkgs.spotube "spotube")
       ];
 
-      unstable-packages = with pkgs; [
-        amfora
-        aria2
-        asciinema
-        asciinema-agg
-        aspell
-        aspellDicts.en
-        aspellDicts.en-computers
-        aspellDicts.en-science
-        beanstalkd
-        bitwarden-cli
-        cava
-        cmatrix
-        csvlens
-        dbeaver-bin
-        doctl
-        duckdb
-        emacs
-        fasm
-        filezilla
-        gimp-with-plugins
-        glab
-        glow
-        gping
-        graphviz
-        hexyl
-        hledger
-        hledger-iadd
-        hledger-ui
-        hledger-utils
-        hledger-web
-        hugo
-        id3v2
-        instaloader
-        jira-cli-go
-        just
-        k9s
-        kubectl
-        ledger
-        librecad
-        libreoffice-fresh
-        lmms
-        mdbook
-        ncdu
-        nemo-with-extensions
-        nerd-fonts.iosevka
-        nerd-fonts.iosevka-term
-        nixpkgs-fmt
-        nmap
-        nushell
-        openttd
-        oxker
-        pandoc
-        puffin
-        pwvucontrol
-        python312Packages.supervisor
-        qflipper
-        qrencode
-        radicle-httpd
-        radicle-node
-        rebar3
-        scdl
-        sonic-pi
-        tea
-        terminaltexteffects
-        texliveFull
-        tmuxinator
-        visidata
-        yt-dlp
-      ];
+      stable-packages = {
+        cli-packages = with nixpkgs-stable; [
+          (nerdfonts.override { fonts = [ "Iosevka" ]; })
+        ];
+        gui-packages = with nixpkgs-stable; [ ];
+      };
+
+      unstable-packages = {
+        gui-packages = with pkgs; [
+          dbeaver-bin
+          filezilla
+          gimp-with-plugins
+          librecad
+          libreoffice-fresh
+          lmms
+          nemo-with-extensions
+          openttd
+          pwvucontrol
+          qflipper
+          sonic-pi
+        ];
+        cli-packages = with pkgs; [
+          amfora
+          aria2
+          asciinema
+          asciinema-agg
+          aspell
+          aspellDicts.en
+          aspellDicts.en-computers
+          aspellDicts.en-science
+          beanstalkd
+          bitwarden-cli
+          cava
+          cmatrix
+          csvlens
+          doctl
+          duckdb
+          emacs
+          fasm
+          glab
+          glow
+          gping
+          graphviz
+          hexyl
+          hledger
+          hledger-iadd
+          hledger-ui
+          hledger-utils
+          hledger-web
+          html-tidy
+          hugo
+          hyperfine
+          id3v2
+          instaloader
+          ipcalc
+          jira-cli-go
+          just
+          k9s
+          kubectl
+          ledger
+          mdbook
+          miller
+          nasm
+          ncdu
+          nerd-fonts.iosevka
+          nerd-fonts.iosevka-term
+          nixpkgs-fmt
+          nmap
+          nushell
+          oxker
+          pandoc
+          python312Packages.supervisor
+          qrencode
+          radicle-httpd
+          radicle-node
+          rebar3
+          sc-im
+          scdl
+          tea
+          terminaltexteffects
+          texliveFull
+          tmuxinator
+          tokei
+          tty-clock
+          uiua
+          visidata
+          yt-dlp
+        ];
+      };
     in
-    stable-packages ++ unstable-packages ++ nixgl-packages;
+    builtins.concatLists [
+      stable-packages.gui-packages
+      stable-packages.cli-packages
+      unstable-packages.gui-packages
+      unstable-packages.cli-packages
+      nixgl-packages
+    ];
 
   home.file.".zshenv" = {
     enable = true;
