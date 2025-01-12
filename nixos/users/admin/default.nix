@@ -11,7 +11,6 @@
     ../common/git.nix
     ../common/htop.nix
     ../common/jujutsu.nix
-    ../common/keybase.nix
     ../common/neovim.nix
     ../common/tmux.nix
     ../common/vim.nix
