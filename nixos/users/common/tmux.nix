@@ -21,7 +21,6 @@ in
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "tmux-256color";
     historyLimit = 100000;
-    keyMode = "emacs";
     plugins = with pkgs; [
       {
         plugin = tmux-super-fingers;
@@ -102,6 +101,14 @@ in
       # SESSION MERGE
       bind C-u command-prompt -p "Session to merge with: " \
          "run-shell 'yes | head -n #{session_windows} | xargs -I {} -n 1 tmux movew -t %%'"
+
+      # MODE KEYS
+      set -g status-keys emacs
+      set -g mode-keys   vi
+
+      # CLEAN UP VI MODE
+      unbind C-,
+      unbind C-.
 
       # STATUS BAR
       set -g status on
