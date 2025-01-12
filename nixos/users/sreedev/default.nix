@@ -63,7 +63,6 @@ in
 
       unstable-packages = with pkgs; [
         amfora
-        arandr
         aria2
         asciinema
         asciinema-agg
@@ -71,20 +70,15 @@ in
         aspellDicts.en
         aspellDicts.en-computers
         aspellDicts.en-science
-        autorandr
         beanstalkd
         bitwarden-cli
-        brightnessctl
-        clang
         cmatrix
         csvlens
         dbeaver-bin
-        delta
         doctl
         duckdb
         emacs
         fasm
-        feh
         filezilla
         glab
         glow
@@ -105,24 +99,19 @@ in
         kubectl
         librecad
         libreoffice-fresh
-        maim
         mdbook
         ncdu
         nemo-with-extensions
         nerd-fonts.iosevka
         nerd-fonts.iosevka-term
-        nixops_unstable_minimal
         nixpkgs-fmt
         nmap
-        nodejs_23
         nushell
         openttd
         oxker
         pandoc
-        playerctl
         puffin
         pwvucontrol
-        python311Packages.i3ipc
         python312Packages.supervisor
         qflipper
         qrencode
@@ -131,14 +120,11 @@ in
         rebar3
         scdl
         sonic-pi
-        superfile
         tea
         terminaltexteffects
         texliveFull
         tmuxinator
-        turbo
         visidata
-        yarn
         yt-dlp
       ];
     in

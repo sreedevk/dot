@@ -1,5 +1,16 @@
-{ pkgs, config, ... }:
+{ pkgs, config, opts, ... }:
+let
+  set-wallpaper = pkgs.writeShellScriptBin "set-wallpaper" ''
+    ${pkgs.feh}/bin/feh --no-fehbg --bg-scale "${opts.directories.wallpapers}/${opts.wallpaper}" 
+  '';
+in
 {
+
+  home.packages = with pkgs; [
+    arandr
+    python311Packages.i3ipc
+  ];
+
   home.file = {
     "i3config" = {
       enable = true;
@@ -27,7 +38,7 @@
         exec_always --no-startup-id ~/.config/polybar/launch.sh
         exec_always --no-startup-id ${pkgs.autotiling}/bin/autotiling
         exec_always --no-startup-id picom -b
-        exec_always --no-startup-id ~/.fehbg
+        exec_always --no-startup-id ${set-wallpaper}/bin/set-wallpaper
 
         # Disable Screen Blanking
         exec --no-startup-id xset s off
