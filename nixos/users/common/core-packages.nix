@@ -11,11 +11,6 @@
     eza
     fd
     fzf
-    git
-    git-crypt
-    git-filter-repo
-    git-sizer
-    gitleaks
     gperf
     grex
     hex
