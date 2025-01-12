@@ -14,21 +14,7 @@ in
   home.file = {
     ".vim/autoload/plug.vim".source = vimPlug;
     ".vimrc".text = ''
-      "  ██▒   █▓ ██▓ ███▄ ▄███▓ ██▀███   ▄████▄  
-      " ▓██░   █▒▓██▒▓██▒▀█▀ ██▒▓██ ▒ ██▒▒██▀ ▀█  
-      "  ▓██  █▒░▒██▒▓██    ▓██░▓██ ░▄█ ▒▒▓█    ▄ 
-      "   ▒██ █░░░██░▒██    ▒██ ▒██▀▀█▄  ▒▓▓▄ ▄██▒
-      "    ▒▀█░  ░██░▒██▒   ░██▒░██▓ ▒██▒▒ ▓███▀ ░
-      "    ░ ▐░  ░▓  ░ ▒░   ░  ░░ ▒▓ ░▒▓░░ ░▒ ▒  ░
-      "    ░ ░░   ▒ ░░  ░      ░  ░▒ ░ ▒░  ░  ▒   
-      "      ░░   ▒ ░░      ░     ░░   ░ ░        
-      "       ░   ░         ░      ░     ░ ░      
-      "      ░                           ░        
-      " AUTHOR: SREEDEV KODICHATH
-
       set runtimepath+=~/.vim,~/.vim/after
-      " set packpath+=~/.vim
-      " source ~/.vimrc
 
       call plug#begin('~/.vim/plugged')
 
@@ -109,7 +95,6 @@ in
       autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
       autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
-
       if &term =~ '256color'
         set t_ut=
       endif
@@ -186,8 +171,6 @@ in
       vnoremap , :
       nnoremap n nzzzv
       nnoremap N Nzzzv
-
-
 
       silent! call airline#extensions#whitespace#disable()
 

@@ -18,11 +18,6 @@ in
       executable = false;
       target = ".config/i3/config";
       text = ''
-        # ┬3 ╦ ╦╔╦╗
-        # │  ║║║║║║
-        # ┴  ╚╩╝╩ ╩
-        # AUTHOR: SREEDEV KODICHATH
-
         # terminal
         set $term ${config.programs.kitty.package}/bin/kitty
 
