@@ -19,7 +19,7 @@ in
   programs.tmux = {
     enable = true;
     shell = "${pkgs.zsh}/bin/zsh";
-    terminal = "tmux-256color";
+    terminal = "xterm-256color";
     historyLimit = 100000;
     plugins = with pkgs; [
       {
@@ -128,7 +128,6 @@ in
       set -g  xterm-keys on
       set -s  extended-keys on
       set -as terminal-features 'xterm*:extkeys'
-      set -g  default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"
       set -g  buffer-limit  20
       set -g  set-titles on
