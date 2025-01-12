@@ -33,6 +33,7 @@ in
     ../common/nsxiv.nix
     ../common/opentabletdriver.nix
     ../common/rofi
+    ../common/starship.nix
     ../common/stylix.nix
     ../common/taskwarrior.nix
     ../common/tmux-sessionizer.nix
