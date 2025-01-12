@@ -50,10 +50,6 @@ in
     let
       stable-packages = with nixpkgs-stable; [
         (nerdfonts.override { fonts = [ "Iosevka" ]; })
-        cava
-        gimp-with-plugins
-        ledger
-        lmms
       ];
 
       nixgl-packages = [
@@ -72,6 +68,7 @@ in
         aspellDicts.en-science
         beanstalkd
         bitwarden-cli
+        cava
         cmatrix
         csvlens
         dbeaver-bin
@@ -80,6 +77,7 @@ in
         emacs
         fasm
         filezilla
+        gimp-with-plugins
         glab
         glow
         gping
@@ -97,8 +95,10 @@ in
         just
         k9s
         kubectl
+        ledger
         librecad
         libreoffice-fresh
+        lmms
         mdbook
         ncdu
         nemo-with-extensions
