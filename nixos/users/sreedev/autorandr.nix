@@ -9,8 +9,7 @@ let
 in
 {
 
-  services.autorandr.enable = true;
-
+  services.autorandr.enable = false;
   programs.autorandr = {
     enable = true;
     profiles = {

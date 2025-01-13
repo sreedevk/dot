@@ -8,7 +8,12 @@ in
 
   programs.alacritty = {
     enable = true;
-    package = nixglmod.nixGLWrapped pkgs.alacritty "alacritty";
+    # NOTE: pkgs.alacritty contains 0.14, will revert to pkgs.alacritty after 0.15
+    # Currencly uses a custom build of alacritty from github/alacritty/alacritty:master
+    # package = nixglmod.nixGLWrapped pkgs.alacritty "alacritty";
+    package = pkgs.writeShellScriptBin "alacritty" ''
+      /usr/local/bin/alacritty
+    '';
     settings = {
       colors = {
         draw_bold_text_with_bright_colors = true;
