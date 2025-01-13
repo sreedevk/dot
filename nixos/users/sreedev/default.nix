@@ -26,7 +26,6 @@ in
     ../common/jujutsu.nix
     ../common/keybase.nix
     ../common/keyboard.nix
-    ../common/kitty
     ../common/neovide.nix
     ../common/neovim.nix
     ../common/newsboat.nix
