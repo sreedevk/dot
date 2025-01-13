@@ -18,7 +18,7 @@ export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
 export VISUAL="nvim"
 export EDITOR="nvim"
 export READER="zathura"
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 export BROWSER="brave"
 export DOTFILES="$HOME/.dot"
 

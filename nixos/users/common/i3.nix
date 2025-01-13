@@ -19,7 +19,7 @@ in
       target = ".config/i3/config";
       text = ''
         # terminal
-        set $term ${config.programs.kitty.package}/bin/kitty
+        set $term ${config.programs.alacritty.package}/bin/alacritty
 
         # Application Launcher
         set $app_launcher    "${pkgs.rofi}/bin/rofi -show drun"
