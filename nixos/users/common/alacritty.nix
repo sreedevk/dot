@@ -6,9 +6,12 @@ in
 {
   programs.alacritty = {
     enable = true;
-    # NOTE: pkgs.alacritty contains 0.14, will revert to pkgs.alacritty after 0.15
+    # ISSUE: -----------------------------------------------------------------------------
+    # pkgs.alacritty contains 0.14, will revert to pkgs.alacritty after 0.15
     # Currencly uses a custom build of alacritty from github/alacritty/alacritty:master
     # package = nixglmod.nixGLWrapped pkgs.alacritty "alacritty";
+    # check: https://github.com/alacritty/alacritty/pull/8397
+    # ------------------------------------------------------------------------------------
     package = pkgs.writeShellScriptBin "alacritty" ''
       /usr/local/bin/alacritty
     '';

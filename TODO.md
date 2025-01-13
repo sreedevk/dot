@@ -1,9 +1,5 @@
 # NeoVim
-- [ ] Alacritty Multi Key Sends Inside Neovim
-    - Alacritty has an issue where inside neovim "backspace" character is sent multiple times 
-    - fixed in: [8397](https://github.com/alacritty/alacritty/pull/8397) waiting for release
-    - Alacritty disabled until 0.15 is available in nixpkgs
-- [-] Code Companion Plugin Read OPENAI_API_KEY from env rather than agenix file
+- [ ] Code Companion Plugin Read OPENAI_API_KEY from env rather than agenix file
     - CodeCompanion depends on $OPENAI_API_KEY env variable, move this config to nix to rely on agenix directly
 - [x] Kitty Existing Neovim After Opening "Overseer nvim" Puts Prompt at "execute:3u"
     - This was the `vicmd` mode in zsh. 
@@ -16,9 +12,9 @@
     - Issue raised [here](https://github.com/theamallalgi/zitchdog/issues/2)
     - temporarily using tokyonight
     - Fixed in Commit [85caa7c094d6481b985a8280d2f77ab7a45c44ec](https://github.com/theamallalgi/zitchdog/commit/85caa7c094d6481b985a8280d2f77ab7a45c44ec)
-- [ ] Treewalker plugin will fail on empty buffers verbosely. Prevent it from loading if treesitter is not available for buffer
-- [ ] in Neovim, add a custom dial.nvim set to alternate
-between `[ '*', '!']` for hledger transaction status
+- [x] Treewalker plugin will fail on empty buffers verbosely. Prevent it from loading if treesitter is not available for buffer
+    - Fixed by lazy loading plugin on C-j & C-k
+- [ ] in Neovim, add a custom dial.nvim set to alternate between `[ '*', '!']` for hledger transaction status
 - [ ] Build / Find a Hledger Treesitter Library
 - [ ] Add nvim-lint
 
@@ -32,10 +28,17 @@ between `[ '*', '!']` for hledger transaction status
 # Ghostty
 - [ ] Unable to make write_scrollback_buffer option work with `open` param
     - Tried to set `text/plain` mime type xdg application to neovim.desktop
-    - Even if this works, I don't have a way to load an arbitrary neovim config specifically for scrollback like I do in kitty
+    - Even if this works, I don't have a way to load an arbitrary neovim config specifically for scrollback.
 
 # Tmux
 - [x] restore ctrl+b plus [  to enter scrollback mode in tmux
 
 # Wayland / Xorg
 - [ ] setup a global wayland = true option for nix users to switch options everywhere
+
+# Alacritty
+- [x] Alacritty Multi Key Sends Inside Neovim
+    - Alacritty has an issue where inside neovim "backspace" character is sent multiple times 
+    - fixed in: [8397](https://github.com/alacritty/alacritty/pull/8397) waiting for release
+    - Alacritty disabled until 0.15 is available in nixpkgs
+    - Fixed by creating a custom 0.15 build from head of master
