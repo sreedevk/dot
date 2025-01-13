@@ -4,10 +4,9 @@
   };
 
   wallpaper = "wallhaven-d61kgg.jpg";
-  # wayland / x11 / none
-  desktop = "wayland";
+  desktop = "wayland"; # wayland / x11 / none
 
   directories = {
-    wallpapers = "~/Media/wallpapers";
+    wallpapers = "${builtins.getEnv "HOME"}/Media/wallpapers";
   };
 }

@@ -72,6 +72,11 @@ in
             position = "0x0";
             rate = "60.00";
             dpi = 96;
+            scale = {
+              method = "factor";
+              x = 2.0;
+              y = 2.0;
+            };
           };
 
           "home-primary" = {
@@ -82,7 +87,11 @@ in
             primary = true;
             rate = "60.00";
             dpi = 96;
-            # scale = { method = "factor"; x = 1.2; y = 1.2; };
+            scale = {
+              method = "factor";
+              x = 1.0;
+              y = 1.0;
+            };
           };
 
           "home-tertiary" = {
@@ -93,6 +102,11 @@ in
             primary = false;
             rate = "60.03";
             dpi = 96;
+            scale = {
+              method = "factor";
+              x = 2.0;
+              y = 2.0;
+            };
           };
         };
       };

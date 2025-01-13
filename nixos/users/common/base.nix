@@ -60,11 +60,11 @@
       recursive = true;
       text = ''
         export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
-        export GDK_SCALE=1.1
-        export GDK_DPI_SCALE=1.1
-        export QT_AUTO_SCREEN_SCALE_FACTOR=1.1
-        export QT_SCALE_FACTOR=1.1
-        export WINIT_X11_SCALE_FACTOR=1.1
+        export GDK_SCALE=1.0
+        export GDK_DPI_SCALE=1.0
+        export QT_AUTO_SCREEN_SCALE_FACTOR=1.0
+        export QT_SCALE_FACTOR=1.0
+        export WINIT_X11_SCALE_FACTOR=1.0
       '';
     };
 

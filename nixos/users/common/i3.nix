@@ -1,11 +1,11 @@
 { pkgs, config, opts, ... }:
 let
+  wallpaper_path = "${opts.directories.wallpapers}/${opts.wallpaper}";
   set-wallpaper = pkgs.writeShellScriptBin "set-wallpaper" ''
-    ${pkgs.feh}/bin/feh --no-fehbg --bg-scale "${opts.directories.wallpapers}/${opts.wallpaper}" 
+    ${pkgs.feh}/bin/feh --no-fehbg --bg-scale ${wallpaper_path} 
   '';
 in
 {
-
   home.packages = with pkgs; [
     arandr
     python311Packages.i3ipc
