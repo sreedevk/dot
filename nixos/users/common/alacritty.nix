@@ -1,11 +1,9 @@
 { pkgs, lib, config, ... }:
 let
   nixglmod = import ./nixGL.nix { inherit lib config pkgs; };
+  theme = (import ./themes.nix).zitchdog-grape;
 in
 {
-
-  stylix.targets.alacritty.enable = true;
-
   programs.alacritty = {
     enable = true;
     # NOTE: pkgs.alacritty contains 0.14, will revert to pkgs.alacritty after 0.15
@@ -17,6 +15,12 @@ in
     settings = {
       colors = {
         draw_bold_text_with_bright_colors = true;
+      };
+
+      general = {
+        import = [
+          "${builtins.getEnv "HOME"}/.config/alacritty/theme.toml"
+        ];
       };
 
       cursor = {
@@ -61,9 +65,49 @@ in
       };
 
       window = {
+        opacity = 0.8;
+        blur = true;
         decorations = "full";
         padding = { x = 5; y = 5; };
       };
+    };
+  };
+
+  home.file = {
+    ".config/alacritty/theme.toml" = {
+      enable = true;
+      text = ''
+        [colors.primary]
+        background = "${theme.background}"
+        foreground = "${theme.foreground}"
+
+        [colors.cursor]
+        cursor = "${theme.cursor}"
+
+        [colors.selection]
+        text = "CellForeground"
+        background = "#120c16"
+
+        [colors.normal]
+        black = "${theme.color0}"
+        red = "${theme.color1}"
+        green = "${theme.color2}"
+        yellow = "${theme.color3}"
+        blue = "${theme.color4}"
+        magenta = "${theme.color5}"
+        cyan = "${theme.color6}"
+        white = "${theme.color7}"
+
+        [colors.bright]
+        black = "${theme.color8}"
+        red = "${theme.color9}"
+        green = "${theme.color10}"
+        yellow = "${theme.color11}"
+        blue = "${theme.color12}"
+        magenta = "${theme.color13}"
+        cyan = "${theme.color14}"
+        white = "${theme.color15}"
+      '';
     };
   };
 }
