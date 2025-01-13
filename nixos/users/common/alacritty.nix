@@ -75,8 +75,8 @@ in
           cursor = theme.cursor;
         };
         selection = {
-          text = "CellForeground";
-          background = theme.selection_background;
+          text = "#FFFFFF";
+          background = "#C76E00";
         };
         normal = {
           black = theme.color0;
