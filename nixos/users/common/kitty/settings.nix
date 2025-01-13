@@ -19,7 +19,6 @@
   pointer_shape_when_dragging = "hand";
   scrollback_lines = 10000;
   scrollback_pager = "${config.programs.neovim.package}/bin/nvim -c \"lua require('core.utils'):colorize()\"";
-  selection_background = "none";
   selection_foreground = "none";
   shell_integration = "disabled";
   tab_bar_align = "left";

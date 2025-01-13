@@ -86,7 +86,7 @@ in
 
         [colors.selection]
         text = "CellForeground"
-        background = "#120c16"
+        background = "${theme.selection_background}"
 
         [colors.normal]
         black = "${theme.color0}"
