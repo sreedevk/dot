@@ -63,7 +63,7 @@ in
       terminal = {
         shell = {
           args = [ "--login" ];
-          program = "/usr/bin/zsh";
+          program = "${pkgs.zsh}/bin/zsh";
         };
       };
 

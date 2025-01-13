@@ -12,3 +12,6 @@ if [ -f "$HOME/.nix-profile/share/asdf-vm/asdf.sh" ]; then
   . "$HOME/.nix-profile/share/asdf-vm/completions/asdf.bash"
 fi
 
+if command -v opam &> /dev/null; then
+  eval $(opam env)
+fi
