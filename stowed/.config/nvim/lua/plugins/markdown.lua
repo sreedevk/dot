@@ -8,13 +8,7 @@ return {
       enabled = true,
       code = {
         enabled = true,
-      },
-      file_types = { 'markdown', 'lsp_markdown' },
-      render_modes = { 'n', 'c', 't' },
-      heading = {
-        enabled = true,
         render_modes = false,
-        sign = false,
         style = 'full',
         disable_background = true,
         width = 'block',
@@ -24,6 +18,12 @@ return {
         highlight = 'RenderMarkdownCode',
         highlight_inline = 'RenderMarkdownCodeInline',
         inline_pad = 4,
+      },
+      file_types = { 'markdown', 'lsp_markdown' },
+      render_modes = { 'n', 'c', 't' },
+      heading = {
+        enabled = true,
+        sign = false,
       },
     },
     dependencies = {
