@@ -7,7 +7,7 @@ vim.g.dotfiles          = vim.env.DOTFILES or vim.fn.expand('~/.dot')
 vim.g.auxbuffers        = {
   "qf", "help", "man", "notify", "nofile", "lspinfo",
   "terminal", "prompt", "toggleterm", "startuptime",
-  "tsplayground", "PlenaryTestPopup", "trouble"
+  "tsplayground", "PlenaryTestPopup", "trouble", "vim"
 }
 
 vim.opt.ruler           = true

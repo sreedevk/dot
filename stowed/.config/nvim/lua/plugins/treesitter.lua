@@ -74,6 +74,7 @@ return {
         auto_install = false,
         incremental_selection = {
           enable = true,
+          disable = vim.g.auxbuffers,
           keymaps = {
             init_selection = "<CR>",
             scope_incremental = "grn",
