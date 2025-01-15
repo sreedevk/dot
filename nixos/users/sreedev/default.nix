@@ -124,6 +124,7 @@ in
           nushell
           oxker
           pandoc
+          pueue
           python312Packages.supervisor
           qrencode
           radicle-httpd
@@ -169,6 +170,15 @@ in
       export HUGGING_FACE_TOKEN="$(cat ${config.age.secrets.hugging_face_token.path})"
       export OPENAI_API_KEY="$(cat ${config.age.secrets.openai_api_key.path})"
     '';
+  };
+
+  services.pueue = {
+    enable = true;
+    settings = {
+      daemon = {
+        default_parallel_tasks = 4;
+      };
+    };
   };
 
   services.ssh-agent.enable = true;

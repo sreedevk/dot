@@ -15,3 +15,7 @@ fi
 if command -v opam &> /dev/null; then
   eval $(opam env)
 fi
+
+if command -v pueue &> /dev/null; then
+  eval "$(pueue completions zsh)"
+fi
