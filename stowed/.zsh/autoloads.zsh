@@ -19,3 +19,7 @@ fi
 if [ -f "$HOME/.cargo/env" ]; then
   . $HOME/.cargo/env
 fi
+
+if [ -f "$HOME/.fzf.zsh" ]; then
+  source "$HOME/.fzf.zsh"
+fi
