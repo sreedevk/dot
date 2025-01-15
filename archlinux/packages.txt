@@ -1,3 +1,4 @@
+alacritty
 alsa-firmware
 alsa-plugins
 alsa-utils
@@ -32,13 +33,12 @@ gamescope
 gdb
 git
 git-lfs
+grim
 grub
 gst-libav
+gst-plugin-pipewire
 gst-plugins-good
 gstreamer
-hyprland
-hyprlock
-hyprpaper
 i3-wm
 incus
 incus-tools
@@ -46,8 +46,11 @@ inotify-tools
 intel-media-driver
 iw
 iwd
+less
+lib32-zlib
 libnotify
 libpam-google-authenticator
+libqalculate
 libva-nvidia-driver
 linux
 linux-firmware
@@ -58,7 +61,6 @@ mariadb-clients
 mesa-utils
 meson
 mpv
-neovim
 ninja
 nmap
 noto-fonts
@@ -67,6 +69,7 @@ noto-fonts-emoji
 nvidia
 nvidia-settings
 nvtop
+obs-studio
 openblas
 opencl-nvidia
 openresolv
@@ -95,6 +98,7 @@ sdl2_image
 sdl2_mixer
 sdl2_net
 sdl2_ttf
+slurp
 snd
 sndio
 sof-firmware
@@ -129,8 +133,6 @@ wireplumber
 wl-clipboard
 wlsunset
 xclip
-xdg-desktop-portal-hyprland
-xdg-desktop-portal-wlr
 xdo
 xf86-video-vesa
 xorg-server

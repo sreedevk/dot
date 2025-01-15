@@ -17,6 +17,10 @@ let
     };
   };
 
+  taskwarrior-tui-taskopenscript = pkgs.writeShellScriptBin "tt-taskopen" ''
+    taskopen $@
+  '';
+
   taskwarrior-notifier = pkgs.writeShellScriptBin "taskwarrior-notify-due" ''
     export DISPLAY=:1
     now=$(date +%s)
@@ -125,6 +129,7 @@ let
       urgency.uda.priority.H.coefficient=${builtins.toString configs.coefficients.uda.H}
       urgency.uda.priority.M.coefficient=${builtins.toString configs.coefficients.uda.M}
       urgency.uda.priority.L.coefficient=${builtins.toString configs.coefficients.uda.L}
+      uda.taskwarrior-tui.shortcuts.1=${taskwarrior-tui-taskopenscript}/bin/tt-taskopen
       ${mkprojectCoefficients configs.coefficients.user.projects}
       ${mktagCoefficients configs.coefficients.user.tags}
     '';

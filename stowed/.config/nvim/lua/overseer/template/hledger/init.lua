@@ -1,0 +1,3 @@
+return {
+  "hledger.check",
+}

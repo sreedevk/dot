@@ -15,7 +15,14 @@ let
       if [[ $# -eq 1 ]]; then
         selected=$1
       else
-        selected=$(fd . ~/Data/repositories/ ~/Data/**/repositories/ -td -d1 | fzf)
+        selected=$(
+          (
+            fd . ~/Data/repositories/ ~/Data/**/repositories/ -td -d1
+            echo "$HOME/.dot/"
+            echo "$HOME/Data/finances/"
+            echo "$HOME/Data/notebook/"
+          ) | fzf
+        )
       fi
 
       if [[ -z $selected ]]; then

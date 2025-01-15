@@ -1,9 +1,12 @@
-{ pkgs, config, nixpkgs-stable, ... }:
+{ pkgs, lib, config, nixpkgs-stable, ... }:
+let
+  nixglmod = import ../common/nixGL.nix { inherit lib config pkgs; };
+in
 {
   imports = [
     ../../../secrets/mappings.nix
     ../common/alacritty.nix
-    ../common/audioctrl.nix
+    ../common/asdf.nix
     ../common/awscli.nix
     ../common/base.nix
     ../common/btop.nix
@@ -19,19 +22,17 @@
     ../common/gpg.nix
     ../common/htop.nix
     ../common/hyprland
+    ../common/i3.nix
     ../common/jujutsu.nix
     ../common/keybase.nix
     ../common/keyboard.nix
-    ../common/kitty.nix
     ../common/neovide.nix
     ../common/neovim.nix
     ../common/newsboat.nix
     ../common/nsxiv.nix
     ../common/opentabletdriver.nix
-    ../common/radicle.nix
     ../common/rofi
-    ../common/slack.nix
-    ../common/spotube.nix
+    ../common/starship.nix
     ../common/stylix.nix
     ../common/taskwarrior.nix
     ../common/tmux-sessionizer.nix
@@ -39,98 +40,117 @@
     ../common/vim.nix
     ../common/xresources.nix
     ../common/zathura.nix
+    ../common/zellij.nix
     ../common/zsh.nix
+    ./autorandr.nix
     ./backup.nix
   ];
 
   home.packages =
     let
-      stable-packages = with nixpkgs-stable; [
-        (nerdfonts.override { fonts = [ "Iosevka" ]; })
-        cava
-        gimp-with-plugins
-        ledger
+      nixgl-packages = [
+        (nixglmod.nixGLWrapped pkgs.slack "slack")
+        (nixglmod.nixGLWrapped pkgs.spotube "spotube")
       ];
 
-      unstable-packages = with pkgs; [
-        amfora
-        aria2
-        asciinema
-        asciinema-agg
-        aspell
-        aspellDicts.en
-        aspellDicts.en-computers
-        aspellDicts.en-science
-        beanstalkd
-        bitwarden-cli
-        brightnessctl
-        clang
-        cmatrix
-        csvlens
-        dbeaver-bin
-        delta
-        doctl
-        duckdb
-        emacs
-        feh
-        filezilla
-        glab
-        glow
-        gping
-        graphviz
-        hexyl
-        hledger
-        hledger-iadd
-        hledger-ui
-        hledger-utils
-        hledger-web
-        hugo
-        id3v2
-        instaloader
-        jira-cli-go
-        just
-        k9s
-        kubectl
-        librecad
-        libreoffice-fresh
-        lmms
-        maim
-        mdbook
-        ncdu
-        nemo-with-extensions
-        nerd-fonts.iosevka
-        nerd-fonts.iosevka-term
-        nixops_unstable_minimal
-        nixpkgs-fmt
-        nmap
-        nodejs_22
-        nsxiv
-        nushell
-        openttd
-        oxker
-        pandoc
-        playerctl
-        puffin
-        pwvucontrol
-        python311Packages.i3ipc
-        python312Packages.supervisor
-        qflipper
-        qrencode
-        rebar3
-        scdl
-        sonic-pi
-        superfile
-        tea
-        texliveFull
-        tmuxinator
-        turbo
-        visidata
-        yarn
-        yt-dlp
-        zellij
-      ];
+      stable-packages = {
+        cli-packages = with nixpkgs-stable; [
+          (nerdfonts.override { fonts = [ "Iosevka" ]; })
+        ];
+        gui-packages = with nixpkgs-stable; [ ];
+      };
+
+      unstable-packages = {
+        gui-packages = with pkgs; [
+          dbeaver-bin
+          filezilla
+          gimp-with-plugins
+          librecad
+          libreoffice-fresh
+          lmms
+          nemo-with-extensions
+          openttd
+          pwvucontrol
+          qflipper
+          sonic-pi
+        ];
+        cli-packages = with pkgs; [
+          amfora
+          aria2
+          asciinema
+          asciinema-agg
+          aspell
+          aspellDicts.en
+          aspellDicts.en-computers
+          aspellDicts.en-science
+          beanstalkd
+          bitwarden-cli
+          cava
+          cmatrix
+          csvlens
+          doctl
+          duckdb
+          emacs
+          fasm
+          glab
+          glow
+          gping
+          graphviz
+          hexyl
+          hledger
+          hledger-iadd
+          hledger-ui
+          hledger-utils
+          hledger-web
+          html-tidy
+          hugo
+          hyperfine
+          id3v2
+          instaloader
+          ipcalc
+          jira-cli-go
+          just
+          k9s
+          kubectl
+          ledger
+          mdbook
+          miller
+          nasm
+          ncdu
+          nerd-fonts.iosevka
+          nerd-fonts.iosevka-term
+          nixpkgs-fmt
+          nmap
+          nushell
+          oxker
+          pandoc
+          pueue
+          python312Packages.supervisor
+          qrencode
+          radicle-httpd
+          radicle-node
+          rebar3
+          sc-im
+          scdl
+          tea
+          terminaltexteffects
+          texliveFull
+          tmuxinator
+          tokei
+          tty-clock
+          uiua
+          visidata
+          yt-dlp
+        ];
+      };
     in
-    stable-packages ++ unstable-packages;
+    builtins.concatLists [
+      stable-packages.gui-packages
+      stable-packages.cli-packages
+      unstable-packages.gui-packages
+      unstable-packages.cli-packages
+      nixgl-packages
+    ];
 
   home.file.".zshenv" = {
     enable = true;
@@ -150,6 +170,15 @@
       export HUGGING_FACE_TOKEN="$(cat ${config.age.secrets.hugging_face_token.path})"
       export OPENAI_API_KEY="$(cat ${config.age.secrets.openai_api_key.path})"
     '';
+  };
+
+  services.pueue = {
+    enable = true;
+    settings = {
+      daemon = {
+        default_parallel_tasks = 4;
+      };
+    };
   };
 
   services.ssh-agent.enable = true;

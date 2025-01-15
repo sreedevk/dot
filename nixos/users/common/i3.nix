@@ -1,5 +1,16 @@
-{ lib, pkgs, username, ... }:
+{ pkgs, config, opts, ... }:
+let
+  wallpaper_path = "${opts.directories.wallpapers}/${opts.wallpaper}";
+  set-wallpaper = pkgs.writeShellScriptBin "set-wallpaper" ''
+    ${pkgs.feh}/bin/feh --no-fehbg --bg-scale ${wallpaper_path} 
+  '';
+in
 {
+  home.packages = with pkgs; [
+    arandr
+    python311Packages.i3ipc
+  ];
+
   home.file = {
     "i3config" = {
       enable = true;
@@ -7,13 +18,8 @@
       executable = false;
       target = ".config/i3/config";
       text = ''
-        # ┬3 ╦ ╦╔╦╗
-        # │  ║║║║║║
-        # ┴  ╚╩╝╩ ╩
-        # AUTHOR: SREEDEV KODICHATH
-
         # terminal
-        set $term alacritty
+        set $term ${config.programs.alacritty.package}/bin/alacritty
 
         # Application Launcher
         set $app_launcher    "${pkgs.rofi}/bin/rofi -show drun"
@@ -27,7 +33,7 @@
         exec_always --no-startup-id ~/.config/polybar/launch.sh
         exec_always --no-startup-id ${pkgs.autotiling}/bin/autotiling
         exec_always --no-startup-id picom -b
-        exec_always --no-startup-id ~/.fehbg
+        exec_always --no-startup-id ${set-wallpaper}/bin/set-wallpaper
 
         # Disable Screen Blanking
         exec --no-startup-id xset s off
@@ -70,8 +76,8 @@
         workspace_auto_back_and_forth no
         smart_gaps                    off
         smart_borders                 on
-        gaps                          inner 2
-        gaps                          outer 0
+        gaps                          inner 5
+        gaps                          outer 5
 
         # Shortcuts - Terminal + Access
         bindsym $mod+Return            exec --no-startup-id $term
@@ -163,6 +169,15 @@
         set $ws7 7
         set $ws8 8
         set $ws9 9
+
+        workspace $ws1 output DP-1-2
+        workspace $ws2 output DP-1-2
+        workspace $ws3 output DP-1-2
+        workspace $ws4 output eDP-1-1
+        workspace $ws5 output DP-1-1
+        workspace $ws6 output DP-1-1
+        workspace $ws7 output DP-1-1
+        workspace $ws8 output DP-1-1
 
         bindsym $mod+1 workspace $ws1
         bindsym $mod+2 workspace $ws2

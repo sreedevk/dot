@@ -5,16 +5,70 @@ return {
   'preservim/vim-indent-guides',
   'tpope/vim-characterize',
   'tpope/vim-ragtag',
-  'tpope/vim-rails',
   'tpope/vim-repeat',
   'tpope/vim-surround',
+  'tpope/vim-apathy',
 
   { "chrisgrieser/nvim-early-retirement", lazy = true,  config = true,  event = "VeryLazy" },
   { 'petertriho/nvim-scrollbar',          lazy = true,  config = true,  event = "BufReadPost" },
-  { 'chrisbra/csv.vim',                   lazy = true,  config = false, ft = "csv" },
   { 'ledger/vim-ledger',                  lazy = true,  config = false, ft = { 'ledger', 'journal' } },
   { "tpope/vim-tbone",                    lazy = true,  config = false, cmd = { "Tmux", "Tyank", "Tput", "Twrite", "Tattach" } },
   { "tiagovla/scope.nvim",                lazy = false, config = true },
+
+  {
+    'tpope/vim-rails',
+    lazy = false,
+    config = function()
+      vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPost' }, {
+        pattern = { '*.yml' },
+        callback = function()
+          vim.bo.filetype = 'yaml'
+        end
+      })
+    end
+  },
+
+  {
+    'hat0uma/csvview.nvim',
+    lazy = true,
+    config = true,
+    keys = {
+      { '<Leader>csv', function() require('csvview').toggle() end, desc = "Toggle CSV View" }
+    }
+  },
+
+  {
+    'tpope/vim-eunuch',
+    lazy = false,
+    keys = {
+      { '<Leader>sw', '<cmd>SudoWrite<cr>', noremap = true, desc = "Sudo Write!" }
+    },
+    cmd = {
+      'Move',
+      'Rename',
+      'Copy',
+      'Duplicate',
+      'Remove',
+      'Delete',
+      'Mkdir',
+      'SudoWrite',
+      'SudoEdit',
+      'Wall',
+      'Lfind',
+      'Llocate',
+      'Cfind',
+      'CLocate',
+    },
+  },
+
+  {
+    'chaoren/vim-wordmotion',
+    lazy = false,
+    init = function()
+      vim.g.wordmotion_spaces = { '-', '_', '\\/', '\\.' }
+      vim.g.wordmotion_prefix = "<space>"
+    end,
+  },
 
   {
     "folke/lazydev.nvim",
@@ -32,6 +86,14 @@ return {
       dump_cmd = 'xxd -g 1 -u',
       assemble_cmd = 'xxd -r',
     },
+  },
+
+  {
+    "psliwka/vim-dirtytalk",
+    build = ":DirtytalkUpdate",
+    config = function()
+      vim.opt.spelllang = { "en", "programming" }
+    end,
   },
 
   {
@@ -82,7 +144,7 @@ return {
     lazy = true,
     cmd = "TableModeToggle",
     keys = {
-      { '<Leader>tm', mode = "n", "<cmd>TableModeToggle<CR>", desc = "Vim Table Mode" },
+      { '<Leader>tm', mode = "n", wrap_cmd("TableModeToggle"), desc = "Vim Table Mode Toggle" },
     }
   },
 
@@ -91,8 +153,12 @@ return {
     lazy = true,
     cmd = "UndotreeToggle",
     keys = {
-      { '<Leader>u', "<cmd>UndotreeToggle<CR>", desc = "Toggle Undotree" },
+      { '<Leader>uu', wrap_cmd("UndotreeToggle"), desc = "Toggle Undotree" },
     },
+    init = function()
+      vim.g.undotree_TreeNodeShape = '◉'
+      vim.g.undotree_SetFocusWhenToggle = 1
+    end,
   },
 
   {
@@ -110,6 +176,9 @@ return {
     'norcalli/nvim-colorizer.lua',
     lazy = true,
     ft = { "css", "scss", "less" },
+    keys = {
+      { '<Leader>co', wrap_cmd("ColorizerToggle"), desc = "Toggle Colorizer", noremap = true }
+    },
     cmd = {
       'ColorizerAttachToBuffer',
       'ColorizerDetachFromBuffer',

@@ -1,11 +1,5 @@
 #!/usr/bin/zsh
 
-# ASDF AUTOLOADS
-if [ -f "$HOME/.asdf/asdf.sh" ]; then
-  . $HOME/.asdf/asdf.sh
-  fpath=(${ASDF_DIR}/completions $fpath)
-fi
-
 # DIRENV LOAD
 if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
@@ -24,8 +18,4 @@ fi
 # RUST AUTOLOADS
 if [ -f "$HOME/.cargo/env" ]; then
   . $HOME/.cargo/env
-fi
-
-if command -v opam &> /dev/null; then
-  eval $(opam env)
 fi

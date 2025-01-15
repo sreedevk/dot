@@ -40,7 +40,7 @@ in
           layer = "top";
           position = "top";
           spacing = 0;
-          height = 34;
+          height = 38;
           modules-left = [
             "custom/logo"
             "hyprland/workspaces"
@@ -50,7 +50,6 @@ in
             "custom/dnd"
             "custom/separator"
             "pulseaudio"
-            "custom/separator"
             "wireplumber"
             "custom/separator"
             "custom/memory"

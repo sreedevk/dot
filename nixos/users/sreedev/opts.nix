@@ -3,9 +3,10 @@
     enable-signing = true;
   };
 
-  wallpaper = "linux-penguin.jpg";
+  wallpaper = "wallhaven-d61kgg.jpg";
+  desktop = "wayland"; # wayland / x11 / none
 
   directories = {
-    wallpapers = "~/Media/wallpapers";
+    wallpapers = "${builtins.getEnv "HOME"}/Media/wallpapers";
   };
 }

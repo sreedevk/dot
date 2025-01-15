@@ -8,6 +8,7 @@
 
     agenix.url = "github:ryantm/agenix";
     ghostty.url = "github:ghostty-org/ghostty";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     stylix = {
       url = "github:danth/stylix";
@@ -63,13 +64,11 @@
           modules = [
             stylix.homeManagerModules.stylix
             agenix.homeManagerModules.age
-            {
-              home.packages = [ agenix.packages.${system}.default ];
-            }
+            { home.packages = [ agenix.packages.${system}.default ]; }
             ./users/${username}
           ];
           extraSpecialArgs = {
-            inherit firefox-addons system username host;
+            inherit firefox-addons system username host inputs;
             nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
             ghostty = inputs.ghostty.packages."${system}";
             opts = opts // (import ./hosts/${host}/opts.nix) // (import ./users/${username}/opts.nix);

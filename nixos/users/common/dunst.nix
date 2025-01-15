@@ -5,10 +5,7 @@ let
   '';
 in
 {
-  stylix.targets.dunst.enable = true;
-
   home.packages = [ dunstctl ];
-
   services = {
     dunst = {
       enable = true;
@@ -22,11 +19,9 @@ in
       settings = {
         global = {
           alignment = "left";
-          allow_markup = "yes";
-          bounce_freq = 0;
           browser = "${opts.default-web-browser.bin}";
           corner_radius = 5;
-          dmenu = "/usr/bin/dmenu - p dunst: ";
+          dmenu = "${pkgs.wofi}/bin/wofi --dmenu -p dunst: ";
           enable_recursive_icon_lookup = true;
           follow = "mouse";
           font = lib.mkForce "Iosevka NF 16";
@@ -34,10 +29,10 @@ in
           frame_color = "#788388";
           frame_width = 0;
           gap_size = 4;
-          height = 150;
+          height = "(0, 150)";
           hide_duplicate_count = true;
           history_length = 10;
-          horizontal_padding = 8;
+          horizontal_padding = 15;
           icon_position = "off";
           idle_threshold = 120;
           ignore_newline = "no";
@@ -48,17 +43,15 @@ in
           mouse_left_click = "open_url, do_action, close_current";
           mouse_middle_click = "close_all";
           mouse_right_click = "close_current";
-          notification_height = 0;
           offset = 20;
           origin = "top-right";
-          padding = 12;
+          padding = 15;
           progress_bar = true;
           show_age_threshold = 60;
           show_indicators = "yes";
           shrink = "yes";
           sort = "yes";
           stack_duplicates = true;
-          startup_notification = false;
           sticky_history = "yes";
           transparency = 30;
           width = 500;
@@ -71,14 +64,14 @@ in
         };
 
         urgency_normal = {
-          background = lib.mkDefault "#263238";
-          foreground = lib.mkDefault "#F9FAF9";
+          background = lib.mkForce "#0d0910";
+          foreground = lib.mkForce "#8443e3";
           timeout = 10;
         };
 
         urgency_critical = {
-          background = lib.mkDefault "#D62929";
-          foreground = lib.mkDefault "#F9FAF9";
+          background = lib.mkDefault "#a22533";
+          foreground = lib.mkDefault "#e0def4";
           timeout = 0;
         };
       };

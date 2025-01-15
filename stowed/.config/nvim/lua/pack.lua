@@ -16,6 +16,9 @@ require('lazy').setup({ import = 'plugins' }, {
   change_detection = {
     notify = false,
   },
+  ui = {
+    border = "single"
+  },
   performance = {
     cache = { enabled = false },
     rtp = {
@@ -52,3 +55,16 @@ require('lazy').setup({ import = 'plugins' }, {
     fallback = false
   },
 })
+
+vim.keymap.set(
+  'n',
+  '<Leader>lz',
+  '<cmd>Lazy<CR>',
+  {
+    desc = "Lazy Dashboard",
+    noremap = true,
+  }
+)
+
+vim.cmd.packadd "termdebug"
+vim.cmd.packadd "cfilter"

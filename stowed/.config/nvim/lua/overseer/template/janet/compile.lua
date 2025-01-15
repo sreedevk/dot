@@ -1,4 +1,4 @@
-local overseer = require("overseer")
+local overseer = require 'overseer'
 
 return {
   name = "Janet Compile",
@@ -8,6 +8,7 @@ return {
       args = { "--compile", vim.fn.expand("%"), vim.fn.expand("%:r") .. ".jimage" },
       name = "janet compile",
       components = {
+        "on_exit_set_status",
         {
           "on_complete_notify",
           system = "unfocused"

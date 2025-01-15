@@ -1,5 +1,4 @@
 Flatseal
-draw.io
 Steam
 Boxtron
 Proton-GE
@@ -15,14 +14,17 @@ Mesa
 Mesa
 Mesa
 Mesa
-nvidia-565-57-01
+nvidia-565-77
 Mesa
-nvidia-565-57-01
+Mesa
+nvidia-565-77
 Intel
 Intel
 i386
 MangoHud
 vkBasalt
+FFmpeg
 openh264
 openh264
 GNOME
+Adwaita

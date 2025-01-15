@@ -1,13 +1,15 @@
 return {
   'protex/better-digraphs.nvim',
   lazy = true,
+  branch = 'unstable',
   keys = {
     {
       "<C-v><C-u>",
       function()
-        require('better-digraphs').digraphs("insert")
+        require('betterdigraphs').digraphs("i")
       end,
       mode = { "i" },
+      noremap = true,
     }
   },
   dependencies = { 'nvim-telescope/telescope.nvim' },

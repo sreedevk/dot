@@ -53,7 +53,7 @@ in
       desc = "AU Optronics 0xF99A";
       resolution = { x = 1920; y = 1200; };
       position = { x = 0; y = 1080; };
-      bitdepth = 10;
+      bitdepth = 8;
       rate = 60;
       scale = 1;
     }
@@ -63,7 +63,7 @@ in
       resolution = { x = 1920; y = 1080; };
       position = { x = 0; y = 0; };
       rate = 100.00;
-      bitdepth = 10;
+      bitdepth = 8;
       scale = 1;
     }
     {
@@ -72,7 +72,7 @@ in
       resolution = { x = 3840; y = 2160; };
       position = { x = 1920; y = 0; };
       rate = 60;
-      bitdepth = 10;
+      bitdepth = 8;
       scale = 1.6;
     }
   ];
@@ -252,13 +252,13 @@ in
       { mod = "SUPER"; keys = "H"; dispatcher = "movefocus"; args = "l"; }
       { mod = "SUPER"; keys = "J"; dispatcher = "movefocus"; args = "d"; }
       { mod = "SUPER"; keys = "K"; dispatcher = "movefocus"; args = "u"; }
-      { mod = "SUPER"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
       { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; }
       { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "${pkgs.dunst}/bin/dunstctl set-paused toggle"; }
       { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-toggleblur}/bin/hypr-toggleblur"; }
       { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
-      { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "ghostty"; }
-      { mod = "SUPER SHIFT"; keys = "KP_Enter"; dispatcher = "exec"; args = "ghostty"; }
+      { mod = "SUPER"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
+      { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.ghostty.package}/bin/ghostty"; }
+      { mod = "SUPER SHIFT"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.ghostty.package}/bin/ghostty"; }
       { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; }
       { mod = "SUPER"; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-"; }
       { mod = "SUPER"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+"; }
@@ -316,6 +316,12 @@ in
       { rule = "float"; window_identifiers = "title:^(Open Folder)(.*)$"; }
       { rule = "size 1000 600"; window_identifiers = "title:^(Open Folder)(.*)$"; }
 
+      { rule = "opacity 0.0 override"; window_identifiers = "class:^(xwaylandvideobridge)$"; }
+      { rule = "noanim"; window_identifiers = "class:^(xwaylandvideobridge)$"; }
+      { rule = "noinitialfocus"; window_identifiers = "class:^(xwaylandvideobridge)$"; }
+      { rule = "maxsize 1 1"; window_identifiers = "class:^(xwaylandvideobridge)$"; }
+      { rule = "noblur"; window_identifiers = "class:^(xwaylandvideobridge)$"; }
+      { rule = "nofocus"; window_identifiers = "class:^(xwaylandvideobridge)$"; }
 
       { rule = "center"; window_identifiers = "title:^(File Upload)(.*)$"; }
       { rule = "float"; window_identifiers = "title:^(File Upload)(.*)$"; }

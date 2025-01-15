@@ -1,6 +1,7 @@
-{ configs, pkgs, opts, username, ... }: {
+{ ... }: {
   imports = [
     ../../../secrets/mappings.nix
+    ../common/asdf.nix
     ../common/base.nix
     ../common/beets.nix
     ../common/btop.nix
@@ -10,8 +11,8 @@
     ../common/git.nix
     ../common/htop.nix
     ../common/jujutsu.nix
-    ../common/keybase.nix
     ../common/neovim.nix
+    ../common/starship.nix
     ../common/tmux.nix
     ../common/vim.nix
     ../common/zsh.nix

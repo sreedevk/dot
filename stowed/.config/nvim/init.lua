@@ -12,9 +12,9 @@
 
 require 'core.opts'
 require 'core.filetypes'
-require 'core.clipboard'
+require 'core.functions'
 require 'pack'
 require 'lsp'
 require 'core.commands'
-require 'core.keybind'
+require 'core.keybinds'
 require 'neovide'

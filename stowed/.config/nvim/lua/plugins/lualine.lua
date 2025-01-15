@@ -16,7 +16,7 @@ return {
 
     lualine.setup {
       options = {
-        theme = "tokyonight",
+        theme = "auto", -- tokyonight
         component_separators = { left = '', right = '' },
         section_separators = { left = ' ', right = '' },
       },
@@ -27,6 +27,11 @@ return {
           {
             'buffers',
             mode = 2,
+            use_mode_colors = false,
+            buffers_color = {
+              active = { fg = '#8443e3', gui = 'italic,bold' },
+              inactive = { fg = 'grey' },
+            },
             symbols = {
               modified = ' ●',
               alternate_file = '#',

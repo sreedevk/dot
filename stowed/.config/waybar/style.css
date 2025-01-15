@@ -3,11 +3,11 @@
   border-radius: 0;
   min-height: 0;
   font-family: Iosevka NF;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 window#waybar {
-  background-color: #1e2030;
+  background-color: #0d0910;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -27,7 +27,7 @@ window#waybar.hidden {
   padding: 2px 15px;
   margin: 2px;
   border-radius: 5px;
-  background-color: #1e1e2e;
+  background-color: #0d0910;
   color: #cdd6f4;
 }
 
@@ -83,6 +83,7 @@ window#waybar.hidden {
   background-color: transparent;
   color: #cad3f5;
   font-weight: bolder;
+  padding: 0px 10px;
 }
 
 #pulseaudio.muted,
@@ -101,7 +102,7 @@ window#waybar.hidden {
 }
 
 #clock {
-  font-family: CozetteVector Nerd Font;
+  font-family: Iosevka NF;
   background-color: transparent;
   font-weight: bolder;
   color: #cad3f5;

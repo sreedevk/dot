@@ -20,16 +20,7 @@ export EDITOR="nvim"
 export READER="zathura"
 export TERMINAL="alacritty"
 export BROWSER="brave"
-
-# ENABLE NVIDIA FOR WAYLAND SESSIONS
-export AQ_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1
-export GBM_BACKEND=nvidia-drm
-export LIBVA_DRIVER_NAME=nvidia
-export __GL_VRR_ALLOWED=1
-export __GL_GSYNC_ALLOWED=1
-export __NV_PRIME_RENDER_OFFLOAD=1
-export __VK_LAYER_NV_optimus=NVIDIA_only
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export DOTFILES="$HOME/.dot"
 
 # BETTER TERM
 export KEYTIMEOUT=1
@@ -40,6 +31,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export LANG="en_US.UTF-8"
 export TZ='America/New_York'
 export WORDCHARS=${WORDCHARS/\/}
+export CLICOLOR=1
 
 if [ -z "$TMUX" ]; then
     export TERM="xterm-256color"
@@ -79,6 +71,8 @@ setopt   PROMPT_SUBST
 setopt   HIST_IGNORE_ALL_DUPS
 setopt   HIST_FIND_NO_DUPS
 setopt   HIST_IGNORE_SPACE
+setopt   HIST_REDUCE_BLANKS 
+setopt   HIST_SAVE_NO_DUPS
 setopt   interactivecomments
 setopt   extendedglob
 setopt   autocd
@@ -92,12 +86,14 @@ unsetopt beep
 set -o vi
 
 # KEY BINDINGS
-bindkey -s '^o'    'ycd\n'
-bindkey    '^R'    fzf-history-widget
-bindkey    '^A'    beginning-of-line
-bindkey    '^E'    end-of-line
-bindkey    '^x'    edit-command-line
-bindkey    '^[[Z'  autosuggest-accept
+bindkey -s    '^xo'    'ycd\n'
+bindkey       '^R'    fzf-history-widget
+bindkey       '^A'    beginning-of-line
+bindkey       '^E'    end-of-line
+bindkey       '^xn'    edit-command-line
+bindkey       '^xh'   _complete_help
+bindkey       '^[[Z'  autosuggest-accept
+bindkey -a -r ':'
 
 # FASTFETCH @ SHELL INIT
 if [ -f "$(command -v fastfetch)" ]; then

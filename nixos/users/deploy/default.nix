@@ -2,6 +2,7 @@
 
   imports = [
     ../../../secrets/mappings.nix
+    ../common/asdf.nix
     ../common/base.nix
     ../common/btop.nix
     ../common/cargo.nix
@@ -10,6 +11,7 @@
     ../common/git.nix
     ../common/htop.nix
     ../common/jujutsu.nix
+    ../common/starship.nix
     ../common/tmux.nix
     ../common/vim.nix
     ../common/zsh.nix

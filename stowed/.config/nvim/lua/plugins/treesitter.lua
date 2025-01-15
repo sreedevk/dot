@@ -10,6 +10,7 @@ return {
       vim.treesitter.language.register("bash", "apkbuild")
       vim.treesitter.language.register("journal", "ledger")
 
+      ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup({
         ensure_installed = {
           "bash",
@@ -73,6 +74,7 @@ return {
         auto_install = false,
         incremental_selection = {
           enable = true,
+          disable = vim.g.auxbuffers,
           keymaps = {
             init_selection = "<CR>",
             scope_incremental = "grn",
@@ -84,18 +86,27 @@ return {
         refactor = {
           navigation = {
             enable = true,
+            disable = function(lang, bufnr)
+              return lang == 'csv' and vim.api.nvim_buf_line_count(bufnr) > 10000
+            end,
             keymaps = {
               goto_definition_lsp_fallback = "gd",
             },
           },
           smart_rename = {
             enable = true,
+            disable = function(lang, bufnr)
+              return lang == 'csv' and vim.api.nvim_buf_line_count(bufnr) > 10000
+            end,
             keymaps = {
               smart_rename = "grr",
             },
           },
           highlight_definitions = {
             enable = true,
+            disable = function(lang, bufnr)
+              return lang == 'csv' and vim.api.nvim_buf_line_count(bufnr) > 10000
+            end,
             clear_on_cursor_move = true,
             additional_vim_regex_highlighting = false,
           },
@@ -103,6 +114,9 @@ return {
         textobjects = {
           swap = {
             enable = true,
+            disable = function(lang, bufnr)
+              return lang == 'csv' and vim.api.nvim_buf_line_count(bufnr) > 10000
+            end,
             swap_next = {
               ["<C-.>"] = "@parameter.inner",
             },
@@ -112,6 +126,9 @@ return {
           },
           lsp_interop = {
             enable = true,
+            disable = function(lang, bufnr)
+              return lang == 'csv' and vim.api.nvim_buf_line_count(bufnr) > 10000
+            end,
             border = 'none',
             floating_preview_opts = {},
             peek_definition_code = {
@@ -121,6 +138,9 @@ return {
           },
           select = {
             enable = true,
+            disable = function(lang, bufnr)
+              return lang == 'csv' and vim.api.nvim_buf_line_count(bufnr) > 10000
+            end,
             lookahead = true,
             keymaps = {
               ["af"] = "@function.outer",
@@ -132,6 +152,9 @@ return {
           },
           move = {
             enable = true,
+            disable = function(lang, bufnr)
+              return lang == 'csv' and vim.api.nvim_buf_line_count(bufnr) > 10000
+            end,
             set_jumps = true,
             goto_next_start = {
               ["]m"] = "@function.outer",
@@ -145,25 +168,32 @@ return {
           },
           include_surrounding_whitespace = true,
         },
-        playground = {
-          enable = true,
-          disable = {},
-          updatetime = 50,        -- Debounced time for highlighting nodes in the playground from source code
-          persist_queries = true, -- Whether the query persists across vim sessions
-        },
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = false,
-          disable = function(_, buf)
-            local max_filesize = 40000000
-            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-            if ok and stats and stats.size > max_filesize then
-              return true
-            end
+          disable = function(lang, bufnr)
+            return lang == 'csv' and vim.api.nvim_buf_line_count(bufnr) > 10000
           end,
         }
       })
     end
+  },
+  {
+    'kana/vim-textobj-user',
+    dependencies = { 'kana/vim-operator-user' },
+  },
+  {
+    'glts/vim-textobj-comment',
+    dependencies = {
+      'kana/vim-textobj-user',
+    },
+    init = function()
+      vim.g.textobj_comment_no_default_key_mappings = 1
+    end,
+    keys = {
+      { 'ac', '<Plug>(textobj-comment-a)', mode = { 'x', 'o' } },
+      { 'ic', '<Plug>(textobj-comment-i)', mode = { 'x', 'o' } },
+    },
   },
   {
     'windwp/nvim-ts-autotag',
@@ -201,16 +231,17 @@ return {
   },
   {
     "aaronik/treewalker.nvim",
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     lazy = true,
-    event = "BufReadPost",
     opts = { highlight = true },
+    cmd = { 'Treewalker' },
     keys = {
-      { '<C-j>',   ':Treewalker Down<CR>',     noremap = true, desc = "Treewalker Down" },
-      { '<C-k>',   ':Treewalker Up<CR>',       noremap = true, desc = "Treewalker Up" },
-      { '<C-h>',   ':Treewalker Left<CR>',     noremap = true, desc = "Treewalker Left" },
-      { '<C-l>',   ':Treewalker Right<CR>',    noremap = true, desc = "Treewalker Right" },
-      { '<C-S-j>', ':Treewalker SwapDown<CR>', noremap = true, desc = "Treesitter SwapUp",   silent = true },
-      { '<C-S-k>', ':Treewalker SwapUp<CR>',   noremap = true, desc = "Treesitter SwapDown", silent = true }
+      { '<C-j>', ':Treewalker Down<CR>', noremap = true, desc = "Treewalker Down", silent = true },
+      { '<C-k>', ':Treewalker Up<CR>', noremap = true, desc = "Treewalker Up", silent = true },
+      { '<C-h>', ':Treewalker Left<CR>', noremap = true, desc = "Treewalker Left", silent = true },
+      { '<C-l>', ':Treewalker Right<CR>', noremap = true, desc = "Treewalker Right", silent = true },
+      { '<C-S-j>', ':Treewalker SwapDown<CR>', noremap = true, desc = "Treesitter SwapUp", silent = true },
+      { '<C-S-k>', ':Treewalker SwapUp<CR>', noremap = true, desc = "Treesitter SwapDown", silent = true }
     },
   },
 

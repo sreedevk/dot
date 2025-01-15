@@ -1,4 +1,4 @@
-local overseer = require("overseer")
+local overseer = require "overseer"
 
 return {
   name = "HomeManager Switch",

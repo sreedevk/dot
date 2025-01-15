@@ -21,6 +21,7 @@ alias wget="noglob wget"
 alias curl="noglob curl"
 alias z='__zoxide_z'
 alias zxi='__zoxide_zi'
+alias cw='cliphist --wipe'
 
 # Taskwarrior
 alias tt="taskwarrior-tui"

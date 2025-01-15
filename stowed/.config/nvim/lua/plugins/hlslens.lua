@@ -1,26 +1,78 @@
 return {
   'kevinhwang91/nvim-hlslens',
   lazy = true,
-  event = { "BufReadPost", "BufAdd", "BufNewFile" },
-  config = function()
-    require('hlslens').setup()
-
-    local function export_ls_to_qf()
-      vim.schedule(function()
-        if require('hlslens').exportLastSearchToQuickfix() then
-          vim.cmd('cw')
-        end
-      end)
-      return ':noh<CR>'
-    end
-
-    local kopts = { noremap = true, silent = true }
-    vim.keymap.set('n', 'n', [[<cmd>execute('normal! ' . v:count1 . 'n')<cr><cmd>lua require('hlslens').start()<cr>]], kopts)
-    vim.keymap.set('n', 'N', [[<cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<cr>]], kopts)
-    vim.keymap.set('n', '*', [[*<cmd>lua require('hlslens').start()<cr>]], kopts)
-    vim.keymap.set('n', '#', [[#<cmd>lua require('hlslens').start()<cr>]], kopts)
-    vim.keymap.set('n', 'g*', [[g*<cmd>lua require('hlslens').start()<cr>]], kopts)
-    vim.keymap.set('n', 'g#', [[g#<cmd>lua require('hlslens').start()<cr>]], kopts)
-    vim.keymap.set({ 'n', 'x' }, '<Leader>L', export_ls_to_qf, { expr = true })
-  end
+  keys = {
+    {
+      'n',
+      function()
+        vim.cmd("normal! " .. vim.v.count1 .. 'nzzzv')
+        require('hlslens').start()
+      end,
+      noremap = true,
+      silent = true
+    },
+    {
+      'N',
+      function()
+        vim.cmd("normal! " .. vim.v.count1 .. "Nzzzv")
+        require('hlslens').start()
+      end,
+      noremap = true,
+      silent = true
+    },
+    {
+      '*',
+      function()
+        vim.cmd([[normal! *]])
+        require('hlslens').start()
+      end,
+      mode = 'n',
+      noremap = true,
+      silent = true
+    },
+    {
+      '#',
+      function()
+        vim.cmd([[normal! #]])
+        require('hlslens').start()
+      end,
+      mode = 'n',
+      noremap = true,
+      silent = true
+    },
+    {
+      'g*',
+      function()
+        vim.cmd([[normal! g*]])
+        require('hlslens').start()
+      end,
+      mode = 'n',
+      noremap = true,
+      silent = true
+    },
+    {
+      'g#',
+      function()
+        vim.cmd([[normal! g#]])
+        require('hlslens').start()
+      end,
+      mode = 'n',
+      noremap = true,
+      silent = true
+    },
+    {
+      '<Leader>L',
+      function()
+        vim.schedule(function()
+          if require('hlslens').exportLastSearchToQuickfix() then
+            vim.cmd('cw')
+          end
+        end)
+        return ':noh<CR>'
+      end,
+      mode = { 'n', 'x' },
+      expr = true
+    }
+  },
+  config = true
 }

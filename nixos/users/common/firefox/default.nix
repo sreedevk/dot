@@ -12,7 +12,7 @@ in
   stylix.targets.firefox.enable = true;
   programs.firefox = {
     enable = true;
-    package = nixglmod.nixGLWrapped pkgs.firefox-bin "firefox";
+    package = nixglmod.nixGLWrapped pkgs.firefox-beta-bin "firefox-beta";
     profiles = {
 
       main = {

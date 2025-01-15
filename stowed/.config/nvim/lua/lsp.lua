@@ -14,14 +14,14 @@ local function setup_lsp(conf)
   vim.lsp.enable(conf.name)
 end
 
-setup_lsp {
+setup_lsp { -- lua
   name = 'lua_ls',
   custom = false,
   cmd = { vim.fn.trim(vim.fn.system("which lua-language-server")) },
   filetypes = { "lua" },
 }
 
-setup_lsp {
+setup_lsp { -- janet
   name = 'janet-lsp',
   custom = true,
   filetypes = { 'janet' },
@@ -29,7 +29,7 @@ setup_lsp {
   root_markers = { 'project.janet', '.git' }
 }
 
-setup_lsp {
+setup_lsp { -- gleam
   name = 'gleam',
   custom = false,
   filetypes = { "gleam" },
@@ -37,7 +37,7 @@ setup_lsp {
   root_markers = { 'gleam.toml', '.git' }
 }
 
-setup_lsp {
+setup_lsp { -- ruby
   name = 'ruby_lsp',
   custom = false,
   filetypes = { 'ruby', 'eruby' },
@@ -45,7 +45,7 @@ setup_lsp {
   root_markers = { 'Gemfile', '.git' }
 }
 
-setup_lsp {
+setup_lsp { -- clojure
   name = 'clojure_lsp',
   custom = false,
   filetypes = { 'clojure', 'edn' },
@@ -53,21 +53,21 @@ setup_lsp {
   root_markers = { "main.clj", ".git" }
 }
 
-setup_lsp {
+setup_lsp { -- docker-compose
   name = 'docker_compose_language_service',
   custom = false,
   filetypes = { 'docker-compose', 'yaml.docker-compose' },
   cmd = { vim.fn.trim(vim.fn.system("which docker-compose-langserver")), "--stdio" },
 }
 
-setup_lsp {
+setup_lsp { -- dockerfile
   name = 'dockerls',
   custom = false,
   filetypes = { 'dockerfile' },
   cmd = { vim.fn.trim(vim.fn.system("which docker-langserver")), "--stdio" },
 }
 
-setup_lsp {
+setup_lsp { -- elixir
   name = 'elixirls',
   custom = false,
   filetypes = { "elixir", "eelixir", "heex", "surface" },
@@ -75,14 +75,14 @@ setup_lsp {
   root_markers = { 'mix.exs', '.git' }
 }
 
-setup_lsp {
+setup_lsp { -- fennel
   name = 'fennel_language_server',
   custom = false,
   filetypes = { 'fennel' },
   cmd = { vim.fn.trim(vim.fn.system("which fennel-ls")) },
 }
 
-setup_lsp {
+setup_lsp { -- json
   name = "jsonls",
   custom = false,
   filetypes = { "json", "jsonc" },
@@ -92,14 +92,14 @@ setup_lsp {
   },
 }
 
-setup_lsp {
+setup_lsp { -- yaml
   name = 'yamlls',
   custom = false,
   filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab" },
   cmd = { vim.fn.trim(vim.fn.system("which yaml-language-server")), "--stdio" },
 }
 
-setup_lsp {
+setup_lsp { -- nix
   name = 'nil_ls',
   custom = false,
   filetypes = { 'nix' },
@@ -114,7 +114,7 @@ setup_lsp {
   }
 }
 
-setup_lsp {
+setup_lsp { -- rust
   name = 'rust_analyzer',
   custom = false,
   filetypes = { 'rust' },
@@ -122,7 +122,7 @@ setup_lsp {
   root_markers = { 'cargo.toml', 'cargo.lock' }
 }
 
-setup_lsp {
+setup_lsp { -- tailwind
   name = 'tailwindcss',
   custom = false,
   filetypes = { 'html', 'jsx', 'htmx', 'css', 'scss' },
@@ -130,14 +130,21 @@ setup_lsp {
   root_markers = { 'package.json', 'yarn.lock', 'package.lock' }
 }
 
-setup_lsp {
+setup_lsp { -- toml
   name = 'taplo',
   custom = false,
   filetypes = { 'toml' },
   cmd = { vim.fn.trim(vim.fn.system("which taplo")), "lsp", "stdio" },
 }
 
-setup_lsp {
+setup_lsp { -- markdown
+  name = 'marksman',
+  custom = false,
+  filetypes = { 'markdown', 'markdown.mdx' },
+  cmd = { vim.fn.trim(vim.fn.system("which marksman")), "server" }
+}
+
+setup_lsp { -- typescript
   name = 'ts_ls',
   custom = false,
   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },

@@ -14,27 +14,13 @@ in
   home.file = {
     ".vim/autoload/plug.vim".source = vimPlug;
     ".vimrc".text = ''
-      "  ██▒   █▓ ██▓ ███▄ ▄███▓ ██▀███   ▄████▄  
-      " ▓██░   █▒▓██▒▓██▒▀█▀ ██▒▓██ ▒ ██▒▒██▀ ▀█  
-      "  ▓██  █▒░▒██▒▓██    ▓██░▓██ ░▄█ ▒▒▓█    ▄ 
-      "   ▒██ █░░░██░▒██    ▒██ ▒██▀▀█▄  ▒▓▓▄ ▄██▒
-      "    ▒▀█░  ░██░▒██▒   ░██▒░██▓ ▒██▒▒ ▓███▀ ░
-      "    ░ ▐░  ░▓  ░ ▒░   ░  ░░ ▒▓ ░▒▓░░ ░▒ ▒  ░
-      "    ░ ░░   ▒ ░░  ░      ░  ░▒ ░ ▒░  ░  ▒   
-      "      ░░   ▒ ░░      ░     ░░   ░ ░        
-      "       ░   ░         ░      ░     ░ ░      
-      "      ░                           ░        
-      " AUTHOR: SREEDEV KODICHATH
-
       set runtimepath+=~/.vim,~/.vim/after
-      " set packpath+=~/.vim
-      " source ~/.vimrc
 
       call plug#begin('~/.vim/plugged')
 
+      Plug 'airblade/vim-rooter'
       Plug 'ayu-theme/ayu-vim'
       Plug 'bling/vim-airline'
-      Plug 'chrisbra/csv.vim'
       Plug 'chrisbra/csv.vim'
       Plug 'ctrlpvim/ctrlp.vim'
       Plug 'easymotion/vim-easymotion'
@@ -42,7 +28,6 @@ in
       Plug 'junegunn/fzf'
       Plug 'junegunn/fzf.vim'
       Plug 'junegunn/vim-easy-align'
-      Plug 'ledger/vim-ledger'
       Plug 'ledger/vim-ledger'
       Plug 'lervag/vimtex'
       Plug 'mattn/emmet-vim'
@@ -60,12 +45,15 @@ in
       Plug 'tpope/vim-fugitive'
       Plug 'tpope/vim-ragtag'
       Plug 'tpope/vim-rails'
+      Plug 'tpope/vim-abolish'
       Plug 'tpope/vim-repeat'
+      Plug 'tpope/vim-apathy'
       Plug 'tpope/vim-surround'
       Plug 'tpope/vim-tbone'
       Plug 'tpope/vim-unimpaired'
       Plug 'tpope/vim-vinegar',
       Plug 'vim-ruby/vim-ruby'
+      Plug 'tommcdo/vim-exchange'
 
       call plug#end()
 
@@ -107,6 +95,10 @@ in
       autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
       autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
+      if &term =~ '256color'
+        set t_ut=
+      endif
+
       let mapleader = ";"
       let g:better_escape_shortcut = 'jj'
       let g:better_escape_interval = 400
@@ -147,7 +139,7 @@ in
       nnoremap <C-u> <C-u>zz
 
       "terminal
-      nnoremap <Leader>tro :terminal<CR>
+      nnoremap <C-4><C-4> :terminal<CR>
 
       " git
       nnoremap <Leader>gi  :Git<CR>
@@ -167,7 +159,7 @@ in
       nnoremap <Leader>sp :setlocal spell!<CR>
 
       " utils
-      nnoremap <Leader>sw :execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<CR>
+      nnoremap <Leader>sw <cmd>SudoWrite<cr>
       vnoremap <M-j> :m '>+1<CR>gv=gv
       vnoremap <M-k> :m '<-2<CR>gv=gv
       nnoremap <Leader>x <cmd>! chmod +x %<CR>
@@ -179,8 +171,6 @@ in
       vnoremap , :
       nnoremap n nzzzv
       nnoremap N Nzzzv
-
-
 
       silent! call airline#extensions#whitespace#disable()
 

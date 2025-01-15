@@ -1,27 +1,5 @@
 local M = {}
 
-local function snake_to_camel(word)
-  return word:gsub("_(.)", function(c)
-    return c:upper()
-  end)
-end
-
-local function camel_to_snake(word)
-  return word:gsub("(%u)", "_%1"):lower()
-end
-
-function M.convert_cword_to_camel()
-  local cword = vim.fn.expand("<cword>")
-  local camelCaseWord = snake_to_camel(cword)
-  vim.cmd('normal! "_ciw' .. camelCaseWord)
-end
-
-function M.convert_cword_to_snake()
-  local cword = vim.fn.expand("<cword>")
-  local snakeCaseWord = camel_to_snake(cword)
-  vim.cmd('normal! "_ciw' .. snakeCaseWord)
-end
-
 function M.colorize()
   vim.wo.number = false
   vim.wo.relativenumber = false
