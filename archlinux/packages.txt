@@ -1,3 +1,4 @@
+alacritty
 alsa-firmware
 alsa-plugins
 alsa-utils
@@ -35,6 +36,7 @@ git-lfs
 grim
 grub
 gst-libav
+gst-plugin-pipewire
 gst-plugins-good
 gstreamer
 i3-wm
@@ -45,8 +47,10 @@ intel-media-driver
 iw
 iwd
 less
+lib32-zlib
 libnotify
 libpam-google-authenticator
+libqalculate
 libva-nvidia-driver
 linux
 linux-firmware
