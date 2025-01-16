@@ -60,6 +60,7 @@ zle -N edit-command-line
 
 # AUTOLOAD MODULES
 autoload -U  colors && colors
+autoload -U  promptinit && promptinit
 autoload -U  compinit && compinit
 autoload -Uz bashcompinit && bashcompinit
 autoload     edit-command-line
