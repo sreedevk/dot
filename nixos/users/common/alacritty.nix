@@ -6,13 +6,7 @@ in
 {
   programs.alacritty = {
     enable = true;
-    # ISSUE: -----------------------------------------------------------------------------
-    # pkgs.alacritty contains 0.14, will revert to pkgs.alacritty after 0.15 released
-    # check: https://github.com/NixOS/nixpkgs/pull/373582/files
-    # ------------------------------------------------------------------------------------
-    package = pkgs.writeShellScriptBin "alacritty" ''
-      /usr/bin/alacritty $@
-    '';
+    package = nixglmod.nixGLWrapped pkgs.alacritty "alacritty";
     settings = {
       colors = {
         draw_bold_text_with_bright_colors = true;
