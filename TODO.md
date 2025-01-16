@@ -17,6 +17,7 @@
 - [ ] in Neovim, add a custom dial.nvim set to alternate between `[ '*', '!']` for hledger transaction status
 - [ ] Build / Find a Hledger Treesitter Library
 - [ ] Add nvim-lint
+- [ ] <C-u> mapping to <C-u>zz & <C-d> mapping to <C-d>zz is causing a stutter while up and down in neovim 0.11
 
 # Hyprland
 - [ ] Screensharing does not work. Options Tried:
