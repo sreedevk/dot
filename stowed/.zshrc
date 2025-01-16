@@ -59,9 +59,10 @@ zle -N edit-command-line
 [ -f "$HOME/.zsh/autoloads.zsh" ] && source "$HOME/.zsh/autoloads.zsh"
 
 # AUTOLOAD MODULES
-autoload -U colors && colors
-autoload -U compinit && compinit
-autoload edit-command-line
+autoload -U  colors && colors
+autoload -U  compinit && compinit
+autoload -Uz bashcompinit && bashcompinit
+autoload     edit-command-line
 
 [ -f "$HOME/.zsh/post-compinit.zsh" ] && source "$HOME/.zsh/post-compinit.zsh"
 
