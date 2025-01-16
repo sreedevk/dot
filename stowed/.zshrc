@@ -59,11 +59,14 @@ zle -N edit-command-line
 [ -f "$HOME/.zsh/autoloads.zsh" ] && source "$HOME/.zsh/autoloads.zsh"
 
 # AUTOLOAD MODULES
+zmodload     zsh/complist 
 autoload -U  colors && colors
 autoload -U  promptinit && promptinit
-autoload -U  compinit && compinit
+autoload -U  compinit && compinit -u
 autoload -Uz bashcompinit && bashcompinit
 autoload     edit-command-line
+
+_comp_options+=(globdots)
 
 [ -f "$HOME/.zsh/post-compinit.zsh" ] && source "$HOME/.zsh/post-compinit.zsh"
 
@@ -77,11 +80,13 @@ setopt   HIST_REDUCE_BLANKS
 setopt   HIST_SAVE_NO_DUPS
 setopt   interactivecomments
 setopt   extendedglob
+setopt   globdots
 setopt   autocd
 setopt   nomatch
 setopt   notify
 setopt   sharehistory
 setopt   appendhistory
+setopt   incappendhistory
 unsetopt beep
 
 # Set VI mode
