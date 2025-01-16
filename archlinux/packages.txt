@@ -1,4 +1,3 @@
-alacritty
 alsa-firmware
 alsa-plugins
 alsa-utils
@@ -6,6 +5,7 @@ android-tools
 autoconf-archive
 base
 base-devel
+bash-completion
 bind
 blueman
 bluez-tools
@@ -146,3 +146,4 @@ zarchive
 zip
 zmap
 zsh
+zsh-completions
