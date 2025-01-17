@@ -39,7 +39,7 @@ in
       name = "NeoVim";
       icon = "nvim";
       genericName = "Text Editor";
-      exec = "${config.programs.wezterm.package}/bin/wezterm -e ${config.programs.neovim.package}/bin/nvim %F";
+      exec = "${config.programs.wezterm.package}/bin/wezterm start -- ${config.programs.neovim.package}/bin/nvim %F";
       comment = "Text Editor";
       mimeType = [
         "text/plain"
