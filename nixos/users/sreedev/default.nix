@@ -16,7 +16,6 @@ in
     ../common/fastfetch.nix
     ../common/firefox
     ../common/fontconfig.nix
-    ../common/ghostty.nix
     ../common/git.nix
     ../common/github.nix
     ../common/gpg.nix
@@ -38,6 +37,7 @@ in
     ../common/tmux-sessionizer.nix
     ../common/tmux.nix
     ../common/vim.nix
+    ../common/wezterm.nix
     ../common/xresources.nix
     ../common/zathura.nix
     ../common/zellij.nix

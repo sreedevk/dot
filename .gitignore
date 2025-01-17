@@ -6,6 +6,7 @@
 
 # Allow
 !/stowed/.config/alacritty/
+!/stowed/.config/wezterm/
 !/stowed/.config/autorandr
 !/stowed/.config/awesome
 !/stowed/.config/beets
