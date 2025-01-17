@@ -14,6 +14,8 @@ let
     tailwindcss-language-server
     taplo
     typescript-language-server
+    typst-lsp
+    typstfmt
     yaml-language-server
   ];
 
@@ -21,6 +23,7 @@ let
     with pkgs; [
       nodejs_23
       tree-sitter
+      typst
     ];
 in
 {

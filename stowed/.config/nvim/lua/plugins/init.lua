@@ -1,7 +1,6 @@
 return {
   "tpope/vim-vinegar",
   'chrisbra/unicode.vim',
-  'preservim/vim-indent-guides',
   'tpope/vim-characterize',
   'tpope/vim-ragtag',
   'tpope/vim-repeat',
@@ -13,6 +12,7 @@ return {
   { 'ledger/vim-ledger',                  lazy = true,  config = false, ft = { 'ledger', 'journal' } },
   { "tpope/vim-tbone",                    lazy = true,  config = false, cmd = { "Tmux", "Tyank", "Tput", "Twrite", "Tattach" } },
   { "tiagovla/scope.nvim",                lazy = false, config = true },
+  { 'kaarmu/typst.vim',                   lazy = true,  ft = 'typst' },
 
   {
     'junegunn/fzf',
