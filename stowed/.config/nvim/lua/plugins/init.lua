@@ -23,6 +23,8 @@ return {
 
   {
     'kevinhwang91/nvim-bqf',
+    lazy = true,
+    event = { 'QuickFixCmdPre' },
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
       'junegunn/fzf'
