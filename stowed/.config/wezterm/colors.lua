@@ -2,8 +2,8 @@ return {
   ['ZitchdogGrape'] = {
     foreground      = '#8443e3',
     background      = '#0d0910',
-    cursor_bg       = '#937b99',
-    cursor_fg       = '#8443e3',
+    cursor_bg       = '#8443e3',
+    cursor_fg       = '#120c16',
     cursor_border   = '#8443e3',
     selection_fg    = '#ffffff',
     selection_bg    = '#120c16',
