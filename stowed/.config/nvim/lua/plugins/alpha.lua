@@ -165,7 +165,7 @@ return {
       type = "group",
       val = {
         button("e", "New File", ":enew<cr>"),
-        button("z", "Zoxide", ":Zi<CR>"),
+        button("z", "Zoxide", ":Telescope zoxide list<CR>"),
         button("l", "Last Session", pesistance_load_session_with_nocwd),
         button("o", "Last Session (CWD)", pesistance_load_session_with_cwd),
         button("f", "Find Files", ":Telescope find_files<CR>"),

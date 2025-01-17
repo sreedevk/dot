@@ -3,22 +3,24 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-symbols.nvim',
+    'jvgrootveld/telescope-zoxide',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
   cmd = "Telescope",
   keys = {
-    { '<C-p>',      require('telescope.builtin').find_files,                desc = 'Find Files' },
-    { '<Leader>rg', require('telescope.builtin').live_grep,                 desc = 'Live Grep' },
-    { '<C-s>',      '<cmd>Telescope<CR>',                                   desc = 'Telescope' },
-    { "<Leader>bl", require('telescope.builtin').buffers,                   desc = 'Buffer List' },
-    { '<Leader>ft', require('telescope.builtin').filetypes,                 desc = 'Filetypes List' },
-    { '<leader>fh', require('telescope.builtin').help_tags,                 desc = 'Help Tags List' },
-    { '<leader>gc', require('telescope.builtin').git_commits,               desc = 'Git Commit List' },
-    { '<Leader>/',  require('telescope.builtin').current_buffer_fuzzy_find, desc = 'Current Buff Fuzzy Find' },
-    { '<Leader>cc', require('telescope.builtin').commands,                  desc = 'Commands List' },
-    { "<Leader>'",  require('telescope.builtin').marks,                     desc = 'Marks List' },
-    { "<Leader>sp", require('telescope.builtin').spell_suggest,             desc = 'Suggest Spellings' },
-    { "<Leader>tr", "<cmd>Telescope resume<cr>",                            desc = "Resume Last Telescope Search" },
+    { '<C-p>',      require('telescope.builtin').find_files,                desc = 'Find Files',                   noremap = true },
+    { '<Leader>rg', require('telescope.builtin').live_grep,                 desc = 'Live Grep',                    noremap = true },
+    { '<C-s>',      wrap_cmd('Telescope'),                                  desc = 'Telescope',                    noremap = true },
+    { "<Leader>bl", require('telescope.builtin').buffers,                   desc = 'Buffer List',                  noremap = true },
+    { '<Leader>ft', require('telescope.builtin').filetypes,                 desc = 'Filetypes List',               noremap = true },
+    { '<leader>fh', require('telescope.builtin').help_tags,                 desc = 'Help Tags List',               noremap = true },
+    { '<leader>gc', require('telescope.builtin').git_commits,               desc = 'Git Commit List',              noremap = true },
+    { '<Leader>/',  require('telescope.builtin').current_buffer_fuzzy_find, desc = 'Current Buff Fuzzy Find',      noremap = true },
+    { '<Leader>cc', require('telescope.builtin').commands,                  desc = 'Commands List',                noremap = true },
+    { "<Leader>'",  require('telescope.builtin').marks,                     desc = 'Marks List',                   noremap = true },
+    { "<Leader>sp", require('telescope.builtin').spell_suggest,             desc = 'Suggest Spellings',            noremap = true },
+    { "<Leader>tr", wrap_cmd("Telescope resume"),                           desc = "Resume Last Telescope Search", noremap = true },
+    { '<Leader>zi', wrap_cmd("Telescope zoxide list"),                      desc = "Zoxide Interactive",           noremap = true },
     {
       "<Leader>ej",
       function()
@@ -101,6 +103,15 @@ return {
           "!**/.git/*",
         },
         extensions = {
+          zoxide = {
+            mappings = {
+              default = {
+                action = function(selection)
+                  vim.cmd.tcd(selection.path)
+                end
+              },
+            }
+          },
           fzf = {
             fuzzy = true,
             override_generic_sorter = true,
@@ -122,5 +133,6 @@ return {
     })
 
     pcall(require('telescope').load_extension, 'fzf')
+    pcall(require("telescope").load_extension, 'zoxide')
   end
 }
