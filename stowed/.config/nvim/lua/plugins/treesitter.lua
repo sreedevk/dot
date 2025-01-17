@@ -236,12 +236,12 @@ return {
     opts = { highlight = true },
     cmd = { 'Treewalker' },
     keys = {
-      { '<C-j>', ':Treewalker Down<CR>', noremap = true, desc = "Treewalker Down", silent = true },
-      { '<C-k>', ':Treewalker Up<CR>', noremap = true, desc = "Treewalker Up", silent = true },
-      { '<C-h>', ':Treewalker Left<CR>', noremap = true, desc = "Treewalker Left", silent = true },
-      { '<C-l>', ':Treewalker Right<CR>', noremap = true, desc = "Treewalker Right", silent = true },
-      { '<C-S-j>', ':Treewalker SwapDown<CR>', noremap = true, desc = "Treesitter SwapUp", silent = true },
-      { '<C-S-k>', ':Treewalker SwapUp<CR>', noremap = true, desc = "Treesitter SwapDown", silent = true }
+      { '<C-j>',   ':Treewalker Down<CR>',     noremap = true, desc = "Treewalker Down",     silent = true },
+      { '<C-k>',   ':Treewalker Up<CR>',       noremap = true, desc = "Treewalker Up",       silent = true },
+      { '<C-h>',   ':Treewalker Left<CR>',     noremap = true, desc = "Treewalker Left",     silent = true },
+      { '<C-l>',   ':Treewalker Right<CR>',    noremap = true, desc = "Treewalker Right",    silent = true },
+      { '<C-S-j>', ':Treewalker SwapDown<CR>', noremap = true, desc = "Treesitter SwapUp",   silent = true },
+      { '<C-S-k>', ':Treewalker SwapUp<CR>',   noremap = true, desc = "Treesitter SwapDown", silent = true }
     },
   },
 

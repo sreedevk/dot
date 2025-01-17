@@ -1,7 +1,6 @@
 return {
   "tpope/vim-vinegar",
   'chrisbra/unicode.vim',
-  'kevinhwang91/nvim-bqf',
   'preservim/vim-indent-guides',
   'tpope/vim-characterize',
   'tpope/vim-ragtag',
@@ -14,6 +13,21 @@ return {
   { 'ledger/vim-ledger',                  lazy = true,  config = false, ft = { 'ledger', 'journal' } },
   { "tpope/vim-tbone",                    lazy = true,  config = false, cmd = { "Tmux", "Tyank", "Tput", "Twrite", "Tattach" } },
   { "tiagovla/scope.nvim",                lazy = false, config = true },
+
+  {
+    'junegunn/fzf',
+    build = function()
+      vim.fn['fzf#install']()
+    end
+  },
+
+  {
+    'kevinhwang91/nvim-bqf',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'junegunn/fzf'
+    },
+  },
 
   {
     'tpope/vim-rails',
