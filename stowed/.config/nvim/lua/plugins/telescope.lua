@@ -4,6 +4,7 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-symbols.nvim',
     'jvgrootveld/telescope-zoxide',
+    'crispgm/telescope-heading.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
   cmd = "Telescope",
@@ -21,6 +22,7 @@ return {
     { "<Leader>sp", require('telescope.builtin').spell_suggest,             desc = 'Suggest Spellings',            noremap = true },
     { "<Leader>tr", wrap_cmd("Telescope resume"),                           desc = "Resume Last Telescope Search", noremap = true },
     { '<Leader>zi', wrap_cmd("Telescope zoxide list"),                      desc = "Zoxide Interactive",           noremap = true },
+    { '<Leader>th', wrap_cmd("Telescope heading"),                          desc = "Telescope Markdown Headings",  noremap = true },
     {
       "<Leader>ej",
       function()
@@ -103,6 +105,9 @@ return {
           "!**/.git/*",
         },
         extensions = {
+          heading = {
+            treesitter = true,
+          },
           zoxide = {
             mappings = {
               default = {
@@ -134,5 +139,6 @@ return {
 
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require("telescope").load_extension, 'zoxide')
+    pcall(require("telescope").load_extension, 'heading')
   end
 }
