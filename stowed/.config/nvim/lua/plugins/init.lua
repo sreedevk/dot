@@ -12,7 +12,15 @@ return {
   { 'ledger/vim-ledger',                  lazy = true,  config = false, ft = { 'ledger', 'journal' } },
   { "tpope/vim-tbone",                    lazy = true,  config = false, cmd = { "Tmux", "Tyank", "Tput", "Twrite", "Tattach" } },
   { "tiagovla/scope.nvim",                lazy = false, config = true },
-  { 'kaarmu/typst.vim',                   lazy = true,  ft = 'typst' },
+
+  {
+    'kaarmu/typst.vim',
+    lazy = true,
+    ft = 'typst',
+    init = function()
+      vim.g.typst_pdf_viewer = "zathura"
+    end
+  },
 
   {
     'junegunn/fzf',
@@ -115,7 +123,9 @@ return {
 
   {
     'lervag/vimtex',
-    init = function() vim.g.vimtex_view_method = "zathura" end,
+    init = function()
+      vim.g.vimtex_view_method = "zathura"
+    end,
   },
 
   {
