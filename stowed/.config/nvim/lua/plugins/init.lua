@@ -33,7 +33,8 @@ return {
 
   {
     'tpope/vim-rails',
-    lazy = false,
+    lazy = true,
+    ft = { 'ruby' },
     config = function()
       vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPost' }, {
         pattern = { '*.yml' },
@@ -55,7 +56,7 @@ return {
 
   {
     'tpope/vim-eunuch',
-    lazy = false,
+    lazy = true,
     keys = {
       { '<Leader>sw', '<cmd>SudoWrite<cr>', noremap = true, desc = "Sudo Write!" }
     },
