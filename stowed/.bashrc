@@ -8,7 +8,7 @@ export PATH="$PATH:$HOME/.local/bin:/opt/bin"
 export VISUAL="nvim"
 export EDITOR="nvim"
 export READER="zathura"
-export TERMINAL="alacritty"
+export TERMINAL="wezterm"
 export BROWSER="brave"
 
 # BETTER TERM

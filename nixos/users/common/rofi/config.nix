@@ -373,7 +373,7 @@
         	display-combi: "Combi";
         	display-keys: "Keys";
         	display-filebrowser: "Files";
-        	terminal: "alacritty";
+        	terminal: "wezterm";
         	font: "IosevkaTerm NF 18";
         	sort: false;
         	threads: 0;
