@@ -5,7 +5,7 @@ local keys    = require 'keys'
 return {
   color_schemes                = colors,
   font                         = wezterm.font { family = 'Iosevka NF', weight = 'Medium' },
-  font_size                    = 14,
+  font_size                    = 16,
   window_background_opacity    = 0.8,
   max_fps                      = 120,
   keys                         = keys,
