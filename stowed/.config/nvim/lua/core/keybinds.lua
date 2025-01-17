@@ -51,6 +51,7 @@ vim.keymap.set('n', '<esc>', '<cmd>noh<cr>', { noremap = true })
 vim.keymap.set('n', '<Leader>h', '<cmd>noh<CR>', { desc = "No Highlight", noremap = true })
 vim.keymap.set('n', '<Leader>rr', '<cmd>e!<CR>', { desc = "Reload File From Disk", noremap = true })
 vim.keymap.set('n', '<Leader>fs', '<cmd>w<CR>', { desc = "File Save", noremap = true })
+vim.keymap.set('n', '<Leader>fq', '<cmd>wq<CR>', { desc = 'Write Quit', noremap = true })
 vim.keymap.set('n', '<Leader>q', '<cmd>q<CR>', { desc = "Quit Neovim", noremap = true })
 
 vim.keymap.set(
