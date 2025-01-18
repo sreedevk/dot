@@ -33,6 +33,8 @@ in
           { key = "Escape"; mods = "Control"; action = "ToggleViMode"; }
           { key = "Escape"; mods = "None"; action = "ToggleViMode"; mode = "Vi"; }
           { key = "I"; mods = "None"; action = "ToggleViMode"; mode = "Vi"; }
+          { key = "Tab"; mods = "None"; action = "SearchFocusNext"; mode = "Search"; }
+          { key = "Tab"; mods = "Shift"; action = "SearchFocusPrevious"; mode = "Search"; }
         ];
       };
 
