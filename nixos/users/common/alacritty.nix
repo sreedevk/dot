@@ -29,9 +29,10 @@ in
         bindings = [
           { key = "U"; mods = "Alt"; action = "ScrollPageUp"; mode = "~Alt"; }
           { key = "D"; mods = "Alt"; action = "ScrollPageDown"; mode = "~Alt"; }
+          { key = "Return"; mods = "None"; action = "Open"; mode = "Vi"; }
           { key = "Escape"; mods = "Control"; action = "ToggleViMode"; }
+          { key = "Escape"; mods = "None"; action = "ToggleViMode"; mode = "Vi"; }
           { key = "I"; mods = "None"; action = "ToggleViMode"; mode = "Vi"; }
-          { key = "Return"; mods = "None"; action = "ToggleViMode"; mode = "Vi"; }
         ];
       };
 
