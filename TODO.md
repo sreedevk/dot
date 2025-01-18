@@ -43,3 +43,8 @@
     - fixed in: [8397](https://github.com/alacritty/alacritty/pull/8397) waiting for release
     - Alacritty disabled until 0.15 is available in nixpkgs
     - Fixed by creating a custom 0.15 build from head of master
+
+# Firefox
+- [ ] Hoarder hit with DMCA.
+    -  [reddit post](https://old.reddit.com/r/selfhosted/comments/1i29pi1/hoarder_the_name_is_being_stolen_from_me/)
+    -  [github issue](https://github.com/hoarder-app/hoarder/issues/899)

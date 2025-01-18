@@ -5,7 +5,8 @@ with firefox-addons.packages."${system}"; [
   consent-o-matic
   darkreader
   enhancer-for-youtube
-  hoarder
+  # NOTE: Check TODO. 
+  # hoarder
   multi-account-containers
   open-url-in-container
   reddit-enhancement-suite
