@@ -23,6 +23,7 @@ vim.keymap.set('n', '<Leader>ww', '<cmd>vnew<cr>', { desc = "New Vertical Window
 vim.keymap.set('n', '<Leader>ws', '<cmd>new<cr>', { desc = "New Horizontal Window" })
 vim.keymap.set('n', '<C-w>v', "<cmd>vnew<cr>", { desc = "New Vertical Window", noremap = true })
 vim.keymap.set('n', '<C-w>s', "<cmd>new<cr>", { desc = "New Horizontal Window", noremap = true })
+vim.keymap.set('n', '<Leader>te', "<cmd>term<cr>", { desc = "open terminal buffer", noremap = true })
 
 -- Buffer Navigation {{{1
 vim.keymap.set('n', '<Leader>bb', '<cmd>bnext<CR>', { desc = "Buffer Next", noremap = true })
