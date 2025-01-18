@@ -2,6 +2,7 @@ return {
   {
     "nosduco/remote-sshfs.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
+    lazy = true,
     cmd = {
       "RemoteSSHFSConnect",
       "RemoteSSHFSDisconnect",
