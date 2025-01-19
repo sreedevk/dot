@@ -13,8 +13,8 @@ let
     rust-analyzer
     tailwindcss-language-server
     taplo
+    tinymist
     typescript-language-server
-    typst-lsp
     typstfmt
     yaml-language-server
   ];
