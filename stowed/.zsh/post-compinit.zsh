@@ -18,3 +18,7 @@ fi
 if command -v pueue &> /dev/null; then
   eval "$(pueue completions zsh)"
 fi
+
+if command -v just &> /dev/null; then
+  eval "$(just --completions zsh)"
+fi
