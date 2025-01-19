@@ -6,8 +6,6 @@ local function generate_config(conf)
     single_file_support = conf.single_file_support or true,
     init_options = conf.init_options or {},
     settings = conf.settings or {},
-    commands = conf.commands or {},
-    root_dir = conf.root_dir or nil
   }
 end
 
@@ -15,22 +13,6 @@ local function setup_lsp(conf)
   vim.lsp.config[conf.name] = generate_config(conf)
   vim.lsp.enable(conf.name)
 end
-
-setup_lsp { -- typst
-  name = 'tinymist',
-  custom = false,
-  cmd = { vim.fn.trim(vim.fn.system("which tinymist")), "lsp" },
-  filetypes = { 'typst' },
-  root_dir = function(fname)
-    return vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
-  end,
-  settings = {
-    formatterMode = "typstfmt",
-    exportPdf = "onType",
-    semanticTokens = "disable",
-    rootPath = "-",
-  }
-}
 
 setup_lsp { -- lua
   name = 'lua_ls',
