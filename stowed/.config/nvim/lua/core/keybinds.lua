@@ -13,8 +13,10 @@ vim.keymap.set("n", "]w", "<C-w>l", { noremap = true, desc = "Move to Window on 
 vim.keymap.set("n", "[w", "<C-w>h", { noremap = true, desc = "Move to Window on Left" })
 
 -- Keep Center {{{1
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
+-- ISSUE: 
+-- disabling because the stutter introduced by this keybinding is annoying
+-- vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
+-- vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
 
 -- Tab Management {{{1
 vim.keymap.set('n', '<C-t>', '<cmd>tabnew<CR>', { noremap = true })
