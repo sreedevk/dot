@@ -43,6 +43,7 @@
     - fixed in: [8397](https://github.com/alacritty/alacritty/pull/8397) waiting for release
     - Alacritty disabled until 0.15 is available in nixpkgs
     - Fixed by creating a custom 0.15 build from head of master
+- [ ] The "Enter" Keymap in Vi Mode opens urls, find a way to run "ExitViMode" after url open
 
 # Firefox
 - [ ] Hoarder hit with DMCA.
