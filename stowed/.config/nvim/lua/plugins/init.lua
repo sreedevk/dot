@@ -14,6 +14,19 @@ return {
   { "tiagovla/scope.nvim",                lazy = false, config = true },
 
   {
+    'preservim/vim-indent-guides',
+    lazy = true,
+    keys = {
+      { '<Leader>ig', wrap_cmd("IndentGuidesToggle"), noremap = true, desc = "Toggle Indent Guides" }
+    },
+    cmd = {
+      'IndentGuidesToggle',
+      'IndentGuidesEnable',
+      'IndentGuidesDisable',
+    },
+  },
+
+  {
     'kaarmu/typst.vim',
     lazy = true,
     ft = 'typst',
