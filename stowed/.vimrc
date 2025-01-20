@@ -119,8 +119,6 @@ nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 nnoremap <Leader>fs :w!<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>h :noh<CR>
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
 
 "terminal
 nnoremap <C-4><C-4> :terminal<CR>
