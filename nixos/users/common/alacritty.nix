@@ -1,7 +1,6 @@
 { pkgs, lib, config, ... }:
 let
   nixglmod = import ./nixGL.nix { inherit lib config pkgs; };
-  theme = (import ./themes.nix).zitchdog-grape;
 in
 {
   programs.alacritty = {
@@ -64,35 +63,80 @@ in
 
       colors = {
         primary = {
-          background = theme.background;
-          foreground = theme.foreground;
+          foreground = "#e0def4";
+          background = "#191724";
+          dim_foreground = "#908caa";
+          bright_foreground = "#e0def4";
         };
         cursor = {
-          cursor = theme.cursor;
+          text = "#e0def4";
+          cursor = "#524f67";
+        };
+        vi_mode_cursor = {
+          text = "#e0def4";
+          cursor = "#524f67";
+        };
+        search = {
+          matches = {
+            foreground = "#908caa";
+            background = "#26233a";
+          };
+          focused_match = {
+            foreground = "#191724";
+            background = "#ebbcba";
+          };
+        };
+        hints = {
+          start = {
+            foreground = "#908caa";
+            background = "#1f1d2e";
+          };
+          end = {
+            foreground = "#6e6a86";
+            background = "#1f1d2e";
+          };
+        };
+        line_indicator = {
+          foreground = "None";
+          background = "None";
+        };
+        footer_bar = {
+          foreground = "#e0def4";
+          background = "#1f1d2e";
         };
         selection = {
-          text = "#FFFFFF";
-          background = "#C76E00";
+          text = "#e0def4";
+          background = "#403d52";
         };
         normal = {
-          black = theme.color0;
-          red = theme.color1;
-          green = theme.color2;
-          yellow = theme.color3;
-          blue = theme.color4;
-          magenta = theme.color5;
-          cyan = theme.color6;
-          white = theme.color7;
+          black = "#26233a";
+          red = "#eb6f92";
+          green = "#31748f";
+          yellow = "#f6c177";
+          blue = "#9ccfd8";
+          magenta = "#c4a7e7";
+          cyan = "#ebbcba";
+          white = "#e0def4";
         };
         bright = {
-          black = theme.color8;
-          red = theme.color9;
-          green = theme.color10;
-          yellow = theme.color11;
-          blue = theme.color12;
-          magenta = theme.color13;
-          cyan = theme.color14;
-          white = theme.color15;
+          black = "#6e6a86";
+          red = "#eb6f92";
+          green = "#31748f";
+          yellow = "#f6c177";
+          blue = "#9ccfd8";
+          magenta = "#c4a7e7";
+          cyan = "#ebbcba";
+          white = "#e0def4";
+        };
+        dim = {
+          black = "#6e6a86";
+          red = "#eb6f92";
+          green = "#31748f";
+          yellow = "#f6c177";
+          blue = "#9ccfd8";
+          magenta = "#c4a7e7";
+          cyan = "#ebbcba";
+          white = "#e0def4";
         };
       };
 
