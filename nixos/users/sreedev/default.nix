@@ -29,6 +29,7 @@ in
     ../common/neovim.nix
     ../common/newsboat.nix
     ../common/nsxiv.nix
+    ../common/ocaml.nix
     ../common/opentabletdriver.nix
     ../common/rofi
     ../common/starship.nix
