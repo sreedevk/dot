@@ -18,7 +18,7 @@
 
   environment.etc = {
     "loki/local.yaml" = {
-      enable = true;
+      enable = opts.autostart-non-essential-services;
       text = ''
         # This is a complete configuration to deploy Loki backed by the filesystem.
         # The index will be shipped to the storage via tsdb-shipper.
@@ -52,7 +52,7 @@
       '';
     };
     "grafana/datasource.yml" = {
-      enable = true;
+      enable = opts.autostart-non-essential-services;
       text = ''
         apiVersion: 1
 
@@ -77,7 +77,7 @@
     };
 
     "prometheus/prometheus.yml" = {
-      enable = true;
+      enable = opts.autostart-non-essential-services;
       text = ''
         global:
           scrape_interval: 15s
@@ -118,16 +118,16 @@
 
   services.prometheus.exporters = {
     smartctl = {
-      enable = true;
+      enable = opts.autostart-non-essential-services;
       user = "root";
       port = pkgs.lib.strings.toInt opts.ports.prometheus_smartctl;
     };
     zfs = {
-      enable = true;
+      enable = opts.autostart-non-essential-services;
       port = pkgs.lib.strings.toInt opts.ports.prometheus_zfs;
     };
     node = {
-      enable = true;
+      enable = opts.autostart-non-essential-services;
       port = pkgs.lib.strings.toInt opts.ports.prometheus_node;
       # https://github.com/NixOS/nixpkgs/blob/nixos-24.05/nixos/modules/services/monitoring/prometheus/exporters.nix
       enabledCollectors = [ "systemd" ];
@@ -145,7 +145,7 @@
   };
 
   services.promtail = {
-    enable = true;
+    enable = opts.autostart-non-essential-services;
     configuration = {
       server = {
         http_listen_port = pkgs.lib.strings.toInt opts.ports.promtail;
@@ -179,7 +179,7 @@
 
   virtualisation.oci-containers.containers = {
     loki = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "grafana/loki:3.0.0";
       ports = [ "${opts.ports.loki}:3100" ];
       cmd = [ "-config.file=/etc/loki/local.yaml" ];
@@ -200,7 +200,7 @@
     };
 
     prometheus = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "prom/prometheus:latest";
       dependsOn = [ "influxdb" ];
       extraOptions =
@@ -225,7 +225,7 @@
     };
 
     grafana = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "grafana/grafana:latest";
       dependsOn = [ "influxdb" "loki" "prometheus" ];
       extraOptions =
@@ -247,7 +247,7 @@
     };
 
     influxdb = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "influxdb:2.7.6-alpine";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

@@ -7,7 +7,7 @@
 
   virtualisation.oci-containers.containers = {
     "watchyourlan" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "aceberg/watchyourlan:v2";
       extraOptions = [ "--network=host" "--no-healthcheck" "--privileged" ];
       volumes = [ "wyl_app:/data/WatchYourLAN" ];

@@ -5,7 +5,7 @@
 
   virtualisation.oci-containers.containers = {
     "ollama" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "ollama/ollama:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "ollama_api:/root/.ollama" ];
@@ -24,7 +24,7 @@
     };
 
     "ollama-web" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "ghcr.io/open-webui/open-webui:latest";
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"

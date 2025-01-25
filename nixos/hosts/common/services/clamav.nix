@@ -3,12 +3,12 @@
   services.clamav = {
     package = pkgs.clamav;
     daemon = {
-      enable = true;
+      enable = opts.autostart-non-essential-services;
       settings = { };
     };
 
     scanner = {
-      enable = true;
+      enable = opts.autostart-non-essential-services;
       interval = "daily";
       scanDirectories = [
         opts.paths.downloads
@@ -16,7 +16,7 @@
     };
 
     updater = {
-      enable = true;
+      enable = opts.autostart-non-essential-services;
       interval = "weekly";
       frequency = 1;
       settings = { };

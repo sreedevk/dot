@@ -13,7 +13,7 @@
 
   virtualisation.oci-containers.containers = {
     romm-app = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "rommapp/romm:latest";
       ports = [ "${opts.ports.romm-app}:8080" ];
       extraOptions = [
@@ -52,7 +52,7 @@
     };
 
     romm-db = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "mariadb:latest";
       ports = [ "${opts.ports.romm-db}:3306" ];
       environmentFiles = [ config.age.secrets.romm_env.path ];

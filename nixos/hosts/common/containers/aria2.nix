@@ -7,7 +7,7 @@
 
   virtualisation.oci-containers.containers = {
     "aria2" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       environment = {
         PGID = opts.adminGID;
         PUID = opts.adminUID;

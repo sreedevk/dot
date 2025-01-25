@@ -22,7 +22,7 @@
         "tubearchivist-es"
         "tubearchivist-redis"
       ];
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       ports = [ "${opts.ports.tubearchivist}:8000" ];
       volumes = [
         "${opts.paths.videos}/YouTube:/youtube"
@@ -41,7 +41,7 @@
     };
 
     tubearchivist-es = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "bbilly1/tubearchivist-es:latest";
       extraOptions =
         [
@@ -63,7 +63,7 @@
     };
 
     tubearchivist-redis = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "redis/redis-stack-server:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

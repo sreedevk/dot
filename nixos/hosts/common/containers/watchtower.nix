@@ -2,7 +2,7 @@
 {
   virtualisation.oci-containers.containers = {
     "watchtower" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "containrrr/watchtower:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [ "${opts.paths.podmanSocket}:/var/run/docker.sock" ];

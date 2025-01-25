@@ -7,7 +7,7 @@
 
   virtualisation.oci-containers.containers = {
     "jellyseer" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "fallenbagel/jellyseerr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

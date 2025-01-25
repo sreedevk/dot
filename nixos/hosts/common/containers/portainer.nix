@@ -13,7 +13,7 @@
 
   virtualisation.oci-containers.containers = {
     portainer = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "portainer/portainer-ce:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

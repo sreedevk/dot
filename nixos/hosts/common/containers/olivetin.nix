@@ -2,7 +2,7 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ olivetin ]);
   virtualisation.oci-containers.containers = {
     "olivetin" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "jamesread/olivetin:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--cap-add=NET_RAW" "--no-healthcheck" ];

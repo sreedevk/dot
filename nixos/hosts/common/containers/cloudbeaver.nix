@@ -2,7 +2,7 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ cloudbeaver ]);
   virtualisation.oci-containers.containers = {
     "cloudbeaver" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "dbeaver/cloudbeaver:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

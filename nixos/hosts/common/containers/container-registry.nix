@@ -12,7 +12,7 @@
   # container-registry-web
   virtualisation.oci-containers.containers = {
     "container-registry-server" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "registry:2.7";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.container-registry-server}:5000" ];
@@ -32,7 +32,7 @@
     };
 
     "container-registry-web" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       dependsOn = [ "container-registry-server" ];
       image = "quiq/registry-ui:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--privileged" ];

@@ -4,7 +4,7 @@
 
   virtualisation.oci-containers.containers = {
     n8n-db = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "postgres:16";
       volumes = [ "n8n_db:/var/lib/postgresql/data" ];
       ports = [ "${opts.ports.n8n-db}:5432" ];
@@ -20,7 +20,7 @@
       };
     };
     n8n-app = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "n8nio/n8n:latest";
       dependsOn = [ "n8n-db" ];
       volumes = [ "n8n_app:/home/node/.n8n" ];

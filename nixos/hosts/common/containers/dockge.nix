@@ -13,7 +13,7 @@
   # https://dockge.nullptr.sh/
   virtualisation.oci-containers.containers = {
     dockge = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "louislam/dockge:1";
       extraOptions =
         [

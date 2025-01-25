@@ -4,7 +4,7 @@
 
   virtualisation.oci-containers.containers = {
     "firefly-app" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "fireflyiii/core:latest";
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"
@@ -40,7 +40,7 @@
     };
 
     "firefly-db" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "mariadb:latest";
       ports = [ "${opts.ports.firefly_db}:3306" ];
       cmd = [ "--max-connections=512" ];

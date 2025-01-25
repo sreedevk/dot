@@ -11,7 +11,7 @@
 
   virtualisation.oci-containers.containers = {
     tdarr-server = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "haveagitgat/tdarr:latest";
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"
@@ -45,7 +45,7 @@
       };
     };
     tdarr-node = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       dependsOn = [ "tdarr-server" ];
       image = "haveagitgat/tdarr_node:latest";
       extraOptions = [

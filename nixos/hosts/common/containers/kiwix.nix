@@ -2,7 +2,7 @@
 {
   virtualisation.oci-containers.containers = {
     kiwix = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "ghcr.io/kiwix/kiwix-serve:3.7.0";
       ports = [ "${opts.ports.kiwix}:8080" ];
       volumes = [ "${opts.paths.zim}:/data" ];

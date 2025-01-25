@@ -1,4 +1,5 @@
 rec {
+  autostart-non-essential-services = false;
   hostname = "nullptrderef1";
   lanAddress = "192.168.1.179";
   adminUID = "1000";

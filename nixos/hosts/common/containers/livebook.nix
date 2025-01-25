@@ -2,7 +2,7 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ livebook_api livebook_http ]);
   virtualisation.oci-containers.containers = {
     "livebook" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "ghcr.io/livebook-dev/livebook:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

@@ -5,7 +5,7 @@
 
   virtualisation.oci-containers.containers = {
     minio = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "minio/minio:latest";
       environmentFiles = [ config.age.secrets.minio_env.path ];
       extraOptions =

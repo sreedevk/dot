@@ -9,7 +9,7 @@
 
   virtualisation.oci-containers.containers = {
     nzbhydra = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "ghcr.io/hotio/nzbhydra2:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

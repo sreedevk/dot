@@ -8,7 +8,7 @@
   virtualisation.oci-containers.containers = {
     # Service Health Monitoring
     "uptime-kuma" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "louislam/uptime-kuma:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
@@ -22,7 +22,7 @@
     };
 
     "autokuma" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "ghcr.io/bigboot/autokuma:latest";
       dependsOn = [ "uptime-kuma" ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
