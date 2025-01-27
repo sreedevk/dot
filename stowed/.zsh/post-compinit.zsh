@@ -22,3 +22,7 @@ fi
 if command -v just &> /dev/null; then
   eval "$(just --completions zsh)"
 fi
+
+if command -v docker &> /dev/null; then
+  eval "$(docker completion zsh)"
+fi
