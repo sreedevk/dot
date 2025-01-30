@@ -31,6 +31,7 @@ in
     ../common/newsboat.nix
     ../common/nsxiv.nix
     ../common/ocaml.nix
+    ../common/ollama.nix
     ../common/opentabletdriver.nix
     ../common/rofi
     ../common/starship.nix
