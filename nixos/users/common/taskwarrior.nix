@@ -25,7 +25,7 @@ let
     export DISPLAY=:1
     now=$(date +%s)
     in_one_hour=$(date -d "+1 hour" +%s)
-    tasks_due_today=$(task due:today _ids)
+    tasks_due_today=$(task due:today -ACTIVE _ids)
     tasks_due_soon=""
     for task_id in $tasks_due_today; do
     	task_due_date="$(task _get $task_id.due)"
