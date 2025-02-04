@@ -2,7 +2,7 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    lazy = false,
+    lazy = true,
     cmd = { "IBLDisableScope", "IBLDisable", "IBLEnable", "IBLEnableScope", "IBLToggle", "IBLToggleScope" },
     keys = {
       { "<Leader>ig", "<cmd>IBLToggle<cr>", desc = "Toggle Indent Guides", noremap = true }
