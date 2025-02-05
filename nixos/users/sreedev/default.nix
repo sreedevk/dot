@@ -53,6 +53,7 @@ in
     let
       nixgl-packages = [
         (nixglmod.nixGLWrapped pkgs.slack "slack")
+        (nixglmod.nixGLWrapped pkgs.chromium "chromium")
         (nixglmod.nixGLWrapped pkgs.spotube "spotube")
       ];
 
