@@ -105,8 +105,8 @@ in
           background = "#1f1d2e";
         };
         selection = {
-          text = "#e0def4";
-          background = "#403d52";
+          text = "#191724";
+          background = "#e0def4";
         };
         normal = {
           black = "#26233a";
