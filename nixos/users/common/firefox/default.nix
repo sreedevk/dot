@@ -20,7 +20,9 @@ in
         id = 0;
         containersForce = false;
         containers = { };
-        extensions = extensions;
+        extensions = {
+          packages = extensions;
+        };
         search = {
           force = true;
           default = "Brave";
