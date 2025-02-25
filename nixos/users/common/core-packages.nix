@@ -1,5 +1,6 @@
-{ pkgs, nixpkgs-stable, ... }: {
-  home.packages = with pkgs; [
+{ pkgs, nixpkgs-stable, ... }:
+{
+  home.packages = (with pkgs; [
     bat
     bingrep
     broot
@@ -40,7 +41,6 @@
     rsync
     sshfs
     starship
-    tailspin
     traceroute
     tree
     unrar
@@ -50,5 +50,8 @@
     yazi
     yq
     zoxide
-  ];
+  ]) ++
+  (with nixpkgs-stable; [
+    tailspin
+  ]);
 }

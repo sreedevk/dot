@@ -1,4 +1,4 @@
-{ pkgs, config, opts, ... }:
+{ pkgs, nixpkgs-stable, config, opts, ... }:
 let
   wallpaper_path = "${opts.directories.wallpapers}/${opts.wallpaper}";
   set-wallpaper = pkgs.writeShellScriptBin "set-wallpaper" ''
@@ -103,9 +103,9 @@ in
         bindsym XF86AudioNext          exec --no-startup-id ${pkgs.playerctl}/bin/playerctl next
 
         # Shortcuts - Screenshots
-        bindsym Print                  exec --no-startup-id "${pkgs.maim}/bin/maim -i $(xdotool getactivewindow) ~/Media/screenshots/$(date +%s).png"
-        bindsym $mod+Ctrl+s  --release exec --no-startup-id "${pkgs.maim}/bin/maim -s -d 0.2 ~/Media/screenshots/$(date +%s).png"
-        bindsym $mod+Shift+s --release exec --no-startup-id "${pkgs.maim}/bin/maim -s -d 0.2 | xclip -selection clipboard -t image/png"
+        bindsym Print                  exec --no-startup-id "${nixpkgs-stable.maim}/bin/maim -i $(xdotool getactivewindow) ~/Media/screenshots/$(date +%s).png"
+        bindsym $mod+Ctrl+s  --release exec --no-startup-id "${nixpkgs-stable.maim}/bin/maim -s -d 0.2 ~/Media/screenshots/$(date +%s).png"
+        bindsym $mod+Shift+s --release exec --no-startup-id "${nixpkgs-stable.maim}/bin/maim -s -d 0.2 | xclip -selection clipboard -t image/png"
 
         # Shortcuts - Audio
         bindsym $mod+a            exec --no-startup-id "pavucontrol"

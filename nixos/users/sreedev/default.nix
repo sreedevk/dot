@@ -61,7 +61,7 @@ in
         cli-packages = with nixpkgs-stable; [
           (nerdfonts.override { fonts = [ "Iosevka" ]; })
         ];
-        gui-packages = with nixpkgs-stable; [ ];
+        gui-packages = with nixpkgs-stable; [ openttd ];
       };
 
       unstable-packages = {
@@ -73,7 +73,6 @@ in
           libreoffice-fresh
           lmms
           nemo-with-extensions
-          openttd
           pwvucontrol
           qflipper
           sonic-pi
