@@ -59,19 +59,18 @@
         };
 
       mkHome =
-        pkgs: system: username: host: home-manager.lib.homeManagerConfiguration {
+        pkgs: system: username: host: conf: home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs.legacyPackages."${system}";
           modules = [
-            stylix.homeManagerModules.stylix
             agenix.homeManagerModules.age
             { home.packages = [ agenix.packages.${system}.default ]; }
             ./users/${username}
-          ];
+          ] ++ (if conf.server-mode then [ ] else [ stylix.homeManagerModules.stylix ]);
           extraSpecialArgs = {
             inherit firefox-addons system username host inputs;
             nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
             ghostty = inputs.ghostty.packages."${system}";
-            opts = opts // (import ./hosts/${host}/opts.nix) // (import ./users/${username}/opts.nix);
+            opts = opts // (import ./hosts/${host}/opts.nix) // (import ./users/${username}/opts.nix) // conf;
           };
         };
     in
@@ -89,10 +88,10 @@
 
       # User Level Home Manager Configurations
       homeConfigurations = {
-        admin = mkHome nixpkgs systems.x86 "admin" "nullptrderef1";
-        deploy = mkHome nixpkgs systems.x86 "deploy" "devtechnica";
-        pi = mkHome nixpkgs systems.arm64 "pi" "rpi4b";
-        sreedev = mkHome nixpkgs systems.x86 "sreedev" "devstation";
+        admin = mkHome nixpkgs systems.x86 "admin" "nullptrderef1" { server-mode = true; };
+        deploy = mkHome nixpkgs systems.x86 "deploy" "devtechnica" { server-mode = true; };
+        pi = mkHome nixpkgs systems.arm64 "pi" "rpi4b" { server-mode = true; };
+        sreedev = mkHome nixpkgs systems.x86 "sreedev" "devstation" { server-mode = false; };
       };
     };
 }
