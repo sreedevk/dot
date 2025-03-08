@@ -17,7 +17,7 @@
         };
       };
       signing = {
-        sign-all = true;
+        behavior = "own";
         backend = "gpg";
         key = "B8C402B16E80E17C";
       };
