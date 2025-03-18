@@ -11,7 +11,7 @@
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = ''
-        ${pkgs.taskchampion-sync-server}/bin/taskchampion-sync-server --port ${opts.ports.taskchampion} --data-dir ${opts.paths.app_datafiles}/taskchampion
+        ${pkgs.taskchampion-sync-server}/bin/taskchampion-sync-server --listen "0.0.0.0:${opts.ports.taskchampion}" --data-dir ${opts.paths.app_datafiles}/taskchampion
       '';
       Restart = "always";
     };
