@@ -35,7 +35,7 @@
         TZ = opts.timeZone;
         HOST_UID = opts.adminUID;
         HOST_GID = opts.adminGID;
-        TA_HOST = "tube.nullptr.sh";
+        TA_HOST = "https://tube.nullptr.sh";
         TA_USERNAME = "admin";
       };
     };
