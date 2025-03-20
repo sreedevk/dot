@@ -31,7 +31,7 @@
       environmentFiles = [ config.age.secrets.tubearchivist_env.path ];
       environment = {
         ES_URL = "http://${opts.hostname}:${opts.ports.tubearchivist-es}";
-        REDIS_HOST = "${opts.hostname}";
+        REDIS_CON = "redis://${opts.hostname}:${opts.ports.tubearchivist-redis}";
         TZ = opts.timeZone;
         HOST_UID = opts.adminUID;
         HOST_GID = opts.adminGID;
