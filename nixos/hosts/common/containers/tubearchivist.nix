@@ -29,6 +29,12 @@
         "${opts.paths.app_datafiles}/tubearchivist/cache:/cache"
       ];
       environmentFiles = [ config.age.secrets.tubearchivist_env.path ];
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.tubearchivist.http.parent_name" = "${opts.hostname}";
+        "kuma.tubearchivist.http.name" = "TubeArchivist";
+        "kuma.tubearchivist.http.url" = "http://${opts.lanAddress}:${opts.ports.tubearchivist}";
+      };
       environment = {
         ES_URL = "http://${opts.hostname}:${opts.ports.tubearchivist-es}";
         REDIS_CON = "redis://${opts.hostname}:${opts.ports.tubearchivist-redis}";
