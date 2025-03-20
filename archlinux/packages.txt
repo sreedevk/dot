@@ -31,8 +31,10 @@ fprintd
 fuse2
 gamescope
 gdb
+gimp
 git
 git-lfs
+gnumeric
 grim
 grub
 gst-libav
@@ -46,6 +48,7 @@ inotify-tools
 intel-media-driver
 iw
 iwd
+jq
 less
 lib32-zlib
 libnotify
@@ -93,7 +96,9 @@ qt5-wayland
 qt6-tools
 raylib
 reflector
+remmina
 sc3-plugins
+scrcpy
 sdl2_image
 sdl2_mixer
 sdl2_net
@@ -119,8 +124,10 @@ unixodbc
 unzip
 upower
 usbutils
+uwsm
 v4l2loopback-dkms
 vcpkg
+vinagre
 virtualbox
 virtualbox-host-dkms
 vulkan-intel

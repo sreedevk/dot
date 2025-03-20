@@ -72,7 +72,6 @@ in
         gui-packages = with pkgs; [
           dbeaver-bin
           filezilla
-          gimp-with-plugins
           librecad
           libreoffice-fresh
           lmms

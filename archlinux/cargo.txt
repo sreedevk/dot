@@ -1,4 +1,4 @@
-blaze-ssh v0.0.7 (https//github.com/sreedevk/blaze-ssh.git#581858dd)
+blaze-ssh v0.0.4
 cargo-expand v1.0.95
 cargo-update v16.0.0
 cargo-watch v8.5.3
