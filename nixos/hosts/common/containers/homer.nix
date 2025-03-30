@@ -26,11 +26,12 @@ in
     "homer" = {
       autoStart = true;
       image = "b4bz/homer:latest";
+      dependsOn = [ "gitea-app" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
+        # local src: "${opts.paths.app_datafiles}/homer:/www/assets"
         "/etc/homerconf:/www/assets:ro"
-        # "${opts.paths.app_datafiles}/homer:/www/assets"
       ];
       ports = [ "${opts.ports.homer}:8080" ];
       environment = {
