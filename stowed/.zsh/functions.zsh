@@ -1,12 +1,12 @@
 #!/usr/bin/zsh
 
 ycd() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f "$tmp" > /dev/null 2>&1
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f "$tmp" > /dev/null 2>&1
 }
 
 # Find Keycode
@@ -20,15 +20,16 @@ clipman() {
 }
 
 randstr() {
-    local length=$1
-    if [[ -z $length ]]; then
-        echo "Usage: randstr <length>"
-        return 1
-    fi
-    openssl rand -base64 $((length * 3 / 4)) | tr -d '\n' | cut -c1-$length
+  local length=$1
+  if [[ -z $length ]]; then
+    echo "Usage: randstr <length>"
+    return 1
+  fi
+  openssl rand -base64 $((length * 3 / 4)) | tr -d '\n' | cut -c1-$length
 }
 
 bwfzf() {
   local item="$(bw list items 2&> /dev/null | jq -r '.[].name' | fzf)"
   bw get password "$item" 2&> /dev/null | wl-copy
+  systemd-run --user --unit="clearboard" --on-active="30s" --description="clear clipboard" sh -c "echo '' | wl-copy" 
 }
