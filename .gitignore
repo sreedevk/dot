@@ -6,24 +6,27 @@
 
 # Allow
 !/stowed/.config/alacritty/
-!/stowed/.config/wezterm/
 !/stowed/.config/autorandr
 !/stowed/.config/awesome
-!/stowed/.config/beets
-!/stowed/.config/cava
 !/stowed/.config/bat
+!/stowed/.config/beets
+!/stowed/.config/brave-beta-flags.conf
+!/stowed/.config/brave-flags.conf
+!/stowed/.config/cava
 !/stowed/.config/doom
 !/stowed/.config/dunst
 !/stowed/.config/dwmblocks
 !/stowed/.config/fastfetch/
 !/stowed/.config/gh
+!/stowed/.config/goneovim
 !/stowed/.config/htop/
+!/stowed/.config/hypr
 !/stowed/.config/i3
-!/stowed/.config/yazi/
 !/stowed/.config/mimeapps.list
 !/stowed/.config/neovide/
 !/stowed/.config/newsboat/config
 !/stowed/.config/nix
+!/stowed/.config/nixpkgs
 !/stowed/.config/nsxiv/
 !/stowed/.config/nvim
 !/stowed/.config/picom.conf
@@ -34,11 +37,9 @@
 !/stowed/.config/user-dirs.dirs
 !/stowed/.config/user-dirs.locale
 !/stowed/.config/vimb
-!/stowed/.config/zathura
-!/stowed/.config/brave-beta-flags.conf
-!/stowed/.config/brave-flags.conf
-!/stowed/.config/nixpkgs
-!/stowed/.config/hypr
 !/stowed/.config/waybar
+!/stowed/.config/wezterm/
+!/stowed/.config/yazi/
+!/stowed/.config/zathura
 !/stowed/.taskrc
 !/wallpapers/leaves.jpg
