@@ -151,6 +151,7 @@ xorg-xev
 xorg-xinit
 xorg-xrandr
 xterm
+ydotool
 zarchive
 zip
 zmap
