@@ -1,5 +1,5 @@
 aic94xx-firmware 30-10
-aquamarine-git 0.8.0_r281.g1d2dbd7-1
+aquamarine-git 0.8.0.r3.gc8282f4-1
 aura-bin 4.0.8-1
 brave-bin 1:1.77.97-1
 droidcam 1:2.1.3-2
@@ -7,9 +7,9 @@ envycontrol 3.5.2-1
 fjira-bin 1.4.4-1
 hyprcursor-git 0.1.12.r1.g2fd36421-1
 hyprgraphics-git 0.1.3.r0.g9d7f2687-1
-hyprland-git 0.48.0.r55.gb15c2bff-1
-hyprland-git-debug 0.48.0.r55.gb15c2bff-1
-hyprland-protocols-git 0.6.4.r0.3a5c2bd-1
+hyprland-git 0.48.0.r64.g382f0f2-1
+hyprland-git-debug 0.48.0.r64.g382f0f2-1
+hyprland-protocols-git 0.6.4.r0.g3a5c2bd-1
 hyprland-qt-support-git 0.1.0.r8.g073c52be-1
 hyprland-qt-support-git-debug 0.1.0.r8.g073c52be-1
 hyprland-qtutils-git 0.1.3.r6.g3504a293-1
