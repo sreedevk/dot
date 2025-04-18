@@ -12,6 +12,7 @@ in
     ../common/btop.nix
     ../common/cargo.nix
     ../common/core-packages.nix
+    ../common/droidcam.nix
     ../common/dunst.nix
     ../common/fastfetch.nix
     ../common/firefox
