@@ -247,7 +247,7 @@ in
       };
 
       "rpi4b" = {
-        hostname = "192.168.1.152";
+        hostname = "192.168.1.151";
         user = "pi";
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";
