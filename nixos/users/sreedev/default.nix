@@ -66,6 +66,7 @@ in
         gui-packages = with nixpkgs-stable; [
           openttd
           pwvucontrol
+          sonic-pi
         ];
       };
 
@@ -78,7 +79,6 @@ in
           lmms
           nemo-with-extensions
           qflipper
-          sonic-pi
         ];
         cli-packages = with pkgs; [
           amfora
