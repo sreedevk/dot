@@ -8,7 +8,6 @@
 
     agenix.url = "github:ryantm/agenix";
     ghostty.url = "github:ghostty-org/ghostty";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     stylix = {
       url = "github:danth/stylix";

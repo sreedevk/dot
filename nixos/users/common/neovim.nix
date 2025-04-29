@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, ... }:
+{ pkgs, config, ... }:
 let
   language_servers = with pkgs; [
     clojure-lsp
@@ -34,7 +34,6 @@ in
 
   programs.neovim = {
     enable = true;
-    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
   };
 
   xdg.desktopEntries = {
