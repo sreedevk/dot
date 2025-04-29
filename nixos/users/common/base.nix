@@ -29,6 +29,15 @@
       recursive = true;
     };
 
+    ".bash_profile" = {
+      enable = true;
+      executable = true;
+      recursive = true;
+      text = ''
+        [[ -f ~/.bashrc ]] && . ~/.bashrc
+      '';
+    };
+
     ".xinitrc" = {
       enable = true;
       executable = true;
