@@ -5,7 +5,7 @@ return {
     {
       'n',
       function()
-        vim.cmd("normal! " .. vim.v.count1 .. 'nzzzv')
+        vim.cmd("silent! normal! " .. vim.v.count1 .. 'nzzzv')
         require('hlslens').start()
       end,
       noremap = true,
@@ -14,7 +14,7 @@ return {
     {
       'N',
       function()
-        vim.cmd("normal! " .. vim.v.count1 .. "Nzzzv")
+        vim.cmd("silent! normal! " .. vim.v.count1 .. "Nzzzv")
         require('hlslens').start()
       end,
       noremap = true,
@@ -23,7 +23,7 @@ return {
     {
       '*',
       function()
-        vim.cmd([[normal! *]])
+        vim.cmd([[silent! normal! *]])
         require('hlslens').start()
       end,
       mode = 'n',
@@ -33,7 +33,7 @@ return {
     {
       '#',
       function()
-        vim.cmd([[normal! #]])
+        vim.cmd([[silent! normal! #]])
         require('hlslens').start()
       end,
       mode = 'n',
@@ -43,7 +43,7 @@ return {
     {
       'g*',
       function()
-        vim.cmd([[normal! g*]])
+        vim.cmd([[silent! normal! g*]])
         require('hlslens').start()
       end,
       mode = 'n',
@@ -53,7 +53,7 @@ return {
     {
       'g#',
       function()
-        vim.cmd([[normal! g#]])
+        vim.cmd([[silent! normal! g#]])
         require('hlslens').start()
       end,
       mode = 'n',
