@@ -3,7 +3,7 @@
 
   services.gpg-agent = {
     enable = false;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentry.package = pkgs.pinentry-curses;
     defaultCacheTtl = 86400;
     maxCacheTtl = 86400;
   };
