@@ -73,6 +73,7 @@ in
       unstable-packages = {
         gui-packages = with pkgs; [
           dbeaver-bin
+          eww
           filezilla
           librecad
           libreoffice-fresh

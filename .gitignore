@@ -16,6 +16,7 @@
 !/stowed/.config/doom
 !/stowed/.config/dunst
 !/stowed/.config/dwmblocks
+!/stowed/.config/eww
 !/stowed/.config/fastfetch/
 !/stowed/.config/gh
 !/stowed/.config/goneovim
@@ -41,5 +42,3 @@
 !/stowed/.config/wezterm/
 !/stowed/.config/yazi/
 !/stowed/.config/zathura
-!/stowed/.taskrc
-!/wallpapers/leaves.jpg
