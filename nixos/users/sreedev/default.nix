@@ -233,6 +233,14 @@ in
         identityFile = "~/.ssh/id_ed25519";
       };
 
+      "op7pro-termux" = {
+        hostname = "100.99.63.104";
+        user = "u0_a256";
+        port = 8022;
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
       "gitea.nullptr.sh" = {
         hostname = "100.117.8.42";
         user = "git";
