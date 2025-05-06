@@ -31,5 +31,5 @@ randstr() {
 bwfzf() {
   local item="$(bw list items 2&> /dev/null | jq -r '.[].name' | fzf)"
   bw get password "$item" 2&> /dev/null | wl-copy
-  systemd-run --user --unit="clearboard" --on-active="30s" --description="clear clipboard" sh -c "echo '' | wl-copy" 
+  systemd-run --user --unit="clearboard-$(date +'%s')" --on-active="30s" --description="clear clipboard" sh -c "echo '' | wl-copy" 
 }
