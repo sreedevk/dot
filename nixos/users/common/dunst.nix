@@ -43,7 +43,7 @@ in
           ignore_dbusclose = false;
           ignore_newline = "no";
           indicate_hidden = "yes";
-          layer = "top";
+          layer = "overlay";
           line_height = 1;
           markup = "yes";
           monitor = 0;
