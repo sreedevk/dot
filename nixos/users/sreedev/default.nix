@@ -232,6 +232,13 @@ in
         identityFile = "~/.ssh/id_ed25519";
       };
 
+      "rocknix-rk3566" = {
+        hostname = "100.100.18.78";
+        user = "root";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
       "gitea.nullptr.sh" = {
         hostname = "100.117.8.42";
         user = "git";
