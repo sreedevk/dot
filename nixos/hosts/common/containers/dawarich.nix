@@ -9,7 +9,7 @@ let
     DATABASE_NAME = "dawarich_development";
     DATABASE_USER = "dawarich_admin";
     MIN_MINUTES_SPENT_IN_CITY = "60";
-    APPLICATION_HOSTS = "0.0.0.0";
+    APPLICATION_HOSTS = "dawarich.nullptr.sh,localhost";
     TIME_ZONE = "America/New_York";
     DISTANCE_UNIT = "km";
     PROMETHEUS_EXPORTER_ENABLED = "false";
