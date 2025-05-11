@@ -8,6 +8,7 @@
     ./baikal.nix
     ./cloudbeaver.nix
     ./container-registry.nix
+    ./dawarich.nix
     ./dockge.nix
     ./docuseal.nix
     ./filebrowser.nix

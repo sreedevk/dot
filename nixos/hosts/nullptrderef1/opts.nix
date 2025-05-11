@@ -51,6 +51,9 @@ rec {
     cloudbeaver = "8079";
     container-registry-server = "5500";
     container-registry-web = "5600";
+    dawarich-app = "8855";
+    dawarich-db = "5444";
+    dawarich-redis = "6350";
     dockge = "5001";
     docuseal = "6008";
     filebrowser = "8980";
@@ -100,8 +103,8 @@ rec {
     ollama-web = "3134";
     paperless-app = "8991";
     paperless-db = "3316";
-    paperless-redis = "6340";
     paperless-gpt = "8677";
+    paperless-redis = "6340";
     photoprism_app = "2342";
     photoprism_db = "3307";
     podgrab = "8567";
