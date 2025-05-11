@@ -1,6 +1,7 @@
 { pkgs, opts, config, ... }:
 let
   # TODO: Dawarich: Setup Prometheus Exporter
+
   shared_rails_environment = {
     REDIS_URL = "redis://${opts.hostname}:${opts.ports.dawarich-redis}/0";
     RAILS_ENV = "development";
@@ -19,6 +20,10 @@ let
     BACKGROUND_PROCESSING_CONCURRENCY = "10";
     APPLICATION_PROTOCOL = "http";
   };
+
+  app_healthcheck_cmd = ''
+    wget -qO - http://${opts.hostname}:${opts.ports.dawarich-app}/api/v1/health | grep -q \"status\"\\s*:\\s*\"ok\"
+  '';
 in
 {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [
@@ -47,11 +52,17 @@ in
       ports = [
         "${opts.ports.dawarich-app}:3000"
       ];
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.dawarich.http.parent_name" = "${opts.hostname}";
+        "kuma.dawarich.http.name" = "Dawarich";
+        "kuma.dawarich.http.url" = "http://${opts.lanAddress}:${opts.ports.dawarich-app}/api/v1/health";
+      };
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--tty"
         "--interactive"
-        "--health-cmd=wget -qO - http://127.0.0.1:3000/api/v1/health | grep -q \"status\"\\s*:\\s*\"ok\""
+        "--health-cmd=${app_healthcheck_cmd}"
         "--health-interval=10s"
         "--health-retries=30"
         "--health-start-period=30s"
