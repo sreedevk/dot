@@ -7,6 +7,11 @@ in
     enable = true;
     package = nixglmod.nixGLWrapped pkgs.alacritty "alacritty";
     settings = {
+      general = {
+        working_directory = "None";
+        live_config_reload = true;
+        ipc_socket = true;
+      };
       colors = {
         draw_bold_text_with_bright_colors = true;
       };
@@ -143,7 +148,7 @@ in
       window = {
         opacity = 0.8;
         blur = true;
-        decorations = "full";
+        decorations = "None";
         padding = { x = 5; y = 5; };
       };
     };
