@@ -39,6 +39,7 @@
         PUID = opts.adminUID;
         PGID = opts.adminGID;
         DOCKGE_STACKS_DIR = "/opt/stacks";
+        DOCKGE_ENABLE_CONSOLE=true;
       };
     };
   };
