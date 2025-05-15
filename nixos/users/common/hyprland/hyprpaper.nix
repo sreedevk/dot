@@ -8,6 +8,7 @@ let
       [
         "preload = ${wallpaper}"
         "splash = false"
+        "ipc = off"
         (builtins.concatStringsSep "\n"
           (builtins.map (monitor: "wallpaper = desc:${monitor.desc},${wallpaper}") hyprconf.monitors))
       ];
