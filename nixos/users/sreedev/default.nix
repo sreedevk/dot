@@ -133,6 +133,7 @@ in
           nushell
           oxker
           pandoc
+          pulsemixer
           python312Packages.supervisor
           qrencode
           radicle-httpd
