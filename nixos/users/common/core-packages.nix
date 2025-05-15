@@ -3,14 +3,18 @@
   home.packages = (with pkgs; [
     bat
     bingrep
+    bottom
     broot
+    cyme
     dig
     direnv
+    dua
     duf
     dust
     exiftool
     eza
     fd
+    fend
     fzf
     gperf
     grex
@@ -18,6 +22,7 @@
     httpie
     id3v2
     imagemagick
+    iotop
     jaq
     jq
     less
@@ -44,6 +49,7 @@
     traceroute
     tree
     unrar
+    viddy
     wget
     xh
     xxd
