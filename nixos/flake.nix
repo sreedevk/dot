@@ -7,7 +7,6 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.05-small&shallow=1";
 
     agenix.url = "github:ryantm/agenix";
-    ghostty.url = "github:ghostty-org/ghostty";
 
     stylix = {
       url = "github:danth/stylix";
@@ -68,7 +67,6 @@
           extraSpecialArgs = {
             inherit firefox-addons system username host inputs;
             nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
-            ghostty = inputs.ghostty.packages."${system}";
             opts = opts // (import ./hosts/${host}/opts.nix) // (import ./users/${username}/opts.nix) // conf;
           };
         };

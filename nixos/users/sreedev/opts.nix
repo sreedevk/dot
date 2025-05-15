@@ -3,7 +3,7 @@
     enable-signing = true;
   };
 
-  wallpaper = "wallhaven-d61kgg.jpg";
+  wallpaper = "wallhaven-p96odm.png";
   desktop = "wayland"; # wayland / x11 / none
 
   directories = {

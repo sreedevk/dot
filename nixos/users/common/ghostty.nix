@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ghostty, ... }:
+{ pkgs, lib, config, ... }:
 let
   nixglmod = import ./nixGL.nix { inherit lib config pkgs; };
   theme = (import ./themes.nix).zitchdog-pine;
@@ -8,7 +8,7 @@ in
     enable = true;
     clearDefaultKeybinds = true;
     enableZshIntegration = true;
-    package = (nixglmod.nixGLWrapped ghostty.default "ghostty");
+    package = (nixglmod.nixGLWrapped pkgs.ghostty "ghostty");
     themes = {
       zitchdog-pine = {
         background = theme.background;
