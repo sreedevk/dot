@@ -17,6 +17,7 @@ rec {
     audiobooks = "/mnt/dpool0/media/audiobooks";
     backups = "/mnt/dpool0/backups";
     books = "/mnt/dpool0/media/books";
+    comics = "/mnt/dpool0/media/comics";
     documents = "/mnt/dpool0/personal/documents";
     downloads = "/opt/downloads";
     images = "/mnt/dpool0/media/photos";
@@ -80,6 +81,7 @@ rec {
     k3s-etcd-clients = "2379";
     k3s-etcd-peers = "2380";
     k3s-inter-node-net = "8472";
+    kapowarr = "5656";
     kavita = "5000";
     kiwix = "8888";
     lidarr = "8686";

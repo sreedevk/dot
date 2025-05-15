@@ -155,6 +155,24 @@
       };
     };
 
+    kapowarr = {
+      autoStart = true;
+      image = "mrcas/kapowarr:latest";
+      extraOptions =
+        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      volumes = [
+        "kapowarr_db:/app/db"
+        "${opts.paths.downloads}:/app/temp_downloads"
+        "${opts.paths.comics}:/comics"
+      ];
+      ports = [ "${opts.ports.kapowarr}:5656" ];
+      environment = {
+        TZ = opts.timeZone;
+        PUID = opts.adminUID;
+        PGID = opts.adminGID;
+      };
+    };
+
     bazarr = {
       autoStart = true;
       image = "hotio/bazarr:latest";

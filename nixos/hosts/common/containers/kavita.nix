@@ -16,6 +16,7 @@
         "${opts.paths.app_datafiles}/kavita:/kavita/config"
         "${opts.paths.books}:/books"
         "${opts.paths.magazines}:/magazines"
+        "${opts.paths.comics}:/comics"
       ];
 
       labels = {
