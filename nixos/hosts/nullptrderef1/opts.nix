@@ -148,12 +148,12 @@ rec {
   };
 
   mountpoints = [
-    # DPOOL0
     { device = "dpool0/backups"; path = "/mnt/dpool0/backups"; }
     { device = "dpool0/media"; path = "/mnt/dpool0/media"; }
     { device = "dpool0/media/audio"; path = "/mnt/dpool0/media/audio"; }
     { device = "dpool0/media/audiobooks"; path = "/mnt/dpool0/media/audiobooks"; }
     { device = "dpool0/media/books"; path = "/mnt/dpool0/media/books"; }
+    { device = "dpool0/media/comics"; path = "/mnt/dpool0/media/comics"; }
     { device = "dpool0/media/magazines"; path = "/mnt/dpool0/media/magazines"; }
     { device = "dpool0/media/movies"; path = "/mnt/dpool0/media/movies"; }
     { device = "dpool0/media/music"; path = "/mnt/dpool0/media/music"; }
