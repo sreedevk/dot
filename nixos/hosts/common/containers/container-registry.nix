@@ -46,7 +46,7 @@
         TZ = opts.timeZone;
         USER_UID = opts.adminUID;
         USER_GID = opts.adminGID;
-        REGISTRY_HOSTNAME = "xdkr.nullptr.sh";
+        REGISTRY_HOSTNAME = "dkr.external.nullptr.sh";
       };
     };
   };

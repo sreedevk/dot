@@ -65,7 +65,7 @@
       };
 
       "gitea.nullptr.sh" = {
-        hostname = "xgit.nullptr.sh";
+        hostname = "git.external.nullptr.sh";
         user = "git";
         port = 222;
         identitiesOnly = true;
