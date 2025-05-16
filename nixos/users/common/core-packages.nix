@@ -30,6 +30,7 @@
     luau
     mediainfo
     mosh
+    ncdu
     netcat-gnu
     nettools
     nix-prefetch-git

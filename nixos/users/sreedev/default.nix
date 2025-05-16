@@ -124,7 +124,6 @@ in
           mdbook
           miller
           nasm
-          ncdu
           ncpamixer
           nerd-fonts.iosevka
           nerd-fonts.iosevka-term
