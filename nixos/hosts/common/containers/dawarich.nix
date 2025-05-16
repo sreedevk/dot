@@ -38,7 +38,7 @@ in
 
   virtualisation.oci-containers.containers = {
     "dawarich_app" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "freikin/dawarich:latest";
       volumes = [
         "${opts.paths.app_datafiles}/dawarich/public:/var/app/public"
@@ -72,7 +72,7 @@ in
       dependsOn = [ "dawarich_redis" "dawarich_db" ];
     };
     "dawarich_sidekiq" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "freikin/dawarich:latest";
       volumes = [
         "${opts.paths.app_datafiles}/dawarich/public:/var/app/public"

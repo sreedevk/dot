@@ -38,7 +38,7 @@ in
   virtualisation.oci-containers.containers = {
     # qBittorrent P2P Torrent Client
     "qbittorrent-nox" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "qbittorrentofficial/qbittorrent-nox:latest";
       environment = {
         QBT_EULA = "accept";
@@ -78,7 +78,7 @@ in
     };
 
     qbitmanage = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       dependsOn = [ "qbittorrent-nox" ];
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

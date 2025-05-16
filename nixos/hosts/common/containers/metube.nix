@@ -6,7 +6,7 @@
 
   virtualisation.oci-containers.containers = {
     "metube" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "alexta69/metube:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

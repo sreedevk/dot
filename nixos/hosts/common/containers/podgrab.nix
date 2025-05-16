@@ -8,7 +8,7 @@
 
   virtualisation.oci-containers.containers = {
     podgrab = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "akhilrex/podgrab:latest";
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"

@@ -8,7 +8,7 @@
 
   virtualisation.oci-containers.containers = {
     "jackett" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "linuxserver/jackett:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

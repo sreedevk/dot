@@ -13,7 +13,7 @@
 
   virtualisation.oci-containers.containers = {
     "bitmagnet-app" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "ghcr.io/bitmagnet-io/bitmagnet:latest";
       dependsOn = [ "bitmagnet-db" ];
       extraOptions =
@@ -38,7 +38,7 @@
     };
 
     "bitmagnet-db" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "postgres:16-alpine";
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"

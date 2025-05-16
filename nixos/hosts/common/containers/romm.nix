@@ -21,6 +21,7 @@
         "--no-healthcheck"
         "--user=${opts.adminUID}"
       ];
+      dependsOn = [ "romm-db" ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
         "kuma.romm.http.parent_name" = "${opts.hostname}";
@@ -52,7 +53,7 @@
     };
 
     romm-db = {
-      autoStart = opts.autostart-non-essential-services;
+      autoStart = false;
       image = "mariadb:latest";
       ports = [ "${opts.ports.romm-db}:3306" ];
       environmentFiles = [ config.age.secrets.romm_env.path ];

@@ -65,7 +65,7 @@
     };
 
     recyclarr = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "recyclarr/recyclarr:latest";
       dependsOn = [
         "sonarr"
@@ -81,7 +81,7 @@
     };
 
     radarr = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "hotio/radarr:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
@@ -99,7 +99,7 @@
 
     # Sonarr TV Indexer
     sonarr = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "hotio/sonarr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
@@ -118,7 +118,7 @@
 
     # Lidarr Music Indexer
     lidarr = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "hotio/lidarr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
@@ -137,7 +137,7 @@
 
     # Readarr Books Indexer
     readarr = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "hotio/readarr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
@@ -156,7 +156,7 @@
     };
 
     kapowarr = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "mrcas/kapowarr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
@@ -174,7 +174,7 @@
     };
 
     bazarr = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "hotio/bazarr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
@@ -192,7 +192,7 @@
     };
 
     prowlarr = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "hotio/prowlarr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];

@@ -6,10 +6,10 @@
 
   virtualisation.oci-containers.containers = {
     "miniflux-app" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       ports = [ "${opts.ports.miniflux-app}:8080" ];
       image = "miniflux/miniflux:latest";
-      dependsOn = [ "miniflux-db" ];
+      dependsOn = [ "miniflux-db" "rss-bridge" ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
@@ -29,7 +29,7 @@
     };
 
     "rss-bridge" = {
-      autoStart = true;
+      autoStart = false;
       image = "rssbridge/rss-bridge:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
@@ -43,7 +43,7 @@
     };
 
     "miniflux-db" = {
-      autoStart = true;
+      autoStart = false;
       image = "postgres:15";
       extraOptions = [
         "--add-host=${opts.hostname}:${opts.lanAddress}"

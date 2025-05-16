@@ -10,7 +10,7 @@
 
   virtualisation.oci-containers.containers = {
     "searxng" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "searxng/searxng:latest";
       ports = [ "${opts.ports.searxng-www}:8080" ];
       volumes = [

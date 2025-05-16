@@ -2,7 +2,7 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ photoprism_app photoprism_db ]);
   virtualisation.oci-containers.containers = {
     "photoprism-app" = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "photoprism/photoprism:latest";
       dependsOn = [ "photoprism-db" ];
       extraOptions = [
@@ -62,7 +62,7 @@
     };
 
     "photoprism-db" = {
-      autoStart = true;
+      autoStart = false;
       image = "mariadb:11";
       cmd = [
         "--innodb-buffer-pool-size=2G"
