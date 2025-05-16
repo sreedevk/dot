@@ -23,7 +23,7 @@
         "${opts.ports.bitmagnet-p2p}:3334/tcp"
         "${opts.ports.bitmagnet-p2p}:3334/udp"
       ];
-      command = [ "worker" "run" "--keys=http_server" "--keys=queue_server" "--keys=dht_crawler" ];
+      cmd = [ "worker" "run" "--keys=http_server" "--keys=queue_server" "--keys=dht_crawler" ];
       volumes = [
         "${opts.paths.app_datafiles}/bitmagnet/config:/root/.config/bitmagnet"
       ];
