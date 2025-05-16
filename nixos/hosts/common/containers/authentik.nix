@@ -42,7 +42,7 @@
 
     "authentik-server" = {
       autoStart = true;
-      image = "ghcr.io/goauthentik/server:2024.6.4";
+      image = "ghcr.io/goauthentik/server:2025.4.0";
       extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       cmd = [ "server" ];
       dependsOn = [ "authentik-db" "authentik-redis" ];
@@ -67,7 +67,7 @@
 
     "authentik-worker" = {
       autoStart = true;
-      image = "ghcr.io/goauthentik/server:2024.6.4";
+      image = "ghcr.io/goauthentik/server:2025.4.0";
       extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
       dependsOn = [ "authentik-db" "authentik-redis" ];
       cmd = [ "worker" ];
