@@ -48,6 +48,9 @@ rec {
     authentik-redis = "6388";
     baikal = "8945";
     bazarr = "6767";
+    bitmagnet-app = "3333";
+    bitmagnet-p2p = "3334";
+    bitmagnet-db = "5432";
     chrome = "9222";
     cloudbeaver = "8079";
     container-registry-server = "5500";
