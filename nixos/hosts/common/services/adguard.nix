@@ -18,96 +18,28 @@
       filters = [
         {
           enabled = true;
-          url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt";
-          name = "HaGeZi's Pro++ DNS Blocklist";
+          url = "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt";
+          name = "Hagezi's Multi Pro (recommended)";
           ID = 1;
         }
         {
-          enabled = true;
-          url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt";
-          name = "HaGeZi's Threat Intelligence Feeds DNS Blocklist";
+          enabled = false;
+          url = "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.txt";
+          name = "Hagezi's Multi Pro++ (aggressive)";
           ID = 2;
         }
         {
-          enabled = true;
-          url = "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/fake.txt";
-          name = "HaGeZi's Fake DNS Blocklist";
-          id = 3;
-        }
-        {
-          enabled = true;
-          url = "https://raw.githubusercontent.com/ph00lt0/blocklists/master/blocklist.txt";
-          name = "ph00lt0 Blocklist";
-          id = 4;
-        }
-        {
-          enabled = true;
-          url = "https://blocklistproject.github.io/Lists/adguard/ads-ags.txt";
-          name = "blocklist-project-ads";
-          id = 5;
-        }
-        {
-          enabled = true;
-          url = "https://blocklistproject.github.io/Lists/adguard/crypto-ags.txt";
-          name = "blocklist-project-crypto";
-          id = 6;
-        }
-        {
           enabled = false;
-          url = "https://blocklistproject.github.io/Lists/adguard/facebook-ags.txt";
-          name = "blocklist-project-facebook";
-          id = 7;
+          url = "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/ultimate.txt";
+          name = "Hagezi's Multi Ultimate (hardcore)";
+          ID = 3;
         }
         {
           enabled = true;
-          url = "https://blocklistproject.github.io/Lists/adguard/fraud-ags.txt";
-          name = "blocklist-project-fraud";
-          id = 8;
+          url = "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt";
+          name = "Hagezi's Fakesites List";
+          ID = 4;
         }
-        {
-          enabled = true;
-          url = "https://blocklistproject.github.io/Lists/adguard/tiktok-ags.txt";
-          name = "blocklist-project-tiktok";
-          id = 9;
-        }
-        {
-          enabled = true;
-          url = "https://blocklistproject.github.io/Lists/adguard/tracking-ags.txt";
-          name = "blocklist-project-tracking";
-          id = 10;
-        }
-      ];
-      user_rules = [
-        "@@||amazonaws.com"
-        "@@||yahoo.com"
-        "@@||a2z.com^$important"
-        "@@||airbrake.io^$important"
-        "@@||audioboom.com^$important"
-        "@@||aws.dev^$important"
-        "@@||blog.codinghorror.com^$important"
-        "@@||buffer.com^$important"
-        "@@||download.nvidia.com^$important"
-        "@@||feeds.hanselman.com^$important"
-        "@@||gitbutler.com^$important"
-        "@@||bitbucket.io^$important"
-        "@@||one.newrelic.com^$important"
-        "@@||portainer.io^$important"
-        "@@||torlock.com^$important"
-        "||weather-analytics-events.apple.com^$important"
-        "||ads.yahoo.com^$important"
-        "||geo.yahoo.com^$important"
-        "||udc.yahoo.com^$important"
-        "||udcm.yahoo.com^$important"
-        "||analytics.query.yahoo.com^$important"
-        "||analytics.yahoo.com^$important"
-        "||partnerads.ysm.yahoo.com^$important"
-        "||log.fc.yahoo.com^$important"
-        "||gemini.yahoo.com^$important"
-        "||adtech.yahooinc.com^$important"
-        "||adtago.s3.amazonaws.com^$important"
-        "||analyticsengine.s3.amazonaws.com^$important"
-        "||analytics.s3.amazonaws.com^$important"
-        "||advice-ads.s3.amazonaws.com^$important"
       ];
       filtering = {
         protection_enabled = true;
@@ -134,13 +66,17 @@
         cache_ttl_min = 3600;
         cache_ttl_max = 86400;
         cache_optimistic = true;
-        bootstrap_dns = [ "9.9.9.9" "1.1.1.1" "1.0.0.1" ];
+        bootstrap_dns = [
+          "9.9.9.9"
+          "1.1.1.1"
+          "1.0.0.1"
+        ];
         ratelimit = 500;
         upstream_dns = [
-          "https://dns.cloudflare.com/dns-query"
-          "https://dns.google/dns-query"
           "https://dns.quad9.net/dns-query"
+          "https://dns.cloudflare.com/dns-query"
           "https://adblock.dns.mullvad.net/dns-query"
+          "https://dns.google/dns-query"
         ];
         upstream_mode = "load_balance";
       };
