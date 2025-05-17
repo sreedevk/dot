@@ -63,7 +63,7 @@
             agenix.homeManagerModules.age
             { home.packages = [ agenix.packages.${system}.default ]; }
             ./users/${username}
-          ] ++ (if conf.server-mode then [ ] else [ stylix.homeManagerModules.stylix ]);
+          ] ++ (if conf.server-mode then [ ] else [ stylix.homeModules.stylix ]);
           extraSpecialArgs = {
             inherit firefox-addons system username host inputs;
             nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
