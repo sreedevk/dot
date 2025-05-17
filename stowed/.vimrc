@@ -48,6 +48,8 @@ colorscheme ayu
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+set scrolloff=10
+set sidescrolloff=10
 set breakat=[[\ \	;:,!?]]
 set clipboard=unnamedplus
 set breakindentopt=shift:2,min:20
