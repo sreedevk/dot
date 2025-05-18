@@ -44,8 +44,6 @@
 
     targets = {
       gtk.enable = true;
-      nushell.enable = true;
-      sxiv.enable = true;
       xresources.enable = true;
     };
   };
