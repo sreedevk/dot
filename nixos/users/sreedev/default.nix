@@ -37,7 +37,6 @@ in
     ../common/pueue.nix
     ../common/rofi
     ../common/starship.nix
-    ../common/stylix.nix
     ../common/taskwarrior.nix
     ../common/tmux-sessionizer.nix
     ../common/tmux.nix

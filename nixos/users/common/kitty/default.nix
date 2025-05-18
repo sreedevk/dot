@@ -4,11 +4,6 @@ let
   themes = import ../themes.nix;
 in
 {
-  stylix.targets.kitty = {
-    enable = false;
-    variant256Colors = false;
-  };
-
   programs.kitty = {
     enable = true;
     package = nixglmod.nixGLWrapped pkgs.kitty "kitty";

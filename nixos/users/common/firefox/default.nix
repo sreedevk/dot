@@ -9,10 +9,6 @@ let
   containers = import ./containers.nix;
 in
 {
-  stylix.targets.firefox = {
-    enable = true;
-    profileNames = [ "main" ];
-  };
   programs.firefox = {
     enable = true;
     package = nixglmod.nixGLWrapped pkgs.firefox-beta-bin "firefox-beta";

@@ -14,7 +14,6 @@ let
       ];
 in
 {
-  stylix.targets.hyprpaper.enable = true;
   home.file = {
     ".config/hypr/hyprpaper.conf" = {
       enable = true;
