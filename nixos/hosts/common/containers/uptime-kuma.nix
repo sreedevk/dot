@@ -14,8 +14,11 @@
       text = builtins.toJSON {
         name = "Taskchampion Task Server";
         type = "http";
-        parent_name = "nullptrderef1[0]";
         url = "https://tasks.nullptr.sh";
+        parent_name = "nullptrderef1";
+        group = {
+          name = "nullptrderef1";
+        };
       };
     };
     "autokuma/staticmon/devtechnica.json" = {
