@@ -5,6 +5,46 @@
     "d ${opts.paths.app_datafiles}/uptime-kuma 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
+  environment.etc = {
+    "autokuma/staticmon/taskchampion.json" = {
+      enable = true;
+      uid = pkgs.lib.strings.toInt opts.adminUID;
+      gid = pkgs.lib.strings.toInt opts.adminGID;
+      text = builtins.toJSON {
+        name = "Taskchampion Task Server";
+        type = "http";
+        parent_name = "nullptrderef1[0]";
+        url = "https://tasks.nullptr.sh";
+      };
+    };
+    "autokuma/staticmon/devtechnica.json" = {
+      enable = true;
+      uid = pkgs.lib.strings.toInt opts.adminUID;
+      gid = pkgs.lib.strings.toInt opts.adminGID;
+      text = builtins.toJSON [
+        { name = "devtechnica"; type = "group"; }
+        {
+          name = "www.devtechnica.com";
+          type = "http";
+          parent_name = "devtechnica[0]";
+          url = "https://devtechnica.com";
+        }
+        {
+          name = "www.sree.dev";
+          type = "http";
+          parent_name = "devtechnica[0]";
+          url = "https://sree.dev";
+        }
+        {
+          name = "www.resume.sree.dev";
+          type = "http";
+          parent_name = "devtechnica[0]";
+          url = "https://resume.sree.dev";
+        }
+      ];
+    };
+  };
+
   virtualisation.oci-containers.containers = {
     # Service Health Monitoring
     "uptime-kuma" = {
@@ -26,14 +66,21 @@
       image = "ghcr.io/bigboot/autokuma:latest";
       dependsOn = [ "uptime-kuma" ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.podmanSocket}:/var/run/docker.sock" ];
+      volumes = [
+        "/etc/autokuma/staticmon:/staticmon"
+        "${opts.paths.podmanSocket}:/var/run/docker.sock"
+      ];
       environmentFiles = [ config.age.secrets.autokuma_env.path ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
         AUTOKUMA__KUMA__URL = "http://${opts.hostname}:${opts.ports.uptime-kuma}";
-        AUTOKUMA__ON_DELETE = "keep";
+        AUTOKUMA__ON_DELETE = "delete";
+        AUTOKUMA__DELETE_GRACE_PERIOD = "3600";
+        AUTOKUMA__STATIC_MONITORS = "/staticmon";
+        AUTOKUMA__TAG_NAME = "AutoKuma";
+        AUTOKUMA__TAG_COLOR = "#42C0FB";
       };
     };
   };
