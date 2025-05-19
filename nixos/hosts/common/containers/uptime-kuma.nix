@@ -10,6 +10,7 @@
       enable = true;
       uid = pkgs.lib.strings.toInt opts.adminUID;
       gid = pkgs.lib.strings.toInt opts.adminGID;
+      mode = "0600";
       text = builtins.toJSON {
         name = "Taskchampion Task Server";
         type = "http";
@@ -21,6 +22,7 @@
       enable = true;
       uid = pkgs.lib.strings.toInt opts.adminUID;
       gid = pkgs.lib.strings.toInt opts.adminGID;
+      mode = "0600";
       text = builtins.toJSON [
         { name = "devtechnica"; type = "group"; }
         {
