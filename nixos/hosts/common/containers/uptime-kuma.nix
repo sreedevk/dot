@@ -81,6 +81,7 @@
         AUTOKUMA__STATIC_MONITORS = "/staticmon";
         AUTOKUMA__TAG_NAME = "AutoKuma";
         AUTOKUMA__TAG_COLOR = "#42C0FB";
+        AUTOKUMA__MIGRATE = "true";
       };
     };
   };
