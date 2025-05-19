@@ -14,8 +14,8 @@
       text = builtins.toJSON {
         name = "Taskchampion Task Server";
         type = "http";
-        url = "https://tasks.nullptr.sh";
-        parent_name = "nullptrderef1";
+        url = "http://${opts.hostname}:${opts.ports.taskchampion}";
+        parent_name = "${opts.hostname}";
         group = {
           name = "nullptrderef1";
         };
