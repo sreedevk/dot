@@ -18,6 +18,10 @@ in
     };
   };
 
+  systemd.services."podman-homer" = {
+    restartTriggers = [ homerConfigSource ];
+  };
+
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/homer 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
