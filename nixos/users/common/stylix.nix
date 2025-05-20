@@ -3,6 +3,7 @@
   stylix = {
     enable = true;
     autoEnable = false;
+    enableReleaseChecks = false;
     polarity = "dark";
     image = config.lib.stylix.pixel "base0A";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
