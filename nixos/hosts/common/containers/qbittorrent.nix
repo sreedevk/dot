@@ -3,7 +3,7 @@ let
   vuetorrentSrc = builtins.fetchGit {
     name = "vuetorrent";
     url = "https://github.com/VueTorrent/VueTorrent";
-    rev = "7aae128a7a439723c2e728cc5005510f1f5c72ce";
+    rev = "f77eafa770a9cb103c1fc741261e9dcf5ddac88d";
     ref = "latest-release";
     shallow = true;
   };
@@ -34,6 +34,10 @@ in
     builtins.map pkgs.lib.strings.toInt (with opts.ports; [
       qbittorrent-p2p
     ]);
+
+  systemd.services."podman-qbittorrent-nox" = {
+    restartTriggers = [ vuetorrentSrc ];
+  };
 
   virtualisation.oci-containers.containers = {
     # qBittorrent P2P Torrent Client
