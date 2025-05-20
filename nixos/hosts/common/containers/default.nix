@@ -1,6 +1,19 @@
 { config, lib, pkgs, opts, ... }: {
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    dockerSocket.enable = true;
+    defaultNetwork.settings.dns_enabled = false;
+    autoPrune.enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    dive
+    podman-tui
+    podman-compose
+  ];
+
   imports = [
-    ./actual.nix
     ./archivebox.nix
     ./aria2.nix
     ./audiobookshelf.nix
@@ -54,19 +67,5 @@
     ./vaultwarden.nix
     ./watchtower.nix
     ./wyl.nix
-  ];
-
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-    dockerSocket.enable = true;
-    defaultNetwork.settings.dns_enabled = false;
-    autoPrune.enable = true;
-  };
-
-  environment.systemPackages = with pkgs; [
-    dive
-    podman-tui
-    podman-compose
   ];
 }
