@@ -59,11 +59,6 @@ in
         "--tty"
         "--interactive"
         "--no-healthcheck"
-        # "--health-cmd=wget -qO - http://${opts.hostname}:${opts.ports.dawarich-app}/api/v1/health | grep -q \"status\"\\s*:\\s*\"ok\""
-        # "--health-interval=10s"
-        # "--health-retries=30"
-        # "--health-start-period=30s"
-        # "--health-timeout=10s"
       ];
       entrypoint = "web-entrypoint.sh";
       cmd = [ "bin/rails" "server" "-p" "3000" "-b" "::" ];
@@ -83,11 +78,7 @@ in
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--tty"
         "--interactive"
-        "--health-cmd=bundle exec sidekiqmon processes | grep $HOSTNAME"
-        "--health-interval=10s"
-        "--health-retries=30"
-        "--health-start-period=30s"
-        "--health-timeout=10s"
+        "--no-healthcheck"
       ];
       entrypoint = "sidekiq-entrypoint.sh";
       environmentFiles = [ config.age.secrets.dawarich_env.path ];
