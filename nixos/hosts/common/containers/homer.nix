@@ -3,7 +3,7 @@ let
   homerConfigSource = builtins.fetchGit {
     name = "homer";
     url = "https://git.external.nullptr.sh/nullptrderef1/homer";
-    rev = "92b65acc852de2740c232b9b414b13dd280aae6f";
+    rev = "7b89d1741fc062411c057471121a0c195006a985";
     ref = "main";
     shallow = true;
   };
