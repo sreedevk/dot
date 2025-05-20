@@ -83,7 +83,7 @@ in
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--tty"
         "--interactive"
-        "--health-cmd=bundle exec sidekiqmon processes | grep \${HOSTNAME}"
+        "--health-cmd=bundle exec sidekiqmon processes | grep $HOSTNAME"
         "--health-interval=10s"
         "--health-retries=30"
         "--health-start-period=30s"
