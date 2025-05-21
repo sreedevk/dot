@@ -50,7 +50,7 @@
       ports = [ "${opts.ports.firefly_importer}:8080" ];
       environmentFiles = [ config.age.secrets.firefly_env.path ];
       environment = {
-        FIREFLY_III_URL = "https://firefly.external.nullptr.sh";
+        FIREFLY_III_URL = "http://${opts.hostname}:${opts.ports.firefly_app}";
         VANITY_URL = "https://firefly.nullptr.sh";
         PGID = opts.adminGID;
         PUID = opts.adminUID;
