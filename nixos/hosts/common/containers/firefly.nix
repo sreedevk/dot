@@ -49,7 +49,7 @@
       dependsOn = [ "firefly-app" ];
       ports = [ "${opts.ports.firefly_importer}:8080" ];
       environment = {
-        FIREFLY_III_URL = "http://${opts.hostname}:${opts.ports.firefly_app}";
+        FIREFLY_III_URL = "https://firefly.external.nullptr.sh";
         VANITY_URL = "https://firefly.nullptr.sh";
         PGID = opts.adminGID;
         PUID = opts.adminUID;
