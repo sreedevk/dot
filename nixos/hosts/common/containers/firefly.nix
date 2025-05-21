@@ -48,10 +48,10 @@
       ];
       dependsOn = [ "firefly-app" ];
       ports = [ "${opts.ports.firefly_importer}:8080" ];
+      environmentFiles = [ config.age.secrets.firefly_env.path ];
       environment = {
         FIREFLY_III_URL = "https://firefly.external.nullptr.sh";
         VANITY_URL = "https://firefly.nullptr.sh";
-        FIREFLY_III_CLIENT_ID = "13";
         PGID = opts.adminGID;
         PUID = opts.adminUID;
         TZ = opts.timeZone;
