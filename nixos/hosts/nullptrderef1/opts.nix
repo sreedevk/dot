@@ -63,6 +63,7 @@ rec {
     filebrowser = "8980";
     firefly_app = "10800";
     firefly_db = "3338";
+    firefly_importer = "4086";
     flaresolverr = "8191";
     ftp = "21";
     gitea_db = "3309";

@@ -1,6 +1,6 @@
 { pkgs, config, opts, ... }:
 {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ firefly_app firefly_db ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ firefly_app firefly_db firefly_importer ]);
 
   virtualisation.oci-containers.containers = {
     "firefly-app" = {
@@ -24,7 +24,7 @@
       environmentFiles = [ config.age.secrets.firefly_env.path ];
       environment = {
         APP_ENV = "production";
-        APP_URL = "https://firefly.nullptr.sh/";
+        APP_URL = "https://firefly.nullptr.sh";
         DEFAULT_LANGUAGE = "en_US";
         DEFAULT_LOCALE = "equal";
         DB_CONNECTION = "mysql";
@@ -39,8 +39,22 @@
       };
     };
 
-    "firefly-db" = {
+    "firefly-importer" = {
       autoStart = opts.autostart-non-essential-services;
+      image = "fireflyiii/data-importer:latest";
+      dependsOn = [ "firefly-app" ];
+      ports = [ "${opts.ports.firefly_importer}:8080" ];
+      environment = {
+        FIREFLY_III_URL = "http://${opts.hostname}:${opts.ports.firefly_app}";
+        VANITY_URL = "https://firefly.nullptr.sh";
+        PGID = opts.adminGID;
+        PUID = opts.adminUID;
+        TZ = opts.timeZone;
+      };
+    };
+
+    "firefly-db" = {
+      autoStart = false;
       image = "mariadb:latest";
       ports = [ "${opts.ports.firefly_db}:3306" ];
       cmd = [ "--max-connections=512" ];
