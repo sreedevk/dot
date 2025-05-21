@@ -42,6 +42,10 @@
     "firefly-importer" = {
       autoStart = opts.autostart-non-essential-services;
       image = "fireflyiii/data-importer:latest";
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       dependsOn = [ "firefly-app" ];
       ports = [ "${opts.ports.firefly_importer}:8080" ];
       environment = {
