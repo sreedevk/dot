@@ -52,15 +52,15 @@
       environment = {
         APP_NAME = "Firefly Data Importer";
         APP_URL = "https://ffimport.nullptr.sh";
-        EXPECT_SECURE_URL = true;
+        EXPECT_SECURE_URL = "true";
         FIREFLY_III_URL = "https://firefly.external.nullptr.sh";
         PGID = opts.adminGID;
         PUID = opts.adminUID;
         TRUSTED_PROXIES = "**";
         TZ = opts.timeZone;
-        USE_CACHE = false;
+        USE_CACHE = "false";
         VANITY_URL = "https://firefly.nullptr.sh";
-        VERIFY_TLS_SECURITY = false;
+        VERIFY_TLS_SECURITY = "false";
       };
     };
 
