@@ -50,11 +50,17 @@
       ports = [ "${opts.ports.firefly_importer}:8080" ];
       environmentFiles = [ config.age.secrets.firefly_env.path ];
       environment = {
-        FIREFLY_III_URL = "http://${opts.hostname}:${opts.ports.firefly_app}";
-        VANITY_URL = "https://firefly.nullptr.sh";
+        APP_NAME = "Firefly Data Importer";
+        APP_URL = "https://ffimport.nullptr.sh";
+        EXPECT_SECURE_URL = true;
+        FIREFLY_III_URL = "https://firefly.external.nullptr.sh";
         PGID = opts.adminGID;
         PUID = opts.adminUID;
+        TRUSTED_PROXIES = "**";
         TZ = opts.timeZone;
+        USE_CACHE = false;
+        VANITY_URL = "https://firefly.nullptr.sh";
+        VERIFY_TLS_SECURITY = false;
       };
     };
 
