@@ -108,7 +108,6 @@ rec {
     ollama-web = "3134";
     paperless-app = "8991";
     paperless-db = "3316";
-    paperless-gpt = "8677";
     paperless-redis = "6340";
     photoprism_app = "2342";
     photoprism_db = "3307";
