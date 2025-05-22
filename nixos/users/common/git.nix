@@ -29,6 +29,7 @@ in
       fucked = "reset --hard";
       l = "log";
       lg = "log --decorate --oneline --graph -n 20";
+      lgc = "log --decorate --oneline --graph -n 20 --no-abbrev";
       pl = "pull";
       ps = "push";
       rb = "rebase";
