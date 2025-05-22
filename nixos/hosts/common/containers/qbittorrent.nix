@@ -50,12 +50,6 @@ in
         USER_UID = opts.adminUID;
         USER_GID = opts.adminGID;
       };
-      labels = {
-        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
-        "kuma.qbt.http.parent_name" = "${opts.hostname}";
-        "kuma.qbt.http.name" = "qBittorrent";
-        "kuma.qbt.http.url" = "http://${opts.hostname}:${opts.ports.qbittorrent-web}/api/v2/app/version";
-      };
       volumes = [
         "${opts.paths.app_datafiles}/qbittorrent:/config"
         "${opts.paths.app_datafiles}/qbittorrent/watch:/torrents"
