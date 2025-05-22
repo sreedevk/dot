@@ -3,18 +3,17 @@ let
   vuetorrentSrc = builtins.fetchGit {
     name = "vuetorrent";
     url = "https://github.com/VueTorrent/VueTorrent";
-    rev = "f77eafa770a9cb103c1fc741261e9dcf5ddac88d";
-    ref = "latest-release";
+    rev = "7449f6adcd6907e52e95dd763eacf0711673ab28";
+    ref = "nightly-release";
     shallow = true;
   };
 in
 {
 
   systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/qbittorrent 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/torrent-watch 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/qbitmanage 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.downloads} 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.downloads}                       0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/qbittorrent       0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/qbittorrent/watch 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   environment.etc = {
@@ -40,7 +39,6 @@ in
   };
 
   virtualisation.oci-containers.containers = {
-    # qBittorrent P2P Torrent Client
     "qbittorrent-nox" = {
       autoStart = opts.autostart-non-essential-services;
       image = "qbittorrentofficial/qbittorrent-nox:latest";
@@ -52,15 +50,15 @@ in
         USER_UID = opts.adminUID;
         USER_GID = opts.adminGID;
       };
-      # labels = {
-      #   "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
-      #   "kuma.qbt.http.parent_name" = "${opts.hostname}";
-      #   "kuma.qbt.http.name" = "qBittorrent";
-      #   "kuma.qbt.http.url" = "http://${opts.lanAddress}:${opts.ports.qbittorrent-web}/api/v2/app/version";
-      # };
+      labels = {
+        "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
+        "kuma.qbt.http.parent_name" = "${opts.hostname}";
+        "kuma.qbt.http.name" = "qBittorrent";
+        "kuma.qbt.http.url" = "http://${opts.hostname}:${opts.ports.qbittorrent-web}/api/v2/app/version";
+      };
       volumes = [
         "${opts.paths.app_datafiles}/qbittorrent:/config"
-        "${opts.paths.app_datafiles}/torrent-watch:/torrents"
+        "${opts.paths.app_datafiles}/qbittorrent/watch:/torrents"
         "${opts.paths.books}:/books"
         "${opts.paths.downloads}:/downloads"
         "${opts.paths.magazines}:/magazines"
@@ -79,42 +77,6 @@ in
         "--stop-timeout=1800"
         "--tmpfs=/tmp"
       ];
-    };
-
-    qbitmanage = {
-      autoStart = opts.autostart-non-essential-services;
-      dependsOn = [ "qbittorrent-nox" ];
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      image = "ghcr.io/stuffanthings/qbit_manage:latest";
-      volumes = [
-        "${opts.paths.app_datafiles}/qbitmanage:/config"
-        "${opts.paths.app_datafiles}/torrent-watch:/data/watch"
-        "${opts.paths.downloads}:/data/torrents"
-      ];
-      environment = {
-        QBT_RUN = "false";
-        QBT_SCHEDULE = "1440";
-        QBT_CONFIG = "config.yml";
-        QBT_LOGFILE = "activity.log";
-        QBT_CROSS_SEED = "false";
-        QBT_RECHECK = "false";
-        QBT_CAT_UPDATE = "false";
-        QBT_TAG_UPDATE = "false";
-        QBT_REM_UNREGISTERED = "false";
-        QBT_REM_ORPHANED = "true";
-        QBT_TAG_TRACKER_ERROR = "false";
-        QBT_TAG_NOHARDLINKS = "false";
-        QBT_SHARE_LIMITS = "false";
-        QBT_SKIP_CLEANUP = "false";
-        QBT_DRY_RUN = "false";
-        QBT_LOG_LEVEL = "INFO";
-        QBT_DIVIDER = "=";
-        QBT_WIDTH = "100";
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
-        PGID = opts.adminGID;
-      };
     };
   };
 }
