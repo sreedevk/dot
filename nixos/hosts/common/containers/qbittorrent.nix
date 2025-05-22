@@ -43,7 +43,7 @@ in
       autoStart = opts.autostart-non-essential-services;
       image = "qbittorrentofficial/qbittorrent-nox:latest";
       environment = {
-        QBT_EULA = "accept";
+        QBT_LEGAL_NOTICE = "confirm";
         QBT_VERSION = "latest";
         QBT_WEBUI_PORT = "${opts.ports.qbittorrent-web}";
         TZ = opts.timeZone;
