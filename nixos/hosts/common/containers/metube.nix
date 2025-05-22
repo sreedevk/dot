@@ -16,6 +16,11 @@
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
+        UID = opts.adminUID;
+        GID = opts.adminGID;
+        DOWNLOAD_DIRS_INDEXABLE = "true";
+        DOWNLOAD_MODE = "limited";
+        MAX_CONCURRENT_DOWNLOADS = "3";
         YTDL_OPTIONS = builtins.toJSON {
           writesubtitles = true;
           subtitleslangs = [ "en" "-live_chat" ];
