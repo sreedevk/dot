@@ -16,28 +16,16 @@
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
-        YTDL_OPTIONS = ''
-          {
-            "writesubtitles": true,
-            "subtitleslangs": ["en","-live_chat"],
-            "updatetime": false,
-            "postprocessors": [
-              { 
-                "key":"Exec",
-                "exec_cmd":"chmod 0664",
-                "when":"after_move"
-              },
-              {
-                "key": "FFmpegEmbedSubtitle",
-                "already_have_subtitle": false
-              },
-              {
-                "key": "FFmpegMetadata",
-                "add_chapters": true
-              }
-            ]
-          } 
-        '';
+        YTDL_OPTIONS = builtins.toJSON {
+          writesubtitles = true;
+          subtitleslangs = [ "en" "-live_chat" ];
+          updatetime = false;
+          postprocessors = [
+            { key = "Exec"; exec_cmd = "chmod 0664"; when = "after_move"; }
+            { key = "FFmpegEmbedSubtitle"; already_have_subtitle = false; }
+            { key = "FFmpegMetadata"; add_chapters = true; }
+          ];
+        };
       };
     };
   };
