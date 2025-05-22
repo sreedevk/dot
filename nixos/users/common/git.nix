@@ -108,11 +108,7 @@ in
         useBuiltin = "false"; # required for git 2.37.0
       };
       merge = {
-        conflictstyle = "diff3";
-      };
-      diff = {
-        external = "${pkgs.difftastic}/bin/difft";
-        colorMoved = "default";
+        conflictstyle = "zdiff3";
       };
       safe = {
         directory = "/etc/nixos";
