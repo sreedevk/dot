@@ -68,7 +68,7 @@
 
     "autokuma" = {
       autoStart = opts.autostart-non-essential-services;
-      image = "ghcr.io/bigboot/autokuma:latest";
+      image = "ghcr.io/bigboot/autokuma:sha-6d91769";
       dependsOn = [ "uptime-kuma" ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
@@ -82,7 +82,7 @@
         PGID = opts.adminGID;
         AUTOKUMA__KUMA__URL = "http://${opts.hostname}:${opts.ports.uptime-kuma}";
         AUTOKUMA__ON_DELETE = "delete";
-        AUTOKUMA__DELETE_GRACE_PERIOD = "3600";
+        AUTOKUMA__DELETE_GRACE_PERIOD = "300";
         AUTOKUMA__STATIC_MONITORS = "/staticmon";
         AUTOKUMA__TAG_NAME = "AutoKuma";
         AUTOKUMA__TAG_COLOR = "#42C0FB";
