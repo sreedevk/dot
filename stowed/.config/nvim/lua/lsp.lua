@@ -34,6 +34,7 @@ setup_lsp { -- elm
   custom = true,
   cmd = { vim.fn.trim(vim.fn.system("which elm-language-server")) },
   filetypes = { 'elm' },
+  root_markers = { 'elm.json', '.git' }
 }
 
 setup_lsp { -- gleam
