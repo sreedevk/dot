@@ -51,13 +51,15 @@
   };
 
   virtualisation.oci-containers.containers = {
-    # Service Health Monitoring
     "uptime-kuma" = {
       autoStart = opts.autostart-non-essential-services;
       image = "louislam/uptime-kuma:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      volumes = [ "${opts.paths.app_datafiles}/uptime-kuma:/app/data" ];
+      volumes = [
+        "${opts.paths.app_datafiles}/uptime-kuma:/app/data"
+        "${opts.paths.podmanSocket}:/var/run/docker.sock"
+      ];
       ports = [ "${opts.ports.uptime-kuma}:3001" ];
       environment = {
         TZ = opts.timeZone;
