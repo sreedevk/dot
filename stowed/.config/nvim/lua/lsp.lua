@@ -29,6 +29,13 @@ setup_lsp { -- janet
   root_markers = { 'project.janet', '.git' }
 }
 
+setup_lsp { -- elm
+  name = 'elm-language-server',
+  custom = true,
+  cmd = { vim.fn.trim(vim.fn.system("which elm-language-server")) },
+  filetypes = { 'elm' },
+}
+
 setup_lsp { -- gleam
   name = 'gleam',
   custom = false,
