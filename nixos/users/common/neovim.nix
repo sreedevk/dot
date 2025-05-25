@@ -5,6 +5,7 @@ let
     docker-compose-language-service
     dockerfile-language-server-nodejs
     elixir-ls
+    elmPackages.elm-format
     elmPackages.elm-language-server
     fennel-ls
     lua-language-server
