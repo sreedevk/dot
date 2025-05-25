@@ -50,7 +50,18 @@ setup_lsp { -- ruby
   custom = false,
   filetypes = { 'ruby', 'eruby' },
   cmd = { vim.fn.trim(vim.fn.system("which ruby-lsp")) },
-  root_markers = { 'Gemfile', '.git' }
+  root_markers = { 'Gemfile', '.git' },
+  init_options = {
+    formatter = 'auto',
+    linters = { 'standard' },
+    experimentalFeaturesEnabled = true,
+    enabledFeatures = {
+      codeActions = true,
+      codeLens = true,
+      formatting = true,
+      hover = true
+    },
+  },
 }
 
 setup_lsp { -- clojure
