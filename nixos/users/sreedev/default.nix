@@ -144,6 +144,7 @@ in
           terminaltexteffects
           texliveFull
           tmuxinator
+          toilet
           tokei
           tty-clock
           uiua
