@@ -23,6 +23,13 @@ return {
   },
 
   {
+    'declancm/maximize.nvim',
+    lazy = true,
+    config = true,
+    keys = { '<C-b>z', function() require('maximize').toggle() end, desc = "Toggle Split Zoom" }
+  },
+
+  {
     'junegunn/fzf',
     build = function()
       vim.fn['fzf#install']()

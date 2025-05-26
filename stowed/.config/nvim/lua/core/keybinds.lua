@@ -12,15 +12,9 @@ vim.keymap.set("n", "<up>", "<C-w>k", { noremap = true })
 vim.keymap.set("n", "]w", "<C-w>l", { noremap = true, desc = "Move to Window on Right" })
 vim.keymap.set("n", "[w", "<C-w>h", { noremap = true, desc = "Move to Window on Left" })
 
--- Keep Center {{{1
--- ISSUE: 
--- disabling because the stutter introduced by this keybinding is annoying
--- vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
--- vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
-
 -- Tab Management {{{1
 vim.keymap.set('n', '<C-t>', '<cmd>tabnew<CR>', { noremap = true })
-vim.keymap.set('n', '<Leader>to', "<cmd>tabonly<cr>", { desc = "Delete All Other Tabs", noremap = true })
+vim.keymap.set('n', '<Leader>tx', "<cmd>tabonly<cr>", { desc = "Delete All Other Tabs", noremap = true })
 vim.keymap.set('n', '<Leader>ww', '<cmd>vnew<cr>', { desc = "New Vertical Window" })
 vim.keymap.set('n', '<Leader>ws', '<cmd>new<cr>', { desc = "New Horizontal Window" })
 vim.keymap.set('n', '<C-w>v', "<cmd>vnew<cr>", { desc = "New Vertical Window", noremap = true })
