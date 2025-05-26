@@ -68,14 +68,14 @@ in
 
       colors = {
         primary = {
-          foreground = "#e0def4";
-          background = "#191724";
+          foreground = "#e6edf3";
+          background = "#010409";
           dim_foreground = "#908caa";
           bright_foreground = "#e0def4";
         };
         cursor = {
-          text = "#e0def4";
-          cursor = "#524f67";
+          text = "#010409";
+          cursor = "#e6edf3";
         };
         vi_mode_cursor = {
           text = "#e0def4";
@@ -110,28 +110,28 @@ in
           background = "#1f1d2e";
         };
         selection = {
-          text = "#191724";
-          background = "#e0def4";
+          text = "#e6edf3";
+          background = "#264f78";
         };
         normal = {
-          black = "#26233a";
-          red = "#eb6f92";
-          green = "#31748f";
-          yellow = "#f6c177";
-          blue = "#9ccfd8";
-          magenta = "#c4a7e7";
-          cyan = "#ebbcba";
-          white = "#e0def4";
+          black = "#484f58";
+          red = "#ff7b72";
+          green = "#3fb950";
+          yellow = "#d29922";
+          blue = "#58a6ff";
+          magenta = "#bc8cff";
+          cyan = "#39c5cf";
+          white = "#b1bac4";
         };
         bright = {
-          black = "#6e6a86";
-          red = "#eb6f92";
-          green = "#31748f";
-          yellow = "#f6c177";
-          blue = "#9ccfd8";
-          magenta = "#c4a7e7";
-          cyan = "#ebbcba";
-          white = "#e0def4";
+          black = "#6e7681";
+          red = "#ffa198";
+          green = "#56d364";
+          yellow = "#e3b341";
+          blue = "#79c0ff";
+          magenta = "#d2a8ff";
+          cyan = "#56d4dd";
+          white = "#ffffff";
         };
         dim = {
           black = "#6e6a86";
