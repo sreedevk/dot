@@ -26,7 +26,9 @@ return {
     'declancm/maximize.nvim',
     lazy = true,
     config = true,
-    keys = { '<C-b>z', function() require('maximize').toggle() end, desc = "Toggle Split Zoom" }
+    keys = {
+      { '<C-w>z', function() require('maximize').toggle() end, desc = "Toggle Split Zoom" }
+    }
   },
 
   {
