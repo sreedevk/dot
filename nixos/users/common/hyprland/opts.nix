@@ -93,24 +93,26 @@ in
     shadow = {
       enabled = "true";
       range = "4";
+      sharp = "false";
       render_power = "3";
       color = "rgba(1a1a1aee)";
       color_inactive = "rgba(1a1a1aff)";
     };
 
     blur = {
-      enabled = "true";
-      noise = "0.01";
-      special = "false";
-      new_optimizations = "true";
       brightness = "1";
-      xray = "true";
-      size = "3";
-      passes = "4";
-      vibrancy = "0.1696";
-      popups = "true";
       contrast = "1";
-      popups_ignorealpha = "0.6";
+      enabled = "true";
+      new_optimizations = "true";
+      noise = "0.0117";
+      passes = "1";
+      popups = "false";
+      popups_ignorealpha = "0.0";
+      input_methods_ignorealpha = "0.0";
+      size = "4";
+      special = "false";
+      vibrancy = "0.1696";
+      xray = "true";
     };
   };
 
