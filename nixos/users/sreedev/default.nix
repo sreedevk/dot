@@ -80,6 +80,7 @@ in
           lmms
           nemo-with-extensions
           qflipper
+          wofi
         ];
         cli-packages = with pkgs; [
           amfora
