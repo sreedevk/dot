@@ -14,6 +14,7 @@
     ../common/starship.nix
     ../common/tmux.nix
     ../common/vim.nix
+    ../common/zsh.nix
   ];
 
   home.file = {
