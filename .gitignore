@@ -33,6 +33,7 @@
 !/stowed/.config/picom.conf
 !/stowed/.config/polybar
 !/stowed/.config/rofi
+!/stowed/.config/wofi
 !/stowed/.config/starship.toml
 !/stowed/.config/systemd
 !/stowed/.config/user-dirs.dirs
