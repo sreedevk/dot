@@ -26,11 +26,6 @@
     - Using hyprland-git
     - [Troubleshooting Checklist](https://github.com/emersion/xdg-desktop-portal-wlr/wiki/%22It-doesn't-work%22-Troubleshooting-Checklist)
 
-# Ghostty
-- [ ] Unable to make write_scrollback_buffer option work with `open` param
-    - Tried to set `text/plain` mime type xdg application to neovim.desktop
-    - Even if this works, I don't have a way to load an arbitrary neovim config specifically for scrollback.
-
 # Tmux
 - [x] restore ctrl+b plus [  to enter scrollback mode in tmux
 
