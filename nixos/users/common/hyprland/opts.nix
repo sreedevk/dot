@@ -430,6 +430,7 @@ in
     "hyprpm reload -n"
     "xrdb ~/.Xresources"
     "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+    "systemctl --user start hyprpolkitagent"
   ];
 
   exec = [ ];
