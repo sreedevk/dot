@@ -214,7 +214,7 @@ in
       { mod = "CTRL"; keys = "XF86AudioMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
       { mod = "CTRL"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+"; }
       { mod = "SUPER ALT"; keys = "Tab"; dispatcher = "exec"; args = "${hypr-switchlayout}/bin/hypr-switchlayout"; }
-      { mod = "SUPER CTRL"; keys = "0"; dispatcher = "exec"; args = "${pkgs.hyprlock}/bin/hyprlock"; }
+      { mod = "SUPER CTRL"; keys = "0"; dispatcher = "exec"; args = "hyprlock"; }
       { mod = "SUPER CTRL"; keys = "H"; dispatcher = "changegroupactive"; args = "b"; }
       { mod = "SUPER CTRL"; keys = "L"; dispatcher = "changegroupactive"; args = "f"; }
       { mod = "SUPER SHIFT"; keys = "0"; dispatcher = "movetoworkspace"; args = "10"; }
