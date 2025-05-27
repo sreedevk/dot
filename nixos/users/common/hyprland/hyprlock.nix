@@ -46,10 +46,10 @@ in
         }
 
         auth {
-          fingerprint = {
-            enabled = true
-            retry_delay = 250
-          }
+          pam:enabled = true
+          pam:module = hyprlock
+          fingerprint:enabled = true 
+          fingerprint:retry_delay = 250 
         }
 
         background {
