@@ -10,6 +10,7 @@
     ../common/git.nix
     ../common/htop.nix
     ../common/jujutsu.nix
+    ../common/neovim.nix
     ../common/pueue.nix
     ../common/starship.nix
     ../common/tmux.nix
