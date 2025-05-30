@@ -57,7 +57,7 @@
     ./romm.nix
     ./sabnzbd.nix
     ./searxng.nix
-    ./servarr.nix
+    ./servarr
     ./stash.nix
     ./stirling-pdf.nix
     ./tdarr.nix
