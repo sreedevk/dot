@@ -9,7 +9,6 @@ in
     ../common/asdf.nix
     ../common/awscli.nix
     ../common/base.nix
-    ../common/brave.nix
     ../common/btop.nix
     ../common/cargo.nix
     ../common/core-packages.nix

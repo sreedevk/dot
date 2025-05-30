@@ -51,6 +51,7 @@ iwd
 jq
 less
 lib32-zlib
+libnewt
 libnotify
 libpam-google-authenticator
 libqalculate
