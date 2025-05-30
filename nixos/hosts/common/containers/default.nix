@@ -19,6 +19,7 @@
     ./audiobookshelf.nix
     ./authentik.nix
     ./baikal.nix
+    ./bazarr.nix
     ./bitmagnet.nix
     ./cloudbeaver.nix
     ./container-registry.nix
@@ -28,6 +29,7 @@
     ./filebrowser.nix
     ./firefly.nix
     ./flaresolverr.nix
+    ./flemmarr.nix
     ./gitea.nix
     ./gotify.nix
     ./hoarder.nix
@@ -36,8 +38,10 @@
     ./jellyfin.nix
     ./jellyseer.nix
     ./jellystat.nix
+    ./kapowarr.nix
     ./kavita.nix
     ./kiwix.nix
+    ./lidarr.nix
     ./livebook.nix
     ./memos.nix
     ./metube.nix
@@ -53,11 +57,15 @@
     ./photoprism.nix
     ./podgrab.nix
     ./portainer.nix
+    ./prowlarr.nix
     ./qbittorrent.nix
+    ./radarr.nix
+    ./readarr.nix
+    ./recyclarr.nix
     ./romm.nix
     ./sabnzbd.nix
     ./searxng.nix
-    ./servarr
+    ./sonarr.nix
     ./stash.nix
     ./stirling-pdf.nix
     ./tdarr.nix
