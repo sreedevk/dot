@@ -20,7 +20,7 @@
         CRON_SCHEDULE = "@daily";
         PUID = opts.adminUID;
         PGID = opts.adminGID;
-        RECYCLARR_CREATE_CONFIG = true;
+        RECYCLARR_CREATE_CONFIG = "true";
       };
     };
   };
