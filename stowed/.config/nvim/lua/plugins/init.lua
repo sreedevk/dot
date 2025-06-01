@@ -32,6 +32,22 @@ return {
   },
 
   {
+    'rafcamlet/nvim-luapad',
+    cmd = { "Luapad", "LuaRun" },
+    lazy = true,
+    opts = {
+      count_limit = 200000,
+      error_indicator = true,
+      eval_on_move = false,
+      eval_on_change = true,
+      error_highlight = 'WarningMsg',
+      preview = true,
+      split_orientation = 'vertical', -- horizontal
+      wipe = true
+    },
+  },
+
+  {
     'junegunn/fzf',
     build = function()
       vim.fn['fzf#install']()
