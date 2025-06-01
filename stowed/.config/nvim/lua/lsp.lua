@@ -150,11 +150,25 @@ setup_lsp { -- nix
 
 setup_lsp { -- rust
   name = 'rust_analyzer',
-  enable = false,
+  enable = true,
   custom = false,
   filetypes = { 'rust' },
   cmd = { vim.fn.trim(vim.fn.system("which rust-analyzer")) },
-  root_markers = { 'cargo.toml', 'cargo.lock' }
+  root_markers = { 'Cargo.toml', 'Cargo.lock' },
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = { enable = false },
+      diagnostics = { enable = false },
+      imports = {
+        granularity = { group = "module" },
+        prefix = "self",
+      },
+      cargo = {
+        buildScripts = { enable = true },
+      },
+      procMacro = { enable = true },
+    }
+  }
 }
 
 setup_lsp {
@@ -163,7 +177,7 @@ setup_lsp {
   custom = false,
   filetypes = { 'rust' },
   cmd = { vim.fn.trim(vim.fn.system("which bacon-ls")) },
-  root_markers = { '.bacon-locations', 'cargo.toml', 'cargo.lock' },
+  root_markers = { '.bacon-locations', 'Cargo.toml', 'Cargo.lock' },
   init_options = {
     updateOnSave = true,
     updateOnSaveWaitMillis = 1000,
