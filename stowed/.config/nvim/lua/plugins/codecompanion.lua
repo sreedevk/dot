@@ -29,7 +29,9 @@ return {
     opts = {
       strategies = {
         chat = { adapter = "openai" },
+        -- chat = { adapter = "ollama_gemma_3_4b" },
         inline = { adapter = "ollama_llama_3_2" },
+        -- inline = { adapter = "ollama_llama_3_2" },
       },
       adapters = {
         openai = function()
@@ -37,6 +39,19 @@ return {
             env = {
               api_key = "cmd:echo $OPENAI_API_KEY",
             },
+          })
+        end,
+        ollama_gemma_3_4b = function()
+          return require("codecompanion.adapters").extend("ollama", {
+            name = "gemma3_12b",
+            schema = {
+              model = { default = "gemma3:12b" },
+              num_ctx = { default = 16384 },
+              num_predict = { default = -1 },
+            },
+            env = { url = "http://127.0.0.1:11434" },
+            headers = { ["Content-Type"] = "application/json" },
+            parameters = { sync = true, },
           })
         end,
         ollama_llama_3_2 = function()
