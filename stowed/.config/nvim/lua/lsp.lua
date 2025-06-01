@@ -10,12 +10,15 @@ local function generate_config(conf)
 end
 
 local function setup_lsp(conf)
-  vim.lsp.config[conf.name] = generate_config(conf)
-  vim.lsp.enable(conf.name)
+  if conf.enable then
+    vim.lsp.config[conf.name] = generate_config(conf)
+    vim.lsp.enable(conf.name)
+  end
 end
 
 setup_lsp { -- lua
   name = 'lua_ls',
+  enable = true,
   custom = false,
   cmd = { vim.fn.trim(vim.fn.system("which lua-language-server")) },
   filetypes = { "lua" },
@@ -23,6 +26,7 @@ setup_lsp { -- lua
 
 setup_lsp { -- janet
   name = 'janet-lsp',
+  enable = true,
   custom = true,
   filetypes = { 'janet' },
   cmd = { vim.fn.trim(vim.fn.system("which janet-lsp")) },
@@ -31,6 +35,7 @@ setup_lsp { -- janet
 
 setup_lsp { -- elm
   name = 'elm-language-server',
+  enable = true,
   custom = true,
   cmd = { vim.fn.trim(vim.fn.system("which elm-language-server")) },
   filetypes = { 'elm' },
@@ -39,6 +44,7 @@ setup_lsp { -- elm
 
 setup_lsp { -- gleam
   name = 'gleam',
+  enable = true,
   custom = false,
   filetypes = { "gleam" },
   cmd = { vim.fn.trim(vim.fn.system("which gleam")), "lsp" },
@@ -47,6 +53,7 @@ setup_lsp { -- gleam
 
 setup_lsp { -- ruby
   name = 'ruby_lsp',
+  enable = true,
   custom = false,
   filetypes = { 'ruby', 'eruby' },
   cmd = { vim.fn.trim(vim.fn.system("which ruby-lsp")) },
@@ -66,6 +73,7 @@ setup_lsp { -- ruby
 
 setup_lsp { -- clojure
   name = 'clojure_lsp',
+  enable = true,
   custom = false,
   filetypes = { 'clojure', 'edn' },
   cmd = { vim.fn.trim(vim.fn.system("which clojure-lsp")) },
@@ -74,6 +82,7 @@ setup_lsp { -- clojure
 
 setup_lsp { -- docker-compose
   name = 'docker_compose_language_service',
+  enable = true,
   custom = false,
   filetypes = { 'docker-compose', 'yaml.docker-compose' },
   cmd = { vim.fn.trim(vim.fn.system("which docker-compose-langserver")), "--stdio" },
@@ -81,6 +90,7 @@ setup_lsp { -- docker-compose
 
 setup_lsp { -- dockerfile
   name = 'dockerls',
+  enable = true,
   custom = false,
   filetypes = { 'dockerfile' },
   cmd = { vim.fn.trim(vim.fn.system("which docker-langserver")), "--stdio" },
@@ -88,6 +98,7 @@ setup_lsp { -- dockerfile
 
 setup_lsp { -- elixir
   name = 'elixirls',
+  enable = true,
   custom = false,
   filetypes = { "elixir", "eelixir", "heex", "surface" },
   cmd = { vim.fn.trim(vim.fn.system("which elixir-ls")) },
@@ -96,6 +107,7 @@ setup_lsp { -- elixir
 
 setup_lsp { -- fennel
   name = 'fennel_language_server',
+  enable = true,
   custom = false,
   filetypes = { 'fennel' },
   cmd = { vim.fn.trim(vim.fn.system("which fennel-ls")) },
@@ -103,6 +115,7 @@ setup_lsp { -- fennel
 
 setup_lsp { -- json
   name = "jsonls",
+  enable = true,
   custom = false,
   filetypes = { "json", "jsonc" },
   cmd = { vim.fn.trim(vim.fn.system("which vscode-json-languageserver")), "--stdio" },
@@ -113,6 +126,7 @@ setup_lsp { -- json
 
 setup_lsp { -- yaml
   name = 'yamlls',
+  enable = true,
   custom = false,
   filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab" },
   cmd = { vim.fn.trim(vim.fn.system("which yaml-language-server")), "--stdio" },
@@ -120,6 +134,7 @@ setup_lsp { -- yaml
 
 setup_lsp { -- nix
   name = 'nil_ls',
+  enable = true,
   custom = false,
   filetypes = { 'nix' },
   cmd = { vim.fn.trim(vim.fn.system("which nil")) },
@@ -135,14 +150,30 @@ setup_lsp { -- nix
 
 setup_lsp { -- rust
   name = 'rust_analyzer',
+  enable = false,
   custom = false,
   filetypes = { 'rust' },
   cmd = { vim.fn.trim(vim.fn.system("which rust-analyzer")) },
   root_markers = { 'cargo.toml', 'cargo.lock' }
 }
 
+setup_lsp {
+  name = 'bacon_ls',
+  enable = true,
+  custom = false,
+  filetypes = { 'rust' },
+  cmd = { vim.fn.trim(vim.fn.system("which bacon-ls")) },
+  root_markers = { '.bacon-locations', 'cargo.toml', 'cargo.lock' },
+  init_options = {
+    updateOnSave = true,
+    updateOnSaveWaitMillis = 1000,
+    updateOnChange = false,
+  }
+}
+
 setup_lsp { -- tailwind
   name = 'tailwindcss',
+  enable = true,
   custom = false,
   filetypes = { 'html', 'jsx', 'htmx', 'css', 'scss' },
   cmd = { vim.fn.trim(vim.fn.system("which tailwindcss-language-server")), "--stdio" },
@@ -151,6 +182,7 @@ setup_lsp { -- tailwind
 
 setup_lsp { -- toml
   name = 'taplo',
+  enable = true,
   custom = false,
   filetypes = { 'toml' },
   cmd = { vim.fn.trim(vim.fn.system("which taplo")), "lsp", "stdio" },
@@ -158,6 +190,7 @@ setup_lsp { -- toml
 
 setup_lsp { -- markdown
   name = 'marksman',
+  enable = true,
   custom = false,
   filetypes = { 'markdown', 'markdown.mdx' },
   cmd = { vim.fn.trim(vim.fn.system("which marksman")), "server" }
@@ -165,6 +198,7 @@ setup_lsp { -- markdown
 
 setup_lsp { -- typescript
   name = 'ts_ls',
+  enable = true,
   custom = false,
   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { vim.fn.trim(vim.fn.system("which typescript-language-server")), "--stdio" },
