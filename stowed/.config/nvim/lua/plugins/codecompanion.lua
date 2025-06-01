@@ -29,15 +29,26 @@ return {
     opts = {
       strategies = {
         chat = { adapter = "openai" },
-        -- chat = { adapter = "ollama_gemma_3_4b" },
         inline = { adapter = "ollama_llama_3_2" },
+        -- chat = { adapter = "ollama_gemma_3_4b" },
         -- inline = { adapter = "ollama_llama_3_2" },
       },
       adapters = {
+        opts = {
+          show_model_choices = true,
+          show_defaults = true,
+        },
         openai = function()
           return require("codecompanion.adapters").extend("openai", {
             env = {
               api_key = "cmd:echo $OPENAI_API_KEY",
+              schema = {
+                model = {
+                  default = "gpt-4o",
+                  num_ctx = { default = 16384 },
+                  num_predict = { default = -1 },
+                }
+              }
             },
           })
         end,
