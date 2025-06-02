@@ -1,4 +1,4 @@
-{ config, lib, pkgs, opts, ... }: {
+{ opts, ... }: {
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.downloads}/Metube 0755 ${opts.adminUID} ${opts.adminGID} -"
