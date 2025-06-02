@@ -1,0 +1,142 @@
+---
+# Homepage configuration
+# See https://fontawesome.com/v5/search for icons options
+
+title: "nullptr.sh"
+subtitle: "home network"
+icon: "fas fa-skull-crossbones"
+# logo: "assets/tools/memos.png"
+defaults:
+  layout: list
+  colorTheme: dark
+
+header: true
+footer: "you are currently being monitored <span class='has-text-danger'>❤️</span>"
+
+# Optional theme customization
+theme: classic
+colors:
+
+  light:
+    highlight-primary: "#3B7EB1"       # Soft blue
+    highlight-secondary: "#C8997A"     # Soft orange-brown
+    highlight-hover: "#6C63B5"         # Soft purple
+    background: "#FFFFFF"              # White background
+    card-background: "#F4F4F4"         # Light gray card background
+    text: "#1C1C1C"                    # Dark gray text
+    text-header: "#FFFFFF"             # Yellow headers
+    text-title: "#4B8B62"              # Green titles
+    text-subtitle: "#A34D68"           # Soft pink subtitles
+    card-shadow: "rgba(0, 0, 0, 0.1)"  # Light card shadows with opacity
+    link: "#2879A6"                    # Soft blue link color
+    link-hover: "#A66F28"              # Soft orange link hover color
+
+  dark:
+    highlight-primary: "#6A9FB5"       # Soft blue
+    highlight-secondary: "#B57E6A"     # Soft orange-brown
+    highlight-hover: "#7E6AB5"         # Soft purple
+    background: "#0C0C0C"              # Dark gray background
+    card-background: "#1E1E1E"         # Darker gray card background
+    text: "#F0F0F0"                    # Light gray text
+    text-header: "#FFFFFF"             # Yellow headers
+    text-title: "#6AB57E"              # Green titles
+    text-subtitle: "#B56A7E"           # Soft pink subtitles
+    card-shadow: "rgba(0, 0, 0, 0.4)"   # Dark card shadows with opacity
+    link: "#569CD6"                    # Soft blue link color
+    link-hover: "#D69A56"              # Soft orange link hover color
+
+# Optional navbar
+# links: [] # Allows for navbar (dark mode, layout, and search) without any links
+links:
+  - name: "Home"
+    icon: "fas fa-home"
+    url: "https://nullptr.sh"
+
+  - name: "admin"
+    icon: "fas fa-server"
+    url: "https://nullptr.sh#admin"
+
+  - name: "Media"
+    icon: "fas fa-music"
+    url: "https://nullptr.sh#media"
+
+  - name: "Other"
+    icon: "fas fa-lock"
+    url: "https://nullptr.sh#other"
+
+services:
+  - name: "Writing"
+    icon: "fas fa-file"
+    items:
+      - name: "Memos"
+        logo: "assets/tools/memos.png"
+        subtitle: "Notes & Thoughts"
+        tag: "notes"
+        url: "https://memos.nullptr.sh"
+        target: "_blank"
+
+      # - name: "Joplin"
+      #   logo: "assets/tools/joplin-server.png"
+      #   subtitle: "Note-taking"
+      #   tag: "Note-taking"
+      #   url: "https://joplin.nullptr.sh"
+      #   target: "_blank"
+
+  - name: "Tools & Utils"
+    icon: "fas fa-computer"
+    items:
+      - name: Gitea
+        logo: "assets/tools/gitea.svg"
+        subtitle: "local git server"
+        tag: "version-control"
+        url: "https://gitea.nullptr.sh"
+        target: "_blank"
+
+      - name: "StirlingPDF"
+        logo: "assets/tools/stirling.svg"
+        subtitle: "PDF Manipulation Tools"
+        tag: "pdf-manipulation"
+        url: "https://pdf.nullptr.sh"
+        target: "_blank"
+
+      - name: "Livebook"
+        logo: "assets/tools/livebook.png"
+        subtitle: "Elixir Scripting Notebook"
+        tag: "download-automation"
+        url: "https://livebook.nullptr.sh"
+        target: "_blank"
+
+      - name: "Ollama"
+        logo: "assets/tools/ollama.png"
+        subtitle: "AI Chatbot"
+        tag: "artificial-intelligence-chat"
+        url: "https://ollama.nullptr.sh"
+        target: "_blank"
+
+      - name: "SearXNG"
+        logo: "assets/tools/searxng.png"
+        subtitle: "Search Engine"
+        tag: "search-engine"
+        url: "https://searxng.nullptr.sh"
+        target: "_blank"
+
+      # - name: "Actual"
+      #   logo: "assets/tools/actual.png"
+      #   subtitle: "Budgets"
+      #   tag: "budgets"
+      #   url: "https://actual.nullptr.sh"
+      #   target: "_blank"
+
+      - name: "Firefly"
+        logo: "assets/tools/firefly.png"
+        subtitle: "Personal Finance Manager"
+        tag: "finance"
+        url: "https://firefly.nullptr.sh"
+        target: "_blank"
+
+      - name: "Firefly Data Importer"
+        logo: "assets/tools/firefly.png"
+        subtitle: "Personal Finance Data Management"
+        tag: "finance"
+        url: "https://ffimport.nullptr.sh"
+        target: "_blank"

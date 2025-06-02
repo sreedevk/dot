@@ -7,6 +7,11 @@ let
     ref = "main";
     shallow = true;
   };
+
+  homerConfigDirectory = builtins.path {
+    name = "homer-config";
+    path = ../configurations/homer;
+  };
 in
 {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ homer ]);
@@ -34,8 +39,7 @@ in
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
-        # local src: "${opts.paths.app_datafiles}/homer:/www/assets"
-        "/etc/homerconf:/www/assets:ro"
+        "${homerConfigDirectory}:/www/assets:ro"
       ];
       ports = [ "${opts.ports.homer}:8080" ];
       environment = {

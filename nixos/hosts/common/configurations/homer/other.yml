@@ -1,0 +1,23 @@
+---
+subtitle: "Other"
+message: ~
+services:
+  - name: "Other"
+    icon: "fas fa-bars"
+    items:
+
+      - name: "Whisparr"
+        logo: "assets/tools/whisparr.png"
+        subtitle: "Adult Media Manager"
+        tag: "adult-media"
+        url: "https://whisparr.nullptr.sh"
+        target: "_blank"
+        # type: "whisparr"
+        # apikey: "c2acc6c5e0504bc7b081e6ecb2096934"
+
+      - name: "Stash"
+        logo: "assets/tools/stash.png"
+        subtitle: "Adult Media Organizer"
+        tag: "adult-media-org"
+        url: "https://stash.nullptr.sh"
+        target: "_blank"
