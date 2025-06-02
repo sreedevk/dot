@@ -22,7 +22,6 @@
     ./bazarr.nix
     ./bitmagnet.nix
     ./cloudbeaver.nix
-    ./cobalt.nix
     ./container-registry.nix
     ./dawarich.nix
     ./dockge.nix

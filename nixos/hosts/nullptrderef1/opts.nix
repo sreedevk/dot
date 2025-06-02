@@ -53,7 +53,6 @@ rec {
     bitmagnet-p2p = "3334";
     chrome = "9222";
     cloudbeaver = "8079";
-    cobalt = "9555";
     container-registry-server = "5500";
     container-registry-web = "5600";
     dawarich-app = "8855";
