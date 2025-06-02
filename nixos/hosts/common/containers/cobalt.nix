@@ -23,7 +23,7 @@ in
         ];
       ports = [ "${opts.ports.cobalt}:9000/tcp" ];
       labels = [ "com.centurylinklabs.watchtower.scope=cobalt" ];
-      volumes = [ "${opts.app_datafiles}/cobalt/cookies.json:/cookies.json" ];
+      volumes = [ "${opts.paths.app_datafiles}/cobalt/cookies.json:/cookies.json" ];
       environment = {
         API_URL = "https://api.cobalt.nullptr.sh/";
         COOKIE_PATH = "/cookies.json";
