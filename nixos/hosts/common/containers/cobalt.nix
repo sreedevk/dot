@@ -27,7 +27,7 @@ in
       };
       volumes = [ "${opts.paths.app_datafiles}/cobalt/cookies.json:/cookies.json" ];
       environment = {
-        API_URL = "https://api.cobalt.nullptr.sh/";
+        API_URL = "https://cobalt.nullptr.sh/";
         COOKIE_PATH = "/cookies.json";
       };
     };
