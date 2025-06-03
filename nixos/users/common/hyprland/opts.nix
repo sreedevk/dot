@@ -131,6 +131,7 @@ in
     };
     tablet = {
       transform = "2";
+      output = "current";
     };
   };
 
