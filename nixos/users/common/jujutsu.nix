@@ -8,12 +8,9 @@
         default-command = "log";
         editor = "${config.programs.neovim.package}/bin/nvim";
         pager = "${pkgs.delta}/bin/delta";
+        diff-formatter = [ "${pkgs.difftastic}/bin/difft" "--color=always" "$left" "$right" ];
         graph = {
           style = "square";
-        };
-        diff = {
-          format = "git";
-          tool = [ "${pkgs.difftastic}/bin/difft" "--color=always" "$left" "$right" ];
         };
       };
       signing = {
