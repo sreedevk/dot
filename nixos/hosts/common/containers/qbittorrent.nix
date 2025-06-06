@@ -3,8 +3,8 @@ let
   vuetorrentSrc = builtins.fetchGit {
     name = "vuetorrent";
     url = "https://github.com/VueTorrent/VueTorrent";
-    rev = "21557da38165e20e069a68e1159dadd3d461bcc1";
-    ref = "latest-release";
+    rev = "6707eda30c897a042019ccf8bc8e975b19fc7526";
+    ref = "nightly-release";
     shallow = true;
   };
 in
