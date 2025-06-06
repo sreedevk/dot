@@ -1,10 +1,8 @@
 { pkgs, opts, config, ... }:
 let
   # TODO: Dawarich: Setup Prometheus Exporter
-
   shared_rails_environment = {
-    REDIS_URL = "redis://${opts.hostname}:${opts.ports.dawarich-redis}/0";
-    RAILS_ENV = "development";
+    RAILS_ENV = "production";
     DATABASE_HOST = opts.hostname;
     DATABASE_PORT = opts.ports.dawarich-db;
     DATABASE_NAME = "dawarich_development";
@@ -19,6 +17,8 @@ let
     SELF_HOSTED = "true";
     BACKGROUND_PROCESSING_CONCURRENCY = "10";
     APPLICATION_PROTOCOL = "http";
+    RAILS_LOG_TO_STDOUT = "true";
+    STORE_GEODATA = "true";
   };
 in
 {
@@ -64,43 +64,7 @@ in
       cmd = [ "bin/rails" "server" "-p" "3000" "-b" "::" ];
       environmentFiles = [ config.age.secrets.dawarich_env.path ];
       environment = shared_rails_environment;
-      dependsOn = [ "dawarich_redis" "dawarich_db" ];
-    };
-    "dawarich_sidekiq" = {
-      autoStart = opts.autostart-non-essential-services;
-      image = "freikin/dawarich:latest";
-      volumes = [
-        "${opts.paths.app_datafiles}/dawarich/public:/var/app/public"
-        "${opts.paths.app_datafiles}/dawarich/import:/var/app/tmp/imports/watched"
-        "${opts.paths.app_datafiles}/dawarich/store:/var/app/storage"
-      ];
-      extraOptions = [
-        "--add-host=${opts.hostname}:${opts.lanAddress}"
-        "--tty"
-        "--interactive"
-        "--no-healthcheck"
-      ];
-      entrypoint = "sidekiq-entrypoint.sh";
-      environmentFiles = [ config.age.secrets.dawarich_env.path ];
-      environment = shared_rails_environment;
-      cmd = [ "sidekiq" ];
-      dependsOn = [ "dawarich_redis" "dawarich_db" "dawarich_app" ];
-    };
-    "dawarich_redis" = {
-      autoStart = false;
-      image = "redis:7.0-alpine";
-      cmd = [ "redis-server" ];
-      volumes = [ "dawarich_redis:/data" ];
-      environmentFiles = [ config.age.secrets.dawarich_env.path ];
-      ports = [ "${opts.ports.dawarich-redis}:6379" ];
-      extraOptions = [
-        "--add-host=${opts.hostname}:${opts.lanAddress}"
-        "--health-cmd=redis-cli --raw incr ping"
-        "--health-interval=10s"
-        "--health-retries=5"
-        "--health-start-period=30s"
-        "--health-timeout=10s"
-      ];
+      dependsOn = [ "dawarich_db" ];
     };
     "dawarich_db" = {
       autoStart = false;
