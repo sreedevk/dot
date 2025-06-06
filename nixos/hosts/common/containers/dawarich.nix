@@ -22,11 +22,8 @@ let
   };
 in
 {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [
-    dawarich-app
-    dawarich-db
-    dawarich-redis
-  ]);
+  networking.firewall.allowedTCPPorts =
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ dawarich-app dawarich-db ]);
 
 
   systemd.tmpfiles.rules = [
