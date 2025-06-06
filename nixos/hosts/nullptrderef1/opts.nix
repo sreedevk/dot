@@ -57,7 +57,6 @@ rec {
     container-registry-web = "5600";
     dawarich-app = "8855";
     dawarich-db = "5444";
-    dawarich-redis = "6350";
     dockge = "5001";
     docuseal = "6008";
     filebrowser = "8980";
