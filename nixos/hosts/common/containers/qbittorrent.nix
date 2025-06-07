@@ -1,10 +1,14 @@
 { config, lib, pkgs, opts, ... }:
 let
+  # BUG: The latest revision of the latest-release is the one that's preferred
+  # but a bug https://github.com/VueTorrent/VueTorrent/issues/2089 causes it to
+  # be unusable on mobile view. wait for the fix & restore
+
   vuetorrentSrc = builtins.fetchGit {
     name = "vuetorrent";
     url = "https://github.com/VueTorrent/VueTorrent";
-    rev = "6707eda30c897a042019ccf8bc8e975b19fc7526";
-    ref = "nightly-release";
+    rev = "75ab15cbcc0f7a74358596d96f893b3d26c59b7d";
+    ref = "latest-release";
     shallow = true;
   };
 in
