@@ -5,6 +5,7 @@ local dec_vis = function() require("dial.map").manipulate("decrement", "visual")
 local inc_gvis = function() require("dial.map").manipulate("increment", "gvisual") end
 local dec_gvis = function() require("dial.map").manipulate("decrement", "gvisual") end
 
+-- TODO: Add a custom dial for ledger type files to switch between * and ! for transaction status
 return {
   {
     'monaqa/dial.nvim',

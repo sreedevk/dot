@@ -1,4 +1,14 @@
 {
+  # TODO: Add the following options
+  # { 
+  #   desktop = {
+  #     enable = true;
+  #     server = "xorg" | "wayland"
+  #   }
+  # }
+  #
+  # this will also require replacement of conf.server-mode
+
   timeZone = "America/New_York";
 
   default-web-browser = {

@@ -100,6 +100,9 @@ bindkey       '^E'    end-of-line
 bindkey       '^xn'    edit-command-line
 bindkey       '^xh'   _complete_help
 bindkey       '^[[Z'  autosuggest-accept
+
+# NOTE: fixes the issue where kitty terminal exiting neovim after 
+# overseer nvim is launched, puts the zsh prompt at "execute:3u"
 bindkey -a -r ':'
 
 # FASTFETCH @ SHELL INIT

@@ -7,8 +7,8 @@ return {
       multi_window = false,
       forward = true,
       wrap = true,
-      mode = "exact",
-      incremental = false,
+      mode = "search", ---@type Flash.Pattern.Mode
+      incremental = true,
       exclude = {
         "notify",
         "cmp_menu",
@@ -32,7 +32,7 @@ return {
       offset = nil,
     },
     label = {
-      uppercase = true,
+      uppercase = false,
       exclude = "",
       current = true,
       after = true,
@@ -70,6 +70,7 @@ return {
         highlight = { backdrop = false },
         jump = { history = true, register = true, nohlsearch = true },
         search = {
+          incremental = true
         },
       },
       char = {
@@ -82,7 +83,7 @@ return {
               and vim.fn.reg_recording() == ""
         end,
         autohide = false,
-        jump_labels = false,
+        jump_labels = true,
         multi_line = true,
         label = { exclude = "hjkliardc" },
         keys = {},
@@ -133,7 +134,8 @@ return {
     },
   },
   keys = {
-    { "s", mode = { "n" }, function() require("flash").jump() end,       desc = "Flash" },
-    { "S", mode = { "n" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" }
+    { "s",          mode = { "n" }, function() require("flash").jump() end,       desc = "Flash" },
+    { "S",          mode = { "n" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    { "<leader>sf", mode = { "c" }, function() require("flash").toggle() end,     desc = "Toggle Flash Search" }
   },
 }

@@ -41,6 +41,7 @@ return {
         openai = function()
           return require("codecompanion.adapters").extend("openai", {
             env = {
+              -- TODO: change cmd to read api_key from agenix file
               api_key = "cmd:echo $OPENAI_API_KEY",
               schema = {
                 model = {
