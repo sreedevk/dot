@@ -1,6 +1,6 @@
 { pkgs, nixpkgs-stable, config, opts, ... }:
 let
-  wallpaper_path = "${opts.directories.wallpapers}/${opts.wallpaper}";
+  wallpaper_path = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
   set-wallpaper = pkgs.writeShellScriptBin "set-wallpaper" ''
     ${pkgs.feh}/bin/feh --no-fehbg --bg-scale ${wallpaper_path} 
   '';

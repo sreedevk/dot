@@ -88,10 +88,10 @@
         text/html=neovim.desktop
         text/unknown=neovim.desktop
         inode/directory=nemo.desktop
-        x-scheme-handler/http=${opts.default-web-browser.xdg-desktop}
-        x-scheme-handler/https=${opts.default-web-browser.xdg-desktop}
-        x-scheme-handler/about=${opts.default-web-browser.xdg-desktop}
-        x-scheme-handler/unknown=${opts.default-web-browser.xdg-desktop}
+        x-scheme-handler/http=${opts.desktop.browser.xdg-desktop}
+        x-scheme-handler/https=${opts.desktop.browser.xdg-desktop}
+        x-scheme-handler/about=${opts.desktop.browser.xdg-desktop}
+        x-scheme-handler/unknown=${opts.desktop.browser.xdg-desktop}
         image/png=nsxiv.desktop
         image/jpeg=nsxiv.desktop
         image/gif=nsxiv.desktop

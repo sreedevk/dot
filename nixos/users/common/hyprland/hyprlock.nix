@@ -54,7 +54,7 @@ in
 
         background {
             color = rgba(0D0D17FF)
-            path = ${opts.directories.wallpapers}/${opts.wallpaper}
+            path = ${opts.directories.wallpapers}/${opts.desktop.wallpaper}
             blur_size = 5
             blur_passes = 4
         }

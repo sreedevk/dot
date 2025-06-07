@@ -1,19 +1,13 @@
 {
-  # TODO: Add the following options
-  # { 
-  #   desktop = {
-  #     enable = true;
-  #     server = "xorg" | "wayland"
-  #   }
-  # }
-  #
-  # this will also require replacement of conf.server-mode
-
   timeZone = "America/New_York";
-
-  default-web-browser = {
-    bin = "brave";
-    xdg-desktop = "brave-browser.desktop";
+  desktop = {
+    enable = false;
+    server = "wayland";
+    browser = {
+      bin = "brave";
+      xdg-desktop = "brave-browser.desktop";
+    };
+    wallpaper = "wallhaven-p96odm.png";
   };
 
   publicKeys = {

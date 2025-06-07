@@ -22,7 +22,7 @@ in
         };
         global = {
           alignment = "left";
-          browser = "${opts.default-web-browser.bin}";
+          browser = "${opts.desktop.browser.bin}";
           corner_radius = 5;
           dmenu = "${pkgs.wofi}/bin/wofi --dmenu -p dunst: ";
           enable_recursive_icon_lookup = true;

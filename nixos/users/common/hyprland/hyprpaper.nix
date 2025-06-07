@@ -1,6 +1,6 @@
 { pkgs, config, opts, ... }:
 let
-  wallpaper = "${opts.directories.wallpapers}/${opts.wallpaper}";
+  wallpaper = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
   hyprconf = import ./opts.nix { inherit pkgs config opts; };
 
   hyprpaperConf =
