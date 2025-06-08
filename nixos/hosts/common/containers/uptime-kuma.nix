@@ -84,11 +84,11 @@
         PGID = opts.adminGID;
         AUTOKUMA__KUMA__URL = "http://${opts.hostname}:${opts.ports.uptime-kuma}";
         AUTOKUMA__ON_DELETE = "delete";
-        AUTOKUMA__DELETE_GRACE_PERIOD = "300";
         AUTOKUMA__STATIC_MONITORS = "/staticmon";
         AUTOKUMA__TAG_NAME = "AutoKuma";
         AUTOKUMA__TAG_COLOR = "#42C0FB";
         AUTOKUMA__MIGRATE = "true";
+        # AUTOKUMA__DELETE_GRACE_PERIOD = "300";
       };
     };
   };
