@@ -176,6 +176,7 @@ in
       export BW_SESSION="$(cat ${config.age.secrets.bw_session.path})"
       export HUGGING_FACE_TOKEN="$(cat ${config.age.secrets.hugging_face_token.path})"
       export OPENAI_API_KEY="$(cat ${config.age.secrets.openai_api_key.path})"
+      export RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})"
     '';
   };
 

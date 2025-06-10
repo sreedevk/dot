@@ -82,6 +82,10 @@ if [ -f "$HOME/.cargo/env" ]; then
   . $HOME/.cargo/env
 fi
 
+if [ -d "$HOME/.radicle/bin" ]; then
+  export PATH="$PATH:$HOME/.radicle/bin"
+fi
+
 # ALIASES
 alias ls='eza --color=always'
 alias la='eza -a --color=always'
