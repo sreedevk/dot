@@ -11,15 +11,16 @@
       uid = pkgs.lib.strings.toInt opts.adminUID;
       gid = pkgs.lib.strings.toInt opts.adminGID;
       mode = "0600";
-      text = builtins.toJSON {
-        name = "Taskchampion Task Server";
-        type = "http";
-        url = "http://${opts.lanAddress}:${opts.ports.taskchampion}";
-        parent_name = "${opts.hostname}";
-        group = {
-          name = "nullptrderef1";
-        };
-      };
+      text = builtins.toJSON
+        [
+          { name = "${opts.hostname}"; type = "group"; }
+          {
+            name = "Taskchampion Task Server";
+            type = "http";
+            parent_name = "${opts.hostname}[0]";
+            url = "http://${opts.lanAddress}:${opts.ports.taskchampion}";
+          }
+        ];
     };
     "autokuma/staticmon/devtechnica.json" = {
       enable = true;
