@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, ... }: {
   imports = [
     ../../../secrets/mappings.nix
     ../common/asdf.nix
@@ -18,6 +18,16 @@
     ../common/vim.nix
     ../common/zsh.nix
   ];
+
+
+  home.file = {
+    ".zshenv" = {
+      enable = true;
+      text = ''
+        export RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})"
+      '';
+    };
+  };
 
   programs.ssh =
     {

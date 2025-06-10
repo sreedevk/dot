@@ -34,7 +34,8 @@
       executable = true;
       recursive = true;
       text = ''
-        [[ -f ~/.bashrc ]] && . ~/.bashrc
+        [[ -f ~/.bashrc ]]  && . ~/.bashrc
+        [[ -f ~/.zshenv ]]  && . ~/.zshenv
       '';
     };
 
