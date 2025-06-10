@@ -4,6 +4,9 @@
     "d ${opts.paths.downloads}/Metube 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
+  # TODO: create a script and wrap it in a timed systemd service unit to 
+  #       auto import music (flac) using beet
+
   virtualisation.oci-containers.containers = {
     "metube" = {
       autoStart = opts.autostart-non-essential-services;
