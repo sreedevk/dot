@@ -34,6 +34,7 @@ in
     ../common/ollama.nix
     ../common/opentabletdriver.nix
     ../common/pueue.nix
+    ../common/radicle.nix
     ../common/rofi
     ../common/starship.nix
     ../common/stylix.nix
@@ -133,8 +134,6 @@ in
           pulsemixer
           python312Packages.supervisor
           qrencode
-          radicle-httpd
-          radicle-node
           rebar3
           sc-im
           scdl

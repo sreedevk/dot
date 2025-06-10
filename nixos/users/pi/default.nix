@@ -1,4 +1,4 @@
-{ opts, config, ... }: {
+{ opts, pkgs, config, ... }: {
 
   imports = [
     ../../../secrets/mappings.nix
@@ -12,6 +12,7 @@
     ../common/jujutsu.nix
     ../common/neovim.nix
     ../common/pueue.nix
+    ../common/radicle.nix
     ../common/starship.nix
     ../common/tmux.nix
     ../common/vim.nix
