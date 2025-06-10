@@ -70,7 +70,7 @@
 
     "autokuma" = {
       autoStart = opts.autostart-non-essential-services;
-      image = "ghcr.io/bigboot/autokuma:latest";
+      image = "ghcr.io/bigboot/autokuma:sha-6d91769";
       dependsOn = [ "uptime-kuma" ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
