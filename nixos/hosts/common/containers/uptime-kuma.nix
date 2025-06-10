@@ -70,11 +70,12 @@
 
     "autokuma" = {
       autoStart = opts.autostart-non-essential-services;
-      image = "ghcr.io/bigboot/autokuma:sha-6d91769";
+      image = "ghcr.io/bigboot/autokuma:latest";
       dependsOn = [ "uptime-kuma" ];
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
         "/etc/autokuma/staticmon:/staticmon"
+        "autokuma_data:/data"
         "${opts.paths.podmanSocket}:/var/run/docker.sock"
       ];
       environmentFiles = [ config.age.secrets.autokuma_env.path ];
