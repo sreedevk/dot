@@ -19,6 +19,7 @@ let
     APPLICATION_PROTOCOL = "http";
     RAILS_LOG_TO_STDOUT = "true";
     STORE_GEODATA = "true";
+    REDIS_URL = "";
   };
 in
 {
