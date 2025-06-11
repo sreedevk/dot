@@ -19,7 +19,7 @@
     ../common/zsh.nix
   ];
 
-  home.programs = with pkgs; [
+  home.packages = with pkgs; [
     python312Packages.supervisor
   ];
 
