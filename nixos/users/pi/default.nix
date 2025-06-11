@@ -1,4 +1,4 @@
-{ opts, pkgs, config, ... }: {
+{ opts, pkgs, ... }: {
 
   imports = [
     ../../../secrets/mappings.nix
@@ -19,6 +19,10 @@
     ../common/zsh.nix
   ];
 
+  home.programs = with pkgs; [
+    python312Packages.supervisor
+  ];
+
   home.file = {
     "authorized_keys" = {
       enable = true;
@@ -36,6 +40,7 @@
       '';
     };
   };
+
 
   programs.ssh = {
     enable = true;

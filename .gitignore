@@ -8,8 +8,8 @@
 !/stowed/.config/alacritty/
 !/stowed/.config/autorandr
 !/stowed/.config/awesome
-!/stowed/.config/bat
 !/stowed/.config/bacon
+!/stowed/.config/bat
 !/stowed/.config/beets
 !/stowed/.config/brave-beta-flags.conf
 !/stowed/.config/brave-flags.conf
@@ -34,13 +34,14 @@
 !/stowed/.config/picom.conf
 !/stowed/.config/polybar
 !/stowed/.config/rofi
-!/stowed/.config/wofi
 !/stowed/.config/starship.toml
+!/stowed/.config/supervisor
 !/stowed/.config/systemd
 !/stowed/.config/user-dirs.dirs
 !/stowed/.config/user-dirs.locale
 !/stowed/.config/vimb
 !/stowed/.config/waybar
 !/stowed/.config/wezterm/
+!/stowed/.config/wofi
 !/stowed/.config/yazi/
 !/stowed/.config/zathura
