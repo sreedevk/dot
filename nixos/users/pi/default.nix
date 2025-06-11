@@ -20,12 +20,6 @@
   ];
 
   home.file = {
-    ".zshenv" = {
-      enable = true;
-      text = ''
-        export RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})"
-      '';
-    };
     "authorized_keys" = {
       enable = true;
       target = ".ssh/authorized_keys.source";
