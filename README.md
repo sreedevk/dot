@@ -1,11 +1,9 @@
-# Dotfiles & Nix(OS) Configurations
+# Nix(OS) Configurations
 
 This repository contains configurations for various programs & Nix(OS).
-
-This Nix(OS) section of this repository is located in the `nixos` directory. The structure & layout of this directory is as follows.
+This Nix(OS) section of this repository is located in the `nixos` directory. 
 
 ## Pre Requisites
-
 ### Install Home Manager CLI
 ```bash
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
@@ -20,7 +18,6 @@ docker compose run --remove-orphans check
 ```
 
 ## File Structure
-
 ### nixos/hosts
 
 - The `nixos/hosts` contains the `configuration.nix` files for each of my computers that runs NixOS. 
@@ -43,7 +40,6 @@ docker compose run --remove-orphans check
 This is the entrypoint for both the `home-manager` & `NixOS`. 
 
 #### NixOS
-
 ##### Modifications
 
 After making any changes in the `nixos/hosts` directory, you can install the changes to the current host configuration into NixOS using the following command on the host.
@@ -58,7 +54,6 @@ sudo nixos-rebuild switch --flake "./nixos#<NAME OF THE HOST HERE>"
 ```
 
 ##### Upgrading 
-
 Since we are using a `nixos/flake.lock` file, we need to update the flake using the command below and rebuild the system as normal.
 
 ```bash
@@ -67,7 +62,6 @@ nix flake update './nixos'
 ```
 
 #### Home-Manager
-
 ##### Modifications
 
 Any modifications to the `nixos/users` directory can be installed using this `home-manager` command
@@ -88,45 +82,3 @@ Since we are using a `nixos/flake.lock` file, we need to update the flake using 
 ```bash
 # TO BE RUN FROM THE ROOT OF THIS CLONED REPSITORY
 nix flake update './nixos'
-```
-
-## Programs
-category | programs
-:-------:|:--------:
-editors | (Neo)vim / (Doom)emacs
-shells  | zsh / bash / starship
-wms     | i3wm / polybar / rofi / picom
-terminals | alacritty / tmux
-notifications | dunst
-other | fastfetch / git
-
-### Editors
-
-#### Neovim
-<details>
-    <summary>click to expand</summary>
-    Since, neovim is handled by `home-manager` entirely, no additional steps are required to setup neovim
-</details>
-
-#### Doom Emacs
-<details>
-    <summary>click to expand</summary>
-    doom emacs configuration files are installed by `home-manager` but installed doom emacs itself needs to be handled manually according to the instructions in <a href="https://github.com/doomemacs/doomemacs?tab=readme-ov-file#install">doomemacs repository</a>
-</details>
-
-### Shells
--- TODO: 
-
-### Window Managers
--- TODO: 
-
-### Terminals
--- TODO: 
-
-### Notifications
--- TODO: 
-
-### Other
--- TODO: 
-
-
