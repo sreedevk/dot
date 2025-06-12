@@ -222,6 +222,29 @@ setup_lsp { -- typescript
   }
 }
 
+setup_lsp { -- scala
+  name = 'metals',
+  enable = true,
+  custom = true,
+  filetypes = { 'scala', 'sbt', 'java' },
+  cmd = { vim.fn.trim(vim.fn.system("which metals")), "--stdio" },
+  root_markers = { '.scala-build', 'build.sbt', 'build.sc', '.git', '.scala' },
+  init_options = {
+    compilerOptions = {},
+    -- debuggingProvider = true,
+    -- testExplorerProvider = true,
+    -- disableColorOutput = true,
+    -- doctorProvider = "json",
+    -- doctorVisibilityProvider = true,
+    -- executeClientCommandProvider = true,
+    -- inputBoxProvider = true,
+    -- quickPickProvider = true,
+    -- statusBarProvider = "show-message",
+    -- bspStatusBarProvider = "on",
+    -- treeViewProvider = true
+  }
+}
+
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = "Configurations on LSP Attach",
   callback = function(event)

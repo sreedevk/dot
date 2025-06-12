@@ -10,6 +10,7 @@ let
     fennel-ls
     lua-language-server
     marksman
+    metals
     nil
     nodePackages.vscode-json-languageserver
     rust-analyzer
