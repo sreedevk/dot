@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: 
+{ pkgs, lib, config, ... }:
 let
   nixglmod = import ../common/nixGL.nix { inherit lib config pkgs; };
 in
