@@ -55,7 +55,6 @@ in
       nixgl-packages = [
         (nixglmod.nixGLWrapped pkgs.chromium "chromium")
         (nixglmod.nixGLWrapped pkgs.slack "slack")
-        (nixglmod.nixGLWrapped pkgs.spotube "spotube")
       ];
 
       stable-packages = {
