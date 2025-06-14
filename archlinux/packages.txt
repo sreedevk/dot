@@ -101,6 +101,7 @@ qt6-tools
 raylib
 reflector
 remmina
+rlwrap
 sdl2_image
 sdl2_mixer
 sdl2_net
@@ -113,6 +114,7 @@ sof-tools
 squashfs-tools
 strace
 sudo
+sudo-rs
 tailscale
 thunderbird
 ttf-dejavu

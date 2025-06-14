@@ -26,6 +26,7 @@
             { tool = "gleam"; version = "1.10.0"; }
             { tool = "golang"; version = "1.24.2"; }
             { tool = "nim"; version = "2.2.4"; }
+            { tool = "raku"; version = "2025.05"; }
             { tool = "ruby"; version = "3.4.2"; }
             { tool = "scala"; version = "3.7.1"; }
             { tool = "zig"; version = "0.14.0"; }
