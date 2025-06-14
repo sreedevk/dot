@@ -3,6 +3,7 @@
   directories = {
     wallpapers = "${builtins.getEnv "HOME"}/Media/wallpapers";
   };
+  username = "sreedev";
   desktop = {
     enable = true;
     server = "wayland";

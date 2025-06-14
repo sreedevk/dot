@@ -14,13 +14,10 @@
     ../common/pueue.nix
     ../common/radicle.nix
     ../common/starship.nix
+    ../common/supervisor
     ../common/tmux.nix
     ../common/vim.nix
     ../common/zsh.nix
-  ];
-
-  home.packages = with pkgs; [
-    python312Packages.supervisor
   ];
 
   home.file = {

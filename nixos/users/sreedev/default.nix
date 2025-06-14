@@ -38,6 +38,7 @@ in
     ../common/rofi
     ../common/starship.nix
     ../common/stylix.nix
+    ../common/supervisor
     ../common/taskwarrior.nix
     ../common/tmux-sessionizer.nix
     ../common/tmux.nix
@@ -131,7 +132,6 @@ in
           oxker
           pandoc
           pulsemixer
-          python312Packages.supervisor
           qrencode
           rebar3
           sc-im

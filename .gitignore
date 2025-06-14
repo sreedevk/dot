@@ -35,7 +35,6 @@
 !/stowed/.config/polybar
 !/stowed/.config/rofi
 !/stowed/.config/starship.toml
-!/stowed/.config/supervisor
 !/stowed/.config/systemd
 !/stowed/.config/user-dirs.dirs
 !/stowed/.config/user-dirs.locale
