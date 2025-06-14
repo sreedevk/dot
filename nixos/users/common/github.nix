@@ -26,7 +26,7 @@
       editor = "nvim";
       pager = "";
       http_unix_socket = "";
-      browser = "${opts.desktop.browser.bin}";
+      browser = "${opts.desktop.browser.bin or ""}";
     };
   };
 }
