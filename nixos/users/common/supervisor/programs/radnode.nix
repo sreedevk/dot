@@ -5,7 +5,7 @@
       enable = true;
       text = ''
         [program:radnode] 
-        command=${pkgs.radicle-node}/bin/radicle-node --foreground
+        command=${pkgs.radicle-node}/bin/rad node start --foreground
         autostart=false
       '';
     };
