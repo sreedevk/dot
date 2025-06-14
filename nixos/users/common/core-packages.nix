@@ -1,6 +1,7 @@
 { pkgs, nixpkgs-stable, ... }:
 {
   home.packages = (with pkgs; [
+    ast-grep
     bat
     bingrep
     bottom
