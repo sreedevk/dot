@@ -1,8 +1,9 @@
 { pkgs, opts, config, ... }:
 let
   # TODO: Dawarich: Setup Prometheus Exporter
+
   shared_rails_environment = {
-    RAILS_ENV = "production";
+    RAILS_ENV = "development";
     DATABASE_HOST = opts.hostname;
     DATABASE_PORT = opts.ports.dawarich-db;
     DATABASE_NAME = "dawarich_development";
@@ -19,12 +20,12 @@ let
     APPLICATION_PROTOCOL = "http";
     RAILS_LOG_TO_STDOUT = "true";
     STORE_GEODATA = "true";
-    REDIS_URL = "";
+    REDIS_URL = "redis://${opts.hostname}:${opts.ports.dawarich-redis}";
   };
 in
 {
   networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ dawarich-app dawarich-db ]);
+    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ dawarich-app dawarich-db dawarich-redis ]);
 
 
   systemd.tmpfiles.rules = [
@@ -35,7 +36,7 @@ in
   ];
 
   virtualisation.oci-containers.containers = {
-    "dawarich_app" = {
+    dawarich_app = {
       autoStart = opts.autostart-non-essential-services;
       image = "freikin/dawarich:latest";
       volumes = [
@@ -62,9 +63,49 @@ in
       cmd = [ "bin/rails" "server" "-p" "3000" "-b" "::" ];
       environmentFiles = [ config.age.secrets.dawarich_env.path ];
       environment = shared_rails_environment;
-      dependsOn = [ "dawarich_db" ];
+      dependsOn = [ "dawarich_redis" "dawarich_db" ];
     };
-    "dawarich_db" = {
+    dawarich_sidekiq = {
+      autoStart = opts.autostart-non-essential-services;
+      image = "freikin/dawarich:latest";
+      volumes = [
+        "${opts.paths.app_datafiles}/dawarich/public:/var/app/public"
+        "${opts.paths.app_datafiles}/dawarich/import:/var/app/tmp/imports/watched"
+        "${opts.paths.app_datafiles}/dawarich/store:/var/app/storage"
+      ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--tty"
+        "--interactive"
+        "--health-cmd=pgrep -f sidekiq"
+        "--health-interval=10s"
+        "--health-retries=30"
+        "--health-start-period=30s"
+        "--health-timeout=10s"
+      ];
+      entrypoint = "sidekiq-entrypoint.sh";
+      environmentFiles = [ config.age.secrets.dawarich_env.path ];
+      environment = shared_rails_environment;
+      cmd = [ "sidekiq" ];
+      dependsOn = [ "dawarich_redis" "dawarich_db" "dawarich_app" ];
+    };
+    dawarich_redis = {
+      autoStart = false;
+      image = "redis:7.0-alpine";
+      cmd = [ "redis-server" ];
+      volumes = [ "dawarich_redis:/data" ];
+      environmentFiles = [ config.age.secrets.dawarich_env.path ];
+      ports = [ "${opts.ports.dawarich-redis}:6379" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--health-cmd=redis-cli --raw incr ping"
+        "--health-interval=10s"
+        "--health-retries=5"
+        "--health-start-period=30s"
+        "--health-timeout=10s"
+      ];
+    };
+    dawarich_db = {
       autoStart = false;
       image = "postgis/postgis:17-3.5-alpine";
       volumes = [
