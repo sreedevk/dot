@@ -1,7 +1,5 @@
 { ... }:
 {
-  imports = [
-    ./radnode.nix
-  ];
+  imports = [];
 }
 
