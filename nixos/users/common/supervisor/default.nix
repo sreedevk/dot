@@ -3,12 +3,12 @@ let
   supervisor_opts = import ./opts.nix { inherit opts; };
   supervisord =
     pkgs.writeShellScriptBin "supervisord" ''
-      ${pkgs.python312Packages.supervisor}/bin/supervisord -c ${builtins.getEnv "HOME"}/.config/supervisor/supervisor.conf $@
+      ${pkgs.python312Packages.supervisor}/bin/supervisord -c $HOME/.config/supervisor/supervisor.conf $@
     '';
 
   supervisorctl =
     pkgs.writeShellScriptBin "supervisorctl" ''
-      ${pkgs.python312Packages.supervisor}/bin/supervisorctl -c ${builtins.getEnv "HOME"}/.config/supervisor/supervisor.conf $@
+      ${pkgs.python312Packages.supervisor}/bin/supervisorctl -c $HOME/.config/supervisor/supervisor.conf $@
     '';
 in
 {
