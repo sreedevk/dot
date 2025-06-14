@@ -52,7 +52,6 @@ return {
           "ocaml",
           "ocaml_interface",
           "ocamllex",
-          "org",
           "python",
           "ruby",
           "rust",
