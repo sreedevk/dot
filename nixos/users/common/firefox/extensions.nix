@@ -8,6 +8,7 @@ with firefox-addons.packages."${system}"; [
   consent-o-matic
   darkreader
   enhancer-for-youtube
+  karakeep
   multi-account-containers
   open-url-in-container
   reddit-enhancement-suite
