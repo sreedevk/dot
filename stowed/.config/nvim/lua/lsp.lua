@@ -71,6 +71,30 @@ setup_lsp { -- ruby
   },
 }
 
+setup_lsp { -- ocaml
+  name = "ocamllsp",
+  enable = true,
+  custom = false,
+  filetypes = { 'ocaml', 'menhir', 'ocamlinterface', 'ocamllex', 'reason', 'dune' },
+  cmd = { vim.fn.trim(vim.fn.system("which ocamllsp")), "-stdio" },
+  root_markers = {
+    'dune-project',
+    'dune-workspace',
+    'package.json',
+    '.git',
+    'esy.json',
+  },
+  settings = {
+    ["ocamllsp"] = {
+      codelens = { enable = true },
+      inlayHints = { hintPatternVariables = true, hintLetBindings = true },
+      extendedHover = { enable = true },
+      syntaxDocumentation = { enable = true },
+      merlinJumpCodeActions = { enable = true },
+    }
+  }
+}
+
 setup_lsp { -- clojure
   name = 'clojure_lsp',
   enable = true,
