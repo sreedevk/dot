@@ -12,6 +12,7 @@ let
     marksman
     metals
     nil
+    nimlangserver
     nodePackages.vscode-json-languageserver
     rust-analyzer
     tailwindcss-language-server

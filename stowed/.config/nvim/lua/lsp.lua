@@ -42,6 +42,15 @@ setup_lsp { -- elm
   root_markers = { 'elm.json', '.git' }
 }
 
+setup_lsp { -- nim
+  name = 'nim_langserver',
+  enable = true,
+  custom = false,
+  cmd = { vim.fn.trim(vim.fn.system("which nimlangserver")) },
+  filetypes = { 'nim' },
+  root_markers = { '.git' }
+}
+
 setup_lsp { -- gleam
   name = 'gleam',
   enable = true,
