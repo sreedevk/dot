@@ -78,8 +78,12 @@ rec {
           position = "${builtins.toString monitor.position.x}x${builtins.toString monitor.position.y}";
           rate = builtins.toString monitor.rate;
           scale = builtins.toString monitor.scale;
-          bitdepth = if (builtins.typeOf monitor.bitdepth) == "int" then monitor.bitdepth else 10;
-          rhs = builtins.concatStringsSep "," [ "desc:${monitor.desc}" "${res}@${rate}" position scale "bitdepth,${builtins.toString bitdepth}" ];
+          bitdepth =
+            if (builtins.typeOf (monitor.bitdepth or null)) == "int"
+            then [ "bitdepth,${builtins.toString monitor.bitdepth}" ]
+            else [ ];
+
+          rhs = builtins.concatStringsSep "," ([ "desc:${monitor.desc}" "${res}@${rate}" position scale ] ++ bitdepth);
         in
         "monitor = ${rhs}";
     in
