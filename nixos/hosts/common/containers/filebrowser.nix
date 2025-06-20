@@ -1,7 +1,7 @@
 { opts, pkgs, ... }:
 {
   environment.etc = {
-    "filebrowser/.filebrowser.json" = {
+    "filebrowser/settings.json" = {
       enable = true;
       text = builtins.toJSON
         {
@@ -23,8 +23,8 @@
       ports = [ "${opts.ports.filebrowser}:80" ];
       volumes = [
         "filebrowser_database:/database"
-        "/etc/filebrowser/.filebrowser.json:/.filebrowser.json:ro"
-        "/mnt/dpool0:/srv/dpool0"
+        "/etc/filebrowser/:/config:ro"
+        "${opts.paths.datapool_root}:/srv/dpool0"
         "${opts.paths.downloads}:/srv/downloads"
         "${opts.paths.app_datafiles}:/srv/appdata"
       ];

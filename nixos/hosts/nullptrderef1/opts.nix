@@ -13,6 +13,7 @@ rec {
   ];
 
   paths = {
+    datapool_root = "/mnt/dpool0";
     app_datafiles = "/opt/appdata/files";
     audiobooks = "/mnt/dpool0/media/audiobooks";
     backups = "/mnt/dpool0/backups";
