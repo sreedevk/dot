@@ -89,7 +89,7 @@
         AUTOKUMA__TAG_NAME = "AutoKuma";
         AUTOKUMA__TAG_COLOR = "#42C0FB";
         AUTOKUMA__MIGRATE = "true";
-        # AUTOKUMA__DELETE_GRACE_PERIOD = "300";
+        AUTOKUMA__DELETE_GRACE_PERIOD = "300";
       };
     };
   };
