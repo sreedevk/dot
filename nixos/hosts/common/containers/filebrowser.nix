@@ -6,7 +6,7 @@
       mode = "0777";
       text = builtins.toJSON
         {
-          port = "80";
+          port = "8000";
           baseURL = "";
           address = "";
           log = "stdout";
@@ -21,7 +21,7 @@
       autoStart = true;
       image = "filebrowser/filebrowser:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      ports = [ "${opts.ports.filebrowser}:80" ];
+      ports = [ "${opts.ports.filebrowser}:8000" ];
       volumes = [
         "filebrowser_database:/database"
         "/etc/filebrowser/:/config"
