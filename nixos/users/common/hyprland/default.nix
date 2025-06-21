@@ -1,4 +1,11 @@
-{ ... }:
+{ pkgs, ... }:
+let
+  hypr-launch-script = pkgs.writeShellScriptBin "hyprlaunch" ''
+    if uwsm check may-start && uwsm select; then
+      exec uwsm start default
+    fi
+  '';
+in
 {
   imports = [
     ./hyprlock.nix
@@ -6,6 +13,8 @@
     ./waybar.nix
     ./modules
   ];
+
+  home.packages = [ hypr-launch-script ];
 
   # BUG: SCREENSHARING STILL A MESS
   # tried the following options
