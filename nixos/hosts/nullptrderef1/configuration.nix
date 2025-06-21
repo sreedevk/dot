@@ -224,8 +224,7 @@
   };
 
   system.switch = {
-    enable = false;
-    enableNg = true;
+    enable = true;
   };
 
   system.copySystemConfiguration = false;
