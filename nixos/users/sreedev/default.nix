@@ -144,6 +144,7 @@ in
           tokei
           tty-clock
           uiua
+          uv
           visidata
           yt-dlp
         ];
