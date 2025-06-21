@@ -63,6 +63,7 @@ in
           (nerdfonts.override { fonts = [ "Iosevka" ]; })
         ];
         gui-packages = with nixpkgs-stable; [
+          lmms
           openttd
           pwvucontrol
           sonic-pi
@@ -76,7 +77,6 @@ in
           filezilla
           librecad
           libreoffice-fresh
-          lmms
           nemo-with-extensions
           qflipper
           wofi
