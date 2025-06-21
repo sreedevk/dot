@@ -41,6 +41,7 @@ grub
 gst-plugin-pipewire
 gstreamer
 gtk-vnc
+helix
 i3-wm
 incus
 incus-tools
@@ -77,6 +78,7 @@ nvidia
 nvidia-lts
 nvidia-settings
 nvtop
+obs-studio
 openblas
 opencl-nvidia
 openresolv

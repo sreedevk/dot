@@ -1,7 +1,7 @@
 aic94xx-firmware 30-10
 aquamarine-git 0.8.0.r4.ga19cf76-1
 aura-bin 4.0.8-1
-brave-bin 1:1.79.123-1
+brave-bin 1:1.79.126-1
 droidcam-git v2.1.3.r4.g1d09ede-1
 droidcam-git-debug v2.1.3.r4.g1d09ede-1
 envycontrol 3.5.2-1
@@ -9,6 +9,7 @@ fjira-bin 1.4.4-1
 hyprcursor-git 0.1.12.r2.gac903e8-1
 hyprgraphics-git 0.1.3.r1.g6075491-1
 hyprland-git 0.48.0.r161.g708a7c2-1
+hyprland-protocols-git 0.6.4.r1.g613878c-1
 hyprland-qt-support-git 0.1.0.r8.g073c52be-1
 hyprland-qtutils-git 0.1.3.r6.g3504a293-1
 hyprlang-git 0.6.1.r1.g397600c-1
@@ -33,5 +34,6 @@ v4l2loopback-dkms-git 0.15.0.r0.gb9d5c75-1
 v4l2loopback-dkms-git-debug 0.15.0.r0.gb9d5c75-1
 wd719x-firmware 1-7
 xclicker 1.5.1-1
-xdg-desktop-portal-hyprland-git 1.3.9.r6.g76bbf1a-1
+xdg-desktop-portal-hyprland-git 1.3.9.r12.g8844ac1-1
+xdg-desktop-portal-hyprland-git-debug 1.3.9.r12.g8844ac1-1
 youtube-music-bin 3.9.0-1
