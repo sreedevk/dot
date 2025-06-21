@@ -38,11 +38,11 @@ return {
         },
         openai = function()
           return require("codecompanion.adapters").extend("openai", {
+            schema = {
+              model = { default = "o4-mini" }
+            },
             env = {
               api_key = "cmd:echo $OPENAI_API_KEY",
-              schema = {
-                model = { default = "o4-mini" }
-              }
             },
           })
         end,
