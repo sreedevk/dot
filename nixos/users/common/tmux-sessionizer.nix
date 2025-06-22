@@ -36,7 +36,7 @@ let
         if [[ -f "$HOME/.config/tmuxinator/''\${selected_name}.yml" ]]; then
           ${pkgs.tmuxinator}/bin/tmuxinator start $selected_name
         elif [[ -f "$selected/.tmuxinator.yml" ]]; then
-          ${pkgs.tmuxinator}/bin/tmuxinator start -p "$selected/.tmuxinator.yml"
+          ${pkgs.tmuxinator}/bin/tmuxinator start --name=$selected_name -p "$selected/.tmuxinator.yml"
         else
           ${pkgs.tmux}/bin/tmux new-session -s $selected_name -c $selected
         fi
@@ -46,9 +46,9 @@ let
 
       if ! tmux has-session -t=$selected_name 2> /dev/null; then
         if [[ -f "$HOME/.config/tmuxinator/''\${selected_name}.yml" ]]; then
-          ${pkgs.tmuxinator}/bin/tmuxinator start $selected_name
+          ${pkgs.tmuxinator}/bin/tmuxinator start --no-attach $selected_name
         elif [[ -f "$selected/.tmuxinator.yml" ]]; then
-          ${pkgs.tmuxinator}/bin/tmuxinator start -p "$selected/.tmuxinator.yml"
+          ${pkgs.tmuxinator}/bin/tmuxinator start --name=$selected_name --no-attach -p "$selected/.tmuxinator.yml"
         else
           ${pkgs.tmux}/bin/tmux new-session -ds $selected_name -c $selected
         fi
