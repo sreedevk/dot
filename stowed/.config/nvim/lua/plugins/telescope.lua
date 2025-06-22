@@ -25,6 +25,25 @@ return {
     { '<Leader>zi', wrap_cmd("Telescope zoxide list"),                      desc = "Zoxide Interactive",           noremap = true },
     { '<Leader>th', wrap_cmd("Telescope heading"),                          desc = "Telescope Markdown Headings",  noremap = true },
     {
+      "<C-P>",
+      function()
+        require 'telescope.builtin'.find_files {
+          prompt_title = "All Files",
+          find_command = {
+            "fd",
+            "--type", "f",
+            "--strip-cwd-prefix",
+            "--hidden",
+            "--follow",
+            "--no-ignore-vcs",
+            "--exclude", ".git",
+          }
+        }
+      end,
+      desc = "Find Files (incl. Hidden)",
+      noremap = true
+    },
+    {
       "<Leader>ej",
       function()
         require 'telescope.builtin'.symbols {
@@ -79,15 +98,12 @@ return {
           find_command = {
             "fd",
             "--ignore-vcs",
-            "--type",
-            "f",
+            "--type", "f",
             "--hidden",
             "--glob",
             "--strip-cwd-prefix",
-            "--exclude",
-            ".git",
-            "--exclude",
-            "*.age"
+            "--exclude", ".git",
+            "--exclude", "*.age"
           }
         }
       },
