@@ -78,6 +78,7 @@ return {
           theme = "ivy",
           find_command = {
             "fd",
+            "--ignore-vcs",
             "--type",
             "f",
             "--hidden",
