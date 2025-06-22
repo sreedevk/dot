@@ -6,7 +6,6 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.05-small&shallow=1";
     agenix.url = "github:ryantm/agenix";
-    radicle-tui.url = "git+https://seed.radicle.xyz/z39mP9rQAaGmERfUMPULfPUi473tY.git?shallow=1";
 
     stylix = {
       url = "github:danth/stylix";
