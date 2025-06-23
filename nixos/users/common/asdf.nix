@@ -19,6 +19,7 @@
         let
           versions = [
             { tool = "bun"; version = "1.2.11"; }
+            { tool = "clojure"; version = "1.12.1.1550"; }
             { tool = "deno"; version = "2.2.12"; }
             { tool = "elixir"; version = "1.18.3-otp-27"; }
             { tool = "elm"; version = "0.19.1"; }
