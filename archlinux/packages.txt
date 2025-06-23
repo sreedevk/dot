@@ -136,6 +136,7 @@ virtualbox-host-dkms
 vulkan-intel
 waybar
 webkit2gtk
+webkit2gtk-4.1
 wev
 wireguard-tools
 wireless_tools
