@@ -24,6 +24,33 @@ setup_lsp { -- lua
   filetypes = { "lua" },
 }
 
+setup_lsp { -- json
+  name = "jsonnet_ls",
+  enable = true,
+  custom = false,
+  cmd = { vim.fn.trim(vim.fn.system("which jsonnet-language-server")) },
+  filetypes = { "json" },
+  settings = {
+    ["jsonnet_ls"] = {
+      ext_vars = { foo = 'bar' },
+      formatting = {
+        Indent              = 2,
+        MaxBlankLines       = 2,
+        StringStyle         = 'double',
+        CommentStyle        = 'slash',
+        PrettyFieldNames    = false,
+        PadArrays           = false,
+        PadObjects          = true,
+        SortImports         = true,
+        UseImplicitPlus     = true,
+        StripEverything     = false,
+        StripComments       = false,
+        StripAllButComments = false,
+      },
+    }
+  }
+}
+
 setup_lsp { -- janet
   name = 'janet-lsp',
   enable = true,

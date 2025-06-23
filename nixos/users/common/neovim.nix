@@ -8,6 +8,7 @@ let
     elmPackages.elm-format
     elmPackages.elm-language-server
     fennel-ls
+    jsonnet-language-server
     lua-language-server
     marksman
     metals
