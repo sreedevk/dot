@@ -275,6 +275,14 @@ setup_lsp { -- markdown
   cmd = { vim.fn.trim(vim.fn.system("which marksman")), "server" }
 }
 
+setup_lsp { -- racket
+  name = 'raket_langserver',
+  enable = true,
+  custom = false,
+  filetypes = { 'racket' },
+  cmd = { vim.fn.trim(vim.fn.system("which racket")), "-l", "racket-langserver" }
+}
+
 setup_lsp { -- typescript
   name = 'ts_ls',
   enable = true,
