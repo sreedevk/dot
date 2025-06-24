@@ -102,6 +102,9 @@ in
       bind C-u command-prompt -p "Session to merge with: " \
          "run-shell 'yes | head -n #{session_windows} | xargs -I {} -n 1 tmux movew -t %%'"
 
+      # IRISH EXIT
+      bind X kill-session
+
       # MODE KEYS
       set -g status-keys emacs
       set -g mode-keys   vi
