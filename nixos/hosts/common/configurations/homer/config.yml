@@ -127,6 +127,13 @@ services:
       #   url: "https://actual.nullptr.sh"
       #   target: "_blank"
 
+      - name: "Node II (rpi4b)"
+        logo: "assets/tools/rpi4b.svg"
+        subtitle: "Homelab Secondary Node"
+        tag: "rpi4b"
+        url: "https://rpi4b.nullptr.sh"
+        target: "_blank"
+
       - name: "Firefly"
         logo: "assets/tools/firefly.png"
         subtitle: "Personal Finance Manager"
