@@ -3,7 +3,7 @@ let
   language_servers = with pkgs; [
     clojure-lsp
     docker-compose-language-service
-    dockerfile-language-server-nodejs
+    dockfmt
     elixir-ls
     elmPackages.elm-format
     elmPackages.elm-language-server
@@ -26,7 +26,7 @@ let
 
   neovim_pkgs =
     with pkgs; [
-      nodejs_24
+      nodejs-slim
       tree-sitter
       typst
     ];
