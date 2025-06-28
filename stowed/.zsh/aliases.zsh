@@ -4,12 +4,11 @@
 # AUTHOR: Sreedev Kodichath
 
 # Sys
-alias la='/usr/bin/ls'
-alias ls='eza --color=always --long --all --header --icons --git'
-alias lsa='eza --color=always --long --all --sort=age --reverse --header --icons'
-alias ll='eza -l --icons --color=always'
-alias lla='eza -la --icons --color=always'
-alias twee='eza -aT --color=always --group-directories-first'
+alias la='eza --color=always --all --header --icons --git'
+alias ls='eza --color=always --header'
+alias ll='eza -l --icons --long --color=always'
+alias lla='eza -la --icons --long --all --color=always'
+alias ltree='eza -aT --color=always --group-directories-first'
 alias obliterate='shred -zvu -n 5'
 alias xo='xdg-open'
 alias grep='grep --color=auto'
@@ -47,7 +46,7 @@ alias g='git'
 alias gg='jj'
 
 # Docker
-alias dk='docker compose'
+alias dc='docker compose'
 alias d='docker'
 
 # yt-dlp
