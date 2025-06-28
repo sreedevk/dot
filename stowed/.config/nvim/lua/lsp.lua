@@ -289,7 +289,7 @@ setup_lsp { -- typescript
   custom = false,
   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { vim.fn.trim(vim.fn.system("which typescript-language-server")), "--stdio" },
-  root_markers = { 'package.json', 'yarn.lock', 'package.lock' },
+  root_markers = { 'package.json', 'yarn.lock', 'bun.lock' },
   init_options = {
     hostInfo = "neovim"
   }
