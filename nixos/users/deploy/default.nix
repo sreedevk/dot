@@ -1,4 +1,4 @@
-{ opts, ... }: {
+{ opts, config, ... }: {
 
   imports = [
     ../../../secrets/mappings.nix
@@ -29,6 +29,12 @@
       ]);
       onChange = ''
         rm -rf ~/.ssh/authorized_keys && cat ~/.ssh/authorized_keys.source > ~/.ssh/authorized_keys && chmod 400 ~/.ssh/authorized_keys
+      '';
+    };
+    ".zshenv" = {
+      enable = true;
+      text = ''
+        export CR_PAT="$(cat ${config.age.secrets.ghcr_ro_token.path})"
       '';
     };
   };
