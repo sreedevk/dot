@@ -103,7 +103,7 @@ return {
             "--glob",
             "--strip-cwd-prefix",
             "--exclude", ".git",
-            "--exclude", "*.age"
+            "--exclude", "*.age",
           }
         }
       },
@@ -117,7 +117,7 @@ return {
           '--line-number',
           '--column',
           '--smart-case',
-          '--no-ignore',
+          '--ignore-vcs',
           '--hidden',
           '--glob',
           "!**/.git/*",
