@@ -28,7 +28,7 @@ return {
   {
     "HiPhish/rainbow-delimiters.nvim",
     lazy = true,
-    ft = { "fennel", "janet", "clojure" },
+    ft = { "fennel", "janet", "clojure", "scheme" },
     config = function()
       local rainbow_delimiters = require 'rainbow-delimiters'
       require("rainbow-delimiters.setup").setup {

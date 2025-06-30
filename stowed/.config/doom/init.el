@@ -125,7 +125,7 @@
        (ruby +lsp +rails)
        (rust +lsp)
        scala
-       (scheme +guile)
+       (scheme +guile +chicken)
        sml
        (sh +lsp)
        ;;solidity
