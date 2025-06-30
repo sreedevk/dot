@@ -145,22 +145,6 @@ setup_lsp { -- clojure
   root_markers = { "main.clj", ".git" }
 }
 
-setup_lsp { -- docker-compose
-  name = 'docker_compose_language_service',
-  enable = true,
-  custom = false,
-  filetypes = { 'docker-compose', 'yaml.docker-compose' },
-  cmd = { vim.fn.trim(vim.fn.system("which docker-compose-langserver")), "--stdio" },
-}
-
-setup_lsp { -- dockerfile
-  name = 'dockerls',
-  enable = true,
-  custom = false,
-  filetypes = { 'dockerfile' },
-  cmd = { vim.fn.trim(vim.fn.system("which docker-langserver")), "--stdio" },
-}
-
 setup_lsp { -- elixir
   name = 'elixirls',
   enable = true,
@@ -176,17 +160,6 @@ setup_lsp { -- fennel
   custom = false,
   filetypes = { 'fennel' },
   cmd = { vim.fn.trim(vim.fn.system("which fennel-ls")) },
-}
-
-setup_lsp { -- json
-  name = "jsonls",
-  enable = true,
-  custom = false,
-  filetypes = { "json", "jsonc" },
-  cmd = { vim.fn.trim(vim.fn.system("which vscode-json-languageserver")), "--stdio" },
-  init_options = {
-    provideFormatter = true
-  },
 }
 
 setup_lsp { -- yaml
@@ -254,9 +227,9 @@ setup_lsp { -- tailwind
   name = 'tailwindcss',
   enable = true,
   custom = false,
-  filetypes = { 'html', 'jsx', 'htmx', 'css', 'scss' },
-  cmd = { vim.fn.trim(vim.fn.system("which tailwindcss-language-server")), "--stdio" },
-  root_markers = { 'package.json', 'yarn.lock', 'package.lock' }
+  filetypes = { 'html', 'jsx', 'htmx', 'css', 'scss', 'js', 'ts' },
+  cmd = { vim.fn.trim(vim.fn.system("which bun")), "x", "@tailwindcss/language-server", "--stdio" },
+  root_markers = { 'package.json', 'yarn.lock', 'bun.lock', 'package.lock' }
 }
 
 setup_lsp { -- toml
@@ -275,20 +248,12 @@ setup_lsp { -- markdown
   cmd = { vim.fn.trim(vim.fn.system("which marksman")), "server" }
 }
 
-setup_lsp { -- racket
-  name = 'raket_langserver',
-  enable = true,
-  custom = false,
-  filetypes = { 'racket' },
-  cmd = { vim.fn.trim(vim.fn.system("which racket")), "-l", "racket-langserver" }
-}
-
 setup_lsp { -- typescript
   name = 'ts_ls',
   enable = true,
   custom = false,
   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { vim.fn.trim(vim.fn.system("which typescript-language-server")), "--stdio" },
+  cmd = { vim.fn.trim(vim.fn.system("which bun")), "x", "typescript-language-server", "--stdio" },
   root_markers = { 'package.json', 'yarn.lock', 'bun.lock' },
   init_options = {
     hostInfo = "neovim"
