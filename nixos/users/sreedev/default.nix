@@ -11,7 +11,6 @@ in
     ../common/base.nix
     ../common/btop.nix
     ../common/cargo.nix
-    ../common/chicken.nix
     ../common/core-packages.nix
     ../common/droidcam.nix
     ../common/dunst.nix

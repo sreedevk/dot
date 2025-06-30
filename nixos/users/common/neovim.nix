@@ -1,27 +1,23 @@
 { pkgs, config, ... }:
 let
+  formatters = with pkgs; [
+    typstfmt # typst
+    elmPackages.elm-format # elm
+    dockfmt # Dockerfile
+  ];
+
   language_servers = with pkgs; [
-    clojure-lsp
-    docker-compose-language-service
-    dockfmt
-    elixir-ls
-    elmPackages.elm-format
-    elmPackages.elm-language-server
-    fennel-ls
-    jsonnet-language-server
-    lua-language-server
-    marksman
-    metals
-    nil
-    nimlangserver
-    nodePackages.vscode-json-languageserver
-    rust-analyzer
-    tailwindcss-language-server
-    taplo
-    tinymist
-    typescript-language-server
-    typstfmt
-    yaml-language-server
+    clojure-lsp                     # clojure
+    elixir-ls                       # elixir
+    elmPackages.elm-language-server # elm
+    fennel-ls                       # fennel
+    jsonnet-language-server         # json
+    lua-language-server             # lua
+    marksman                        # markdown
+    nil                             # nix
+    taplo                           # toml
+    tinymist                        # typst
+    yaml-language-server            # yaml
   ];
 
   neovim_pkgs =
@@ -35,6 +31,7 @@ in
   home.packages = builtins.concatLists [
     language_servers
     neovim_pkgs
+    formatters
   ];
 
   programs.neovim = {
