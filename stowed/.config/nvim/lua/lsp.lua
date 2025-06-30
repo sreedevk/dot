@@ -186,6 +186,14 @@ setup_lsp { -- nix
   }
 }
 
+setup_lsp {
+  name = 'chicken-scheme-lsp',
+  custom = true,
+  enable = true,
+  filetypes = { 'scheme' },
+  cmd = { vim.fn.trim(vim.fn.system("which chicken-lsp-server")) },
+}
+
 setup_lsp { -- rust
   name = 'rust_analyzer',
   enable = true,
