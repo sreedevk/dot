@@ -51,6 +51,8 @@ iw
 iwd
 jq
 less
+lib32-mesa
+lib32-nvidia-utils
 lib32-zlib
 libnewt
 libnotify
@@ -67,6 +69,7 @@ linux-lts-headers
 lsof
 mariadb-clients
 mc
+mesa
 mesa-utils
 meson
 ninja
@@ -81,6 +84,7 @@ nvtop
 obs-studio
 openblas
 opencl-nvidia
+opendoas
 openresolv
 openssh
 openssl-1.1
@@ -121,6 +125,7 @@ tailscale
 thunderbird
 ttf-dejavu
 ttf-font-awesome
+ttf-iosevka-nerd
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
 ttf-liberation
