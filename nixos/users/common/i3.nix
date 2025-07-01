@@ -29,13 +29,13 @@ in
         set $mod Mod4
 
         # AutoStart Applications
-        exec_always --no-startup-id ${pkgs.autorandr}/bin/autorandr -c --match-edid
         exec_always --no-startup-id ~/.config/polybar/launch.sh
         exec_always --no-startup-id ${pkgs.autotiling}/bin/autotiling
         exec_always --no-startup-id picom -b
         exec_always --no-startup-id ${set-wallpaper}/bin/set-wallpaper
 
         # Disable Screen Blanking
+        exec --no-startup-id ${pkgs.autorandr}/bin/autorandr -c --match-edid
         exec --no-startup-id xset s off
         exec --no-startup-id xset -dpms
 
@@ -140,6 +140,9 @@ in
 
         # Bar Mode Toggle
         bindsym $mod+m               exec --no-startup-id polybar-msg cmd toggle
+
+        # Rescan & Resetup Monitors
+        bindsym $mod+Shift+m         exec --no-startup-id ${pkgs.autorandr}/bin/autorandr -c --match-edid
 
         # Layouts
         bindsym $mod+s               layout stacking
