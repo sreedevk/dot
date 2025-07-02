@@ -6,6 +6,7 @@ in
   imports = [
     ../../../secrets/mappings.nix
     ../common/alacritty.nix
+    ../common/amfora.nix
     ../common/asdf.nix
     ../common/awscli.nix
     ../common/base.nix
@@ -82,7 +83,6 @@ in
           wofi
         ];
         cli-packages = with pkgs; [
-          amfora
           aria2
           asciinema
           asciinema-agg

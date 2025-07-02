@@ -25,7 +25,7 @@ in
         search = {
           force = true;
           default = "ddg";
-          privateDefault = "Brave";
+          privateDefault = "ddg";
           engines = searchEngines;
         };
         settings = settings;
