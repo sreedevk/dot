@@ -8,8 +8,8 @@
     enable = true;
     server = "wayland";
     browser = {
-      bin = "brave";
-      xdg-desktop = "brave-browser.desktop";
+      bin = "firefox";
+      xdg-desktop = "firefox.desktop";
     };
     wallpaper = "wallhaven-p96odm.png";
   };
