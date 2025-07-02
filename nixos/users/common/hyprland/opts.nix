@@ -44,6 +44,7 @@ in
     EGL_PLATFORM = "wayland";
     __GL_VRR_ALLOWED = "1";
     __GL_GSYNC_ALLOWED = "1";
+    HYPRCURSOR_THEME = "rose-pine-hyprcursor";
 
     # BUG: DO NOT ENABLE THESE
     # WLR_DRM_NO_ATOMIC = "1";
