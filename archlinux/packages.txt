@@ -120,7 +120,6 @@ sof-tools
 squashfs-tools
 strace
 sudo
-swww
 tailscale
 thunderbird
 ttf-dejavu

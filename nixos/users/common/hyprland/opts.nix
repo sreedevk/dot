@@ -428,7 +428,6 @@ in
 
   exec-once = [
     "waybar"
-    "swww-daemon"
     "wlsunset -l 40.7 -L -73.9"
     "wl-paste --type text --watch cliphist store"
     "wl-paste --type image --watch cliphist store"

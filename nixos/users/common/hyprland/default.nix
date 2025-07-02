@@ -9,7 +9,7 @@ in
 {
   imports = [
     ./hyprlock.nix
-    ./hyprpaper.nix
+    ./swww.nix
     ./waybar.nix
     ./modules
   ];

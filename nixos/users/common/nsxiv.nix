@@ -17,7 +17,7 @@
 
         set-as-wallpaper() {
           local filepath="$1"
-          swww img "$filepath"
+          ${pkgs.swww}/bin/swww img "$filepath"
           notify-send "wallpaper set to: $filepath"
         }
 
