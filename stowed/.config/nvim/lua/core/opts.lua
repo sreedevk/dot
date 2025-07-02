@@ -174,5 +174,6 @@ vim.opt.formatoptions   = {
 vim.opt.spellsuggest:prepend({ 12 })
 vim.opt.spelloptions:append({ 'camel', 'noplainbuffer' })
 vim.opt.spellcapcheck = ''
+vim.opt.spellfile = vim.fn.expand(vim.g.dotfiles .. "/stowed/.config/nvim/spell/en.utf-8.add")
 
 vim.api.nvim_set_hl(0, "CursorLine", { default = true, blend = 50 })

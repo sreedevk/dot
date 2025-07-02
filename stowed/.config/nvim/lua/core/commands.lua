@@ -4,10 +4,9 @@ vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "html", "markdown", "text" },
+  pattern = { "html", "markdown", "text", "gemtext" },
   callback = function()
     vim.opt_local.spelllang = "en"
-    vim.opt_local.spellfile = vim.fn.expand(vim.g.dotfiles .. "/stowed/.config/nvim/spell/en.utf-8.add")
     vim.opt_local.spell = true
   end,
 })
