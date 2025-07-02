@@ -39,6 +39,7 @@ alias mux='tmuxinator'
 alias t="tmux"
 alias ta="tmux a"
 alias ts="tmux-sessionizer"
+alias tk="tmux kill-session"
 alias zl="zellij"
 
 # git
