@@ -38,6 +38,7 @@
   "browser.download.viewableInternally.typeWasRegistered.xml" = true;
   "browser.formfill.enable" = false;
   "browser.helperApps.deleteTempFileOnExit" = true;
+  "browser.helperApps.neverAsk.openFile" = true;
   "browser.link.open_newwindow" = true;
   "browser.menu.showViewImageInfo" = true;
   "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
