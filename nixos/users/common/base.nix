@@ -96,6 +96,9 @@
         image/png=nsxiv.desktop
         image/jpeg=nsxiv.desktop
         image/gif=nsxiv.desktop
+
+        [Added Associations]
+        application/atom+xml=${opts.desktop.browser.xdg-desktop or ""};
       '';
     };
   };
