@@ -6,6 +6,7 @@
     bingrep
     bottom
     broot
+    bsd-finger
     cyme
     dig
     direnv
