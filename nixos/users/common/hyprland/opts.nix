@@ -17,27 +17,6 @@ let
       hyprctl keyword decoration:blur:enabled true
     fi
   '';
-
-  hypr-setwallpaper = pkgs.writeShellScriptBin "hypr-setwallpaper" ''
-    WALLPAPER="${opts.directories.wallpapers}/${opts.desktop.wallpaper}"
-    if [ ! -f "$WALLPAPER" ]; then
-        echo "Error: Wallpaper file not found: $WALLPAPER" >&2
-        exit 1
-    fi
-
-    MAX_WAIT=30
-    end_time=$((SECONDS + MAX_WAIT))
-    echo "Waiting for swww-daemon to start..."
-    while [ $SECONDS -lt $end_time ]; do
-        if compgen -G "$XDG_RUNTIME_DIR/swww*.sock" > /dev/null; then
-            echo "swww-daemon found! Setting wallpaper: $WALLPAPER"
-            swww img "$WALLPAPER" && exit 0
-        fi
-        sleep 1
-    done
-    echo "Timed out waiting for swww-daemon after $MAX_WAIT seconds" >&2
-    exit 1
-  '';
 in
 {
   envs = {
@@ -450,7 +429,6 @@ in
   exec-once = [
     "waybar"
     "swww-daemon"
-    "${hypr-setwallpaper}/bin/hypr-setwallpaper"
     "wlsunset -l 40.7 -L -73.9"
     "wl-paste --type text --watch cliphist store"
     "wl-paste --type image --watch cliphist store"

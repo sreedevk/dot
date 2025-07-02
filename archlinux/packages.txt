@@ -78,8 +78,7 @@ nmap
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
-nvidia
-nvidia-lts
+nvidia-dkms
 nvidia-settings
 nvtop
 obs-studio
@@ -121,6 +120,7 @@ sof-tools
 squashfs-tools
 strace
 sudo
+swww
 tailscale
 thunderbird
 ttf-dejavu
