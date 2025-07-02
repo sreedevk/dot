@@ -15,6 +15,12 @@
           notify-send "$filepath copied to clipboard"
         }
 
+        set-as-wallpaper() {
+          local filepath="$1"
+          swww img "$filepath"
+          notify-send "wallpaper set to: $filepath"
+        }
+
         delete-file-after-confirm() {
           local filepath="$1"
           [ "$(printf "No\nYes" | ${pkgs.wofi}/bin/wofi --dmenu -p "Really delete $filepath?")" = "Yes" ] && \
@@ -81,6 +87,7 @@
         		"m") flip-horizontal $file ;;
         		"e") open-in-gimp $file ;;
             "l") rename-file $file ;;
+            "w") set-as-wallpaper $file ;;
         	esac
         done
       '';
