@@ -12,6 +12,8 @@
         PGID = opts.adminGID;
         PUID = opts.adminUID;
         TZ = opts.timeZone;
+        ARIA2RPCPORT = opts.ports.aria_rpc;
+        # EMBED_RPC_SECRET = "false";
       };
       environmentFiles = [ config.age.secrets.aria2_env.path ];
       extraOptions = [
