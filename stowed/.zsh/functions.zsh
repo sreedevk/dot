@@ -28,6 +28,10 @@ randstr() {
   openssl rand -base64 $((length * 3 / 4)) | tr -d '\n' | cut -c1-$length
 }
 
+open() {
+  xdg-open "$@" >/dev/null 2>&1
+}
+
 bwfzf() {
   local item="$(bw list items 2&> /dev/null | jq -r '.[].name' | fzf)"
   bw get password "$item" 2&> /dev/null | wl-copy

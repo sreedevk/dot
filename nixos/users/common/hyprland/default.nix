@@ -9,9 +9,9 @@ in
 {
   imports = [
     ./hyprlock.nix
-    ./swww.nix
-    ./waybar.nix
+    ./hyprpaper.nix
     ./modules
+    ./waybar.nix
   ];
 
   home.packages = [ hypr-launch-script ];

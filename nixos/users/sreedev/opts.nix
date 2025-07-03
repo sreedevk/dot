@@ -11,6 +11,6 @@
       bin = "firefox";
       xdg-desktop = "firefox.desktop";
     };
-    wallpaper = "wallhaven-p96odm.png";
+    wallpaper = "wallhaven-3q9qky.png";
   };
 }

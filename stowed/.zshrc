@@ -17,6 +17,7 @@ export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
 # ENV VARIABLES
 export VISUAL="nvim"
 export EDITOR="nvim"
+export SUDO_EDITOR="$EDITOR"
 export READER="zathura"
 export TERMINAL="alacritty"
 export BROWSER="brave"
