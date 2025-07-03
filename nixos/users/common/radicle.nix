@@ -12,6 +12,8 @@
           Unit = {
             Description = "Radicle Node Runner";
             Documentation = "info:rad man:rad(1) https://radicle.xyz/guides/user";
+            After = [ "agenix.service" ];
+            Requires = [ "agenix.service" ];
           };
           Service = {
             Type = "simple";
