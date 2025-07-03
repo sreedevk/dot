@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, opts, ... }:
 let
   hypr-switchlayout = pkgs.writeShellScriptBin "hypr-switchlayout" ''
     current_layout=$(hyprctl getoption general:layout -j | jq -M .str)
@@ -233,7 +233,7 @@ in
       { mod = "SUPER SHIFT"; keys = "7"; dispatcher = "movetoworkspace"; args = "7"; }
       { mod = "SUPER SHIFT"; keys = "8"; dispatcher = "movetoworkspace"; args = "8"; }
       { mod = "SUPER SHIFT"; keys = "9"; dispatcher = "movetoworkspace"; args = "9"; }
-      { mod = "SUPER SHIFT"; keys = "B"; dispatcher = "exec"; args = "uwsm app -t service brave"; }
+      { mod = "SUPER SHIFT"; keys = "B"; dispatcher = "exec"; args = "uwsm app -t service brave-browser.desktop"; }
       { mod = "SUPER SHIFT"; keys = "C"; dispatcher = "movetoworkspace"; args = "special"; }
       { mod = "SUPER SHIFT"; keys = "E"; dispatcher = "exit"; args = ""; }
       { mod = "SUPER SHIFT"; keys = "H"; dispatcher = "swapwindow"; args = "l"; }
@@ -254,7 +254,7 @@ in
       { mod = "SUPER"; keys = "8"; dispatcher = "workspace"; args = "8"; }
       { mod = "SUPER"; keys = "9"; dispatcher = "workspace"; args = "9"; }
       { mod = "SUPER"; keys = "A"; dispatcher = "exec"; args = "uwsm app -t service pwvucontrol"; }
-      { mod = "SUPER"; keys = "B"; dispatcher = "exec"; args = "uwsm app -t service ${config.programs.firefox.package}/bin/firefox"; }
+      { mod = "SUPER"; keys = "B"; dispatcher = "exec"; args = "uwsm app -t service ${opts.desktop.browser.xdg-desktop}"; }
       { mod = "SUPER"; keys = "C"; dispatcher = "togglespecialworkspace"; args = ""; }
       { mod = "SUPER"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; }
       { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
@@ -265,7 +265,7 @@ in
       { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; }
       { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "${pkgs.dunst}/bin/dunstctl set-paused toggle"; }
       { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-toggleblur}/bin/hypr-toggleblur"; }
-      { mod = "SUPER"; keys = "T"; dispatcher = "exec"; args = "uwsm app -t service thunderbird"; }
+      { mod = "SUPER"; keys = "T"; dispatcher = "exec"; args = "uwsm app -t service org.mozilla.Thunderbird.desktop"; }
       { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
       { mod = "SUPER"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
       { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; }
