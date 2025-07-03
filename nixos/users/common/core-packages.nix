@@ -17,6 +17,7 @@
     eza
     fd
     fend
+    flac
     fzf
     gperf
     grex
