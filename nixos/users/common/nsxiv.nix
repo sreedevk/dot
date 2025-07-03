@@ -71,6 +71,12 @@
           fi
         }
 
+        set-as-wallpaper() {
+          local filepath="$1"
+          ${pkgs.swww}/bin/swww img "$filepath"
+          notify-send "wallpaper set to: $filepath"
+        }
+
         while read -r file; do
         	case "$1" in
         		"y") copy-filepath-to-clipboard $file & ;;
@@ -81,6 +87,7 @@
         		"m") flip-horizontal $file ;;
         		"e") open-in-gimp $file ;;
             "l") rename-file $file ;;
+            "w") set-as-wallpaper $file ;;
         	esac
         done
       '';

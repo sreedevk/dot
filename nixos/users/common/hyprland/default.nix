@@ -10,6 +10,7 @@ in
   imports = [
     ./hyprlock.nix
     ./modules
+    ./swww.nix
     ./waybar.nix
   ];
 
