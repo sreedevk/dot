@@ -1,5 +1,7 @@
 { pkgs, config, opts, ... }:
 let
+  wallpaper = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
+
   hypr-switchlayout = pkgs.writeShellScriptBin "hypr-switchlayout" ''
     current_layout=$(hyprctl getoption general:layout -j | jq -M .str)
     if [ "$current_layout" == "\"master\"" ]; then
@@ -428,7 +430,7 @@ in
   };
 
   exec-once = [
-    "${pkgs.hyprpaper}/bin/hyprpaper"
+    "${pkgs.swaybg}/bin/swaybg -i ${wallpaper} -m fill"
     "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
     "hyprpm reload -n"
     "systemctl --user start hyprpolkitagent"
