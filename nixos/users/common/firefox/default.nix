@@ -18,7 +18,7 @@ in
         isDefault = true;
         id = 0;
         containersForce = false;
-        containers = { };
+        containers = containers;
         extensions = {
           packages = extensions;
         };
