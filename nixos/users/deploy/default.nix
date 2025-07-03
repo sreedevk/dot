@@ -15,6 +15,7 @@
     ../common/tmux.nix
     ../common/vim.nix
     ../common/zsh.nix
+    ./gemini.nix
   ];
 
   home.file = {
