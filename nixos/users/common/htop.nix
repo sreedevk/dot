@@ -1,7 +1,13 @@
-{ config, ... }:
+{ config, pkgs, ... }:
+let
+  pgm = pkgs.writeShellScriptBin "htop" ''
+    TERM=alacritty ${pkgs.htop}/bin/htop $@
+  '';
+in
 {
   programs.htop = {
     enable = true;
+    package = pgm;
     settings = {
       fields = with config.lib.htop.fields; [
         PID
