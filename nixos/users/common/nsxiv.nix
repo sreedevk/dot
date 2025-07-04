@@ -9,6 +9,14 @@
       text = ''
         #!/bin/bash
 
+        if [ "$XDG_SESSION_TYPE" = "wayland" ] || [ -n "WAYLAND_DISPLAY" ]; then
+          session="wayland"
+        elif [ "$XDG_SESSION_TYPE" = "x11" ] || [ -n "$DISPLAY" ]; then
+          session="x11"
+        else
+          session="unknown"
+        fi
+
         copy-filepath-to-clipboard() {
           local filepath="$1"
           printf "%s" "$filepath" | tr -d '\n' | wl-copy && \
@@ -73,8 +81,18 @@
 
         set-as-wallpaper() {
           local filepath="$1"
-          ${pkgs.swww}/bin/swww img "$filepath"
-          notify-send "wallpaper set to: $filepath"
+          case "$session" in
+            wayland)
+              ${pkgs.swww}/bin/swww img --transition-type wipe --transition-fps 60 --resize stretch --transition-step 60 --transition-duration 2 "$filepath"
+              notify-send "wallpaper set to: $filepath"
+              ;;
+            x11)
+              notify-send "x11 wallpaper setting is not supported"
+              ;;
+            *)
+              notify-send "unknown desktop server"
+              ;;
+          esac
         }
 
         while read -r file; do
