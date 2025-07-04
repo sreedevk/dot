@@ -9,13 +9,15 @@
       text = ''
         #!/bin/bash
 
-        if [ "$XDG_SESSION_TYPE" = "wayland" ] || [ -n "WAYLAND_DISPLAY" ]; then
-          session="wayland"
-        elif [ "$XDG_SESSION_TYPE" = "x11" ] || [ -n "$DISPLAY" ]; then
-          session="x11"
-        else
-          session="unknown"
-        fi
+        detect-session() {
+          if [ "$XDG_SESSION_TYPE" = "wayland" ] || [ -n "WAYLAND_DISPLAY" ]; then
+            printf '%s' wayland
+          elif [ "$XDG_SESSION_TYPE" = "x11" ] || [ -n "$DISPLAY" ]; then
+            printf '%s' x11
+          else
+            printf '%s' unknown
+          fi
+        }
 
         copy-filepath-to-clipboard() {
           local filepath="$1"
@@ -25,7 +27,7 @@
 
         delete-file-after-confirm() {
           local filepath="$1"
-          [ "$(printf "No\nYes" | ${pkgs.wofi}/bin/wofi --dmenu -p "Really delete $filepath?")" = "Yes" ] && \
+          [ "$(printf "no\nyes" | ${pkgs.wofi}/bin/wofi --dmenu -p "delete $filepath?")" = "yes" ] && \
           rm "$filepath" && \
           notify-send "$filepath deleted"
         }
@@ -81,17 +83,16 @@
 
         set-as-wallpaper() {
           local filepath="$1"
+          local session="$(detect-session)"
           case "$session" in
             wayland)
               ${pkgs.swww}/bin/swww img --transition-type wipe --transition-fps 60 --resize stretch --transition-step 60 --transition-duration 2 "$filepath"
-              notify-send "wallpaper set to: $filepath"
-              ;;
+              notify-send "wallpaper set to: $filepath" ;;
             x11)
-              notify-send "x11 wallpaper setting is not supported"
-              ;;
+              ${pkgs.feh} --bg-scale "$filepath"
+              notify-send "$file set as wallpaper" ;;
             *)
-              notify-send "unknown desktop server"
-              ;;
+              notify-send "couldn't set wallpaper: unknown desktop server" ;;
           esac
         }
 
