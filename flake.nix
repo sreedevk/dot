@@ -26,7 +26,7 @@
 
   outputs = { self, agenix, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
     let
-      opts = (import ./opts.nix);
+      opts = (import ./nixos/opts.nix);
       systems = {
         x86 = "x86_64-linux";
         arm64 = "aarch64-linux";
@@ -41,13 +41,13 @@
       mkSystem =
         pkgs: system: hostname:
         let
-          coalesced_opts = opts // (import ./hosts/${hostname}/opts.nix);
+          coalesced_opts = opts // (import ./nixos/hosts/${hostname}/opts.nix);
           agenix_pkg =
             [{ environment.systemPackages = [ agenix.packages.${system}.default ]; }];
         in
         pkgs.lib.nixosSystem {
           system = system;
-          modules = [ agenix.nixosModules.default ./hosts/${hostname}/configuration.nix ] ++ agenix_pkg;
+          modules = [ agenix.nixosModules.default ./nixos/hosts/${hostname}/configuration.nix ] ++ agenix_pkg;
           specialArgs = {
             inherit system;
             nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
@@ -58,7 +58,7 @@
       mkHome =
         pkgs: system: username: host:
         let
-          coalesced_opts = opts // (import ./hosts/${host}/opts.nix) // (import ./users/${username}/opts.nix);
+          coalesced_opts = opts // (import ./nixos/hosts/${host}/opts.nix) // (import ./nixos/users/${username}/opts.nix);
           agenix_pkg = [{ home.packages = [ agenix.packages.${system}.default ]; }];
           stylix_mod =
             if coalesced_opts.desktop.enable == true
@@ -67,7 +67,7 @@
         in
         home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs.legacyPackages."${system}";
-          modules = [ ./users/${username} agenix.homeManagerModules.age ] ++ agenix_pkg ++ stylix_mod;
+          modules = [ ./nixos/users/${username} agenix.homeManagerModules.age ] ++ agenix_pkg ++ stylix_mod;
           extraSpecialArgs = {
             inherit firefox-addons system username host inputs;
             nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
