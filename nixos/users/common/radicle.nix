@@ -1,4 +1,15 @@
 { pkgs, config, ... }:
+let
+  preExecScript =
+    ''
+      /bin/sh -c '\
+      set -euo pipefail; \
+      while [ ! -f "${config.age.secrets.radicle_passphrase.path}" ]; do \
+        sleep 1; \
+      done; \
+      export RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})"'
+    '';
+in
 {
   home.packages = with pkgs; [
     radicle-httpd
@@ -17,7 +28,7 @@
           };
           Service = {
             Type = "simple";
-            ExecStartPre = "/bin/sh -c 'export RAD_PASSPHRASE=\"$(cat ${config.age.secrets.radicle_passphrase.path})\"'";
+            ExecStartPre = preExecScript;
             ExecStart = "${pkgs.radicle-node}/bin/rad node start --foreground";
           };
           Install = {
