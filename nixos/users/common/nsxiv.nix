@@ -21,8 +21,17 @@
 
         copy-filepath-to-clipboard() {
           local filepath="$1"
-          printf "%s" "$filepath" | tr -d '\n' | wl-copy && \
-          notify-send "$filepath copied to clipboard"
+          local session="$(detect-session)"
+          case "$session" in
+            wayland)
+              printf "%s" "$filepath" | tr -d '\n' | wl-copy && \
+              notify-send "$filepath copied to clipboard" ;; 
+            x11)
+              printf "%s" "$filepath" | tr -d '\n' | xclip -sel clip && \
+              notify-send "$filepath copied to clipboard" ;;
+            *)
+              notify-send "error: desktop session unrecognized" ;;
+          esac
         }
 
         delete-file-after-confirm() {
