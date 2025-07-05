@@ -36,4 +36,10 @@ namespace :flake do
   task :check do
     sh('nix flake check')
   end
+
+  namespace :all do
+    task :check do
+      sh('nix flake check --all-systems')
+    end
+  end
 end
