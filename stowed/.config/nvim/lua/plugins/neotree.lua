@@ -13,6 +13,7 @@ return {
       { "<C-n>",      wrap_cmd("Neotree filesystem reveal toggle"), desc = "Toggle Neotree" },
       { "<Leader>nf", wrap_cmd("Neotree filesystem reveal toggle"), desc = "Reveal File in Neotree" },
       { "<Leader>nb", wrap_cmd("Neotree buffers reveal toggle"),    desc = "Reveal Buffers in Neotree" },
+      { "<Leader>nn", wrap_cmd("Neotree current toggle"),           desc = "netrw style full buffer tree" },
     },
     lazy = true,
     opts = {
@@ -24,6 +25,7 @@ return {
       sort_case_insensitive = false,
       sort_function = nil,
       open_files_do_not_replace_types = vim.g.auxbuffers,
+      open_files_using_relative_paths = false,
       default_component_configs = {
         container = { enable_character_fade = true },
         indent = {
