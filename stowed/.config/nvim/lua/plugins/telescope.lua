@@ -25,7 +25,7 @@ return {
     { '<Leader>zi', wrap_cmd("Telescope zoxide list"),                      desc = "Zoxide Interactive",           noremap = true },
     { '<Leader>th', wrap_cmd("Telescope heading"),                          desc = "Telescope Markdown Headings",  noremap = true },
     {
-      "<C-P>",
+      "<C-S-P>",
       function()
         require 'telescope.builtin'.find_files {
           prompt_title = "All Files",
