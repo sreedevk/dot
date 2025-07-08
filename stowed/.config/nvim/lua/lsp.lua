@@ -26,7 +26,7 @@ setup_lsp { -- lua
 
 setup_lsp { -- json
   name = "jsonnet_ls",
-  enable = true,
+  enable = false,
   custom = false,
   cmd = { vim.fn.trim(vim.fn.system("which jsonnet-language-server")) },
   filetypes = { "json" },
@@ -268,9 +268,24 @@ setup_lsp { -- typescript
   }
 }
 
+setup_lsp { --haskell
+  name = 'hls',
+  enable = true,
+  custom = false,
+  filetypes = { 'haskell', 'lhaskell' },
+  cmd = { "haskell-language-server-wrapper", "--lsp" },
+  root_markers = { 'hie.yaml', 'stack.yaml', 'cabal.project', '*.cabal', 'package.yaml' },
+  settings = {
+    haskell = {
+      formattingProvider = 'ormolu',
+      cabalFormattingProvider = 'cabalfmt',
+    },
+  },
+}
+
 setup_lsp { -- scala
   name = 'metals',
-  enable = true,
+  enable = false,
   custom = true,
   filetypes = { 'scala', 'sbt', 'java' },
   cmd = { vim.fn.trim(vim.fn.system("which metals")), "--stdio" },
