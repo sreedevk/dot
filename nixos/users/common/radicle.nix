@@ -1,4 +1,5 @@
 { pkgs, config, ... }:
+# BUG: First time boot of this service fails because the credentials are not ready 
 let
   preExecScript =
     ''
