@@ -24,6 +24,23 @@ setup_lsp { -- lua
   filetypes = { "lua" },
 }
 
+setup_lsp { --python
+  name = 'pylsp',
+  enable = true,
+  custom = false,
+  cmd = { vim.fn.trim(vim.fn.system("which pylsp")) },
+  filetypes = { "python" },
+  root_markers = {
+    '.git',
+    'Pipfile',
+    'pyproject.toml',
+    'requirements.txt',
+    'setup.cfg',
+    'setup.py',
+    'uv.lock',
+  },
+}
+
 setup_lsp { -- json
   name = "jsonnet_ls",
   enable = false,
