@@ -1,4 +1,4 @@
-{ config, lib, pkgs, opts, ... }: {
+{ pkgs, opts, ... }: {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ baikal ]);
 
   systemd.tmpfiles.rules = [
@@ -7,7 +7,7 @@
 
   virtualisation.oci-containers.containers = {
     "baikal" = {
-      autoStart = true;
+      autoStart = false;
       environment = {
         PGID = opts.adminGID;
         PUID = opts.adminUID;

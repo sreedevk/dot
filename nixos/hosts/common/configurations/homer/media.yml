@@ -167,13 +167,6 @@ services:
         url: "https://archive.nullptr.sh"
         target: "_blank"
 
-      - name: "Baikal"
-        logo: "assets/tools/baikal.png"
-        subtitle: "Cal & Contacts Dav Server"
-        tag: "cal-contacts-dav"
-        url: "https://baikal.nullptr.sh"
-        target: "_blank"
-
       - name: "Vaultwarden"
         logo: "assets/tools/bitwarden.png"
         subtitle: "password-manager"

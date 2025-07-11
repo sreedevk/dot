@@ -18,7 +18,6 @@
     ./aria2.nix
     ./audiobookshelf.nix
     ./authentik.nix
-    ./baikal.nix
     ./bazarr.nix
     ./bitmagnet.nix
     ./cloudbeaver.nix
