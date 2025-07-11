@@ -20,6 +20,7 @@
     ./gemini.nix
     ./wosbot.nix
     ./web.nix
+    ./baikal.nix
   ];
 
   home.file = {
