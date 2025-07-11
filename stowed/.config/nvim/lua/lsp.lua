@@ -24,6 +24,15 @@ setup_lsp { -- lua
   filetypes = { "lua" },
 }
 
+setup_lsp { -- zig
+  name = 'zls',
+  enable = true,
+  custom = false,
+  cmd = { vim.fn.trim(vim.fn.system("which zls")) },
+  filetypes = { 'zig', 'zir' },
+  root_markers = { 'zls.json', 'build.zig', '.git' }
+}
+
 setup_lsp { --python
   name = 'pylsp',
   enable = true,

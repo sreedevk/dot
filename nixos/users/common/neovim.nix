@@ -18,6 +18,7 @@ let
     taplo                           # toml
     tinymist                        # typst
     yaml-language-server            # yaml
+    zls                             # zig
   ];
 
   neovim_pkgs =
