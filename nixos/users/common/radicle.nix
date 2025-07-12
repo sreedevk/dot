@@ -1,5 +1,4 @@
 { pkgs, config, ... }:
-# BUG: First time boot of this service fails because the credentials are not ready 
 let
   preExecScript =
     ''
@@ -31,6 +30,8 @@ in
             Type = "simple";
             ExecStartPre = preExecScript;
             ExecStart = "${pkgs.radicle-node}/bin/rad node start --foreground";
+            Retry = "always";
+            RestartSec = "10s";
           };
           Install = {
             WantedBy = [ "default.target" ];
