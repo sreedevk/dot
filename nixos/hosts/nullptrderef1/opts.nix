@@ -113,6 +113,9 @@ rec {
     paperless-redis = "6340";
     photoprism_app = "2342";
     photoprism_db = "3307";
+    pinepods-app = "8040";
+    pinepods-db = "5436";
+    pinepods-valkey = "6380";
     podgrab = "8567";
     portainer_misc = "8024";
     portainer_web = "9080";

@@ -3,6 +3,7 @@
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ podgrab ]);
 
   systemd.tmpfiles.rules = [
+    "d ${opts.paths.app_datafiles}/podgrab        0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/podgrab/config 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 

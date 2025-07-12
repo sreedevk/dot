@@ -54,7 +54,7 @@
     ./ollama.nix
     ./paperless.nix
     ./photoprism.nix
-    ./podgrab.nix
+    ./pinepods.nix
     ./portainer.nix
     ./prowlarr.nix
     ./qbittorrent.nix

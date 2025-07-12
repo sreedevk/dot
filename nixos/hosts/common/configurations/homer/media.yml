@@ -56,12 +56,12 @@ services:
         url: "https://music.nullptr.sh"
         target: "_blank"
 
-      - name: "Podgrab"
+      - name: "Pinepods"
         logo: "assets/tools/podgrab.png"
         subtitle: "podcasts server"
         tag: "podcasts"
         keywords: "podcasts"
-        url: "https://podgrab.nullptr.sh"
+        url: "https://pinepods.nullptr.sh"
         target: "_blank"
 
       - name: "Lidarr"
