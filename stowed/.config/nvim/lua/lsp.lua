@@ -128,7 +128,13 @@ setup_lsp { -- ruby
       codeActions = true,
       codeLens = true,
       formatting = true,
-      hover = true
+      diagnostics = true,
+      definition = true,
+      hover = true,
+      inlayHints = true,
+      onTypeFormatting = true,
+      selectionRanges = true,
+      semanticHighlighting = true,
     },
   },
 }

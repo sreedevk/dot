@@ -37,6 +37,8 @@ return {
             "--follow",
             "--no-ignore-vcs",
             "--exclude", ".git",
+            "--exclude", ".jj",
+            "--exclude", "node_modules",
           }
         }
       end,
@@ -103,7 +105,9 @@ return {
             "--glob",
             "--strip-cwd-prefix",
             "--exclude", ".git",
+            "--exclude", ".jj",
             "--exclude", "*.age",
+            "--exclude", "node_modules",
           }
         }
       },
@@ -119,8 +123,9 @@ return {
           '--smart-case',
           '--ignore-vcs',
           '--hidden',
-          '--glob',
-          "!**/.git/*",
+          '--glob', "!**/.git/*",
+          '--glob', "!**/.jj/*",
+          '--glob', "!**/node_modules/*",
         },
         extensions = {
           heading = {
