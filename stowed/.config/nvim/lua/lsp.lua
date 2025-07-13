@@ -86,6 +86,15 @@ setup_lsp { -- janet
   root_markers = { 'project.janet', '.git' }
 }
 
+setup_lsp { -- lean
+  name = "leanls",
+  enable = true,
+  custom = false,
+  filetypes = { "lean" },
+  cmd = { vim.fn.trim(vim.fn.system("which lean")), "--server" },
+  root_markers = { '.git', 'leanpkg.toml' }
+}
+
 setup_lsp { -- elm
   name = 'elm-language-server',
   enable = true,
@@ -218,7 +227,7 @@ setup_lsp { -- nix
   }
 }
 
-setup_lsp {
+setup_lsp { -- chicken scheme
   name = 'chicken-scheme-lsp',
   custom = true,
   enable = true,
@@ -249,7 +258,7 @@ setup_lsp { -- rust
   }
 }
 
-setup_lsp {
+setup_lsp { -- rust
   name = 'bacon_ls',
   enable = true,
   custom = false,
