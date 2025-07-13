@@ -154,7 +154,10 @@ return {
   },
 
   {
-    'mattn/emmet-vim',
+    -- mattn/emmet-vim 
+    -- note: project seems to be abandoned, this branch contains an important fix
+    --       will revert back to mattn's fork once the fix has been merged to parent
+    'ricvillagrana/emmet-vim',
     lazy = true,
     keys = {
       { "<C-c>", mode = { "i" } },
@@ -168,8 +171,8 @@ return {
       "typescriptreact",
     },
     init = function()
-      vim.g.user_emmet_leader_key = '<C-c>'
       vim.g.user_emmet_expandabbr_key = '<C-c>,'
+      vim.g.user_emmet_leader_key = '<C-c>'
       vim.g.user_emmet_mode = 'i'
       vim.g.user_emmet_install_global = 1
     end

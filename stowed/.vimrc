@@ -92,6 +92,7 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:user_emmet_expandabbr_key = '<C-c>,'
+let g:user_emmet_leader_key = '<C-c>'
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_show_hidden = 1
