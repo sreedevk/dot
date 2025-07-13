@@ -159,9 +159,19 @@ return {
     keys = {
       { "<C-c>", mode = { "i" } },
     },
-    ft = { "html", "erb", "javascript", "typescript" },
+    ft = {
+      "html",
+      "eruby",
+      "javascript",
+      "typescript",
+      "javascriptreact",
+      "typescriptreact",
+    },
     init = function()
-      vim.g.user_emmet_leader_key = "<C-c>"
+      vim.g.user_emmet_leader_key = '<C-c>'
+      vim.g.user_emmet_expandabbr_key = '<C-c>,'
+      vim.g.user_emmet_mode = 'i'
+      vim.g.user_emmet_install_global = 1
     end
   },
 
