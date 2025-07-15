@@ -138,7 +138,6 @@ in
           scdl
           tea
           terminaltexteffects
-          texliveFull
           tmuxinator
           toilet
           tokei
