@@ -49,7 +49,7 @@ in
     ../common/zellij.nix
     ../common/zsh.nix
     ./autorandr.nix
-    ./backup.nix
+    ./restic.nix
   ];
 
   home.packages =
@@ -177,6 +177,7 @@ in
       export OPENAI_API_KEY="$(cat ${config.age.secrets.openai_api_key.path})"
       export RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})"
       export CR_PAT="$(cat ${config.age.secrets.ghcr_ro_token.path})"
+      export RESTIC_PASSWORD_FILE="${config.age.secrets.restic_backup_password.path}"
     '';
   };
 
