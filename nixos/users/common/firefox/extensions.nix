@@ -11,6 +11,7 @@ with firefox-addons.packages."${system}"; [
   karakeep
   multi-account-containers
   open-url-in-container
+  purpleadblock
   reddit-enhancement-suite
   sponsorblock
   tab-reloader
