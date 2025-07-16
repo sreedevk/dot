@@ -154,10 +154,20 @@ return {
   },
 
   {
-    -- mattn/emmet-vim 
-    -- note: project seems to be abandoned, this branch contains an important fix
-    --       will revert back to mattn's fork once the fix has been merged to parent
-    'ricvillagrana/emmet-vim',
+    'mluders/comfy-line-numbers.nvim',
+    lazy = true,
+    event = "BufReadPost",
+    opts = {
+      {
+        up_key = 'j',
+        down_key = 'k',
+        hidden_buffer_types = vim.g.auxbuffers
+      }
+    }
+  },
+
+  {
+    'mattn/emmet-vim',
     lazy = true,
     keys = {
       { "<C-c>", mode = { "i" } },

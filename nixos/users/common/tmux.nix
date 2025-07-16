@@ -82,9 +82,8 @@ in
 
       # SWITCH SESSIONS
       bind -r \\ switch-client -l
-
-      # SWITCH WINDOWS
-      bind -r 6 last-window
+      bind -r b  switch-client -n
+      bind -r B  switch-client -p
 
       # COPY MODE
       bind -T copy-mode-vi v send-keys -X begin-selection
