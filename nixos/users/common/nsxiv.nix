@@ -48,28 +48,28 @@
 
         rotate-cw() {
           local filepath="$1"
-          if type convert > /dev/null 2>&1; then 
-            convert -rotate 90 "$filepath" "$filepath"
+          if type magick > /dev/null 2>&1; then 
+            magick convert -rotate 90 "$filepath" "$filepath"
           else 
-            notify-send "Imagemagick is not installed!" 
+            notify-send "imagemagick is not installed!" 
           fi
         }
 
         rotate-ccw() {
           local filepath="$1"
-          if type convert > /dev/null 2>&1; then 
-            convert -rotate -90 "$filepath" "$filepath"
+          if type magick > /dev/null 2>&1; then 
+            magick convert -rotate -90 "$filepath" "$filepath"
           else
-            notify-send "Imagemagick is not installed!"
+            notify-send "imagemagick is not installed!"
           fi
         }
 
         flip-horizontal() {
           local filepath="$1"
-          if type convert > /dev/null 2>&1; then 
-            convert -flop "$filepath" "$filepath" 
+          if type magick > /dev/null 2>&1; then 
+            magick convert -flop "$filepath" "$filepath" 
           else 
-            notify-send "Imagemagick is not installed!"
+            notify-send "imagemagick is not installed!"
           fi
         }
 

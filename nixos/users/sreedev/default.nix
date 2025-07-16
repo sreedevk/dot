@@ -134,6 +134,7 @@ in
           pulsemixer
           qrencode
           rebar3
+          s3cmd
           sc-im
           scdl
           tea
