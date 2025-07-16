@@ -5,7 +5,7 @@
       restic-backup = {
         Unit = {
           Description = "Restic Backup Process to nullptrderef1 Server";
-          Documentation = "info:restic man:restic backup(1) https://taskwarrior.org/docs/";
+          Documentation = "info:restic man:restic backup(1)";
           After = [
             "network-online.target"
             "agenix.service"

@@ -178,6 +178,7 @@ in
       export RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})"
       export CR_PAT="$(cat ${config.age.secrets.ghcr_ro_token.path})"
       export RESTIC_PASSWORD_FILE="${config.age.secrets.restic_backup_password.path}"
+      export RESTIC_REPOSITORY=sftp:nullptrderef1:/mnt/dpool0/backups/devstation/restic-repository
     '';
   };
 
