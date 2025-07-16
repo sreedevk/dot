@@ -80,6 +80,12 @@ in
       # CLEAR SESSION WINDOW WITH CTRL-L
       bind C-l send-keys -R \; clear-history
 
+      # SWITCH SESSIONS
+      bind -r \\ switch-client -l
+
+      # SWITCH WINDOWS
+      bind -r 6 last-window
+
       # COPY MODE
       bind -T copy-mode-vi v send-keys -X begin-selection
       bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
