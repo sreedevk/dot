@@ -3,8 +3,8 @@ let
     publicExplorer = "https://app.radicle.xyz/nodes/$host/$rid$path";
     preferredSeeds = [
       "z6MktfuMmbEPd6tHVELEeQqUn9hHHDo2FpiuENrMPqQUV9pB@seed.devtechnica.com:8776"
-      "z6MkrLMMsiPWUcNPHcRajuMi9mDfYckSoJyPwwnknocNYPm7@seed.radicle.garden:8776"
-      "z6Mkmqogy2qEM2ummccUthFEaaHvyYmYBYh3dbe9W4ebScxo@ash.radicle.garden:8776"
+      "z6MkrLMMsiPWUcNPHcRajuMi9mDfYckSoJyPwwnknocNYPm7@iris.radicle.xyz:8776"
+      "z6Mkmqogy2qEM2ummccUthFEaaHvyYmYBYh3dbe9W4ebScxo@rosa.radicle.xyz:8776"
     ];
     web = {
       pinned = {
