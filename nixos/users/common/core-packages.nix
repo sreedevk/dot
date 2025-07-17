@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-stable, ... }:
+{ pkgs, ... }:
 {
   home.packages = (with pkgs; [
     ast-grep
@@ -40,6 +40,7 @@
     ouch
     p7zip
     pass
+    pigz
     procs
     progress
     pwgen
