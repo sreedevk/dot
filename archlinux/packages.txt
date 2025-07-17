@@ -45,6 +45,7 @@ helix
 i3-wm
 incus
 incus-tools
+inetutils
 inotify-tools
 intel-media-driver
 iw
@@ -92,6 +93,7 @@ openvpn
 os-prober
 pamixer
 parallel
+perf
 picom
 pipewire-alsa
 pipewire-libcamera
@@ -108,6 +110,7 @@ raylib
 reflector
 remmina
 rlwrap
+scdoc
 sdl2_image
 sdl2_mixer
 sdl2_net
@@ -115,6 +118,7 @@ sdl2_ttf
 slurp
 snd
 sndio
+sniffnet
 sof-firmware
 sof-tools
 squashfs-tools
@@ -146,6 +150,7 @@ wireguard-tools
 wireless_tools
 wireplumber
 wl-clipboard
+wlroots0.19
 wlsunset
 xclip
 xdo
@@ -157,6 +162,7 @@ xorg-xev
 xorg-xinit
 xorg-xrandr
 xterm
+xtrans
 zarchive
 zip
 zmap

@@ -4,6 +4,6 @@ blaze-ssh v0.0.4
 cargo-expand v1.0.111
 cargo-update v16.3.2
 cargo-watch v8.5.3
-deduplicator v0.2.2
+deduplicator v0.3.1 (/home/sreedev/Data/repositories/deduplicator)
 kuma-cli v0.0.0 (https//github.com/BigBoot/AutoKuma.git#1f07bc08)
 license-generator v1.3.0
