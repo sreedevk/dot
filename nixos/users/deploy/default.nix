@@ -11,12 +11,6 @@
     ../common/tmux.nix
     ../common/vim.nix
     ../common/zsh.nix
-
-    # docker services
-    ./gemini.nix
-    ./wosbot.nix
-    ./web.nix
-    ./baikal.nix
   ];
 
   home.file = {
