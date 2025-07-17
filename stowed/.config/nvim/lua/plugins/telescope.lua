@@ -129,7 +129,7 @@ return {
         },
         extensions = {
           heading = {
-            treesitter = true,
+            treesitter = false,
           },
           zoxide = {
             mappings = {

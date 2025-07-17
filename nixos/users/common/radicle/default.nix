@@ -1,9 +1,19 @@
-{ pkgs, config, ... }:
+{ pkgs, username, opts, config, ... }:
+let
+  radconf = (import ./configs.nix);
+in
 {
   home.packages = with pkgs; [
     radicle-httpd
     radicle-node
   ];
+
+  home.file = {
+    ".radicle/config.json" = {
+      enable = true;
+      text = radconf."${username}@${opts.hostname}";
+    };
+  };
 
   systemd.user =
     {

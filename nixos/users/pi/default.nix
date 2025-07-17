@@ -12,7 +12,7 @@
     ../common/jujutsu.nix
     ../common/neovim.nix
     ../common/pueue.nix
-    ../common/radicle.nix
+    ../common/radicle
     ../common/starship.nix
     ../common/supervisor
     ../common/tmux.nix

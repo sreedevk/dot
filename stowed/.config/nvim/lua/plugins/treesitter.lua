@@ -3,6 +3,20 @@ return {
     'nvim-treesitter/nvim-treesitter',
     lazy = true,
     event = "BufReadPost",
+    cmd = {
+      "TSBufEnable",
+      "TSBufDisable",
+      "TSBufToggle",
+      "TSConfigInfo",
+      "TSDisable",
+      "TSEditQuery",
+      "TSEditQueryUserAfter",
+      "TSEnable",
+      "TSInstall",
+      "TSInstallFromGrammar",
+      "TSInstallInfo",
+      "TSInstallSync",
+    },
     config = function()
       vim.o.foldmethod = 'expr'
       vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
@@ -249,6 +263,11 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     lazy = true,
     event = "BufReadPost",
+    cmd = {
+      "TSJJoin",
+      "TSJSplit",
+      "TSJToggle",
+    },
     keys = {
       { '<leader>j', [[<cmd>TSJToggle<cr>]], noremap = true, desc = "TreeSJ" },
     },
