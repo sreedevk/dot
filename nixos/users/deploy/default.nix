@@ -11,6 +11,7 @@
     ../common/tmux.nix
     ../common/vim.nix
     ../common/zsh.nix
+    ../common/radicle
 
     # docker services
     ./gemini.nix
