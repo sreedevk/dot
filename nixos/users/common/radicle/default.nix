@@ -2,7 +2,7 @@
 let
   radconf = (import ./configs.nix);
   radnode = pkgs.writeShellScriptBin "radnode" ''
-    export RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})"
+    export RAD_PASSPHRASE="$(${pkgs.coreutils}/bin/cat ${config.age.secrets.radicle_passphrase.path})"
     ${pkgs.radicle-node}/bin/rad node start --foreground
   '';
 in
