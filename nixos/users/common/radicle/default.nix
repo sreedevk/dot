@@ -1,6 +1,10 @@
 { pkgs, username, opts, config, ... }:
 let
   radconf = (import ./configs.nix);
+  radnode = pkgs.writeShellScriptBin "radnode" ''
+    export RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})"
+    ${pkgs.radicle-node}/bin/rad node start --foreground
+  '';
 in
 {
   home.packages = with pkgs; [
@@ -27,8 +31,7 @@ in
           };
           Service = {
             Type = "simple";
-            ExecStartPre = "/bin/sh -c 'export RAD_PASSPHRASE=\"$(cat ${config.age.secrets.radicle_passphrase.path})\"'";
-            ExecStart = "${pkgs.radicle-node}/bin/rad node start --foreground";
+            ExecStart = "${radnode}/bin/radnode";
             Restart = "on-failure";
             RestartSec = "10s";
           };
