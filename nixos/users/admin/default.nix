@@ -11,7 +11,6 @@
     ../common/jujutsu.nix
     ../common/neovim.nix
     ../common/pueue.nix
-    ../common/radicle
     ../common/starship.nix
     ../common/tmux.nix
     ../common/vim.nix
