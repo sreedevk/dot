@@ -42,12 +42,12 @@ let
           };
         };
         connection = {
-          inbound = 128;
-          outbound = 16;
+          inbound = 32;
+          outbound = 8;
         };
         fetchPackReceive = "500.0 MiB";
       };
-      workers = 8;
+      workers = 2;
       seedingPolicy = {
         default = "block";
       };
