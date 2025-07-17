@@ -7,6 +7,7 @@
     ../common/fastfetch.nix
     ../common/git.nix
     ../common/htop.nix
+    ../common/radicle
     ../common/starship.nix
     ../common/tmux.nix
     ../common/vim.nix
