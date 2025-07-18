@@ -21,6 +21,7 @@ let
             echo "$HOME/.dot/"
             echo "$HOME/Data/finances/"
             echo "$HOME/Data/notebook/"
+            echo "$HOME/Data/labs/"
           ) | fzf
         )
       fi
