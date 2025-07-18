@@ -120,5 +120,4 @@ alias yt='yt-dlp'
 # FASTFETCH @ SHELL INIT
 if [ -f "$(command -v fastfetch)" ]; then
   echo && eval "$(command -v fastfetch)" && echo
-  echo -ne "\033[5 q"
 fi
