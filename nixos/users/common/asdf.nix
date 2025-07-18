@@ -26,7 +26,6 @@
             { tool = "erlang"; version = "27.3.3"; }
             { tool = "gleam"; version = "1.11.1"; }
             { tool = "golang"; version = "1.24.4"; }
-            { tool = "lean"; version = "3.4.2"; }
             { tool = "nim"; version = "2.2.4"; }
             { tool = "ruby"; version = "3.4.2"; }
             { tool = "scala"; version = "3.7.1"; }

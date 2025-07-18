@@ -97,6 +97,7 @@ in
           csvlens
           doctl
           duckdb
+          elan
           emacs
           fasm
           glab
