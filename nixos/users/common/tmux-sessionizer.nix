@@ -17,11 +17,10 @@ let
       else
         selected=$(
           (
-            fd . ~/Data/repositories/ ~/Data/**/repositories/ -td -d1
+            fd . ~/Data/repositories/ ~/Data/labs/ ~/Data/**/repositories/ -td -d1
             echo "$HOME/.dot/"
             echo "$HOME/Data/finances/"
             echo "$HOME/Data/notebook/"
-            echo "$HOME/Data/labs/"
           ) | fzf
         )
       fi

@@ -56,7 +56,7 @@
           OnBootSec = "5min";
           OnCalendar = "00:05";
           RandomizedDelaySec = "5h";
-          Unit = "taskwarrior-sync.service";
+          Unit = "restic-backup.service";
         };
         Install = {
           WantedBy = [ "timers.target" ];
