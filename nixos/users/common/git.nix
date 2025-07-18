@@ -68,8 +68,14 @@ in
       };
       core = {
         attributesfile = "~/.gitattributes";
+        bare = false;
         editor = "${config.programs.neovim.package}/bin/nvim";
+        filemode = true;
+        ignorecase = true;
+        logallrefupdates = true;
         pager = "${pkgs.delta}/bin/delta";
+        precomposeunicode = true;
+        repositoryformatversion = 0;
       };
       commit = {
         gpgsign = gpgsign;
