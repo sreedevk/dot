@@ -11,7 +11,6 @@ in
     ../common/awscli.nix
     ../common/base.nix
     ../common/btop.nix
-    ../common/cargo.nix
     ../common/core-packages.nix
     ../common/droidcam.nix
     ../common/dunst.nix
@@ -135,6 +134,7 @@ in
           pulsemixer
           qrencode
           rebar3
+          rustup
           s3cmd
           sc-im
           scdl
