@@ -1,6 +1,6 @@
 [plugin]
 deps = [
-  { use = "Reledia/glow",                     rev = "c76bf4f" },
+  { use = "Reledia/glow",                     rev = "bd3eaa5" },
   { use = "Rolv-Apneseth/starship",           rev = "6c639b4" },
   { use = "dedukun/bookmarks",                rev = "95b2c58" },
   { use = "yazi-rs/flavors:catppuccin-mocha", rev = "c023460" },
