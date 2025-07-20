@@ -145,6 +145,7 @@ in
           silicon
           tea
           terminaltexteffects
+          ticker
           tmuxinator
           toilet
           tokei
