@@ -142,6 +142,7 @@ in
           s3cmd
           sc-im
           scdl
+          silicon
           tea
           terminaltexteffects
           tmuxinator
