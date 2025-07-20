@@ -3,19 +3,15 @@
 
 { firefox-addons, system, ... }:
 with firefox-addons.packages."${system}"; [
-  adnauseam
   bitwarden
   consent-o-matic
   darkreader
   enhancer-for-youtube
   karakeep
-  multi-account-containers
-  open-url-in-container
-  purpleadblock
+  private-grammar-checker-harper
   reddit-enhancement-suite
   sponsorblock
   tab-reloader
-  temporary-containers
   tubearchivist-companion
   ublock-origin
   vimium
