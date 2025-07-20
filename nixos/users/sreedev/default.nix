@@ -101,6 +101,7 @@ in
           fasm
           glab
           glow
+          gpg-tui
           gping
           graphviz
           hexyl
