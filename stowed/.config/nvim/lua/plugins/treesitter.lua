@@ -90,7 +90,7 @@ return {
           disable = vim.g.auxbuffers,
           keymaps = {
             init_selection = "<CR>",
-            scope_incremental = "grn",
+            scope_incremental = "<S-CR>",
             node_incremental = "<TAB>",
             node_decremental = "<S-TAB>",
           },
@@ -112,7 +112,7 @@ return {
               return lang == 'csv' and vim.api.nvim_buf_line_count(bufnr) > 10000
             end,
             keymaps = {
-              smart_rename = "grr",
+              smart_rename = "trr",
             },
           },
           highlight_definitions = {

@@ -79,6 +79,7 @@ in
           libreoffice-fresh
           nemo-with-extensions
           qflipper
+          sqlitebrowser
           wofi
         ];
         cli-packages = with pkgs; [

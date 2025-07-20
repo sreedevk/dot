@@ -350,42 +350,41 @@ setup_lsp { -- scala
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = "Configurations on LSP Attach",
   callback = function(event)
-    vim.opt.signcolumn = 'yes'
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
 
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+    end
+
+
+    vim.opt.signcolumn = 'yes'
     vim.bo[event.buf].formatexpr = nil
     vim.bo[event.buf].omnifunc = nil
 
-    local lsp_buf = vim.lsp.buf
-    local keymap_opts = function(ev, desc)
-      return { buffer = ev.buf, desc = desc }
-    end
+    vim.diagnostic.config {
+      virtual_lines = { current_line = true },
+      virtual_text = { current_line = true }
+    }
 
     local format_buf_async = function()
       vim.lsp.buf.format({ async = true })
     end
 
-    local function vim_diag_next()
-      vim.diagnostic.jump({ count = 1, float = true })
-    end
-
-    local function vim_diag_prev()
-      vim.diagnostic.jump({ count = -1, float = true })
-    end
-
-    vim.keymap.set("n", "]d", vim_diag_next, keymap_opts(event, "Next Diagnostic Message"))
-    vim.keymap.set("n", "[d", vim_diag_prev, keymap_opts(event, "Previous Diagnostic Message"))
-    vim.keymap.set("n", "gl", vim.diagnostic.open_float, keymap_opts(event, "Enter Float"))
-    vim.keymap.set("n", "gd", lsp_buf.definition, keymap_opts(event, "Goto Definition"))
-    vim.keymap.set('n', 'gD', lsp_buf.declaration, keymap_opts(event, "Goto Declaration"))
-    vim.keymap.set('n', 'K', lsp_buf.hover, keymap_opts(event, "Hover"))
-    vim.keymap.set('n', 'gi', lsp_buf.implementation, keymap_opts(event, "Goto Implementation"))
-    vim.keymap.set('n', 'go', lsp_buf.type_definition, keymap_opts(event, "Goto TypeDef"))
-    vim.keymap.set('n', 'gr', lsp_buf.references, keymap_opts(event, "List References"))
-    vim.keymap.set('n', '<leader>vrn', lsp_buf.rename, keymap_opts(event, "Rename Variable"))
-    vim.keymap.set("n", "<leader>vca", lsp_buf.code_action, keymap_opts(event, "Code Action"))
-    vim.keymap.set("n", "<leader>vws", lsp_buf.workspace_symbol, keymap_opts(event, "Find Workspace Symbol"))
-    vim.keymap.set("i", "<C-h>", lsp_buf.signature_help, keymap_opts(event, "Signature Help"))
     vim.keymap.set('n', '<Leader>ff', format_buf_async, { noremap = true })
     vim.keymap.set({ "n", "v" }, "<Leader>ff", vim.lsp.buf.format, { noremap = true, desc = "LSP Format" })
+
+    -- grn        : rename
+    -- grr        : references
+    -- gri        : goto implementation
+    -- g0         : document symbol
+    -- gra        : code action
+    -- CTRL-S     : signature help
+    -- [d and ]d  : jump b/w diagnostics
+    -- [q, ]q, [Q, ]Q, [CTRL-Q, ]CTRL-Q navigate through the quickfix list
+    -- [l, ]l, [L, ]L, [CTRL-L, ]CTRL-L navigate through the location list
+    -- [t, ]t, [T, ]T, [CTRL-T, ]CTRL-T navigate through the tag matchlist
+    -- [a, ]a, [A, ]A navigate through the argument list
+    -- [b, ]b, [B, ]B navigate through the buffer list
+    -- [<Space>, ]<Space> add an empty line above and below the cursor
   end
 })
