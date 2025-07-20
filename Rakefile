@@ -51,3 +51,15 @@ namespace :flake do
     end
   end
 end
+
+namespace :arch do
+  desc "archive packages from arch/aur/flatpak/cargo"
+  task :archive do
+    sh('./bin/archive-packages')
+  end
+
+  desc "restore packages from arch/aur/flatpak/cargo"
+  task :restore do
+    sh('./bin/restore-packages')
+  end
+end

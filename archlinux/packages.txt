@@ -51,6 +51,7 @@ intel-media-driver
 iw
 iwd
 jq
+kmon
 less
 lib32-mesa
 lib32-nvidia-utils
