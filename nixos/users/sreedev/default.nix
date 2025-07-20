@@ -114,9 +114,11 @@ in
           hugo
           hyperfine
           id3v2
+          imager
           instaloader
           ipcalc
           jira-cli-go
+          jless
           just
           k9s
           kubectl
