@@ -93,6 +93,7 @@
 
   users.users.admin = {
     isNormalUser = true;
+    linger = true;
     shell = pkgs.zsh;
     description = "system root user & administrator";
     hashedPasswordFile = config.age.secrets.nullptrderef1_admin_password.path;
