@@ -24,7 +24,7 @@
         Service = {
           Type = "simple";
           ExecStart = [
-            "${pkgs.monero-cli}/bin/monerod --non-interactive --config-file=${config.age.secrets.moneroconf.path} --data-dir=${builtins.getEnv "HOME"}/.bitmonero/ --rpc-bind-ip=0.0.0.0  --rpc-bind-port=18081 --restricted-rpc --confirm-external-bind"
+            "${pkgs.monero-cli}/bin/monerod --non-interactive --config-file=${config.age.secrets.moneroconf.path} --data-dir=${builtins.getEnv "HOME"}/.bitmonero/ --rpc-bind-ip=0.0.0.0 --rpc-bind-port=18081 --confirm-external-bind"
           ];
         };
         Install = {
