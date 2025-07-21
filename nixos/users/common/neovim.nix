@@ -11,12 +11,13 @@ let
     elixir-ls                       # elixir
     elmPackages.elm-language-server # elm
     fennel-ls                       # fennel
-    jsonnet-language-server         # json
+    jsonnet-language-server         # jsonnet
     lua-language-server             # lua
     marksman                        # markdown
     nil                             # nix
     taplo                           # toml
     tinymist                        # typst
+    vscode-langservers-extracted    # json+
     yaml-language-server            # yaml
     zls                             # zig
   ];

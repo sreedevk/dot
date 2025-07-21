@@ -50,12 +50,21 @@ setup_lsp { --python
   },
 }
 
-setup_lsp { -- json
+setup_lsp {
+  name = "jsonls",
+  enable = true,
+  custom = false,
+  cmd = { vim.fn.trim(vim.fn.system("which vscode-json-language-server")), '--stdio' },
+  filetypes = { 'json', 'jsonc' },
+  init_options = { provideFormatter = true },
+}
+
+setup_lsp { -- jsonnet
   name = "jsonnet_ls",
   enable = false,
   custom = false,
   cmd = { vim.fn.trim(vim.fn.system("which jsonnet-language-server")) },
-  filetypes = { "json" },
+  filetypes = { "jsonet" },
   settings = {
     ["jsonnet_ls"] = {
       ext_vars = { foo = 'bar' },
@@ -64,8 +73,8 @@ setup_lsp { -- json
         MaxBlankLines       = 2,
         StringStyle         = 'double',
         CommentStyle        = 'slash',
-        PrettyFieldNames    = false,
-        PadArrays           = false,
+        PrettyFieldNames    = true,
+        PadArrays           = true,
         PadObjects          = true,
         SortImports         = true,
         UseImplicitPlus     = true,
