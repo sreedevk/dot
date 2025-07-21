@@ -15,7 +15,7 @@
         }
         {
           name = "bookmarks";
-          url = "https://links.nullptr.sh";
+          url = "https://hoarder.nullptr.sh";
         }
         {
           name = "hackernews";
@@ -28,14 +28,6 @@
         {
           name = "Excalidraw";
           url = "https://excalidraw.com/";
-        }
-        {
-          name = "ProtonDrive";
-          url = "https://drive.proton.me";
-        }
-        {
-          name = "ProtonMail";
-          url = "https://mail.proton.me";
         }
       ];
     }

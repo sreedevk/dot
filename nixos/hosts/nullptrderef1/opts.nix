@@ -1,4 +1,4 @@
-rec {
+{
   autostart-non-essential-services = true;
   hostname = "nullptrderef1";
   lanAddress = "192.168.1.179";
