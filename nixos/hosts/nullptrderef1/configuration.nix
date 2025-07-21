@@ -78,8 +78,8 @@
     firewall = {
       enable = true;
       allowPing = false;
-      allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ftp https ssh tailscale_p2p tailscale_direct ]);
-      allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ftp ssh tailscale_p2p tailscale_direct ]);
+      allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ftp https ssh tailscale_p2p tailscale_direct monero-rpc ]);
+      allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ftp ssh tailscale_p2p tailscale_direct monero-rpc ]);
     };
 
   };
