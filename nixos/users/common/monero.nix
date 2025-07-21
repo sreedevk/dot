@@ -24,7 +24,7 @@
         Service = {
           Type = "simple";
           ExecStart = [
-            "${pkgs.monero-cli}/bin/monerod --config-file=${config.age.secrets.moneroconf.path} --data-dir=${builtins.getEnv "HOME"}/.bitmonero/"
+            "${pkgs.monero-cli}/bin/monerod --non-interactive --config-file=${config.age.secrets.moneroconf.path} --data-dir=${builtins.getEnv "HOME"}/.bitmonero/"
           ];
         };
       };
