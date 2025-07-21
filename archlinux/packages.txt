@@ -9,6 +9,7 @@ bash-completion
 bind
 blueman
 bluez-tools
+boost
 ccache
 clang
 cliphist
@@ -20,6 +21,7 @@ dmidecode
 docker
 docker-buildx
 docker-compose
+doxygen
 easyeffects
 efibootmgr
 eglexternalplatform
@@ -36,6 +38,7 @@ git
 git-lfs
 gnumeric
 gnuplot
+graphviz
 grim
 grub
 gst-plugin-pipewire
@@ -105,6 +108,7 @@ polybar
 postgresql-libs
 progress
 pulsemixer
+qt5-tools
 qt5-wayland
 qt6-tools
 raylib

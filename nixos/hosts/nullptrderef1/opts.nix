@@ -100,8 +100,6 @@
     miniflux-db = "3311";
     minio-api = "30000";
     minio-console = "9899";
-    monero-rpc = "18081";
-    monero-p2p = "18080";
     n8n-app = "23000";
     n8n-db = "5435";
     navidrome = "4533";

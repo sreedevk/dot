@@ -82,16 +82,12 @@
         ssh
         tailscale_p2p
         tailscale_direct
-        monero-rpc
-        monero-p2p
       ]);
       allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [
         ftp
         ssh
         tailscale_p2p
         tailscale_direct
-        monero-rpc
-        monero-p2p
       ]);
     };
 
