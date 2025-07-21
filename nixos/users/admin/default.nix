@@ -8,6 +8,7 @@
     ../common/git.nix
     ../common/htop.nix
     ../common/jujutsu.nix
+    ../common/monero.nix
     ../common/neovim.nix
     ../common/pueue.nix
     ../common/starship.nix
