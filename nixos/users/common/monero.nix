@@ -1,9 +1,9 @@
-{ pkgs, config, username, ... }:
+{ pkgs, config, opts, ... }:
 {
   home.packages = with pkgs; [ monero-cli ];
 
   systemd.user.tmpfiles.rules = [
-    "d ${builtins.getEnv "HOME"}/.bitmonero 0755 ${username} ${username}"
+    "d ${builtins.getEnv "HOME"}/.bitmonero 0755 ${opts.adminUID} ${opts.adminGID}"
   ];
 
   systemd.user = {
