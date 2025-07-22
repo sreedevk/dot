@@ -59,6 +59,20 @@ setup_lsp {
   init_options = { provideFormatter = true },
 }
 
+setup_lsp {
+  name = '',
+  enable = true,
+  custom = false,
+  cmd = { vim.fn.trim(vim.fn.system("which vscode-css-language-server")), '--stdio' },
+  filetypes = { 'css', 'scss', 'less' },
+  init_options = { provideFormatter = true },
+  settings = {
+    css = { validate = true },
+    scss = { validate = true },
+    less = { validate = true },
+  },
+}
+
 setup_lsp { -- jsonnet
   name = "jsonnet_ls",
   enable = false,
