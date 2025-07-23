@@ -306,7 +306,7 @@ setup_lsp { -- tailwind
 
 setup_lsp {
   name = 'vscode-eslint-language-server',
-  enable = true,
+  enable = false,
   cmd = { vim.fn.trim(vim.fn.system("which vscode-eslint-language-server")), '--stdio' },
   filetypes = {
     'javascript',
