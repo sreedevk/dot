@@ -304,6 +304,67 @@ setup_lsp { -- tailwind
   root_markers = { 'package.json', 'yarn.lock', 'bun.lock', 'package.lock' }
 }
 
+setup_lsp {
+  name = 'vscode-eslint-language-server',
+  enable = true,
+  cmd = { vim.fn.trim(vim.fn.system("which vscode-eslint-language-server")), '--stdio' },
+  filetypes = {
+    'javascript',
+    'javascriptreact',
+    'javascript.jsx',
+    'typescript',
+    'typescriptreact',
+    'typescript.tsx',
+    'vue',
+    'svelte',
+    'astro',
+  },
+  settings = {
+    validate = 'on',
+    packageManager = nil,
+    useESLintClass = false,
+    experimental = {
+      useFlatConfig = false,
+    },
+    codeActionOnSave = {
+      enable = false,
+      mode = 'all',
+    },
+    format = true,
+    quiet = false,
+    onIgnoredFiles = 'off',
+    rulesCustomizations = {},
+    run = 'onType',
+    problems = {
+      shortenToSingleLine = false,
+    },
+    nodePath = '',
+    workingDirectory = { mode = 'location' },
+    codeAction = {
+      disableRuleComment = {
+        enable = true,
+        location = 'separateLine',
+      },
+      showDocumentation = {
+        enable = true,
+      },
+    },
+  },
+}
+
+setup_lsp {
+  name = 'vscode-html-language-server',
+  enable = true,
+  custom = false,
+  filetypes = { 'html', 'templ' },
+  cmd = { vim.fn.trim(vim.fn.system("which vscode-html-language-server")), '--stdio' },
+  init_options = {
+    provideFormatter = true,
+    embeddedLanguages = { css = true, javascript = true },
+    configurationSection = { 'html', 'css', 'javascript' },
+  },
+}
+
 setup_lsp { -- toml
   name = 'taplo',
   enable = true,
