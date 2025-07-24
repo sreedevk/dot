@@ -87,7 +87,6 @@ noto-fonts-emoji
 nvidia-dkms
 nvidia-settings
 nvtop
-obs-studio
 openblas
 opencl-nvidia
 opendoas

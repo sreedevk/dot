@@ -7,6 +7,7 @@
     ../common/asdf.nix
     ../common/awscli.nix
     ../common/base.nix
+    ../common/brave.nix
     ../common/btop.nix
     ../common/core-packages.nix
     ../common/droidcam.nix
@@ -28,6 +29,7 @@
     ../common/neovim.nix
     ../common/newsboat.nix
     ../common/nsxiv.nix
+    ../common/obs.nix
     ../common/ocaml.nix
     ../common/ollama.nix
     ../common/opentabletdriver.nix
