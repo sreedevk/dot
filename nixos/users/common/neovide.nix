@@ -1,8 +1,4 @@
-{ pkgs, lib, config, ... }:
-let
-  nixglmod = import ./nixGL.nix { inherit lib config pkgs; };
-  nvidiaNeovide = nixglmod.nixGLWrapped pkgs.neovide "neovide";
-in
+{ pkgs, config, ... }:
 {
 
   home.file = {
@@ -26,6 +22,6 @@ in
   };
 
   home.packages = [
-    nvidiaNeovide
+    (config.lib.nixGL.wrap pkgs.neovide)
   ];
 }

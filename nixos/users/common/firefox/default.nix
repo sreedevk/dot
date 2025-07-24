@@ -1,8 +1,6 @@
-{ pkgs, lib, config, firefox-addons, system, ... }:
+{ pkgs, config, firefox-addons, system, ... }:
 let
-  nixglmod = import ../nixGL.nix { inherit lib config pkgs; };
   extensions = import ./extensions.nix { inherit firefox-addons system; };
-
   settings = import ./settings.nix;
   searchEngines = import ./search-engines.nix;
   bookmarks = import ./bookmarks.nix;
@@ -11,7 +9,7 @@ in
 {
   programs.firefox = {
     enable = true;
-    package = nixglmod.nixGLWrapped pkgs.firefox-bin "firefox";
+    package = config.lib.nixGL.wrap pkgs.firefox-bin;
     profiles = {
 
       main = {

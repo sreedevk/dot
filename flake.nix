@@ -7,6 +7,11 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.05-small&shallow=1";
     agenix.url = "github:ryantm/agenix";
 
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,7 +71,12 @@
             else [ ];
         in
         home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgs.legacyPackages."${system}";
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              inputs.nixgl.overlay
+            ];
+          };
           modules = [ ./nixos/users/${username} agenix.homeManagerModules.age ] ++ agenix_pkg ++ stylix_mod;
           extraSpecialArgs = {
             inherit firefox-addons system username host inputs;

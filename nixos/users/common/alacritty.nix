@@ -1,11 +1,8 @@
-{ pkgs, lib, config, ... }:
-let
-  nixglmod = import ./nixGL.nix { inherit lib config pkgs; };
-in
+{ pkgs, config, ... }:
 {
   programs.alacritty = {
     enable = true;
-    package = nixglmod.nixGLWrapped pkgs.alacritty "alacritty";
+    package = config.lib.nixGL.wrap pkgs.alacritty;
     settings = {
       general = {
         working_directory = "None";

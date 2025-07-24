@@ -1,7 +1,4 @@
 { pkgs, lib, config, nixpkgs-stable, ... }:
-let
-  nixglmod = import ../common/nixGL.nix { inherit lib config pkgs; };
-in
 {
   imports = [
     ../../../secrets/mappings.nix
@@ -54,8 +51,9 @@ in
   home.packages =
     let
       nixgl-packages = [
-        (nixglmod.nixGLWrapped pkgs.chromium "chromium")
-        (nixglmod.nixGLWrapped pkgs.slack "slack")
+        pkgs.nixgl.auto.nixGLNvidia
+        (config.lib.nixGL.wrap pkgs.chromium)
+        (config.lib.nixGL.wrap pkgs.slack)
       ];
 
       stable-packages = {

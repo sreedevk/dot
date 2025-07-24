@@ -1,13 +1,10 @@
-{ pkgs, lib, config, ... }:
-let
-  nixglmod = import ./nixGL.nix { inherit lib config pkgs; };
-in
+{ pkgs, config, ... }:
 {
   services.ollama = {
     enable = true;
     port = 11434;
     host = "127.0.0.1";
     acceleration = "cuda";
-    package = nixglmod.nixGLWrapped pkgs.ollama "ollama";
+    package = config.lib.nixGL.wrap pkgs.ollama;
   };
 }

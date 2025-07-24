@@ -1,12 +1,11 @@
 { pkgs, lib, config, ... }:
 let
-  nixglmod = import ../nixGL.nix { inherit lib config pkgs; };
   themes = import ../themes.nix;
 in
 {
   programs.kitty = {
     enable = true;
-    package = nixglmod.nixGLWrapped pkgs.kitty "kitty";
+    package = config.lib.nixGL.wrap pkgs.kitty;
     settings = themes.zitchdog-pine // (import ./settings.nix { inherit config lib; });
     keybindings = (import ./keybindings.nix);
   };
