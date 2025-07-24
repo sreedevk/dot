@@ -7,6 +7,7 @@ let
   ];
 
   language_servers = with pkgs; [
+    astro-language-server           # astro
     clojure-lsp                     # clojure
     elixir-ls                       # elixir
     elmPackages.elm-language-server # elm

@@ -51,6 +51,18 @@ setup_lsp { --python
 }
 
 setup_lsp {
+  name = "astro",
+  enable = true,
+  custom = false,
+  cmd = { vim.fn.trim(vim.fn.system("which astro-ls")), '--stdio' },
+  filetypes = { 'astro' },
+  root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
+  init_options = {
+    typescript = {}
+  }
+}
+
+setup_lsp {
   name = "jsonls",
   enable = true,
   custom = false,
