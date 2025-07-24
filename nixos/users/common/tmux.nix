@@ -84,6 +84,9 @@ in
       bind -r \\ switch-client -l
       bind -r b  switch-client -n
       bind -r B  switch-client -p
+      bind | if-shell "tmux has-session -t system 2>/dev/null" \
+                      "switch-client -t system" \
+                      "new-session -d -s system; switch-client -t system"
 
       # COPY MODE
       bind -T copy-mode-vi v send-keys -X begin-selection
