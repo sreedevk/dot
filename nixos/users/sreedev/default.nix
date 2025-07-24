@@ -89,7 +89,6 @@
           wofi
         ];
         cli-packages = with pkgs; [
-          nerd-fonts.iosevka
           aria2
           asciinema
           asciinema-agg
@@ -136,6 +135,7 @@
           nasm
           ncpamixer
           nerd-fonts.iosevka
+          nerd-fonts.iosevka
           nerd-fonts.iosevka-term
           nixpkgs-fmt
           nmap
@@ -150,6 +150,7 @@
           sc-im
           scdl
           silicon
+          statix
           tea
           terminaltexteffects
           ticker
