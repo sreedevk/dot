@@ -1,4 +1,4 @@
-{ pkgs, lib, config, nixpkgs-stable, ... }:
+{ pkgs, config, nixpkgs-stable, ... }:
 {
   imports = [
     ../../../secrets/mappings.nix
@@ -51,7 +51,8 @@
   home.packages =
     let
       nixgl-packages = [
-        pkgs.nixgl.auto.nixGLNvidia
+        # (pkgs.nixgl.auto.nixGLNvidia)
+        (pkgs.nixgl.nixGLIntel)
         (config.lib.nixGL.wrap pkgs.chromium)
         (config.lib.nixGL.wrap pkgs.slack)
       ];
