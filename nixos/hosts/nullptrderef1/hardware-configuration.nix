@@ -74,7 +74,7 @@
       mkzfsmount = mountpoint: {
         name = mountpoint.path;
         value = {
-          device = mountpoint.device;
+          inherit (mountpoint) device;
           fsType = "zfs";
           options = [ "noatime" ];
         };

@@ -31,7 +31,7 @@
 
   outputs = { self, agenix, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
     let
-      opts = (import ./nixos/opts.nix);
+      opts = import ./nixos/opts.nix;
       systems = {
         x86 = "x86_64-linux";
         arm64 = "aarch64-linux";
@@ -51,7 +51,7 @@
             [{ environment.systemPackages = [ agenix.packages.${system}.default ]; }];
         in
         pkgs.lib.nixosSystem {
-          system = system;
+          inherit system;
           modules = [ agenix.nixosModules.default ./nixos/hosts/${hostname}/configuration.nix ] ++ agenix_pkg;
           specialArgs = {
             inherit system;
@@ -66,7 +66,7 @@
           coalesced_opts = opts // (import ./nixos/hosts/${host}/opts.nix) // (import ./nixos/users/${username}/opts.nix);
           agenix_pkg = [{ home.packages = [ agenix.packages.${system}.default ]; }];
           stylix_mod =
-            if coalesced_opts.desktop.enable == true
+            if coalesced_opts.desktop.enable
             then [ stylix.homeModules.stylix ]
             else [ ];
         in

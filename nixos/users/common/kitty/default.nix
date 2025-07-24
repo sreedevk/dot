@@ -7,7 +7,7 @@ in
     enable = true;
     package = config.lib.nixGL.wrap pkgs.kitty;
     settings = themes.zitchdog-pine // (import ./settings.nix { inherit config lib; });
-    keybindings = (import ./keybindings.nix);
+    keybindings = import ./keybindings.nix;
   };
 
   xdg.desktopEntries = {

@@ -9,10 +9,10 @@ in
       enable = true;
       text =
         let
-          xwayland = (utils.genNested "xwayland" hyprconf.xwayland);
-          dwindle = (utils.genNested "dwindle" hyprconf.dwindle);
-          master = (utils.genNested "master" hyprconf.master);
-          misc = (utils.genNested "misc" hyprconf.misc);
+          xwayland = utils.genNested "xwayland" hyprconf.xwayland;
+          dwindle = utils.genNested "dwindle" hyprconf.dwindle;
+          master = utils.genNested "master" hyprconf.master;
+          misc = utils.genNested "misc" hyprconf.misc;
           parsedconfs = xwayland ++ dwindle ++ master ++ misc;
         in
         builtins.concatStringsSep "\n" (utils.flattenList parsedconfs);

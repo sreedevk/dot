@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  home.packages = (with pkgs; [
+  home.packages = with pkgs; [
     ast-grep
     bat
     bingrep
@@ -62,5 +62,5 @@
     yazi
     yq
     zoxide
-  ]);
+  ];
 }

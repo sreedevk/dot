@@ -27,7 +27,7 @@ in
   services.k3s = {
     enable = false;
     role = "server";
-    clusterInit = (opts.hostname == "nullptrderef1");
+    clusterInit = opts.hostname == "nullptrderef1";
     extraFlags =
       let
         flags = [

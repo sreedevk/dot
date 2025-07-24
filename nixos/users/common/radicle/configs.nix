@@ -15,7 +15,7 @@ let
       hints = true;
     };
     node = {
-      alias = alias;
+      inherit alias;
       listen = [ ];
       peers = {
         type = "dynamic";

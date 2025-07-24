@@ -52,7 +52,7 @@
   ];
 
   nixGL = {
-    packages = inputs.nixgl.packages;
+    inherit (inputs.nixgl) packages;
     defaultWrapper = "mesa";
     offloadWrapper = "nvidia";
     vulkan.enable = true;

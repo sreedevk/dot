@@ -78,7 +78,7 @@ in
         repositoryformatversion = 0;
       };
       commit = {
-        gpgsign = gpgsign;
+        inherit gpgsign;
       };
       init = {
         defaultBranch = "main";

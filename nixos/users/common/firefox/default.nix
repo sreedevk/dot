@@ -16,7 +16,7 @@ in
         isDefault = true;
         id = 0;
         containersForce = false;
-        containers = containers;
+        inherit containers;
         extensions = {
           packages = extensions;
         };
@@ -26,8 +26,8 @@ in
           privateDefault = "ddg";
           engines = searchEngines;
         };
-        settings = settings;
-        bookmarks = bookmarks;
+        inherit settings;
+        inherit bookmarks;
       };
 
     };

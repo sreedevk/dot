@@ -18,7 +18,7 @@ rec {
     chmod = "0700";
     auth = {
       enabled = false;
-      username = opts.username;
+      inherit (opts) username;
       password = "changeme";
     };
   };
@@ -28,7 +28,7 @@ rec {
     port = opts.ports.supervisord;
     auth = {
       enabled = false;
-      username = opts.username;
+      inherit (opts) username;
       password = "changeme";
     };
   };
