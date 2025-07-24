@@ -53,6 +53,7 @@
       git_branch = {
         format = "[» $branch]($style) ";
         style = "bold italic green";
+        symbol = "";
       };
       hostname = {
         format = "[$hostname]($style) ";
