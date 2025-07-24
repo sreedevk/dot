@@ -14,21 +14,6 @@ let
         sha256 = "sha256-cPZCV8xk9QpU49/7H8iGhQYK6JwWjviL29eWabuqruc=";
       };
     };
-
-  tmux-cmd-runner = pkgs.writeShellScriptBin "tmux-cmdrunner" ''
-    #!/bin/bash
-    # Read command from user in a floating tmux window
-    read -p " Run: " cmd
-
-    # Exit if input is empty or cancelled
-    [[ -z "$cmd" ]] && exit 0
-
-    # Execute the command in background and detach
-    tmux new-session -d -s "_temp_float" "$cmd" 2>/dev/null
-
-    # Kill the temporary session after 1 second (ensures cleanup)
-    { sleep 1; tmux kill-session -t "_temp_float" 2>/dev/null; } &
-  '';
 in
 {
   programs.tmux = {
@@ -118,12 +103,12 @@ in
       # SOURCING CONFIG
       bind r source-file ~/.config/tmux/tmux.conf \; display '~/.config/tmux/tmux.conf sourced'
 
+      # CREATE SESSION
+      bind u new-session
+
       # SESSION MERGE
       bind C-u command-prompt -p "Session to merge with: " \
          "run-shell 'yes | head -n #{session_windows} | xargs -I {} -n 1 tmux movew -t %%'"
-
-      # CMD RUNNER
-      bind @ display-popup -w 80% -h 30% -E -d '#{pane_current_path}' "${tmux-cmd-runner}/bin/tmux-cmdrunner"
 
       # IRISH EXIT
       bind X kill-session
