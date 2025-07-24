@@ -64,37 +64,32 @@
 
   home.packages =
     let
-      nixgl-packages = [
-        (pkgs.nixgl.auto.nixGLNvidia)
-        (config.lib.nixGL.wrap pkgs.chromium)
-        (config.lib.nixGL.wrap pkgs.slack)
-      ];
-
       stable-packages = {
         cli-packages = with nixpkgs-stable; [
           (nerdfonts.override { fonts = [ "Iosevka" ]; })
         ];
         gui-packages = with nixpkgs-stable; [
-          lmms
-          openttd
-          pwvucontrol
           sonic-pi
         ];
       };
 
       unstable-packages = {
         gui-packages = with pkgs; [
+          (config.lib.nixGL.wrap pkgs.chromium)
+          (config.lib.nixGL.wrap pkgs.slack)
           dbeaver-bin
           eww
-          filezilla
-          librecad
           libreoffice-fresh
+          lmms
           nemo-with-extensions
+          openttd
+          pwvucontrol
           qflipper
           sqlitebrowser
           wofi
         ];
         cli-packages = with pkgs; [
+          nerd-fonts.iosevka
           aria2
           asciinema
           asciinema-agg
@@ -174,7 +169,6 @@
       stable-packages.cli-packages
       unstable-packages.gui-packages
       unstable-packages.cli-packages
-      nixgl-packages
     ];
 
   home.file = {
