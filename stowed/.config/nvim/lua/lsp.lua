@@ -299,7 +299,20 @@ setup_lsp { -- tailwind
   name = 'tailwindcss',
   enable = true,
   custom = false,
-  filetypes = { 'html', 'jsx', 'htmx', 'css', 'scss', 'js', 'ts' },
+  filetypes = {
+    'html',
+    'css',
+    'scss',
+    'javascript',
+    'javascriptreact',
+    'javascript.jsx',
+    'typescript',
+    'typescriptreact',
+    'typescript.tsx',
+    'vue',
+    'svelte',
+    'astro',
+  },
   cmd = { vim.fn.trim(vim.fn.system("which bun")), "x", "@tailwindcss/language-server", "--stdio" },
   root_markers = { 'package.json', 'yarn.lock', 'bun.lock', 'package.lock' }
 }
