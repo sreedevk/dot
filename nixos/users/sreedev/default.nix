@@ -1,4 +1,4 @@
-{ pkgs, config, nixpkgs-stable, ... }:
+{ pkgs, config, nixpkgs-stable, inputs, ... }:
 {
   imports = [
     ../../../secrets/mappings.nix
@@ -49,11 +49,21 @@
     ./restic.nix
   ];
 
+  nixGL = {
+    packages = inputs.nixgl.packages;
+    defaultWrapper = "mesa";
+    offloadWrapper = "nvidia";
+    vulkan.enable = true;
+    installScripts = [
+      "mesa"
+      "nvidia"
+    ];
+  };
+
   home.packages =
     let
       nixgl-packages = [
-        # (pkgs.nixgl.auto.nixGLNvidia)
-        (pkgs.nixgl.nixGLIntel)
+        (pkgs.nixgl.auto.nixGLNvidia)
         (config.lib.nixGL.wrap pkgs.chromium)
         (config.lib.nixGL.wrap pkgs.slack)
       ];

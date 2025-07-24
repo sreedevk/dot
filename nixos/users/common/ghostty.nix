@@ -4,10 +4,11 @@
     ".config/ghostty/config" = {
       enable = true;
       text = ''
+        theme = Floraverse
         config-file = keybindings
         shell-integration = detect
         font-family = "Iosevka NF"
-        font-size = 14px
+        font-size = 14
         background-opacity = 0.9
         mouse-hide-while-typing = true
         window-decoration = false

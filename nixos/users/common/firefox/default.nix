@@ -9,7 +9,7 @@ in
 {
   programs.firefox = {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.firefox-bin;
+    package = config.lib.nixGL.wrapOffload pkgs.firefox-bin;
     profiles = {
 
       main = {
