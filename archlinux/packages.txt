@@ -33,6 +33,7 @@ fprintd
 fuse2
 gamescope
 gdb
+ghostty
 gimp
 git
 git-lfs
