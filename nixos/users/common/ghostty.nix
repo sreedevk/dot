@@ -4,7 +4,7 @@
     ".config/ghostty/config" = {
       enable = true;
       text = ''
-        theme = Floraverse
+        theme = Nocturnal Winter
         config-file = keybindings
         shell-integration = detect
         font-family = "Iosevka NF"

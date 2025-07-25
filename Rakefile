@@ -1,4 +1,22 @@
 namespace :nix do
+  namespace :flake do
+    desc "update nix flake.lock"
+    task :update do 
+      sh('nix flake update')
+    end
+
+    desc "check nix flakes & configurations for current system"
+    task :check do
+      sh('nix flake check')
+    end
+
+    namespace :all do
+      desc "check nix flakes & configurations for all systems"
+      task :check do
+        sh('nix flake check --all-systems')
+      end
+    end
+  end
   namespace :os do
     namespace :offline do
       desc "rebuild & install nixos configuration offline"
@@ -29,25 +47,6 @@ namespace :nix do
       task :install do
         sh("home-manager switch --impure --option substitute false --flake '.' -j 8")
       end
-    end
-  end
-end
-
-namespace :flake do
-  desc "update nix flake.lock"
-  task :update do 
-    sh('nix flake update')
-  end
-  
-  desc "check nix flakes & configurations for current system"
-  task :check do
-    sh('nix flake check')
-  end
-
-  namespace :all do
-    desc "check nix flakes & configurations for all systems"
-    task :check do
-      sh('nix flake check --all-systems')
     end
   end
 end
