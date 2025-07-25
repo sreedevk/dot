@@ -86,6 +86,7 @@
           pwvucontrol
           qflipper
           sqlitebrowser
+          tor-browser
           wofi
         ];
         cli-packages = with pkgs; [
