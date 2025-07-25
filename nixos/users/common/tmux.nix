@@ -1,4 +1,4 @@
-{ pkgs, opts, ... }:
+{ pkgs, opts, username, ... }:
 let
   tmux-time-display = pkgs.writeShellScriptBin "ttd" ''
     TZ=${opts.timeZone} date "+%a %B %d %l:%M:%S %p"
@@ -86,7 +86,7 @@ in
       bind -r B  switch-client -p
       bind | if-shell "tmux has-session -t system 2>/dev/null" \
                       "switch-client -t system" \
-                      "new-session -d -s system; switch-client -t system"
+                      "new-session -d -s system -c '/home/${username}'; switch-client -t system"
 
       # COPY MODE
       bind -T copy-mode-vi v send-keys -X begin-selection
