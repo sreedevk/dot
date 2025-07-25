@@ -50,7 +50,7 @@ setup_lsp { --python
   },
 }
 
-setup_lsp {
+setup_lsp { -- astro
   name = "astro",
   enable = true,
   custom = false,
@@ -58,8 +58,10 @@ setup_lsp {
   filetypes = { 'astro' },
   root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
   init_options = {
-    typescript = {}
-  }
+    typescript = {
+      tsdk = "./node_modules/typescript/lib",
+    },
+  },
 }
 
 setup_lsp {
@@ -72,7 +74,7 @@ setup_lsp {
 }
 
 setup_lsp {
-  name = '',
+  name = 'vscode-css-language-server',
   enable = true,
   custom = false,
   cmd = { vim.fn.trim(vim.fn.system("which vscode-css-language-server")), '--stdio' },
@@ -379,7 +381,7 @@ setup_lsp {
 
 setup_lsp {
   name = 'vscode-html-language-server',
-  enable = true,
+  enable = false,
   custom = false,
   filetypes = { 'html', 'templ' },
   cmd = { vim.fn.trim(vim.fn.system("which vscode-html-language-server")), '--stdio' },
