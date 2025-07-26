@@ -92,6 +92,20 @@
     definedAliases = [ "@gh" ];
   };
 
+  "hex.pm" = {
+    urls = [{
+      template = "https://hex.pm/packages?search={searchTerms}&sort=recent_downloads";
+    }];
+    definedAliases = [ "@hex" ];
+  };
+
+  "crates.io" = {
+    urls = [{
+      template = "https://crates.io/search?q={searchTerms}";
+    }];
+    definedAliases = [ "@rs" ];
+  };
+
   "Flatpak" = {
     urls = [{ template = "https://flathub.org/apps/search?q={searchTerms}"; }];
     definedAliases = [ "@fp" ];
