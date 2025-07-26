@@ -145,7 +145,6 @@
           pandoc
           pulsemixer
           qrencode
-          rebar3
           rustup
           s3cmd
           sc-im
