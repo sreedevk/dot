@@ -38,7 +38,7 @@ alias n="nvim"
 
 # Tmuxinator - Tmux Session Manager
 alias mux='tmuxinator'
-alias t="tmux"
+alias t="tmux new -A -s system"
 alias ta="tmux a"
 alias ts="tmux-sessionizer"
 alias zl="zellij"
