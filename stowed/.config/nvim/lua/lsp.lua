@@ -232,6 +232,15 @@ setup_lsp { -- elixir
   root_markers = { 'mix.exs', '.git' }
 }
 
+setup_lsp { -- erl
+  name = 'erlangls',
+  enable = true,
+  custom = false,
+  filetypes = { 'erlang' },
+  cmd = { vim.fn.trim(vim.fn.system("which erlang_ls")) },
+  root_markers = { '.git', 'rebar.config', 'erlang.mk' }
+}
+
 setup_lsp { -- fennel
   name = 'fennel_language_server',
   enable = true,
