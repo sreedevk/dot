@@ -4,16 +4,17 @@
     ".config/ghostty/config" = {
       enable = true;
       text = ''
-        theme = Nocturnal Winter
+        background-blur = 30
+        background-opacity = 0.9
         config-file = keybindings
-        shell-integration = detect
         font-family = "Iosevka NF"
         font-size = 14
-        background-opacity = 0.9
-        mouse-hide-while-typing = true
-        window-decoration = false
         gtk-single-instance = true
         initial-command = "tmux new -A -s system"
+        mouse-hide-while-typing = true
+        shell-integration = detect
+        theme = Nocturnal Winter
+        window-decoration = false
       '';
     };
     ".config/ghostty/keybindings" = {
