@@ -19,11 +19,14 @@
       };
       environmentFiles = [ config.age.secrets.miniflux_env.path ];
       environment = {
-        TZ = opts.timeZone;
-        CREATE_ADMIN = "1";
-        RUN_MIGRATIONS = "1";
-        BATCH_SIZE = "250";
         BASE_URL = "https://miniflux.nullptr.sh";
+        BATCH_SIZE = "250";
+        CREATE_ADMIN = "1";
+        FORCE_REFRESH_INTERVAL = "1440";
+        POLLING_FREQUENCY = "720";
+        POLLING_SCHEDULER = "entry_frequency"; # :: round_robin | entry_frequency
+        RUN_MIGRATIONS = "1";
+        TZ = opts.timeZone;
         WORKER_POOL_SIZE = "20";
       };
     };
