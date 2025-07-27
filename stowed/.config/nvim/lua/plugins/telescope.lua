@@ -7,6 +7,7 @@ return {
     'jvgrootveld/telescope-zoxide',
     'nvim-treesitter/nvim-treesitter',
     'crispgm/telescope-heading.nvim',
+    'j-hui/fidget.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
   cmd = "Telescope",
@@ -161,8 +162,11 @@ return {
       },
     })
 
-    pcall(require('telescope').load_extension, 'fzf')
-    pcall(require("telescope").load_extension, 'zoxide')
-    pcall(require("telescope").load_extension, 'heading')
+    local telscp = require('telescope')
+
+    pcall(telscp.load_extension, 'fidget')
+    pcall(telscp.load_extension, 'fzf')
+    pcall(telscp.load_extension, 'zoxide')
+    pcall(telscp.load_extension, 'heading')
   end
 }

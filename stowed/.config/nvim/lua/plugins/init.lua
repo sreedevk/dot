@@ -272,12 +272,4 @@ return {
       vim.g.better_escape_interval = 400
     end
   },
-
-  {
-    "j-hui/fidget.nvim",
-    lazy = true,
-    tag = 'legacy',
-    event = "BufReadPost",
-    opts = { window = { blend = 0 } },
-  },
 }
