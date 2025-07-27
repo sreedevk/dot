@@ -483,7 +483,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     vim.diagnostic.config {
       virtual_lines = { current_line = true },
-      virtual_text = { current_line = true }
+      virtual_text = false
     }
 
     local format_buf_async = function()
