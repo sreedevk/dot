@@ -482,8 +482,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.bo[event.buf].omnifunc = nil
 
     vim.diagnostic.config {
-      virtual_lines = { current_line = true },
-      virtual_text = false
+      virtual_lines = false, -- { current_line = true },
+      virtual_text = false,  -- { current_line = true },
     }
 
     local format_buf_async = function()
