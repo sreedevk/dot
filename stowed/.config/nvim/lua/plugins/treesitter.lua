@@ -131,10 +131,10 @@ return {
               return lang == 'csv' and vim.api.nvim_buf_line_count(bufnr) > 10000
             end,
             swap_next = {
-              ["<C-.>"] = "@parameter.inner",
+              ["<M-0>"] = "@parameter.inner",
             },
             swap_previous = {
-              ["<C-,>"] = "@parameter.inner",
+              ["<M-9>"] = "@parameter.inner",
             },
           },
           lsp_interop = {
