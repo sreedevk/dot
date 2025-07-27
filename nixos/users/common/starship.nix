@@ -39,7 +39,7 @@
       directory = {
         truncation_length = 2;
         truncate_to_repo = true;
-        read_only = "⨶ ";
+        read_only = " [RO]";
         read_only_style = "bold dimmed red";
         truncation_symbol = "";
       };
