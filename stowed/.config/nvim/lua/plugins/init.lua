@@ -1,12 +1,10 @@
 return {
   "tpope/vim-vinegar",
-  'chrisbra/unicode.vim',
   'tpope/vim-characterize',
   'tpope/vim-ragtag',
   'tpope/vim-repeat',
   'tpope/vim-surround',
   'tpope/vim-apathy',
-
   { "chrisgrieser/nvim-early-retirement", lazy = true,  config = true,  event = "VeryLazy" },
   { 'petertriho/nvim-scrollbar',          lazy = true,  config = true,  event = "BufReadPost" },
   { 'ledger/vim-ledger',                  lazy = true,  config = false, ft = { 'ledger', 'journal' } },
@@ -49,6 +47,7 @@ return {
 
   {
     'junegunn/fzf',
+    lazy = true,
     build = function()
       vim.fn['fzf#install']()
     end
@@ -143,13 +142,6 @@ return {
     build = ":DirtytalkUpdate",
     config = function()
       vim.opt.spelllang = { "en", "programming" }
-    end,
-  },
-
-  {
-    'lervag/vimtex',
-    init = function()
-      vim.g.vimtex_view_method = "zathura"
     end,
   },
 

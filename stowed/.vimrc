@@ -13,7 +13,6 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'ledger/vim-ledger'
-Plug 'lervag/vimtex'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
 Plug 'nanotee/zoxide.vim'
@@ -104,9 +103,6 @@ let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint --type-check']
 let g:syntastic_typescript_tslint_args = "--config ~/.config/nvim/add_conf/tslint.json"
 let g:EasyMotion_smartcase = 1
 let g:airline#extensions#tabline#enabled = 1
-
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_compiler_method = 'latexmk'
 
 map <Leader> <Plug>(easymotion-prefix)
 
