@@ -3,6 +3,7 @@ return {
   lazy = true,
   tag = 'v1.0.0',
   event = "BufReadPost",
+  cmd = { "Fidget" },
   opts = {
     progress = {
       display = {
