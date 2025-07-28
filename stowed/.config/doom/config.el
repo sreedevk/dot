@@ -7,9 +7,9 @@
       user-mail-address (rot13 "ferrqricnqznxhzne@tznvy.pbz"))
 
 (setq doom-theme 'ef-winter
-      doom-font (font-spec :family "Iosevka NF" :size 28)
-      doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 24)
-      doom-big-font (font-spec :family "Iosevka NF" :size 42))
+      doom-font (font-spec :family "Iosevka Nerd Font" :size 28)
+      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 24)
+      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 42))
 
 
 (after! doom-themes

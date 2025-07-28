@@ -27,7 +27,7 @@ in
           dmenu = "${pkgs.wofi}/bin/wofi --dmenu -p dunst: ";
           enable_recursive_icon_lookup = true;
           follow = "mouse";
-          font = lib.mkForce "Iosevka NF 16";
+          font = lib.mkForce "Iosevka Nerd Font 16";
           force_xinerama = false;
           force_xwayland = false;
           format = "<b>%a</b>\\n%s\\n%b\\n%p";

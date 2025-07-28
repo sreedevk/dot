@@ -13,7 +13,7 @@
   cursor_trail_start_threshold = 100;
   disable_ligatures = "cursor";
   enable_audio_bell = false;
-  font_family = "Iosevka NF";
+  font_family = "Iosevka Nerd Font";
   font_size = 14.0;
   input_delay = 3;
   pointer_shape_when_dragging = "hand";

@@ -7,7 +7,7 @@
         background-blur = 30
         background-opacity = 0.9
         config-file = keybindings
-        font-family = "Iosevka NF"
+        font-family = "IosevkaTerm Nerd Font"
         font-size = 14
         gtk-single-instance = true
         initial-command = "tmux new -A -s system"

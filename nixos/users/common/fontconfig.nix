@@ -2,9 +2,9 @@
   fonts.fontconfig = {
     enable = lib.mkForce true;
     defaultFonts = {
-      monospace = [ "Iosevka NF" ];
-      serif = [ "Iosevka NF" ];
-      sansSerif = [ "Iosevka NF" ];
+      monospace = [ "Iosevka Nerd Font" ];
+      serif = [ "Iosevka Nerd Font" ];
+      sansSerif = [ "Iosevka Nerd Font" ];
     };
   };
 }

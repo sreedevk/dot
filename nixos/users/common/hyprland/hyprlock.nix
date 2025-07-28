@@ -36,8 +36,8 @@ in
         $entry_background_color = rgba(33333311)
         $entry_border_color = rgba(3B3B3B55)
         $entry_color = rgba(FFFFFFFF)
-        $font_family = Iosevka NF
-        $font_family_clock = Iosevka NF
+        $font_family = Iosevka Nerd Font
+        $font_family_clock = Iosevka Nerd Font
         $font_material_symbols = Font Awesome 6 Free
 
         general {

@@ -2,7 +2,7 @@
   border: none;
   border-radius: 0;
   min-height: 0;
-  font-family: Iosevka NF;
+  font-family: IosevkaTerm Nerd Font;
   font-size: 18px;
 }
 
@@ -102,7 +102,7 @@ window#waybar.hidden {
 }
 
 #clock {
-  font-family: Iosevka NF;
+  font-family: IosevkaTerm Nerd Font;
   background-color: transparent;
   font-weight: bolder;
   color: #cad3f5;

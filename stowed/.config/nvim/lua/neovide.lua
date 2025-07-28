@@ -6,7 +6,7 @@ if vim.g.neovide then
   vim.g.neovide_window_blurred          = true
   vim.g.neovide_profiler                = false
   vim.g.neovide_cursor_antialiasing     = true
-  vim.o.guifont                         = "Iosevka NF:h14"
+  vim.o.guifont                         = "Iosevka Nerd Font:h14"
   vim.g.neovide_fullscreen              = false
   vim.g.neovide_padding_top             = 0
   vim.g.neovide_padding_bottom          = 0

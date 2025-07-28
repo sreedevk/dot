@@ -70,7 +70,7 @@ in
         default_border                pixel 1
         hide_edge_borders             smart
         default_floating_border       pixel 0
-        font                          pango:Iosevka NF 11
+        font                          pango:Iosevka Nerd Font 11
         floating_modifier             $mod
         focus_follows_mouse           yes
         workspace_auto_back_and_forth no
