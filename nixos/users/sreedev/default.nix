@@ -65,9 +65,7 @@
   home.packages =
     let
       stable-packages = {
-        cli-packages = with nixpkgs-stable; [
-          (nerdfonts.override { fonts = [ "Iosevka" ]; })
-        ];
+        cli-packages = with nixpkgs-stable; [ ];
         gui-packages = with nixpkgs-stable; [
           sonic-pi
         ];
