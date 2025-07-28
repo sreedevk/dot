@@ -6,12 +6,12 @@ fjira-bin 1.4.4-1
 hyprcursor-git 0.1.12.r3.g45fcc10-1
 hyprgraphics-git 0.1.5.r0.g340494a-1
 hypridle-git 0.1.6.r11.gdda793b-1
-hyprland-git 0.50.0.r32.g31cc7f3-1
+hyprland-git 0.50.0.r35.ge1fff05-1
 hyprland-protocols-git 0.6.4.r1.g613878c-1
 hyprland-qt-support-git 0.1.0.r9.g4c8053c-1
 hyprland-qtutils-git 0.1.4.r2.gb13c748-1
-hyprlang-git 0.6.3.r3.gcee0145-1
-hyprlock-git 0.9.0.r3.gd993bdc-1
+hyprlang-git 0.6.4.r0.g12cb0e1-1
+hyprlock-git 0.9.0.r4.g1e5e62d-1
 hyprpicker-git 0.4.5.r8.gd6a1363-1
 hyprpolkitagent-git 0.1.2.r5.g5f8de19-1
 hyprutils-git 0.8.1.r6.g8dd20c7-1

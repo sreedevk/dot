@@ -45,6 +45,7 @@ grub
 gst-plugin-pipewire
 gstreamer
 gtk-vnc
+guvcview
 helix
 i3-wm
 incus
@@ -73,7 +74,9 @@ linux-headers
 linux-lts
 linux-lts-docs
 linux-lts-headers
+lld
 lsof
+luarocks
 mariadb-clients
 mc
 mesa
@@ -132,7 +135,6 @@ sudo
 tailscale
 thunderbird
 ttf-dejavu
-ttf-font-awesome
 ttf-iosevka-nerd
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
@@ -157,6 +159,7 @@ wireplumber
 wl-clipboard
 wlroots0.19
 wlsunset
+woff2-font-awesome
 xclip
 xdo
 xf86-video-vesa

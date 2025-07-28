@@ -143,7 +143,6 @@
           pandoc
           pulsemixer
           qrencode
-          rustup
           s3cmd
           sc-im
           scdl
