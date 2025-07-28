@@ -28,7 +28,7 @@ vim.keymap.set('n', '<M-[>', '<cmd>bprev<CR>', { desc = "Buffer Previous", norem
 vim.keymap.set('n', '<M-]>', '<cmd>bnext<CR>', { desc = "Buffer Next", noremap = true })
 vim.keymap.set('n', '<Leader>bD', wrap_cmd('w|%bd|e#'), { desc = "Delete Hidden Buffers", noremap = true })
 
-vim.keymap.set('n', '<Leader>x', '<cmd>! chmod +x %<CR>', { desc = "Mark Current File Executable", noremap = true })
+vim.keymap.set('n', '<Leader>ex', '<cmd>! chmod +x %<CR>', { desc = "Mark Current File Executable", noremap = true })
 vim.keymap.set('n', '<leader>ssp', '<cmd>set spell!<CR>', { desc = "Enable Spell Check", noremap = true })
 
 -- Sorting {{{1
