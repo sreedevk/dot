@@ -472,10 +472,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(event)
     local client = vim.lsp.get_client_by_id(event.data.client_id)
 
-    if client:supports_method('textDocument/completion') then
+    if client and client:supports_method('textDocument/completion') then
       vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
     end
-
 
     vim.opt.signcolumn = 'yes'
     vim.bo[event.buf].formatexpr = nil
@@ -483,7 +482,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     vim.diagnostic.config {
       virtual_lines = false, -- { current_line = true },
-      virtual_text = false,  -- { current_line = true },
+      virtual_text = { current_line = true },
     }
 
     local format_buf_async = function()
