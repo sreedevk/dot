@@ -20,7 +20,7 @@ alias clock="tty-clock -csSbt -C3"
 alias wget="noglob wget"
 alias curl="noglob curl"
 alias z='__zoxide_z'
-alias zd='__zoxide_zi'
+alias zz='__zoxide_zi'
 alias cw='cliphist --wipe'
 
 # Taskwarrior
