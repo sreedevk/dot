@@ -12,7 +12,7 @@
   "browser.bookmarks.addedImportButton" = false;
   "browser.bookmarks.openInTabClosesMenu" = false;
   "browser.bookmarks.showMobileBookmarks" = false;
-  "browser.cache.disk.capacity" = 300000;
+  "browser.cache.disk.capacity" = 1048576;
   "browser.cache.disk.smart_size.enabled" = false;
   "browser.cache.jsbc_compression_level" = 3;
   "browser.compactmode.show" = true;
@@ -78,6 +78,7 @@
   "browser.tabs.groups.enabled" = true;
   "browser.tabs.hoverPreview.enabled" = true;
   "browser.tabs.tabmanager.enabled" = true;
+  "browser.tabs.unloadOnLowMemory" = true;
   "browser.toolbars.bookmarks.visibility" = "always";
   "browser.uidensity" = 1;
   "browser.uitour.enabled" = false;
@@ -114,6 +115,7 @@
   "dom.enable_web_task_scheduling" = true;
   "dom.events.asyncClipboard.clipboardItem" = true;
   "dom.forms.autocomplete.formautofill" = false;
+  "dom.ipc.processCount" = 8;
   "dom.push.enabled" = false;
   "dom.pushconnection.enabled" = false;
   "dom.security.https_first" = true;
@@ -218,7 +220,9 @@
   "privacy.globalprivacycontrol.enabled" = true;
   "privacy.history.custom" = true;
   "privacy.partition.network_state.ocsp_cache" = true;
+  "privacy.trackingprotection.cryptomining.enabled" = true;
   "privacy.trackingprotection.enabled" = true;
+  "privacy.trackingprotection.fingerprinting.enabled" = true;
   "privacy.trackingprotection.socialtracking.enabled" = true;
   "privacy.userContext.enabled" = true;
   "privacy.userContext.ui.enabled" = true;

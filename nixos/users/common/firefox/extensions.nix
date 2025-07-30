@@ -6,6 +6,7 @@ with firefox-addons.packages."${system}"; [
   bitwarden
   consent-o-matic
   darkreader
+  decentraleyes
   enhancer-for-youtube
   karakeep
   private-grammar-checker-harper
