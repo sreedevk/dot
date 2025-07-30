@@ -56,6 +56,7 @@
     cloudbeaver = "8079";
     container-registry-server = "5500";
     container-registry-web = "5600";
+    copyparty = "3923";
     dawarich-app = "8855";
     dawarich-db = "5444";
     dawarich-redis = "6350";

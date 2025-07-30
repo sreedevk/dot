@@ -47,6 +47,17 @@ gstreamer
 gtk-vnc
 guvcview
 helix
+hyprcursor
+hyprgraphics
+hypridle
+hyprland
+hyprland-qt-support
+hyprland-qtutils
+hyprlang
+hyprlock
+hyprpolkitagent
+hyprutils
+hyprwayland-scanner
 i3-wm
 incus
 incus-tools
@@ -161,6 +172,7 @@ wlroots0.19
 wlsunset
 woff2-font-awesome
 xclip
+xdg-desktop-portal-hyprland
 xdo
 xf86-video-vesa
 xorg-server
