@@ -82,12 +82,12 @@ services:
         url: "https://files.nullptr.sh"
         target: "_blank"
 
-      - name: "CopyParty"
-        logo: "assets/tools/copyparty.svg"
-        subtitle: "file share"
-        tag: "file-management"
-        url: "https://copyparty.nullptr.sh"
-        target: "_blank"
+      # - name: "CopyParty"
+      #   logo: "assets/tools/copyparty.svg"
+      #   subtitle: "file share"
+      #   tag: "file-management"
+      #   url: "https://copyparty.nullptr.sh"
+      #   target: "_blank"
 
       - name: Olivetin
         logo: "assets/tools/olivetin.png"

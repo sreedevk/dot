@@ -22,7 +22,6 @@
     ./bitmagnet.nix
     ./cloudbeaver.nix
     ./container-registry.nix
-    ./copyparty.nix
     ./dawarich.nix
     ./dockge.nix
     ./docuseal.nix
