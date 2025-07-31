@@ -21,6 +21,7 @@ let
     vscode-langservers-extracted    # json+
     yaml-language-server            # yaml
     zls                             # zig
+    ltex-ls-plus                    # grammar
   ];
 
   neovim_pkgs =

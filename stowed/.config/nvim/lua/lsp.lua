@@ -24,6 +24,24 @@ setup_lsp { -- lua
   filetypes = { "lua" },
 }
 
+setup_lsp { -- ltex-plus
+  name = 'ltex_plus',
+  enable = true,
+  custom = false,
+  cmd = { vim.fn.trim(vim.fn.system("ltex-ls-plus")) },
+  filetypes = {
+    'mail',
+    'markdown',
+    'mdx',
+    'org',
+    'pandoc',
+    'plaintex',
+    'text',
+    'typst',
+    'xhtml',
+  },
+}
+
 setup_lsp { -- zig
   name = 'zls',
   enable = true,
