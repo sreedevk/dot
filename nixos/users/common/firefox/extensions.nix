@@ -9,8 +9,6 @@ with pkgs.nur.repos.rycee.firefox-addons; [
   private-grammar-checker-harper
   reddit-enhancement-suite
   sponsorblock
-  tab-reloader
-  tubearchivist-companion
   ublock-origin
   vimium
 ]
