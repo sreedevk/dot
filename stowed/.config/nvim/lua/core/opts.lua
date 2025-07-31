@@ -1,11 +1,28 @@
 vim.g.mapleader         = ';'
 
+vim.g.auxbuffers        = {
+  "qf",
+  "help",
+  "man",
+  "notify",
+  "nofile",
+  "lspinfo",
+  "terminal",
+  "prompt",
+  "toggleterm",
+  "startuptime",
+  "tsplayground",
+  "PlenaryTestPopup",
+  "trouble",
+  "vim",
+  "undotree",
+  "neo-tree",
+}
+
 vim.g.loaded            = 1
 vim.g.loaded_matchparen = 0
 vim.g.termdebugger      = "rust-gdb"
 vim.g.dotfiles          = vim.env.DOTFILES or vim.fn.expand('~/.dot')
-vim.g.auxbuffers        = { "qf", "help", "man", "notify", "nofile", "lspinfo", "terminal", "prompt", "toggleterm",
-  "startuptime", "tsplayground", "PlenaryTestPopup", "trouble", "vim", "undotree" }
 
 vim.opt.ruler           = true
 vim.opt.tabstop         = 2

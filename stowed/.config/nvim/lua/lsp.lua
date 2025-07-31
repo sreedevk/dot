@@ -20,15 +20,15 @@ setup_lsp { -- lua
   name = 'lua_ls',
   enable = true,
   custom = false,
-  cmd = { vim.fn.trim(vim.fn.system("which lua-language-server")) },
+  cmd = { 'lua-language-server' },
   filetypes = { "lua" },
 }
 
 setup_lsp { -- ltex-plus
   name = 'ltex_plus',
-  enable = true,
+  enable = false,
   custom = false,
-  cmd = { vim.fn.trim(vim.fn.system("ltex-ls-plus")) },
+  cmd = { 'ltex-ls-plus' },
   filetypes = {
     'mail',
     'markdown',
@@ -46,7 +46,7 @@ setup_lsp { -- zig
   name = 'zls',
   enable = true,
   custom = false,
-  cmd = { vim.fn.trim(vim.fn.system("which zls")) },
+  cmd = { 'zls' },
   filetypes = { 'zig', 'zir' },
   root_markers = { 'zls.json', 'build.zig', '.git' }
 }
@@ -55,8 +55,8 @@ setup_lsp { --python
   name = 'pylsp',
   enable = true,
   custom = false,
-  cmd = { vim.fn.trim(vim.fn.system("which pylsp")) },
-  filetypes = { "python" },
+  cmd = { 'pylsp' },
+  filetypes = { 'python' },
   root_markers = {
     '.git',
     'Pipfile',
@@ -72,7 +72,7 @@ setup_lsp { -- astro
   name = "astro",
   enable = true,
   custom = false,
-  cmd = { vim.fn.trim(vim.fn.system("which astro-ls")), '--stdio' },
+  cmd = { 'astro-ls', '--stdio' },
   filetypes = { 'astro' },
   root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
   init_options = {
@@ -86,7 +86,7 @@ setup_lsp {
   name = "jsonls",
   enable = true,
   custom = false,
-  cmd = { vim.fn.trim(vim.fn.system("which vscode-json-language-server")), '--stdio' },
+  cmd = { 'vscode-json-language-server', '--stdio' },
   filetypes = { 'json', 'jsonc' },
   init_options = { provideFormatter = true },
 }
@@ -95,7 +95,7 @@ setup_lsp {
   name = 'vscode-css-language-server',
   enable = true,
   custom = false,
-  cmd = { vim.fn.trim(vim.fn.system("which vscode-css-language-server")), '--stdio' },
+  cmd = { 'vscode-css-language-server', '--stdio' },
   filetypes = { 'css', 'scss', 'less' },
   init_options = { provideFormatter = true },
   settings = {
@@ -106,13 +106,13 @@ setup_lsp {
 }
 
 setup_lsp { -- jsonnet
-  name = "jsonnet_ls",
+  name = 'jsonnet_ls',
   enable = false,
   custom = false,
-  cmd = { vim.fn.trim(vim.fn.system("which jsonnet-language-server")) },
-  filetypes = { "jsonet" },
+  cmd = { 'jsonnet-language-server' },
+  filetypes = { 'jsonet' },
   settings = {
-    ["jsonnet_ls"] = {
+    ['jsonnet_ls'] = {
       ext_vars = { foo = 'bar' },
       formatting = {
         Indent              = 2,
@@ -137,16 +137,16 @@ setup_lsp { -- janet
   enable = true,
   custom = true,
   filetypes = { 'janet' },
-  cmd = { vim.fn.trim(vim.fn.system("which janet-lsp")) },
+  cmd = { 'janet-lsp' },
   root_markers = { 'project.janet', '.git' }
 }
 
 setup_lsp { -- lean
-  name = "leanls",
+  name = 'leanls',
   enable = true,
   custom = false,
-  filetypes = { "lean" },
-  cmd = { vim.fn.trim(vim.fn.system("which lean")), "--server" },
+  filetypes = { 'lean' },
+  cmd = { 'lean', '--server' },
   root_markers = { '.git', 'leanpkg.toml' }
 }
 
@@ -154,7 +154,7 @@ setup_lsp { -- elm
   name = 'elm-language-server',
   enable = true,
   custom = true,
-  cmd = { vim.fn.trim(vim.fn.system("which elm-language-server")) },
+  cmd = { 'elm-language-server' },
   filetypes = { 'elm' },
   root_markers = { 'elm.json', '.git' }
 }
@@ -163,7 +163,7 @@ setup_lsp { -- nim
   name = 'nim_langserver',
   enable = true,
   custom = false,
-  cmd = { vim.fn.trim(vim.fn.system("which nimlangserver")) },
+  cmd = { 'nimlangserver' },
   filetypes = { 'nim' },
   root_markers = { '.git' }
 }
@@ -172,8 +172,8 @@ setup_lsp { -- gleam
   name = 'gleam',
   enable = true,
   custom = false,
-  filetypes = { "gleam" },
-  cmd = { vim.fn.trim(vim.fn.system("which gleam")), "lsp" },
+  filetypes = { 'gleam' },
+  cmd = { 'gleam', 'lsp' },
   root_markers = { 'gleam.toml', '.git' }
 }
 
@@ -182,7 +182,7 @@ setup_lsp { -- ruby
   enable = true,
   custom = false,
   filetypes = { 'ruby', 'eruby' },
-  cmd = { vim.fn.trim(vim.fn.system("which ruby-lsp")) },
+  cmd = { 'ruby-lsp' },
   root_markers = { 'Gemfile', '.git' },
   init_options = {
     formatter = 'auto',
@@ -204,11 +204,11 @@ setup_lsp { -- ruby
 }
 
 setup_lsp { -- ocaml
-  name = "ocamllsp",
+  name = 'ocamllsp',
   enable = true,
   custom = false,
   filetypes = { 'ocaml', 'menhir', 'ocamlinterface', 'ocamllex', 'reason', 'dune' },
-  cmd = { vim.fn.trim(vim.fn.system("which ocamllsp")), "-stdio" },
+  cmd = { 'ocamllsp', '-stdio' },
   root_markers = {
     'dune-project',
     'dune-workspace',
@@ -217,7 +217,7 @@ setup_lsp { -- ocaml
     'esy.json',
   },
   settings = {
-    ["ocamllsp"] = {
+    ['ocamllsp'] = {
       codelens = { enable = true },
       inlayHints = {
         enable = true,
@@ -237,16 +237,16 @@ setup_lsp { -- clojure
   enable = true,
   custom = false,
   filetypes = { 'clojure', 'edn' },
-  cmd = { vim.fn.trim(vim.fn.system("which clojure-lsp")) },
-  root_markers = { "main.clj", ".git" }
+  cmd = { 'clojure-lsp' },
+  root_markers = { 'main.clj', '.git' }
 }
 
 setup_lsp { -- elixir
   name = 'elixirls',
   enable = true,
   custom = false,
-  filetypes = { "elixir", "eelixir", "heex", "surface" },
-  cmd = { vim.fn.trim(vim.fn.system("which elixir-ls")) },
+  filetypes = { 'elixir', 'eelixir', 'heex', 'surface' },
+  cmd = { 'elixir-ls' },
   root_markers = { 'mix.exs', '.git' }
 }
 
@@ -255,7 +255,7 @@ setup_lsp { -- erl
   enable = true,
   custom = false,
   filetypes = { 'erlang' },
-  cmd = { vim.fn.trim(vim.fn.system("which erlang_ls")) },
+  cmd = { 'erlang_ls' },
   root_markers = { '.git', 'rebar.config', 'erlang.mk' }
 }
 
@@ -264,15 +264,15 @@ setup_lsp { -- fennel
   enable = true,
   custom = false,
   filetypes = { 'fennel' },
-  cmd = { vim.fn.trim(vim.fn.system("which fennel-ls")) },
+  cmd = { 'fennel-ls' },
 }
 
 setup_lsp { -- yaml
   name = 'yamlls',
   enable = true,
   custom = false,
-  filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab" },
-  cmd = { vim.fn.trim(vim.fn.system("which yaml-language-server")), "--stdio" },
+  filetypes = { 'yaml', 'yaml.docker-compose', 'yaml.gitlab' },
+  cmd = { 'yaml-language-server', '--stdio' },
 }
 
 setup_lsp { -- nix
@@ -280,7 +280,7 @@ setup_lsp { -- nix
   enable = true,
   custom = false,
   filetypes = { 'nix' },
-  cmd = { vim.fn.trim(vim.fn.system("which nil")) },
+  cmd = { 'nil' },
   root_markers = { 'flake.nix', 'flake.lock' },
   settings = {
     ["nil"] = {
@@ -296,7 +296,7 @@ setup_lsp { -- chicken scheme
   custom = true,
   enable = true,
   filetypes = { 'scheme' },
-  cmd = { vim.fn.trim(vim.fn.system("which chicken-lsp-server")) },
+  cmd = { 'chicken-lsp-server' },
 }
 
 setup_lsp { -- rust
@@ -304,7 +304,7 @@ setup_lsp { -- rust
   enable = true,
   custom = false,
   filetypes = { 'rust' },
-  cmd = { vim.fn.trim(vim.fn.system("which rust-analyzer")) },
+  cmd = { 'rust-analyzer' },
   root_markers = { 'Cargo.toml', 'Cargo.lock' },
   settings = {
     ["rust-analyzer"] = {
@@ -327,7 +327,7 @@ setup_lsp { -- rust
   enable = true,
   custom = false,
   filetypes = { 'rust' },
-  cmd = { vim.fn.trim(vim.fn.system("which bacon-ls")) },
+  cmd = { 'bacon-ls' },
   root_markers = { '.bacon-locations', 'Cargo.toml', 'Cargo.lock' },
   init_options = {
     updateOnSave = true,
@@ -354,14 +354,14 @@ setup_lsp { -- tailwind
     'svelte',
     'astro',
   },
-  cmd = { vim.fn.trim(vim.fn.system("which bun")), "x", "@tailwindcss/language-server", "--stdio" },
+  cmd = { 'bun', 'x', '@tailwindcss/language-server', '--stdio' },
   root_markers = { 'package.json', 'yarn.lock', 'bun.lock', 'package.lock' }
 }
 
 setup_lsp {
   name = 'vscode-eslint-language-server',
   enable = false,
-  cmd = { vim.fn.trim(vim.fn.system("which vscode-eslint-language-server")), '--stdio' },
+  cmd = { 'vscode-eslint-language-server', '--stdio' },
   filetypes = {
     'javascript',
     'javascriptreact',
@@ -411,7 +411,7 @@ setup_lsp {
   enable = false,
   custom = false,
   filetypes = { 'html', 'templ' },
-  cmd = { vim.fn.trim(vim.fn.system("which vscode-html-language-server")), '--stdio' },
+  cmd = { 'vscode-html-language-server', '--stdio' },
   init_options = {
     provideFormatter = true,
     embeddedLanguages = { css = true, javascript = true },
@@ -424,7 +424,7 @@ setup_lsp { -- toml
   enable = true,
   custom = false,
   filetypes = { 'toml' },
-  cmd = { vim.fn.trim(vim.fn.system("which taplo")), "lsp", "stdio" },
+  cmd = { 'taplo', 'lsp', 'stdio' },
 }
 
 setup_lsp { -- markdown
@@ -432,15 +432,15 @@ setup_lsp { -- markdown
   enable = true,
   custom = false,
   filetypes = { 'markdown', 'markdown.mdx' },
-  cmd = { vim.fn.trim(vim.fn.system("which marksman")), "server" }
+  cmd = { 'marksman', 'server' }
 }
 
 setup_lsp { -- typescript
   name = 'ts_ls',
   enable = true,
   custom = false,
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { vim.fn.trim(vim.fn.system("which bun")), "x", "typescript-language-server", "--stdio" },
+  filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
+  cmd = { 'bun', 'x', 'typescript-language-server', '--stdio' },
   root_markers = { 'package.json', 'yarn.lock', 'bun.lock' },
   init_options = {
     hostInfo = "neovim"
@@ -452,7 +452,7 @@ setup_lsp { --haskell
   enable = true,
   custom = false,
   filetypes = { 'haskell', 'lhaskell' },
-  cmd = { "haskell-language-server-wrapper", "--lsp" },
+  cmd = { 'haskell-language-server-wrapper', '--lsp' },
   root_markers = { 'hie.yaml', 'stack.yaml', 'cabal.project', '*.cabal', 'package.yaml' },
   settings = {
     haskell = {
@@ -467,7 +467,7 @@ setup_lsp { -- scala
   enable = false,
   custom = true,
   filetypes = { 'scala', 'sbt', 'java' },
-  cmd = { vim.fn.trim(vim.fn.system("which metals")), "--stdio" },
+  cmd = { 'metals', '--stdio' },
   root_markers = { '.scala-build', 'build.sbt', 'build.sc', '.git', '.scala' },
   init_options = {
     compilerOptions = {},

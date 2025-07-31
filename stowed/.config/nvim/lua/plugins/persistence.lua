@@ -7,6 +7,11 @@ return {
     { '<leader>so', function() require("persistence").load() end,                desc = "Load Session For Current Directory" },
     { '<leader>sd', function() require("persistence").stop() end,                desc = "Don't Save Session on Exit" },
   },
+  opts = {
+    dir = vim.fn.stdpath("state") .. "/sessions/",
+    need = 1,
+    branch = true
+  },
   module = "persistence",
   config = true,
 }

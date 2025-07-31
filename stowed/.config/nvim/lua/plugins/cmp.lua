@@ -1,22 +1,38 @@
 return {
   {
     'hrsh7th/nvim-cmp',
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
     lazy = true,
+    event = "InsertEnter",
     dependencies = {
-      'onsails/lspkind.nvim',
-      'L3MON4D3/LuaSnip',
+      {
+        "L3MON4D3/LuaSnip",
+        dependencies = "rafamadriz/friendly-snippets",
+        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+        config = function(_, opts)
+          require("luasnip").config.set_config(opts)
+          require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+      },
       "Gelio/cmp-natdat",
-      "hrsh7th/cmp-calc",
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
+      "https://codeberg.org/FelipeLema/cmp-async-path.git",
       'kirasok/cmp-hledger',
+      'onsails/lspkind.nvim',
+      'saadparwaiz1/cmp_luasnip',
     },
     config = function()
       local cmp = require("cmp")
       local lsp_kind = require('lspkind')
+
       cmp.setup({
+        filetype = {
+          ["sql"] = {
+            sources = {
+              { name = "vim-dadbod-completion" }
+            },
+          }
+        },
         experimental = { ghost_text = false },
         formatting = {
           expandable_indicator = false,
@@ -36,6 +52,7 @@ return {
             require('luasnip').lsp_expand(args.body)
           end,
         },
+        completion = { completeopt = "menu,menuone" },
         mapping = cmp.mapping.preset.insert({
           ["<C-k>"] = cmp.mapping.select_prev_item(),
           ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -48,11 +65,10 @@ return {
           { name = "nvim_lsp",        priority = 8, group_index = 2 },
           { name = "luasnip",         priority = 7, group_index = 2 },
           { name = "buffer",          priority = 7, group_index = 2 },
-          { name = "path",            priority = 6, group_index = 2 },
+          { name = "async_path",      priority = 6, group_index = 2 },
           { name = 'hledger',         priority = 5, group_index = 2 },
           { name = 'render-markdown', priority = 5, group_index = 2 },
           { name = "natdat",          priority = 5, group_index = 2 },
-          { name = "calc",            priority = 4, group_index = 3 },
         }),
         window = {
           completion = cmp.config.window.bordered(),
@@ -60,22 +76,13 @@ return {
         },
       })
 
-      require('luasnip.loaders.from_vscode').lazy_load()
+      local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+      vim.lsp.config('*', { capabilities = cmp_capabilities })
     end
   },
-  {
-    'L3MON4D3/LuaSnip',
-    tag = "v2.3.0",
-    build = "make install_jsregexp",
-    lazy = true,
-    dependencies = { "rafamadriz/friendly-snippets" },
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
-  },
-
   {
     "Gelio/cmp-natdat",
     config = true,
     lazy = true,
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
   },
 }
