@@ -1,6 +1,6 @@
-{ pkgs, config, firefox-addons, system, ... }:
+{ pkgs, config, system, ... }:
 let
-  extensions = import ./extensions.nix { inherit firefox-addons system; };
+  extensions = import ./extensions.nix { inherit pkgs system; };
   settings = import ./settings.nix;
   searchEngines = import ./search-engines.nix;
   bookmarks = import ./bookmarks.nix;

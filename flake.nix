@@ -4,8 +4,13 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
-    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.05-small&shallow=1";
+    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-25.05-small&shallow=1";
     agenix.url = "github:ryantm/agenix";
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixgl = {
       url = "github:nix-community/nixGL";
@@ -17,19 +22,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, agenix, nixpkgs, firefox-addons, home-manager, stylix, ... } @ inputs:
+  outputs = { self, agenix, nixpkgs, home-manager, stylix, ... } @ inputs:
     let
       opts = import ./nixos/opts.nix;
       systems = {
@@ -75,11 +75,12 @@
             inherit system;
             overlays = [
               inputs.nixgl.overlay
+              inputs.nur.overlays.default
             ];
           };
           modules = [ ./nixos/users/${username} agenix.homeManagerModules.age ] ++ agenix_pkg ++ stylix_mod;
           extraSpecialArgs = {
-            inherit firefox-addons system username host inputs;
+            inherit system username host inputs;
             nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
             opts = coalesced_opts;
           };

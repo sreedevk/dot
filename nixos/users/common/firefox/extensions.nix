@@ -1,8 +1,5 @@
-# TODO: hoarder was hit with a dmca notice, plugin removed from firefox store
-#       will restore after the plugin is reinstated with the new name "karakeep"
-
-{ firefox-addons, system, ... }:
-with firefox-addons.packages."${system}"; [
+{ pkgs, system, ... }:
+with pkgs.nur.repos.rycee.firefox-addons; [
   bitwarden
   consent-o-matic
   darkreader

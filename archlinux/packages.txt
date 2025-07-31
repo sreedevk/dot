@@ -45,8 +45,6 @@ grub
 gst-plugin-pipewire
 gstreamer
 gtk-vnc
-guvcview
-helix
 hyprcursor
 hyprgraphics
 hypridle
@@ -95,6 +93,7 @@ mc
 mesa
 mesa-utils
 meson
+mpv
 ninja
 nmap
 noto-fonts

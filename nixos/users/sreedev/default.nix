@@ -73,8 +73,8 @@
 
       unstable-packages = {
         gui-packages = with pkgs; [
-          (config.lib.nixGL.wrap pkgs.chromium)
           (config.lib.nixGL.wrap pkgs.slack)
+          (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
           dbeaver-bin
           eww
           libreoffice-fresh
