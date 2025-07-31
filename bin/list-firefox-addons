@@ -1,9 +1,5 @@
 #!/usr/bin/env sh
 
-fflake=$(nix flake metadata ./nixos --json | jq '.locks.nodes."firefox-addons".original')
-fdirectory=$(echo $fflake | jq '.dir' -r)
-fowner=$(echo $fflake | jq '.owner' -r)
-frepo=$(echo $fflake | jq '.repo' -r)
-ftype=$(echo $fflake | jq '.type' -r)
+set -euo pipefail
 
-nix flake show "${ftype}:${fowner}/${frepo}?dir=${fdirectory}" --json | jq -r '.packages."x86_64-linux".[].name' | fzf
+nix-env -f "<nur>" -qaP -A repos."rycee".firefox-addons | awk '{print $2}' | fzf
