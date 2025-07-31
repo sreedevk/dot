@@ -51,10 +51,12 @@ hyprcursor
 hyprgraphics
 hypridle
 hyprland
+hyprland-protocols
 hyprland-qt-support
 hyprland-qtutils
 hyprlang
 hyprlock
+hyprpicker
 hyprpolkitagent
 hyprutils
 hyprwayland-scanner
