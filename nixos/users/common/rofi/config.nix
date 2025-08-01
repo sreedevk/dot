@@ -11,7 +11,7 @@
       enable = true;
       text = ''
         * {
-            font: "IosevkaTerm NF 18";
+            font: "IosevkaTerm Nerd Font 18";
           }
       '';
     };
@@ -374,7 +374,7 @@
         	display-keys: "Keys";
         	display-filebrowser: "Files";
         	terminal: "alacritty";
-        	font: "IosevkaTerm NF 18";
+        	font: "IosevkaTerm Nerd Font 18";
         	sort: false;
         	threads: 0;
         	click-to-exit: true;
