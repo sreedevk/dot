@@ -13,5 +13,12 @@ return {
     branch = true
   },
   module = "persistence",
-  config = true,
+  init = function()
+    local group = vim.api.nvim_create_augroup('PersistenceSession', { clear = true })
+    vim.api.nvim_create_autocmd("User", {
+      group = group,
+      pattern = "PersistenceSavePre",
+      callback = wrap_cmd("Neotree close")
+    })
+  end,
 }
