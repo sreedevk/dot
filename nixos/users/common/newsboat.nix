@@ -1,11 +1,11 @@
-{ pkgs, config, ... }:
+{ pkgs, config, opts, ... }:
 {
   programs.newsboat = {
     enable = true;
     autoReload = false;
-    reloadThreads = 8;
+    reloadThreads = 10;
     reloadTime = 120;
-    browser = "brave";
+    browser = "${opts.desktop.browser.bin}";
     maxItems = 30;
     extraConfig = ''
       # ---- OPTS
@@ -50,8 +50,8 @@
       bind-key ^E      edit-flags
 
       # macros
-      macro y set browser "echo %u | xclip -sel clip"; open-in-browser; set browser brave
-      macro a set browser mpv; one; set browser brave
+      macro y set browser "echo %u | xclip -sel clip"; open-in-browser; set browser ${opts.desktop.browser.bin}
+      macro a set browser mpv; one; set browser ${opts.desktop.browser.bin}
 
       # notification
       notify-format "Newsboat: %f unread feeds (%n unread articles total)"
