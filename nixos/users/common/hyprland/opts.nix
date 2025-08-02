@@ -252,9 +252,11 @@ in
       { mod = "SUPER"; keys = "7"; dispatcher = "workspace"; args = "7"; }
       { mod = "SUPER"; keys = "8"; dispatcher = "workspace"; args = "8"; }
       { mod = "SUPER"; keys = "9"; dispatcher = "workspace"; args = "9"; }
-      { mod = "SUPER"; keys = "A"; dispatcher = "exec"; args = "pwvucontrol"; }
+      { mod = "SUPER"; keys = "A"; dispatcher = "exec"; args = "uwsm app -t service -- pwvucontrol"; }
+      { mod = "SUPER"; keys = "B"; dispatcher = "exec"; args = "uwsm app -t service -- ${opts.desktop.browser.xdg-desktop}"; }
       { mod = "SUPER"; keys = "C"; dispatcher = "togglespecialworkspace"; args = ""; }
       { mod = "SUPER"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; }
+      { mod = "SUPER"; keys = "E"; dispatcher = "exec"; args = "uwsm app -t service -- org.mozilla.Thunderbird.desktop"; }
       { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
       { mod = "SUPER"; keys = "G"; dispatcher = "togglegroup"; args = ""; }
       { mod = "SUPER"; keys = "H"; dispatcher = "movefocus"; args = "l"; }
@@ -263,6 +265,7 @@ in
       { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; }
       { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "${pkgs.dunst}/bin/dunstctl set-paused toggle"; }
       { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-toggleblur}/bin/hypr-toggleblur"; }
+      { mod = "SUPER"; keys = "W"; dispatcher = "exec"; args = "uwsm app -t service -- brave-browser.desktop"; }
       { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
       { mod = "SUPER"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
       { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; }
