@@ -4,9 +4,24 @@ return {
     lazy = false,
     enabled = false,
     priority = 1000,
-    config = function()
+    init = function()
       vim.cmd.colorscheme "zitchdog-grape"
     end
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = false,
+    enabled = false,
+    priority = 1000,
+    opts = {
+      options = {
+        styles = {
+          comments = "italic",
+          keywords = "bold",
+          types = "italic,bold",
+        }
+      }
+    }
   },
   {
     "folke/tokyonight.nvim",
@@ -14,7 +29,7 @@ return {
     enabled = true,
     priority = 1000,
     opts = {},
-    config = function()
+    init = function()
       vim.cmd.colorscheme "tokyonight-night"
     end
   }

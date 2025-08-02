@@ -10,11 +10,7 @@
 --      ░                           ░
 -- AUTHOR: SREEDEV KODICHATH
 
-require 'core.opts'
-require 'core.filetypes'
-require 'core.functions'
-require 'core.keybinds'
-require 'core.commands'
+require 'core'
 require 'pack'
 require 'lsp'
 require 'neovide'

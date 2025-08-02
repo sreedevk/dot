@@ -1,0 +1,25 @@
+require('core.utils').setup_lsp {
+  name = 'ruby_lsp',
+  enable = true,
+  custom = false,
+  filetypes = { 'ruby', 'eruby' },
+  cmd = { 'ruby-lsp' },
+  root_markers = { 'Gemfile', '.git' },
+  init_options = {
+    formatter = 'auto',
+    linters = { 'standard' },
+    experimentalFeaturesEnabled = true,
+    enabledFeatures = {
+      codeActions = true,
+      codeLens = true,
+      formatting = true,
+      diagnostics = true,
+      definition = true,
+      hover = true,
+      inlayHints = true,
+      onTypeFormatting = true,
+      selectionRanges = true,
+      semanticHighlighting = true,
+    },
+  },
+}
