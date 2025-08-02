@@ -42,6 +42,7 @@
     ../common/taskwarrior.nix
     ../common/tmux-sessionizer.nix
     ../common/tmux.nix
+    ../common/vdirsyncer.nix
     ../common/vim.nix
     ../common/xresources.nix
     ../common/zathura.nix
