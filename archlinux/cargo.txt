@@ -2,6 +2,7 @@ bacon v3.16.0
 bacon-ls v0.21.0
 blaze-ssh v0.0.4
 cargo-audit v0.21.2
+cargo-bloat v0.12.1
 cargo-expand v1.0.114
 cargo-udeps v0.1.57
 cargo-update v17.0.0

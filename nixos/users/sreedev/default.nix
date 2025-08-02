@@ -75,6 +75,7 @@
         gui-packages = with pkgs; [
           (config.lib.nixGL.wrap pkgs.slack)
           (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
+          (config.lib.nixGL.wrap pkgs.youtube-music)
           dbeaver-bin
           eww
           libreoffice-fresh
