@@ -21,7 +21,10 @@ return {
           types = "italic,bold",
         }
       }
-    }
+    },
+    init = function()
+      vim.cmd.colorscheme "carbonfox"
+    end
   },
   {
     "folke/tokyonight.nvim",
