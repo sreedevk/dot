@@ -21,33 +21,6 @@
         };
       };
     };
-    "autokuma/staticmon/devtechnica.json" = {
-      enable = true;
-      uid = pkgs.lib.strings.toInt opts.adminUID;
-      gid = pkgs.lib.strings.toInt opts.adminGID;
-      mode = "0600";
-      text = builtins.toJSON [
-        { name = "devtechnica"; type = "group"; }
-        {
-          name = "www.devtechnica.com";
-          type = "http";
-          parent_name = "devtechnica[0]";
-          url = "https://devtechnica.com";
-        }
-        {
-          name = "www.sree.dev";
-          type = "http";
-          parent_name = "devtechnica[0]";
-          url = "https://sree.dev";
-        }
-        {
-          name = "www.resume.sree.dev";
-          type = "http";
-          parent_name = "devtechnica[0]";
-          url = "https://resume.sree.dev";
-        }
-      ];
-    };
   };
 
   virtualisation.oci-containers.containers = {
