@@ -60,6 +60,18 @@
           }
         ];
       };
+      tls = {
+        enabled = true;
+        server_name = "adguard.nullptr.sh";
+        force_https = false;
+        port_https = pkgs.lib.strings.toInt opts.ports.adguard_web_https;
+        port_dns_over_tls = 0;
+        port_dns_over_quic = 0;
+        port_dnscrypt = 0;
+        allow_unencrypted_doh = true;
+        certificate_chain = "";
+        private_key = "";
+      };
       dns = {
         bind_host = "0.0.0.0";
         cache_size = 1000000;
