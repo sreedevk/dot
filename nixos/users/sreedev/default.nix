@@ -67,16 +67,14 @@
     let
       stable-packages = {
         cli-packages = with nixpkgs-stable; [ ];
-        gui-packages = with nixpkgs-stable; [
-          sonic-pi
-        ];
+        gui-packages = with nixpkgs-stable; [ ];
       };
 
       unstable-packages = {
         gui-packages = with pkgs; [
           (config.lib.nixGL.wrap pkgs.slack)
-          (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
           (config.lib.nixGL.wrap pkgs.youtube-music)
+          (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
           dbeaver-bin
           eww
           libreoffice-fresh
@@ -85,6 +83,7 @@
           openttd
           pwvucontrol
           qflipper
+          sonic-pi
           sqlitebrowser
           tor-browser
           wofi
