@@ -142,6 +142,7 @@
           nushell
           oxker
           pandoc
+          poezio
           pulsemixer
           qrencode
           s3cmd
