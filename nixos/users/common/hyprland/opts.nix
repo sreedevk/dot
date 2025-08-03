@@ -20,14 +20,15 @@ let
 in
 {
   envs = {
-    __NV_PRIME_RENDER_OFFLOAD = "1";
-    __VK_LAYER_NV_optimus = "NVIDIA_only";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
+    EGL_PLATFORM = "wayland";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
     GBM_BACKEND = "nvidia-drm";
     GDK_DPI_SCALE = "1";
     GDK_SCALE = "1";
+    GTK_THEME = "Adwaita:dark";
     HYPRCURSOR_SIZE = "28";
+    HYPRCURSOR_THEME = "rose-pine-hyprcursor";
     LIBVA_DRIVER_NAME = "nvidia";
     MOZ_ENABLE_WAYLAND = "1";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
@@ -36,20 +37,15 @@ in
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     WINIT_X11_SCALE_FACTOR = "1";
     XCURSOR_SIZE = "28";
-    XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
-    XDG_SESSION_TYPE = "wayland";
-    XDG_SESSION_DESKTOP = "Hyprland";
     XDG_CURRENT_DESKTOP = "Hyprland";
-    ELECTRON_OZONE_PLATFORM_HINT = "auto";
-    EGL_PLATFORM = "wayland";
-    __GL_VRR_ALLOWED = "1";
+    XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_SESSION_TYPE = "wayland";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     __GL_GSYNC_ALLOWED = "1";
-    HYPRCURSOR_THEME = "rose-pine-hyprcursor";
-
-    # BUG: DO NOT ENABLE THESE
-    # WLR_DRM_NO_ATOMIC = "1";
-    # WLR_DRM_DEVICES = "/dev/dri/card0";
-    # __EGL_VENDOR_LIBRARY_FILENAMES = "/usr/share/glvnd/egl_vendor.d/10_nvidia.json";
+    __GL_VRR_ALLOWED = "1";
+    __NV_PRIME_RENDER_OFFLOAD = "1";
+    __VK_LAYER_NV_optimus = "NVIDIA_only";
   };
 
   monitors = [

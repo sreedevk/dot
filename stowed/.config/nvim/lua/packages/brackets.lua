@@ -4,6 +4,7 @@ return {
     'windwp/nvim-autopairs',
     lazy = true,
     event = 'InsertEnter',
+    enabled = false,
     config = true,
     opts = {
       disable_filetype = {
