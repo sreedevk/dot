@@ -1,34 +1,28 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./core-min.nix
+  ];
+
   home.packages = with pkgs; [
     ast-grep
-    bat
     bingrep
     bottom
     broot
+    httpie
     bsd-finger
     cyme
-    dig
-    direnv
     dua
     duf
-    dust
-    exiftool
-    eza
-    fd
     fend
     flac
-    fzf
     gperf
     grex
     hex
-    httpie
     id3v2
     imagemagick
     iotop
     jaq
-    jq
-    less
     lua
     luau
     mediainfo
@@ -46,21 +40,15 @@
     pwgen
     python311Packages.eyed3
     restic
-    ripgrep
     ripgrep-all
-    rsync
     sshfs
-    starship
     tailspin
     traceroute
     tree
-    unrar
     viddy
-    wget
     xh
     xxd
     yazi
     yq
-    zoxide
   ];
 }

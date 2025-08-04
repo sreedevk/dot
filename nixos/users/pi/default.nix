@@ -3,7 +3,7 @@
   imports = [
     ../../../secrets/mappings.nix
     ../common/base.nix
-    ../common/core-packages.nix
+    ../common/core-min.nix
     ../common/fastfetch.nix
     ../common/git.nix
     ../common/htop.nix

@@ -9,7 +9,7 @@
     ../common/base.nix
     ../common/brave.nix
     ../common/btop.nix
-    ../common/core-packages.nix
+    ../common/core-max.nix
     ../common/droidcam.nix
     ../common/dunst.nix
     ../common/fastfetch.nix

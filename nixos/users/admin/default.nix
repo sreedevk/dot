@@ -3,7 +3,7 @@
     ../../../secrets/mappings.nix
     ../common/base.nix
     ../common/beets.nix
-    ../common/core-packages.nix
+    ../common/core-max.nix
     ../common/fastfetch.nix
     ../common/git.nix
     ../common/htop.nix
