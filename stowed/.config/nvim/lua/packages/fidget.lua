@@ -8,6 +8,7 @@ return {
     progress = {
       display = {
         render_limit = 4,
+        done_ttl = 2,
       },
       lsp = {
         progress_ringbuf_size = 8,
@@ -19,6 +20,8 @@ return {
       },
       window = {
         winblend = 0,
+        max_width = 400,
+        zindex = 1,
       },
     },
   },
