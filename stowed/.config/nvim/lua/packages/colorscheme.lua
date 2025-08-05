@@ -35,5 +35,15 @@ return {
     init = function()
       vim.cmd.colorscheme "tokyonight-night"
     end
+  },
+  {
+    "adibhanna/forest-night.nvim",
+    lazy = false,
+    enabled = false,
+    priority = 1000,
+    opts = {},
+    init = function()
+      vim.cmd.colorscheme "forest-night"
+    end
   }
 }
