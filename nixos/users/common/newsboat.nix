@@ -6,7 +6,7 @@
     reloadThreads = 10;
     reloadTime = 120;
     browser = "${opts.desktop.browser.bin}";
-    maxItems = 30;
+    maxItems = 0;
     extraConfig = ''
       # ---- OPTS
       always-display-description  true
