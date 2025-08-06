@@ -10,17 +10,17 @@ namespace :nix do
       sh('nix flake check')
     end
 
-    namespace :all do
+    namespace :check do
       desc "check nix flakes & configurations for all systems"
-      task :check do
+      task :all do
         sh('nix flake check --all-systems')
       end
     end
   end
   namespace :os do
-    namespace :offline do
+    namespace :install do
       desc "rebuild & install nixos configuration offline"
-      task :install do
+      task :offline do
         sh("nixos-rebuild switch --offline --flake '.' --sudo --impure -j 8")
       end
     end
@@ -42,9 +42,9 @@ namespace :nix do
       sh("home-manager switch --impure --flake '.' -j 8")
     end
 
-    namespace :offline do
+    namespace :install do
       desc "rebuild & install home-manager config offline"
-      task :install do
+      task :offline do
         sh("home-manager switch --impure --option substitute false --flake '.' -j 8")
       end
     end
