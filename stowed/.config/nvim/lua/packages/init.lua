@@ -46,14 +46,6 @@ return {
   },
 
   {
-    'junegunn/fzf',
-    lazy = true,
-    build = function()
-      vim.fn['fzf#install']()
-    end
-  },
-
-  {
     'kevinhwang91/nvim-bqf',
     lazy = true,
     event = { 'QuickFixCmdPre' },
