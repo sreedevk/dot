@@ -3,7 +3,7 @@
     "NixOS System Configuration Management Flake for Multiple Hosts";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable&shallow=1";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=master&shallow=1";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-25.05-small&shallow=1";
     agenix.url = "github:ryantm/agenix";
 
