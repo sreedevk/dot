@@ -27,9 +27,37 @@ return {
       "MeanderingProgrammer/render-markdown.nvim",
     },
     opts = {
+      display = {
+        action_palette = {
+          width = 95,
+          height = 10,
+          prompt = "Prompt ",
+          provider = "default",
+          opts = {
+            show_default_actions = true,
+            show_default_prompt_library = true,
+          },
+        },
+      },
       strategies = {
-        chat = { adapter = "openai" },
-        inline = { adapter = "ollama" },
+        chat = {
+          adapter = {
+            name = "ollama",
+            model = "deepseek-coder-v2:16b"
+          },
+        },
+        inline = {
+          adapter = {
+            name = "ollama",
+            model = "deepseek-coder-v2:16b",
+          },
+        },
+        cmd = {
+          adapter = {
+            name = "ollama",
+            adapter = "deepseek-coder-v2:16b"
+          },
+        }
       },
       adapters = {
         opts = {
@@ -39,7 +67,7 @@ return {
         openai = function()
           return require("codecompanion.adapters").extend("openai", {
             schema = {
-              model = { default = "o4-mini" }
+              model = { default = "gpt-4o" }
             },
             env = {
               api_key = "cmd:echo $OPENAI_API_KEY",
