@@ -49,7 +49,7 @@ return {
         ollama = function()
           return require("codecompanion.adapters").extend("ollama", {
             schema = {
-              model = { default = "deepseek-r1:14b" },
+              model = { default = "deepseek-coder-v2:16b" },
             },
             env = { url = "http://127.0.0.1:11434" },
             parameters = { sync = true, },
