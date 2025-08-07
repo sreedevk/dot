@@ -8,5 +8,7 @@ cargo-udeps v0.1.57
 cargo-update v17.0.0
 cargo-watch v8.5.3
 deduplicator v0.3.1
+flamegraph v0.6.8
 license-generator v1.3.0
 sqlx-cli v0.8.6
+uiua v0.16.2
