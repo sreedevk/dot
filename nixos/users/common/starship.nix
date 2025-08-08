@@ -34,6 +34,8 @@
         disabled = false;
         symbols = {
           Arch = "   ";
+          Ubuntu = " 🖧  ";
+          Debian = " ◎ ";
         };
       };
       directory = {
