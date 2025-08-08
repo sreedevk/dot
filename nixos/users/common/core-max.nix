@@ -9,7 +9,6 @@
     bingrep
     bottom
     broot
-    httpie
     bsd-finger
     cyme
     dua
@@ -19,6 +18,7 @@
     gperf
     grex
     hex
+    httpie
     id3v2
     imagemagick
     iotop
@@ -39,6 +39,7 @@
     progress
     pwgen
     python311Packages.eyed3
+    rake
     restic
     ripgrep-all
     sshfs
