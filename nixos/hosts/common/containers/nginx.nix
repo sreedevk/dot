@@ -4,10 +4,10 @@
   networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ http https nginx-proxy-manager ]);
 
   systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/tailscale-nginx/state 0755 ${opts.adminUID} ${opts.adminGID} -"
-
-    "d ${opts.paths.app_datafiles}/nginxproxymanager 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.app_datafiles}/letsencrypt 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/tailscale-nginx/state           0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/nginx-proxy-manager             0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/nginx-proxy-manager/data        0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/nginx-proxy-manager/letsencrypt 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {
@@ -52,6 +52,7 @@
         "--health-timeout=3s"
       ];
       environment = {
+        DB_SQLITE_FILE = "/data/database.sqlite";
         DISABLE_IPV6 = "true";
         TZ = opts.timeZone;
       };
@@ -62,8 +63,8 @@
         "kuma.nginx.http.url" = "http://${opts.lanAddress}:${opts.ports.nginx-proxy-manager}";
       };
       volumes = [
-        "${opts.paths.app_datafiles}/nginxproxymanager:/data"
-        "${opts.paths.app_datafiles}/letsencrypt:/etc/letsencrypt"
+        "${opts.paths.app_datafiles}/nginx-proxy-manager/data:/data"
+        "${opts.paths.app_datafiles}/nginx-proxy-manager/letsencrypt:/etc/letsencrypt"
       ];
     };
 
