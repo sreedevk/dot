@@ -208,6 +208,7 @@
   "network.predictor.enabled" = false;
   "network.prefetch-next" = false;
   "network.ssl_tokens_cache_capacity" = 10240;
+  "network.trr.mode" = 5;
   "pdfjs.enableScripting" = false;
   "permissions.default.desktop-notification" = 2;
   "permissions.default.geo" = 2;
