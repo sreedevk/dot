@@ -89,7 +89,6 @@
           "https://dns.cloudflare.com/dns-query"
           "https://adblock.dns.mullvad.net/dns-query"
           "https://dns0.eu"
-          "https://freedns.controld.com/p0"
         ];
         upstream_mode = "load_balance";
       };
