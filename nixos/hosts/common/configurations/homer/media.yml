@@ -30,7 +30,7 @@ services:
         target: "_blank"
 
       - name: "Kapowarr"
-        logo: "assets/tools/kapowarr.avif"
+        logo: "assets/tools/kapowarr.svg"
         subtitle: "Comics Indexing & Searching"
         tag: "comics"
         keywords: "comics"
@@ -78,7 +78,7 @@ services:
     icon: "fas fa-film"
     items:
       - name: "Jellyfin"
-        logo: "assets/tools/jellyfin.avif"
+        logo: "assets/tools/jellyfin.webp"
         subtitle: "Media Streaming Server"
         tag: "streaming"
         keywords: "streaming"
@@ -128,7 +128,7 @@ services:
     icon: "fas fa-camera"
     items:
       - name: "Photoprism"
-        logo: "assets/tools/photoprism.avif"
+        logo: "assets/tools/photoprism.svg"
         subtitle: "Image Server"
         tag: "image"
         url: "https://photoprism.nullptr.sh"
@@ -203,7 +203,7 @@ services:
     icon: "fas fa-gamepad"
     items:
       - name: "Romm"
-        logo: "assets/tools/romm.avif"
+        logo: "assets/tools/romm.svg"
         subtitle: "Game Rom Manager"
         tag: "roms"
         url: "https://romm.nullptr.sh"
@@ -213,7 +213,7 @@ services:
     icon: "fas fa-file"
     items:
       - name: "Paperless"
-        logo: "assets/tools/paperless.avif"
+        logo: "assets/tools/paperless-ngx.svg"
         tag: "documents"
         url: "https://docs.nullptr.sh"
         target: "_blank"

@@ -13,7 +13,7 @@ services:
         target: "_blank"
 
       - name: "Dockge"
-        logo: "assets/tools/dockge.avif"
+        logo: "assets/tools/dockge.svg"
         subtitle: "Docker Stack Manager"
         tag: "docker-stacks"
         url: "https://dockge.nullptr.sh"
@@ -55,14 +55,14 @@ services:
         target: "_blank"
 
       - name: "Prometheus"
-        logo: "assets/tools/prometheus.avif"
+        logo: "assets/tools/prometheus.svg"
         subtitle: "System Metrics Collection"
         tag: "system-metrics-collection"
         url: "https://prom.nullptr.sh"
         target: "_blank"
 
       - name: "MinIO"
-        logo: "assets/tools/minio.avif"
+        logo: "assets/tools/minio.svg"
         subtitle: "Object Storage"
         tag: "object-storage"
         url: "https://minio.nullptr.sh"
@@ -104,7 +104,7 @@ services:
         target: "_blank"
 
       - name: "Uptime Kuma"
-        logo: "assets/tools/kuma.avif"
+        logo: "assets/tools/kuma.svg"
         subtitle: "site-monitoring"
         tag: "site-monitoring"
         url: "https://kuma.nullptr.sh"
@@ -136,7 +136,7 @@ services:
         target: "_blank"
 
       - name: "n8n"
-        logo: "assets/tools/n8n.avif"
+        logo: "assets/tools/n8n.webp"
         subtitle: "automation"
         tag: "automation"
         url: "https://n8n.nullptr.sh"
@@ -211,7 +211,7 @@ services:
         apikey: "5f480208adbe46e18219b2a1da133614"
 
       - name: "Sabnzbd"
-        logo: "assets/tools/sabnzbd.avif"
+        logo: "assets/tools/sabnzbd.webp"
         subtitle: "Usenet Client"
         tag: "usenet"
         keywords: "usenet"

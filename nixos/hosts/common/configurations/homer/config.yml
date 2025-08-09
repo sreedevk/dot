@@ -86,7 +86,7 @@ services:
         target: "_blank"
 
       - name: "StirlingPDF"
-        logo: "assets/tools/stirling.avif"
+        logo: "assets/tools/stirling.svg"
         subtitle: "PDF Manipulation Tools"
         tag: "pdf-manipulation"
         url: "https://pdf.nullptr.sh"
