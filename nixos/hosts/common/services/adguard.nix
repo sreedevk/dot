@@ -11,6 +11,20 @@
     openFirewall = true;
     extraArgs = [ ];
     settings = {
+      auth_attempts = 10;
+      block_auth_min = 60;
+      web_session_ttl = 24;
+      dhcp = {
+        enabled = false;
+        interface_name = "enp2s0";
+        dhcpv4 = {
+          gateway_ip = "192.168.1.1";
+          subnet_mask = "255.255.255.0";
+          range_start = "192.168.1.100";
+          range_end = "192.168.1.240";
+          lease_duration = 86400;
+        };
+      };
       users = [
         {
           name = "admin";
@@ -51,6 +65,8 @@
         protection_enabled = true;
         filtering_enabled = true;
         filters_update_interval = 8;
+        blocking_mode = "nxdomain"; # or null_ip (0.0.0.0) or custom_ip (set blocking_ipv4 or blocking_ipv6)
+        blocked_response_ttl = 14400;
         rewrites = [
           {
             domain = "nullptr.sh";
@@ -79,7 +95,9 @@
         private_key = "";
       };
       dns = {
-        bind_host = "0.0.0.0";
+        bind_hosts = [
+          "0.0.0.0"
+        ];
         cache_size = 1000000;
         cache_ttl_min = 3600;
         cache_ttl_max = 86400;
