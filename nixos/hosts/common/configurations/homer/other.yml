@@ -7,7 +7,7 @@ services:
     items:
 
       - name: "Whisparr"
-        logo: "assets/tools/whisparr.png"
+        logo: "assets/tools/whisparr.avif"
         subtitle: "Adult Media Manager"
         tag: "adult-media"
         url: "https://whisparr.nullptr.sh"
@@ -16,7 +16,7 @@ services:
         # apikey: "c2acc6c5e0504bc7b081e6ecb2096934"
 
       - name: "Stash"
-        logo: "assets/tools/stash.png"
+        logo: "assets/tools/stash.avif"
         subtitle: "Adult Media Organizer"
         tag: "adult-media-org"
         url: "https://stash.nullptr.sh"
