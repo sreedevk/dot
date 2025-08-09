@@ -91,6 +91,7 @@
           "https://dns0.eu"
         ];
         upstream_mode = "load_balance";
+        upstream_timeout = "1s";
       };
     };
   };
