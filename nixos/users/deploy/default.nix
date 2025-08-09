@@ -1,7 +1,7 @@
 { opts, config, ... }: {
 
   imports = [
-    ../../../secrets/mappings.nix
+    ../../mappings.nix
     ../common/base.nix
     ../common/core-max.nix
     ../common/fastfetch.nix

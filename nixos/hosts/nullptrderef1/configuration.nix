@@ -1,10 +1,10 @@
 { config, pkgs, opts, ... }:
 {
   imports = [
+    ../../mappings.nix
     ../common/containers
     ../common/scripts
     ../common/services
-    ../../../secrets/mappings.nix
     ./hardware-configuration.nix
   ];
 
