@@ -1,6 +1,6 @@
 { config, ... }: {
   imports = [
-    ../../mappings.nix
+    ../../secmap.nix
     ../common/base.nix
     ../common/beets.nix
     ../common/core-max.nix

@@ -1,7 +1,7 @@
 { pkgs, config, nixpkgs-stable, inputs, ... }:
 {
   imports = [
-    ../../mappings.nix
+    ../../secmap.nix
     ../common/alacritty.nix
     ../common/amfora.nix
     ../common/asdf.nix

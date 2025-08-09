@@ -1,7 +1,7 @@
 { config, pkgs, opts, ... }:
 {
   imports = [
-    ../../mappings.nix
+    ../../secmap.nix
     ../common/containers
     ../common/scripts
     ../common/services
