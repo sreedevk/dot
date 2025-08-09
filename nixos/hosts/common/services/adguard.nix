@@ -11,6 +11,12 @@
     openFirewall = true;
     extraArgs = [ ];
     settings = {
+      users = [
+        {
+          name = "admin";
+          password = "$2a$12$GyN4HZQr7KGL92lihHFDBOQlY3sQ.xjge3TXs70ENlCnQ4OQwgXQG"; # bcrypt hash
+        }
+      ];
       statistics = {
         interval = "48h";
         enabled = true;
