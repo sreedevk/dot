@@ -11,7 +11,7 @@
   virtualisation.oci-containers.containers = {
     lidarr = {
       autoStart = opts.autostart-non-essential-services;
-      image = "hotio/lidarr:latest";
+      image = "ghcr.io/hotio/lidarr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [

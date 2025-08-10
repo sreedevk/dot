@@ -6,7 +6,7 @@
   virtualisation.oci-containers.containers = {
     "whisparr" = {
       autoStart = opts.autostart-non-essential-services;
-      image = "ghcr.io/hotio/whisparr";
+      image = "ghcr.io/hotio/whisparr:latest";
       dependsOn = [ "qbittorrent-nox" ];
       extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" ];
       volumes = [
@@ -24,7 +24,7 @@
     };
     "stash" = {
       autoStart = opts.autostart-non-essential-services;
-      image = "ghcr.io/hotio/stash";
+      image = "ghcr.io/hotio/stash:latest";
       volumes = [
         "stash_db:/databases"
         "${opts.paths.app_datafiles}/stash:/config"

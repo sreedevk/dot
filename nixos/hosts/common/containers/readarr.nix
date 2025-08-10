@@ -12,7 +12,7 @@
   virtualisation.oci-containers.containers = {
     readarr = {
       autoStart = opts.autostart-non-essential-services;
-      image = "hotio/readarr:latest";
+      image = "ghcr.io/hotio/readarr:latest";
       extraOptions =
         [
           "--add-host=${opts.hostname}:${opts.lanAddress}"

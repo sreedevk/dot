@@ -11,7 +11,7 @@
   virtualisation.oci-containers.containers = {
     radarr = {
       autoStart = opts.autostart-non-essential-services;
-      image = "hotio/radarr:latest";
+      image = "ghcr.io/hotio/radarr:latest";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [
         "radarr_data:/config"

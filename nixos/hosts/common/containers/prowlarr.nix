@@ -6,7 +6,7 @@
   virtualisation.oci-containers.containers = {
     prowlarr = {
       autoStart = opts.autostart-non-essential-services;
-      image = "hotio/prowlarr:latest";
+      image = "ghcr.io/hotio/prowlarr:latest";
       extraOptions =
         [
           "--add-host=${opts.hostname}:${opts.lanAddress}"

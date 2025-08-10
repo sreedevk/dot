@@ -11,7 +11,7 @@
   virtualisation.oci-containers.containers = {
     sonarr = {
       autoStart = opts.autostart-non-essential-services;
-      image = "hotio/sonarr:latest";
+      image = "ghcr.io/hotio/sonarr:latest";
       extraOptions =
         [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       volumes = [

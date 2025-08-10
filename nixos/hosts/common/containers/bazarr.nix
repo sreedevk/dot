@@ -12,7 +12,7 @@
   virtualisation.oci-containers.containers = {
     bazarr = {
       autoStart = opts.autostart-non-essential-services;
-      image = "hotio/bazarr:latest";
+      image = "ghcr.io/hotio/bazarr:latest";
       extraOptions =
         [
           "--add-host=${opts.hostname}:${opts.lanAddress}"
