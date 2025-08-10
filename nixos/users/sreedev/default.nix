@@ -99,6 +99,7 @@
           beanstalkd
           bitwarden-cli
           cava
+          claude-code
           cmatrix
           csvlens
           doctl
