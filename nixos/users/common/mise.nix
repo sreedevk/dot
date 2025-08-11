@@ -12,6 +12,7 @@
       source = (pkgs.formats.toml { }).generate "miseconf" {
         tools = {
           bun = "1.2.17";
+          chezscheme = "9.6.4";
           clojure = "1.12.1.1550";
           deno = "2.3.7";
           elixir = "1.18.4";
