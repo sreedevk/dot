@@ -83,7 +83,7 @@
         ];
       };
       tls = {
-        enabled = true;
+        enabled = false;
         server_name = "adguard.nullptr.sh";
         force_https = false;
         port_https = pkgs.lib.strings.toInt opts.ports.adguard_web_https;
