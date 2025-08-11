@@ -1,10 +1,10 @@
 [plugin]
 deps = [
-  { use = "Reledia/glow", rev = "c2ed51e" },
-  { use = "Rolv-Apneseth/starship", rev = "247f49d" },
-  { use = "dedukun/bookmarks", rev = "20ece7e" },
-  { use = "yazi-rs/flavors:catppuccin-mocha", rev = "8458d25" },
-  { use = "yazi-rs/flavors:nightfly", rev = "599b8ad" },
-  { use = "yazi-rs/plugins:full-border", rev = "4f1d0ae" },
-  { use = "yazi-rs/plugins:smart-enter", rev = "71c4fc2" },
+  { use = "Reledia/glow",                     rev = "bd3eaa5" },
+  { use = "Rolv-Apneseth/starship",           rev = "6c639b4" },
+  { use = "dedukun/bookmarks",                rev = "95b2c58" },
+  { use = "yazi-rs/flavors:catppuccin-mocha", rev = "c023460" },
+  { use = "tkapias/nightfly",                 rev = "599b8ad" },
+  { use = "yazi-rs/plugins:full-border",      rev = "92f78dc" },
+  { use = "yazi-rs/plugins:smart-enter",      rev = "b44c245" },
 ]

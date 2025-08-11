@@ -27,4 +27,18 @@ function M.colorize()
   end, 2000)
 end
 
+function M.setup_lsp(conf)
+  if conf.enable then
+    vim.lsp.config[conf.name] = {
+      cmd = conf.cmd,
+      filetypes = conf.filetypes,
+      root_markers = conf.root_markers or { ".git" },
+      single_file_support = conf.single_file_support or true,
+      init_options = conf.init_options or {},
+      settings = conf.settings or {},
+    }
+    vim.lsp.enable(conf.name)
+  end
+end
+
 return M

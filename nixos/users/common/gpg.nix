@@ -1,11 +1,29 @@
 { pkgs, ... }:
 {
 
+  # will conflict with services.gpg-agent config, so please disable when using services.gpg-agent
+  home.file = {
+    ".gnupg/gpg-agent.conf" = {
+      enable = true;
+      text = ''
+        pinentry-program /usr/bin/pinentry-curses
+        default-cache-ttl 86400
+        max-cache-ttl 86400
+        allow-loopback-pinentry
+        allow-preset-passphrase
+      '';
+    };
+  };
+
   services.gpg-agent = {
     enable = false;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentry.package = pkgs.pinentry-curses;
     defaultCacheTtl = 86400;
     maxCacheTtl = 86400;
+    extraConfig = ''
+      allow-loopback-pinentry
+      allow-preset-passphrase
+    '';
   };
 
   programs.gpg = {

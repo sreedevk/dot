@@ -2,7 +2,12 @@
 # AUTHOR: Sreedev Kodichath
 
 # PATHS
-export PATH="$PATH:$HOME/.local/bin:/opt/bin"
+export CARGO_BIN_PATH="$HOME/.cargo/bin"
+export GHCUP_BIN_PATH="$HOME/.ghcup/bin"
+export LOCAL_BIN_PATH="$HOME/.local/bin"
+export OPT_BIN_PATH="/opt/bin"
+
+export PATH="$PATH:$LOCAL_BIN_PATH:$OPT_BIN_PATH:$CARGO_BIN_PATH:$GHCUP_BIN_PATH"
 
 # ENV VARIABLES
 export VISUAL="nvim"
@@ -22,7 +27,7 @@ export TZ='America/New_York'
 export WORDCHARS=${WORDCHARS/\/}
 
 if [ -z "$TMUX" ]; then
-    export TERM="xterm-256color"
+  export TERM="xterm-256color"
 fi
 
 # HISTORYFILE
@@ -57,10 +62,9 @@ shopt -s checkwinsize # checks term size when bash regains control
 
 # AUTOLOADS 
 
-# ASDF AUTOLOADS
-if [ -f "$HOME/.asdf/asdf.sh" ]; then
-  . "$HOME/.asdf/asdf.sh"
-  . "$HOME/.asdf/completions/asdf.bash"
+# MISE AUTOLOADS
+if [ -f "$(command -v mise)" ]; then
+  eval "$(mise activate bash)"
 fi
 
 if [ -f "$(command -v direnv)" ]; then
@@ -77,6 +81,10 @@ fi
 
 if [ -f "$HOME/.cargo/env" ]; then
   . $HOME/.cargo/env
+fi
+
+if [ -d "$HOME/.radicle/bin" ]; then
+  export PATH="$PATH:$HOME/.radicle/bin"
 fi
 
 # ALIASES
@@ -107,5 +115,5 @@ alias yt='yt-dlp'
 
 # FASTFETCH @ SHELL INIT
 if [ -f "$(command -v fastfetch)" ]; then
-  (echo -e "\n"; eval "$(command -v fastfetch)"; echo -e "\n")
+  echo && eval "$(command -v fastfetch)" && echo
 fi

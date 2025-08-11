@@ -15,7 +15,8 @@ vim.filetype.add {
     leex = "leex",
     sface = "heex",
     lexs = "heex",
-    janet = "janet"
+    janet = "janet",
+    yuck = "fennel",
   },
   filename = {
     ['NEOGIT_COMMIT_EDITMSG'] = 'NeogitCommitMessage',

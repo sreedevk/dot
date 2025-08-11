@@ -31,7 +31,7 @@
     definedAliases = [ "@nw" ];
   };
 
-  "YouTube" = {
+  youtube = {
     urls = [{
       template =
         "https://www.youtube.com/results?search_query={searchTerms}";
@@ -47,7 +47,7 @@
     definedAliases = [ "@hm" ];
   };
 
-  "Reddit" = {
+  reddit = {
     urls = [{
       template =
         "https://old.reddit.com/search?q={searchTerms}&include_over_18=on";
@@ -55,7 +55,7 @@
     definedAliases = [ "@r" ];
   };
 
-  "DuckDuckGo" = {
+  ddg = {
     urls = [{
       template =
         "https://duckduckgo.com?q={searchTerms}";
@@ -92,12 +92,26 @@
     definedAliases = [ "@gh" ];
   };
 
+  "hex.pm" = {
+    urls = [{
+      template = "https://hex.pm/packages?search={searchTerms}&sort=recent_downloads";
+    }];
+    definedAliases = [ "@hex" ];
+  };
+
+  "crates.io" = {
+    urls = [{
+      template = "https://crates.io/search?q={searchTerms}";
+    }];
+    definedAliases = [ "@rs" ];
+  };
+
   "Flatpak" = {
     urls = [{ template = "https://flathub.org/apps/search?q={searchTerms}"; }];
     definedAliases = [ "@fp" ];
   };
 
-  "Bing".metaData.hidden = true;
-  "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
-  "Wikipedia (en)".metaData.alias = "@w";
+  bing.metaData.hidden = true;
+  google.metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+  wikipedia.metaData.alias = "@w";
 }

@@ -1,0 +1,55 @@
+{ pkgs, ... }:
+{
+  imports = [
+    ./core-min.nix
+  ];
+
+  home.packages = with pkgs; [
+    ast-grep
+    bingrep
+    bottom
+    broot
+    bsd-finger
+    cyme
+    dua
+    duf
+    fend
+    flac
+    gperf
+    grex
+    hex
+    httpie
+    id3v2
+    imagemagick
+    iotop
+    jaq
+    lua
+    luau
+    mediainfo
+    mosh
+    ncdu
+    netcat-gnu
+    nettools
+    nix-prefetch-git
+    ouch
+    p7zip
+    pass
+    pigz
+    procs
+    progress
+    pwgen
+    python311Packages.eyed3
+    rake
+    restic
+    ripgrep-all
+    sshfs
+    tailspin
+    traceroute
+    tree
+    viddy
+    xh
+    xxd
+    yazi
+    yq
+  ];
+}

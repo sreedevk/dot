@@ -3,6 +3,7 @@
   stylix = {
     enable = true;
     autoEnable = false;
+    enableReleaseChecks = false;
     polarity = "dark";
     image = config.lib.stylix.pixel "base0A";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
@@ -33,7 +34,7 @@
 
       monospace = {
         package = pkgs.nerd-fonts.iosevka-term;
-        name = "IosevkaTerm NF";
+        name = "IosevkaTerm Nerd Font";
       };
 
       emoji = {
@@ -44,8 +45,6 @@
 
     targets = {
       gtk.enable = true;
-      nushell.enable = true;
-      sxiv.enable = true;
       xresources.enable = true;
     };
   };

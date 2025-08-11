@@ -12,17 +12,14 @@ vim.keymap.set("n", "<up>", "<C-w>k", { noremap = true })
 vim.keymap.set("n", "]w", "<C-w>l", { noremap = true, desc = "Move to Window on Right" })
 vim.keymap.set("n", "[w", "<C-w>h", { noremap = true, desc = "Move to Window on Left" })
 
--- Keep Center {{{1
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
-
 -- Tab Management {{{1
 vim.keymap.set('n', '<C-t>', '<cmd>tabnew<CR>', { noremap = true })
-vim.keymap.set('n', '<Leader>to', "<cmd>tabonly<cr>", { desc = "Delete All Other Tabs", noremap = true })
+vim.keymap.set('n', '<Leader>tx', "<cmd>tabonly<cr>", { desc = "Delete All Other Tabs", noremap = true })
 vim.keymap.set('n', '<Leader>ww', '<cmd>vnew<cr>', { desc = "New Vertical Window" })
 vim.keymap.set('n', '<Leader>ws', '<cmd>new<cr>', { desc = "New Horizontal Window" })
 vim.keymap.set('n', '<C-w>v', "<cmd>vnew<cr>", { desc = "New Vertical Window", noremap = true })
 vim.keymap.set('n', '<C-w>s', "<cmd>new<cr>", { desc = "New Horizontal Window", noremap = true })
+vim.keymap.set('n', '<Leader>te', "<cmd>term<cr>", { desc = "open terminal buffer", noremap = true })
 
 -- Buffer Navigation {{{1
 vim.keymap.set('n', '<Leader>bb', '<cmd>bnext<CR>', { desc = "Buffer Next", noremap = true })
@@ -31,7 +28,7 @@ vim.keymap.set('n', '<M-[>', '<cmd>bprev<CR>', { desc = "Buffer Previous", norem
 vim.keymap.set('n', '<M-]>', '<cmd>bnext<CR>', { desc = "Buffer Next", noremap = true })
 vim.keymap.set('n', '<Leader>bD', wrap_cmd('w|%bd|e#'), { desc = "Delete Hidden Buffers", noremap = true })
 
-vim.keymap.set('n', '<Leader>x', '<cmd>! chmod +x %<CR>', { desc = "Mark Current File Executable", noremap = true })
+vim.keymap.set('n', '<Leader>ex', '<cmd>! chmod +x %<CR>', { desc = "Mark Current File Executable", noremap = true })
 vim.keymap.set('n', '<leader>ssp', '<cmd>set spell!<CR>', { desc = "Enable Spell Check", noremap = true })
 
 -- Sorting {{{1
@@ -51,6 +48,7 @@ vim.keymap.set('n', '<esc>', '<cmd>noh<cr>', { noremap = true })
 vim.keymap.set('n', '<Leader>h', '<cmd>noh<CR>', { desc = "No Highlight", noremap = true })
 vim.keymap.set('n', '<Leader>rr', '<cmd>e!<CR>', { desc = "Reload File From Disk", noremap = true })
 vim.keymap.set('n', '<Leader>fs', '<cmd>w<CR>', { desc = "File Save", noremap = true })
+vim.keymap.set('n', '<Leader>fq', '<cmd>wq<CR>', { desc = 'Write Quit', noremap = true })
 vim.keymap.set('n', '<Leader>q', '<cmd>q<CR>', { desc = "Quit Neovim", noremap = true })
 
 vim.keymap.set(

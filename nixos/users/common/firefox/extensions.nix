@@ -1,18 +1,15 @@
-{ firefox-addons, system, ... }:
-with firefox-addons.packages."${system}"; [
-  adnauseam
+{ pkgs, system, ... }:
+with pkgs.nur.repos.rycee.firefox-addons; [
   bitwarden
   consent-o-matic
   darkreader
+  decentraleyes
   enhancer-for-youtube
-  hoarder
-  multi-account-containers
-  open-url-in-container
+  karakeep
+  private-grammar-checker-harper
   reddit-enhancement-suite
   sponsorblock
-  tab-reloader
-  temporary-containers
-  tubearchivist-companion
   ublock-origin
   vimium
 ]
+

@@ -9,15 +9,34 @@
       text = ''
         #!/bin/bash
 
+        detect-session() {
+          if [ "$XDG_SESSION_TYPE" = "wayland" ] || [ -n "WAYLAND_DISPLAY" ]; then
+            printf '%s' wayland
+          elif [ "$XDG_SESSION_TYPE" = "x11" ] || [ -n "$DISPLAY" ]; then
+            printf '%s' x11
+          else
+            printf '%s' unknown
+          fi
+        }
+
         copy-filepath-to-clipboard() {
           local filepath="$1"
-          printf "%s" "$filepath" | tr -d '\n' | wl-copy && \
-          notify-send "$filepath copied to clipboard"
+          local session="$(detect-session)"
+          case "$session" in
+            wayland)
+              printf "%s" "$filepath" | tr -d '\n' | wl-copy && \
+              notify-send "$filepath copied to clipboard" ;; 
+            x11)
+              printf "%s" "$filepath" | tr -d '\n' | xclip -sel clip && \
+              notify-send "$filepath copied to clipboard" ;;
+            *)
+              notify-send "error: desktop session unrecognized" ;;
+          esac
         }
 
         delete-file-after-confirm() {
           local filepath="$1"
-          [ "$(printf "No\nYes" | ${pkgs.wofi}/bin/wofi --dmenu -p "Really delete $filepath?")" = "Yes" ] && \
+          [ "$(printf "no\nyes" | ${pkgs.wofi}/bin/wofi --dmenu -p "delete $filepath?")" = "yes" ] && \
           rm "$filepath" && \
           notify-send "$filepath deleted"
         }
@@ -29,28 +48,28 @@
 
         rotate-cw() {
           local filepath="$1"
-          if type convert > /dev/null 2>&1; then 
-            convert -rotate 90 "$filepath" "$filepath"
+          if type magick > /dev/null 2>&1; then 
+            magick convert -rotate 90 "$filepath" "$filepath"
           else 
-            notify-send "Imagemagick is not installed!" 
+            notify-send "imagemagick is not installed!" 
           fi
         }
 
         rotate-ccw() {
           local filepath="$1"
-          if type convert > /dev/null 2>&1; then 
-            convert -rotate -90 "$filepath" "$filepath"
+          if type magick > /dev/null 2>&1; then 
+            magick convert -rotate -90 "$filepath" "$filepath"
           else
-            notify-send "Imagemagick is not installed!"
+            notify-send "imagemagick is not installed!"
           fi
         }
 
         flip-horizontal() {
           local filepath="$1"
-          if type convert > /dev/null 2>&1; then 
-            convert -flop "$filepath" "$filepath" 
+          if type magick > /dev/null 2>&1; then 
+            magick convert -flop "$filepath" "$filepath" 
           else 
-            notify-send "Imagemagick is not installed!"
+            notify-send "imagemagick is not installed!"
           fi
         }
 
@@ -71,6 +90,21 @@
           fi
         }
 
+        set-as-wallpaper() {
+          local filepath="$1"
+          local session="$(detect-session)"
+          case "$session" in
+            wayland)
+              ${pkgs.swww}/bin/swww img --transition-type wipe --transition-fps 60 --resize stretch --transition-step 60 --transition-duration 2 "$filepath"
+              notify-send "wallpaper set to: $filepath" ;;
+            x11)
+              ${pkgs.feh} --bg-scale "$filepath"
+              notify-send "$file set as wallpaper" ;;
+            *)
+              notify-send "couldn't set wallpaper: unknown desktop server" ;;
+          esac
+        }
+
         while read -r file; do
         	case "$1" in
         		"y") copy-filepath-to-clipboard $file & ;;
@@ -81,6 +115,7 @@
         		"m") flip-horizontal $file ;;
         		"e") open-in-gimp $file ;;
             "l") rename-file $file ;;
+            "w") set-as-wallpaper $file ;;
         	esac
         done
       '';

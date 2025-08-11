@@ -1,37 +1,45 @@
-{ pkgs, inputs, config, ... }:
+{ pkgs, config, ... }:
 let
+  formatters = with pkgs; [
+    typstfmt # typst
+    elmPackages.elm-format # elm
+    dockfmt # Dockerfile
+  ];
+
   language_servers = with pkgs; [
-    clojure-lsp
-    docker-compose-language-service
-    dockerfile-language-server-nodejs
-    elixir-ls
-    fennel-ls
-    lua-language-server
-    marksman
-    nil
-    nodePackages.vscode-json-languageserver
-    rust-analyzer
-    tailwindcss-language-server
-    taplo
-    typescript-language-server
-    yaml-language-server
+    astro-language-server           # astro
+    clojure-lsp                     # clojure
+    elixir-ls                       # elixir
+    elmPackages.elm-language-server # elm
+    fennel-ls                       # fennel
+    jsonnet-language-server         # jsonnet
+    lua-language-server             # lua
+    marksman                        # markdown
+    nil                             # nix
+    taplo                           # toml
+    tinymist                        # typst
+    vscode-langservers-extracted    # json+
+    yaml-language-server            # yaml
+    zls                             # zig
+    ltex-ls-plus                    # grammar
   ];
 
   neovim_pkgs =
     with pkgs; [
-      nodejs_23
+      nodejs-slim
       tree-sitter
+      typst
     ];
 in
 {
   home.packages = builtins.concatLists [
     language_servers
     neovim_pkgs
+    formatters
   ];
 
   programs.neovim = {
     enable = true;
-    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
   };
 
   xdg.desktopEntries = {
@@ -39,7 +47,7 @@ in
       name = "NeoVim";
       icon = "nvim";
       genericName = "Text Editor";
-      exec = "${config.programs.alacritty.package}/bin/alacritty -- ${config.programs.neovim.package}/bin/nvim %F";
+      exec = "${config.programs.alacritty.package}/bin/alacritty -e ${config.programs.neovim.package}/bin/nvim %F";
       comment = "Text Editor";
       mimeType = [
         "text/plain"

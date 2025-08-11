@@ -1,14 +1,28 @@
 vim.g.mapleader         = ';'
 
+vim.g.auxbuffers        = {
+  "qf",
+  "help",
+  "man",
+  "notify",
+  "nofile",
+  "lspinfo",
+  "terminal",
+  "prompt",
+  "toggleterm",
+  "startuptime",
+  "tsplayground",
+  "PlenaryTestPopup",
+  "trouble",
+  "vim",
+  "undotree",
+  "neo-tree",
+}
+
 vim.g.loaded            = 1
 vim.g.loaded_matchparen = 0
 vim.g.termdebugger      = "rust-gdb"
 vim.g.dotfiles          = vim.env.DOTFILES or vim.fn.expand('~/.dot')
-vim.g.auxbuffers        = {
-  "qf", "help", "man", "notify", "nofile", "lspinfo",
-  "terminal", "prompt", "toggleterm", "startuptime",
-  "tsplayground", "PlenaryTestPopup", "trouble", "vim"
-}
 
 vim.opt.ruler           = true
 vim.opt.tabstop         = 2
@@ -174,5 +188,6 @@ vim.opt.formatoptions   = {
 vim.opt.spellsuggest:prepend({ 12 })
 vim.opt.spelloptions:append({ 'camel', 'noplainbuffer' })
 vim.opt.spellcapcheck = ''
+vim.opt.spellfile = vim.fn.expand(vim.g.dotfiles .. "/stowed/.config/nvim/spell/en.utf-8.add")
 
 vim.api.nvim_set_hl(0, "CursorLine", { default = true, blend = 50 })

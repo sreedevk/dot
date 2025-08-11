@@ -3,7 +3,11 @@
 
 # PATHS
 export CARGO_BIN_PATH="$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/.local/bin:/opt/bin:$CARGO_BIN_PATH"
+export GHCUP_BIN_PATH="$HOME/.ghcup/bin"
+export LOCAL_BIN_PATH="$HOME/.local/bin"
+export OPT_BIN_PATH="/opt/bin"
+
+export PATH="$PATH:$LOCAL_BIN_PATH:$OPT_BIN_PATH:$CARGO_BIN_PATH:$GHCUP_BIN_PATH"
 
 # XDG
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -17,6 +21,7 @@ export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
 # ENV VARIABLES
 export VISUAL="nvim"
 export EDITOR="nvim"
+export SUDO_EDITOR="$EDITOR"
 export READER="zathura"
 export TERMINAL="alacritty"
 export BROWSER="brave"
@@ -59,9 +64,14 @@ zle -N edit-command-line
 [ -f "$HOME/.zsh/autoloads.zsh" ] && source "$HOME/.zsh/autoloads.zsh"
 
 # AUTOLOAD MODULES
-autoload -U colors && colors
-autoload -U compinit && compinit
-autoload edit-command-line
+zmodload     zsh/complist 
+autoload -U  colors && colors
+autoload -U  promptinit && promptinit
+autoload -U  compinit && compinit -u
+autoload -Uz bashcompinit && bashcompinit
+autoload     edit-command-line
+
+_comp_options+=(globdots)
 
 [ -f "$HOME/.zsh/post-compinit.zsh" ] && source "$HOME/.zsh/post-compinit.zsh"
 
@@ -75,11 +85,13 @@ setopt   HIST_REDUCE_BLANKS
 setopt   HIST_SAVE_NO_DUPS
 setopt   interactivecomments
 setopt   extendedglob
+setopt   globdots
 setopt   autocd
 setopt   nomatch
 setopt   notify
 setopt   sharehistory
 setopt   appendhistory
+setopt   incappendhistory
 unsetopt beep
 
 # Set VI mode
@@ -93,6 +105,9 @@ bindkey       '^E'    end-of-line
 bindkey       '^xn'    edit-command-line
 bindkey       '^xh'   _complete_help
 bindkey       '^[[Z'  autosuggest-accept
+
+# NOTE: fixes the issue where kitty terminal exiting neovim after 
+# overseer nvim is launched, puts the zsh prompt at "execute:3u"
 bindkey -a -r ':'
 
 # FASTFETCH @ SHELL INIT

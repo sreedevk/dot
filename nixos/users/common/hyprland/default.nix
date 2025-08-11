@@ -2,8 +2,9 @@
 {
   imports = [
     ./hyprlock.nix
-    ./hyprpaper.nix
-    ./waybar.nix
     ./modules
+    ./swww.nix
+    ./uwsm.nix
+    ./waybar.nix
   ];
 }

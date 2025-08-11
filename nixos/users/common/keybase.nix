@@ -1,12 +1,9 @@
-{ pkgs, lib, config, ... }: 
-let
-  nixglmod = import ../common/nixGL.nix { inherit lib config pkgs; };
-in
+{ pkgs, config, ... }:
 {
 
   home.packages = with pkgs; [
     keybase
-    (nixglmod.nixGLWrapped pkgs.keybase-gui "keybase-gui")
+    (config.lib.nixGL.wrap pkgs.keybase-gui)
   ];
 
   services.keybase.enable = true;

@@ -1,4 +1,4 @@
-{ pkgs, opts, ... }:
+{ pkgs, opts, username, ... }:
 let
   tmux-time-display = pkgs.writeShellScriptBin "ttd" ''
     TZ=${opts.timeZone} date "+%a %B %d %l:%M:%S %p"
@@ -80,6 +80,14 @@ in
       # CLEAR SESSION WINDOW WITH CTRL-L
       bind C-l send-keys -R \; clear-history
 
+      # SWITCH SESSIONS
+      bind -r \\ switch-client -l
+      bind -r b  switch-client -n
+      bind -r B  switch-client -p
+      bind | if-shell "tmux has-session -t system 2>/dev/null" \
+                      "switch-client -t system" \
+                      "new-session -d -s system -c '/home/${username}'; switch-client -t system"
+
       # COPY MODE
       bind -T copy-mode-vi v send-keys -X begin-selection
       bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
@@ -98,9 +106,15 @@ in
       # SOURCING CONFIG
       bind r source-file ~/.config/tmux/tmux.conf \; display '~/.config/tmux/tmux.conf sourced'
 
+      # CREATE SESSION
+      bind u new-session
+
       # SESSION MERGE
       bind C-u command-prompt -p "Session to merge with: " \
          "run-shell 'yes | head -n #{session_windows} | xargs -I {} -n 1 tmux movew -t %%'"
+
+      # IRISH EXIT
+      bind X kill-session
 
       # MODE KEYS
       set -g status-keys emacs

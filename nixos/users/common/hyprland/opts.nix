@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, opts, ... }:
 let
   hypr-switchlayout = pkgs.writeShellScriptBin "hypr-switchlayout" ''
     current_layout=$(hyprctl getoption general:layout -j | jq -M .str)
@@ -20,14 +20,15 @@ let
 in
 {
   envs = {
-    __NV_PRIME_RENDER_OFFLOAD = "1";
-    __VK_LAYER_NV_optimus = "NVIDIA_only";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
+    EGL_PLATFORM = "wayland";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
     GBM_BACKEND = "nvidia-drm";
     GDK_DPI_SCALE = "1";
     GDK_SCALE = "1";
+    GTK_THEME = "Adwaita:dark";
     HYPRCURSOR_SIZE = "28";
+    HYPRCURSOR_THEME = "rose-pine-hyprcursor";
     LIBVA_DRIVER_NAME = "nvidia";
     MOZ_ENABLE_WAYLAND = "1";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
@@ -36,15 +37,15 @@ in
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     WINIT_X11_SCALE_FACTOR = "1";
     XCURSOR_SIZE = "28";
-    XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
-    XDG_SESSION_TYPE = "wayland";
-    XDG_SESSION_DESKTOP = "Hyprland";
     XDG_CURRENT_DESKTOP = "Hyprland";
-    ELECTRON_OZONE_PLATFORM_HINT = "auto";
-    # NOTE: Legacy DRM interface. Might fix flickering issues.
-    # WLR_DRM_NO_ATOMIC = "1";
-    __GL_VRR_ALLOWED = "1";
+    XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_SESSION_TYPE = "wayland";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     __GL_GSYNC_ALLOWED = "1";
+    __GL_VRR_ALLOWED = "1";
+    __NV_PRIME_RENDER_OFFLOAD = "1";
+    __VK_LAYER_NV_optimus = "NVIDIA_only";
   };
 
   monitors = [
@@ -53,7 +54,7 @@ in
       desc = "AU Optronics 0xF99A";
       resolution = { x = 1920; y = 1200; };
       position = { x = 0; y = 1080; };
-      bitdepth = 8;
+      # bitdepth = 10;
       rate = 60;
       scale = 1;
     }
@@ -63,7 +64,7 @@ in
       resolution = { x = 1920; y = 1080; };
       position = { x = 0; y = 0; };
       rate = 100.00;
-      bitdepth = 8;
+      # bitdepth = 10;
       scale = 1;
     }
     {
@@ -72,7 +73,7 @@ in
       resolution = { x = 3840; y = 2160; };
       position = { x = 1920; y = 0; };
       rate = 60;
-      bitdepth = 8;
+      # bitdepth = 10;
       scale = 1.6;
     }
   ];
@@ -93,24 +94,26 @@ in
     shadow = {
       enabled = "true";
       range = "4";
+      sharp = "false";
       render_power = "3";
       color = "rgba(1a1a1aee)";
       color_inactive = "rgba(1a1a1aff)";
     };
 
     blur = {
-      enabled = "true";
-      noise = "0.01";
-      special = "false";
-      new_optimizations = "true";
       brightness = "1";
-      xray = "true";
-      size = "3";
-      passes = "4";
-      vibrancy = "0.1696";
-      popups = "true";
       contrast = "1";
-      popups_ignorealpha = "0.6";
+      enabled = "false";
+      new_optimizations = "true";
+      noise = "0.0117";
+      passes = "1";
+      popups = "false";
+      popups_ignorealpha = "0.0";
+      input_methods_ignorealpha = "0.0";
+      size = "4";
+      special = "false";
+      vibrancy = "0.1696";
+      xray = "true";
     };
   };
 
@@ -118,7 +121,7 @@ in
     kb_layout = "us,apl";
     kb_variant = ",dyalog";
     kb_model = "";
-    kb_options = "ctrl:nocaps,compose:ralt,grp:alt_shift_toggle";
+    kb_options = "ctrl:nocaps,compose:ralt,grp:shifts_toggle";
     kb_rules = "";
     follow_mouse = "1";
     sensitivity = "0";
@@ -129,6 +132,7 @@ in
     };
     tablet = {
       transform = "2";
+      output = "current";
     };
   };
 
@@ -212,7 +216,7 @@ in
       { mod = "CTRL"; keys = "XF86AudioMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
       { mod = "CTRL"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+"; }
       { mod = "SUPER ALT"; keys = "Tab"; dispatcher = "exec"; args = "${hypr-switchlayout}/bin/hypr-switchlayout"; }
-      { mod = "SUPER CTRL"; keys = "0"; dispatcher = "exec"; args = "${pkgs.hyprlock}/bin/hyprlock"; }
+      { mod = "SUPER CTRL"; keys = "0"; dispatcher = "exec"; args = "hyprlock"; }
       { mod = "SUPER CTRL"; keys = "H"; dispatcher = "changegroupactive"; args = "b"; }
       { mod = "SUPER CTRL"; keys = "L"; dispatcher = "changegroupactive"; args = "f"; }
       { mod = "SUPER SHIFT"; keys = "0"; dispatcher = "movetoworkspace"; args = "10"; }
@@ -244,9 +248,11 @@ in
       { mod = "SUPER"; keys = "7"; dispatcher = "workspace"; args = "7"; }
       { mod = "SUPER"; keys = "8"; dispatcher = "workspace"; args = "8"; }
       { mod = "SUPER"; keys = "9"; dispatcher = "workspace"; args = "9"; }
-      { mod = "SUPER"; keys = "A"; dispatcher = "exec"; args = "pwvucontrol"; }
+      { mod = "SUPER"; keys = "A"; dispatcher = "exec"; args = "uwsm app -t service -- pwvucontrol"; }
+      { mod = "SUPER"; keys = "B"; dispatcher = "exec"; args = "uwsm app -t service -- ${opts.desktop.browser.xdg-desktop}"; }
       { mod = "SUPER"; keys = "C"; dispatcher = "togglespecialworkspace"; args = ""; }
       { mod = "SUPER"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; }
+      { mod = "SUPER"; keys = "E"; dispatcher = "exec"; args = "uwsm app -t service -- org.mozilla.Thunderbird.desktop"; }
       { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
       { mod = "SUPER"; keys = "G"; dispatcher = "togglegroup"; args = ""; }
       { mod = "SUPER"; keys = "H"; dispatcher = "movefocus"; args = "l"; }
@@ -255,10 +261,10 @@ in
       { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; }
       { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "${pkgs.dunst}/bin/dunstctl set-paused toggle"; }
       { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-toggleblur}/bin/hypr-toggleblur"; }
+      { mod = "SUPER"; keys = "T"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty -e zsh -i -c bwfzf"; }
+      { mod = "SUPER"; keys = "W"; dispatcher = "exec"; args = "uwsm app -t service -- brave-browser.desktop"; }
       { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
       { mod = "SUPER"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
-      { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.ghostty.package}/bin/ghostty"; }
-      { mod = "SUPER SHIFT"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.ghostty.package}/bin/ghostty"; }
       { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; }
       { mod = "SUPER"; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-"; }
       { mod = "SUPER"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+"; }
@@ -355,7 +361,7 @@ in
 
       { rule = "workspace 4 silent"; window_identifiers = [ "class:^(Slack)$" ]; }
       { rule = "workspace 2 silent"; window_identifiers = [ "class:^(firefox)$" ]; }
-      { rule = "workspace 2 silent"; window_identifiers = [ "class:^(Brave-browser)$" ]; }
+      { rule = "workspace 5 silent"; window_identifiers = [ "class:^(Brave-browser)$" ]; }
       { rule = "workspace 3 silent"; window_identifiers = [ "class:^(thunderbird)$" ]; }
 
       { rule = "float"; window_identifiers = [ "title:^(About Mozilla Firefox)$" ]; }
@@ -422,14 +428,14 @@ in
   };
 
   exec-once = [
-    "waybar"
-    "wlsunset -l 40.7 -L -73.9"
-    "${pkgs.hyprpaper}/bin/hyprpaper"
-    "wl-paste --type text --watch cliphist store"
-    "wl-paste --type image --watch cliphist store"
-    "hyprpm reload -n"
-    "xrdb ~/.Xresources"
     "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+    "hyprpm reload -n"
+    "systemctl --user start hyprpolkitagent"
+    "waybar"
+    "wl-paste --type image --watch cliphist store"
+    "wl-paste --type text --watch cliphist store"
+    "wlsunset -l 40.7 -L -73.9"
+    "xrdb ~/.Xresources"
   ];
 
   exec = [ ];

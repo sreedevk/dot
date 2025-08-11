@@ -3,7 +3,7 @@
     layout = "us,apl";
     variant = ",dyalog";
     options = [
-      "grp:alt_shift_toggle"
+      "grp:shifts_toggle"
       "ctrl:nocaps"
       "compose:ralt"
     ];

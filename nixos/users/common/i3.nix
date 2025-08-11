@@ -1,6 +1,6 @@
-{ pkgs, config, opts, ... }:
+{ pkgs, nixpkgs-stable, config, opts, ... }:
 let
-  wallpaper_path = "${opts.directories.wallpapers}/${opts.wallpaper}";
+  wallpaper_path = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
   set-wallpaper = pkgs.writeShellScriptBin "set-wallpaper" ''
     ${pkgs.feh}/bin/feh --no-fehbg --bg-scale ${wallpaper_path} 
   '';
@@ -29,13 +29,13 @@ in
         set $mod Mod4
 
         # AutoStart Applications
-        exec_always --no-startup-id ${pkgs.autorandr}/bin/autorandr -c --match-edid
         exec_always --no-startup-id ~/.config/polybar/launch.sh
         exec_always --no-startup-id ${pkgs.autotiling}/bin/autotiling
         exec_always --no-startup-id picom -b
         exec_always --no-startup-id ${set-wallpaper}/bin/set-wallpaper
 
         # Disable Screen Blanking
+        exec --no-startup-id ${pkgs.autorandr}/bin/autorandr -c --match-edid
         exec --no-startup-id xset s off
         exec --no-startup-id xset -dpms
 
@@ -70,7 +70,7 @@ in
         default_border                pixel 1
         hide_edge_borders             smart
         default_floating_border       pixel 0
-        font                          pango:Iosevka NF 11
+        font                          pango:Iosevka Nerd Font 11
         floating_modifier             $mod
         focus_follows_mouse           yes
         workspace_auto_back_and_forth no
@@ -103,9 +103,9 @@ in
         bindsym XF86AudioNext          exec --no-startup-id ${pkgs.playerctl}/bin/playerctl next
 
         # Shortcuts - Screenshots
-        bindsym Print                  exec --no-startup-id "${pkgs.maim}/bin/maim -i $(xdotool getactivewindow) ~/Media/screenshots/$(date +%s).png"
-        bindsym $mod+Ctrl+s  --release exec --no-startup-id "${pkgs.maim}/bin/maim -s -d 0.2 ~/Media/screenshots/$(date +%s).png"
-        bindsym $mod+Shift+s --release exec --no-startup-id "${pkgs.maim}/bin/maim -s -d 0.2 | xclip -selection clipboard -t image/png"
+        bindsym Print                  exec --no-startup-id "${nixpkgs-stable.maim}/bin/maim -i $(xdotool getactivewindow) ~/Media/screenshots/$(date +%s).png"
+        bindsym $mod+Ctrl+s  --release exec --no-startup-id "${nixpkgs-stable.maim}/bin/maim -s -d 0.2 ~/Media/screenshots/$(date +%s).png"
+        bindsym $mod+Shift+s --release exec --no-startup-id "${nixpkgs-stable.maim}/bin/maim -s -d 0.2 | xclip -selection clipboard -t image/png"
 
         # Shortcuts - Audio
         bindsym $mod+a            exec --no-startup-id "pavucontrol"
@@ -140,6 +140,9 @@ in
 
         # Bar Mode Toggle
         bindsym $mod+m               exec --no-startup-id polybar-msg cmd toggle
+
+        # Rescan & Resetup Monitors
+        bindsym $mod+Shift+m         exec --no-startup-id ${pkgs.autorandr}/bin/autorandr -c --match-edid
 
         # Layouts
         bindsym $mod+s               layout stacking

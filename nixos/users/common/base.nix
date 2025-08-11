@@ -29,6 +29,16 @@
       recursive = true;
     };
 
+    ".bash_profile" = {
+      enable = true;
+      executable = true;
+      recursive = true;
+      text = ''
+        [[ -f ~/.bashrc ]]  && . ~/.bashrc
+        [[ -f ~/.zshenv ]]  && . ~/.zshenv
+      '';
+    };
+
     ".xinitrc" = {
       enable = true;
       executable = true;
@@ -79,20 +89,22 @@
         text/html=neovim.desktop
         text/unknown=neovim.desktop
         inode/directory=nemo.desktop
-        x-scheme-handler/http=${opts.default-web-browser.xdg-desktop}
-        x-scheme-handler/https=${opts.default-web-browser.xdg-desktop}
-        x-scheme-handler/about=${opts.default-web-browser.xdg-desktop}
-        x-scheme-handler/unknown=${opts.default-web-browser.xdg-desktop}
+        x-scheme-handler/http=${opts.desktop.browser.xdg-desktop or ""}
+        x-scheme-handler/https=${opts.desktop.browser.xdg-desktop or ""}
+        x-scheme-handler/about=${opts.desktop.browser.xdg-desktop or ""}
+        x-scheme-handler/unknown=${opts.desktop.browser.xdg-desktop or ""}
         image/png=nsxiv.desktop
         image/jpeg=nsxiv.desktop
         image/gif=nsxiv.desktop
+
+        [Added Associations]
+        application/atom+xml=${opts.desktop.browser.xdg-desktop or ""};
       '';
     };
   };
 
   programs = {
     home-manager.enable = true;
-    htop.enable = true;
   };
 
   systemd.user = {
@@ -104,13 +116,18 @@
 
   nixpkgs = {
     config = {
+      packageOverrides = pkgs: {
+        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/main.tar.gz") {
+          inherit pkgs;
+        };
+      };
       allowUnfree = true;
       allowUnfreePredicate = _: true;
     };
   };
 
   nix = {
-    package = pkgs.nixVersions.nix_2_25;
+    package = pkgs.nixVersions.nix_2_28;
     gc = {
       automatic = true;
       frequency = "weekly";

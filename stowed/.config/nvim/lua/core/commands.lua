@@ -4,10 +4,9 @@ vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "html", "markdown", "text" },
+  pattern = { "html", "markdown", "text", "gemtext" },
   callback = function()
     vim.opt_local.spelllang = "en"
-    vim.opt_local.spellfile = vim.fn.expand(vim.g.dotfiles .. "/stowed/.config/nvim/spell/en.utf-8.add")
     vim.opt_local.spell = true
   end,
 })
@@ -73,4 +72,53 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = event.buf, silent = true })
   end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { 'gitcommit', 'gitrebase' },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>wq<CR>", { buffer = event.buf, silent = true })
+  end
+})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = "Configurations on LSP Attach",
+  callback = function(event)
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+    if client and client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+    end
+
+    vim.opt.signcolumn = 'yes'
+    vim.bo[event.buf].formatexpr = nil
+    vim.bo[event.buf].omnifunc = nil
+
+    vim.diagnostic.config {
+      virtual_lines = false, -- { current_line = true },
+      virtual_text = { current_line = true },
+    }
+
+    local format_buf_async = function()
+      vim.lsp.buf.format({ async = true })
+    end
+
+    vim.keymap.set('n', '<Leader>ff', format_buf_async, { noremap = true })
+    vim.keymap.set({ "n", "v" }, "<Leader>ff", vim.lsp.buf.format, { noremap = true, desc = "LSP Format" })
+
+    -- grn        : rename
+    -- grr        : references
+    -- gri        : goto implementation
+    -- g0         : document symbol
+    -- gra        : code action
+    -- CTRL-S     : signature help
+    -- [d and ]d  : jump b/w diagnostics
+    -- [q, ]q, [Q, ]Q, [CTRL-Q, ]CTRL-Q navigate through the quickfix list
+    -- [l, ]l, [L, ]L, [CTRL-L, ]CTRL-L navigate through the location list
+    -- [t, ]t, [T, ]T, [CTRL-T, ]CTRL-T navigate through the tag matchlist
+    -- [a, ]a, [A, ]A navigate through the argument list
+    -- [b, ]b, [B, ]B navigate through the buffer list
+    -- [<Space>, ]<Space> add an empty line above and below the cursor
+  end
 })

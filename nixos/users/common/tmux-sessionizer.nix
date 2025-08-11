@@ -2,22 +2,12 @@
 let
   tmux-sessionizer =
     pkgs.writeShellScriptBin "tmux-sessionizer" ''
-      # This script is an improved version of The Primeagen's tmux sessionizer
-      # https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer.
-      #
-      # The following are the changes from the primeagen's original version:
-      # 1. use fd instead of find (performance improvement)
-      # 2. allows integration with global tmuxinator session configs.
-      #      if a tmuxinator session exists in ~/.config/tmuxinator/<project>.yml, 
-      #      and the project directory name matches the name of .yml file, then tmuxinator
-      #      is invoked instead of tmux.
-
       if [[ $# -eq 1 ]]; then
         selected=$1
       else
         selected=$(
           (
-            fd . ~/Data/repositories/ ~/Data/**/repositories/ -td -d1
+            fd . ~/Data/repositories/ ~/Data/labs/ ~/Data/**/repositories/ -td -d1
             echo "$HOME/.dot/"
             echo "$HOME/Data/finances/"
             echo "$HOME/Data/notebook/"
@@ -33,8 +23,10 @@ let
       tmux_running=$(pgrep tmux)
 
       if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-        if [[ -f "$HOME/.config/tmuxinator/''\${selected_name}.yml" ]]; then
+        if [[ -f "$HOME/.config/tmuxinator/$selected_name.yml" ]]; then
           ${pkgs.tmuxinator}/bin/tmuxinator start $selected_name
+        elif [[ -f "$selected/.tmuxinator.yml" ]]; then
+          ${pkgs.tmuxinator}/bin/tmuxinator start --name=$selected_name -p "$selected/.tmuxinator.yml"
         else
           ${pkgs.tmux}/bin/tmux new-session -s $selected_name -c $selected
         fi
@@ -43,8 +35,10 @@ let
       fi
 
       if ! tmux has-session -t=$selected_name 2> /dev/null; then
-        if [[ -f "$HOME/.config/tmuxinator/''\${selected_name}.yml" ]]; then
-          ${pkgs.tmuxinator}/bin/tmuxinator start $selected_name
+        if [[ -f "$HOME/.config/tmuxinator/$selected_name.yml" ]]; then
+          ${pkgs.tmuxinator}/bin/tmuxinator start --no-attach $selected_name
+        elif [[ -f "$selected/.tmuxinator.yml" ]]; then
+          ${pkgs.tmuxinator}/bin/tmuxinator start --name=$selected_name --no-attach -p "$selected/.tmuxinator.yml"
         else
           ${pkgs.tmux}/bin/tmux new-session -ds $selected_name -c $selected
         fi

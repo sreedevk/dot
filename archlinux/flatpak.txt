@@ -1,3 +1,4 @@
+Foliate
 Flatseal
 Steam
 Boxtron
@@ -5,8 +6,8 @@ Proton-GE
 gamescope
 protontricks
 Steam
-FreeTube
 Supersonic
+Warehouse
 Freedesktop
 Freedesktop
 i386
@@ -14,10 +15,12 @@ Mesa
 Mesa
 Mesa
 Mesa
-nvidia-565-77
+nvidia-575-57-08
+nvidia-575-64-03
+nvidia-575-64-05
 Mesa
 Mesa
-nvidia-565-77
+nvidia-575-57-08
 Intel
 Intel
 i386
@@ -26,5 +29,7 @@ vkBasalt
 FFmpeg
 openh264
 openh264
+openh264
 GNOME
-Adwaita
+GNOME
+Signal

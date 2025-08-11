@@ -104,8 +104,8 @@
        ledger
        (lua +fennel +moonscript)
        (markdown +grip)
-       ;;nim
-       ;;nix
+       nim
+       nix
        (ocaml +lsp)
        (org
         +roam2
@@ -118,14 +118,14 @@
        (purescript +lsp)
        python
        ;;qt
-       ;;racket
+       racket
        ;;rak
        ;;rest
        ;;rst
        (ruby +lsp +rails)
        (rust +lsp)
-       ;; scala
-       (scheme +guile)
+       scala
+       (scheme +guile +chicken)
        sml
        (sh +lsp)
        ;;solidity

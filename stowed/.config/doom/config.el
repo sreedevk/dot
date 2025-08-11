@@ -6,10 +6,10 @@
 (setq user-full-name "Sreedev Kodichath"
       user-mail-address (rot13 "ferrqricnqznxhzne@tznvy.pbz"))
 
-(setq doom-theme 'doom-ir-black
-      doom-font (font-spec :family "Iosevka NF" :size 28)
-      doom-variable-pitch-font (font-spec :family "Iosevka NF" :size 24)
-      doom-big-font (font-spec :family "Iosevka NF" :size 42))
+(setq doom-theme 'ef-winter
+      doom-font (font-spec :family "Iosevka Nerd Font" :size 28)
+      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 24)
+      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 42))
 
 
 (after! doom-themes
@@ -111,11 +111,3 @@
                  (org-remove-inline-images)
                  (org-present-show-cursor)
                  (org-present-read-write)))))
-
-;; accept completion from copilot and fallback to company
-(use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  :bind (:map copilot-completion-map
-              ("C-e" . 'copilot-accept-completion)
-              ("C-TAB" . 'copilot-accept-completion-by-word)
-              ("C-<tab>" . 'copilot-accept-completion-by-word)))

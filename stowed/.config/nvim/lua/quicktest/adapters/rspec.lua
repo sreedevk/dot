@@ -33,18 +33,11 @@ Rspec.run = function(params, send)
   end
 
   local job = Job:new({
-    command = "bin/rspec",
-    args = args,
-
-    on_stdout = function(_, data)
-      send({ type = "stdout", output = data })
-    end,
-    on_stderr = function(_, data)
-      send({ type = "stderr", output = data })
-    end,
-    on_exit = function(_, return_val)
-      send({ type = "exit", code = return_val })
-    end,
+    command   = "bin/rspec",
+    args      = args,
+    on_stdout = function(_, data) send({ type = "stdout", output = data or "" }) end,
+    on_stderr = function(_, data) send({ type = "stderr", output = data or "" }) end,
+    on_exit   = function(_, retn) send({ type = "exit", code = retn }) end,
   })
 
   job:start()

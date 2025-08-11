@@ -4,12 +4,12 @@
 # AUTHOR: Sreedev Kodichath
 
 # Sys
-alias la='/usr/bin/ls'
-alias ls='eza --color=always --long --all --header --icons --git'
-alias lsa='eza --color=always --long --all --sort=age --reverse --header --icons'
-alias ll='eza -l --icons --color=always'
-alias lla='eza -la --icons --color=always'
-alias twee='eza -aT --color=always --group-directories-first'
+alias la='eza --color=always --all --header --icons --git'
+alias ls='eza --color=always --header'
+alias ll='eza -l --icons --long --color=always'
+alias lla='eza -la --icons --long --all --color=always'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias obliterate='shred -zvu -n 5'
 alias xo='xdg-open'
 alias grep='grep --color=auto'
@@ -20,7 +20,7 @@ alias clock="tty-clock -csSbt -C3"
 alias wget="noglob wget"
 alias curl="noglob curl"
 alias z='__zoxide_z'
-alias zxi='__zoxide_zi'
+alias zz='__zoxide_zi'
 alias cw='cliphist --wipe'
 
 # Taskwarrior
@@ -34,10 +34,11 @@ alias mv="mv -i"
 alias rm="rm -iv"
 
 alias e="$EDITOR"
+alias n="nvim"
 
 # Tmuxinator - Tmux Session Manager
 alias mux='tmuxinator'
-alias t="tmux"
+alias t="tmux new -A -s system"
 alias ta="tmux a"
 alias ts="tmux-sessionizer"
 alias zl="zellij"
@@ -47,7 +48,7 @@ alias g='git'
 alias gg='jj'
 
 # Docker
-alias dk='docker compose'
+alias dc='docker compose'
 alias d='docker'
 
 # yt-dlp

@@ -1,34 +1,33 @@
-{ pkgs, lib, config, firefox-addons, system, ... }:
+{ pkgs, config, system, ... }:
 let
-  nixglmod = import ../nixGL.nix { inherit lib config pkgs; };
-  extensions = import ./extensions.nix { inherit firefox-addons system; };
-
+  extensions = import ./extensions.nix { inherit pkgs system; };
   settings = import ./settings.nix;
   searchEngines = import ./search-engines.nix;
   bookmarks = import ./bookmarks.nix;
   containers = import ./containers.nix;
 in
 {
-  stylix.targets.firefox.enable = true;
   programs.firefox = {
     enable = true;
-    package = nixglmod.nixGLWrapped pkgs.firefox-beta-bin "firefox-beta";
+    package = config.lib.nixGL.wrapOffload pkgs.firefox-bin;
     profiles = {
 
       main = {
         isDefault = true;
         id = 0;
         containersForce = false;
-        containers = { };
-        extensions = extensions;
+        inherit containers;
+        extensions = {
+          packages = extensions;
+        };
         search = {
           force = true;
-          default = "Brave";
-          privateDefault = "Brave";
+          default = "ddg";
+          privateDefault = "ddg";
           engines = searchEngines;
         };
-        settings = settings;
-        bookmarks = bookmarks;
+        inherit settings;
+        inherit bookmarks;
       };
 
     };
