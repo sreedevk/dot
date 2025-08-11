@@ -5,10 +5,9 @@ if command -v jj &> /dev/null; then
   source <(jj util completion zsh)
 fi
 
-# ASDF AUTOLOADS
-if [ -f "$HOME/.nix-profile/share/asdf-vm/asdf.sh" ]; then
-  . "$HOME/.nix-profile/share/asdf-vm/asdf.sh"
-  . "$HOME/.nix-profile/share/asdf-vm/completions/asdf.bash"
+# MISE AUTOLOADS
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
 fi
 
 if command -v opam &> /dev/null; then

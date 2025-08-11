@@ -4,7 +4,6 @@
     ../../secmap.nix
     ../common/alacritty.nix
     ../common/amfora.nix
-    ../common/asdf.nix
     ../common/awscli.nix
     ../common/base.nix
     ../common/brave.nix
@@ -25,6 +24,7 @@
     ../common/jujutsu.nix
     ../common/keybase.nix
     ../common/keyboard.nix
+    ../common/mise.nix
     ../common/neovide.nix
     ../common/neovim.nix
     ../common/newsboat.nix

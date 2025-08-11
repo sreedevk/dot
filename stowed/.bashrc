@@ -62,13 +62,9 @@ shopt -s checkwinsize # checks term size when bash regains control
 
 # AUTOLOADS 
 
-# ASDF AUTOLOADS
-if [ -f "$HOME/.nix-profile/share/asdf-vm/asdf.sh" ]; then
-  . "$HOME/.nix-profile/share/asdf-vm/asdf.sh"
-  . "$HOME/.nix-profile/share/asdf-vm/completions/asdf.bash"
-elif [ -f "$HOME/.asdf/asdf.sh" ]; then
-  . "$HOME/.asdf/asdf.sh"
-  . "$HOME/.asdf/completions/asdf.bash"
+# MISE AUTOLOADS
+if [ -f "$(command -v mise)" ]; then
+  eval "$(mise activate bash)"
 fi
 
 if [ -f "$(command -v direnv)" ]; then

@@ -75,3 +75,4 @@ zinit light jeffreytse/zsh-vi-mode
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light ajeetdsouza/zoxide
 zinit light hlissner/zsh-autopair
+zinit light wintermi/zsh-mise

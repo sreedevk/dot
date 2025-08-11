@@ -24,7 +24,7 @@
   home.file = {
     ".config/amfora/config.toml" =
       {
-        source = (pkgs.formats.toml { }).generate "something" {
+        source = (pkgs.formats.toml { }).generate "amforaconf" {
           a-general = {
             home = "gemini://geminiprotocol.net";
             auto_redirect = true;
