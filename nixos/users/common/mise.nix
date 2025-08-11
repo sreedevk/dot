@@ -10,6 +10,11 @@
       enable = true;
       recursive = true;
       source = (pkgs.formats.toml { }).generate "miseconf" {
+        settings = {
+          auto_install = false;
+          not_found_auto_install = false;
+          quiet = true;
+        };
         tools = {
           bun = "1.2.17";
           chezscheme = "9.6.4";
