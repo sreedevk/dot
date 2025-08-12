@@ -3,7 +3,6 @@ return {
   'tpope/vim-characterize',
   'tpope/vim-ragtag',
   'tpope/vim-repeat',
-  'tpope/vim-speeddating',
   'tpope/vim-surround',
   'tpope/vim-vinegar',
 
