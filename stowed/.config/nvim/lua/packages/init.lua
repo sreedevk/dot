@@ -1,10 +1,12 @@
 return {
-  "tpope/vim-vinegar",
+  'tpope/vim-apathy',
   'tpope/vim-characterize',
   'tpope/vim-ragtag',
   'tpope/vim-repeat',
+  'tpope/vim-speeddating',
   'tpope/vim-surround',
-  'tpope/vim-apathy',
+  'tpope/vim-vinegar',
+
   { "chrisgrieser/nvim-early-retirement", lazy = true,  config = true,  event = "VeryLazy" },
   { 'petertriho/nvim-scrollbar',          lazy = true,  config = true,  event = "BufReadPost" },
   { 'ledger/vim-ledger',                  lazy = true,  config = false, ft = { 'ledger', 'journal' } },
