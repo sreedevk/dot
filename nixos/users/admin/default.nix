@@ -57,6 +57,14 @@
           identityFile = "~/.ssh/id_ed25519";
         };
 
+        "git.devtechnica.com" = {
+          hostname = "git.devtechnica.com";
+          user = "git";
+          port = 222;
+          identitiesOnly = true;
+          identityFile = "~/.ssh/id_ed25519";
+        };
+
         "gitlab.com" = {
           hostname = "gitlab.com";
           user = "git";

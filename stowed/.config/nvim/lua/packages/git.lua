@@ -52,6 +52,7 @@ return {
         ["gitlab.com"]       = "https://gitlab.com/${owner}/${repository}/merge_requests/new?merge_request[source_branch]=${branch_name}",
         ["azure.com"]        = "https://dev.azure.com/${owner}/_git/${repository}/pullrequestcreate?sourceRef=${branch_name}&targetRef=${target}",
         ["gitea.nullptr.sh"] = "https://gitea.nullptr.sh/${owner}/${repository}/compare/${branch_name}",
+        ["git.devtechnica.com"] = "https://git.devtechnica.com/${owner}/${repository}/compare/${branch_name}"
       },
     },
   },
