@@ -112,9 +112,7 @@
           "https://dns.mullvad.net/dns-query"
           "https://dns.cloudflare.com/dns-query"
           "https://dns.google/dns-query"
-          "https://dns.nextdns.io/58ebbc"
           "https://dns.quad9.net/dns-query"
-          "https://dns.switch.ch/dns-query"
           "https://dns0.eu"
           "https://dns11.quad9.net/dns-query"
           "https://doh.opendns.com/dns-query"
@@ -123,8 +121,9 @@
           "tls://dns.quad9.net"
           "tls://dns11.quad9.net"
         ];
-        upstream_mode = "load_balance";
-        upstream_timeout = "1s";
+        upstream_mode = "load_balance"; # parallel
+        upstream_timeout = "5s";
+        use_http3_upstreams = true;
       };
     };
   };
