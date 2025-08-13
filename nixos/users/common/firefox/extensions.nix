@@ -4,7 +4,6 @@ with pkgs.nur.repos.rycee.firefox-addons; [
   consent-o-matic
   darkreader
   decentraleyes
-  enhancer-for-youtube
   karakeep
   private-grammar-checker-harper
   reddit-enhancement-suite
