@@ -75,6 +75,7 @@
           (config.lib.nixGL.wrap pkgs.slack)
           (config.lib.nixGL.wrap pkgs.youtube-music)
           (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
+          (config.lib.nixGL.wrap pkgs.bitwarden-desktop)
           dbeaver-bin
           eww
           libreoffice-fresh
