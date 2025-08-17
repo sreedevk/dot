@@ -10,6 +10,7 @@ require('core.utils').setup_lsp {
     'package.json',
     '.git',
     'esy.json',
+    '.ocamlformat'
   },
   settings = {
     ['ocamllsp'] = {
