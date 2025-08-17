@@ -27,16 +27,26 @@ function M.colorize()
   end, 2000)
 end
 
+local function gen_lang_conf(conf)
+  local baseconf = {
+    cmd = conf.cmd,
+    filetypes = conf.filetypes,
+    root_markers = conf.root_markers or { ".git" },
+    single_file_support = conf.single_file_support or true,
+    init_options = conf.init_options or {},
+    settings = conf.settings or {},
+  }
+
+  if conf.get_language_id then
+    vim.tbl_deep_extend('error', baseconf, { get_language_id = conf.get_language_id })
+  end
+
+  return baseconf
+end
+
 function M.setup_lsp(conf)
   if conf.enable then
-    vim.lsp.config[conf.name] = {
-      cmd = conf.cmd,
-      filetypes = conf.filetypes,
-      root_markers = conf.root_markers or { ".git" },
-      single_file_support = conf.single_file_support or true,
-      init_options = conf.init_options or {},
-      settings = conf.settings or {},
-    }
+    vim.lsp.config[conf.name] = gen_lang_conf(conf)
     vim.lsp.enable(conf.name)
   end
 end
