@@ -84,28 +84,30 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = "Configurations on LSP Attach",
-  callback = function(event)
-    local client = vim.lsp.get_client_by_id(event.data.client_id)
-
-    if client and client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
-    end
-
+  callback = function(_)
     vim.opt.signcolumn = 'yes'
-    vim.bo[event.buf].formatexpr = nil
-    vim.bo[event.buf].omnifunc = nil
-
     vim.diagnostic.config {
       virtual_lines = false, -- { current_line = true },
       virtual_text = { current_line = true },
     }
 
-    local format_buf_async = function()
-      vim.lsp.buf.format({ async = true })
+    local conform_ok, conform = pcall(require, 'conform')
+    if conform_ok then
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+      vim.keymap.set(
+        { 'n', 'v' },
+        '<Leader>ff',
+        function() conform.format({ async = true, lsp_fallback = true }) end,
+        { noremap = true }
+      )
+    else
+      vim.keymap.set(
+        { 'n', 'v' },
+        '<Leader>ff',
+        function() vim.lsp.buf.format({ async = true }) end,
+        { noremap = true }
+      )
     end
-
-    vim.keymap.set('n', '<Leader>ff', format_buf_async, { noremap = true })
-    vim.keymap.set({ "n", "v" }, "<Leader>ff", vim.lsp.buf.format, { noremap = true, desc = "LSP Format" })
 
     -- grn        : rename
     -- grr        : references
