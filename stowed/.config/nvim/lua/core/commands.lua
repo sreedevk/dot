@@ -93,7 +93,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     local conform_ok, conform = pcall(require, 'conform')
     if conform_ok then
-      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
       vim.keymap.set(
         { 'n', 'v' },
         '<Leader>ff',
