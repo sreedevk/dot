@@ -6,17 +6,18 @@ return {
   opts = {
     formatters_by_ft = {
       ocaml = { "ocamlformat" },
-      ruby = { "rubyfmt" }
+      ruby = { "rubyfmt" },
+      dockerfile = { "dockfmt" },
+      nim = { "nph" }
+    },
+    default_format_opts = {
+      lsp_format = "fallback",
     },
     formatters = {
-      rubyfmt = {
-        "rubyfmt",
-        lsp_format = "fallback",
-      },
-      rust = {
-        "rustfmt",
-        lsp_format = "fallback",
-      },
+      dockfmt = { "dockfmt" },
+      rubyfmt = { "rubyfmt" },
+      nph = { "nph" },
+      rust = { "rustfmt" },
       ocamlformat = {
         prepend_args = {
           "--if-then-else",
