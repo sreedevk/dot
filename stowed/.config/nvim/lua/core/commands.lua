@@ -19,21 +19,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "ruby",
-  callback = function()
-    local function extend_hl(name, def)
-      local old = vim.api.nvim_get_hl(0, { name = name })
-      local new = vim.tbl_extend("force", {}, old, def)
-      vim.api.nvim_set_hl(0, name, new)
-    end
-    extend_hl("@keyword.function.ruby", { bold = true })
-    extend_hl("@keyword.conditional.ruby", { bold = true })
-    extend_hl("@variable.builtin.ruby", { bold = true })
-    extend_hl("@constant.ruby", { bold = true })
-  end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
   pattern = "janet",
   callback = function()
     vim.bo.commentstring = "# %s"
