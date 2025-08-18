@@ -38,7 +38,7 @@ in
       {
         plugin = tmuxPlugins.jump;
         extraConfig = ''
-          set -g @jump-key 's'
+          set -g @jump-key 'o'
           set -g @jump-keys-position 'left'
         '';
       }
