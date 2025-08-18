@@ -12,13 +12,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "janet",
-  callback = function()
-    vim.bo.commentstring = "# %s"
-  end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
   pattern = "csv",
   callback = function()
     vim.opt.wrap = false
@@ -43,6 +36,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "janet",
   callback = function()
+    vim.bo.commentstring = "# %s"
     vim.keymap.set(
       "n",
       "<Leader>re",
