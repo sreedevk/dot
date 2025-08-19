@@ -13,12 +13,11 @@ return {
   { "tiagovla/scope.nvim",                lazy = false, config = true },
 
   {
-    'kaarmu/typst.vim',
+    'chomosuke/typst-preview.nvim',
     lazy = true,
     ft = 'typst',
-    init = function()
-      vim.g.typst_pdf_viewer = "zathura"
-    end
+    version = '1.*',
+    opts = {},
   },
 
   {

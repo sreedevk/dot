@@ -33,12 +33,22 @@ local function gen_lang_conf(conf)
     filetypes = conf.filetypes,
     root_markers = conf.root_markers or { ".git" },
     single_file_support = conf.single_file_support or true,
-    init_options = conf.init_options or {},
-    settings = conf.settings or {},
   }
 
+  if conf.settings then
+    baseconf = vim.tbl_deep_extend('error', baseconf, { settings = conf.settings })
+  end
+
+  if conf.init_options then
+    baseconf = vim.tbl_deep_extend('error', baseconf, { init_options = conf.init_options })
+  end
+
   if conf.get_language_id then
-    vim.tbl_deep_extend('error', baseconf, { get_language_id = conf.get_language_id })
+    baseconf = vim.tbl_deep_extend('error', baseconf, { get_language_id = conf.get_language_id })
+  end
+
+  if conf.on_attach then
+    baseconf = vim.tbl_deep_extend('error', baseconf, { on_attach = conf.on_attach })
   end
 
   return baseconf
