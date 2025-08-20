@@ -1,4 +1,7 @@
 { pkgs, config, nixpkgs-stable, inputs, ... }:
+let
+  tmux-sessionizer-package = (import ../common/tmux-sessionizer.nix { inherit pkgs; });
+in
 {
   imports = [
     ../../secmap.nix
@@ -40,7 +43,6 @@
     ../common/stylix.nix
     ../common/supervisor
     ../common/taskwarrior.nix
-    ../common/tmux-sessionizer.nix
     ../common/tmux.nix
     ../common/vdirsyncer.nix
     ../common/vim.nix
@@ -155,6 +157,7 @@
           tea
           terminaltexteffects
           ticker
+          tmux-sessionizer-package
           tmuxinator
           toilet
           tokei
