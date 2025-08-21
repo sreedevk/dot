@@ -101,7 +101,7 @@
         cache_size = 1000000;
         cache_ttl_min = 3600;
         cache_ttl_max = 86400;
-        cache_optimistic = true;
+        cache_optimistic = false;
         bootstrap_dns = [
           "9.9.9.9"
           "1.1.1.1"
