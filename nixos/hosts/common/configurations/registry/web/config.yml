@@ -1,10 +1,7 @@
-# Listen interface.
 listen_addr: 0.0.0.0:8000
-
-# Base path of Registry UI.
 uri_base_path: /
+verify_tls: false
 
-# Background tasks.
 performance:
   # Catalog list page size. It depends from the underlying storage performance.
   catalog_page_size: 100
