@@ -13,7 +13,7 @@
   virtualisation.oci-containers.containers = {
     "container-registry-server" = {
       autoStart = opts.autostart-non-essential-services;
-      image = "registry:2.7";
+      image = "registry:3.0";
       extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
       ports = [ "${opts.ports.container-registry-server}:5000" ];
       volumes = [ "${opts.paths.app_datafiles}/containers/server:/var/lib/registry" ];
@@ -47,6 +47,7 @@
         USER_UID = opts.adminUID;
         USER_GID = opts.adminGID;
         REGISTRY_HOSTNAME = "dkr.external.nullptr.sh";
+        REGISTRY_INSECURE= "false";
       };
     };
   };
