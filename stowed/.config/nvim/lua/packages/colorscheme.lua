@@ -1,5 +1,19 @@
 return {
   {
+    "catppuccin/nvim",
+    lazy = true,
+    enabled = true,
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
+      transparent_background = false
+    },
+    init = function()
+      vim.cmd.colorscheme "catppuccin"
+    end
+  },
+  {
     "theamallalgi/zitchdog",
     lazy = false,
     enabled = false,
@@ -29,7 +43,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = true,
+    enabled = false,
     priority = 1000,
     opts = {},
     init = function()
