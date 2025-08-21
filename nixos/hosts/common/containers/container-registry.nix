@@ -1,4 +1,10 @@
 { pkgs, config, opts, ... }:
+let
+  registryWebConfig = builtins.path {
+    name = "containerRegistryWeb";
+    path = ../configurations/registry/web;
+  };
+in
 {
 
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ container-registry-server container-registry-web ]);
@@ -39,15 +45,15 @@
       ports = [ "${opts.ports.container-registry-web}:8000" ];
       volumes = [
         "${opts.paths.app_datafiles}/containers/web/data:/opt/data"
-        "${opts.paths.app_datafiles}/containers/web/config.yml:/opt/config.yml:ro"
         "${opts.paths.app_datafiles}/containers/web/registry_password_file:/run/secrets/registry_password_file:ro"
+        "${registryWebConfig}/config.yml:/opt/config.yml:ro"
       ];
       environment = {
         TZ = opts.timeZone;
         USER_UID = opts.adminUID;
         USER_GID = opts.adminGID;
         REGISTRY_HOSTNAME = "dkr.external.nullptr.sh";
-        REGISTRY_INSECURE= "false";
+        REGISTRY_INSECURE = "false";
       };
     };
   };

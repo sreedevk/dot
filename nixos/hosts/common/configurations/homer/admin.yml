@@ -9,7 +9,7 @@ services:
         logo: "assets/tools/portainer.avif"
         subtitle: "Containerization Manager"
         tag: "containerization"
-        url: "https://docker.nullptr.sh"
+        url: "https://portainer.nullptr.sh"
         target: "_blank"
 
       - name: "Dockge"
