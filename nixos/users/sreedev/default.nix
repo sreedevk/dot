@@ -132,6 +132,7 @@ in
           just
           k9s
           kubectl
+          lazydocker
           ledger
           mdbook
           miller

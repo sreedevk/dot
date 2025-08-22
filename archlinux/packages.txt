@@ -58,6 +58,7 @@ hyprpolkitagent
 hyprutils
 hyprwayland-scanner
 i3-wm
+impala
 incus
 incus-tools
 inetutils
