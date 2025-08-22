@@ -5,7 +5,7 @@ in
 {
   imports = [
     ../../secmap.nix
-    ../common/alacritty.nix
+    ../common/alacritty
     ../common/amfora.nix
     ../common/awscli.nix
     ../common/base.nix
