@@ -45,7 +45,6 @@ in
     ../common/supervisor
     ../common/taskwarrior.nix
     ../common/tmux.nix
-    ../common/vdirsyncer.nix
     ../common/vim.nix
     ../common/xresources.nix
     ../common/zathura.nix
