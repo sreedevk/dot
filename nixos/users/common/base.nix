@@ -130,7 +130,7 @@
     package = pkgs.nixVersions.nix_2_28;
     gc = {
       automatic = true;
-      frequency = "weekly";
+      dates = "weekly";
       options = "--delete-older-than 7d";
     };
     settings = {
