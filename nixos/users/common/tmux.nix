@@ -1,5 +1,6 @@
 { pkgs, opts, username, ... }:
 let
+  bitwaden-fzf-script = (import ./bwfzf.nix { inherit pkgs; });
   tmux-sessionizer-script = (import ./tmux-sessionizer.nix { inherit pkgs; });
   tmux-time-display = pkgs.writeShellScriptBin "ttd" ''
     TZ=${opts.timeZone} date "+%a %B %d %l:%M:%S %p"
@@ -102,6 +103,9 @@ in
 
       # TMUX SESSIONIZER
       bind C-o run-shell "tmux neww ${tmux-sessionizer-script}/bin/tmux-sessionizer"
+
+      # BWFZF
+      bind C-t run-shell "tmux neww ${bitwaden-fzf-script}/bin/bwfzf"
 
       # MOUSE SUPPORT
       bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M

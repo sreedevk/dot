@@ -261,7 +261,6 @@ in
       { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; }
       { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "${pkgs.dunst}/bin/dunstctl set-paused toggle"; }
       { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-toggleblur}/bin/hypr-toggleblur"; }
-      { mod = "SUPER"; keys = "T"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty -e zsh -i -c bwfzf"; }
       { mod = "SUPER"; keys = "W"; dispatcher = "exec"; args = "uwsm app -t service -- brave-browser.desktop"; }
       { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }
       { mod = "SUPER"; keys = "KP_Enter"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }

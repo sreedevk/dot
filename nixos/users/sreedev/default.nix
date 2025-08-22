@@ -9,6 +9,7 @@ in
     ../common/amfora.nix
     ../common/awscli.nix
     ../common/base.nix
+    ../common/bitwarden.nix
     ../common/brave.nix
     ../common/btop.nix
     ../common/core-max.nix
@@ -77,7 +78,6 @@ in
           (config.lib.nixGL.wrap pkgs.slack)
           (config.lib.nixGL.wrap pkgs.youtube-music)
           (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
-          (config.lib.nixGL.wrap pkgs.bitwarden-desktop)
           dbeaver-bin
           eww
           libreoffice-fresh
@@ -100,7 +100,6 @@ in
           aspellDicts.en-computers
           aspellDicts.en-science
           beanstalkd
-          bitwarden-cli
           cava
           claude-code
           cmatrix
