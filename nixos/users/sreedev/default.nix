@@ -143,6 +143,7 @@ in
           nixpkgs-fmt
           nmap
           nushell
+          opencode
           oxker
           pandoc
           poezio
