@@ -8,6 +8,7 @@ pkgs.writeShellScriptBin "bwfzf" ''
   if [ -n "$item" ]; then
     password=$("$bw_exec" get password "$item" 2>/dev/null)
     printf '%s' "$password" | ${pkgs.wl-clipboard}/bin/wl-copy
+    printf '%s' "$password" | tmux load-buffer -
 
     ${pkgs.systemd}/bin/systemd-run \
       --user \
