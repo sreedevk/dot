@@ -6,44 +6,10 @@
 (setq user-full-name "Sreedev Kodichath"
       user-mail-address (rot13 "ferrqricnqznxhzne@tznvy.pbz"))
 
-(setq doom-theme 'ef-winter
-      doom-font (font-spec :family "Iosevka Nerd Font" :size 28)
-      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font" :size 24)
-      doom-big-font (font-spec :family "Iosevka Nerd Font" :size 42))
-
-
-(after! doom-themes
-  (setq doom-themes-enable-bold t)
-  (setq doom-themes-enable-italic t))
-
-(setq org-roam-directory "~/Data/notebook/org/roam")
-(setq org-directory "~/Data/notebook/org")
-
-(after! org
-  (setq org-agenda-files '("~/Data/notebook/org/agenda.org")))
-
-(setq deft-directory "~/Data/notebook/org"
-      deft-extensions '("org", "txt", "md")
-      deft-recursive t)
-
-(use-package! websocket
-  :after org-roam)
-
-(use-package! org-roam-ui
-  :after org-roam
-  :config
-  (setq org-roam-ui-sync-theme t
-        org-roam-ui-follow t
-        org-roam-ui-update-on-save t
-        org-roam-ui-open-on-start t))
-
-(setq org-journal-date-prefix "#+TITLE:"
-      org-journal-time-prefix "* "
-      org-journal-file-format "%Y-%m-%d.org")
-
-(custom-set-faces!
-  '(font-lock-comm :slant italic)
-  '(font-lock-keyword-face :slant italic))
+(setq doom-theme 'modus-vivendi-deuteranopia
+      doom-font (font-spec :family "IosevkaTerm Nerd Font" :size 18)
+      doom-variable-pitch-font (font-spec :family "IosevkaTerm Nerd Font" :size 18)
+      doom-big-font (font-spec :family "IosevkaTerm Nerd Font" :size 24))
 
 (setq text-scale-mode-step 1.05)
 (setq-default line-spacing 1)
@@ -59,10 +25,6 @@
 (setq doom-scratch-initial-major-mode 'lisp-interaction-mode)
 (setq-default evil-escape-key-sequence "jj")
 (setq-default evil-escape-delay 0.5)
-
-(setq doom-fallback-buffer-name "► Doom"
-      +doom-dashboard-name "► Doom"
-      doom-fallback-buffer "*dashboard*")
 
 (display-time-mode 1)
 

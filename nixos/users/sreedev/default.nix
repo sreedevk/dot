@@ -1,4 +1,10 @@
-{ pkgs, config, nixpkgs-stable, inputs, ... }:
+{
+  pkgs,
+  config,
+  nixpkgs-stable,
+  inputs,
+  ...
+}:
 let
   tmux-sessionizer-package = (import ../common/tmux-sessionizer.nix { inherit pkgs; });
 in
@@ -106,7 +112,7 @@ in
           doctl
           duckdb
           elan
-          emacs
+          emacs-gtk
           fasm
           glab
           glow
@@ -140,6 +146,7 @@ in
           nerd-fonts.iosevka
           nerd-fonts.iosevka
           nerd-fonts.iosevka-term
+          nixfmt
           nixpkgs-fmt
           nmap
           nushell

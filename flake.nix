@@ -29,7 +29,14 @@
 
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, stylix, ... } @ inputs:
+  outputs =
+    { self
+    , agenix
+    , nixpkgs
+    , home-manager
+    , stylix
+    , ...
+    } @ inputs:
     let
       opts = import ./nixos/opts.nix;
       systems = {

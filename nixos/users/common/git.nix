@@ -119,22 +119,6 @@ in
       safe = {
         directory = "/etc/nixos";
       };
-      url = {
-        "git@github.com:" = {
-          insteadOf = "gh:";
-          pushInsteadOf = [ "github:" "git://github.com/" ];
-        };
-        "git://github.com/" = {
-          insteadOf = "github:";
-        };
-        "git@gist.github.com:" = {
-          insteadOf = "gst:";
-          pushInsteadOf = [ "gist:" "git://gist.github.com/" ];
-        };
-        "git://gist.github.com/" = {
-          insteadOf = "gist:";
-        };
-      };
     };
     ignores = [
       ".tmux/plugins/**"
