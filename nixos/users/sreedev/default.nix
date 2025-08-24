@@ -1,9 +1,8 @@
-{
-  pkgs,
-  config,
-  nixpkgs-stable,
-  inputs,
-  ...
+{ pkgs
+, config
+, nixpkgs-stable
+, inputs
+, ...
 }:
 let
   tmux-sessionizer-package = (import ../common/tmux-sessionizer.nix { inherit pkgs; });
