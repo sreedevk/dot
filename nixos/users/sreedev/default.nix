@@ -91,6 +91,7 @@ in
           wofi
         ];
         cli-packages = with pkgs; [
+          agenix
           aria2
           asciinema
           asciinema-agg

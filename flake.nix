@@ -58,12 +58,13 @@
         pkgs: system: hostname:
         let
           coalesced_opts = opts // (import ./nixos/hosts/${hostname}/opts.nix);
-          agenix_pkg =
-            [{ environment.systemPackages = [ agenix.packages.${system}.default ]; }];
         in
         pkgs.lib.nixosSystem {
           inherit system;
-          modules = [ agenix.nixosModules.default ./nixos/hosts/${hostname}/configuration.nix ] ++ agenix_pkg;
+          modules = [
+            agenix.nixosModules.default
+            ./nixos/hosts/${hostname}/configuration.nix
+          ];
           specialArgs = {
             inherit system;
             opts = coalesced_opts;
@@ -74,10 +75,12 @@
         pkgs: system: username: host:
         let
           coalesced_opts = opts // (import ./nixos/hosts/${host}/opts.nix) // (import ./nixos/users/${username}/opts.nix);
-          agenix_pkg = [{ home.packages = [ agenix.packages.${system}.default ]; }];
-
           quickshelloverlay = final: prev: {
             quickshell = inputs.quickshell.packages.${prev.system}.default;
+          };
+
+          agenixoverlay = final: prev: {
+            agenix = agenix.packages.${system}.default;
           };
 
           stylix_mod =
@@ -92,9 +95,18 @@
               inputs.nixgl.overlay
               inputs.nur.overlays.default
               quickshelloverlay
+              agenixoverlay
             ];
           };
-          modules = [ ./nixos/users/${username} agenix.homeManagerModules.age ] ++ agenix_pkg ++ stylix_mod;
+          modules = builtins.concatLists
+            [
+              [
+                ./nixos/users/${username}
+                agenix.homeManagerModules.age
+              ]
+              stylix_mod
+            ];
+
           extraSpecialArgs = {
             inherit system username host inputs;
             opts = coalesced_opts;
