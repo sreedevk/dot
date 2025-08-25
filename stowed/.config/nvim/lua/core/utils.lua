@@ -61,4 +61,8 @@ function M.setup_lsp(conf)
   end
 end
 
+function M.wrap_cmd(cmd)
+  return function() vim.cmd(cmd) end
+end
+
 return M

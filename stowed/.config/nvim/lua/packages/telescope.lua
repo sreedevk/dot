@@ -1,3 +1,5 @@
+local wrap_cmd = require('core.utils').wrap_cmd
+
 return {
   'nvim-telescope/telescope.nvim',
   lazy = true,

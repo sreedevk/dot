@@ -1,3 +1,5 @@
+local wrap_cmd = require('core.utils').wrap_cmd
+
 -- Resize Splits {{{1
 vim.keymap.set("n", "<M-,>", "<c-w>5<", { noremap = true })
 vim.keymap.set("n", "<M-.>", "<c-w>5>", { noremap = true })
