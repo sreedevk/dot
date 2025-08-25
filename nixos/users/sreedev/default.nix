@@ -4,7 +4,7 @@
 , ...
 }:
 let
-  tmux-sessionizer-package = (import ../common/tmux-sessionizer.nix { inherit pkgs; });
+  tmux-sessionizer-package = import ../common/tmux-sessionizer.nix { inherit pkgs; };
 in
 {
   imports = [

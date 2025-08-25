@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  bitwaden-fzf-script = (import ./bwfzf.nix { inherit pkgs; });
+  bitwaden-fzf-script = import ./bwfzf.nix { inherit pkgs; };
 in
 {
   home.packages = with pkgs; [

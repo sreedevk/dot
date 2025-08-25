@@ -55,11 +55,8 @@
           (nixpkgs.lib.attrValues systemsl);
 
       mkSystem =
-        pkgs: system: hostname:
-        let
-          coalesced_opts = opts // (import ./nixos/hosts/${hostname}/opts.nix);
-        in
-        pkgs.lib.nixosSystem {
+        system: hostname:
+        nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             agenix.nixosModules.default
@@ -67,21 +64,22 @@
           ];
           specialArgs = {
             inherit system;
-            opts = coalesced_opts;
+            opts = opts // import ./nixos/hosts/${hostname}/opts.nix;
           };
         };
 
       mkHome =
-        pkgs: system: username: host:
+        system: username: host:
         let
-          coalesced_opts = opts // (import ./nixos/hosts/${host}/opts.nix) // (import ./nixos/users/${username}/opts.nix);
-          quickshelloverlay = final: prev: {
+          agenix-overlay = final: prev: {
+            agenix = inputs.agenix.packages.${prev.system}.default;
+          };
+
+          quickshell-overlay = final: prev: {
             quickshell = inputs.quickshell.packages.${prev.system}.default;
           };
 
-          agenixoverlay = final: prev: {
-            agenix = agenix.packages.${system}.default;
-          };
+          coalesced_opts = opts // import ./nixos/hosts/${host}/opts.nix // import ./nixos/users/${username}/opts.nix;
 
           stylix_mod =
             if coalesced_opts.desktop.enable
@@ -92,10 +90,10 @@
           pkgs = import nixpkgs {
             inherit system;
             overlays = [
+              agenix-overlay
               inputs.nixgl.overlay
               inputs.nur.overlays.default
-              quickshelloverlay
-              agenixoverlay
+              quickshell-overlay
             ];
           };
           modules = builtins.concatLists
@@ -119,18 +117,18 @@
 
       # Operating System Level Configurations 
       nixosConfigurations = {
-        nullptrderef1 = mkSystem nixpkgs systems.x86 "nullptrderef1";
-        devstation = mkSystem nixpkgs systems.x86 "devstation";
-        devtechnica = mkSystem nixpkgs systems.x86 "devtechnica";
-        rpi4b = mkSystem nixpkgs systems.x86 "rpi4b";
+        nullptrderef1 = mkSystem systems.x86 "nullptrderef1";
+        devstation = mkSystem systems.x86 "devstation";
+        devtechnica = mkSystem systems.x86 "devtechnica";
+        rpi4b = mkSystem systems.x86 "rpi4b";
       };
 
       # User Level Home Manager Configurations
       homeConfigurations = {
-        admin = mkHome nixpkgs systems.x86 "admin" "nullptrderef1";
-        deploy = mkHome nixpkgs systems.x86 "deploy" "devtechnica";
-        pi = mkHome nixpkgs systems.arm64 "pi" "rpi4b";
-        sreedev = mkHome nixpkgs systems.x86 "sreedev" "devstation";
+        admin = mkHome systems.x86 "admin" "nullptrderef1";
+        deploy = mkHome systems.x86 "deploy" "devtechnica";
+        pi = mkHome systems.arm64 "pi" "rpi4b";
+        sreedev = mkHome systems.x86 "sreedev" "devstation";
       };
     };
 }

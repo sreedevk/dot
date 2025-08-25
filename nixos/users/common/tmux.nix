@@ -1,7 +1,7 @@
 { pkgs, opts, username, ... }:
 let
-  bitwaden-fzf-script = (import ./bwfzf.nix { inherit pkgs; });
-  tmux-sessionizer-script = (import ./tmux-sessionizer.nix { inherit pkgs; });
+  bitwaden-fzf-script = import ./bwfzf.nix { inherit pkgs; };
+  tmux-sessionizer-script = import ./tmux-sessionizer.nix { inherit pkgs; };
   tmux-time-display = pkgs.writeShellScriptBin "ttd" ''
     TZ=${opts.timeZone} date "+%a %B %d %l:%M:%S %p"
   '';
