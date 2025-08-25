@@ -176,6 +176,7 @@ woff2-font-awesome
 xclip
 xdg-desktop-portal-hyprland
 xdo
+xdotool
 xf86-video-vesa
 xorg-server
 xorg-server-devel
@@ -183,6 +184,7 @@ xorg-server-xephyr
 xorg-xev
 xorg-xinit
 xorg-xrandr
+xorg-xwininfo
 xterm
 xtrans
 zarchive
