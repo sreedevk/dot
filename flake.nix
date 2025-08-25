@@ -4,7 +4,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
-    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-25.05-small&shallow=1";
     agenix.url = "github:ryantm/agenix";
 
     nur = {
@@ -24,6 +23,11 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell?shallow=1"; # rev=v0.2.0
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -62,7 +66,6 @@
           modules = [ agenix.nixosModules.default ./nixos/hosts/${hostname}/configuration.nix ] ++ agenix_pkg;
           specialArgs = {
             inherit system;
-            nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
             opts = coalesced_opts;
           };
         };
@@ -72,6 +75,11 @@
         let
           coalesced_opts = opts // (import ./nixos/hosts/${host}/opts.nix) // (import ./nixos/users/${username}/opts.nix);
           agenix_pkg = [{ home.packages = [ agenix.packages.${system}.default ]; }];
+
+          quickshelloverlay = final: prev: {
+            quickshell = inputs.quickshell.packages.${prev.system}.default;
+          };
+
           stylix_mod =
             if coalesced_opts.desktop.enable
             then [ stylix.homeModules.stylix ]
@@ -83,12 +91,12 @@
             overlays = [
               inputs.nixgl.overlay
               inputs.nur.overlays.default
+              quickshelloverlay
             ];
           };
           modules = [ ./nixos/users/${username} agenix.homeManagerModules.age ] ++ agenix_pkg ++ stylix_mod;
           extraSpecialArgs = {
             inherit system username host inputs;
-            nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages."${system}";
             opts = coalesced_opts;
           };
         };

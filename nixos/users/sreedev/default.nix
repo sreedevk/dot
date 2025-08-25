@@ -1,6 +1,5 @@
 { pkgs
 , config
-, nixpkgs-stable
 , inputs
 , ...
 }:
@@ -72,16 +71,12 @@ in
 
   home.packages =
     let
-      stable-packages = {
-        cli-packages = with nixpkgs-stable; [ ];
-        gui-packages = with nixpkgs-stable; [ ];
-      };
-
-      unstable-packages = {
+      stable = {
         gui-packages = with pkgs; [
           (config.lib.nixGL.wrap pkgs.slack)
           (config.lib.nixGL.wrap pkgs.youtube-music)
           (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
+          quickshell
           dbeaver-bin
           eww
           libreoffice-fresh
@@ -176,10 +171,8 @@ in
       };
     in
     builtins.concatLists [
-      stable-packages.gui-packages
-      stable-packages.cli-packages
-      unstable-packages.gui-packages
-      unstable-packages.cli-packages
+      stable.gui-packages
+      stable.cli-packages
     ];
 
   home.file = {
