@@ -74,20 +74,17 @@ in
       stable = {
         gui-packages = with pkgs; [
           (config.lib.nixGL.wrap pkgs.slack)
-          (config.lib.nixGL.wrap pkgs.youtube-music)
           (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
-          quickshell
           dbeaver-bin
           eww
           libreoffice-fresh
-          lmms
           nemo-with-extensions
           openttd
           pwvucontrol
           qflipper
+          quickshell
           sonic-pi
           sqlitebrowser
-          tor-browser
           wofi
         ];
         cli-packages = with pkgs; [
@@ -205,13 +202,18 @@ in
   services.ssh-agent.enable = true;
   programs.ssh = {
     enable = true;
-    userKnownHostsFile = "/dev/null";
+    enableDefaultConfig = false;
+
     extraOptionOverrides = {
       StrictHostKeyChecking = "no";
       LogLevel = "ERROR";
     };
 
     matchBlocks = {
+      "*" = {
+        userKnownHostsFile = "/dev/null";
+      };
+
       "sree.dev" = {
         hostname = "sree.dev";
         user = "deploy";

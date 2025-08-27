@@ -7,8 +7,8 @@ let
 in
 {
   home.packages = with pkgs; [
+    (config.lib.nixGL.wrapOffload pkgs.i3)
     arandr
-    python311Packages.i3ipc
   ];
 
   home.file = {
@@ -30,7 +30,7 @@ in
 
         # AutoStart Applications
         exec_always --no-startup-id ~/.config/polybar/launch.sh
-        exec_always --no-startup-id ${pkgs.autotiling}/bin/autotiling
+        exec_always --no-startup-id ${pkgs.autotiling-rs}/bin/autotiling-rs
         exec_always --no-startup-id picom -b
         exec_always --no-startup-id ${set-wallpaper}/bin/set-wallpaper
 
