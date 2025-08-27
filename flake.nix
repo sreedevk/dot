@@ -4,6 +4,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
+    stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05&shallow=1";
     agenix.url = "github:ryantm/agenix";
 
     nur = {
@@ -37,6 +38,7 @@
     { self
     , agenix
     , nixpkgs
+    , stablepkgs
     , home-manager
     , stylix
     , ...
@@ -71,16 +73,7 @@
       mkHome =
         system: username: host:
         let
-          agenix-overlay = final: prev: {
-            agenix = inputs.agenix.packages.${prev.system}.default;
-          };
-
-          quickshell-overlay = final: prev: {
-            quickshell = inputs.quickshell.packages.${prev.system}.default;
-          };
-
           coalesced_opts = opts // import ./nixos/hosts/${host}/opts.nix // import ./nixos/users/${username}/opts.nix;
-
           stylix_mod =
             if coalesced_opts.desktop.enable
             then [ stylix.homeModules.stylix ]
@@ -90,10 +83,11 @@
           pkgs = import nixpkgs {
             inherit system;
             overlays = [
-              agenix-overlay
+              (import ./nixos/users/overlays/agenix.nix { inherit inputs; })
+              (import ./nixos/users/overlays/lmms.nix { inherit inputs; })
+              (import ./nixos/users/overlays/quickshell.nix { inherit inputs; })
               inputs.nixgl.overlay
               inputs.nur.overlays.default
-              quickshell-overlay
             ];
           };
           modules = builtins.concatLists

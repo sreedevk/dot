@@ -78,6 +78,7 @@ in
           dbeaver-bin
           eww
           libreoffice-fresh
+          lmms
           nemo-with-extensions
           openttd
           pwvucontrol
