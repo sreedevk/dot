@@ -78,6 +78,7 @@ in
           dbeaver-bin
           eww
           ffmpegthumbnailer
+          gnome-calculator
           libreoffice-fresh
           lmms
           nemo-with-extensions
@@ -87,6 +88,7 @@ in
           quickshell
           sonic-pi
           sqlitebrowser
+          wl-screenrec
           wofi
         ];
         cli-packages = with pkgs; [
