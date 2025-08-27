@@ -7,7 +7,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    (config.lib.nixGL.wrapOffload pkgs.i3)
+    i3
     arandr
   ];
 

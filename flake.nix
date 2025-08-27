@@ -82,13 +82,7 @@
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             inherit system;
-            overlays = [
-              (import ./nixos/users/overlays/agenix.nix { inherit inputs; })
-              (import ./nixos/users/overlays/lmms.nix { inherit inputs; })
-              (import ./nixos/users/overlays/quickshell.nix { inherit inputs; })
-              inputs.nixgl.overlay
-              inputs.nur.overlays.default
-            ];
+            overlays = import ./nixos/users/overlays { inherit inputs; };
           };
           modules = builtins.concatLists
             [

@@ -13,6 +13,7 @@
     cyme
     dua
     duf
+    eyed3
     fend
     flac
     gperf
@@ -38,7 +39,6 @@
     procs
     progress
     pwgen
-    python311Packages.eyed3
     rake
     restic
     ripgrep-all
