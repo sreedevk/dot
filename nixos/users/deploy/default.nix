@@ -38,13 +38,17 @@
 
   programs.ssh = {
     enable = true;
-    userKnownHostsFile = "/dev/null";
+    enableDefaultConfig = false;
+
     extraOptionOverrides = {
       StrictHostKeyChecking = "no";
       LogLevel = "ERROR";
     };
 
     matchBlocks = {
+      "*" = {
+        userKnownHostsFile = "/dev/null";
+      };
       "github.com" = {
         hostname = "github.com";
         user = "git";
