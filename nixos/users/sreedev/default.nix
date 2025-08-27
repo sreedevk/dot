@@ -165,6 +165,7 @@ in
           uiua
           uv
           visidata
+          wiremix
           yt-dlp
         ];
       };
