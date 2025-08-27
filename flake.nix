@@ -60,44 +60,43 @@
         system: hostname:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [
-            agenix.nixosModules.default
-            ./nixos/hosts/${hostname}/configuration.nix
-          ];
-          specialArgs = {
-            inherit system;
-            opts = opts // import ./nixos/hosts/${hostname}/opts.nix;
-          };
+
+          modules =
+            [
+              agenix.nixosModules.default
+              ./nixos/hosts/${hostname}/configuration.nix
+            ];
+
+          specialArgs =
+            {
+              inherit system;
+              opts = opts // import ./nixos/hosts/${hostname}/opts.nix;
+            };
         };
 
       mkHome =
         system: username: host:
-        let
-          coalesced_opts = opts // import ./nixos/hosts/${host}/opts.nix // import ./nixos/users/${username}/opts.nix;
-          stylix_mod =
-            if coalesced_opts.desktop.enable
-            then [ stylix.homeModules.stylix ]
-            else [ ];
-        in
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = import ./nixos/users/overlays { inherit inputs; };
-          };
-          modules = builtins.concatLists
-            [
+        home-manager.lib.homeManagerConfiguration
+          {
+            pkgs =
+              import nixpkgs {
+                inherit system;
+                overlays = import ./nixos/users/overlays { inherit inputs; };
+              };
+
+            modules =
               [
                 ./nixos/users/${username}
                 agenix.homeManagerModules.age
-              ]
-              stylix_mod
-            ];
+                stylix.homeModules.stylix
+              ];
 
-          extraSpecialArgs = {
-            inherit system username host inputs;
-            opts = coalesced_opts;
+            extraSpecialArgs =
+              {
+                inherit system username host inputs;
+                opts = opts // import ./nixos/hosts/${host}/opts.nix // import ./nixos/users/${username}/opts.nix;
+              };
           };
-        };
     in
     {
       # Formatters for Nix Files
