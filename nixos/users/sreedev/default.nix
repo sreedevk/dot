@@ -77,6 +77,7 @@ in
           (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
           dbeaver-bin
           eww
+          ffmpegthumbnailer
           libreoffice-fresh
           lmms
           nemo-with-extensions

@@ -31,12 +31,9 @@ vim.keymap.set('n', '<Leader>ex', '<cmd>! chmod +x %<CR>', { noremap = true, des
 vim.keymap.set('n', '<leader>ssp', '<cmd>set spell!<CR>', { noremap = true, desc = "enable spell check" })
 
 -- Sorting {{{1
-vim.keymap.set('v', '<Leader>srr', "<cmd>sort<cr>", { noremap = true, desc = "sort lines" })
-vim.keymap.set('n', '<Leader>srr', "<cmd>sort<cr>", { noremap = true, desc = "sort lines" })
-vim.keymap.set('v', '<Leader>srn', "<cmd>sort n<cr>", { noremap = true, desc = "sort lines numerically" })
-vim.keymap.set('n', '<Leader>srn', "<cmd>sort n<cr>", { noremap = true, desc = "sort lines numerically" })
-vim.keymap.set('v', '<Leader>sru', "<cmd>sort u<cr>", { noremap = true, desc = "sort lines unique" })
-vim.keymap.set('n', '<Leader>sru', "<cmd>sort u<cr>", { noremap = true, desc = "sort lines unique" })
+vim.keymap.set({ 'v', 'n' }, '<Leader>srr', ":sort<cr>", { noremap = true, desc = "sort lines" })
+vim.keymap.set({ 'v', 'n' }, '<Leader>srn', ":sort n<cr>", { noremap = true, desc = "sort lines numerically" })
+vim.keymap.set({ 'v', 'n' }, '<Leader>sru', ":sort u<cr>", { noremap = true, desc = "sort lines unique" })
 
 -- Neovim Lua Helpers {{{1
 vim.keymap.set('v', '<Leader>la', ':lua<CR>', { noremap = true, desc = "eval selection in nvim lua rt" })
