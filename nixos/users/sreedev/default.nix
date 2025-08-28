@@ -88,7 +88,7 @@ in
           quickshell
           sonic-pi
           sqlitebrowser
-          wl-screenrec
+          wf-recorder
           wofi
         ];
         cli-packages = with pkgs; [
