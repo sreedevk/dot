@@ -60,31 +60,29 @@ return {
         }
       },
       adapters = {
-        opts = {
-          show_model_choices = true,
-          show_defaults = true,
-        },
-        openai = function()
-          return require("codecompanion.adapters").extend("openai", {
-            schema = {
-              model = { default = "gpt-4o" }
-            },
-            env = {
-              api_key = "cmd:echo $OPENAI_API_KEY",
-            },
-          })
-        end,
-        ollama = function()
-          return require("codecompanion.adapters").extend("ollama", {
-            schema = {
-              model = {
-                default = "gpt-oss:20b",
+        http = {
+          openai = function()
+            return require("codecompanion.adapters").extend("openai", {
+              schema = {
+                model = { default = "gpt-4o" }
               },
-            },
-            env = { url = "http://127.0.0.1:11434" },
-            parameters = { sync = true, },
-          })
-        end,
+              env = {
+                api_key = "cmd:echo $OPENAI_API_KEY",
+              },
+            })
+          end,
+          ollama = function()
+            return require("codecompanion.adapters").extend("ollama", {
+              schema = {
+                model = {
+                  default = "gpt-oss:20b",
+                },
+              },
+              env = { url = "http://127.0.0.1:11434" },
+              parameters = { sync = true, },
+            })
+          end,
+        },
       },
     },
   }
