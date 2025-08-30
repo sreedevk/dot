@@ -143,7 +143,6 @@ in
           nerd-fonts.iosevka
           nerd-fonts.iosevka-term
           nixfmt
-          nixpkgs-fmt
           nmap
           nushell
           opencode

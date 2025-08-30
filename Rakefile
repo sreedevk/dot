@@ -1,4 +1,9 @@
 namespace :nix do
+  desc "format configuration"
+  task :format do
+    sh('nix fmt')
+  end
+
   namespace :flake do
     desc "update nix flake.lock"
     task :update do 
