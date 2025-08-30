@@ -1,4 +1,8 @@
-{ config, pkgs, opts, ... }:
+{ config
+, pkgs
+, opts
+, ...
+}:
 {
   imports = [
     ../../secmap.nix
@@ -20,7 +24,10 @@
     settings = {
       allowed-users = [ "admin" ];
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       show-trace = true;
       trusted-substituters = [ "admin" ];
       trusted-users = [ "admin" ];
