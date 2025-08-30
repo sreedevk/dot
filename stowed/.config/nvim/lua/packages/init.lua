@@ -194,10 +194,15 @@ return {
   {
     'junegunn/vim-easy-align',
     lazy = true,
-    keys = {
-      { "<Leader>al", ":EasyAlign", mode = "v", desc = "Init EasyAlign on Selection" }
-    },
     cmd = { "EasyAlign" },
+    keys = {
+      {
+        'ga',
+        '<Plug>(EasyAlign)',
+        mode = { 'x', 'n' },
+        desc = "EasyAlign",
+      },
+    },
   },
 
 
