@@ -13,6 +13,6 @@
       bin = "firefox";
       xdg-desktop = "firefox.desktop";
     };
-    wallpaper = "wallhaven-3q9qky.png";
+    wallpaper = "apocalypse/a_street_with_a_bridge_and_people_sitting_on_it.jpg";
   };
 }

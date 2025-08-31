@@ -1,6 +1,6 @@
 { pkgs, opts, ... }:
 let
-  wallpaper = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
+  wallpath = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
   setwall = wall: ''
     ${pkgs.swww}/bin/swww img --transition-type wipe --transition-fps 60 --resize stretch --transition-step 60 --transition-duration 2 "${wall}"
   '';
@@ -16,10 +16,11 @@ in
         After = [ "swww.service" ];
         BindsTo = [ "swww.service" ];
         Requires = [ "swww.service" ];
+        X-SwitchMethod = "stop-start";
       };
       Service = {
         Type = "oneshot";
-        ExecStart = setwall wallpaper;
+        ExecStart = setwall wallpath;
         Restart = "on-failure";
         RestartSec = 1;
       };
