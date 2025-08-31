@@ -1,4 +1,8 @@
-{ pkgs, opts, config, ... }:
+{ pkgs
+, opts
+, config
+, ...
+}:
 let
   gpgsign = if opts.git.enable-signing then "true" else "false";
 in

@@ -1,4 +1,5 @@
-{ opts, ... }: {
+{ opts, ... }:
+{
 
   imports = [
     ../../secmap.nix
@@ -23,18 +24,20 @@
       target = ".ssh/authorized_keys.source";
       executable = false;
       recursive = false;
-      text = builtins.concatStringsSep "\n" (with opts.publicKeys; [
-        devstation
-        nullptrderef1
-        rpi4b
-        terminus
-      ]);
+      text = builtins.concatStringsSep "\n" (
+        with opts.publicKeys;
+        [
+          devstation
+          nullptrderef1
+          rpi4b
+          terminus
+        ]
+      );
       onChange = ''
         rm -rf ~/.ssh/authorized_keys && cat ~/.ssh/authorized_keys.source > ~/.ssh/authorized_keys && chmod 400 ~/.ssh/authorized_keys
       '';
     };
   };
-
 
   programs.ssh = {
     enable = true;

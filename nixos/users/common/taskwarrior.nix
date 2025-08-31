@@ -56,15 +56,36 @@ let
     coefficients = {
       user = {
         tags = [
-          { name = "important"; coefficient = 15.0; }
+          {
+            name = "important";
+            coefficient = 15.0;
+          }
         ];
         projects = [
-          { name = "learn:tech"; coefficient = 5.0; }
-          { name = "blog"; coefficient = 5.0; }
-          { name = "opensource"; coefficient = 5.0; }
-          { name = "personal:homenet"; coefficient = 5.0; }
-          { name = "work"; coefficient = 8.0; }
-          { name = "other"; coefficient = 4.0; }
+          {
+            name = "learn:tech";
+            coefficient = 5.0;
+          }
+          {
+            name = "blog";
+            coefficient = 5.0;
+          }
+          {
+            name = "opensource";
+            coefficient = 5.0;
+          }
+          {
+            name = "personal:homenet";
+            coefficient = 5.0;
+          }
+          {
+            name = "work";
+            coefficient = 8.0;
+          }
+          {
+            name = "other";
+            coefficient = 4.0;
+          }
         ];
       };
 
@@ -88,19 +109,24 @@ let
     };
   };
 
-  mkTaskConfig = configs:
+  mkTaskConfig =
+    configs:
     let
-      mkprojectCoefficients = projectCoefficients: builtins.concatStringsSep
-        "\n"
-        (builtins.map
-          (project: "urgency.user.project.${project.name}.coefficient=${builtins.toString project.coefficient}")
-          projectCoefficients);
+      mkprojectCoefficients =
+        projectCoefficients:
+        builtins.concatStringsSep "\n" (
+          builtins.map (
+            project: "urgency.user.project.${project.name}.coefficient=${builtins.toString project.coefficient}"
+          ) projectCoefficients
+        );
 
-      mktagCoefficients = tagCoefficients: builtins.concatStringsSep
-        "\n"
-        (builtins.map
-          (tag: "urgency.user.tag.${tag.name}.coefficient=${builtins.toString tag.coefficient}")
-          tagCoefficients);
+      mktagCoefficients =
+        tagCoefficients:
+        builtins.concatStringsSep "\n" (
+          builtins.map (
+            tag: "urgency.user.tag.${tag.name}.coefficient=${builtins.toString tag.coefficient}"
+          ) tagCoefficients
+        );
     in
     ''
       # THEME
@@ -183,61 +209,60 @@ in
     };
   };
 
-  systemd.user =
-    {
-      services = {
-        taskwarrior-sync = {
-          Unit = {
-            Description = "Taskwarrior3 Taskchampion Sync Job";
-            Documentation = "info:task man:task(1) https://taskwarrior.org/docs/";
-          };
-          Service = {
-            Type = "simple";
-            EnvironmentFile = config.age.secrets.taskwarrior_env.path;
-            ExecStart = "${pkgs.taskwarrior3}/bin/task sync";
-          };
+  systemd.user = {
+    services = {
+      taskwarrior-sync = {
+        Unit = {
+          Description = "Taskwarrior3 Taskchampion Sync Job";
+          Documentation = "info:task man:task(1) https://taskwarrior.org/docs/";
         };
-
-        taskwarrior-notify = {
-          Unit = {
-            Description = "Taskwarrior3 Notification Job";
-            Documentation = "info:task man:task(1) https://taskwarrior.org/docs/";
-          };
-          Service = {
-            Type = "simple";
-            EnvironmentFile = config.age.secrets.taskwarrior_env.path;
-            ExecStart = "${taskwarrior-notifier}/bin/taskwarrior-notify-due";
-          };
+        Service = {
+          Type = "simple";
+          EnvironmentFile = config.age.secrets.taskwarrior_env.path;
+          ExecStart = "${pkgs.taskwarrior3}/bin/task sync";
         };
       };
 
-      timers = {
-        taskwarrior-notify-timers = {
-          Unit = {
-            Description = "Notifier for Taskwarrior3 Service";
-          };
-          Timer = {
-            OnBootSec = "15min";
-            OnUnitActiveSec = taskwarriorSettings.notificationFreq;
-            Unit = "taskwarrior-notify.service";
-          };
-          Install = {
-            WantedBy = [ "timers.target" ];
-          };
+      taskwarrior-notify = {
+        Unit = {
+          Description = "Taskwarrior3 Notification Job";
+          Documentation = "info:task man:task(1) https://taskwarrior.org/docs/";
         };
-        taskwarrior-sync-timers = {
-          Unit = {
-            Description = "Timer for Taskwarrior3 (TaskChampion) Sync Service";
-          };
-          Timer = {
-            OnBootSec = "5min";
-            OnUnitActiveSec = taskwarriorSettings.clientSyncFreq;
-            Unit = "taskwarrior-sync.service";
-          };
-          Install = {
-            WantedBy = [ "timers.target" ];
-          };
+        Service = {
+          Type = "simple";
+          EnvironmentFile = config.age.secrets.taskwarrior_env.path;
+          ExecStart = "${taskwarrior-notifier}/bin/taskwarrior-notify-due";
         };
       };
     };
+
+    timers = {
+      taskwarrior-notify-timers = {
+        Unit = {
+          Description = "Notifier for Taskwarrior3 Service";
+        };
+        Timer = {
+          OnBootSec = "15min";
+          OnUnitActiveSec = taskwarriorSettings.notificationFreq;
+          Unit = "taskwarrior-notify.service";
+        };
+        Install = {
+          WantedBy = [ "timers.target" ];
+        };
+      };
+      taskwarrior-sync-timers = {
+        Unit = {
+          Description = "Timer for Taskwarrior3 (TaskChampion) Sync Service";
+        };
+        Timer = {
+          OnBootSec = "5min";
+          OnUnitActiveSec = taskwarriorSettings.clientSyncFreq;
+          Unit = "taskwarrior-sync.service";
+        };
+        Install = {
+          WantedBy = [ "timers.target" ];
+        };
+      };
+    };
+  };
 }

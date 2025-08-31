@@ -1,7 +1,12 @@
-{ config, pkgs, opts, ... }: {
+{ pkgs, opts, ... }:
+{
 
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ adguard_dns ]); #  adguard_web
-  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ adguard_dns ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ adguard_dns ]
+  ); # adguard_web
+  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ adguard_dns ]
+  );
 
   services.adguardhome = {
     enable = true;

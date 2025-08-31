@@ -1,4 +1,4 @@
-{ pkgs, opts, config, ... }:
+{ pkgs, opts, ... }:
 let
   copypartyConfig = builtins.path {
     name = "copyparty-config";
@@ -7,11 +7,13 @@ let
 in
 {
 
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ copyparty ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ copyparty ]
+  );
 
-  networking.firewall.allowedUDPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ copyparty ]);
+  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ copyparty ]
+  );
 
   virtualisation.oci-containers.containers = {
     copyparty = {

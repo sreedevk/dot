@@ -1,7 +1,8 @@
 { pkgs, opts, ... }:
 {
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ sonarr ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ sonarr ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.television} 0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -12,8 +13,10 @@
     sonarr = {
       autoStart = opts.autostart-non-essential-services;
       image = "ghcr.io/hotio/sonarr:latest";
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       volumes = [
         "sonarr_data:/config"
         "${opts.paths.television}:/tv"

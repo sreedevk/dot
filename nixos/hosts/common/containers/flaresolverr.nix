@@ -1,11 +1,16 @@
-{ config, lib, pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ flaresolverr ]);
+{ pkgs, opts, ... }:
+{
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ flaresolverr ]
+  );
   virtualisation.oci-containers.containers = {
     "flareSolverr" = {
       autoStart = true;
       image = "flaresolverr/flaresolverr:latest";
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       ports = [ "${opts.ports.flaresolverr}:8191" ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";

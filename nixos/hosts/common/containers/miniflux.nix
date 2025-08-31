@@ -1,16 +1,31 @@
-{ pkgs, opts, config, ... }:
+{ pkgs
+, opts
+, config
+, ...
+}:
 {
 
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ miniflux-db miniflux-app ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      miniflux-db
+      miniflux-app
+    ]
+  );
 
   virtualisation.oci-containers.containers = {
     "miniflux-app" = {
       autoStart = opts.autostart-non-essential-services;
       ports = [ "${opts.ports.miniflux-app}:8080" ];
       image = "miniflux/miniflux:latest";
-      dependsOn = [ "miniflux-db" "rss-bridge" ];
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      dependsOn = [
+        "miniflux-db"
+        "rss-bridge"
+      ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
         "kuma.miniflux.http.parent_name" = "${opts.hostname}";
@@ -34,8 +49,10 @@
     "rss-bridge" = {
       autoStart = false;
       image = "rssbridge/rss-bridge:latest";
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       ports = [ "${opts.ports.rss-bridge}:80" ];
       volumes = [ "rss-bridge-config:/config" ];
       environment = {

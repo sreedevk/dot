@@ -1,6 +1,16 @@
-{ pkgs, opts, config, ... }:
+{ pkgs
+, opts
+, config
+, ...
+}:
 {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ n8n-db n8n-app ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      n8n-db
+      n8n-app
+    ]
+  );
 
   virtualisation.oci-containers.containers = {
     n8n-db = {

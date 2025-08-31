@@ -159,35 +159,125 @@
   };
 
   mountpoints = [
-    { device = "dpool0/backups"; path = "/mnt/dpool0/backups"; }
-    { device = "dpool0/media"; path = "/mnt/dpool0/media"; }
-    { device = "dpool0/media/audio"; path = "/mnt/dpool0/media/audio"; }
-    { device = "dpool0/media/audiobooks"; path = "/mnt/dpool0/media/audiobooks"; }
-    { device = "dpool0/media/books"; path = "/mnt/dpool0/media/books"; }
-    { device = "dpool0/media/comics"; path = "/mnt/dpool0/media/comics"; }
-    { device = "dpool0/media/magazines"; path = "/mnt/dpool0/media/magazines"; }
-    { device = "dpool0/media/movies"; path = "/mnt/dpool0/media/movies"; }
-    { device = "dpool0/media/music"; path = "/mnt/dpool0/media/music"; }
-    { device = "dpool0/media/photos"; path = "/mnt/dpool0/media/photos"; }
-    { device = "dpool0/media/podcasts"; path = "/mnt/dpool0/media/podcasts"; }
-    { device = "dpool0/media/shows"; path = "/mnt/dpool0/media/shows"; }
-    { device = "dpool0/media/videos"; path = "/mnt/dpool0/media/videos"; }
-    { device = "dpool0/notes"; path = "/mnt/dpool0/notes"; }
-    { device = "dpool0/other"; path = "/mnt/dpool0/other"; }
-    { device = "dpool0/other"; path = "/mnt/dpool0/other"; }
-    { device = "dpool0/personal"; path = "/mnt/dpool0/personal"; }
-    { device = "dpool0/personal/archives"; path = "/mnt/dpool0/personal/archives"; }
-    { device = "dpool0/personal/documents"; path = "/mnt/dpool0/personal/documents"; }
-    { device = "dpool0/personal/finances"; path = "/mnt/dpool0/personal/finances"; }
-    { device = "dpool0/personal/other"; path = "/mnt/dpool0/personal/other"; }
-    { device = "dpool0/personal/projects"; path = "/mnt/dpool0/personal/projects"; }
-    { device = "dpool0/resources"; path = "/mnt/dpool0/resources"; }
-    { device = "dpool0/resources/databases"; path = "/mnt/dpool0/resources/databases"; }
-    { device = "dpool0/resources/llms"; path = "/mnt/dpool0/resources/llms"; }
-    { device = "dpool0/resources/other"; path = "/mnt/dpool0/resources/other"; }
-    { device = "dpool0/resources/roms"; path = "/mnt/dpool0/resources/roms"; }
-    { device = "dpool0/resources/wordlists"; path = "/mnt/dpool0/resources/wordlists"; }
-    { device = "dpool0/resources/zim"; path = "/mnt/dpool0/resources/zim"; }
-    { device = "dpool0/secrets"; path = "/mnt/dpool0/secrets"; }
+    {
+      device = "dpool0/backups";
+      path = "/mnt/dpool0/backups";
+    }
+    {
+      device = "dpool0/media";
+      path = "/mnt/dpool0/media";
+    }
+    {
+      device = "dpool0/media/audio";
+      path = "/mnt/dpool0/media/audio";
+    }
+    {
+      device = "dpool0/media/audiobooks";
+      path = "/mnt/dpool0/media/audiobooks";
+    }
+    {
+      device = "dpool0/media/books";
+      path = "/mnt/dpool0/media/books";
+    }
+    {
+      device = "dpool0/media/comics";
+      path = "/mnt/dpool0/media/comics";
+    }
+    {
+      device = "dpool0/media/magazines";
+      path = "/mnt/dpool0/media/magazines";
+    }
+    {
+      device = "dpool0/media/movies";
+      path = "/mnt/dpool0/media/movies";
+    }
+    {
+      device = "dpool0/media/music";
+      path = "/mnt/dpool0/media/music";
+    }
+    {
+      device = "dpool0/media/photos";
+      path = "/mnt/dpool0/media/photos";
+    }
+    {
+      device = "dpool0/media/podcasts";
+      path = "/mnt/dpool0/media/podcasts";
+    }
+    {
+      device = "dpool0/media/shows";
+      path = "/mnt/dpool0/media/shows";
+    }
+    {
+      device = "dpool0/media/videos";
+      path = "/mnt/dpool0/media/videos";
+    }
+    {
+      device = "dpool0/notes";
+      path = "/mnt/dpool0/notes";
+    }
+    {
+      device = "dpool0/other";
+      path = "/mnt/dpool0/other";
+    }
+    {
+      device = "dpool0/other";
+      path = "/mnt/dpool0/other";
+    }
+    {
+      device = "dpool0/personal";
+      path = "/mnt/dpool0/personal";
+    }
+    {
+      device = "dpool0/personal/archives";
+      path = "/mnt/dpool0/personal/archives";
+    }
+    {
+      device = "dpool0/personal/documents";
+      path = "/mnt/dpool0/personal/documents";
+    }
+    {
+      device = "dpool0/personal/finances";
+      path = "/mnt/dpool0/personal/finances";
+    }
+    {
+      device = "dpool0/personal/other";
+      path = "/mnt/dpool0/personal/other";
+    }
+    {
+      device = "dpool0/personal/projects";
+      path = "/mnt/dpool0/personal/projects";
+    }
+    {
+      device = "dpool0/resources";
+      path = "/mnt/dpool0/resources";
+    }
+    {
+      device = "dpool0/resources/databases";
+      path = "/mnt/dpool0/resources/databases";
+    }
+    {
+      device = "dpool0/resources/llms";
+      path = "/mnt/dpool0/resources/llms";
+    }
+    {
+      device = "dpool0/resources/other";
+      path = "/mnt/dpool0/resources/other";
+    }
+    {
+      device = "dpool0/resources/roms";
+      path = "/mnt/dpool0/resources/roms";
+    }
+    {
+      device = "dpool0/resources/wordlists";
+      path = "/mnt/dpool0/resources/wordlists";
+    }
+    {
+      device = "dpool0/resources/zim";
+      path = "/mnt/dpool0/resources/zim";
+    }
+    {
+      device = "dpool0/secrets";
+      path = "/mnt/dpool0/secrets";
+    }
   ];
 }

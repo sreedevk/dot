@@ -1,13 +1,22 @@
-{ config, lib, pkgs, opts, ... }: {
+{ pkgs, opts, ... }:
+{
 
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ ollama-api ollama-web ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      ollama-api
+      ollama-web
+    ]
+  );
 
   virtualisation.oci-containers.containers = {
     "ollama" = {
       autoStart = opts.autostart-non-essential-services;
       image = "ollama/ollama:latest";
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       volumes = [ "ollama_api:/root/.ollama" ];
       ports = [ "${opts.ports.ollama-api}:11434" ];
       labels = {

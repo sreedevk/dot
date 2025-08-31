@@ -1,4 +1,9 @@
-{ opts, username, pkgs, ... }: {
+{ opts
+, username
+, pkgs
+, ...
+}:
+{
   home.packages = with pkgs; [
     beets
   ];

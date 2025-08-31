@@ -1,6 +1,17 @@
-{ pkgs, config, opts, ... }:
+{ pkgs
+, config
+, opts
+, ...
+}:
 {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ firefly_app firefly_db firefly_importer ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      firefly_app
+      firefly_db
+      firefly_importer
+    ]
+  );
 
   virtualisation.oci-containers.containers = {
     "firefly-app" = {

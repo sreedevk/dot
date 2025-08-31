@@ -23,16 +23,20 @@ in
     };
   };
 
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
       qbittorrent-p2p
       qbittorrent-web
-    ]);
+    ]
+  );
 
-  networking.firewall.allowedUDPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
       qbittorrent-p2p
-    ]);
+    ]
+  );
 
   systemd.services."podman-qbittorrent-nox" = {
     restartTriggers = [ vuetorrentSrc ];

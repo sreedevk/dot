@@ -1,6 +1,17 @@
-{ pkgs, opts, config, ... }:
+{ pkgs
+, opts
+, config
+, ...
+}:
 {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ paperless-app paperless-db paperless-redis ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      paperless-app
+      paperless-db
+      paperless-redis
+    ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.documents}/consume 0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -13,8 +24,14 @@
     paperless-app = {
       autoStart = true;
       image = "paperless-ngx/paperless-ngx:latest";
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
-      dependsOn = [ "paperless-db" "paperless-redis" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
+      dependsOn = [
+        "paperless-db"
+        "paperless-redis"
+      ];
       volumes = [
         "${opts.paths.documents}/consume:/usr/src/paperless/consume"
         "${opts.paths.documents}/export:/usr/src/paperless/export"
@@ -44,7 +61,10 @@
       autoStart = true;
       image = "docker.io/library/mariadb:11";
       volumes = [ "paperless_db:/var/lib/mysql" ];
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       ports = [ "${opts.ports.paperless-db}:3306" ];
       environmentFiles = [ config.age.secrets.paperless_env.path ];
       environment = {
@@ -60,7 +80,10 @@
     paperless-redis = {
       autoStart = true;
       image = "docker.io/library/redis:7";
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       ports = [ "${opts.ports.paperless-redis}:6379" ];
       volumes = [
         "paperless_redis:/data"

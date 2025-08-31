@@ -1,5 +1,16 @@
-{ config, lib, pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ photoprism_app photoprism_db ]);
+{ config
+, pkgs
+, opts
+, ...
+}:
+{
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      photoprism_app
+      photoprism_db
+    ]
+  );
   virtualisation.oci-containers.containers = {
     "photoprism-app" = {
       autoStart = opts.autostart-non-essential-services;

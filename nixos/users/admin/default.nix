@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   imports = [
     ../../secmap.nix
     ../common/base.nix
@@ -25,64 +26,62 @@
     };
   };
 
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
 
-  programs.ssh =
-    {
-      enable = true;
-      enableDefaultConfig = false;
+    extraOptionOverrides = {
+      StrictHostKeyChecking = "no";
+      LogLevel = "ERROR";
+    };
 
-      extraOptionOverrides = {
-        StrictHostKeyChecking = "no";
-        LogLevel = "ERROR";
+    matchBlocks = {
+      "*" = {
+        userKnownHostsFile = "/dev/null";
+      };
+      "github.com" = {
+        hostname = "github.com";
+        user = "git";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
       };
 
-      matchBlocks = {
-        "*" = {
-          userKnownHostsFile = "/dev/null";
-        };
-        "github.com" = {
-          hostname = "github.com";
-          user = "git";
-          identitiesOnly = true;
-          identityFile = "~/.ssh/id_ed25519";
-        };
+      "nullptr.sh" = {
+        hostname = "192.168.1.179";
+        user = "admin";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
 
-        "nullptr.sh" = {
-          hostname = "192.168.1.179";
-          user = "admin";
-          identitiesOnly = true;
-          identityFile = "~/.ssh/id_ed25519";
-        };
+      "gitea.nullptr.sh" = {
+        hostname = "192.168.1.179";
+        user = "git";
+        port = 222;
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
 
-        "gitea.nullptr.sh" = {
-          hostname = "192.168.1.179";
-          user = "git";
-          port = 222;
-          identitiesOnly = true;
-          identityFile = "~/.ssh/id_ed25519";
-        };
+      "git.devtechnica.com" = {
+        hostname = "git.devtechnica.com";
+        user = "git";
+        port = 222;
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
 
-        "git.devtechnica.com" = {
-          hostname = "git.devtechnica.com";
-          user = "git";
-          port = 222;
-          identitiesOnly = true;
-          identityFile = "~/.ssh/id_ed25519";
-        };
+      "gitlab.com" = {
+        hostname = "gitlab.com";
+        user = "git";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
 
-        "gitlab.com" = {
-          hostname = "gitlab.com";
-          user = "git";
-          identitiesOnly = true;
-          identityFile = "~/.ssh/id_ed25519";
-        };
-
-        "rpi4b" = {
-          hostname = "192.168.1.151";
-          user = "pi";
-          identitiesOnly = true;
-          identityFile = "~/.ssh/id_ed25519";
-        };
+      "rpi4b" = {
+        hostname = "192.168.1.151";
+        user = "pi";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
       };
     };
+  };
 }

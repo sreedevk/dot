@@ -1,4 +1,8 @@
-{ pkgs, opts, config, ... }:
+{ pkgs
+, opts
+, config
+, ...
+}:
 {
   systemd.tmpfiles.rules = [
     "d ${opts.paths.podcasts}                        0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -7,12 +11,14 @@
     "d ${opts.paths.app_datafiles}/pinepods/backups  0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
       pinepods-db
       pinepods-valkey
       pinepods-app
-    ]);
+    ]
+  );
 
   virtualisation.oci-containers.containers = {
     pinepods-db = {
@@ -51,7 +57,10 @@
       autoStart = opts.autostart-non-essential-services;
       image = "madeofpendletonwool/pinepods:latest";
       ports = [ "${opts.ports.pinepods-app}:8040" ];
-      dependsOn = [ "pinepods-valkey" "pinepods-db" ];
+      dependsOn = [
+        "pinepods-valkey"
+        "pinepods-db"
+      ];
       volumes = [
         "${opts.paths.podcasts}:/opt/pinepods/downloads"
         "${opts.paths.app_datafiles}/pinepods/backups:/opt/pinepods/backups"
@@ -79,4 +88,3 @@
     };
   };
 }
-

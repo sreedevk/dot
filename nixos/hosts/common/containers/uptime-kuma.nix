@@ -1,5 +1,12 @@
-{ config, lib, pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ uptime-kuma ]);
+{ config
+, pkgs
+, opts
+, ...
+}:
+{
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ uptime-kuma ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/uptime-kuma 0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -27,7 +34,10 @@
       gid = pkgs.lib.strings.toInt opts.adminGID;
       mode = "0600";
       text = builtins.toJSON [
-        { name = "devtechnica"; type = "group"; }
+        {
+          name = "devtechnica";
+          type = "group";
+        }
         {
           name = "www.devtechnica.com";
           type = "http";
@@ -54,8 +64,10 @@
     "uptime-kuma" = {
       autoStart = opts.autostart-non-essential-services;
       image = "louislam/uptime-kuma:latest";
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       volumes = [
         "${opts.paths.app_datafiles}/uptime-kuma:/app/data"
         "${opts.paths.podmanSocket}:/var/run/docker.sock"
@@ -72,7 +84,10 @@
       autoStart = opts.autostart-non-essential-services;
       image = "ghcr.io/bigboot/autokuma:latest";
       dependsOn = [ "uptime-kuma" ];
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       volumes = [
         "/etc/autokuma/staticmon:/staticmon"
         "autokuma_data:/data"

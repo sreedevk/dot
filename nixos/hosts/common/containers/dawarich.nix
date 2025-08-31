@@ -1,4 +1,8 @@
-{ pkgs, opts, config, ... }:
+{ pkgs
+, opts
+, config
+, ...
+}:
 let
   # TODO: Dawarich: Setup Prometheus Exporter
 
@@ -24,9 +28,14 @@ let
   };
 in
 {
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ dawarich-app dawarich-db dawarich-redis ]);
-
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      dawarich-app
+      dawarich-db
+      dawarich-redis
+    ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/dawarich        0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -60,10 +69,20 @@ in
         "--no-healthcheck"
       ];
       entrypoint = "web-entrypoint.sh";
-      cmd = [ "bin/rails" "server" "-p" "3000" "-b" "::" ];
+      cmd = [
+        "bin/rails"
+        "server"
+        "-p"
+        "3000"
+        "-b"
+        "::"
+      ];
       environmentFiles = [ config.age.secrets.dawarich_env.path ];
       environment = shared_rails_environment;
-      dependsOn = [ "dawarich_redis" "dawarich_db" ];
+      dependsOn = [
+        "dawarich_redis"
+        "dawarich_db"
+      ];
     };
     dawarich_sidekiq = {
       autoStart = opts.autostart-non-essential-services;
@@ -87,7 +106,11 @@ in
       environmentFiles = [ config.age.secrets.dawarich_env.path ];
       environment = shared_rails_environment;
       cmd = [ "sidekiq" ];
-      dependsOn = [ "dawarich_redis" "dawarich_db" "dawarich_app" ];
+      dependsOn = [
+        "dawarich_redis"
+        "dawarich_db"
+        "dawarich_app"
+      ];
     };
     dawarich_redis = {
       autoStart = false;

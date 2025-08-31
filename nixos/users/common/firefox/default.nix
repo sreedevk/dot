@@ -1,4 +1,8 @@
-{ pkgs, config, system, ... }:
+{ pkgs
+, config
+, system
+, ...
+}:
 let
   extensions = import ./extensions.nix { inherit pkgs system; };
   settings = import ./settings.nix;

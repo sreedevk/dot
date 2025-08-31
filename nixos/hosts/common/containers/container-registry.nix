@@ -1,4 +1,8 @@
-{ pkgs, config, opts, ... }:
+{ pkgs
+, config
+, opts
+, ...
+}:
 let
   registryWebConfig = builtins.path {
     name = "containerRegistryWeb";
@@ -7,8 +11,16 @@ let
 in
 {
 
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ container-registry-server container-registry-web ]);
-  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ container-registry-server ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      container-registry-server
+      container-registry-web
+    ]
+  );
+  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ container-registry-server ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/containers/server 0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -20,7 +32,10 @@ in
     "container-registry-server" = {
       autoStart = opts.autostart-non-essential-services;
       image = "registry:3.0";
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       ports = [ "${opts.ports.container-registry-server}:5000" ];
       volumes = [ "${opts.paths.app_datafiles}/containers/server:/var/lib/registry" ];
       labels = {
@@ -41,7 +56,11 @@ in
       autoStart = opts.autostart-non-essential-services;
       dependsOn = [ "container-registry-server" ];
       image = "quiq/registry-ui:latest";
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--privileged" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+        "--privileged"
+      ];
       ports = [ "${opts.ports.container-registry-web}:8000" ];
       volumes = [
         "${opts.paths.app_datafiles}/containers/web/data:/opt/data"

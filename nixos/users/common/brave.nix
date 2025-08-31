@@ -31,7 +31,10 @@ in
       ];
       terminal = false;
       type = "Application";
-      categories = [ "Network" "WebBrowser" ];
+      categories = [
+        "Network"
+        "WebBrowser"
+      ];
     };
   };
 }

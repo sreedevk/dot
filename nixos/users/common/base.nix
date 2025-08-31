@@ -1,4 +1,9 @@
-{ pkgs, username, opts, ... }: {
+{ pkgs
+, username
+, opts
+, ...
+}:
+{
   home = {
     enableNixpkgsReleaseCheck = false;
     homeDirectory = "/home/${username}";
@@ -62,7 +67,6 @@
         export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
       '';
     };
-
 
     ".xsession" = {
       enable = true;
@@ -141,7 +145,11 @@
       show-trace = true;
       auto-optimise-store = true;
       fallback = true;
-      experimental-features = [ "nix-command" "flakes" "recursive-nix" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "recursive-nix"
+      ];
     };
   };
 }

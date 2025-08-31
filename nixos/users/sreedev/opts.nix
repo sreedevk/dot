@@ -1,5 +1,7 @@
 {
-  git = { enable-signing = true; };
+  git = {
+    enable-signing = true;
+  };
   directories = {
     wallpapers = "${builtins.getEnv "HOME"}/Media/wallpapers";
   };

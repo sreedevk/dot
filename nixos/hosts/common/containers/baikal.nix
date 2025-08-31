@@ -1,5 +1,8 @@
-{ pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ baikal ]);
+{ pkgs, opts, ... }:
+{
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ baikal ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/baikal 0755 ${opts.adminUID} ${opts.adminGID} -"

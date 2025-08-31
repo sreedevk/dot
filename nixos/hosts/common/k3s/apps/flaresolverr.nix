@@ -1,4 +1,4 @@
-{ pkgs, opts, ... }:
+{ pkgs, ... }:
 let
   flaresolverr-deploy-apply = pkgs.writeShellScriptBin "flaresolverr-deploy-apply" ''
     ${pkgs.k3s}/bin/k3s kubectl --validate=false apply -f /etc/k3s/deployments/flaresolverr.deployment.yaml

@@ -1,7 +1,8 @@
 { pkgs, opts, ... }:
 {
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ kapowarr ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ kapowarr ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.comics}     0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -12,11 +13,10 @@
     kapowarr = {
       autoStart = opts.autostart-non-essential-services;
       image = "mrcas/kapowarr:latest";
-      extraOptions =
-        [
-          "--add-host=${opts.hostname}:${opts.lanAddress}"
-          "--no-healthcheck"
-        ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       volumes = [
         "kapowarr_db:/app/db"
         "${opts.paths.comics}:/comics"

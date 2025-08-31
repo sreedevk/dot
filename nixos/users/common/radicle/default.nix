@@ -1,4 +1,9 @@
-{ pkgs, username, opts, config, ... }:
+{ pkgs
+, username
+, opts
+, config
+, ...
+}:
 let
   radconf = import ./configs.nix;
   radnode = pkgs.writeShellScriptBin "radnode" ''
@@ -19,26 +24,25 @@ in
     };
   };
 
-  systemd.user =
-    {
-      services = {
-        radicle-node = {
-          Unit = {
-            Description = "Radicle Node Runner";
-            Documentation = "info:rad man:rad(1) https://radicle.xyz/guides/user";
-            After = [ "agenix.service" ];
-            Requires = [ "agenix.service" ];
-          };
-          Service = {
-            Type = "simple";
-            ExecStart = "${radnode}/bin/radnode";
-            Restart = "on-failure";
-            RestartSec = "10s";
-          };
-          Install = {
-            WantedBy = [ "default.target" ];
-          };
+  systemd.user = {
+    services = {
+      radicle-node = {
+        Unit = {
+          Description = "Radicle Node Runner";
+          Documentation = "info:rad man:rad(1) https://radicle.xyz/guides/user";
+          After = [ "agenix.service" ];
+          Requires = [ "agenix.service" ];
+        };
+        Service = {
+          Type = "simple";
+          ExecStart = "${radnode}/bin/radnode";
+          Restart = "on-failure";
+          RestartSec = "10s";
+        };
+        Install = {
+          WantedBy = [ "default.target" ];
         };
       };
     };
+  };
 }

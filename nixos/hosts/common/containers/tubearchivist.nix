@@ -1,10 +1,16 @@
-{ pkgs, opts, config, ... }:
+{ pkgs
+, opts
+, config
+, ...
+}:
 {
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
       tubearchivist
       tubearchivist-redis
-    ]);
+    ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/tubearchivist/cache 0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -12,12 +18,13 @@
     "d ${opts.paths.app_datafiles}/tubearchivist/redis 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
-
   virtualisation.oci-containers.containers = {
     tubearchivist-app = {
       image = "bbilly1/tubearchivist:latest";
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       dependsOn = [
         "tubearchivist-es"
         "tubearchivist-redis"
@@ -49,12 +56,11 @@
     tubearchivist-es = {
       autoStart = opts.autostart-non-essential-services;
       image = "bbilly1/tubearchivist-es:latest";
-      extraOptions =
-        [
-          "--add-host=${opts.hostname}:${opts.lanAddress}"
-          "--no-healthcheck"
-          "--ulimit=memlock=-1:-1"
-        ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+        "--ulimit=memlock=-1:-1"
+      ];
       ports = [ "${opts.ports.tubearchivist-es}:9200" ];
       volumes = [
         "${opts.paths.app_datafiles}/tubearchivist/es:/usr/share/elasticsearch/data"
@@ -71,8 +77,10 @@
     tubearchivist-redis = {
       autoStart = opts.autostart-non-essential-services;
       image = "redis/redis-stack-server:latest";
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       dependsOn = [
         "tubearchivist-es"
       ];

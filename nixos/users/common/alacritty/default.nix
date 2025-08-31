@@ -9,7 +9,10 @@ let
     };
 
     font = {
-      normal = { family = "IosevkaTerm Nerd Font"; style = "Regular"; };
+      normal = {
+        family = "IosevkaTerm Nerd Font";
+        style = "Regular";
+      };
       size = 14.0;
     };
 
@@ -23,21 +26,68 @@ let
 
     keyboard = {
       bindings = [
-        { key = "U"; mods = "Alt"; action = "ScrollPageUp"; mode = "~Alt"; }
-        { key = "D"; mods = "Alt"; action = "ScrollPageDown"; mode = "~Alt"; }
-        { key = "O"; mods = "None"; action = "Open"; mode = "Vi"; }
-        { key = "Escape"; mods = "Control"; action = "ToggleViMode"; }
-        { key = "Escape"; mods = "None"; action = "ToggleViMode"; mode = "Vi"; }
-        { key = "Return"; mods = "None"; action = "ToggleViMode"; mode = "Vi"; }
-        { key = "I"; mods = "None"; action = "ToggleViMode"; mode = "Vi"; }
-        { key = "Tab"; mods = "None"; action = "SearchFocusNext"; mode = "Search"; }
-        { key = "Tab"; mods = "Shift"; action = "SearchFocusPrevious"; mode = "Search"; }
+        {
+          key = "U";
+          mods = "Alt";
+          action = "ScrollPageUp";
+          mode = "~Alt";
+        }
+        {
+          key = "D";
+          mods = "Alt";
+          action = "ScrollPageDown";
+          mode = "~Alt";
+        }
+        {
+          key = "O";
+          mods = "None";
+          action = "Open";
+          mode = "Vi";
+        }
+        {
+          key = "Escape";
+          mods = "Control";
+          action = "ToggleViMode";
+        }
+        {
+          key = "Escape";
+          mods = "None";
+          action = "ToggleViMode";
+          mode = "Vi";
+        }
+        {
+          key = "Return";
+          mods = "None";
+          action = "ToggleViMode";
+          mode = "Vi";
+        }
+        {
+          key = "I";
+          mods = "None";
+          action = "ToggleViMode";
+          mode = "Vi";
+        }
+        {
+          key = "Tab";
+          mods = "None";
+          action = "SearchFocusNext";
+          mode = "Search";
+        }
+        {
+          key = "Tab";
+          mods = "Shift";
+          action = "SearchFocusPrevious";
+          mode = "Search";
+        }
       ];
     };
 
     mouse = {
       bindings = [
-        { action = "PasteSelection"; mouse = "Middle"; }
+        {
+          action = "PasteSelection";
+          mouse = "Middle";
+        }
       ];
     };
 
@@ -55,7 +105,10 @@ let
       opacity = 0.9;
       blur = true;
       decorations = "None";
-      padding = { x = 5; y = 5; };
+      padding = {
+        x = 5;
+        y = 5;
+      };
     };
 
     terminal = {

@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
-  imports = [ ./colors.nix ./config.nix ];
+  imports = [
+    ./colors.nix
+    ./config.nix
+  ];
   home.packages = with pkgs; [ rofi ];
 }

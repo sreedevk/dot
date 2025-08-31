@@ -1,4 +1,7 @@
-{ pkgs, lib, ... }:
+{ pkgs
+, lib
+, ...
+}:
 {
 
   home.packages = with pkgs; [ nsxiv ];
@@ -158,7 +161,11 @@
       ];
       terminal = false;
       type = "Application";
-      categories = [ "Graphics" "2DGraphics" "Viewer" ];
+      categories = [
+        "Graphics"
+        "2DGraphics"
+        "Viewer"
+      ];
     };
   };
 }

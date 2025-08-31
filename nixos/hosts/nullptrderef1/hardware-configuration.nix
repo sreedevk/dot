@@ -25,7 +25,7 @@
         "nohibernate"
         "zfs.zfs_arc_max=${builtins.toString (zfs_arc_max_gb * 1073741824)}"
         "zfs.zfs_dirty_data_max=${builtins.toString (zfs_dirty_data_max_gb * 1073741824)}"
-        "zfs.zfs_dirty_data_sync=${builtins.toString (force_sync_at_x_dirty_gb * 1073741824) }"
+        "zfs.zfs_dirty_data_sync=${builtins.toString (force_sync_at_x_dirty_gb * 1073741824)}"
       ];
 
     tmp.cleanOnBoot = true;
@@ -52,7 +52,15 @@
 
     initrd = {
       kernelModules = [ "kvm-intel" ];
-      availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "uas" "usb_storage" "sd_mod" ];
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "nvme"
+        "usbhid"
+        "uas"
+        "usb_storage"
+        "sd_mod"
+      ];
     };
 
   };
@@ -89,7 +97,10 @@
         "/boot" = {
           device = "/dev/disk/by-uuid/336E-023D";
           fsType = "vfat";
-          options = [ "fmask=0077" "dmask=0077" ];
+          options = [
+            "fmask=0077"
+            "dmask=0077"
+          ];
         };
         "/" = {
           device = "/dev/disk/by-uuid/db18f4e1-9c29-41da-a57a-2c2a9d405cd8";
@@ -108,10 +119,12 @@
       enp2s0 = {
         useDHCP = lib.mkDefault false;
         ipv4 = {
-          addresses = [{
-            address = opts.lanAddress;
-            prefixLength = 24;
-          }];
+          addresses = [
+            {
+              address = opts.lanAddress;
+              prefixLength = 24;
+            }
+          ];
         };
       };
       wlan0 = {

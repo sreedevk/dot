@@ -13,7 +13,10 @@
         "radarr"
       ];
       user = "${opts.adminUID}:${opts.adminGID}";
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       volumes = [ "${opts.paths.app_datafiles}/recyclarr:/config" ];
       environment = {
         TZ = opts.timeZone;

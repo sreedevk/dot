@@ -165,7 +165,7 @@
             reverse:                     false;
             fixed-height:                true;
             fixed-columns:               true;
-    
+
             spacing:                     5px;
             margin:                      0px;
             padding:                     0px;

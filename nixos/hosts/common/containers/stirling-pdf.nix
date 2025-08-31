@@ -1,6 +1,8 @@
 { pkgs, opts, ... }:
 {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ stirling-pdf ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ stirling-pdf ]
+  );
   virtualisation.oci-containers.containers = {
     "stirling-pdf" = {
       autoStart = opts.autostart-non-essential-services;

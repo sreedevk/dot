@@ -1,9 +1,8 @@
 { pkgs, opts, ... }:
 let
-  appdata-sync =
-    pkgs.writeShellScriptBin "appdata-sync" ''
-      ${pkgs.rsync}/bin/rsync -aAXv --progress --delete --size-only "${opts.paths.app_datafiles}/" "${opts.paths.backups}/${opts.hostname}/appdata"
-    '';
+  appdata-sync = pkgs.writeShellScriptBin "appdata-sync" ''
+    ${pkgs.rsync}/bin/rsync -aAXv --progress --delete --size-only "${opts.paths.app_datafiles}/" "${opts.paths.backups}/${opts.hostname}/appdata"
+  '';
 in
 {
   environment.systemPackages = [ appdata-sync ];

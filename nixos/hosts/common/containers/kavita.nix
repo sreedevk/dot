@@ -1,5 +1,8 @@
-{ config, lib, pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ kavita ]);
+{ pkgs, opts, ... }:
+{
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ kavita ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/kavita 0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -9,8 +12,10 @@
     "kavita" = {
       autoStart = true;
       image = "jvmilazz0/kavita:latest";
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       ports = [ "${opts.ports.kavita}:5000" ];
       volumes = [
         "${opts.paths.app_datafiles}/kavita:/kavita/config"

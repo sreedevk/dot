@@ -67,8 +67,12 @@
       iwd = {
         enable = true;
         settings = {
-          IPV6 = { Enabled = false; };
-          Settings = { AutoConnect = true; };
+          IPV6 = {
+            Enabled = false;
+          };
+          Settings = {
+            AutoConnect = true;
+          };
         };
       };
     };
@@ -83,19 +87,25 @@
     firewall = {
       enable = true;
       allowPing = false;
-      allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [
-        ftp
-        https
-        ssh
-        tailscale_p2p
-        tailscale_direct
-      ]);
-      allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [
-        ftp
-        ssh
-        tailscale_p2p
-        tailscale_direct
-      ]);
+      allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+        with opts.ports;
+        [
+          ftp
+          https
+          ssh
+          tailscale_p2p
+          tailscale_direct
+        ]
+      );
+      allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (
+        with opts.ports;
+        [
+          ftp
+          ssh
+          tailscale_p2p
+          tailscale_direct
+        ]
+      );
     };
 
   };
@@ -136,8 +146,13 @@
   };
 
   fonts = {
-    packages = with pkgs; [ nerd-fonts.iosevka nerd-fonts.iosevka-term ];
-    fontconfig = { enable = true; };
+    packages = with pkgs; [
+      nerd-fonts.iosevka
+      nerd-fonts.iosevka-term
+    ];
+    fontconfig = {
+      enable = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -225,7 +240,10 @@
 
   };
 
-  services.udev.packages = [ pkgs.vaapiIntel pkgs.intel-media-driver ];
+  services.udev.packages = [
+    pkgs.vaapiIntel
+    pkgs.intel-media-driver
+  ];
 
   security.sudo.wheelNeedsPassword = false;
   security.rtkit.enable = true;
@@ -247,4 +265,3 @@
   system.copySystemConfiguration = false;
   system.stateVersion = "23.11";
 }
-

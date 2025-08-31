@@ -1,5 +1,6 @@
 { pkgs, system, ... }:
-with pkgs.nur.repos.rycee.firefox-addons; [
+with pkgs.nur.repos.rycee.firefox-addons;
+[
   bitwarden
   consent-o-matic
   darkreader
@@ -11,4 +12,3 @@ with pkgs.nur.repos.rycee.firefox-addons; [
   ublock-origin
   vimium
 ]
-

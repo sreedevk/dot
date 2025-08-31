@@ -1,4 +1,4 @@
-{ config, pkgs, opts, system, ... }:
+{ ... }:
 {
   services.zrepl = {
     enable = true;
@@ -20,7 +20,12 @@
             prefix = "zrepl_snapjob_";
           };
           pruning = {
-            keep = [{ type = "last_n"; count = 3; }];
+            keep = [
+              {
+                type = "last_n";
+                count = 3;
+              }
+            ];
           };
         }
       ];

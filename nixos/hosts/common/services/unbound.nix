@@ -1,7 +1,12 @@
-{ config, pkgs, opts, ... }: {
+{ pkgs, opts, ... }:
+{
 
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ unbound_dns ]);
-  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ unbound_dns ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ unbound_dns ]
+  );
+  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ unbound_dns ]
+  );
 
   # TODO: reconfigure unbound to work with adguard
   services.unbound = {

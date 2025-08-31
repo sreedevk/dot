@@ -1,6 +1,13 @@
-{ pkgs, config, opts, ... }:
+{ pkgs, opts, ... }:
 {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ tdarr-node tdarr-server tdarr-web ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      tdarr-node
+      tdarr-server
+      tdarr-web
+    ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/tdarr/server 0755 ${opts.adminUID} ${opts.adminGID} -"

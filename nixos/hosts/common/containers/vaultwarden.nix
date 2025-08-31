@@ -1,6 +1,8 @@
-{ config, lib, pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ vaultwarden ]);
+{ pkgs, opts, ... }:
+{
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ vaultwarden ]
+  );
 
   virtualisation.oci-containers.containers = {
     "vaultwarden" = {
@@ -12,8 +14,10 @@
         "kuma.vw.http.name" = "VaultWarden";
         "kuma.vw.http.url" = "http://${opts.lanAddress}:${opts.ports.vaultwarden}/alive";
       };
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       ports = [ "${opts.ports.vaultwarden}:80" ];
       volumes = [ "vaultwarden:/data" ];
       environment = {

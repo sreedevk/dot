@@ -1,4 +1,5 @@
-{ config, lib, pkgs, opts, ... }: {
+{ pkgs, ... }:
+{
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;

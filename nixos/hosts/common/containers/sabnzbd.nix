@@ -1,12 +1,13 @@
-{ pkgs, config, opts, ... }:
+{ pkgs, opts, ... }:
 {
 
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ sabnzbd ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ sabnzbd ]
+  );
 
-  networking.firewall.allowedUDPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ sabnzbd ]);
-
+  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ sabnzbd ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/sabnzbd 0755 ${opts.adminUID} ${opts.adminGID} -"

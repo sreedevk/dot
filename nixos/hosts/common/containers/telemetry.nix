@@ -1,7 +1,8 @@
-{ pkgs, config, opts, ... }:
+{ pkgs, opts, ... }:
 {
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
       grafana
       influxdb
       prometheus_app
@@ -9,7 +10,8 @@
       prometheus_smartctl
       prometheus_zfs
       promtail
-    ]);
+    ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/prometheus 0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -184,8 +186,11 @@
       ports = [ "${opts.ports.loki}:3100" ];
       cmd = [ "-config.file=/etc/loki/local.yaml" ];
       volumes = [ "/etc/loki/local.yaml:/etc/loki/local.yaml:ro" ];
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+        "--user=${opts.adminUID}"
+      ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
         "kuma.loki.http.parent_name" = "${opts.hostname}";
@@ -203,8 +208,11 @@
       autoStart = opts.autostart-non-essential-services;
       image = "prom/prometheus:latest";
       dependsOn = [ "influxdb" ];
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+        "--user=${opts.adminUID}"
+      ];
       ports = [ "${opts.ports.prometheus_app}:9090" ];
       volumes = [
         "/etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro"
@@ -227,9 +235,16 @@
     grafana = {
       autoStart = opts.autostart-non-essential-services;
       image = "grafana/grafana:latest";
-      dependsOn = [ "influxdb" "loki" "prometheus" ];
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" "--user=${opts.adminUID}" ];
+      dependsOn = [
+        "influxdb"
+        "loki"
+        "prometheus"
+      ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+        "--user=${opts.adminUID}"
+      ];
       ports = [ "${opts.ports.grafana}:3000" ];
       volumes = [
         "/etc/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml:ro"
@@ -249,8 +264,10 @@
     influxdb = {
       autoStart = opts.autostart-non-essential-services;
       image = "influxdb:2.7.6-alpine";
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       ports = [ "${opts.ports.influxdb}:8086" ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";

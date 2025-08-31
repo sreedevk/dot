@@ -1,10 +1,13 @@
-{ pkgs, opts, config, ... }:
+{ opts, config, ... }:
 {
   virtualisation.oci-containers.containers = {
     "watchtower" = {
       autoStart = opts.autostart-non-essential-services;
       image = "containrrr/watchtower:latest";
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       volumes = [ "${opts.paths.podmanSocket}:/var/run/docker.sock" ];
       environmentFiles = [ config.age.secrets.watchtower_env.path ];
       cmd = [ "--cleanup" ];

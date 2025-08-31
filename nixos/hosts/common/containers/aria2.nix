@@ -1,5 +1,16 @@
-{ opts, config, pkgs, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ aria_rpc aria_web ]);
+{ opts
+, config
+, pkgs
+, ...
+}:
+{
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      aria_rpc
+      aria_web
+    ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.downloads}/Aria 0755 ${opts.adminUID} ${opts.adminGID} -"

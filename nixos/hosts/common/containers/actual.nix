@@ -1,9 +1,18 @@
-{ config, lib, pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ actual-app ]);
+{ pkgs
+, opts
+, ...
+}:
+{
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ actual-app ]
+  );
   virtualisation.oci-containers.containers = {
     actual-app = {
       autoStart = opts.autostart-non-essential-services;
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       image = "actualbudget/actual-server:latest-alpine";
       ports = [ "${opts.ports.actual-app}:5006" ];
       volumes = [ "actual_budget_data:/data" ];

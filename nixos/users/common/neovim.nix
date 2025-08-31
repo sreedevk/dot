@@ -25,12 +25,11 @@ let
     zls                             # zig
   ];
 
-  neovim_pkgs =
-    with pkgs; [
-      nodejs-slim
-      tree-sitter
-      typst
-    ];
+  neovim_pkgs = with pkgs; [
+    nodejs-slim
+    tree-sitter
+    typst
+  ];
 in
 {
   home.packages = builtins.concatLists [
@@ -73,7 +72,12 @@ in
         "text/x-diff"
       ];
       terminal = false;
-      categories = [ "GTK" "Development" "IDE" "TextEditor" ];
+      categories = [
+        "GTK"
+        "Development"
+        "IDE"
+        "TextEditor"
+      ];
       type = "Application";
     };
   };

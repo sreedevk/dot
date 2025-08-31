@@ -1,4 +1,8 @@
-{ pkgs, lib, config, ... }:
+{ pkgs
+, lib
+, config
+, ...
+}:
 let
   themes = import ../themes.nix;
 in
@@ -22,7 +26,10 @@ in
       exec = "kitty";
       icon = "kitty";
       terminal = false;
-      categories = [ "System" "TerminalEmulator" ];
+      categories = [
+        "System"
+        "TerminalEmulator"
+      ];
     };
   };
 }

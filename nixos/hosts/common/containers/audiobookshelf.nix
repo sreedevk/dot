@@ -1,4 +1,5 @@
-{ config, lib, pkgs, opts, ... }: {
+{ opts, ... }:
+{
   # networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ audiobookshelf ]);
   # networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ audiobookshelf ]);
 
@@ -22,7 +23,8 @@
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
         "kuma.audiobookshelf.http.parent_name" = "${opts.hostname}";
         "kuma.audiobookshelf.http.name" = "AudioBookShelf";
-        "kuma.audiobookshelf.http.url" = "http://${opts.lanAddress}:${opts.ports.audiobookshelf}/healthcheck";
+        "kuma.audiobookshelf.http.url" =
+          "http://${opts.lanAddress}:${opts.ports.audiobookshelf}/healthcheck";
       };
       volumes = [
         "audiobookshelf:/config"

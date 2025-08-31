@@ -1,5 +1,7 @@
 {
-  git = { enable-signing = false; };
+  git = {
+    enable-signing = false;
+  };
   username = "pi";
   directories = { };
   desktop = {

@@ -1,5 +1,8 @@
-{ config, lib, pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ navidrome ]);
+{ pkgs, opts, ... }:
+{
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ navidrome ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/navidrome 0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -10,8 +13,10 @@
       autoStart = true;
       image = "deluan/navidrome:latest";
       ports = [ "${opts.ports.navidrome}:4533" ];
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       volumes = [
         "${opts.paths.app_datafiles}/navidrome:/data"
         "${opts.paths.music}:/music:ro"

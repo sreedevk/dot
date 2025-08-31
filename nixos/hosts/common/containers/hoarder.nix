@@ -1,4 +1,4 @@
-{ config, lib, pkgs, opts, ... }:
+{ config, opts, ... }:
 {
 
   systemd.tmpfiles.rules = [
@@ -11,7 +11,10 @@
       autoStart = true;
       image = "gcr.io/zenika-hub/alpine-chrome:123";
       ports = [ "${opts.ports.chrome}:${opts.ports.chrome}" ];
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       cmd = [
         "--no-sandbox"
         "--disable-gpu"
@@ -27,7 +30,10 @@
       image = "getmeili/meilisearch:v1.11.1";
       ports = [ "${opts.ports.meilisearch_app}:7700" ];
       volumes = [ "${opts.paths.app_datafiles}/meilisearch:/meili_data" ];
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       environmentFiles = [ config.age.secrets.hoarder_env.path ];
       environment = {
         MEILI_NO_ANALYTICS = "true";
@@ -39,11 +45,17 @@
     # https://${opts.hostname}:${opts.ports.hoarder_app}
     hoarder = {
       autoStart = true;
-      dependsOn = [ "meilisearch" "chrome" ];
+      dependsOn = [
+        "meilisearch"
+        "chrome"
+      ];
       image = "ghcr.io/hoarder-app/hoarder:release";
       ports = [ "${opts.ports.hoarder_app}:3000" ];
       environmentFiles = [ config.age.secrets.hoarder_env.path ];
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
         "kuma.hoarder.http.parent_name" = "${opts.hostname}";

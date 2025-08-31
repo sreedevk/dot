@@ -4,15 +4,14 @@
     "filebrowser/settings.json" = {
       enable = true;
       mode = "0777";
-      text = builtins.toJSON
-        {
-          port = "8000";
-          baseURL = "";
-          address = "";
-          log = "stdout";
-          database = "/database/filebrowser.db";
-          root = "/srv";
-        };
+      text = builtins.toJSON {
+        port = "8000";
+        baseURL = "";
+        address = "";
+        log = "stdout";
+        database = "/database/filebrowser.db";
+        root = "/srv";
+      };
     };
   };
 
@@ -20,7 +19,10 @@
     "filebrowser" = {
       autoStart = true;
       image = "filebrowser/filebrowser:latest";
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       ports = [ "${opts.ports.filebrowser}:8000" ];
       volumes = [
         "filebrowser_database:/database"

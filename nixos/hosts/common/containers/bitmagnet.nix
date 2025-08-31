@@ -1,29 +1,48 @@
-{ config, lib, pkgs, opts, ... }:
+{ config
+, pkgs
+, opts
+, ...
+}:
 {
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/bitmagnet        0755 ${opts.adminUID} ${opts.adminGID} -"
     "d ${opts.paths.app_datafiles}/bitmagnet/config 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ bitmagnet-app bitmagnet-p2p bitmagnet-db ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      bitmagnet-app
+      bitmagnet-p2p
+      bitmagnet-db
+    ]
+  );
 
-  networking.firewall.allowedUDPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ bitmagnet-p2p ]);
+  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ bitmagnet-p2p ]
+  );
 
   virtualisation.oci-containers.containers = {
     "bitmagnet-app" = {
       autoStart = opts.autostart-non-essential-services;
       image = "ghcr.io/bitmagnet-io/bitmagnet:latest";
       dependsOn = [ "bitmagnet-db" ];
-      extraOptions =
-        [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       ports = [
         "${opts.ports.bitmagnet-app}:3333"
         "${opts.ports.bitmagnet-p2p}:3334/tcp"
         "${opts.ports.bitmagnet-p2p}:3334/udp"
       ];
-      cmd = [ "worker" "run" "--keys=http_server" "--keys=queue_server" "--keys=dht_crawler" ];
+      cmd = [
+        "worker"
+        "run"
+        "--keys=http_server"
+        "--keys=queue_server"
+        "--keys=dht_crawler"
+      ];
       volumes = [
         "${opts.paths.app_datafiles}/bitmagnet/config:/root/.config/bitmagnet"
       ];

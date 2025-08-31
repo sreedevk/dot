@@ -1,8 +1,12 @@
-{ config, ... }: {
-  services.mullvad-vpn = { enable = true; };
+{ config, ... }:
+{
+  services.mullvad-vpn = {
+    enable = true;
+  };
 
   systemd.services."mullvad-daemon".postStart =
-    let mullvad = config.services.mullvad-vpn.package;
+    let
+      mullvad = config.services.mullvad-vpn.package;
     in
     ''
       while ! ${mullvad}/bin/mullvad status > /dev/null; do sleep 1; done

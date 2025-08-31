@@ -5,20 +5,18 @@ let
   '';
 in
 {
-  systemd.user =
-    {
-      services = {
-        droidcam = {
-          Unit = {
-            Description = "Droidcam User Service";
-            Documentation = "https://github.com/dev47apps/droidcam-linux-client";
-          };
-          Service = {
-            Type = "simple";
-            ExecStart = "${droidcam-connect}/bin/dc-connect";
-          };
+  systemd.user = {
+    services = {
+      droidcam = {
+        Unit = {
+          Description = "Droidcam User Service";
+          Documentation = "https://github.com/dev47apps/droidcam-linux-client";
+        };
+        Service = {
+          Type = "simple";
+          ExecStart = "${droidcam-connect}/bin/dc-connect";
         };
       };
     };
+  };
 }
-

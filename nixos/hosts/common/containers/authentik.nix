@@ -1,12 +1,19 @@
-{ pkgs, config, opts, ... }:
+{ pkgs
+, config
+, opts
+, ...
+}:
 {
 
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [
-    authentik-db
-    authentik-app-http
-    authentik-app-https
-    authentik-redis
-  ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      authentik-db
+      authentik-app-http
+      authentik-app-https
+      authentik-redis
+    ]
+  );
 
   virtualisation.oci-containers.containers = {
     "authentik-db" = {
@@ -14,7 +21,10 @@
       image = "postgres:16-alpine";
       ports = [ "${opts.ports.authentik-db}:5432" ];
       volumes = [ "authentik_postgres:/var/lib/postgresql/data" ];
-      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       environmentFiles = [ config.age.secrets.authentik_env.path ];
       environment = {
         AUTHENTIK_ERROR_REPORTING__ENABLED = "true";
@@ -28,8 +38,17 @@
       autoStart = true;
       image = "redis:alpine";
       ports = [ "${opts.ports.authentik-redis}:6379" ];
-      cmd = [ "--save" "60" "1" "--loglevel" "warning" ];
-      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      cmd = [
+        "--save"
+        "60"
+        "1"
+        "--loglevel"
+        "warning"
+      ];
+      extraOptions = [
+        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       volumes = [ "authentik_redis:/data" ];
       environmentFiles = [ config.age.secrets.authentik_env.path ];
       environment = {
@@ -43,9 +62,15 @@
     "authentik-server" = {
       autoStart = true;
       image = "ghcr.io/goauthentik/server:2025.4.0";
-      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       cmd = [ "server" ];
-      dependsOn = [ "authentik-db" "authentik-redis" ];
+      dependsOn = [
+        "authentik-db"
+        "authentik-redis"
+      ];
       volumes = [
         "authentik_media:/media"
         "authentik_templates:/templates"
@@ -68,8 +93,14 @@
     "authentik-worker" = {
       autoStart = true;
       image = "ghcr.io/goauthentik/server:2025.4.0";
-      extraOptions = [ "--add-host=nullptrderef1:${opts.lanAddress}" "--no-healthcheck" ];
-      dependsOn = [ "authentik-db" "authentik-redis" ];
+      extraOptions = [
+        "--add-host=nullptrderef1:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
+      dependsOn = [
+        "authentik-db"
+        "authentik-redis"
+      ];
       cmd = [ "worker" ];
       volumes = [
         "${opts.paths.podmanSocket}:/var/run/docker.sock"

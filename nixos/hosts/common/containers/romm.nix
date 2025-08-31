@@ -1,4 +1,8 @@
-{ pkgs, opts, config, ... }:
+{ pkgs
+, opts
+, config
+, ...
+}:
 {
   systemd.tmpfiles.rules = [
     "d ${opts.paths.roms}/resources            0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -8,8 +12,13 @@
     "d ${opts.paths.app_datafiles}/romm/config 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ romm-app romm-db ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      romm-app
+      romm-db
+    ]
+  );
 
   virtualisation.oci-containers.containers = {
     romm-app = {

@@ -1,7 +1,25 @@
-{ opts, config, pkgs, ... }:
+{ opts
+, config
+, pkgs
+, ...
+}:
 {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ http https nginx-proxy-manager ]);
-  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ http https nginx-proxy-manager ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      http
+      https
+      nginx-proxy-manager
+    ]
+  );
+  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      http
+      https
+      nginx-proxy-manager
+    ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/tailscale-nginx/state           0755 ${opts.adminUID} ${opts.adminGID} -"

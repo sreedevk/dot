@@ -1,6 +1,11 @@
-{ config, lib, pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ jellyfin ]);
-  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ jellyfin ]);
+{ pkgs, opts, ... }:
+{
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ jellyfin ]
+  );
+  networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ jellyfin ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/jellyfin/config 0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -27,16 +32,15 @@
         "kuma.jellyfin.http.name" = "Jellyfin";
         "kuma.jellyfin.http.url" = "http://${opts.lanAddress}:${opts.ports.jellyfin}/health";
       };
-      extraOptions =
-        [
-          "--add-host=${opts.hostname}:${opts.lanAddress}"
-          "--no-healthcheck"
-          "--device=/dev/dri/renderD128:/dev/dri/renderD128"
-          "--device=/dev/dri/card1:/dev/dri/card1"
-          "--group-add=303"
-          "--group-add=26"
-          "--privileged"
-        ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+        "--device=/dev/dri/renderD128:/dev/dri/renderD128"
+        "--device=/dev/dri/card1:/dev/dri/card1"
+        "--group-add=303"
+        "--group-add=26"
+        "--privileged"
+      ];
       ports = [ "${opts.ports.jellyfin}:8096" ];
       environment = {
         JELLYFIN_LOG_DIR = "/log";

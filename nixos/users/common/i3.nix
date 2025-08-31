@@ -1,4 +1,8 @@
-{ pkgs, config, opts, ... }:
+{ pkgs
+, config
+, opts
+, ...
+}:
 let
   wallpaper_path = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
   set-wallpaper = pkgs.writeShellScriptBin "set-wallpaper" ''

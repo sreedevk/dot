@@ -1,15 +1,26 @@
-{ pkgs, config, opts, ... }:
+{ pkgs
+, config
+, opts
+, ...
+}:
 {
 
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [
-    watch-your-lan
-  ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports;
+    [
+      watch-your-lan
+    ]
+  );
 
   virtualisation.oci-containers.containers = {
     "watchyourlan" = {
       autoStart = opts.autostart-non-essential-services;
       image = "aceberg/watchyourlan:v2";
-      extraOptions = [ "--network=host" "--no-healthcheck" "--privileged" ];
+      extraOptions = [
+        "--network=host"
+        "--no-healthcheck"
+        "--privileged"
+      ];
       volumes = [ "wyl_app:/data/WatchYourLAN" ];
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";

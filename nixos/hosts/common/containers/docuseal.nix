@@ -1,10 +1,19 @@
-{ config, lib, pkgs, opts, ... }: {
-  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (with opts.ports; [ docuseal ]);
+{ pkgs
+, opts
+, ...
+}:
+{
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ docuseal ]
+  );
   virtualisation.oci-containers.containers = {
     "docuseal" = {
       autoStart = opts.autostart-non-essential-services;
       image = "docuseal/docuseal:latest";
-      extraOptions = [ "--add-host=${opts.hostname}:${opts.lanAddress}" "--no-healthcheck" ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       ports = [ "${opts.ports.docuseal}:3000" ];
       volumes = [ "docuseal_data:/data" ];
       labels = {

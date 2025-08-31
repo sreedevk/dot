@@ -1,7 +1,12 @@
-{ config, lib, pkgs, opts, ... }: {
+{ pkgs
+, opts
+, ...
+}:
+{
 
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ dockge ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ dockge ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/dockge 0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -15,12 +20,11 @@
     dockge = {
       autoStart = opts.autostart-non-essential-services;
       image = "louislam/dockge:1";
-      extraOptions =
-        [
-          "--add-host=${opts.hostname}:${opts.lanAddress}"
-          "--no-healthcheck"
-          "--cap-add=NET_ADMIN"
-        ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+        "--cap-add=NET_ADMIN"
+      ];
       ports = [ "${opts.ports.dockge}:5001" ];
       volumes = [
         "${opts.paths.podmanSocket}:/var/run/docker.sock"

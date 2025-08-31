@@ -1,7 +1,8 @@
 { pkgs, opts, ... }:
 {
-  networking.firewall.allowedTCPPorts =
-    builtins.map pkgs.lib.strings.toInt (with opts.ports; [ bazarr ]);
+  networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
+    with opts.ports; [ bazarr ]
+  );
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.television}  0755 ${opts.adminUID} ${opts.adminGID} -"
@@ -13,11 +14,10 @@
     bazarr = {
       autoStart = opts.autostart-non-essential-services;
       image = "ghcr.io/hotio/bazarr:latest";
-      extraOptions =
-        [
-          "--add-host=${opts.hostname}:${opts.lanAddress}"
-          "--no-healthcheck"
-        ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
       ports = [ "${opts.ports.bazarr}:6767" ];
       volumes = [
         "bazarr_data:/config"

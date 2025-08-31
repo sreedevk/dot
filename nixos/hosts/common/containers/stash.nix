@@ -1,4 +1,5 @@
-{ config, lib, pkgs, opts, ... }: {
+{ opts, ... }:
+{
   systemd.tmpfiles.rules = [
     "d ${opts.paths.app_datafiles}/stash 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
