@@ -41,6 +41,7 @@
   "browser.helperApps.neverAsk.openFile" = true;
   "browser.link.open_newwindow" = true;
   "browser.menu.showViewImageInfo" = true;
+  "browser.ml.chat.enabled" = false;
   "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
   "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
   "browser.newtabpage.activity-stream.default.sites" = "";
