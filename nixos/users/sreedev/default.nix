@@ -156,6 +156,7 @@ in
           scdl
           silicon
           statix
+          streamrip
           tea
           terminaltexteffects
           ticker
