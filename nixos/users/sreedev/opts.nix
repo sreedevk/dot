@@ -13,6 +13,6 @@
       bin = "firefox";
       xdg-desktop = "firefox.desktop";
     };
-    wallpaper = "apocalypse/a_street_with_a_bridge_and_people_sitting_on_it.jpg";
+    wallpaper = "unsorted/a_road_with_cars_driving_on_it.png";
   };
 }
