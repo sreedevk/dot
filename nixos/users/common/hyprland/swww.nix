@@ -8,6 +8,13 @@ in
 {
   home.packages = with pkgs; [ swww ];
   services.swww.enable = true;
+
+  systemd.user.services.swww = {
+    Service = {
+      Environment = "WALLPAPER=${wallpath}";
+    };
+  };
+
   systemd.user.services = {
     swww-set-wallpaper = {
       Unit = {
