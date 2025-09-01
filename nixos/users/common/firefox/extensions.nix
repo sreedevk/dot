@@ -5,6 +5,7 @@ with pkgs.nur.repos.rycee.firefox-addons;
   consent-o-matic
   darkreader
   decentraleyes
+  downthemall
   karakeep
   private-grammar-checker-harper
   reddit-enhancement-suite
