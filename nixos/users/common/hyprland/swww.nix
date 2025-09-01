@@ -16,7 +16,6 @@ in
         After = [ "swww.service" ];
         BindsTo = [ "swww.service" ];
         Requires = [ "swww.service" ];
-        X-SwitchMethod = "stop-start";
       };
       Service = {
         Type = "oneshot";
