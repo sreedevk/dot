@@ -595,6 +595,12 @@ in
         args = "${config.programs.alacritty.package}/bin/alacritty";
       }
       {
+        mod = "SUPER SHIFT";
+        keys = "Return";
+        dispatcher = "exec";
+        args = "ghostty";
+      }
+      {
         mod = "SUPER";
         keys = "KP_Enter";
         dispatcher = "exec";
