@@ -77,7 +77,6 @@ in
           (config.lib.nixGL.wrap pkgs.slack)
           (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
           dbeaver-bin
-          eww
           ffmpegthumbnailer
           gnome-calculator
           libreoffice-fresh
@@ -86,7 +85,6 @@ in
           openttd
           pwvucontrol
           qflipper
-          quickshell
           sonic-pi
           sqlitebrowser
           wf-recorder

@@ -26,12 +26,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell?shallow=1"; # rev=v0.2.0
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
   outputs =
