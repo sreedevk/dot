@@ -33,6 +33,7 @@ export GPG_TTY=$(tty)
 export TERMINFO="/usr/share/terminfo/"
 export MANROFFOPT="-c"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPATH="$HOME/.nix-profile/share/man:/usr/share/man:/usr/local/share/man:${MANPATH}"
 export LANG="en_US.UTF-8"
 export TZ='America/New_York'
 export WORDCHARS=${WORDCHARS/\/}

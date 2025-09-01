@@ -32,6 +32,7 @@ in
     ../common/jujutsu.nix
     ../common/keybase.nix
     ../common/keyboard.nix
+    ../common/man.nix
     ../common/mise.nix
     ../common/neovide.nix
     ../common/neovim.nix
