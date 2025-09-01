@@ -21,14 +21,15 @@
           chicken = "5.4.0";
           clojure = "latest";
           deno = "latest";
-          elixir = "1.18.4-otp-28";
+          elixir = "latest";
           elm = "latest";
-          erlang = "28.0.2";
+          erlang = "latest";
           gleam = "latest";
           golang = "latest";
           nim = "latest";
           ruby = "latest";
           zig = "latest";
+          janet = "latest";
         };
       };
     };

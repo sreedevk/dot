@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 {
   home.packages = with pkgs; [
-    amfora
+    amfora # gemini protocol browser
   ];
 
   xdg.desktopEntries = {
