@@ -1,7 +1,8 @@
-{ pkgs
-, config
-, opts
-, ...
+{
+  pkgs,
+  config,
+  opts,
+  ...
 }:
 let
   wallpaper_path = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
@@ -87,7 +88,7 @@ in
         bindsym $mod+Return            exec --no-startup-id $term
         bindsym $mod+KP_Enter          exec --no-startup-id $term
         bindsym $mod+d                 exec --no-startup-id $app_launcher
-        bindsym $mod+Ctrl+d            exec --no-startup-id "dmenu_run"
+        bindsym $mod+Ctrl+d            exec --no-startup-id "${pkgs.wofi}/bin/wofi --dmenu -S run"
         bindsym $mod+Tab               exec --no-startup-id $window_switcher
         bindsym Ctrl+space             exec --no-startup-id "${pkgs.dunst}/bin/dunstctl close-all"
 
