@@ -111,7 +111,7 @@
             enabled:                     true;
             padding:                     5px 0px;
             expand:                      false;
-            str:                         "";
+            str:                         " ";
             background-color:            inherit;
             text-color:                  inherit;
         }
