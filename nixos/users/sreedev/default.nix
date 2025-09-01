@@ -90,83 +90,76 @@ in
           wofi
         ];
         cli-packages = with pkgs; [
-          agenix
-          aria2
-          asciinema
+          agenix              # age based nix secrets
+          aria2               # aria downloader
+          asciinema           # terminal recorder
           asciinema-agg
           aspell
           aspellDicts.en
           aspellDicts.en-computers
           aspellDicts.en-science
-          beanstalkd
-          cava
-          claude-code
-          cmatrix
-          csvlens
-          doctl
-          duckdb
-          elan
-          emacs-gtk
-          fasm
-          glab
-          glow
+          cava                # audio visualizer
+          claude-code         # coding agent
+          cmatrix             # matrix
+          csvlens             # csv tui viewer
+          duckdb              # duck db
+          elan                # lean version manager
+          emacs-gtk           # emacs
+          fasm                # flat assembler
+          glab                # gitlab cli
+          glow                # tui markdown renderer
           gpg-tui
-          gping
-          graphviz
-          hexyl
+          gping               # ping grapher
+          graphviz            # graph visualizer
+          hexyl               # cli hex viewer
           hledger
           hledger-iadd
           hledger-ui
           hledger-utils
           hledger-web
-          html-tidy
-          hugo
-          hyperfine
-          imager
-          instaloader
-          ipcalc
-          jira-cli-go
-          jless
-          just
-          k9s
-          kubectl
-          lazydocker
-          ledger
-          mdbook
-          miller
-          nasm
-          ncpamixer
+          html-tidy           # HTML validator
+          hyperfine           # benchmarking tool
+          imager              # Interferometric imaging package
+          instaloader         # instagram downloader
+          ipcalc              # ip math
+          jira-cli-go         # jira
+          jless               # json pager
+          just                # command runner
+          k9s                 # k8s tui
+          kubectl             # k8s
+          lazydocker          # docker tui
+          ledger              # cli ledger
+          mdbook              # generate books from markdown
+          miller              # awk, sed, cut, join and sort for csv, tsv, json
+          nasm                # x86_64 assembler
           nerd-fonts.iosevka
           nerd-fonts.iosevka
           nerd-fonts.iosevka-term
-          nixfmt
-          nmap
-          nushell
-          opencode
-          oxker
-          pandoc
-          poezio
-          pulsemixer
-          qrencode
-          s3cmd
-          sc-im
-          scdl
-          silicon
-          statix
-          streamrip
-          tea
-          terminaltexteffects
-          ticker
+          nixfmt              # nix formatter
+          nmap                # network discovery and security auditing
+          nushell             # modern shell written in rust
+          opencode            # AI coding agent
+          pandoc              # document format converter
+          qrencode            # qr code generator
+          s3cmd               # s3 cli
+          sc-im               # vim like tui spreadsheet
+          scdl                # soundcloud download
+          silicon             # code screenshot generator
+          statix              # nix code linter
+          streamrip           # tidal / soundcloud / deezer downloader cli
+          tea                 # gitea cli tool
+          terminaltexteffects # cli text effects
+          ticker              # asset ticker
           tmux-sessionizer-package
           tmuxinator
-          toilet
-          tokei
-          tty-clock
-          uiua
-          uv
-          visidata
-          wiremix
-          yt-dlp
+          toilet              # fancy large cli text generator
+          tokei               # lines of code count
+          tty-clock           # tty clock
+          uiua                # array oriented programming language
+          uv                  # python package manager
+          visidata            # terminal multitool for tabular data
+          wiremix             # tui for pipewire audio control
+          yt-dlp              # youtube downloader
         ];
       };
     in
