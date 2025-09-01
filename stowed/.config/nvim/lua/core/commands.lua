@@ -11,30 +11,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "csv",
-  callback = function()
-    vim.opt.wrap = false
-  end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "janet",
-  callback = function()
-    vim.bo.commentstring = "# %s"
-    vim.keymap.set(
-      "n",
-      "<Leader>re",
-      '<cmd>TermExec cmd="janet -l ./%:r" direction=horizontal<cr>',
-      {
-        buffer = true,
-        desc = "Open Repl",
-        noremap = true,
-      }
-    )
-  end
-})
-
 vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
   command = "silent! lua vim.highlight.on_yank()"
@@ -49,7 +25,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = vim.g.auxbuffers,
   callback = function(event)
     vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = event.buf, silent = true })
+    vim.keymap.set("n", "q", "<cmd>quit<CR>", { buffer = event.buf, silent = true })
   end,
 })
 

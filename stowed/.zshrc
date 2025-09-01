@@ -14,9 +14,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
-
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
-export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
 
 # ENV VARIABLES
 export VISUAL="nvim"
@@ -32,7 +30,7 @@ export KEYTIMEOUT=1
 export GPG_TTY=$(tty)
 export TERMINFO="/usr/share/terminfo/"
 export MANROFFOPT="-c"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="nvim +Man!"
 export MANPATH="$HOME/.nix-profile/share/man:/usr/share/man:/usr/local/share/man:${MANPATH}"
 export LANG="en_US.UTF-8"
 export TZ='America/New_York'
