@@ -14,7 +14,6 @@
     dua
     duf
     eyed3
-    fend
     flac
     gperf
     grex

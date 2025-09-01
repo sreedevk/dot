@@ -84,7 +84,6 @@ in
           nemo-with-extensions
           openttd
           pwvucontrol
-          qflipper
           sonic-pi
           sqlitebrowser
           wf-recorder
@@ -123,7 +122,6 @@ in
           html-tidy
           hugo
           hyperfine
-          id3v2
           imager
           instaloader
           ipcalc
