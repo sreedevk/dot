@@ -39,6 +39,7 @@ in
       rb = "rebase";
       s = "status";
       st = "status";
+      wt = "worktree";
       wta = "worktree add";
       wtr = "worktree remove";
     };
