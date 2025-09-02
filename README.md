@@ -37,7 +37,7 @@ docker compose run --remove-orphans check
 
 ### nixos/flake.nix
 
-This is the entrypoint for both the `home-manager` & `NixOS`. 
+This is the entry point for both the `home-manager` & `NixOS`. 
 
 #### NixOS
 ##### Modifications
@@ -45,7 +45,7 @@ This is the entrypoint for both the `home-manager` & `NixOS`.
 After making any changes in the `nixos/hosts` directory, you can install the changes to the current host configuration into NixOS using the following command on the host.
 
 ```bash
-# TO BE RUN FROM THE ROOT OF THIS CLONED REPSITORY
+# TO BE RUN FROM THE ROOT OF THIS CLONED REPOSITORY
 sudo nixos-rebuild switch --flake "./nixos"
 
 # OR 
@@ -57,7 +57,7 @@ sudo nixos-rebuild switch --flake "./nixos#<NAME OF THE HOST HERE>"
 Since we are using a `nixos/flake.lock` file, we need to update the flake using the command below and rebuild the system as normal.
 
 ```bash
-# TO BE RUN FROM THE ROOT OF THIS CLONED REPSITORY
+# TO BE RUN FROM THE ROOT OF THIS CLONED REPOSITORY
 nix flake update './nixos'
 ```
 
@@ -80,5 +80,5 @@ home-manager switch --flake './nixos#<NAME OF THE USER HERE>' -j 4 --impure
 Since we are using a `nixos/flake.lock` file, we need to update the flake using the command below and rebuild using `home-manager`.
 
 ```bash
-# TO BE RUN FROM THE ROOT OF THIS CLONED REPSITORY
+# TO BE RUN FROM THE ROOT OF THIS CLONED REPOSITORY
 nix flake update './nixos'
