@@ -1,9 +1,14 @@
 { pkgs, opts, ... }:
 let
-  # TODO: instead of leaving this in an option like this, use a .wallpaper file that can be set by nsxiv and read by swww & nix
-  wallpath = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
+  wallpaper_path = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
   setwall = wall: ''
-    ${pkgs.swww}/bin/swww img --transition-type wipe --transition-fps 60 --resize stretch --transition-step 60 --transition-duration 2 "${wall}"
+    ${pkgs.swww}/bin/swww img \
+    --transition-type wipe    \
+    --transition-fps 60       \
+    --resize stretch          \
+    --transition-step 60      \
+    --transition-duration 2   \
+    "${wall}"
   '';
 in
 {
@@ -12,7 +17,7 @@ in
 
   systemd.user.services.swww = {
     Service = {
-      Environment = "WALLPAPER=${wallpath}";
+      Environment = "WALLPAPER=${wallpaper_path}";
     };
   };
 
@@ -27,7 +32,7 @@ in
       };
       Service = {
         Type = "oneshot";
-        ExecStart = setwall wallpath;
+        ExecStart = setwall wallpaper_path;
         Restart = "on-failure";
         RestartSec = 1;
       };
