@@ -1,5 +1,6 @@
 { pkgs, opts, ... }:
 let
+  # TODO: instead of leaving this in an option like this, use a .wallpaper file that can be set by nsxiv and read by swww & nix
   wallpath = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
   setwall = wall: ''
     ${pkgs.swww}/bin/swww img --transition-type wipe --transition-fps 60 --resize stretch --transition-step 60 --transition-duration 2 "${wall}"
