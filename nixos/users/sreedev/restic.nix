@@ -1,5 +1,10 @@
 { pkgs, config, ... }:
 {
+
+  home.packages = with pkgs; [
+    restic
+  ];
+
   systemd.user = {
     services = {
       restic-backup = {
