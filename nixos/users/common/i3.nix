@@ -1,8 +1,7 @@
-{
-  pkgs,
-  config,
-  opts,
-  ...
+{ pkgs
+, config
+, opts
+, ...
 }:
 let
   wallpaper_path = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
