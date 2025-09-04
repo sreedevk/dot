@@ -4,6 +4,27 @@
     enable = true;
   };
 
+  systemd.timers."mullvad-reconnect" = {
+    wantedBy = [ "timers.target" ];
+    partOf = [ "mullvad-daemon.service" ];
+    after = [ "mullvad-daemon.service" ];
+    timerConfig = {
+      OnUnitActiveSec = "3h";
+      OnBootSec = "10min";
+      Unit = "mullvad-reconnect.service";
+    };
+  };
+
+  systemd.services."mullvad-reconnect" = {
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+      ExecStart = "${config.services.mullvad-vpn.package}/bin/mullvad reconnect";
+    };
+    partOf = [ "mullvad-daemon.service" ];
+    after = [ "mullvad-daemon.service" ];
+  };
+
   systemd.services."mullvad-daemon".postStart =
     let
       mullvad = config.services.mullvad-vpn.package;
