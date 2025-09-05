@@ -50,10 +50,10 @@ export HISTSIZE=1000
 export SAVEHIST=1000
 export HISTCONTROL=erasedups:ignoredups:ignorespace
 
+zle -N edit-command-line
+
 # NON INTERACTIVE MODE EARLY RETURN
 [[ $- != *i* ]] && return
-
-zle -N edit-command-line
 
 # LOAD COMPILED PLUGINS
 [ -f "$HOME/.zsh/zinit.zsh" ]  && source "$HOME/.zsh/zinit.zsh"

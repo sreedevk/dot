@@ -15,7 +15,6 @@ export FZF_TAB_GROUP_COLORS=(
 export FZF_DEFAULT_OPTS="--height 60% \
 --info=inline    \
 --border sharp   \
---layout reverse \
 --prompt '∷ '    \
 --pointer ▶      \
 --marker ⇒       \
