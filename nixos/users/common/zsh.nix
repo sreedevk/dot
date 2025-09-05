@@ -18,6 +18,16 @@
       source = ../../../stowed/.zsh;
     };
 
+    ".zprofile" = {
+      enable = true;
+      executable = true;
+      recursive = false;
+      text = ''
+        [[ -f ~/.profile ]]  && . ~/.profile
+        [[ -f ~/.zshenv  ]]  && . ~/.zshenv
+      '';
+    };
+
     ".zsh/plugins.zsh" = {
       enable = true;
       recursive = false;

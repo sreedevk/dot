@@ -32,6 +32,7 @@
         rm -rf ~/.ssh/authorized_keys && cat ~/.ssh/authorized_keys.source > ~/.ssh/authorized_keys && chmod 400 ~/.ssh/authorized_keys
       '';
     };
+
     ".zshenv" = {
       enable = true;
       text = ''

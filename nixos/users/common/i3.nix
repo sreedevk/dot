@@ -16,6 +16,18 @@ in
   ];
 
   home.file = {
+    ".xinitrc" = {
+      enable = true;
+      executable = true;
+      target = ".xinitrc";
+      text = ''
+        . ~/.xsession
+        xrdb ~/.Xresources
+
+        exec i3
+      '';
+    };
+
     "i3config" = {
       enable = true;
       recursive = false;

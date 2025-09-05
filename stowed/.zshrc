@@ -6,6 +6,7 @@ export CARGO_BIN_PATH="$HOME/.cargo/bin"
 export GHCUP_BIN_PATH="$HOME/.ghcup/bin"
 export LOCAL_BIN_PATH="$HOME/.local/bin"
 export OPT_BIN_PATH="/opt/bin"
+export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
 
 export PATH="$PATH:$LOCAL_BIN_PATH:$OPT_BIN_PATH:$CARGO_BIN_PATH:$GHCUP_BIN_PATH"
 

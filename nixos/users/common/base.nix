@@ -1,7 +1,8 @@
-{ pkgs
-, username
-, opts
-, ...
+{
+  pkgs,
+  username,
+  opts,
+  ...
 }:
 {
   home = {
@@ -39,32 +40,9 @@
       executable = true;
       recursive = true;
       text = ''
-        [[ -f ~/.bashrc ]]  && . ~/.bashrc
-        [[ -f ~/.zshenv ]]  && . ~/.zshenv
-      '';
-    };
-
-    ".xinitrc" = {
-      enable = true;
-      executable = true;
-      target = ".xinitrc";
-      text = ''
-        . ~/.profile
-        . ~/.xsession
-
-        xrdb ~/.Xresources
-
-        exec i3
-      '';
-    };
-
-    ".profile" = {
-      enable = true;
-      recursive = false;
-      target = ".profile";
-      executable = true;
-      text = ''
-        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+        [[ -f ~/.profile ]]  && . ~/.profile
+        [[ -f ~/.bashrc  ]]  && . ~/.bashrc
+        [[ -f ~/.zshenv  ]]  && . ~/.zshenv
       '';
     };
 
