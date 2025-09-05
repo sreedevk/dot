@@ -1,38 +1,22 @@
 { pkgs, ... }:
 let
-  scripts = {
-    dnd-script = pkgs.writeShellScriptBin "dnd" ''
-      [[ "$(${pkgs.dunst}/bin/dunstctl is-paused)" == "true" ]] && echo " " || echo " "
-    '';
-
-    cpu-temp-script = pkgs.writeShellScriptBin "cpu-temp" ''
-      echo "$(sensors | grep "Package" | awk '{print $4}')"
-    '';
-
-    gpu-script = pkgs.writeShellScriptBin "gpu" ''
-      csv=$(nvidia-smi -i 0 --query-gpu="name,temperature.gpu,memory.total,memory.used,utilization.gpu" --format csv)
-
-      PRODUCT_NAME=$(echo "$csv" | awk -F', ' 'NR==2 {print $1}' | cut -d' ' -f2,3)
-      GPU_CUR_TEMP=$(echo "$csv" | awk -F', ' 'NR==2 {print $2}' | tr -d '[:space:]')
-      TOTAL_MEMORY=$(echo "$csv" | awk -F', ' 'NR==2 {print $3}' | tr -d '[:space:]' | sed 's/MiB//')
-      MEMORY_USAGE=$(echo "$csv" | awk -F', ' 'NR==2 {print $4}' | tr -d '[:space:]' | sed 's/MiB//')
-      GPU_USAGE=$(echo "$csv" | awk -F', ' 'NR==2 {print $5}' | tr -d '[:space:]')
-
-      echo "$PRODUCT_NAME "$GPU_CUR_TEMP °C" $MEMORY_USAGE/$TOTAL_MEMORY MiB · $GPU_USAGE"
-
-      exit 0
-    '';
-
-    memory-script = pkgs.writeShellScriptBin "memory" ''
-      echo "$(free --giga --human | awk 'NR==2 {printf "%.2f/%.2f G", $3, $2}')"
-    '';
+  modules = {
+    memory = (import ./modules/memory.nix { inherit pkgs; });
+    cpu = (import ./modules/cpu.nix { inherit pkgs; });
+    gpu = (import ./modules/gpu.nix { inherit pkgs; });
+    dnd = (import ./modules/dnd.nix { inherit pkgs; });
   };
 in
 {
-  home.file = {
-    ".config/waybar/config" = {
+  programs.waybar = {
+    enable = true;
+    style = ./style.css;
+    systemd = {
       enable = true;
-      text = builtins.toJSON {
+      target = "graphical-session.target";
+    };
+    settings = {
+      mainbar = {
         layer = "top";
         position = "top";
         spacing = 0;
@@ -173,22 +157,22 @@ in
         };
         "custom/memory" = {
           format = "󰘚  {}";
-          exec = "${scripts.memory-script}/bin/memory";
+          exec = "${modules.memory}/bin/memory";
           restart-interval = 5;
         };
         "custom/cpu-temp" = {
           format = "󰍛  {}";
-          exec = "${scripts.cpu-temp-script}/bin/cpu-temp";
+          exec = "${modules.cpu}/bin/cpu-temp";
           restart-interval = 5;
         };
         "custom/gpu" = {
           format = "󰟽 {}";
-          exec = "${scripts.gpu-script}/bin/gpu";
+          exec = "${modules.gpu}/bin/gpu";
           restart-interval = 2;
         };
         "custom/dnd" = {
           format = "{}";
-          exec = "${scripts.dnd-script}/bin/dnd";
+          exec = "${modules.dnd}/bin/dnd";
           restart-interval = 2;
         };
         "battery" = {
@@ -227,6 +211,7 @@ in
           };
           tooltip = false;
         };
+
       };
     };
   };

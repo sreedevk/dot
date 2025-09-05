@@ -1143,7 +1143,6 @@ in
     "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
     "hyprpm reload -n"
     "systemctl --user start hyprpolkitagent"
-    "waybar"
     "wl-paste --type image --watch cliphist store"
     "wl-paste --type text --watch cliphist store"
     "wlsunset -l 40.7 -L -73.9"

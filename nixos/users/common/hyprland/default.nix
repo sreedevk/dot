@@ -5,6 +5,6 @@
     ./modules
     ./swww.nix
     ./uwsm.nix
-    ./waybar.nix
+    ./waybar
   ];
 }
