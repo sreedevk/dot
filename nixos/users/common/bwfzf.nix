@@ -3,7 +3,8 @@ pkgs.writeShellScriptBin "bwfzf" ''
   bw_exec=${pkgs.bitwarden-cli}/bin/bw
   item=$("$bw_exec" list items 2>/dev/null | \
     ${pkgs.jq}/bin/jq -r '.[].name' | \
-    ${pkgs.fzf}/bin/fzf) || exit 1  # Exit if no item selected
+    ${pkgs.gnugrep}/bin/grep -ivE 'nsfw|deleted|archived|deactivated|old' | \
+    ${pkgs.fzf}/bin/fzf) || exit 1
 
   if [ -n "$item" ]; then
     password=$("$bw_exec" get password "$item" 2>/dev/null)

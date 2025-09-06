@@ -5,7 +5,7 @@
     package = config.lib.nixGL.wrapOffload pkgs.thunderbird;
     profiles = {
       "default" = {
-        isDefault = false;
+        isDefault = true;
         withExternalGnupg = true;
       };
     };

@@ -52,6 +52,18 @@ namespace :nix do
       task :offline do
         sh("home-manager switch --impure --option substitute false --flake '.' -j 8")
       end
+
+      desc "rebuild & install home-manager config and backup replaced files"
+      task :backup do
+        sh("home-manager switch --impure --flake '.' -j 8 -b backup")
+      end
+
+      namespace :offline do
+        desc "rebuild & install home-manager config offline and backup replaced files"
+        task :backup do
+          sh("home-manager switch --impure --option substitute false --flake '.' -j 8 -b backup")
+        end
+      end
     end
   end
 end
