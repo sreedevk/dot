@@ -16,6 +16,7 @@
 
   imports = [
     ./archivebox.nix
+    ./archivewarrior.nix
     ./aria2.nix
     ./audiobookshelf.nix
     ./authentik.nix

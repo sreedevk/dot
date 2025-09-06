@@ -41,6 +41,7 @@
     adguard_web = "8000";
     adguard_web_https = "8443";
     archivebox = "8089";
+    archivewarrior = "8790";
     aria_rpc = "6800";
     aria_web = "6880";
     audiobookshelf = "13378";
