@@ -29,6 +29,8 @@
           nim = "latest";
           ruby = "latest";
           zig = "latest";
+
+          # BUG: PLUGIN BROKEN
           janet = "latest";
         };
       };
