@@ -6,9 +6,7 @@ pkgs.writeShellScriptBin "tmux-sessionizer" ''
     selected=$(
       (
         fd . ~/Data/repositories/ ~/Data/labs/ ~/Data/**/repositories/ -td -d1
-        echo "$HOME/.dot/"
-        echo "$HOME/Data/finances/"
-        echo "$HOME/Data/notebook/"
+        zoxide query -l -a
       ) | fzf
     )
   fi
