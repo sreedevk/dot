@@ -27,7 +27,7 @@ vim.keymap.set('n', '<Leader>bB', '<cmd>bprev<CR>', { noremap = true, desc = "sw
 vim.keymap.set('n', '<M-[>', '<cmd>bprev<CR>', { noremap = true, desc = "switch to previous buffer" })
 vim.keymap.set('n', '<M-]>', '<cmd>bnext<CR>', { noremap = true, desc = "switch to next buffer" })
 vim.keymap.set('n', '<Leader>bD', '<cmd>w|%bd|e#<CR>', { noremap = true, desc = "close buffers in the background" })
-vim.keymap.set('n', '<Leader>ex', '<cmd>! chmod +x %<CR>', { noremap = true, desc = "add +x permission for file" })
+vim.keymap.set('n', '<Leader>cx', '<cmd>! chmod +x %<CR>', { noremap = true, desc = "add +x permission for file" })
 vim.keymap.set('n', '<leader>ssp', '<cmd>set spell!<CR>', { noremap = true, desc = "enable spell check" })
 
 -- Sorting {{{1
@@ -48,25 +48,38 @@ vim.keymap.set('n', '<Leader>h', '<cmd>noh<CR>', { noremap = true, desc = "no hi
 vim.keymap.set('n', '<Leader>rr', '<cmd>e!<CR>', { noremap = true, desc = "reload buffer from file on disk" })
 vim.keymap.set('n', '<Leader>fs', '<cmd>w<CR>', { noremap = true, desc = "save file" })
 vim.keymap.set('n', '<Leader>q', '<cmd>q<CR>', { noremap = true, desc = "quit neovim" })
+vim.keymap.set('n', '<leader><leader>ex', ':r !sh<CR>')
 
 vim.keymap.set(
-  'n',
+  { 'n' },
+  '<Leader>ex',
+  function()
+    local line = vim.api.nvim_get_current_line()
+    vim.api.nvim_command('vsplit | term ' .. line)
+  end,
+  { noremap = true, desc = "execute current line in :term" }
+)
+
+vim.keymap.set(
+  { 'n' },
   '<Leader>vh',
   function() vim.cmd("h " .. vim.fn.expand('<cword>')) end,
   { noremap = true, desc = "search cword in vim help" }
 )
 
 vim.keymap.set(
-  'n',
+  { 'n' },
   '<Leader>cd',
   function() vim.cmd('tcd ' .. vim.fn.expand('%:p:h')) end,
   { noremap = true, desc = "change directory to current file's parent" }
 )
 
 vim.keymap.set(
-  "n",
+  { "n" },
   "<leader>dt",
-  function() vim.api.nvim_put({ " " .. vim.fn.system("date"):gsub("\n", "") }, "c", true, true) end,
+  function()
+    vim.api.nvim_put({ " " .. vim.fn.system("date"):gsub("\n", "") }, "c", true, true)
+  end,
   { noremap = true, desc = "insert unix current timestamp" }
 )
 

@@ -6,9 +6,17 @@
 let
   bitwaden-fzf-script = import ./bwfzf.nix { inherit pkgs; };
   tmux-sessionizer-script = import ./tmux-sessionizer.nix { inherit pkgs; };
+  ssh-fzf-script = pkgs.writeShellScriptBin "ssh-fzf" ''
+    server=$(grep -E '^Host ' ~/.ssh/config | awk '{print $2}' | fzf)
+    if [[ -n $server ]] then
+      ssh $server
+    fi
+  '';
+
   tmux-time-display = pkgs.writeShellScriptBin "ttd" ''
     TZ=${opts.timeZone} date "+%a %B %d %l:%M:%S %p"
   '';
+
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-super-fingers";
     version = "unstable-2023-01-06";
@@ -108,7 +116,13 @@ in
       bind C-o run-shell "tmux neww ${tmux-sessionizer-script}/bin/tmux-sessionizer"
 
       # BWFZF
-      bind C-t run-shell "tmux neww ${bitwaden-fzf-script}/bin/bwfzf"
+      bind C-w run-shell "tmux neww ${bitwaden-fzf-script}/bin/bwfzf"
+
+      # TASKWARRIOR
+      bind C-t run-shell "tmux neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
+
+      # SSH
+      bind C-s run-shell "tmux neww ${ssh-fzf-script}/bin/ssh-fzf"
 
       # MOUSE SUPPORT
       bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M

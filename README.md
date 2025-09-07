@@ -3,6 +3,11 @@
 This repository contains configurations for various programs & Nix(OS).
 This Nix(OS) section of this repository is located in the `nixos` directory. 
 
+## TODO
+1. [ ] vim text object for line
+2. [ ] tmux shortcut to open current dir in nemo or nsxiv
+3. [x] ssh shortcut for tmux
+
 ## Pre Requisites
 ### Install Home Manager CLI
 ```bash
