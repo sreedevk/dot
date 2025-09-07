@@ -127,8 +127,11 @@ in
       # NEMO
       bind C-n run-shell "setsid nemo \"#{pane_current_path}\" >/dev/null 2>&1 &"
 
-      # NSXIV
+      # NSXIb
       bind C-i run-shell "setsid ${pkgs.nsxiv}/bin/nsxiv -r \"#{pane_current_path}\" >/dev/null 2>&1 &"
+
+      # EDITOR
+      bind C-e run-shell "tmux neww ${pkgs.neovim}/bin/nvim"
 
       # MOUSE SUPPORT
       bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
