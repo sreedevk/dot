@@ -1,7 +1,7 @@
 aic94xx-firmware 30-10
 droidcam-git v2.1.3.r4.g1d09ede-1
 envycontrol 3.5.2-1
-fjira-bin 1.4.4-1
+fjira-bin 1.4.6-1
 janet-lang 1.39.1-2
 minecraft-launcher 1:2.1.3-3
 mullvad-vpn-bin 2025.8-1
