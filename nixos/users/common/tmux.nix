@@ -124,6 +124,9 @@ in
       # SSH
       bind C-s run-shell "tmux neww ${ssh-fzf-script}/bin/ssh-fzf"
 
+      # NEMO
+      bind C-n run-shell "setsid nemo \"#{pane_current_path}\" >/dev/null 2>&1 &"
+
       # MOUSE SUPPORT
       bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
       bind -n WheelDownPane select-pane -t= \;                 send-keys -M
