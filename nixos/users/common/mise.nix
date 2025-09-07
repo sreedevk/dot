@@ -10,18 +10,28 @@
       enable = true;
       recursive = true;
       source = (pkgs.formats.toml { }).generate "miseconf" {
+        settings = {
+          auto_install = false;
+          not_found_auto_install = false;
+          quiet = true;
+        };
         tools = {
-          bun = "1.2.17";
-          clojure = "1.12.1.1550";
-          deno = "2.3.7";
-          elixir = "1.18.4";
-          elm = "0.19.1";
-          erlang = "27.3.3";
-          gleam = "1.11.1";
-          golang = "1.24.4";
-          nim = "2.2.4";
-          ruby = "3.4.2";
-          zig = "0.14.0";
+          bun = "latest";
+          chezscheme = "9.6.4";
+          chicken = "5.4.0";
+          clojure = "latest";
+          deno = "latest";
+          elixir = "latest";
+          elm = "latest";
+          erlang = "latest";
+          gleam = "latest";
+          golang = "latest";
+          nim = "latest";
+          ruby = "latest";
+          zig = "latest";
+
+          # BUG: PLUGIN BROKEN
+          janet = "latest";
         };
       };
     };

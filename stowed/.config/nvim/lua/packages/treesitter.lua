@@ -1,5 +1,19 @@
 return {
   {
+    "chrisgrieser/nvim-various-textobjs",
+    event = "VeryLazy",
+    opts = {
+      keymaps = {
+        useDefaults = true,
+        disabledDefaults = {},
+      },
+      forwardLooking = {
+        small = 5,
+        big = 15,
+      },
+    },
+  },
+  {
     'nvim-treesitter/nvim-treesitter',
     lazy = true,
     event = "BufReadPost",

@@ -1,4 +1,7 @@
-{ lib, ... }: {
+{ lib
+, ...
+}:
+{
   fonts.fontconfig = {
     enable = lib.mkForce true;
     defaultFonts = {

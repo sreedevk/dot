@@ -8,7 +8,7 @@ require('core.utils').setup_lsp {
   settings = {
     ["nil"] = {
       formatting = {
-        command = { "nixpkgs-fmt" },
+        command = { "nixfmt" },
       },
     },
   }

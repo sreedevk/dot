@@ -1,5 +1,10 @@
 { pkgs, config, ... }:
 {
+
+  home.packages = with pkgs; [
+    restic
+  ];
+
   systemd.user = {
     services = {
       restic-backup = {
@@ -25,14 +30,12 @@
           ExecStart =
             let
               homedir = dirs: (builtins.map (v: "${builtins.getEnv "HOME"}/${v}") dirs);
-              backupdirs =
-                builtins.concatStringsSep " "
-                  (homedir [
-                    "Data/finances"
-                    "Data/work"
-                    "Data/resources"
-                    "Data/notebook"
-                  ]);
+              backupdirs = builtins.concatStringsSep " " (homedir [
+                "Data/finances"
+                "Data/work"
+                "Data/resources"
+                "Data/notebook"
+              ]);
             in
             [
               # backup

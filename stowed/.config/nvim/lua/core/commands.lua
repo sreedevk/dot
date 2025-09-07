@@ -11,51 +11,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "janet",
-  callback = function()
-    vim.bo.commentstring = "# %s"
-  end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "csv",
-  callback = function()
-    vim.opt.wrap = false
-  end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "ruby",
-  callback = function()
-    local function extend_hl(name, def)
-      local old = vim.api.nvim_get_hl(0, { name = name })
-      local new = vim.tbl_extend("force", {}, old, def)
-      vim.api.nvim_set_hl(0, name, new)
-    end
-    extend_hl("@keyword.function.ruby", { bold = true })
-    extend_hl("@keyword.conditional.ruby", { bold = true })
-    extend_hl("@variable.builtin.ruby", { bold = true })
-    extend_hl("@constant.ruby", { bold = true })
-  end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "janet",
-  callback = function()
-    vim.keymap.set(
-      "n",
-      "<Leader>re",
-      '<cmd>TermExec cmd="janet -l ./%:r" direction=horizontal<cr>',
-      {
-        buffer = true,
-        desc = "Open Repl",
-        noremap = true,
-      }
-    )
-  end
-})
-
 vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
   command = "silent! lua vim.highlight.on_yank()"
@@ -70,7 +25,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = vim.g.auxbuffers,
   callback = function(event)
     vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = event.buf, silent = true })
+    vim.keymap.set("n", "q", "<cmd>quit<CR>", { buffer = event.buf, silent = true })
   end,
 })
 
@@ -84,28 +39,29 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = "Configurations on LSP Attach",
-  callback = function(event)
-    local client = vim.lsp.get_client_by_id(event.data.client_id)
-
-    if client and client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
-    end
-
+  callback = function(_)
     vim.opt.signcolumn = 'yes'
-    vim.bo[event.buf].formatexpr = nil
-    vim.bo[event.buf].omnifunc = nil
-
     vim.diagnostic.config {
       virtual_lines = false, -- { current_line = true },
       virtual_text = { current_line = true },
     }
 
-    local format_buf_async = function()
-      vim.lsp.buf.format({ async = true })
+    local conform_ok, conform = pcall(require, 'conform')
+    if conform_ok then
+      vim.keymap.set(
+        { 'n', 'v' },
+        '<Leader>ff',
+        function() conform.format({ async = true, lsp_fallback = true }) end,
+        { noremap = true }
+      )
+    else
+      vim.keymap.set(
+        { 'n', 'v' },
+        '<Leader>ff',
+        function() vim.lsp.buf.format({ async = true }) end,
+        { noremap = true }
+      )
     end
-
-    vim.keymap.set('n', '<Leader>ff', format_buf_async, { noremap = true })
-    vim.keymap.set({ "n", "v" }, "<Leader>ff", vim.lsp.buf.format, { noremap = true, desc = "LSP Format" })
 
     -- grn        : rename
     -- grr        : references

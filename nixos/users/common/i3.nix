@@ -1,4 +1,8 @@
-{ pkgs, nixpkgs-stable, config, opts, ... }:
+{ pkgs
+, config
+, opts
+, ...
+}:
 let
   wallpaper_path = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
   set-wallpaper = pkgs.writeShellScriptBin "set-wallpaper" ''
@@ -7,11 +11,23 @@ let
 in
 {
   home.packages = with pkgs; [
+    i3
     arandr
-    python311Packages.i3ipc
   ];
 
   home.file = {
+    ".xinitrc" = {
+      enable = true;
+      executable = true;
+      target = ".xinitrc";
+      text = ''
+        . ~/.xsession
+        xrdb ~/.Xresources
+
+        exec i3
+      '';
+    };
+
     "i3config" = {
       enable = true;
       recursive = false;
@@ -30,7 +46,7 @@ in
 
         # AutoStart Applications
         exec_always --no-startup-id ~/.config/polybar/launch.sh
-        exec_always --no-startup-id ${pkgs.autotiling}/bin/autotiling
+        exec_always --no-startup-id ${pkgs.autotiling-rs}/bin/autotiling-rs
         exec_always --no-startup-id picom -b
         exec_always --no-startup-id ${set-wallpaper}/bin/set-wallpaper
 
@@ -83,7 +99,7 @@ in
         bindsym $mod+Return            exec --no-startup-id $term
         bindsym $mod+KP_Enter          exec --no-startup-id $term
         bindsym $mod+d                 exec --no-startup-id $app_launcher
-        bindsym $mod+Ctrl+d            exec --no-startup-id "dmenu_run"
+        bindsym $mod+Ctrl+d            exec --no-startup-id "${pkgs.wofi}/bin/wofi --dmenu -S run"
         bindsym $mod+Tab               exec --no-startup-id $window_switcher
         bindsym Ctrl+space             exec --no-startup-id "${pkgs.dunst}/bin/dunstctl close-all"
 
@@ -103,9 +119,9 @@ in
         bindsym XF86AudioNext          exec --no-startup-id ${pkgs.playerctl}/bin/playerctl next
 
         # Shortcuts - Screenshots
-        bindsym Print                  exec --no-startup-id "${nixpkgs-stable.maim}/bin/maim -i $(xdotool getactivewindow) ~/Media/screenshots/$(date +%s).png"
-        bindsym $mod+Ctrl+s  --release exec --no-startup-id "${nixpkgs-stable.maim}/bin/maim -s -d 0.2 ~/Media/screenshots/$(date +%s).png"
-        bindsym $mod+Shift+s --release exec --no-startup-id "${nixpkgs-stable.maim}/bin/maim -s -d 0.2 | xclip -selection clipboard -t image/png"
+        bindsym Print                  exec --no-startup-id "${pkgs.maim}/bin/maim -i $(xdotool getactivewindow) ~/Media/screenshots/$(date +%s).png"
+        bindsym $mod+Ctrl+s  --release exec --no-startup-id "${pkgs.maim}/bin/maim -s -d 0.2 ~/Media/screenshots/$(date +%s).png"
+        bindsym $mod+Shift+s --release exec --no-startup-id "${pkgs.maim}/bin/maim -s -d 0.2 | xclip -selection clipboard -t image/png"
 
         # Shortcuts - Audio
         bindsym $mod+a            exec --no-startup-id "pavucontrol"

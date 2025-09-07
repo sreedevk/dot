@@ -1,10 +1,13 @@
+local wrap_cmd = require('core.utils').wrap_cmd
+
 return {
-  "tpope/vim-vinegar",
+  'tpope/vim-apathy',
   'tpope/vim-characterize',
   'tpope/vim-ragtag',
   'tpope/vim-repeat',
   'tpope/vim-surround',
-  'tpope/vim-apathy',
+  'tpope/vim-vinegar',
+
   { "chrisgrieser/nvim-early-retirement", lazy = true,  config = true,  event = "VeryLazy" },
   { 'petertriho/nvim-scrollbar',          lazy = true,  config = true,  event = "BufReadPost" },
   { 'ledger/vim-ledger',                  lazy = true,  config = false, ft = { 'ledger', 'journal' } },
@@ -12,12 +15,11 @@ return {
   { "tiagovla/scope.nvim",                lazy = false, config = true },
 
   {
-    'kaarmu/typst.vim',
+    'chomosuke/typst-preview.nvim',
     lazy = true,
     ft = 'typst',
-    init = function()
-      vim.g.typst_pdf_viewer = "zathura"
-    end
+    version = '1.*',
+    opts = {},
   },
 
   {
@@ -192,10 +194,15 @@ return {
   {
     'junegunn/vim-easy-align',
     lazy = true,
-    keys = {
-      { "<Leader>al", ":EasyAlign", mode = "v", desc = "Init EasyAlign on Selection" }
-    },
     cmd = { "EasyAlign" },
+    keys = {
+      {
+        'ga',
+        '<Plug>(EasyAlign)',
+        mode = { 'x', 'n' },
+        desc = "EasyAlign",
+      },
+    },
   },
 
 

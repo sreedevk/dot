@@ -1,15 +1,29 @@
 { pkgs, ... }:
 let
-  hypr-launch-script = pkgs.writeShellScriptBin "hyprlaunch" ''
-    if uwsm check may-start && uwsm select; then
-      exec uwsm start default
+  hyprlaunch = pkgs.writeShellScriptBin "hyprlaunch" ''
+    if uwsm check may-start; then
+      exec uwsm start hyprland-uwsm.desktop
     fi
   '';
 in
 {
-  home.packages = [ hypr-launch-script ];
+
+  home.packages = [ hyprlaunch ];
 
   home.file = {
+    ".profile" = {
+      enable = true;
+      recursive = false;
+      target = ".profile";
+      executable = true;
+      text = ''
+        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+        if uwsm check may-start; then
+          exec uwsm start hyprland-uwsm.desktop
+        fi
+      '';
+    };
+
     ".config/uwsm/env-hyprland" = {
       enable = true;
       executable = true;

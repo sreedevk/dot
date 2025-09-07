@@ -19,6 +19,7 @@ return {
         "query",
         "racket",
         "scheme",
+        "lisp"
       },
       disable_in_macro = true,
       disable_in_visualblock = false,
@@ -41,14 +42,41 @@ return {
   {
     "HiPhish/rainbow-delimiters.nvim",
     lazy = true,
-    ft = { "clojure", "dune", "fennel", "janet", "query", "racket", "scheme" },
+    ft = {
+      "clojure",
+      "dune",
+      "fennel",
+      "janet",
+      "query",
+      "racket",
+      "scheme",
+      "lisp",
+    },
   },
 
   {
     "gpanders/nvim-parinfer",
-    ft = { "clojure", "dune", "fennel", "janet", "query", "racket", "scheme" },
+    ft = {
+      "clojure",
+      "dune",
+      "fennel",
+      "janet",
+      "query",
+      "racket",
+      "scheme",
+      "lisp"
+    },
     config = function()
-      vim.g.parinfer_filetypes = { "clojure", "dune", "fennel", "janet", "query", "racket", "scheme" }
+      vim.g.parinfer_filetypes = {
+        "clojure",
+        "dune",
+        "fennel",
+        "janet",
+        "query",
+        "racket",
+        "scheme",
+        "lisp"
+      }
     end,
   },
 

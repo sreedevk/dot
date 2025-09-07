@@ -1,13 +1,26 @@
 { pkgs, opts, ... }:
 let
-  wallpaper = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
+  wallpaper_path = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
   setwall = wall: ''
-    ${pkgs.swww}/bin/swww img --transition-type wipe --transition-fps 60 --resize stretch --transition-step 60 --transition-duration 2 "${wall}"
+    ${pkgs.swww}/bin/swww img \
+    --transition-type wipe    \
+    --transition-fps 60       \
+    --resize stretch          \
+    --transition-step 60      \
+    --transition-duration 2   \
+    "${wall}"
   '';
 in
 {
   home.packages = with pkgs; [ swww ];
   services.swww.enable = true;
+
+  systemd.user.services.swww = {
+    Service = {
+      Environment = "WALLPAPER=${wallpaper_path}";
+    };
+  };
+
   systemd.user.services = {
     swww-set-wallpaper = {
       Unit = {
@@ -19,7 +32,7 @@ in
       };
       Service = {
         Type = "oneshot";
-        ExecStart = setwall wallpaper;
+        ExecStart = setwall wallpaper_path;
         Restart = "on-failure";
         RestartSec = 1;
       };

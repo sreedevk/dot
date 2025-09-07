@@ -31,14 +31,3 @@ randstr() {
 open() {
   xdg-open "$@" >/dev/null 2>&1
 }
-
-bwfzf() {
-  local item="$(bw list items 2&> /dev/null | jq -r '.[].name' | fzf)"
-  bw get password "$item" 2&> /dev/null | wl-copy
-  systemd-run --user --unit="clearboard-$(date +'%s')" --on-active="30s" --description="clear clipboard" sh -c "echo '' | wl-copy" 
-}
-
-tkill() {
-  local sesh=$(tmux ls | fzf | awk '{print $1}' | tr -d ':')
-  tmux kill-session -t $sesh
-}

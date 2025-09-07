@@ -1,11 +1,19 @@
-{ pkgs, config, nixpkgs-stable, inputs, ... }:
+{ pkgs
+, config
+, inputs
+, ...
+}:
+let
+  tmux-sessionizer-package = import ../common/tmux-sessionizer.nix { inherit pkgs; };
+in
 {
   imports = [
     ../../secmap.nix
-    ../common/alacritty.nix
+    ../common/alacritty
     ../common/amfora.nix
     ../common/awscli.nix
     ../common/base.nix
+    ../common/bitwarden.nix
     ../common/brave.nix
     ../common/btop.nix
     ../common/core-max.nix
@@ -24,6 +32,7 @@
     ../common/jujutsu.nix
     ../common/keybase.nix
     ../common/keyboard.nix
+    ../common/man.nix
     ../common/mise.nix
     ../common/neovide.nix
     ../common/neovim.nix
@@ -40,7 +49,6 @@
     ../common/stylix.nix
     ../common/supervisor
     ../common/taskwarrior.nix
-    ../common/tmux-sessionizer.nix
     ../common/tmux.nix
     ../common/vim.nix
     ../common/xresources.nix
@@ -64,111 +72,102 @@
 
   home.packages =
     let
-      stable-packages = {
-        cli-packages = with nixpkgs-stable; [ ];
-        gui-packages = with nixpkgs-stable; [ ];
-      };
+      gui-packages = with pkgs; [
+        (config.lib.nixGL.wrap pkgs.slack)
+        (config.lib.nixGL.wrapOffload pkgs.gimp3-with-plugins)
+        (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
+        dbeaver-bin
+        easyeffects
+        ffmpegthumbnailer
+        gnome-calculator
+        libreoffice-fresh
+        lmms
+        nemo-with-extensions
+        openttd
+        pwvucontrol
+        sonic-pi
+        sqlitebrowser
+        wf-recorder
+        wofi
+      ];
 
-      unstable-packages = {
-        gui-packages = with pkgs; [
-          (config.lib.nixGL.wrap pkgs.slack)
-          (config.lib.nixGL.wrap pkgs.youtube-music)
-          (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
-          dbeaver-bin
-          eww
-          libreoffice-fresh
-          lmms
-          nemo-with-extensions
-          openttd
-          pwvucontrol
-          qflipper
-          sonic-pi
-          sqlitebrowser
-          tor-browser
-          wofi
-        ];
-        cli-packages = with pkgs; [
-          aria2
-          asciinema
-          asciinema-agg
-          aspell
-          aspellDicts.en
-          aspellDicts.en-computers
-          aspellDicts.en-science
-          beanstalkd
-          bitwarden-cli
-          cava
-          claude-code
-          cmatrix
-          csvlens
-          doctl
-          duckdb
-          elan
-          emacs
-          fasm
-          glab
-          glow
-          gpg-tui
-          gping
-          graphviz
-          hexyl
-          hledger
-          hledger-iadd
-          hledger-ui
-          hledger-utils
-          hledger-web
-          html-tidy
-          hugo
-          hyperfine
-          id3v2
-          imager
-          instaloader
-          ipcalc
-          jira-cli-go
-          jless
-          just
-          k9s
-          kubectl
-          ledger
-          mdbook
-          miller
-          nasm
-          ncpamixer
-          nerd-fonts.iosevka
-          nerd-fonts.iosevka
-          nerd-fonts.iosevka-term
-          nixpkgs-fmt
-          nmap
-          nushell
-          oxker
-          pandoc
-          poezio
-          pulsemixer
-          qrencode
-          s3cmd
-          sc-im
-          scdl
-          silicon
-          statix
-          tea
-          terminaltexteffects
-          ticker
-          tmuxinator
-          toilet
-          tokei
-          tty-clock
-          uiua
-          uv
-          visidata
-          yt-dlp
-        ];
-      };
+      cli-packages = with pkgs; [
+        agenix                   # age based nix secrets
+        aria2                    # aria downloader
+        asciinema                # terminal recorder
+        asciinema-agg            # terminal recorder format converter
+        aspell                   # gnu spellchecker
+        aspellDicts.en           # aspell english dictionary
+        aspellDicts.en-computers # aspell computers dictionary
+        aspellDicts.en-science   # aspell science dictionary
+        cava                     # audio visualizer
+        claude-code              # coding agent
+        cmatrix                  # matrix
+        csvlens                  # csv tui viewer
+        doxygen                  # source code document generator
+        duckdb                   # duck db
+        elan                     # lean version manager
+        emacs-gtk                # emacs
+        fasm                     # flat assembler
+        glab                     # gitlab cli
+        glow                     # tui markdown renderer
+        gpg-tui                  # gnupg tui
+        gping                    # ping grapher
+        graphviz                 # graph visualizer
+        hexyl                    # cli hex viewer
+        hledger                  # plain text cli accounting
+        hledger-iadd             # hledger interactively add transactions
+        hledger-ui               # hledger tui
+        hledger-utils            # hledger utils
+        hledger-web              # hledger web ui
+        html-tidy                # HTML validator
+        hyperfine                # benchmarking tool
+        imager                   # Interferometric imaging package
+        instaloader              # instagram downloader
+        ipcalc                   # ip math
+        jira-cli-go              # jira
+        jless                    # json pager
+        just                     # command runner
+        k9s                      # k8s tui
+        kubectl                  # k8s
+        lazydocker               # docker tui
+        ledger                   # cli ledger
+        mc                       # midnight commander file manager
+        mdbook                   # generate books from markdown
+        miller                   # awk, sed, cut, join and sort for csv, tsv, json
+        nasm                     # x86_64 assembler
+        nerd-fonts.iosevka       # iosevka nerd font
+        nerd-fonts.iosevka-term  # iosevka term nerd font
+        nixfmt                   # nix formatter
+        nmap                     # network discovery and security auditing
+        nushell                  # modern shell written in rust
+        opencode                 # AI coding agent
+        pandoc                   # document format converter
+        qrencode                 # qr code generator
+        s3cmd                    # s3 cli
+        sc-im                    # vim like tui spreadsheet
+        scdl                     # soundcloud download
+        silicon                  # code screenshot generator
+        statix                   # nix code linter
+        streamrip                # tidal / soundcloud / deezer downloader cli
+        tea                      # gitea cli tool
+        terminaltexteffects      # cli text effects
+        ticker                   # asset ticker
+        tmux-sessionizer-package # tmux sessionizer
+        tmuxinator               # tmuxinator
+        toilet                   # fancy large cli text generator
+        tokei                    # lines of code count
+        tty-clock                # tty clock
+        uiua                     # array oriented programming language
+        uv                       # python package manager
+        visidata                 # terminal multitool for tabular data
+        wiremix                  # tui for pipewire audio control
+        yt-dlp                   # youtube downloader
+      ];
     in
     builtins.concatLists [
-      stable-packages.gui-packages
-      stable-packages.cli-packages
-      unstable-packages.gui-packages
-      unstable-packages.cli-packages
+      gui-packages
+      cli-packages
     ];
 
   home.file = {
@@ -200,13 +199,18 @@
   services.ssh-agent.enable = true;
   programs.ssh = {
     enable = true;
-    userKnownHostsFile = "/dev/null";
+    enableDefaultConfig = false;
+
     extraOptionOverrides = {
       StrictHostKeyChecking = "no";
       LogLevel = "ERROR";
     };
 
     matchBlocks = {
+      "*" = {
+        userKnownHostsFile = "/dev/null";
+      };
+
       "sree.dev" = {
         hostname = "sree.dev";
         user = "deploy";
@@ -259,6 +263,14 @@
 
       "gitea.nullptr.sh" = {
         hostname = "100.117.8.42";
+        user = "git";
+        port = 222;
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
+      "git.devtechnica.com" = {
+        hostname = "git.devtechnica.com";
         user = "git";
         port = 222;
         identitiesOnly = true;

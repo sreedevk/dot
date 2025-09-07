@@ -111,7 +111,7 @@
             enabled:                     true;
             padding:                     5px 0px;
             expand:                      false;
-            str:                         "";
+            str:                         " ";
             background-color:            inherit;
             text-color:                  inherit;
         }
@@ -165,7 +165,7 @@
             reverse:                     false;
             fixed-height:                true;
             fixed-columns:               true;
-    
+
             spacing:                     5px;
             margin:                      0px;
             padding:                     0px;

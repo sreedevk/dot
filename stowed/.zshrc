@@ -6,6 +6,7 @@ export CARGO_BIN_PATH="$HOME/.cargo/bin"
 export GHCUP_BIN_PATH="$HOME/.ghcup/bin"
 export LOCAL_BIN_PATH="$HOME/.local/bin"
 export OPT_BIN_PATH="/opt/bin"
+export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
 
 export PATH="$PATH:$LOCAL_BIN_PATH:$OPT_BIN_PATH:$CARGO_BIN_PATH:$GHCUP_BIN_PATH"
 
@@ -14,9 +15,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
-
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
-export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
 
 # ENV VARIABLES
 export VISUAL="nvim"
@@ -32,7 +31,8 @@ export KEYTIMEOUT=1
 export GPG_TTY=$(tty)
 export TERMINFO="/usr/share/terminfo/"
 export MANROFFOPT="-c"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="nvim +Man!"
+export MANPATH="$HOME/.nix-profile/share/man:/usr/share/man:/usr/local/share/man:${MANPATH}"
 export LANG="en_US.UTF-8"
 export TZ='America/New_York'
 export WORDCHARS=${WORDCHARS/\/}
@@ -44,16 +44,16 @@ fi
 
 # HISTORYFILE
 export HISTORY_IGNORE="(ls|cd|pwd|exit|history)"
-export HISTFILE=$HOME/.cache/zsh/history
+export HISTFILE=$HOME/.cache/zhistory
 export HISTFILESIZE=10000
 export HISTSIZE=1000
 export SAVEHIST=1000
 export HISTCONTROL=erasedups:ignoredups:ignorespace
 
+zle -N edit-command-line
+
 # NON INTERACTIVE MODE EARLY RETURN
 [[ $- != *i* ]] && return
-
-zle -N edit-command-line
 
 # LOAD COMPILED PLUGINS
 [ -f "$HOME/.zsh/zinit.zsh" ]  && source "$HOME/.zsh/zinit.zsh"

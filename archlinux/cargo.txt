@@ -7,7 +7,7 @@ cargo-expand v1.0.114
 cargo-udeps v0.1.57
 cargo-update v17.0.0
 cargo-watch v8.5.3
-deduplicator v0.3.1
+deduplicator v0.3.2 (/home/sreedev/Data/repositories/deduplicator)
 flamegraph v0.6.8
 license-generator v1.3.0
 sqlx-cli v0.8.6

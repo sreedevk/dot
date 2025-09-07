@@ -1,19 +1,21 @@
+local wrap_cmd = require('core.utils').wrap_cmd
+
 return {
   'nvim-telescope/telescope.nvim',
   lazy = true,
   dependencies = {
-    'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope-symbols.nvim',
-    'jvgrootveld/telescope-zoxide',
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-telescope/telescope-live-grep-args.nvim",
     'crispgm/telescope-heading.nvim',
     'j-hui/fidget.nvim',
+    'jvgrootveld/telescope-zoxide',
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope-symbols.nvim',
+    'nvim-treesitter/nvim-treesitter',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
   cmd = "Telescope",
   keys = {
     { '<C-p>',      require('telescope.builtin').find_files,                desc = 'Find Files',                   noremap = true },
-    { '<Leader>rg', require('telescope.builtin').live_grep,                 desc = 'Live Grep',                    noremap = true },
     { '<C-s>',      wrap_cmd('Telescope'),                                  desc = 'Telescope',                    noremap = true },
     { "<Leader>bl", require('telescope.builtin').buffers,                   desc = 'Buffer List',                  noremap = true },
     { '<Leader>ft', require('telescope.builtin').filetypes,                 desc = 'Filetypes List',               noremap = true },
@@ -26,6 +28,14 @@ return {
     { "<Leader>tr", wrap_cmd("Telescope resume"),                           desc = "Resume Last Telescope Search", noremap = true },
     { '<Leader>zi', wrap_cmd("Telescope zoxide list"),                      desc = "Zoxide Interactive",           noremap = true },
     { '<Leader>th', wrap_cmd("Telescope heading"),                          desc = "Telescope Markdown Headings",  noremap = true },
+    {
+      '<Leader>rg',
+      function()
+        require('telescope').extensions.live_grep_args.live_grep_args()
+      end,
+      desc = 'Live Grep',
+      noremap = true,
+    },
     {
       "<C-S-P>",
       function()
@@ -79,6 +89,7 @@ return {
   },
   config = function()
     local t_actions = require("telescope.actions")
+    local lga_actions = require("telescope-live-grep-args.actions")
     require("telescope").setup({
       pickers = {
         live_grep = {
@@ -130,6 +141,12 @@ return {
           '--glob', "!**/node_modules/*",
         },
         extensions = {
+          live_grep_args = {
+            auto_quoting = true, -- enable/disable auto-quoting
+            mappings = {         -- extend mappings
+              ["<C-e>"] = lga_actions.to_fuzzy_refine,
+            }
+          },
           heading = {
             treesitter = false,
           },
@@ -162,11 +179,38 @@ return {
       },
     })
 
+    local function live_grep_quickfix()
+      local qflist = vim.fn.getqflist()
+      local files = {}
+      for _, item in ipairs(qflist) do
+        local path = vim.fn.bufname(item.bufnr)
+        if path ~= "" then
+          table.insert(files, path)
+        end
+      end
+      if #files == 0 then
+        vim.notify("Quickfix list is empty", vim.log.levels.WARN)
+        return
+      end
+      require("telescope.builtin").live_grep({ search_dirs = files })
+    end
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "qf",
+      callback = function()
+        vim.keymap.set("n", "<leader>rg", live_grep_quickfix, {
+          buffer = true,
+          desc = "Live grep in quickfix files",
+        })
+      end,
+    })
+
     local telscp = require('telescope')
 
     pcall(telscp.load_extension, 'fidget')
     pcall(telscp.load_extension, 'fzf')
     pcall(telscp.load_extension, 'zoxide')
     pcall(telscp.load_extension, 'heading')
+    pcall(telscp.load_extension, 'live_grep_args')
   end
 }

@@ -1,5 +1,5 @@
 { config, lib, ... }:
-# BUG: running kitty in xwayland mode automatically 
+# BUG: running kitty in xwayland mode automatically
 #      starts kitty in floating mode in hyprland.
 #      -- linux_display_server = "x11";
 {

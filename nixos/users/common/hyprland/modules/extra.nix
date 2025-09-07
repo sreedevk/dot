@@ -1,4 +1,8 @@
-{ pkgs, config, opts, ... }:
+{ pkgs
+, config
+, opts
+, ...
+}:
 let
   hyprconf = import ../opts.nix { inherit pkgs config opts; };
   utils = import ../utils.nix;

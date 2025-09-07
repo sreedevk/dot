@@ -1,5 +1,7 @@
 {
-  git = { enable-signing = true; };
+  git = {
+    enable-signing = true;
+  };
   directories = {
     wallpapers = "${builtins.getEnv "HOME"}/Media/wallpapers";
   };
@@ -11,6 +13,6 @@
       bin = "firefox";
       xdg-desktop = "firefox.desktop";
     };
-    wallpaper = "wallhaven-3q9qky.png";
+    wallpaper = "unsorted/a_road_with_cars_driving_on_it.png";
   };
 }

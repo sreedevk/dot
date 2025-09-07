@@ -43,46 +43,46 @@ return {
         chat = {
           adapter = {
             name = "ollama",
-            model = "deepseek-coder-v2:16b"
+            model = "gpt-oss:20b"
           },
         },
         inline = {
           adapter = {
             name = "ollama",
-            model = "deepseek-coder-v2:16b",
+            model = "gpt-oss:20b",
           },
         },
         cmd = {
           adapter = {
             name = "ollama",
-            adapter = "deepseek-coder-v2:16b"
+            adapter = "gpt-oss:20b"
           },
         }
       },
       adapters = {
-        opts = {
-          show_model_choices = true,
-          show_defaults = true,
+        http = {
+          openai = function()
+            return require("codecompanion.adapters").extend("openai", {
+              schema = {
+                model = { default = "gpt-4o" }
+              },
+              env = {
+                api_key = "cmd:echo $OPENAI_API_KEY",
+              },
+            })
+          end,
+          ollama = function()
+            return require("codecompanion.adapters").extend("ollama", {
+              schema = {
+                model = {
+                  default = "gpt-oss:20b",
+                },
+              },
+              env = { url = "http://127.0.0.1:11434" },
+              parameters = { sync = true, },
+            })
+          end,
         },
-        openai = function()
-          return require("codecompanion.adapters").extend("openai", {
-            schema = {
-              model = { default = "gpt-4o" }
-            },
-            env = {
-              api_key = "cmd:echo $OPENAI_API_KEY",
-            },
-          })
-        end,
-        ollama = function()
-          return require("codecompanion.adapters").extend("ollama", {
-            schema = {
-              model = { default = "deepseek-coder-v2:16b" },
-            },
-            env = { url = "http://127.0.0.1:11434" },
-            parameters = { sync = true, },
-          })
-        end,
       },
     },
   }

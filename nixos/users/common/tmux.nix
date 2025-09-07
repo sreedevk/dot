@@ -1,19 +1,32 @@
-{ pkgs, opts, username, ... }:
+{ pkgs
+, opts
+, username
+, ...
+}:
 let
+  bitwaden-fzf-script = import ./bwfzf.nix { inherit pkgs; };
+  tmux-sessionizer-script = import ./tmux-sessionizer.nix { inherit pkgs; };
+  ssh-fzf-script = pkgs.writeShellScriptBin "ssh-fzf" ''
+    server=$(grep -E '^Host ' ~/.ssh/config | awk '{print $2}' | fzf)
+    if [[ -n $server ]] then
+      ssh $server
+    fi
+  '';
+
   tmux-time-display = pkgs.writeShellScriptBin "ttd" ''
     TZ=${opts.timeZone} date "+%a %B %d %l:%M:%S %p"
   '';
-  tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin
-    {
-      pluginName = "tmux-super-fingers";
-      version = "unstable-2023-01-06";
-      src = pkgs.fetchFromGitHub {
-        owner = "artemave";
-        repo = "tmux_super_fingers";
-        rev = "2c12044984124e74e21a5a87d00f844083e4bdf7";
-        sha256 = "sha256-cPZCV8xk9QpU49/7H8iGhQYK6JwWjviL29eWabuqruc=";
-      };
+
+  tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "tmux-super-fingers";
+    version = "unstable-2023-01-06";
+    src = pkgs.fetchFromGitHub {
+      owner = "artemave";
+      repo = "tmux_super_fingers";
+      rev = "2c12044984124e74e21a5a87d00f844083e4bdf7";
+      sha256 = "sha256-cPZCV8xk9QpU49/7H8iGhQYK6JwWjviL29eWabuqruc=";
     };
+  };
 in
 {
   programs.tmux = {
@@ -38,7 +51,7 @@ in
       {
         plugin = tmuxPlugins.jump;
         extraConfig = ''
-          set -g @jump-key 's'
+          set -g @jump-key 'o'
           set -g @jump-keys-position 'left'
         '';
       }
@@ -96,8 +109,26 @@ in
       bind -T copy-mode-vi C-g send-keys -X cancel
       bind -T copy-mode-vi 0 send-keys -X start-of-line
       bind -T copy-mode-vi $ send-keys -X end-of-line
-      bind p paste-buffer
+      bind p  paste-buffer
       bind C-p choose-buffer
+
+      # TMUX SESSIONIZER
+      bind C-o run-shell "tmux neww ${tmux-sessionizer-script}/bin/tmux-sessionizer"
+
+      # BWFZF
+      bind C-w run-shell "tmux neww ${bitwaden-fzf-script}/bin/bwfzf"
+
+      # TASKWARRIOR
+      bind C-t run-shell "tmux neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
+
+      # SSH
+      bind C-s run-shell "tmux neww ${ssh-fzf-script}/bin/ssh-fzf"
+
+      # NEMO
+      bind C-n run-shell "setsid nemo \"#{pane_current_path}\" >/dev/null 2>&1 &"
+
+      # NSXIV
+      bind C-i run-shell "setsid ${pkgs.nsxiv}/bin/nsxiv -r \"#{pane_current_path}\" >/dev/null 2>&1 &"
 
       # MOUSE SUPPORT
       bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
@@ -105,13 +136,6 @@ in
 
       # SOURCING CONFIG
       bind r source-file ~/.config/tmux/tmux.conf \; display '~/.config/tmux/tmux.conf sourced'
-
-      # CREATE SESSION
-      bind u new-session
-
-      # SESSION MERGE
-      bind C-u command-prompt -p "Session to merge with: " \
-         "run-shell 'yes | head -n #{session_windows} | xargs -I {} -n 1 tmux movew -t %%'"
 
       # IRISH EXIT
       bind X kill-session

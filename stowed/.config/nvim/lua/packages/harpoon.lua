@@ -1,8 +1,8 @@
 return {
-  "devtechnica/harpoon",
+  "ThePrimeagen/harpoon",
   lazy = true,
   keys = {
-    { "<Leader>fa", function() require("harpoon"):list():toggle() end,    desc = "Harpoon File Toggle" },
+    { "<Leader>fa", function() require("harpoon"):list():toggle() end, desc = "Harpoon File Toggle" },
     { "<M-o>",      function() require("harpoon"):list():prev() end,   desc = "Harpoon File Prev" },
     { "<M-i>",      function() require("harpoon"):list():next() end,   desc = "Harpoon File Next" },
     {

@@ -20,6 +20,7 @@ if [ -f "$HOME/.cargo/env" ]; then
   . $HOME/.cargo/env
 fi
 
+# FZF AUTOLOAD
 if [ -f "$HOME/.fzf.zsh" ]; then
   source "$HOME/.fzf.zsh"
 fi

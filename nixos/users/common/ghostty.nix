@@ -12,7 +12,7 @@
         gtk-single-instance = true
         initial-command = "tmux new -A -s system"
         mouse-hide-while-typing = true
-        shell-integration = detect
+        shell-integration = none
         theme = Nocturnal Winter
         window-decoration = false
       '';

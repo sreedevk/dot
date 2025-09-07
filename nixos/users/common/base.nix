@@ -1,4 +1,10 @@
-{ pkgs, username, opts, ... }: {
+{
+  pkgs,
+  username,
+  opts,
+  ...
+}:
+{
   home = {
     enableNixpkgsReleaseCheck = false;
     homeDirectory = "/home/${username}";
@@ -34,35 +40,11 @@
       executable = true;
       recursive = true;
       text = ''
-        [[ -f ~/.bashrc ]]  && . ~/.bashrc
-        [[ -f ~/.zshenv ]]  && . ~/.zshenv
+        [[ -f ~/.profile ]]  && . ~/.profile
+        [[ -f ~/.bashrc  ]]  && . ~/.bashrc
+        [[ -f ~/.zshenv  ]]  && . ~/.zshenv
       '';
     };
-
-    ".xinitrc" = {
-      enable = true;
-      executable = true;
-      target = ".xinitrc";
-      text = ''
-        . ~/.profile
-        . ~/.xsession
-
-        xrdb ~/.Xresources
-
-        exec i3
-      '';
-    };
-
-    ".profile" = {
-      enable = true;
-      recursive = false;
-      target = ".profile";
-      executable = true;
-      text = ''
-        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
-      '';
-    };
-
 
     ".xsession" = {
       enable = true;
@@ -116,11 +98,6 @@
 
   nixpkgs = {
     config = {
-      packageOverrides = pkgs: {
-        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/main.tar.gz") {
-          inherit pkgs;
-        };
-      };
       allowUnfree = true;
       allowUnfreePredicate = _: true;
     };
@@ -130,7 +107,7 @@
     package = pkgs.nixVersions.nix_2_28;
     gc = {
       automatic = true;
-      frequency = "weekly";
+      dates = "weekly";
       options = "--delete-older-than 7d";
     };
     settings = {
@@ -141,7 +118,11 @@
       show-trace = true;
       auto-optimise-store = true;
       fallback = true;
-      experimental-features = [ "nix-command" "flakes" "recursive-nix" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "recursive-nix"
+      ];
     };
   };
 }

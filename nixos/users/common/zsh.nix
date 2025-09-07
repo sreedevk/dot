@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   home.packages = with pkgs; [ zsh ];
 
@@ -15,6 +16,16 @@
       executable = false;
       recursive = true;
       source = ../../../stowed/.zsh;
+    };
+
+    ".zprofile" = {
+      enable = true;
+      executable = true;
+      recursive = false;
+      text = ''
+        [[ -f ~/.profile ]]  && . ~/.profile
+        [[ -f ~/.zshenv  ]]  && . ~/.zshenv
+      '';
     };
 
     ".zsh/plugins.zsh" = {

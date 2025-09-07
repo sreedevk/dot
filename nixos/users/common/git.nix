@@ -1,4 +1,8 @@
-{ pkgs, opts, config, ... }:
+{ pkgs
+, opts
+, config
+, ...
+}:
 let
   gpgsign = if opts.git.enable-signing then "true" else "false";
 in
@@ -35,6 +39,7 @@ in
       rb = "rebase";
       s = "status";
       st = "status";
+      wt = "worktree";
       wta = "worktree add";
       wtr = "worktree remove";
     };
@@ -118,22 +123,6 @@ in
       };
       safe = {
         directory = "/etc/nixos";
-      };
-      url = {
-        "git@github.com:" = {
-          insteadOf = "gh:";
-          pushInsteadOf = [ "github:" "git://github.com/" ];
-        };
-        "git://github.com/" = {
-          insteadOf = "github:";
-        };
-        "git@gist.github.com:" = {
-          insteadOf = "gst:";
-          pushInsteadOf = [ "gist:" "git://gist.github.com/" ];
-        };
-        "git://gist.github.com/" = {
-          insteadOf = "gist:";
-        };
       };
     };
     ignores = [

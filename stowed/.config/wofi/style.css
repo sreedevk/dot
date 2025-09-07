@@ -1,39 +1,62 @@
-window {
+/* Main window */
+#window {
   margin: 0px;
-  border: 1px solid #7A8478;
-  background-color: #1E2326;
+  border: 1px solid #bd93f9;
+  background-color: #282a36;
+  font-family: "Iosevka Nerd Font";
+  font-size: 16px;
 }
 
+/* Input area */
 #input {
-  margin: 0px;
+  margin: 1px 0px;
   border: none;
-  color: #D3C6AA;
-  background-color: #272E33;
+  color: #bbbbbb;
+  background-color: #222222;
+  border: 1px solid gray;
 }
 
+/* Inner box */
 #inner-box {
   margin: 0px;
   border: none;
-  background-color: #1E2326;
+  background-color: #222222;
 }
 
+/* Outer box */
 #outer-box {
-  margin: 0px;
+  margin: 2px 2px;
   border: none;
-  background-color: #1E2326;
+  background-color: #222222;
 }
 
+/* Scroll area */
 #scroll {
   margin: 0px;
   border: none;
 }
 
+/* Text area */
 #text {
-  margin: 5px;
+  margin: 1px 0px;
   border: none;
-  color: #D3C6AA;
+  color: #bbbbbb;
 }
 
+/* Selected items */
 #entry:selected {
-  background-color: #272E33;
+  background-color: #c6a0f6;
+}
+
+#entry:selected #text {
+  font-weight: bold;
+}
+
+#text:selected {
+  color: #24273a;
+}
+
+#entry {
+  padding: 3px 5px;
+  margin: 0px 5px;
 }

@@ -7,7 +7,6 @@ base
 base-devel
 bash-completion
 bind
-blueman
 bluez-tools
 boost
 ccache
@@ -21,8 +20,6 @@ dmidecode
 docker
 docker-buildx
 docker-compose
-doxygen
-easyeffects
 efibootmgr
 eglexternalplatform
 egl-wayland
@@ -34,17 +31,14 @@ fuse2
 gamescope
 gdb
 ghostty
-gimp
 git
 git-lfs
 gnumeric
 gnuplot
-graphviz
 grim
 grub
 gst-plugin-pipewire
 gstreamer
-gtk-vnc
 hyprcursor
 hyprgraphics
 hypridle
@@ -58,7 +52,7 @@ hyprpicker
 hyprpolkitagent
 hyprutils
 hyprwayland-scanner
-i3-wm
+impala
 incus
 incus-tools
 inetutils
@@ -88,8 +82,8 @@ linux-lts-headers
 lld
 lsof
 luarocks
+man-pages
 mariadb-clients
-mc
 mesa
 mesa-utils
 meson
@@ -110,7 +104,6 @@ openssh
 openssl-1.1
 openvpn
 os-prober
-pamixer
 parallel
 perf
 picom
@@ -122,7 +115,6 @@ polkit-qt6
 polybar
 postgresql-libs
 progress
-pulsemixer
 qt5-tools
 qt5-wayland
 qt6-tools
@@ -145,6 +137,7 @@ squashfs-tools
 strace
 sudo
 tailscale
+texlive-binextra
 thunderbird
 ttf-dejavu
 ttf-iosevka-nerd
@@ -161,7 +154,6 @@ vcpkg
 virtualbox
 virtualbox-host-dkms
 vulkan-intel
-waybar
 webkit2gtk
 webkit2gtk-4.1
 wev
@@ -175,6 +167,7 @@ woff2-font-awesome
 xclip
 xdg-desktop-portal-hyprland
 xdo
+xdotool
 xf86-video-vesa
 xorg-server
 xorg-server-devel
@@ -182,6 +175,7 @@ xorg-server-xephyr
 xorg-xev
 xorg-xinit
 xorg-xrandr
+xorg-xwininfo
 xterm
 xtrans
 zarchive

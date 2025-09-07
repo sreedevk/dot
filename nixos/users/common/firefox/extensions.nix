@@ -1,10 +1,11 @@
 { pkgs, system, ... }:
-with pkgs.nur.repos.rycee.firefox-addons; [
+with pkgs.nur.repos.rycee.firefox-addons;
+[
   bitwarden
   consent-o-matic
   darkreader
   decentraleyes
-  enhancer-for-youtube
+  downthemall
   karakeep
   private-grammar-checker-harper
   reddit-enhancement-suite
@@ -12,4 +13,3 @@ with pkgs.nur.repos.rycee.firefox-addons; [
   ublock-origin
   vimium
 ]
-
