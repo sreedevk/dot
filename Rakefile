@@ -7,7 +7,7 @@ namespace :nix do
   namespace :flake do
     desc "update nix flake.lock"
     task :update do 
-      sh('nix flake update')
+      sh('nix flake update --commit-lock-file')
     end
 
     desc "check nix flakes & configurations for current system"
