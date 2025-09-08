@@ -1,4 +1,9 @@
-{ pkgs, opts, ... }:
+{
+  pkgs,
+  opts,
+  config,
+  ...
+}:
 {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
     with opts.ports; [ vaultwarden ]
@@ -20,9 +25,11 @@
       ];
       ports = [ "${opts.ports.vaultwarden}:80" ];
       volumes = [ "vaultwarden:/data" ];
+      environmentFiles = [ config.age.secrets.fastmail_server_env.path ];
       environment = {
         TZ = opts.timeZone;
         PUID = opts.adminUID;
+        DOMAIN = "https://vw.nullptr.sh";
         PGID = opts.adminGID;
       };
     };

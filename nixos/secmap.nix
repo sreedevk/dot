@@ -12,6 +12,7 @@
     "container_registry_env"        = { file = ../secrets/container_registry_env.age;        };
     "dawarich_env"                  = { file = ../secrets/dawarich_env.age;                  };
     "digitalocean-token"            = { file = ../secrets/digitalocean-token.age;            };
+    "fastmail_server_env"           = { file = ../secrets/fastmail_server_env.age;           };
     "firefly_env"                   = { file = ../secrets/firefly_env.age;                   };
     "gh-token"                      = { file = ../secrets/gh-token.age;                      };
     "ghcr_ro_token"                 = { file = ../secrets/ghcr_ro_token.age;                 };

@@ -17,12 +17,17 @@ in
   "secrets/authentik_env.age".publicKeys                 = keys;
   "secrets/autokuma_env.age".publicKeys                  = keys;
   "secrets/aws-secrets.age".publicKeys                   = keys;
+  "secrets/baikal_user_password.age".publicKeys          = keys;
+  "secrets/bitmagnet_env.age".publicKeys                 = keys;
   "secrets/bw_session.age".publicKeys                    = keys;
   "secrets/cargo-token.age".publicKeys                   = keys;
   "secrets/container_registry_env.age".publicKeys        = keys;
+  "secrets/dawarich_env.age".publicKeys                  = keys;
   "secrets/digitalocean-token.age".publicKeys            = keys;
+  "secrets/fastmail_server_env.age".publicKeys           = keys;
   "secrets/firefly_env.age".publicKeys                   = keys;
   "secrets/gh-token.age".publicKeys                      = keys;
+  "secrets/ghcr_ro_token.age".publicKeys                 = keys;
   "secrets/gitea_env.age".publicKeys                     = keys;
   "secrets/gotify_env.age".publicKeys                    = keys;
   "secrets/hoarder_env.age".publicKeys                   = keys;
@@ -41,7 +46,10 @@ in
   "secrets/paperless_env.age".publicKeys                 = keys;
   "secrets/pastebin-token.age".publicKeys                = keys;
   "secrets/photoprism_env.age".publicKeys                = keys;
+  "secrets/pinepods_env.age".publicKeys                  = keys;
   "secrets/podgrab_env.age".publicKeys                   = keys;
+  "secrets/radicle_passphrase.age".publicKeys            = keys;
+  "secrets/restic_backup_password.age".publicKeys        = keys;
   "secrets/romm_env.age".publicKeys                      = keys;
   "secrets/spotify_client_id.age".publicKeys             = keys;
   "secrets/spotify_client_secret.age".publicKeys         = keys;
@@ -55,11 +63,4 @@ in
   "secrets/wallhaven-token.age".publicKeys               = keys;
   "secrets/watchtower_env.age".publicKeys                = keys;
   "secrets/wyl_env.age".publicKeys                       = keys;
-  "secrets/dawarich_env.age".publicKeys                  = keys;
-  "secrets/bitmagnet_env.age".publicKeys                 = keys;
-  "secrets/radicle_passphrase.age".publicKeys            = keys;
-  "secrets/ghcr_ro_token.age".publicKeys                 = keys;
-  "secrets/pinepods_env.age".publicKeys                  = keys;
-  "secrets/restic_backup_password.age".publicKeys        = keys;
-  "secrets/baikal_user_password.age".publicKeys          = keys;
 }
