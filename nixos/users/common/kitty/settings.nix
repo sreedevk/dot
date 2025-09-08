@@ -15,7 +15,7 @@
   enable_audio_bell = false;
   font_family = "Iosevka Nerd Font";
   font_size = 14.0;
-  input_delay = 3;
+  input_delay = 0;
   pointer_shape_when_dragging = "hand";
   scrollback_lines = 10000;
   scrollback_pager = "${config.programs.neovim.package}/bin/nvim -c \"lua require('core.utils'):colorize()\"";
@@ -25,4 +25,6 @@
   tab_bar_edge = "top";
   touch_scroll_multiplier = 2.0;
   update_check_interval = 0;
+  repaint_delay = 2;
+  sync_to_monitor = false;
 }
