@@ -13,6 +13,6 @@
       bin = "firefox";
       xdg-desktop = "firefox.desktop";
     };
-    wallpaper = "unsorted/a_road_with_cars_driving_on_it.png";
+    wallpaper = "fauna/a_cartoon_of_a_sea_creature.png";
   };
 }
