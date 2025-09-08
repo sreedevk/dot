@@ -118,7 +118,7 @@ in
       bind C-f run-shell "tmux neww ${pkgs.yazi}/bin/yazi"
       bind C-h run-shell "tmux neww ${config.programs.htop.package}/bin/htop"
       bind C-i run-shell "setsid ${pkgs.nsxiv}/bin/nsxiv -r \"#{pane_current_path}\" >/dev/null 2>&1 &"
-      bind C-n run-shell "setsid nemo \"#{pane_current_path}\" >/dev/null 2>&1 &"
+      bind C-n run-shell "setsid ${pkgs.nemo-with-extensions}/bin/nemo \"#{pane_current_path}\" >/dev/null 2>&1 &"
       bind C-o run-shell "tmux neww ${tmux-sessionizer-script}/bin/tmux-sessionizer"
       bind C-s run-shell "tmux neww ${ssh-fzf-script}/bin/ssh-fzf"
       bind C-t run-shell "tmux neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
