@@ -26,7 +26,7 @@ vim.keymap.set('n', '<Leader>bb', '<cmd>bnext<CR>', { noremap = true, desc = "sw
 vim.keymap.set('n', '<Leader>bB', '<cmd>bprev<CR>', { noremap = true, desc = "switch to previous buffer" })
 vim.keymap.set('n', '<M-[>', '<cmd>bprev<CR>', { noremap = true, desc = "switch to previous buffer" })
 vim.keymap.set('n', '<M-]>', '<cmd>bnext<CR>', { noremap = true, desc = "switch to next buffer" })
-vim.keymap.set('n', '<Leader>bD', '<cmd>w|%bd|e#<CR>', { noremap = true, desc = "close buffers in the background" })
+vim.keymap.set('n', '<Leader>bo', '<cmd>w|%bd|e#<CR>', { noremap = true, desc = "close all buffers except current buffer" })
 vim.keymap.set('n', '<Leader>cx', '<cmd>! chmod +x %<CR>', { noremap = true, desc = "add +x permission for file" })
 vim.keymap.set('n', '<leader>ssp', '<cmd>set spell!<CR>', { noremap = true, desc = "enable spell check" })
 
