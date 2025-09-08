@@ -15,7 +15,7 @@
         }
         {
           name = "bookmarks";
-          url = "https://hoarder.nullptr.sh";
+          url = "https://kk.nullptr.sh";
         }
         {
           name = "hackernews";

@@ -65,7 +65,7 @@
       volumes = [ "${opts.paths.app_datafiles}/hoarder:/data" ];
       environment = {
         BROWSER_WEB_URL = "http://${opts.hostname}:${opts.ports.chrome}";
-        NEXTAUTH_URL = "https://hoarder.nullptr.sh";
+        NEXTAUTH_URL = "https://kk.nullptr.sh";
         DATA_DIR = "/data";
         MEILI_ADDR = "http://${opts.hostname}:${opts.ports.meilisearch_app}";
         PGID = opts.adminGID;

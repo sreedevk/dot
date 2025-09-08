@@ -152,12 +152,12 @@ services:
         url: "https://rssbridge.external.nullptr.sh"
         target: "_blank"
 
-      - name: "Hoarder"
+      - name: "Karakeep"
         logo: "assets/tools/hoarder.avif"
         subtitle: "Web & Links Archivers"
         tag: "data+link archiver"
         keywords: "hoarder"
-        url: "https://hoarder.nullptr.sh"
+        url: "https://kk.nullptr.sh"
         target: "_blank"
 
       - name: "ArchiveBox"
