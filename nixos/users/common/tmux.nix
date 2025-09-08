@@ -1,5 +1,6 @@
 { pkgs
 , opts
+, config
 , username
 , ...
 }:
@@ -112,26 +113,16 @@ in
       bind p  paste-buffer
       bind C-p choose-buffer
 
-      # TMUX SESSIONIZER
-      bind C-o run-shell "tmux neww ${tmux-sessionizer-script}/bin/tmux-sessionizer"
-
-      # BWFZF
-      bind C-w run-shell "tmux neww ${bitwaden-fzf-script}/bin/bwfzf"
-
-      # TASKWARRIOR
-      bind C-t run-shell "tmux neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
-
-      # SSH
-      bind C-s run-shell "tmux neww ${ssh-fzf-script}/bin/ssh-fzf"
-
-      # NEMO
-      bind C-n run-shell "setsid nemo \"#{pane_current_path}\" >/dev/null 2>&1 &"
-
-      # NSXIb
-      bind C-i run-shell "setsid ${pkgs.nsxiv}/bin/nsxiv -r \"#{pane_current_path}\" >/dev/null 2>&1 &"
-
-      # EDITOR
+      # WORKFLOWS
       bind C-e run-shell "tmux neww ${pkgs.neovim}/bin/nvim"
+      bind C-f run-shell "tmux neww ${pkgs.yazi}/bin/yazi"
+      bind C-h run-shell "tmux neww ${config.programs.htop.package}/bin/htop"
+      bind C-i run-shell "setsid ${pkgs.nsxiv}/bin/nsxiv -r \"#{pane_current_path}\" >/dev/null 2>&1 &"
+      bind C-n run-shell "setsid nemo \"#{pane_current_path}\" >/dev/null 2>&1 &"
+      bind C-o run-shell "tmux neww ${tmux-sessionizer-script}/bin/tmux-sessionizer"
+      bind C-s run-shell "tmux neww ${ssh-fzf-script}/bin/ssh-fzf"
+      bind C-t run-shell "tmux neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
+      bind C-w run-shell "tmux neww ${bitwaden-fzf-script}/bin/bwfzf"
 
       # MOUSE SUPPORT
       bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
