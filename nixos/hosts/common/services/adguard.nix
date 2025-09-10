@@ -108,20 +108,19 @@
         cache_ttl_max = 86400;
         cache_optimistic = false;
         bootstrap_dns = [
-          "9.9.9.9"
-          "1.1.1.1"
           "1.0.0.1"
+          "1.1.1.1"
+          "149.112.112.10"
+          "9.9.9.10"
+          "9.9.9.9"
         ];
         ratelimit = 500;
         upstream_dns = [
           "https://dns.cloudflare.com/dns-query"
           "https://dns.google/dns-query"
-          "https://dns.quad9.net/dns-query"
-          "https://dns11.quad9.net/dns-query"
+          "https://dns10.quad9.net/dns-query"
           "https://unfiltered.adguard-dns.com/dns-query"
-          # "https://dns.mullvad.net/dns-query"
-          # "https://dns0.eu"
-          # "https://doh.opendns.com/dns-query"
+          "tls://dns10.quad9.net"
         ];
         upstream_mode = "parallel"; # load_balance
         upstream_timeout = "5s";
