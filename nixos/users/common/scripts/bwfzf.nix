@@ -1,11 +1,11 @@
 { pkgs, ... }:
 pkgs.writeShellScriptBin "bwfzf" ''
-  item=$(rbw list | \
+  item=$(${pkgs.rbw}/bin/rbw list | \
     ${pkgs.gnugrep}/bin/grep -ivE 'nsfw|deleted|archived|deactivated|old' | \
     ${pkgs.fzf}/bin/fzf) || exit 1
 
   if [ -n "$item" ]; then
-    password=$(rbw get "$item")
+    password=$(${pkgs.rbw}/bin/rbw get "$item")
     printf '%s' "$password" | ${pkgs.wl-clipboard}/bin/wl-copy
     printf '%s' "$password" | tmux load-buffer -
     ${pkgs.systemd}/bin/systemd-run       \

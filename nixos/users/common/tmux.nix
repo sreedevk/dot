@@ -1,22 +1,16 @@
-{ pkgs
-, opts
-, config
-, username
-, ...
+{
+  pkgs,
+  opts,
+  config,
+  username,
+  ...
 }:
 let
-  bitwaden-fzf-script = import ./bwfzf.nix { inherit pkgs; };
-  tmux-sessionizer-script = import ./tmux-sessionizer.nix { inherit pkgs; };
-  ssh-fzf-script = pkgs.writeShellScriptBin "ssh-fzf" ''
-    server=$(grep -E '^Host ' ~/.ssh/config | awk '{print $2}' | fzf)
-    if [[ -n $server ]] then
-      ssh $server
-    fi
-  '';
-
-  tmux-time-display = pkgs.writeShellScriptBin "ttd" ''
-    TZ=${opts.timeZone} date "+%a %B %d %l:%M:%S %p"
-  '';
+  sessionizer = import ./scripts/sessionizer.nix { inherit pkgs; };
+  bwfzf = import ./scripts/bwfzf.nix { inherit pkgs; };
+  sshfzf = import ./scripts/sshfzf.nix { inherit pkgs; };
+  time = import ./scripts/time.nix { inherit pkgs opts; };
+  repoclo = import ./scripts/repoclo.nix { inherit pkgs; };
 
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-super-fingers";
@@ -119,10 +113,11 @@ in
       bind C-h run-shell "tmux neww ${config.programs.htop.package}/bin/htop"
       bind C-i run-shell "setsid ${pkgs.nsxiv}/bin/nsxiv -r \"#{pane_current_path}\" >/dev/null 2>&1 &"
       bind C-n run-shell "setsid ${pkgs.nemo-with-extensions}/bin/nemo \"#{pane_current_path}\" >/dev/null 2>&1 &"
-      bind C-o run-shell "tmux neww ${tmux-sessionizer-script}/bin/tmux-sessionizer"
-      bind C-s run-shell "tmux neww ${ssh-fzf-script}/bin/ssh-fzf"
+      bind C-o run-shell "tmux neww ${sessionizer}/bin/tmux-sessionizer"
+      bind C-s run-shell "tmux neww ${sshfzf}/bin/ssh-fzf"
       bind C-t run-shell "tmux neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
-      bind C-w run-shell "tmux neww ${bitwaden-fzf-script}/bin/bwfzf"
+      bind C-w run-shell "tmux neww ${bwfzf}/bin/bwfzf"
+      bind C-c run-shell "tmux neww ${repoclo}/bin/repoclo"
 
       # MOUSE SUPPORT
       bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
@@ -151,7 +146,7 @@ in
       set -g status-position bottom
       set -g status-justify centre
       set -g status-left '#[fg=green]λ: #[fg=cyan]#S'
-      set -g status-right "#[fg=cyan]#(${tmux-time-display}/bin/ttd)"
+      set -g status-right "#[fg=cyan]#(${time}/bin/ttd)"
       set -g window-status-format "#[fg=blue]#I#[fg=default]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},}}#F"
       set -g window-status-current-format "#[fg=yellow]#I#[fg=green]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},)}}#[fg=default]#F#[fg=yellow]#[fg=default]"
 

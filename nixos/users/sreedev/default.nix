@@ -4,7 +4,7 @@
 , ...
 }:
 let
-  tmux-sessionizer-package = import ../common/tmux-sessionizer.nix { inherit pkgs; };
+  tmux-sessionizer = import ../common/scripts/sessionizer.nix { inherit pkgs; };
 in
 {
   imports = [
@@ -154,7 +154,7 @@ in
         tea                      # gitea cli tool
         terminaltexteffects      # cli text effects
         ticker                   # asset ticker
-        tmux-sessionizer-package # tmux sessionizer
+        tmux-sessionizer         # tmux sessionizer
         tmuxinator               # tmuxinator
         toilet                   # fancy large cli text generator
         tokei                    # lines of code count
