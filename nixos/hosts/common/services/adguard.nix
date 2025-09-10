@@ -106,7 +106,7 @@
         cache_size = 1000000;
         cache_ttl_min = 3600;
         cache_ttl_max = 86400;
-        cache_optimistic = false;
+        cache_optimistic = true;
         bootstrap_dns = [
           "1.0.0.1"
           "1.1.1.1"
@@ -124,7 +124,7 @@
         ];
         upstream_mode = "parallel"; # load_balance
         upstream_timeout = "5s";
-        use_http3_upstreams = true;
+        use_http3_upstreams = false;
       };
     };
   };
