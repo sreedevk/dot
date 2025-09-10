@@ -3,6 +3,9 @@
 This repository contains configurations for various programs & Nix(OS).
 This Nix(OS) section of this repository is located in the `nixos` directory. 
 
+## TODO
+1. fix "r" mapping in visual mode - probably textobjects issue
+
 ## Pre Requisites
 ### Install Home Manager CLI
 ```bash

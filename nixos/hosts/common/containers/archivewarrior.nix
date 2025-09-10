@@ -10,7 +10,7 @@
 
   virtualisation.oci-containers.containers = {
     archivewarrior = {
-      autoStart = true;
+      autoStart = opts.autostart-non-essential-services;
       image = "atdr.meo.ws/archiveteam/warrior-dockerfile:latest";
 
       extraOptions = [
