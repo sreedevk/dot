@@ -114,19 +114,19 @@
         ];
         ratelimit = 500;
         upstream_dns = [
-          "https://dns.mullvad.net/dns-query"
           "https://dns.cloudflare.com/dns-query"
           "https://dns.google/dns-query"
           "https://dns.quad9.net/dns-query"
-          "https://dns0.eu"
           "https://dns11.quad9.net/dns-query"
-          "https://doh.opendns.com/dns-query"
           "https://unfiltered.adguard-dns.com/dns-query"
-          "tls://58ebbc.dns.nextdns.io"
           "tls://dns.quad9.net"
           "tls://dns11.quad9.net"
+          # "https://dns.mullvad.net/dns-query"
+          # "https://dns0.eu"
+          # "https://doh.opendns.com/dns-query"
+          # "tls://58ebbc.dns.nextdns.io"
         ];
-        upstream_mode = "load_balance"; # parallel
+        upstream_mode = "parallel"; # load_balance
         upstream_timeout = "5s";
         use_http3_upstreams = true;
       };
