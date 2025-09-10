@@ -12,20 +12,14 @@
     archivewarrior = {
       autoStart = opts.autostart-non-essential-services;
       image = "atdr.meo.ws/archiveteam/warrior-dockerfile:latest";
+      volumes = [ "${opts.paths.app_datafiles}/archivewarrior:/data" ];
+      ports = [ "${opts.ports.archivewarrior}:8001" ];
 
       extraOptions = [
         "--no-healthcheck"
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--cpus=2"
         "--memory=8g"
-      ];
-
-      volumes = [
-        "${opts.paths.app_datafiles}/archivewarrior:/data"
-      ];
-
-      ports = [
-        "${opts.ports.archivewarrior}:8001"
       ];
 
       labels = {
