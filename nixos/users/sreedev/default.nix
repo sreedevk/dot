@@ -5,6 +5,7 @@
 }:
 let
   tmux-sessionizer = import ../common/scripts/sessionizer.nix { inherit pkgs; };
+  bwfzf = import ../common/scripts/bwfzf.nix { inherit pkgs; };
 in
 {
   imports = [
@@ -13,7 +14,6 @@ in
     ../common/amfora.nix
     ../common/awscli.nix
     ../common/base.nix
-    ../common/bitwarden.nix
     ../common/brave.nix
     ../common/btop.nix
     ../common/core-max.nix
@@ -101,6 +101,8 @@ in
         aspellDicts.en           # aspell english dictionary
         aspellDicts.en-computers # aspell computers dictionary
         aspellDicts.en-science   # aspell science dictionary
+        bwfzf                    # bitwarden fzf
+        rbw                      # stateful bitwarden cli
         cava                     # audio visualizer
         claude-code              # coding agent
         cmatrix                  # matrix
@@ -186,7 +188,6 @@ in
         export SPOTIFY_CLIENT_SECRET="$(cat ${config.age.secrets.spotify_client_secret.path})"
         export TASKWARRIOR_CLIENT_ID="$(cat ${config.age.secrets.taskwarrior_client_id.path})"
         export TASKWARRIOR_ENCRYPTION_SECRET="$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})"
-        export BW_SESSION="$(cat ${config.age.secrets.bw_session.path})"
         export HUGGING_FACE_TOKEN="$(cat ${config.age.secrets.hugging_face_token.path})"
         export OPENAI_API_KEY="$(cat ${config.age.secrets.openai_api_key.path})"
         export RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})"

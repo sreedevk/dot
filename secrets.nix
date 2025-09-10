@@ -19,7 +19,6 @@ in
   "secrets/aws-secrets.age".publicKeys                   = keys;
   "secrets/baikal_user_password.age".publicKeys          = keys;
   "secrets/bitmagnet_env.age".publicKeys                 = keys;
-  "secrets/bw_session.age".publicKeys                    = keys;
   "secrets/cargo-token.age".publicKeys                   = keys;
   "secrets/container_registry_env.age".publicKeys        = keys;
   "secrets/dawarich_env.age".publicKeys                  = keys;

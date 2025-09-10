@@ -7,7 +7,6 @@
     "aws-secrets"                   = { file = ../secrets/aws-secrets.age;                   };
     "baikal_user_password"          = { file = ../secrets/baikal_user_password.age;          };
     "bitmagnet_env"                 = { file = ../secrets/bitmagnet_env.age;                 };
-    "bw_session"                    = { file = ../secrets/bw_session.age;                    };
     "cargo-token"                   = { file = ../secrets/cargo-token.age;                   };
     "container_registry_env"        = { file = ../secrets/container_registry_env.age;        };
     "dawarich_env"                  = { file = ../secrets/dawarich_env.age;                  };
