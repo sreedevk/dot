@@ -30,9 +30,9 @@
 
       labels = {
         "kuma.${opts.hostname}.group.name" = "${opts.hostname}";
-        "kuma.kavita.http.parent_name" = "${opts.hostname}";
-        "kuma.kavita.http.name" = "ArchiveWarrior";
-        "kuma.kavita.http.url" = "http://${opts.lanAddress}:${opts.ports.kavita}";
+        "kuma.archivewarrior.http.parent_name" = "${opts.hostname}";
+        "kuma.archivewarrior.http.name" = "ArchiveWarrior";
+        "kuma.archivewarrior.http.url" = "http://${opts.lanAddress}:${opts.ports.archivewarrior}";
       };
 
       environment = {
