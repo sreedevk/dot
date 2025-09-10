@@ -66,6 +66,11 @@
           ID = 4;
         }
       ];
+      querylog = {
+        enabled = true;
+        file_enabled = false;
+        size_memory = 30000;
+      };
       filtering = {
         protection_enabled = true;
         filtering_enabled = true;
