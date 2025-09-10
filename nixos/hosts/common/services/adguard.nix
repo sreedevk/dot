@@ -69,7 +69,8 @@
       querylog = {
         enabled = true;
         file_enabled = false;
-        size_memory = 30000;
+        size_memory = 10000;
+        interval = "1h";
       };
       filtering = {
         protection_enabled = true;
