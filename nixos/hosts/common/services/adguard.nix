@@ -109,7 +109,7 @@
         bind_hosts = [
           "0.0.0.0"
         ];
-        cache_size = 1000000;
+        cache_size = 100000;
         cache_ttl_min = 3600;
         cache_ttl_max = 86400;
         cache_optimistic = true;
@@ -125,11 +125,10 @@
           "https://dns.cloudflare.com/dns-query"
           "https://dns.google/dns-query"
           "https://dns10.quad9.net/dns-query"
-          "https://unfiltered.adguard-dns.com/dns-query"
           "tls://dns10.quad9.net"
         ];
-        upstream_mode = "parallel"; # load_balance
-        upstream_timeout = "5s";
+        upstream_mode = "load_balance"; # parallel
+        upstream_timeout = "1s";
         use_http3_upstreams = false;
       };
     };
