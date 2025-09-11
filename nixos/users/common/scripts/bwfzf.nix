@@ -14,6 +14,6 @@ pkgs.writeShellScriptBin "bwfzf" ''
       --unit="clearclipboard-$(date +%s)" \
       --on-active="30s"                   \
       --description="Clear clipboard"     \
-      ${pkgs.wl-clipboard}/bin/wl-copy < /dev/null
+      ${pkgs.wl-clipboard}/bin/wl-copy < /dev/null && ${pkgs.rbw}/bin/rbw lock
   fi
 ''

@@ -33,6 +33,7 @@
         source = ~/.config/hypr/extra.conf
         source = ~/.config/hypr/custom_devs.conf
         source = ~/.config/hypr/submaps.conf
+        source = ~/.config/hypr/general.conf
       '';
     };
   };
