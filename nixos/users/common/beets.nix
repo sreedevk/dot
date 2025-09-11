@@ -8,10 +8,6 @@
     beets
   ];
 
-  systemd.user.tmpfiles.rules = [
-    "d /home/${username}/.config/beets 0755 ${opts.adminUID} ${opts.adminGID} -"
-  ];
-
   home.file = {
     ".config/beets/config.yaml" = {
       target = ".config/beets/config.yaml";
