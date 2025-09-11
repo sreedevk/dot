@@ -119,7 +119,7 @@ in
     }
     {
       fingers = "3";
-      direction = "left";
+      direction = "right";
       modifier = null;
       scale = null;
       action = "workspace";

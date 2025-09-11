@@ -34,6 +34,7 @@
         source = ~/.config/hypr/custom_devs.conf
         source = ~/.config/hypr/submaps.conf
         source = ~/.config/hypr/general.conf
+        source = ~/.config/hypr/gestures.conf
       '';
     };
   };

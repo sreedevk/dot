@@ -82,20 +82,24 @@ rec {
     let
       mkGesture =
         gesture:
-        builtins.concatStringsSep "," (
-          builtins.concatLists [
-            [
-              gesture.fingers
-              gesture.direction
+        let
+          key = "gesture";
+          value = builtins.concatStringsSep "," (
+            builtins.concatLists [
+              [
+                gesture.fingers
+                gesture.direction
+              ]
+              (mkOptional gesture.modifier)
+              (mkOptional gesture.scale)
+              [
+                gesture.action
+                gesture.args
+              ]
             ]
-            (mkOptional gesture.modifier)
-            (mkOptional gesture.scale)
-            [
-              gesture.action
-              gesture.args
-            ]
-          ]
-        );
+          );
+        in
+        "${key} = ${value}";
     in
     builtins.concatStringsSep "\n" (builtins.map mkGesture gestures);
 
