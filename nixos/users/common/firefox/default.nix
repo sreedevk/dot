@@ -4,11 +4,11 @@
 , ...
 }:
 let
-  extensions = import ./extensions.nix { inherit pkgs system; };
-  settings = import ./settings.nix;
+  extensions    = import ./extensions.nix { inherit pkgs system; };
+  settings      = import ./settings.nix;
   searchEngines = import ./search-engines.nix;
-  bookmarks = import ./bookmarks.nix;
-  containers = import ./containers.nix;
+  bookmarks     = import ./bookmarks.nix;
+  containers    = import ./containers.nix;
 in
 {
   programs.firefox = {
