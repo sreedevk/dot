@@ -1,7 +1,7 @@
 { pkgs, ... }:
 pkgs.writeShellScriptBin "bwfzf" ''
-  items="$(${pkgs.rbw}/bin/rbw list)"
-  item=$(echo $items | \
+  ${pkgs.rbw}/bin/rbw unlock
+  item=$(${pkgs.rbw}/bin/rbw list | \
     ${pkgs.gnugrep}/bin/grep -ivE 'nsfw|deleted|archived|deactivated|old' | \
     ${pkgs.fzf}/bin/fzf) || exit 1
 
