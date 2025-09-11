@@ -5,6 +5,7 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 
 ## TODO
 1. fix "r" mapping in visual mode - probably textobjects issue
+2. fix gestures import in hyprland
 
 ## Pre Requisites
 ### Install Home Manager CLI

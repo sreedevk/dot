@@ -100,16 +100,32 @@ in
     }
   ];
 
-  gestures = {
-    workspace_swipe = "true";
-    workspace_swipe_distance = "300";
-    workspace_swipe_fingers = "3";
-    workspace_swipe_cancel_ratio = "0.5";
-    workspace_swipe_min_speed_to_force = "5";
-    workspace_swipe_direction_lock = "true";
-    workspace_swipe_direction_lock_threshold = "10";
-    workspace_swipe_create_new = "true";
-  };
+  gestures = [
+    {
+      fingers = "3";
+      direction = "up";
+      modifier = null; # "mod: ALT";
+      scale = null;
+      action = "workspace";
+      args = "special";
+    }
+    {
+      fingers = "3";
+      direction = "left";
+      modifier = null;
+      scale = null;
+      action = "workspace";
+      args = "e-1";
+    }
+    {
+      fingers = "3";
+      direction = "left";
+      modifier = null;
+      scale = null;
+      action = "workspace";
+      args = "e+1";
+    }
+  ];
 
   decoration = {
     shadow = {
@@ -650,14 +666,12 @@ in
         dispatcher = "exec";
         args = "${pkgs.grim}/bin/grim -o $(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name') - | wl-copy";
       }
-
       {
         mod = "SUPER ALT";
         keys = "S";
         dispatcher = "exec";
         args = "${pkgs.grim}/bin/grim -g \"$(hyprctl activewindow -j | jq '(.at | \"\\(.[0]),\\(.[1])\"),(.size | \"\\(.[0])x\\(.[1])\")' | xargs)\" - | wl-copy";
       }
-
     ];
     mouse = [
       {

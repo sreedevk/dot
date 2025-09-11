@@ -76,6 +76,29 @@ rec {
     in
     ruleconfs: builtins.concatStringsSep "\n" (builtins.map genWindowRule ruleconfs);
 
+  mkOptional = x: if builtins.isNull (x) then [ ] else [ x ];
+  genGestures =
+    gestures:
+    let
+      mkGesture =
+        gesture:
+        builtins.concatStringsSep "," (
+          builtins.concatLists [
+            [
+              gesture.fingers
+              gesture.direction
+            ]
+            (mkOptional gesture.modifier)
+            (mkOptional gesture.scale)
+            [
+              gesture.action
+              gesture.args
+            ]
+          ]
+        );
+    in
+    builtins.concatStringsSep "\n" (builtins.map mkGesture gestures);
+
   genMonitors =
     monitors:
     let
