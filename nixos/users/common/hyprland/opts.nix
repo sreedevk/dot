@@ -115,7 +115,7 @@ in
       modifier = null;
       scale = null;
       action = "workspace";
-      args = "e-1";
+      args = "e+1";
     }
     {
       fingers = "3";
@@ -123,7 +123,7 @@ in
       modifier = null;
       scale = null;
       action = "workspace";
-      args = "e+1";
+      args = "e-1";
     }
   ];
 
