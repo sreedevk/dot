@@ -5,7 +5,9 @@ return {
     opts = {
       keymaps = {
         useDefaults = true,
-        disabledDefaults = {},
+        disabledDefaults = {
+          "r"
+        },
       },
       forwardLooking = {
         small = 5,
