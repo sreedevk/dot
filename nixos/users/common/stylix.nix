@@ -46,6 +46,13 @@
     targets = {
       gtk.enable = true;
       xresources.enable = true;
+      mpv.enable = true;
+      zathura.enable = true;
+      firefox = {
+        enable = true;
+        profileNames = [ "main" ];
+        firefoxGnomeTheme.enable = false;
+      };
     };
   };
 }
