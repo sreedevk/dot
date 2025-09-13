@@ -27,6 +27,8 @@
       prompt = "enabled";
       aliases = {
         co = "pr checkout";
+        rv = "repo view --web";
+        prc = "pr create";
       };
       editor = "nvim";
       pager = "";
