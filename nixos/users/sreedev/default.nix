@@ -1,8 +1,7 @@
-{
-  pkgs,
-  config,
-  inputs,
-  ...
+{ pkgs
+, config
+, inputs
+, ...
 }:
 let
   tmux-sessionizer = import ../common/scripts/sessionizer.nix { inherit pkgs; };

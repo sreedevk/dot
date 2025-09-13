@@ -17,7 +17,7 @@
       text = ''
         directory: ${opts.paths.music}
         library: /home/${username}/.config/beets/musiclibrary.db
-        plugins: fetchart lyrics lastgenre
+        plugins: fetchart lastgenre
         import:
           move: yes
       '';
