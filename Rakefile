@@ -30,6 +30,11 @@ namespace :nix do
       end
     end
 
+    desc "collect garbage"
+    task :gc do
+      sh("sudo nix-collect-garbage -d")
+    end
+
     desc "rebuild & install nixos configuration"
     task :install do
       sh("nixos-rebuild switch --flake '.' --sudo --impure -j 8")
@@ -40,6 +45,11 @@ namespace :nix do
     desc "rebuild home manager configuration"
     task :build do
       sh("nix build --impure './nixos#homeConfigurations.\"#{ENV["USER"]}\".activationPackage'")
+    end
+
+    desc "collect garbage"
+    task :gc do
+      sh("nix-collect-garbage -d")
     end
 
     desc "rebuild & install home-manager config"
