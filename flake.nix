@@ -1,6 +1,5 @@
 {
-  description =
-    "NixOS System Configuration Management Flake for Multiple Hosts";
+  description = "NixOS System Configuration Management Flake for Multiple Hosts";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
@@ -44,59 +43,63 @@
         arm64 = "aarch64-linux";
       };
 
+      recurmerge =
+        attrsets: nixpkgs.lib.fold (attrset: acc: nixpkgs.lib.recursiveUpdate attrset acc) { } attrsets;
+
       mkFormatters =
-        systemsl: builtins.foldl'
-          (output: sys: output // { ${sys} = nixpkgs.legacyPackages."${sys}".nixfmt-tree; })
-          { }
-          (nixpkgs.lib.attrValues systemsl);
+        systemsl:
+        builtins.foldl' (
+          output: sys: output // { ${sys} = nixpkgs.legacyPackages."${sys}".nixfmt-tree; }
+        ) { } (nixpkgs.lib.attrValues systemsl);
 
       mkSystem =
         system: hostname:
         nixpkgs.lib.nixosSystem {
           inherit system;
 
-          modules =
-            [
-              agenix.nixosModules.default
-              ./nixos/hosts/${hostname}/configuration.nix
-            ];
+          modules = [
+            agenix.nixosModules.default
+            ./nixos/hosts/${hostname}/configuration.nix
+          ];
 
-          specialArgs =
-            {
-              inherit system;
-              opts = opts // import ./nixos/hosts/${hostname}/opts.nix;
-            };
+          specialArgs = {
+            inherit system;
+            opts = recurmerge [
+              opts
+              (import ./nixos/hosts/${hostname}/opts.nix)
+            ];
+          };
         };
 
       mkHome =
         system: username: host:
-        home-manager.lib.homeManagerConfiguration
-          {
-            pkgs =
-              import nixpkgs {
-                inherit system;
-                overlays = import ./nixos/users/overlays { inherit inputs; };
-              };
-
-            modules =
-              [
-                ./nixos/users/${username}
-                agenix.homeManagerModules.age
-                stylix.homeModules.stylix
-              ];
-
-            extraSpecialArgs =
-              {
-                inherit system username host inputs;
-                opts = opts // import ./nixos/hosts/${host}/opts.nix // import ./nixos/users/${username}/opts.nix;
-              };
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = import ./nixos/users/overlays { inherit inputs; };
           };
+
+          modules = [
+            ./nixos/users/${username}
+            agenix.homeManagerModules.age
+            stylix.homeModules.stylix
+          ];
+
+          extraSpecialArgs = {
+            inherit system username host inputs;
+            opts = recurmerge [
+              opts
+              (import ./nixos/hosts/${host}/opts.nix)
+              (import ./nixos/users/${username}/opts.nix)
+            ];
+          };
+        };
     in
     {
       # Formatters for Nix Files
       formatter = mkFormatters systems;
 
-      # Operating System Level Configurations 
+      # Operating System Level Configurations
       nixosConfigurations = {
         nullptrderef1 = mkSystem systems.x86 "nullptrderef1";
         devstation = mkSystem systems.x86 "devstation";
