@@ -178,23 +178,21 @@ in
     ".zshenv" = {
       enable = true;
       text = ''
-        export JIRA_API_TOKEN="$(cat ${config.age.secrets.jira-token.path})"
         export CARGO_REGISTRY_TOKEN="$(cat ${config.age.secrets.cargo-token.path})"
+        export CR_PAT="$(cat ${config.age.secrets.ghcr_ro_token.path})"
         export DIGITAL_OCEAN_TOKEN="$(cat ${config.age.secrets.digitalocean-token.path})"
+        export GH_TOKEN="$(cat ${config.age.secrets.gh-token.path})"
+        export HUGGING_FACE_TOKEN="$(cat ${config.age.secrets.hugging_face_token.path})"
+        export JIRA_API_TOKEN="$(cat ${config.age.secrets.jira-token.path})"
+        export OPENAI_API_KEY="$(cat ${config.age.secrets.openai_api_key.path})"
         export OPEN_WEATHER_API_KEY="$(cat ${config.age.secrets.openweather-token.path})"
         export PASTEBIN_API_KEY="$(cat ${config.age.secrets.pastebin-token.path})"
-        export WALLHAVEN_API_KEY="$(cat ${config.age.secrets.wallhaven-token.path})"
-        export GH_TOKEN="$(cat ${config.age.secrets.gh-token.path})"
-        export SPOTIFY_CLIENT_ID="$(cat ${config.age.secrets.spotify_client_id.path})"
-        export SPOTIFY_CLIENT_SECRET="$(cat ${config.age.secrets.spotify_client_secret.path})"
-        export TASKWARRIOR_CLIENT_ID="$(cat ${config.age.secrets.taskwarrior_client_id.path})"
-        export TASKWARRIOR_ENCRYPTION_SECRET="$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})"
-        export HUGGING_FACE_TOKEN="$(cat ${config.age.secrets.hugging_face_token.path})"
-        export OPENAI_API_KEY="$(cat ${config.age.secrets.openai_api_key.path})"
         export RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})"
-        export CR_PAT="$(cat ${config.age.secrets.ghcr_ro_token.path})"
         export RESTIC_PASSWORD_FILE="${config.age.secrets.restic_backup_password.path}"
         export RESTIC_REPOSITORY=sftp:nullptrderef1:/mnt/dpool0/backups/devstation/restic-repository
+        export TASKWARRIOR_CLIENT_ID="$(cat ${config.age.secrets.taskwarrior_client_id.path})"
+        export TASKWARRIOR_ENCRYPTION_SECRET="$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})"
+        export WALLHAVEN_API_KEY="$(cat ${config.age.secrets.wallhaven-token.path})"
       '';
     };
   };

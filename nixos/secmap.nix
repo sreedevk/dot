@@ -38,8 +38,6 @@
     "radicle_passphrase"            = { file = ../secrets/radicle_passphrase.age;            };
     "restic_backup_password"        = { file = ../secrets/restic_backup_password.age;        };
     "romm_env"                      = { file = ../secrets/romm_env.age;                      };
-    "spotify_client_id"             = { file = ../secrets/spotify_client_id.age;             };
-    "spotify_client_secret"         = { file = ../secrets/spotify_client_secret.age;         };
     "tailscale_nginx_env"           = { file = ../secrets/tailscale_nginx_env.age;           };
     "taskwarrior_client_id"         = { file = ../secrets/taskwarrior_client_id.age;         };
     "taskwarrior_encryption_secret" = { file = ../secrets/taskwarrior_encryption_secret.age; };

@@ -50,8 +50,6 @@ in
   "secrets/radicle_passphrase.age".publicKeys            = keys;
   "secrets/restic_backup_password.age".publicKeys        = keys;
   "secrets/romm_env.age".publicKeys                      = keys;
-  "secrets/spotify_client_id.age".publicKeys             = keys;
-  "secrets/spotify_client_secret.age".publicKeys         = keys;
   "secrets/tailscale_nginx_env.age".publicKeys           = keys;
   "secrets/taskwarrior_client_id.age".publicKeys         = keys;
   "secrets/taskwarrior_encryption_secret.age".publicKeys = keys;
