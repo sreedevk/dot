@@ -1,15 +1,4 @@
 {
-  timeZone = "America/New_York";
-  desktop = {
-    enable = false;
-    server = "wayland";
-    browser = {
-      bin = "firefox";
-      xdg-desktop = "firefox.desktop";
-    };
-    wallpaper = "wallhaven-p96odm.png";
-  };
-
   addresses = {
     lan = {
       nullptrderef1 = "192.168.1.179";
@@ -25,6 +14,22 @@
     };
   };
 
+  desktop = {
+    browser = {
+      bin = "firefox";
+      xdg-desktop = "firefox.desktop";
+    };
+    enable = false;
+    server = null;
+    wallpaper = null;
+  };
+
+  directories = { };
+
+  git = {
+    enable-signing = false;
+  };
+
   publicKeys = {
     devstation = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP";
     nullptrderef1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO2pNg6tFrSaQ+oTlGAhboBgQQ+I7S3sXoyM1DfOsI0f";
@@ -33,7 +38,7 @@
     rpi4b = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAul9ZMOMARHw6iSIFbQKChc/bkFBx5/mZnrer/YsRvV";
   };
 
-  git = {
-    enable-signing = false;
-  };
+  timeZone = "America/New_York";
+
+  username = null;
 }
