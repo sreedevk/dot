@@ -1,10 +1,10 @@
 { pkgs, opts, ... }:
 let
   vuetorrentSrc = builtins.fetchGit {
-    name = "vuetorrent";
-    url = "https://github.com/VueTorrent/VueTorrent";
-    rev = "0196acf5c23826ae760a62cd556d6e5d3793627f";
-    ref = "latest-release";
+    name    = "vuetorrent";
+    url     = "https://github.com/VueTorrent/VueTorrent";
+    rev     = "b235540fb39c1bdaac43e6f732fb3175b571b078";
+    ref     = "nightly-release";
     shallow = true;
   };
 in
