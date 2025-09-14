@@ -6,7 +6,7 @@ services:
     icon: "fas fa-server"
     items:
       - name: "Portainer"
-        logo: "assets/tools/portainer.avif"
+        logo: "assets/tools/portainer.png"
         subtitle: "Containerization Manager"
         tag: "containerization"
         url: "https://portainer.nullptr.sh"
