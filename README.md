@@ -4,8 +4,6 @@ This repository contains configurations for various programs & Nix(OS).
 This Nix(OS) section of this repository is located in the `nixos` directory. 
 
 ## TODO
-1. [-] when tmux sessionizer opens directories with "." in them, tmux renames them to _
-this in turn causes the name of the session to not match with the directory of the session
 
 ## Pre Requisites
 ### Install Home Manager CLI
