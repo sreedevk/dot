@@ -52,9 +52,10 @@
         "${opts.paths.app_datafiles}/signal:/home/.local/share/signal-cli"
       ];
       environment = {
-        TZ = opts.timeZone;
-        PUID = opts.adminUID;
+        MODE = "native";
         PGID = opts.adminGID;
+        PUID = opts.adminUID;
+        TZ   = opts.timeZone;
       };
     };
   };
