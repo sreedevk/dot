@@ -19,7 +19,7 @@ in
           misc = utils.genNested "misc" hyprconf.misc;
           parsedconfs = xwayland ++ dwindle ++ master ++ misc;
         in
-        builtins.concatStringsSep "\n" (utils.flattenList parsedconfs);
+        builtins.concatStringsSep "\n" (pkgs.lib.lists.flatten parsedconfs);
     };
   };
 }

@@ -12,7 +12,7 @@ in
     ".config/hypr/decoration.conf" = {
       enable = true;
       text = builtins.concatStringsSep "\n" (
-        utils.flattenList (utils.genNested "decoration" hyprconf.decoration)
+        pkgs.lib.lists.flatten (utils.genNested "decoration" hyprconf.decoration)
       );
     };
   };
