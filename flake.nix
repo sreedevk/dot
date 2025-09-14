@@ -2,27 +2,27 @@
   description = "NixOS System Configuration Management Flake for Multiple Hosts";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
+    nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05&shallow=1";
-    agenix.url = "github:ryantm/agenix";
+    agenix.url     = "github:ryantm/agenix";
 
     nur = {
-      url = "github:nix-community/NUR";
+      url                    = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixgl = {
-      url = "github:sreedevk/nixGL";
+      url                    = "github:sreedevk/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url                    = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url                    = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -57,17 +57,19 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
 
-          modules = [
-            agenix.nixosModules.default
-            ./nixos/hosts/${hostname}/configuration.nix
-          ];
+          modules = 
+            [
+              agenix.nixosModules.default
+              ./nixos/hosts/${hostname}/configuration.nix
+            ];
 
           specialArgs = {
             inherit system;
-            opts = recurmerge [
-              opts
-              (import ./nixos/hosts/${hostname}/opts.nix)
-            ];
+            opts = 
+              recurmerge [
+                opts
+                (import ./nixos/hosts/${hostname}/opts.nix)
+              ];
           };
         };
 
@@ -79,40 +81,62 @@
             overlays = import ./nixos/users/overlays { inherit inputs; };
           };
 
-          modules = [
-            ./nixos/users/${username}
-            agenix.homeManagerModules.age
-            stylix.homeModules.stylix
-          ];
+          modules = 
+            [
+              ./nixos/users/${username}
+              agenix.homeManagerModules.age
+              stylix.homeModules.stylix
+            ];
 
           extraSpecialArgs = {
             inherit system username host inputs;
-            opts = recurmerge [
-              opts
-              (import ./nixos/hosts/${host}/opts.nix)
-              (import ./nixos/users/${username}/opts.nix)
-            ];
+            opts = 
+              recurmerge [
+                opts
+                (import ./nixos/hosts/${host}/opts.nix)
+                (import ./nixos/users/${username}/opts.nix)
+              ];
           };
         };
+
+      mkHomes =
+        list:
+        builtins.listToAttrs (
+          map (x: {
+            name = x.user;
+            value = mkHome x.system x.user x.host;
+          }) list
+        );
+
+      mkSystems =
+        list:
+        builtins.listToAttrs (
+          map (x: {
+            name = x.host;
+            value = mkSystem x.system x.host;
+          }) list
+        );
     in
     {
       # Formatters for Nix Files
       formatter = mkFormatters systems;
 
       # Operating System Level Configurations
-      nixosConfigurations = {
-        nullptrderef1 = mkSystem systems.x86 "nullptrderef1";
-        devstation = mkSystem systems.x86 "devstation";
-        devtechnica = mkSystem systems.x86 "devtechnica";
-        rpi4b = mkSystem systems.x86 "rpi4b";
-      };
+      nixosConfigurations = 
+        mkSystems [
+          { host = "nullptrderef1"; system = systems.x86;   }
+          { host = "devstation";    system = systems.x86;   }
+          { host = "devtechnica";   system = systems.x86;   }
+          { host = "rpi4b";         system = systems.arm64; }
+        ];
 
       # User Level Home Manager Configurations
-      homeConfigurations = {
-        admin = mkHome systems.x86 "admin" "nullptrderef1";
-        deploy = mkHome systems.x86 "deploy" "devtechnica";
-        pi = mkHome systems.arm64 "pi" "rpi4b";
-        sreedev = mkHome systems.x86 "sreedev" "devstation";
-      };
+      homeConfigurations = 
+        mkHomes [
+          { user = "admin";   host = "nullptrderef1"; system = systems.x86;   }
+          { user = "deploy";  host = "devtechnica";   system = systems.x86;   }
+          { user = "pi";      host = "rpi4b";         system = systems.arm64; }
+          { user = "sreedev"; host = "devstation";    system = systems.x86;   }
+        ];
     };
 }
