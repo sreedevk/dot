@@ -18,6 +18,7 @@ in
     ../common/core-max.nix
     ../common/droidcam.nix
     ../common/dunst.nix
+    ../common/emacs
     ../common/fastfetch.nix
     ../common/firefox
     ../common/fontconfig.nix
@@ -109,7 +110,6 @@ in
         doxygen                  # source code document generator
         duckdb                   # duck db
         elan                     # lean version manager
-        emacs-gtk                # emacs
         fasm                     # flat assembler
         glab                     # gitlab cli
         glow                     # tui markdown renderer

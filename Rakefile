@@ -89,3 +89,10 @@ namespace :arch do
     sh('./bin/restore-packages')
   end
 end
+
+namespace :scripts do
+  desc "list firefox addons"
+  task :list_firefox_addons do 
+    sh('nix-env -f "<nur>" -qaP -A repos."rycee".firefox-addons | awk "{print $2}" | fzf')
+  end
+end
