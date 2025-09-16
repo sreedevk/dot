@@ -18,6 +18,11 @@ in
       executable = true;
       text = ''
         export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+
+        if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+          . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+        fi
+
         if uwsm check may-start; then
           exec uwsm start hyprland-uwsm.desktop
         fi
