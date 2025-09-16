@@ -6,10 +6,10 @@
 (setq user-full-name "Sreedev Kodichath"
       user-mail-address (rot13 "ferrqricnqznxhzne@tznvy.pbz"))
 
-(setq doom-theme 'modus-vivendi-deuteranopia
+(setq doom-theme 'doom-feather-dark
       doom-font (font-spec :family "IosevkaTerm Nerd Font" :size 18)
       doom-variable-pitch-font (font-spec :family "IosevkaTerm Nerd Font" :size 18)
-      doom-big-font (font-spec :family "IosevkaTerm Nerd Font" :size 32))
+      doom-big-font (font-spec :family "IosevkaTerm Nerd Font" :size 40))
 
 (setq text-scale-mode-step 1.05)
 (setq-default line-spacing 1)
