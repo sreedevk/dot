@@ -114,22 +114,24 @@
         cache_ttl_max = 86400;
         cache_optimistic = true;
         bootstrap_dns = [
+          "${opts.lanAddress}:${opts.ports.unbound_dns}"
           "1.0.0.1"
           "1.1.1.1"
           "149.112.112.10"
           "9.9.9.10"
           "9.9.9.9"
         ];
-        ratelimit = 500;
+        ratelimit = 2000;
         upstream_dns = [
+          "${opts.lanAddress}:${opts.ports.unbound_dns}"
           "https://dns.cloudflare.com/dns-query"
           "https://dns.google/dns-query"
           "https://dns10.quad9.net/dns-query"
           "tls://dns10.quad9.net"
         ];
-        upstream_mode = "load_balance"; # parallel
+        upstream_mode = "parallel"; # load_balance
         upstream_timeout = "1s";
-        use_http3_upstreams = false;
+        use_http3_upstreams = true;
       };
     };
   };

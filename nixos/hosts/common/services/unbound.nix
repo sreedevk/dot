@@ -8,26 +8,41 @@
     with opts.ports; [ unbound_dns ]
   );
 
-  # TODO: reconfigure unbound to work with adguard
   services.unbound = {
-    enable = false;
+    enable = true;
+    checkconf = false;
     settings = {
       server = {
-        interface = "127.0.0.1";
+        interface = opts.lanAddress;
         port = pkgs.lib.strings.toInt opts.ports.unbound_dns;
+        access-control = [
+          "${opts.lanAddress} allow"
+          "${opts.addresses.tailscale."${opts.hostname}"} allow"
+        ];
         do-ip4 = "yes";
         do-udp = "yes";
         do-tcp = "yes";
         do-ip6 = "no";
+        harden-glue = true;
+        harden-dnssec-stripped = true;
+        use-caps-for-id = false;
+        prefetch = true;
+        edns-buffer-size = 1232;
         prefer-ip6 = "no";
+        hide-identity = true;
+        hide-version = true;
       };
       forward-zone = [
         {
           name = ".";
-          forward-addr = "1.1.1.1@853#cloudflare-dns.com";
+          forward-addr = [
+            "9.9.9.9#dns.quad9.net"
+            "149.112.112.112#dns.quad9.net"
+          ];
+          forward-tls-upstream = true;
         }
       ];
-      remote-control.control-enable = true;
+      remote-control.control-enable = false;
     };
   };
 
