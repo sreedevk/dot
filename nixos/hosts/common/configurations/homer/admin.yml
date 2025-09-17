@@ -103,13 +103,6 @@ services:
         url: "https://adguard.nullptr.sh"
         target: "_blank"
 
-      - name: "PiHole"
-        logo: "assets/tools/pihole.svg"
-        subtitle: "Recursive DNS Server"
-        tag: "dns"
-        url: "https://ph.nullptr.sh/admin"
-        target: "_blank"
-
       - name: "Uptime Kuma"
         logo: "assets/tools/kuma.svg"
         subtitle: "site-monitoring"

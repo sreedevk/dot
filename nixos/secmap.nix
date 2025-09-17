@@ -33,7 +33,6 @@
     "paperless_env"                 = { file = ../secrets/paperless_env.age;                 };
     "pastebin-token"                = { file = ../secrets/pastebin-token.age;                };
     "photoprism_env"                = { file = ../secrets/photoprism_env.age;                };
-    "pihole_env"                    = { file = ../secrets/pihole_env.age;                    };
     "pinepods_env"                  = { file = ../secrets/pinepods_env.age;                  };
     "podgrab_env"                   = { file = ../secrets/podgrab_env.age;                   };
     "radicle_passphrase"            = { file = ../secrets/radicle_passphrase.age;            };

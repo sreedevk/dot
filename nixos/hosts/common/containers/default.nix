@@ -56,7 +56,6 @@
     ./ollama.nix
     ./paperless.nix
     ./photoprism.nix
-    ./pihole.nix
     ./pinepods.nix
     ./portainer.nix
     ./prowlarr.nix

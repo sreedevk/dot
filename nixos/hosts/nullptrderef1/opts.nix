@@ -116,9 +116,6 @@
     paperless-redis           = "6340";
     photoprism_app            = "2342";
     photoprism_db             = "3307";
-    pihole_dns                = "8853";
-    pihole_http               = "8800";
-    pihole_https              = "8843";
     pinepods-app              = "8040";
     pinepods-db               = "5436";
     pinepods-valkey           = "6380";
