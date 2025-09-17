@@ -45,6 +45,7 @@ in
   "secrets/paperless_env.age".publicKeys                 = keys;
   "secrets/pastebin-token.age".publicKeys                = keys;
   "secrets/photoprism_env.age".publicKeys                = keys;
+  "secrets/pihole_env.age".publicKeys                    = keys;
   "secrets/pinepods_env.age".publicKeys                  = keys;
   "secrets/podgrab_env.age".publicKeys                   = keys;
   "secrets/radicle_passphrase.age".publicKeys            = keys;
