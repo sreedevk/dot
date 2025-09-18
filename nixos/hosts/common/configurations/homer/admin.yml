@@ -20,14 +20,14 @@ services:
         target: "_blank"
 
       - name: "Docker Registry Web"
-        logo: "assets/tools/docker.avif"
+        logo: "assets/tools/docker.png"
         subtitle: "docker container registry"
         tag: "containerization"
         url: "https://containers.nullptr.sh"
         target: "_blank"
 
       - name: "Watch Your LAN"
-        logo: "assets/tools/wyl.avif"
+        logo: "assets/tools/watchyourlan.png"
         subtitle: "lan monitoring"
         tag: "lan-monitoring"
         url: "https://wyl.nullptr.sh"
@@ -62,7 +62,7 @@ services:
         target: "_blank"
 
       - name: "MinIO"
-        logo: "assets/tools/minio.svg"
+        logo: "assets/tools/minio.png"
         subtitle: "Object Storage"
         tag: "object-storage"
         url: "https://minio.nullptr.sh"
@@ -76,7 +76,7 @@ services:
         target: "_blank"
 
       - name: "FileBrowser"
-        logo: "assets/tools/filebrowser.avif"
+        logo: "assets/tools/fb.png"
         subtitle: "file manager"
         tag: "file-management"
         url: "https://files.nullptr.sh"
@@ -96,8 +96,8 @@ services:
         url: "https://olive.nullptr.sh"
         target: "_blank"
 
-      - name: "AdGuard"
-        logo: "assets/tools/adguard.avif"
+      - name: "Adguard Home"
+        logo: "assets/tools/adguard.png"
         subtitle: "Recursive DNS Server"
         tag: "dns"
         url: "https://adguard.nullptr.sh"
@@ -136,7 +136,7 @@ services:
         target: "_blank"
 
       - name: "n8n"
-        logo: "assets/tools/n8n.webp"
+        logo: "assets/tools/n8n.png"
         subtitle: "automation"
         tag: "automation"
         url: "https://n8n.nullptr.sh"
@@ -163,7 +163,7 @@ services:
         target: "_blank"
 
       - name: "NZBHydra"
-        logo: "assets/tools/nzbhydra.avif"
+        logo: "assets/tools/nzbhydra.png"
         subtitle: "NZB Search Client"
         tag: "nzb"
         url: "https://nzbhydra.nullptr.sh"
@@ -179,7 +179,7 @@ services:
         apikey: "a22638a8-1d99-4cbf-84a6-197a07de1328"
 
       - name: "Aria2"
-        logo: "assets/tools/aria2.avif"
+        logo: "assets/tools/aria2.png"
         subtitle: "Download Manager"
         tag: "downloader"
         keywords: "downloader"
@@ -187,14 +187,14 @@ services:
         target: "_blank"
 
       - name: "Jackett"
-        logo: "assets/tools/jackett.avif"
+        logo: "assets/tools/jackett.png"
         subtitle: "Indexer Management"
         tag: "indexer"
         url: "https://jackett.nullptr.sh"
         target: "_blank"
 
       - name: "Tdarr"
-        logo: "assets/tools/tdarr.avif"
+        logo: "assets/tools/tdarr.png"
         subtitle: "distributed transcoding"
         tag: "distributed-transcoding"
         url: "https://tdarr.nullptr.sh"

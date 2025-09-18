@@ -52,7 +52,7 @@ links:
     icon: "fas fa-home"
     url: "https://nullptr.sh"
 
-  - name: "admin"
+  - name: "Admin"
     icon: "fas fa-server"
     url: "https://nullptr.sh#admin"
 
@@ -85,7 +85,7 @@ services:
         url: "https://gitea.nullptr.sh"
         target: "_blank"
 
-      - name: "StirlingPDF"
+      - name: "Stirling PDF"
         logo: "assets/tools/stirling.svg"
         subtitle: "PDF Manipulation Tools"
         tag: "pdf-manipulation"
@@ -99,21 +99,21 @@ services:
         url: "https://livebook.nullptr.sh"
         target: "_blank"
 
-      - name: "Ollama"
+      - name: "Open WebUI"
         logo: "assets/tools/ollama.avif"
         subtitle: "AI Chatbot"
         tag: "artificial-intelligence-chat"
         url: "https://ollama.nullptr.sh"
         target: "_blank"
 
-      - name: "SearXNG"
-        logo: "assets/tools/searxng.avif"
+      - name: "Searxng"
+        logo: "assets/tools/searxng.png"
         subtitle: "Search Engine"
         tag: "search-engine"
         url: "https://searxng.nullptr.sh"
         target: "_blank"
 
-      - name: "Node II (rpi4b)"
+      - name: "Raspberry Pi 4B"
         logo: "assets/tools/rpi4b.avif"
         subtitle: "Homelab Secondary Node"
         tag: "rpi4b"

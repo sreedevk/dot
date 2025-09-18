@@ -82,7 +82,7 @@
     influxdb                  = "8086";
     jackett                   = "9117";
     jellyfin                  = "8096";
-    jellyseer                 = "5055";
+    jellyseerr                = "5055";
     jellystat-app             = "8906";
     jellystat-db              = "5433";
     k3s-control-plane         = "6443";

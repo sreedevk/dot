@@ -16,7 +16,7 @@ services:
         # apikey: "c2acc6c5e0504bc7b081e6ecb2096934"
 
       - name: "Stash"
-        logo: "assets/tools/stash.avif"
+        logo: "assets/tools/stash.png"
         subtitle: "Adult Media Organizer"
         tag: "adult-media-org"
         url: "https://stash.nullptr.sh"

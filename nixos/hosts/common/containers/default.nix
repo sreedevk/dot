@@ -37,7 +37,7 @@
     ./homer.nix
     ./jackett.nix
     ./jellyfin.nix
-    ./jellyseer.nix
+    ./jellyseerr.nix
     ./jellystat.nix
     ./kapowarr.nix
     ./kavita.nix
