@@ -4,6 +4,8 @@ This repository contains configurations for various programs & Nix(OS).
 This Nix(OS) section of this repository is located in the `nixos` directory. 
 
 ## TODO
+1. migrate to traefik
+2. TMUX/TERMINAL READS C-i as \<TAB\>
 
 ## Pre Requisites
 ### Install Home Manager CLI

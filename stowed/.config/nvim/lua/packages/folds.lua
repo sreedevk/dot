@@ -15,7 +15,6 @@ return {
   {
     "jghauser/fold-cycle.nvim",
     lazy = true,
-    -- TODO: Disable <C-i> remap by this plugin
     enabled = false,
     ft = { "markdown" },
     keys = {

@@ -47,12 +47,32 @@ return {
       graph_style = "unicode",
       process_spinner = false,
       git_services = {
-        ["github.com"]       = "https://github.com/${owner}/${repository}/compare/${branch_name}?expand=1",
-        ["bitbucket.org"]    = "https://bitbucket.org/${owner}/${repository}/pull-requests/new?source=${branch_name}&t=1",
-        ["gitlab.com"]       = "https://gitlab.com/${owner}/${repository}/merge_requests/new?merge_request[source_branch]=${branch_name}",
-        ["azure.com"]        = "https://dev.azure.com/${owner}/_git/${repository}/pullrequestcreate?sourceRef=${branch_name}&targetRef=${target}",
-        ["gitea.nullptr.sh"] = "https://gitea.nullptr.sh/${owner}/${repository}/compare/${branch_name}",
-        ["git.devtechnica.com"] = "https://git.devtechnica.com/${owner}/${repository}/compare/${branch_name}"
+        ["github.com"] = {
+          pull_request = "https://github.com/${owner}/${repository}/compare/${branch_name}?expand=1",
+          commit = "https://github.com/${owner}/${repository}/commit/${oid}",
+          tree = "https://${host}/${owner}/${repository}/tree/${branch_name}",
+        },
+        ["bitbucket.org"] = {
+          pull_request = "https://bitbucket.org/${owner}/${repository}/pull-requests/new?source=${branch_name}&t=1",
+          commit = "https://bitbucket.org/${owner}/${repository}/commits/${oid}",
+          tree = "https://bitbucket.org/${owner}/${repository}/branch/${branch_name}",
+        },
+        ["gitlab.com"] = {
+          pull_request =
+          "https://gitlab.com/${owner}/${repository}/merge_requests/new?merge_request[source_branch]=${branch_name}",
+          commit = "https://gitlab.com/${owner}/${repository}/-/commit/${oid}",
+          tree = "https://gitlab.com/${owner}/${repository}/-/tree/${branch_name}?ref_type=heads",
+        },
+        ["gitea.nullptr.sh"] = {
+          pull_request = "https://gitea.nullptr.sh/${owner}/${repository}/compare/${branch_name}",
+          commit = "https://gitea.nullptr.sh/${owner}/${repository}/commit/${oid}",
+          tree = "https://gitea.nullptr.sh/${owner}/${repository}/src/branch/${branch_name}"
+        },
+        ["git.devtechnica.com"] = {
+          pull_request = "https://git.devtechnica.com/${owner}/${repository}/compare/${branch_name}",
+          commit = "https://git.devtechnica.com/${owner}/${repository}/commit/${oid}",
+          tree = "https://git.devtechnica.com/${owner}/${repository}/src/branch/${branch_name}"
+        }
       },
     },
   },
@@ -65,7 +85,8 @@ return {
         local mapping_opts = { noremap = true, buffer = bufnr }
 
         vim.keymap.set('n', '<Leader>sh', gitsigns.stage_hunk, mapping_opts)
-        vim.keymap.set('v', '<leader>sh', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, mapping_opts)
+        vim.keymap.set('v', '<leader>sh', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
+          mapping_opts)
         vim.keymap.set('n', '<leader>tb', gitsigns.toggle_current_line_blame, mapping_opts)
         vim.keymap.set({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
       end
