@@ -5,7 +5,8 @@
   );
 
   systemd.tmpfiles.rules = [
-    "d ${opts.paths.app_datafiles}/nzbhydra 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/nzbhydra          0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/qbittorrent/watch 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {
@@ -16,7 +17,10 @@
         "--add-host=${opts.hostname}:${opts.lanAddress}"
         "--no-healthcheck"
       ];
-      volumes = [ "${opts.paths.app_datafiles}/nzbhydra:/config" ];
+      volumes = [
+        "${opts.paths.app_datafiles}/nzbhydra:/config"
+        "${opts.paths.app_datafiles}/qbittorrent/watch:/torrents"
+      ];
       ports = [ "${opts.ports.nzbhydra}:5076" ];
       environment = {
         TZ = opts.timeZone;
