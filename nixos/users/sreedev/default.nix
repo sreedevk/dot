@@ -73,10 +73,11 @@ in
   home.packages =
     let
       gui-packages = with pkgs; [
-        (config.lib.nixGL.wrapOffload pkgs.davinci-resolve)
         (config.lib.nixGL.wrap pkgs.slack)
+        (config.lib.nixGL.wrapOffload pkgs.davinci-resolve)
         (config.lib.nixGL.wrapOffload pkgs.gimp3-with-plugins)
         (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
+        (config.lib.nixGL.wrapOffload pkgs.upscayl)
         dbeaver-bin
         easyeffects
         ffmpegthumbnailer
