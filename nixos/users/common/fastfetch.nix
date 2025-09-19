@@ -28,9 +28,9 @@
           format = "{1}";
         }
         {
-          "type" = "terminal";
-          "key" = "  TERMINAL";
-          "format" = "{5}";
+          type = "terminal";
+          key = "  TERMINAL";
+          format = "{5}";
         }
         {
           type = "memory";

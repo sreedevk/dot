@@ -220,6 +220,13 @@ services:
         type: "PaperlessNG"
         apikey: "4815059d6d2b634705e469f0df2bd80b15f3474d"
 
+      - name: "Paperless GPT"
+        logo: "assets/tools/paperless-gpt.png"
+        subtitle: "AI Document Parsing & OCR"
+        tag: "documents"
+        url: "https://pg.nullptr.sh"
+        target: "_blank"
+
       - name: Docuseal
         logo: "assets/tools/docuseal.avif"
         subtitle: "Document Signing & Verification"

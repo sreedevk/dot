@@ -6,6 +6,7 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 ## TODO
 1. migrate to traefik
 2. TMUX/TERMINAL READS C-i as \<TAB\>
+3. tmux de-sessionizer that uses either mux stop or tmux kill to end sessions
 
 ## Pre Requisites
 ### Install Home Manager CLI

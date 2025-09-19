@@ -43,6 +43,7 @@ in
   "secrets/openai_api_key.age".publicKeys                = keys;
   "secrets/openweather-token.age".publicKeys             = keys;
   "secrets/paperless_env.age".publicKeys                 = keys;
+  "secrets/paperless_gpt_env.age".publicKeys             = keys;
   "secrets/pastebin-token.age".publicKeys                = keys;
   "secrets/photoprism_env.age".publicKeys                = keys;
   "secrets/pinepods_env.age".publicKeys                  = keys;

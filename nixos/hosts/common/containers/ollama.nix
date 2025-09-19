@@ -10,7 +10,7 @@
   );
 
   virtualisation.oci-containers.containers = {
-    "ollama" = {
+    ollama = {
       autoStart = opts.autostart-non-essential-services;
       image = "ollama/ollama:latest";
       extraOptions = [
@@ -32,7 +32,7 @@
       };
     };
 
-    "ollama-web" = {
+    ollama-web = {
       autoStart = opts.autostart-non-essential-services;
       image = "ghcr.io/open-webui/open-webui:latest";
       extraOptions = [

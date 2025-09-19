@@ -48,5 +48,6 @@
     "wallhaven-token"               = { file = ../secrets/wallhaven-token.age;               };
     "watchtower_env"                = { file = ../secrets/watchtower_env.age;                };
     "wyl_env"                       = { file = ../secrets/wyl_env.age;                       };
+    "paperless_gpt_env"             = { file = ../secrets/paperless_gpt_env.age;             };
   };
 }

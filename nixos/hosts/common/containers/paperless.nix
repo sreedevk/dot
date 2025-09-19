@@ -15,9 +15,15 @@
 
   systemd.tmpfiles.rules = [
     "d ${opts.paths.documents}/consume 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.documents}/export 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.documents}/data 0755 ${opts.adminUID} ${opts.adminGID} -"
-    "d ${opts.paths.documents}/media 0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.documents}/export  0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.documents}/data    0755    ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.documents}/media   0755   ${opts.adminUID} ${opts.adminGID} -"
+
+    # PAPERLESS GPT
+    "d ${opts.paths.documents}/gpt_hocr                  0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.documents}/gpt_pdf                   0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/paperless_gpt         0755 ${opts.adminUID} ${opts.adminGID} -"
+    "d ${opts.paths.app_datafiles}/paperless_gpt/prompts 0755 ${opts.adminUID} ${opts.adminGID} -"
   ];
 
   virtualisation.oci-containers.containers = {
@@ -74,6 +80,54 @@
         TZ = opts.timeZone;
         PUID = opts.adminUID;
         PGID = opts.adminGID;
+      };
+    };
+
+    paperless-gpt = {
+      autoStart = opts.autostart-non-essential-services;
+      image = "icereed/paperless-gpt:latest";
+      environmentFiles = [ config.age.secrets.paperless_gpt_env.path ];
+      extraOptions = [
+        "--add-host=${opts.hostname}:${opts.lanAddress}"
+        "--no-healthcheck"
+      ];
+      dependsOn = [
+        "ollama"
+        "paperless-app"
+      ];
+      ports = [
+        "${opts.ports.paperless-gpt}:8080"
+      ];
+      volumes = [
+        "${opts.paths.app_datafiles}/paperless_gpt/prompts:/app/prompts"
+        "${opts.paths.documents}/gpt_hocr:/app/hocr"
+        "${opts.paths.documents}/gpt_pdf:/app/pdf"
+      ];
+      environment = {
+        AUTO_OCR_TAG = "paperless-gpt-ocr-auto";
+        AUTO_TAG = "paperless-gpt-auto";
+        CREATE_LOCAL_HOCR = "true";
+        CREATE_LOCAL_PDF = "true";
+        LLM_LANGUAGE = "English";
+        LLM_MODEL = "qwen3:8b";
+        LLM_PROVIDER = "ollama";
+        LOCAL_HOCR_PATH = "/app/hocr";
+        LOCAL_PDF_PATH = "/app/pdf";
+        MANUAL_TAG = "paperless-gpt";
+        OCR_PROCESS_MODE = "image"; # image / pdf / whole_pdf
+        OCR_PROVIDER = "llm";
+        OLLAMA_HOST = "http://${opts.lanAddress}:${opts.ports.ollama-api}";
+        PAPERLESS_BASE_URL = "http://${opts.lanAddress}:${opts.ports.paperless-app}";
+        PAPERLESS_PUBLIC_URL = "https://docs.nullptr.sh";
+        PDF_COPY_METADATA = "true";
+        PDF_OCR_COMPLETE_TAG = "paperless-gpt-ocr-complete";
+        PDF_OCR_TAGGING = "true";
+        PDF_REPLACE = "false";
+        PDF_SKIP_EXISTING_OCR = "true";
+        PDF_UPLOAD = "true";
+        TOKEN_LIMIT = "1000";
+        VISION_LLM_MODEL = "minicpm-v";
+        VISION_LLM_PROVIDER = "ollama";
       };
     };
 
