@@ -144,7 +144,6 @@ in
         nixfmt                   # nix formatter
         nmap                     # network discovery and security auditing
         nushell                  # modern shell written in rust
-        opencode                 # AI coding agent
         pandoc                   # document format converter
         qrencode                 # qr code generator
         s3cmd                    # s3 cli
