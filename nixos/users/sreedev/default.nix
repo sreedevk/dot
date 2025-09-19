@@ -44,6 +44,7 @@ in
     ../common/opentabletdriver.nix
     ../common/pueue.nix
     ../common/radicle
+    ../common/raku.nix
     ../common/rofi
     ../common/starship.nix
     ../common/stylix.nix
