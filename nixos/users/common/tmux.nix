@@ -111,7 +111,10 @@ in
       bind C-e run-shell "tmux neww ${pkgs.neovim}/bin/nvim"
       bind C-f run-shell "tmux neww ${pkgs.yazi}/bin/yazi"
       bind C-h run-shell "tmux neww ${config.programs.htop.package}/bin/htop"
-      bind C-g run-shell "setsid ${pkgs.nsxiv}/bin/nsxiv -r \"#{pane_current_path}\" >/dev/null 2>&1 &"
+
+      # BUG: this binding does not work with alacritty, because the TERM interprets C-i as TAB
+      bind C-i run-shell "setsid ${pkgs.nsxiv}/bin/nsxiv -r \"#{pane_current_path}\" >/dev/null 2>&1 &"
+
       bind C-n run-shell "setsid ${pkgs.nemo-with-extensions}/bin/nemo \"#{pane_current_path}\" >/dev/null 2>&1 &"
       bind C-o run-shell "tmux neww ${sessionizer}/bin/tmux-sessionizer"
       bind C-s run-shell "tmux neww ${sshfzf}/bin/ssh-fzf"
@@ -151,7 +154,7 @@ in
       set -g window-status-current-format "#[fg=yellow]#I#[fg=green]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},)}}#[fg=default]#F#[fg=yellow]#[fg=default]"
 
       # MAKE IT PRETTY + SANE DEFAULTS
-      set -g  default-command "${pkgs.zsh}/bin/zsh --login"
+      set -g  default-command "${pkgs.zsh}/bin/zsh"
       set -g  xterm-keys on
       set -s  extended-keys on
       set -as terminal-features 'xterm*:extkeys'
