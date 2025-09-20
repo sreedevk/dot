@@ -31,6 +31,10 @@ in
     historyLimit = 100000;
     plugins = with pkgs; [
       {
+        plugin = tmuxPlugins.rose-pine;
+        extraConfig = "set -g @rose_pine_variant 'main'";
+      }
+      {
         plugin = tmux-super-fingers;
         extraConfig = "set -g @super-fingers-key f";
       }

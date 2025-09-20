@@ -13,7 +13,7 @@
         initial-command = "tmux new -A -s system"
         mouse-hide-while-typing = true
         shell-integration = none
-        theme = Nocturnal Winter
+        theme = Rose Pine
         window-decoration = false
       '';
     };
