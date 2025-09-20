@@ -1,7 +1,7 @@
 {
   desktop = {
     enable = true;
-    wallpaper = "fauna/a_cartoon_of_a_sea_creature.png";
+    wallpaper = "wallhaven-2ymp5g.png";
   };
 
   directories = {
