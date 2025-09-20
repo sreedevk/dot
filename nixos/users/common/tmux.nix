@@ -113,7 +113,7 @@ in
       bind C-h run-shell "tmux neww ${config.programs.htop.package}/bin/htop"
 
       # BUG: this binding does not work with alacritty, because the TERM interprets C-i as TAB
-      bind C-i run-shell "setsid ${pkgs.nsxiv}/bin/nsxiv -r \"#{pane_current_path}\" >/dev/null 2>&1 &"
+      bind C-g run-shell "setsid ${pkgs.nsxiv}/bin/nsxiv -r \"#{pane_current_path}\" >/dev/null 2>&1 &"
 
       bind C-n run-shell "setsid ${pkgs.nemo-with-extensions}/bin/nemo \"#{pane_current_path}\" >/dev/null 2>&1 &"
       bind C-o run-shell "tmux neww ${sessionizer}/bin/tmux-sessionizer"
