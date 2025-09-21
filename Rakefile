@@ -44,7 +44,7 @@ namespace :nix do
   namespace :home do
     desc "rebuild home manager configuration"
     task :build do
-      sh("nix build --impure './nixos#homeConfigurations.\"#{ENV["USER"]}\".activationPackage'")
+      sh("nix build --impure './nixos#homeConfigurations.\"#{`whoami`.strip}\".activationPackage'")
     end
 
     desc "collect garbage"
@@ -54,24 +54,24 @@ namespace :nix do
 
     desc "rebuild & install home-manager config"
     task :install do
-      sh("home-manager switch --impure --flake '.##{ENV["USER"]}@#{`hostname`.strip}' -j 8")
+      sh("home-manager switch --impure --flake '.##{`whoami`.strip}@#{`hostname`.strip}' -j 8")
     end
 
     namespace :install do
       desc "rebuild & install home-manager config offline"
       task :offline do
-        sh("home-manager switch --impure --option substitute false --flake '.##{ENV["USER"]}@#{`hostname`.strip}' -j 8")
+        sh("home-manager switch --impure --option substitute false --flake '.##{`whoami`.strip}@#{`hostname`.strip}' -j 8")
       end
 
       desc "rebuild & install home-manager config and backup replaced files"
       task :backup do
-        sh("home-manager switch --impure --flake '.##{ENV["USER"]}@#{`hostname`.strip}' -j 8 -b backup")
+        sh("home-manager switch --impure --flake '.##{`whoami`.strip}@#{`hostname`.strip}' -j 8 -b backup")
       end
 
       namespace :offline do
         desc "rebuild & install home-manager config offline and backup replaced files"
         task :backup do
-          sh("home-manager switch --impure --option substitute false --flake '.##{ENV["USER"]}@#{`hostname`.strip}' -j 8 -b backup")
+          sh("home-manager switch --impure --option substitute false --flake '.##{`whoami`.strip}@#{`hostname`.strip}' -j 8 -b backup")
         end
       end
     end
