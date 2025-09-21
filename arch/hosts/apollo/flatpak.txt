@@ -16,12 +16,8 @@ Mesa
 Mesa
 Mesa
 Mesa
-nvidia-580-82-09
 Mesa
 Mesa
-nvidia-580-82-09
-Intel
-Intel
 i386
 MangoHud
 vkBasalt
