@@ -1,5 +1,6 @@
 { pkgs
 , config
+, opts
 , ...
 }:
 let
@@ -189,7 +190,7 @@ in
         export PASTEBIN_API_KEY="$(cat ${config.age.secrets.pastebin-token.path})"
         export RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})"
         export RESTIC_PASSWORD_FILE="${config.age.secrets.restic_backup_password.path}"
-        export RESTIC_REPOSITORY=sftp:nullptrderef1:/mnt/dpool0/backups/devstation/restic-repository
+        export RESTIC_REPOSITORY=sftp:nullptrderef1:/mnt/dpool0/backups/${opts.hostname}/restic-repository
         export TASKWARRIOR_CLIENT_ID="$(cat ${config.age.secrets.taskwarrior_client_id.path})"
         export TASKWARRIOR_ENCRYPTION_SECRET="$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})"
         export WALLHAVEN_API_KEY="$(cat ${config.age.secrets.wallhaven-token.path})"

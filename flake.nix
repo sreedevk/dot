@@ -136,6 +136,7 @@
           { user = "admin";   host = "nullptrderef1"; system = systems.x86;   }
           { user = "deploy";  host = "devtechnica";   system = systems.x86;   }
           { user = "pi";      host = "rpi4b";         system = systems.arm64; }
+          { user = "sreedev"; host = "apollo";        system = systems.x86;   }
           { user = "sreedev"; host = "devstation";    system = systems.x86;   }
         ];
     };
