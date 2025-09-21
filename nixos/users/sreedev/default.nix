@@ -4,7 +4,7 @@
 }:
 let
   tmux-sessionizer = import ../common/scripts/sessionizer.nix { inherit pkgs; };
-  bwfzf = import ../common/scripts/bwfzf.nix { inherit pkgs; };
+  bwfzf            = import ../common/scripts/bwfzf.nix { inherit pkgs; };
 in
 {
   imports = [
@@ -78,6 +78,7 @@ in
         (config.lib.nixGL.wrapOffload pkgs.davinci-resolve)
         (config.lib.nixGL.wrapOffload pkgs.gimp3-with-plugins)
         (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
+        (config.lib.nixGL.wrapOffload pkgs.obsidian)
         (config.lib.nixGL.wrapOffload pkgs.upscayl)
         dbeaver-bin
         easyeffects
