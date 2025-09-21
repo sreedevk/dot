@@ -78,12 +78,12 @@
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             inherit system;
-            overlays = import ./nixos/users/overlays { inherit inputs; };
+            overlays = import ./nixos/common/overlays { inherit inputs; };
           };
 
           modules = 
             [
-              ./nixos/users/${username}
+              ./nixos/hosts/${host}/users/${username}
               agenix.homeManagerModules.age
               stylix.homeModules.stylix
             ];
@@ -94,7 +94,7 @@
               recurmerge [
                 opts
                 (import ./nixos/hosts/${host}/opts.nix)
-                (import ./nixos/users/${username}/opts.nix)
+                (import ./nixos/hosts/${host}/users/${username}/opts.nix)
               ];
           };
         };
@@ -103,7 +103,7 @@
         list:
         builtins.listToAttrs (
           map (x: {
-            name = x.user;
+            name = "${x.user}@${x.host}";
             value = mkHome x.system x.user x.host;
           }) list
         );

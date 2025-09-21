@@ -7,9 +7,9 @@
 {
   imports = [
     ../../secmap.nix
-    ../common/containers
-    ../common/scripts
-    ../common/services
+    ../../common/os/containers
+    ../../common/os/scripts
+    ../../common/os/services
     ./hardware-configuration.nix
   ];
 

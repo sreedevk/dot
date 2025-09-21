@@ -59,4 +59,5 @@ in
   "sreedev@devstation" = builtins.toJSON (genconf "sreedev");
   "admin@nullptrderef1" = builtins.toJSON (genconf "nullptrderef1");
   "deploy@devtechnica" = builtins.toJSON (genconf "devtk");
+  "sreedev@devbox" = builtins.toJSON (genconf "devbox");
 }

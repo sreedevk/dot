@@ -6,19 +6,19 @@
   ...
 }:
 let
-  sessionizer = import ./scripts/sessionizer.nix { inherit pkgs; };
-  bwfzf = import ./scripts/bwfzf.nix { inherit pkgs; };
-  sshfzf = import ./scripts/sshfzf.nix { inherit pkgs; };
-  time = import ./scripts/time.nix { inherit pkgs opts; };
-  repoclo = import ./scripts/repoclo.nix { inherit pkgs; };
+  sessionizer        = import ./scripts/sessionizer.nix { inherit pkgs; };
+  bwfzf              = import ./scripts/bwfzf.nix { inherit pkgs; };
+  sshfzf             = import ./scripts/sshfzf.nix { inherit pkgs; };
+  time               = import ./scripts/time.nix { inherit pkgs opts; };
+  repoclo            = import ./scripts/repoclo.nix { inherit pkgs; };
 
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-super-fingers";
-    version = "unstable-2023-01-06";
-    src = pkgs.fetchFromGitHub {
-      owner = "artemave";
-      repo = "tmux_super_fingers";
-      rev = "2c12044984124e74e21a5a87d00f844083e4bdf7";
+    version    = "unstable-2023-01-06";
+    src        = pkgs.fetchFromGitHub {
+      owner  = "artemave";
+      repo   = "tmux_super_fingers";
+      rev    = "2c12044984124e74e21a5a87d00f844083e4bdf7";
       sha256 = "sha256-cPZCV8xk9QpU49/7H8iGhQYK6JwWjviL29eWabuqruc=";
     };
   };
