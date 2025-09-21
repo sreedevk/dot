@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    ../../secmap.nix
+    ../../common/secrets/mappings.nix
     ../../common/os/containers
     ../../common/os/scripts
     ../../common/os/services

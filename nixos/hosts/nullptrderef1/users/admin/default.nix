@@ -1,7 +1,7 @@
 { config, ... }:
 {
   imports = [
-    ../../../../secmap.nix
+    ../../../../common/secrets/mappings.nix
     ../../../../common/hm/base.nix
     ../../../../common/hm/beets.nix
     ../../../../common/hm/core-max.nix

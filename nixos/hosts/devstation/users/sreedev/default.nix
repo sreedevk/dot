@@ -9,7 +9,7 @@ let
 in
 {
   imports = [
-    ../../../../secmap.nix
+    ../../../../common/secrets/mappings.nix
     ../../../../common/hm/alacritty
     ../../../../common/hm/amfora.nix
     ../../../../common/hm/awscli.nix
