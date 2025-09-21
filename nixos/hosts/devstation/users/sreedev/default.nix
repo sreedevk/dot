@@ -29,7 +29,6 @@ in
     ../../../../common/hm/gpg.nix
     ../../../../common/hm/htop.nix
     ../../../../common/hm/hyprland
-    ../../../../common/hm/i3.nix
     ../../../../common/hm/jujutsu.nix
     ../../../../common/hm/keybase.nix
     ../../../../common/hm/keyboard.nix
@@ -57,7 +56,6 @@ in
     ../../../../common/hm/zathura.nix
     ../../../../common/hm/zellij.nix
     ../../../../common/hm/zsh.nix
-    ./autorandr.nix
     ./restic.nix
   ];
 
