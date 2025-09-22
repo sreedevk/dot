@@ -1154,7 +1154,7 @@ in
   };
 
   exec-once = [
-    "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+    "dbus-update-activation-environment --systemd --all"
     "hyprpm reload -n"
     "systemctl --user start hyprpolkitagent"
     "wl-paste --type image --watch cliphist store"

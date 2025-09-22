@@ -1,11 +1,12 @@
-{ pkgs
-, config
-, opts
-, ...
+{
+  pkgs,
+  config,
+  opts,
+  ...
 }:
 let
   tmux-sessionizer = import (../../../../common/hm/scripts/sessionizer.nix) { inherit pkgs; };
-  bwfzf            = import (../../../../common/hm/scripts/bwfzf.nix)       { inherit pkgs; };
+  bwfzf = import (../../../../common/hm/scripts/bwfzf.nix) { inherit pkgs; };
 in
 {
   imports = [
@@ -174,6 +175,7 @@ in
     ];
 
   home.file = {
+
     ".zshenv" = {
       enable = true;
       text = ''
@@ -192,6 +194,24 @@ in
         export TASKWARRIOR_CLIENT_ID="$(cat ${config.age.secrets.taskwarrior_client_id.path})"
         export TASKWARRIOR_ENCRYPTION_SECRET="$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})"
         export WALLHAVEN_API_KEY="$(cat ${config.age.secrets.wallhaven-token.path})"
+      '';
+    };
+
+    "authorized_keys" = {
+      enable = true;
+      target = ".ssh/authorized_keys.source";
+      executable = false;
+      recursive = false;
+      text = builtins.concatStringsSep "\n" (
+        with opts.publicKeys;
+        [
+          apollo
+          rpi4b
+          terminus
+        ]
+      );
+      onChange = ''
+        rm -rf ~/.ssh/authorized_keys && cat ~/.ssh/authorized_keys.source > ~/.ssh/authorized_keys && chmod 400 ~/.ssh/authorized_keys
       '';
     };
   };
