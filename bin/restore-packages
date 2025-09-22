@@ -12,7 +12,7 @@ fi
 
 AUR_PKGS=$(comm -23 <(pacman -Qm | sort) <(cat ~/.dot/arch/hosts/$(hostname)/aur.txt | sort) )
 if [ ! -z $AUR_PKGS ]; then
-  sudo aura -A $AUR_PKGS
+  sudo paru -S $AUR_PKGS
 else
   echo "all AUR packages installed. skipping"
 fi
