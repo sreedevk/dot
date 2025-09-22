@@ -239,6 +239,13 @@ in
         identityFile = "~/.ssh/id_ed25519";
       };
 
+      "apollo" = {
+        hostname = "100.95.166.26";
+        user = "sreedev";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
       "nullptrderef1" = {
         hostname = "192.168.1.179";
         user = "admin";

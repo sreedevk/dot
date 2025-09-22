@@ -125,6 +125,7 @@
     description = "system root user & administrator";
     hashedPasswordFile = config.age.secrets.nullptrderef1_admin_password.path;
     openssh.authorizedKeys.keys = with opts.publicKeys; [
+      apollo
       devstation
       olivetin
       rpi4b

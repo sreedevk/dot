@@ -1,12 +1,14 @@
 let
   systems = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDaBQM6gItlkowGwo+xC70FX7egJxcLABZhWVDKzKUOC" # root@nullptrderef1
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMblROfyNFxxIlXjtJFR955AO1Ey09S38n08pawmGuBF" # root@apollo
   ];
 
   users = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP" # sreedev@devstation
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErdYvZ0RfDGze0QzHv8DCcc7Xt7rutKfOKRv44d0UiS" # deploy@devtechnica
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAul9ZMOMARHw6iSIFbQKChc/bkFBx5/mZnrer/YsRvV" # pi@rpi4b
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErdYvZ0RfDGze0QzHv8DCcc7Xt7rutKfOKRv44d0UiS" # deploy@devtechnica
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHsoBUqq8XVMmDb5AfOWW4DQC81b1CxqR65KEPSI6Udp" # sreedev@apollo
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP" # sreedev@devstation
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO2pNg6tFrSaQ+oTlGAhboBgQQ+I7S3sXoyM1DfOsI0f" # admin@nullptrderef1
   ];
 
