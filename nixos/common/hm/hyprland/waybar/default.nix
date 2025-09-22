@@ -2,7 +2,6 @@
 let
   modules = {
     memory = (import ./modules/memory.nix { inherit pkgs; });
-    cpu = (import ./modules/cpu.nix { inherit pkgs; });
     gpu = (import ./modules/gpu.nix { inherit pkgs; });
     dnd = (import ./modules/dnd.nix { inherit pkgs; });
   };
@@ -36,7 +35,8 @@ in
           "custom/separator"
           "custom/gpu"
           "custom/separator"
-          "custom/cpu-temp"
+          "temperature"
+          "cpu"
           "custom/separator"
           "network"
         ];
@@ -160,10 +160,13 @@ in
           exec = "${modules.memory}/bin/memory";
           restart-interval = 5;
         };
-        "custom/cpu-temp" = {
-          format = "󰍛  {}";
-          exec = "${modules.cpu}/bin/cpu-temp";
-          restart-interval = 5;
+        temperature = {
+          hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
+          format = "󰍛  {temperatureC}°C";
+        };
+        cpu = {
+          format = " {avg_frequency}G";
+          interval = 2;
         };
         "custom/gpu" = {
           format = "󰟽 {}";

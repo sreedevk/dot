@@ -63,7 +63,9 @@ window#waybar.hidden {
 #custom-memory,
 #custom-cpu-temp,
 #custom-gpu,
-#network
+#network,
+#temperature,
+#cpu
 {
   margin: 0px;
   padding: 0px;
