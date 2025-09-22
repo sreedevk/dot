@@ -23,6 +23,7 @@
     };
     enable = false;
     wallpaper = null;
+    scale = "1";
   };
 
   directories = { };

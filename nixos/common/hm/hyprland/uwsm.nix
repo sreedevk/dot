@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs
+, opts
+, ...
+}:
 let
   hyprlaunch = pkgs.writeShellScriptBin "hyprlaunch" ''
     if uwsm check may-start; then
@@ -47,16 +50,16 @@ in
         export EGL_PLATFORM=wayland
         export ELECTRON_OZONE_PLATFORM_HINT=auto
         export GBM_BACKEND=nvidia-drm
-        export GDK_DPI_SCALE=1
-        export GDK_SCALE=1
+        export GDK_DPI_SCALE=${opts.desktop.scale}
+        export GDK_SCALE=${opts.desktop.scale}
         export GTK_THEME=Adwaita:dark
         export LIBVA_DRIVER_NAME=nvidia
         export MOZ_ENABLE_WAYLAND=1
-        export QT_AUTO_SCREEN_SCALE_FACTOR=1
+        export QT_AUTO_SCREEN_SCALE_FACTOR=${opts.desktop.scale}
         export QT_QPA_PLATFORM=xcb
-        export QT_SCALE_FACTOR=1
+        export QT_SCALE_FACTOR=${opts.desktop.scale}
         export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-        export WINIT_X11_SCALE_FACTOR=1
+        export WINIT_X11_SCALE_FACTOR=${opts.desktop.scale}
         export XCURSOR_SIZE=28
         export XDG_CURRENT_DESKTOP=Hyprland
         export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
