@@ -35,6 +35,7 @@
             let
               homedir = dirs: (builtins.map (v: "${builtins.getEnv "HOME"}/${v}") dirs);
               backupdirs = builtins.concatStringsSep " " (homedir [
+                ".thunderbird"
                 "Data/finances"
                 "Data/work"
                 "Data/resources"
