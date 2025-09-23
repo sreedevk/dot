@@ -7,7 +7,9 @@ base
 base-devel
 bash-completion
 bind
+blueman
 bluez-tools
+bluez-utils
 boost
 ccache
 clang

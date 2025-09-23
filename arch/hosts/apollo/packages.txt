@@ -8,8 +8,11 @@ base
 base-devel
 bash-completion
 bind
+blueman
 bluez-tools
+bluez-utils
 boost
+btrfs-progs
 ccache
 clang
 cliphist
