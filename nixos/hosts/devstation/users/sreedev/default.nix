@@ -10,7 +10,6 @@ let
 in
 {
   imports = [
-    ../../../../common/secrets/mappings.nix
     ../../../../common/hm/alacritty
     ../../../../common/hm/amfora.nix
     ../../../../common/hm/awscli.nix
@@ -54,9 +53,11 @@ in
     ../../../../common/hm/tmux.nix
     ../../../../common/hm/vim.nix
     ../../../../common/hm/xresources.nix
+    ../../../../common/hm/yazi
     ../../../../common/hm/zathura.nix
     ../../../../common/hm/zellij.nix
     ../../../../common/hm/zsh.nix
+    ../../../../common/secrets/mappings.nix
     ./restic.nix
   ];
 

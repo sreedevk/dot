@@ -46,7 +46,6 @@
     viddy            # modern watch
     xh               # friendly http
     xxd              # hex viewer
-    yazi             # file manager tui
     yq               # yaml jq
   ];
 }
