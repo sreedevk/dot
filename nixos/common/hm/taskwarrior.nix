@@ -46,6 +46,10 @@ let
     notificationFreq = "4m";
     dataLocation = "~/.task/";
     hooksLocation = "~/.task/hooks";
+    verbose = builtins.concatStringsSep "," [
+      "blank"
+      "filter"
+    ];
 
     sync = {
       serverAddress = "https://tasks.nullptr.sh";
@@ -158,6 +162,9 @@ let
       uda.taskwarrior-tui.shortcuts.1=${taskwarrior-tui-taskopenscript}/bin/tt-taskopen
       ${mkprojectCoefficients configs.coefficients.user.projects}
       ${mktagCoefficients configs.coefficients.user.tags}
+
+      # VERBOSITY
+      verbose=${configs.verbose}
     '';
 in
 {
