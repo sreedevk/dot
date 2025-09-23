@@ -27,7 +27,7 @@
   };
 
   directories = { };
-
+  gpuaccel = null;
   git = {
     enable-signing = false;
   };
