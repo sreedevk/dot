@@ -127,21 +127,21 @@ vim.opt.completeopt     = {
 }
 
 vim.opt.fillchars       = {
-  eob = ' ',
-  diff = '⣿',
-  msgsep = '─',
-  fold = ' ',
-  foldopen = '▼',
+  eob       = ' ',
+  diff      = '⣿',
+  msgsep    = '─',
+  fold      = ' ',
+  foldopen  = '▼',
   foldclose = '▶',
-  foldsep = ' ',
+  foldsep   = ' ',
 }
 
 vim.opt.listchars       = {
-  eol = nil,
-  tab = '▷▷',
-  extends = '»',
+  eol      = nil,
+  tab      = '▷▷',
+  extends  = '»',
   precedes = '«',
-  trail = '•',
+  trail    = '•',
 }
 
 vim.opt.diffopt         = vim.opt.diffopt

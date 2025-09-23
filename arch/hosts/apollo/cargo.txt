@@ -1,0 +1,15 @@
+bacon v3.18.0
+bacon-ls v0.23.0
+blaze-ssh v0.0.4
+cargo-audit v0.21.2
+cargo-bloat v0.12.1
+cargo-expand v1.0.116
+cargo-udeps v0.1.59
+cargo-update v18.0.0
+cargo-watch v8.5.3
+cl-wordle v0.4.0
+deduplicator v0.3.1
+flamegraph v0.6.9
+license-generator v1.3.0
+sqlx-cli v0.8.6
+uiua v0.16.2

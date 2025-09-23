@@ -1,0 +1,11 @@
+Flatseal
+Freedesktop
+gamescope
+GNOME
+i386
+Mesa
+openh264
+Proton-GE
+protontricks
+Signal
+Steam

@@ -7,7 +7,7 @@ namespace :nix do
   namespace :flake do
     desc "update nix flake.lock"
     task :update do 
-      sh('nix flake update')
+      sh('nix flake update --commit-lock-file')
     end
 
     desc "check nix flakes & configurations for current system"
@@ -30,6 +30,11 @@ namespace :nix do
       end
     end
 
+    desc "collect garbage"
+    task :gc do
+      sh("sudo nix-collect-garbage -d")
+    end
+
     desc "rebuild & install nixos configuration"
     task :install do
       sh("nixos-rebuild switch --flake '.' --sudo --impure -j 8")
@@ -39,29 +44,34 @@ namespace :nix do
   namespace :home do
     desc "rebuild home manager configuration"
     task :build do
-      sh("nix build --impure './nixos#homeConfigurations.\"#{ENV["USER"]}\".activationPackage'")
+      sh("nix build --impure './nixos#homeConfigurations.\"#{`whoami`.strip}\".activationPackage'")
+    end
+
+    desc "collect garbage"
+    task :gc do
+      sh("nix-collect-garbage -d")
     end
 
     desc "rebuild & install home-manager config"
     task :install do
-      sh("home-manager switch --impure --flake '.' -j 8")
+      sh("home-manager switch --impure --flake '.##{`whoami`.strip}@#{`hostname`.strip}' -j 8")
     end
 
     namespace :install do
       desc "rebuild & install home-manager config offline"
       task :offline do
-        sh("home-manager switch --impure --option substitute false --flake '.' -j 8")
+        sh("home-manager switch --impure --option substitute false --flake '.##{`whoami`.strip}@#{`hostname`.strip}' -j 8")
       end
 
       desc "rebuild & install home-manager config and backup replaced files"
       task :backup do
-        sh("home-manager switch --impure --flake '.' -j 8 -b backup")
+        sh("home-manager switch --impure --flake '.##{`whoami`.strip}@#{`hostname`.strip}' -j 8 -b backup")
       end
 
       namespace :offline do
         desc "rebuild & install home-manager config offline and backup replaced files"
         task :backup do
-          sh("home-manager switch --impure --option substitute false --flake '.' -j 8 -b backup")
+          sh("home-manager switch --impure --option substitute false --flake '.##{`whoami`.strip}@#{`hostname`.strip}' -j 8 -b backup")
         end
       end
     end
@@ -77,5 +87,12 @@ namespace :arch do
   desc "restore packages from arch/aur/flatpak/cargo"
   task :restore do
     sh('./bin/restore-packages')
+  end
+end
+
+namespace :scripts do
+  desc "list firefox addons"
+  task :list_firefox_addons do 
+    sh('nix-env -f "<nur>" -qaP -A repos."rycee".firefox-addons | awk "{print $2}" | fzf')
   end
 end

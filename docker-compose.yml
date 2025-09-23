@@ -5,4 +5,4 @@ services:
     volumes:
       - .:/home/nixuser/.dot
     working_dir: /home/nixuser/.dot
-    command: nix flake check ./nixos --all-systems
+    command: nix flake check . --all-systems

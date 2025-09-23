@@ -1,0 +1,9 @@
+[plugin]
+deps = [
+  { use = "yazi-rs/plugins:piper",            rev = "109b13d" },
+  { use = "dedukun/bookmarks",                rev = "95b2c58" },
+  { use = "yazi-rs/flavors:catppuccin-mocha", rev = "9cd2ac4" },
+  { use = "tkapias/nightfly",                 rev = "599b8ad" },
+  { use = "yazi-rs/plugins:full-border",      rev = "92f78dc" },
+  { use = "yazi-rs/plugins:smart-enter",      rev = "b44c245" },
+]

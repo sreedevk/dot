@@ -3,21 +3,21 @@
 set -e 
 
 # PACMAN
-PACMAN_PKGS=$(comm -23 <(cat ~/.dot/archlinux/packages.txt | sort) <(comm -23 <(pacman -Qqe | sort) <(pacman -Qqm | sort)) | awk '{print $1}' | xargs)
+PACMAN_PKGS=$(comm -23 <(cat ~/.dot/arch/hosts/$(hostname)/packages.txt | sort) <(comm -23 <(pacman -Qqe | sort) <(pacman -Qqm | sort)) | awk '{print $1}' | xargs)
 if [ ! -z $PACMAN_PKGS ]; then
   sudo pacman -S $PACMAN_PKGS
 else
   echo "all pacman packages installed. skipping"
 fi
 
-AUR_PKGS=$(comm -23 <(pacman -Qm | sort) <(cat ~/.dot/archlinux/aur.txt | sort) )
+AUR_PKGS=$(comm -23 <(pacman -Qm | sort) <(cat ~/.dot/arch/hosts/$(hostname)/aur.txt | sort) )
 if [ ! -z $AUR_PKGS ]; then
-  sudo aura -A $AUR_PKGS
+  sudo paru -S $AUR_PKGS
 else
   echo "all AUR packages installed. skipping"
 fi
 
-CARGO_PKGS=$(comm -23 <(cat ~/.dot/archlinux/cargo.txt | awk '{print $1}') <(cargo install --list | grep ':' | sed 's/://g' | awk '{print $1}') | xargs)
+CARGO_PKGS=$(comm -23 <(cat ~/.dot/arch/hosts/$(hostname)/cargo.txt | awk '{print $1}') <(cargo install --list | grep ':' | sed 's/://g' | awk '{print $1}') | xargs)
 
 if [ ! -z $CARGO_PKGS ]; then
   cargo install $CARGO_PKGS

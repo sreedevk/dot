@@ -1,0 +1,16 @@
+[
+  {
+    "username": "sreedev",
+    "groups": [
+      "audio",
+      "docker",
+      "incus",
+      "incus-admin",
+      "input",
+      "render",
+      "sreedev",
+      "video",
+      "wheel"
+    ]
+  }
+]
