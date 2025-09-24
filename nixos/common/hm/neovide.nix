@@ -22,6 +22,6 @@
   };
 
   home.packages = [
-    (config.lib.nixGL.wrap pkgs.neovide)
+    (config.lib.nixGL.wrapOffload pkgs.neovide)
   ];
 }

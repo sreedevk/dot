@@ -9,7 +9,7 @@ in
 {
   programs.kitty = {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.kitty;
+    package = config.lib.nixGL.wrapOffload pkgs.kitty;
     settings = themes.zitchdog-pine // import ./settings.nix { inherit config lib; };
     keybindings = import ./keybindings.nix;
   };
