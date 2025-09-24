@@ -4,6 +4,7 @@ gamescope
 GNOME
 i386
 Mesa
+nvidia-580-82-09
 openh264
 Proton-GE
 protontricks

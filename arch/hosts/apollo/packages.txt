@@ -64,8 +64,12 @@ inotify-tools
 iw
 iwd
 jq
+jre-openjdk
 kmon
 less
+lib32-mesa-utils
+lib32-nvidia-utils
+lib32-vulkan-mesa-layers
 libnewt
 libnotify
 libpam-google-authenticator
@@ -85,6 +89,7 @@ lvm2
 man-pages
 mariadb-clients
 mesa
+mesa-demos
 mesa-utils
 meson
 mpv
@@ -152,6 +157,7 @@ uwsm
 vcpkg
 virtualbox
 virtualbox-host-dkms
+vulkan-mesa-layers
 vulkan-radeon
 webkit2gtk
 webkit2gtk-4.1
