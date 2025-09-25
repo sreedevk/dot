@@ -44,6 +44,7 @@
     archivewarrior            = "8790";
     aria_rpc                  = "6800";
     aria_web                  = "6880";
+    atticd                    = "8070";
     audiobookshelf            = "13378";
     authentik-app-http        = "9989";
     authentik-app-https       = "9990";
