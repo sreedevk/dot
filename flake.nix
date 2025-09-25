@@ -124,9 +124,10 @@
       # Operating System Level Configurations
       nixosConfigurations = 
         mkSystems [
-          { host = "nullptrderef1"; system = systems.x86;   }
           { host = "devstation";    system = systems.x86;   }
           { host = "devtechnica";   system = systems.x86;   }
+          { host = "mars";          system = systems.x86;   }
+          { host = "nullptrderef1"; system = systems.x86;   }
           { host = "rpi4b";         system = systems.arm64; }
         ];
 
