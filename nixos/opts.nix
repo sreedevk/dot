@@ -26,8 +26,12 @@
     scale = "1";
   };
 
+  monitors = [ ];
+
   directories = { };
+
   gpuaccel = null;
+
   git = {
     enable-signing = false;
   };
