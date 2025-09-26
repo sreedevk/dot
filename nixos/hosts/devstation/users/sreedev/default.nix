@@ -1,6 +1,7 @@
 { pkgs
 , config
 , opts
+, username
 , ...
 }:
 let
@@ -317,6 +318,31 @@ in
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";
       };
+    };
+  };
+
+  nix = {
+    package = pkgs.nixVersions.nix_2_28;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    settings = {
+      trusted-users = [ "${username}" ];
+      http2 = false;
+      allowed-users = [ "${username}" ];
+      trusted-substituters = [ "https://cache.nixos.org/" ];
+      substituters = [ "https://cache.nixos.org/" ];
+      show-trace = true;
+      auto-optimise-store = true;
+      trusted-public-keys = [ ];
+      fallback = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "recursive-nix"
+      ];
     };
   };
 
