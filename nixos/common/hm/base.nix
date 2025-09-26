@@ -117,7 +117,7 @@
       allowed-users = [ "${username}" ];
       trusted-substituters = [ "${username}" ];
       substituters = [
-        "https://attic.domain.tld/foo"
+        "https://nixcache.nullptr.sh/nullptrcache"
       ];
       show-trace = true;
       auto-optimise-store = true;
