@@ -115,9 +115,13 @@
       trusted-users = [ "${username}" ];
       http2 = false;
       allowed-users = [ "${username}" ];
-      trusted-substituters = [ "${username}" ];
+      trusted-substituters = [
+        "https://nixcache.nullptr.sh/nullptrcache"
+        "https://cache.nixos.org/"
+      ];
       substituters = [
         "https://nixcache.nullptr.sh/nullptrcache"
+        "https://cache.nixos.org/"
       ];
       show-trace = true;
       auto-optimise-store = true;
