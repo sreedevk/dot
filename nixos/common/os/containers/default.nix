@@ -18,6 +18,7 @@
     ./archivebox.nix
     ./archivewarrior.nix
     ./aria2.nix
+    ./attic.nix
     ./audiobookshelf.nix
     ./authentik.nix
     ./bazarr.nix

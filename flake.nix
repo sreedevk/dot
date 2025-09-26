@@ -5,7 +5,6 @@
     nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05&shallow=1";
     agenix.url     = "github:ryantm/agenix";
-    attic.url      = "github:zhaofengli/attic";
 
     nur = {
       url                    = "github:nix-community/NUR";
@@ -31,7 +30,6 @@
   outputs =
     { self
     , agenix
-    , attic
     , nixpkgs
     , stablepkgs
     , home-manager
@@ -62,7 +60,6 @@
           modules = 
             [
               agenix.nixosModules.default
-              attic.nixosModules.atticd
               ./nixos/hosts/${hostname}/configuration.nix
             ];
 

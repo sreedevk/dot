@@ -116,8 +116,14 @@
       http2 = false;
       allowed-users = [ "${username}" ];
       trusted-substituters = [ "${username}" ];
+      substituters = [
+        "https://attic.domain.tld/foo"
+      ];
       show-trace = true;
       auto-optimise-store = true;
+      trusted-public-keys = [
+        "nullptrcache:WWCQga/TVF9QgQvOF5A898CnIbIvSUAqD/sTmKbGv8M="
+      ];
       fallback = true;
       experimental-features = [
         "nix-command"

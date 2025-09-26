@@ -45,6 +45,7 @@
     aria_rpc                  = "6800";
     aria_web                  = "6880";
     atticd                    = "8070";
+    atticdb                   = "8071";
     audiobookshelf            = "13378";
     authentik-app-http        = "9989";
     authentik-app-https       = "9990";

@@ -16,6 +16,8 @@ let
 in
 {
   "secrets/aria2_env.age".publicKeys                     = keys;
+  "secrets/attic_env.age".publicKeys                     = keys;
+  "secrets/attic_server_config_toml.age".publicKeys      = keys;
   "secrets/authentik_env.age".publicKeys                 = keys;
   "secrets/autokuma_env.age".publicKeys                  = keys;
   "secrets/aws-secrets.age".publicKeys                   = keys;

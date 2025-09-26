@@ -1,8 +1,9 @@
 { ... }:
 {
-  
   age.secrets = {
     "aria2_env"                     = { file = ../../../secrets/aria2_env.age;                     };
+    "attic_env"                     = { file = ../../../secrets/attic_env.age;                     };
+    "attic_server_config_toml"      = { file = ../../../secrets/attic_server_config_toml.age;      };
     "authentik_env"                 = { file = ../../../secrets/authentik_env.age;                 };
     "autokuma_env"                  = { file = ../../../secrets/autokuma_env.age;                  };
     "aws-secrets"                   = { file = ../../../secrets/aws-secrets.age;                   };
@@ -32,6 +33,7 @@
     "openai_api_key"                = { file = ../../../secrets/openai_api_key.age;                };
     "openweather-token"             = { file = ../../../secrets/openweather-token.age;             };
     "paperless_env"                 = { file = ../../../secrets/paperless_env.age;                 };
+    "paperless_gpt_env"             = { file = ../../../secrets/paperless_gpt_env.age;             };
     "pastebin-token"                = { file = ../../../secrets/pastebin-token.age;                };
     "photoprism_env"                = { file = ../../../secrets/photoprism_env.age;                };
     "pinepods_env"                  = { file = ../../../secrets/pinepods_env.age;                  };
@@ -49,6 +51,5 @@
     "wallhaven-token"               = { file = ../../../secrets/wallhaven-token.age;               };
     "watchtower_env"                = { file = ../../../secrets/watchtower_env.age;                };
     "wyl_env"                       = { file = ../../../secrets/wyl_env.age;                       };
-    "paperless_gpt_env"             = { file = ../../../secrets/paperless_gpt_env.age;             };
   };
 }
