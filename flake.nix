@@ -5,6 +5,7 @@
     nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05&shallow=1";
     agenix.url     = "github:ryantm/agenix";
+    colmena.url    = "github:zhaofengli/colmena";
 
     nur = {
       url                    = "github:nix-community/NUR";
@@ -118,6 +119,37 @@
         );
     in
     {
+      # Colmena Deployments
+      colmenaHive = inputs.colmena.lib.makeHive {
+        meta = {
+          nixpkgs = import nixpkgs {
+            system = systems.x86;
+            overlays = [
+            ];
+          };
+        };
+        nullptrderef1 = {
+          deployment = {
+            targetHost = "nullptrderef1";
+            targetPort = 22;
+            targetUser = "admin";
+          };
+          specialArgs = {
+            system = systems.x86;
+            opts = 
+              recurmerge [
+                opts
+                (import ./nixos/hosts/nullptrderef1/opts.nix)
+              ];
+          };
+          boot.isContainer = false;
+          time.timeZone = "America/Los_Angeles";
+          imports = [
+            ./nixos/hosts/nullptrderef1/configuration.nix
+          ];
+        };
+      };
+
       # Formatters for Nix Files
       formatter = mkFormatters systems;
 
