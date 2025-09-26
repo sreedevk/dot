@@ -44,7 +44,7 @@ namespace :nix do
   namespace :home do
     desc "rebuild home manager configuration"
     task :build do
-      sh("nix build --impure './nixos#homeConfigurations.\"#{`whoami`.strip}\".activationPackage'")
+      sh("home-manager build --impure --flake '.##{`whoami`.strip}@#{`hostname`.strip}' -j 8")
     end
 
     desc "collect garbage"
