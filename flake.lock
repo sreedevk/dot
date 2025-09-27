@@ -458,7 +458,8 @@
         "nixpkgs": "nixpkgs_3",
         "nur": "nur",
         "stablepkgs": "stablepkgs",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "system-manager": "system-manager"
       }
     },
     "stable": {
@@ -524,6 +525,26 @@
       "original": {
         "owner": "danth",
         "repo": "stylix",
+        "type": "github"
+      }
+    },
+    "system-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1756281415,
+        "narHash": "sha256-CjpoVwpJJ+DOZilPrDpZ5S3V+B1Y0calaHxTp2xMvGs=",
+        "owner": "numtide",
+        "repo": "system-manager",
+        "rev": "e271eedac9a24678ca6cfc61677837422bf474e0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "system-manager",
         "type": "github"
       }
     },

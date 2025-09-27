@@ -17,6 +17,11 @@ nix-channel --update
 nix-shell '<home-manager>' -A install
 ```
 
+### Install System Manager CLI
+```bash
+nix profile add 'github:numtide/system-manager'
+```
+
 ## Using Docker Compose to Check Configs
 
 ```bash

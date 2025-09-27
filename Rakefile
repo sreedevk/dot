@@ -79,6 +79,14 @@ namespace :nix do
 end
 
 namespace :arch do
+  namespace :nix do
+    desc "install using system-manager"
+    task :install do
+      sh("sudo $(which system-manager) switch --flake '.##{`hostname`.strip}'")
+      sh("rm -f result")
+    end
+  end
+
   desc "archive packages from arch/aur/flatpak/cargo"
   task :archive do
     sh('./bin/archive-packages')

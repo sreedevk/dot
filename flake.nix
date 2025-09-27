@@ -26,6 +26,11 @@
       url                    = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    system-manager = {
+      url                    = "github:numtide/system-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -74,6 +79,22 @@
           };
         };
 
+      mkArchSystem =
+        system: hostname:
+        inputs.system-manager.lib.makeSystemConfig {
+          modules = 
+            [
+              ./nixos/hosts/${hostname}/configuration.nix 
+            ];
+          extraSpecialArgs = {
+            inherit system;
+            opts = recurmerge [
+              opts
+              (import ./nixos/hosts/${hostname}/opts.nix)
+            ];
+          };
+        };
+
       mkHome =
         system: username: host:
         home-manager.lib.homeManagerConfiguration {
@@ -117,6 +138,15 @@
             value = mkSystem x.system x.host;
           }) list
         );
+
+      mkArchSystems =
+        list:
+        builtins.listToAttrs (
+          map (x: {
+            name = x.host;
+            value = mkArchSystem x.system x.host;
+          }) list
+        );
     in
     {
       # Colmena Deployments
@@ -143,7 +173,7 @@
               ];
           };
           boot.isContainer = false;
-          time.timeZone = "America/Los_Angeles";
+          time.timeZone = "America/New_York";
           imports = [
             ./nixos/hosts/nullptrderef1/configuration.nix
           ];
@@ -160,6 +190,12 @@
           { host = "devtechnica";   system = systems.x86;   }
           { host = "nullptrderef1"; system = systems.x86;   }
           { host = "rpi4b";         system = systems.arm64; }
+        ];
+
+      # Arch linux system configs
+      systemConfigs =
+        mkArchSystems [
+          { host = "apollo"; system = systems.x86; }
         ];
 
       # User Level Home Manager Configurations
