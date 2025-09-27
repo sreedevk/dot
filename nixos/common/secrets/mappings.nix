@@ -2,6 +2,7 @@
 {
   age.secrets = {
     "apollo_admin_password"         = { file = ../../../secrets/apollo_admin_password.age;         };
+    "apollo_nginx_env"              = { file = ../../../secrets/apollo_nginx_env.age;              };
     "aria2_env"                     = { file = ../../../secrets/aria2_env.age;                     };
     "attic_env"                     = { file = ../../../secrets/attic_env.age;                     };
     "attic_server_config_toml"      = { file = ../../../secrets/attic_server_config_toml.age;      };
@@ -18,18 +19,15 @@
     "firefly_env"                   = { file = ../../../secrets/firefly_env.age;                   };
     "gh-token"                      = { file = ../../../secrets/gh-token.age;                      };
     "ghcr_ro_token"                 = { file = ../../../secrets/ghcr_ro_token.age;                 };
-    "gitea_env"                     = { file = ../../../secrets/gitea_env.age;                     };
     "gotify_env"                    = { file = ../../../secrets/gotify_env.age;                    };
     "hoarder_env"                   = { file = ../../../secrets/hoarder_env.age;                   };
     "hugging_face_token"            = { file = ../../../secrets/hugging_face_token.age;            };
     "jellystat_env"                 = { file = ../../../secrets/jellystat_env.age;                 };
     "jira-token"                    = { file = ../../../secrets/jira-token.age;                    };
     "k3s_token"                     = { file = ../../../secrets/k3s_token.age;                     };
-    "livebook_env"                  = { file = ../../../secrets/livebook_env.age;                  };
     "miniflux_app_password"         = { file = ../../../secrets/miniflux_app_password.age;         };
     "miniflux_env"                  = { file = ../../../secrets/miniflux_env.age;                  };
     "minio_env"                     = { file = ../../../secrets/minio_env.age;                     };
-    "n8n_env"                       = { file = ../../../secrets/n8n_env.age;                       };
     "nullptrderef1_admin_password"  = { file = ../../../secrets/nullptrderef1_admin_password.age;  };
     "openai_api_key"                = { file = ../../../secrets/openai_api_key.age;                };
     "openweather-token"             = { file = ../../../secrets/openweather-token.age;             };
@@ -46,7 +44,6 @@
     "taskwarrior_client_id"         = { file = ../../../secrets/taskwarrior_client_id.age;         };
     "taskwarrior_encryption_secret" = { file = ../../../secrets/taskwarrior_encryption_secret.age; };
     "taskwarrior_env"               = { file = ../../../secrets/taskwarrior_env.age;               };
-    "tubearchivist_env"             = { file = ../../../secrets/tubearchivist_env.age;             };
     "vpn-acc"                       = { file = ../../../secrets/vpn-acc.age;                       };
     "vpn-loc"                       = { file = ../../../secrets/vpn-loc.age;                       };
     "wallhaven-token"               = { file = ../../../secrets/wallhaven-token.age;               };

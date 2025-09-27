@@ -19,13 +19,6 @@ services:
         url: "https://dockge.nullptr.sh"
         target: "_blank"
 
-      - name: "Docker Registry Web"
-        logo: "assets/tools/docker.png"
-        subtitle: "docker container registry"
-        tag: "containerization"
-        url: "https://containers.nullptr.sh"
-        target: "_blank"
-
       - name: "Watch Your LAN"
         logo: "assets/tools/watchyourlan.png"
         subtitle: "lan monitoring"
@@ -82,13 +75,6 @@ services:
         url: "https://files.nullptr.sh"
         target: "_blank"
 
-      - name: "ArchiveWarrior"
-        logo: "assets/tools/aw.png"
-        subtitle: "community archive"
-        tag: "archive"
-        url: "https://aw.nullptr.sh"
-        target: "_blank"
-
       - name: Olivetin
         logo: "assets/tools/olivetin.avif"
         subtitle: "Command Runner"
@@ -112,13 +98,6 @@ services:
         target: "_blank"
         type: "UptimeKuma"
 
-      - name: "Cloudbeaver"
-        logo: "assets/tools/cloudbeaver.avif"
-        subtitle: "Database Explorer"
-        tag: "database-explorer"
-        url: "https://beaver.nullptr.sh"
-        target: "_blank"
-
       - name: "Authentik"
         logo: "assets/tools/authentik.avif"
         subtitle: "User Identity Management"
@@ -133,13 +112,6 @@ services:
         subtitle: "notifications"
         tag: "notifications"
         url: "https://gotify.nullptr.sh"
-        target: "_blank"
-
-      - name: "n8n"
-        logo: "assets/tools/n8n.png"
-        subtitle: "automation"
-        tag: "automation"
-        url: "https://n8n.nullptr.sh"
         target: "_blank"
 
   - name: "Media Administration"
@@ -193,13 +165,6 @@ services:
         url: "https://jackett.nullptr.sh"
         target: "_blank"
 
-      - name: "Tdarr"
-        logo: "assets/tools/tdarr.png"
-        subtitle: "distributed transcoding"
-        tag: "distributed-transcoding"
-        url: "https://tdarr.nullptr.sh"
-        target: "_blank"
-
       - name: "Prowlarr"
         logo: "assets/tools/prowlarr.avif"
         subtitle: "Indexer Management"
@@ -208,7 +173,7 @@ services:
         url: "https://prowlarr.nullptr.sh"
         target: "_blank"
         type: "Prowlarr"
-        apikey: "5f480208adbe46e18219b2a1da133614"
+        apikey: "b41934c4267449c0997a9d5706726578"
 
       - name: "Sabnzbd"
         logo: "assets/tools/sabnzbd.webp"

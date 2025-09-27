@@ -78,13 +78,6 @@ services:
   - name: "Tools & Utils"
     icon: "fas fa-computer"
     items:
-      - name: Gitea
-        logo: "assets/tools/gitea.avif"
-        subtitle: "local git server"
-        tag: "version-control"
-        url: "https://gitea.nullptr.sh"
-        target: "_blank"
-
       - name: "Stirling PDF"
         logo: "assets/tools/stirling.svg"
         subtitle: "PDF Manipulation Tools"
@@ -92,18 +85,11 @@ services:
         url: "https://pdf.nullptr.sh"
         target: "_blank"
 
-      - name: "Livebook"
-        logo: "assets/tools/livebook.avif"
-        subtitle: "Elixir Scripting Notebook"
-        tag: "download-automation"
-        url: "https://livebook.nullptr.sh"
-        target: "_blank"
-
       - name: "Open WebUI"
         logo: "assets/tools/ollama.avif"
         subtitle: "AI Chatbot"
         tag: "artificial-intelligence-chat"
-        url: "https://ollama.nullptr.sh"
+        url: "https://owui.nullptr.sh"
         target: "_blank"
 
       - name: "Searxng"
@@ -111,13 +97,6 @@ services:
         subtitle: "Search Engine"
         tag: "search-engine"
         url: "https://searxng.nullptr.sh"
-        target: "_blank"
-
-      - name: "Raspberry Pi 4B"
-        logo: "assets/tools/rpi4b.avif"
-        subtitle: "Homelab Secondary Node"
-        tag: "rpi4b"
-        url: "https://rpi4b.nullptr.sh"
         target: "_blank"
 
       - name: "Firefly"

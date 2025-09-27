@@ -16,6 +16,7 @@ let
 in
 {
   "secrets/apollo_admin_password.age".publicKeys         = keys;
+  "secrets/apollo_nginx_env.age".publicKeys              = keys;
   "secrets/aria2_env.age".publicKeys                     = keys;
   "secrets/attic_env.age".publicKeys                     = keys;
   "secrets/attic_server_config_toml.age".publicKeys      = keys;
@@ -32,18 +33,14 @@ in
   "secrets/firefly_env.age".publicKeys                   = keys;
   "secrets/gh-token.age".publicKeys                      = keys;
   "secrets/ghcr_ro_token.age".publicKeys                 = keys;
-  "secrets/gitea_env.age".publicKeys                     = keys;
   "secrets/gotify_env.age".publicKeys                    = keys;
   "secrets/hoarder_env.age".publicKeys                   = keys;
   "secrets/hugging_face_token.age".publicKeys            = keys;
   "secrets/jellystat_env.age".publicKeys                 = keys;
   "secrets/jira-token.age".publicKeys                    = keys;
   "secrets/k3s_token.age".publicKeys                     = keys;
-  "secrets/livebook_env.age".publicKeys                  = keys;
-  "secrets/miniflux_app_password.age".publicKeys         = keys;
   "secrets/miniflux_env.age".publicKeys                  = keys;
   "secrets/minio_env.age".publicKeys                     = keys;
-  "secrets/n8n_env.age".publicKeys                       = keys;
   "secrets/nullptrderef1_admin_password.age".publicKeys  = keys;
   "secrets/openai_api_key.age".publicKeys                = keys;
   "secrets/openweather-token.age".publicKeys             = keys;
@@ -60,7 +57,6 @@ in
   "secrets/taskwarrior_client_id.age".publicKeys         = keys;
   "secrets/taskwarrior_encryption_secret.age".publicKeys = keys;
   "secrets/taskwarrior_env.age".publicKeys               = keys;
-  "secrets/tubearchivist_env.age".publicKeys             = keys;
   "secrets/vpn-acc.age".publicKeys                       = keys;
   "secrets/vpn-loc.age".publicKeys                       = keys;
   "secrets/wallhaven-token.age".publicKeys               = keys;

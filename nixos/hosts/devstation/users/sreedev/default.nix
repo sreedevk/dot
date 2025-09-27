@@ -155,7 +155,6 @@ in
         silicon                  # code screenshot generator
         statix                   # nix code linter
         streamrip                # tidal / soundcloud / deezer downloader cli
-        tea                      # gitea cli tool
         terminaltexteffects      # cli text effects
         ticker                   # asset ticker
         tmux-sessionizer         # tmux sessionizer
@@ -191,7 +190,7 @@ in
         export PASTEBIN_API_KEY="$(cat ${config.age.secrets.pastebin-token.path})"
         export RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})"
         export RESTIC_PASSWORD_FILE="${config.age.secrets.restic_backup_password.path}"
-        export RESTIC_REPOSITORY=sftp:nullptrderef1:/mnt/dpool0/backups/${opts.hostname}/restic-repository
+        export RESTIC_REPOSITORY=sftp:apollo:/mnt/dpool0/backups/${opts.hostname}/restic-repository
         export TASKWARRIOR_CLIENT_ID="$(cat ${config.age.secrets.taskwarrior_client_id.path})"
         export TASKWARRIOR_ENCRYPTION_SECRET="$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})"
         export WALLHAVEN_API_KEY="$(cat ${config.age.secrets.wallhaven-token.path})"
@@ -285,14 +284,6 @@ in
       "rocknix-rk3566" = {
         hostname = "100.100.18.78";
         user = "root";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-      };
-
-      "gitea.nullptr.sh" = {
-        hostname = "100.117.8.42";
-        user = "git";
-        port = 222;
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";
       };

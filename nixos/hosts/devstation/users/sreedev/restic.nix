@@ -13,7 +13,7 @@
     services = {
       restic-backup = {
         Unit = {
-          Description = "Restic Backup Process to nullptrderef1 Server";
+          Description = "Restic Backup Process to Apollo Server";
           Documentation = "info:restic man:restic backup(1)";
           After = [
             "network-online.target"
@@ -28,7 +28,7 @@
           Type = "oneshot";
           Environment = [
             "RESTIC_PASSWORD_FILE=${config.age.secrets.restic_backup_password.path}"
-            "RESTIC_REPOSITORY=sftp:nullptrderef1:/mnt/dpool0/backups/${opts.hostname}/restic-repository"
+            "RESTIC_REPOSITORY=sftp:apollo:/mnt/dpool0/backups/${opts.hostname}/restic-repository"
           ];
 
           ExecStart =
