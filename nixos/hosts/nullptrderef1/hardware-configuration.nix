@@ -53,13 +53,13 @@
     initrd = {
       kernelModules = [ "kvm-intel" ];
       availableKernelModules = [
-        "xhci_pci"
         "ahci"
         "nvme"
-        "usbhid"
+        "sd_mod"
         "uas"
         "usb_storage"
-        "sd_mod"
+        "usbhid"
+        "xhci_pci"
       ];
     };
 

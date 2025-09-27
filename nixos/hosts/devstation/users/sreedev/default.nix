@@ -261,8 +261,8 @@ in
       };
 
       "apollo" = {
-        hostname = "100.95.166.26";
-        user = "sreedev";
+        hostname = "192.168.1.143";
+        user = "admin";
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";
       };

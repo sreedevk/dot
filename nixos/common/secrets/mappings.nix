@@ -1,6 +1,7 @@
 { ... }:
 {
   age.secrets = {
+    "apollo_admin_password"         = { file = ../../../secrets/apollo_admin_password.age;         };
     "aria2_env"                     = { file = ../../../secrets/aria2_env.age;                     };
     "attic_env"                     = { file = ../../../secrets/attic_env.age;                     };
     "attic_server_config_toml"      = { file = ../../../secrets/attic_server_config_toml.age;      };

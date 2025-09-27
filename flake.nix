@@ -186,6 +186,7 @@
       # Operating System Level Configurations
       nixosConfigurations = 
         mkSystems [
+          { host = "apollo";        system = systems.x86;   }
           { host = "devstation";    system = systems.x86;   }
           { host = "devtechnica";   system = systems.x86;   }
           { host = "nullptrderef1"; system = systems.x86;   }
@@ -195,7 +196,7 @@
       # Arch linux system configs
       systemConfigs =
         mkArchSystems [
-          { host = "apollo"; system = systems.x86; }
+          { host = "devstation"; system = systems.x86; }
         ];
 
       # User Level Home Manager Configurations
@@ -204,7 +205,7 @@
           { user = "admin";   host = "nullptrderef1"; system = systems.x86;   }
           { user = "deploy";  host = "devtechnica";   system = systems.x86;   }
           { user = "pi";      host = "rpi4b";         system = systems.arm64; }
-          { user = "sreedev"; host = "apollo";        system = systems.x86;   }
+          { user = "admin";   host = "apollo";        system = systems.x86;   }
           { user = "sreedev"; host = "devstation";    system = systems.x86;   }
         ];
     };
