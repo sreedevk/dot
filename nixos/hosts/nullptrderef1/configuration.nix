@@ -25,12 +25,12 @@
     settings = {
       allowed-users = [ "admin" ];
       auto-optimise-store = true;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+      experimental-features = [ "nix-command" "flakes" "recursive-nix" ];
+      http2 = false;
       show-trace = true;
-      trusted-substituters = [ "admin" ];
+      substituters = [ "https://cache.nixos.org/" ];
+      trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+      trusted-substituters = [ "https://cache.nixos.org/" ];
       trusted-users = [ "admin" ];
       warn-dirty = true;
     };
