@@ -2,7 +2,7 @@
   desktop = {
     enable = true;
     wallpaper = "wallhaven-2ymp5g.png";
-    scale = "0.6";
+    scale = "1";
   };
 
   directories = {
