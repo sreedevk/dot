@@ -4,14 +4,33 @@
 }:
 {
   config = {
-
     system-manager.allowAnyDistro = true;
     nixpkgs.hostPlatform = "x86_64-linux";
     environment.systemPackages = [
       pkgs.ripgrep
       pkgs.fd
-      pkgs.hello
     ];
+
+    nix = {
+      package = pkgs.nixVersions.stable;
+      settings = {
+        allowed-users = [ "sreedev" ];
+        auto-optimise-store = true;
+        experimental-features = [
+          "nix-command"
+          "flakes"
+          "recursive-nix"
+        ];
+        http2 = false;
+        show-trace = true;
+        substituters = [ "https://cache.nixos.org/" ];
+        trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+        trusted-substituters = [ "https://cache.nixos.org/" ];
+        trusted-users = [ "sreedev" ];
+        warn-dirty = true;
+      };
+    };
+
     environment.etc = {
       "resolvconf.conf" = {
         text = ''
