@@ -12,7 +12,7 @@
       devstation    = "100.109.36.108";
       rpi4b         = "";
       devtechnica   = "";
-      apollo        = "100.95.166.26";
+      apollo        = "100.121.45.124";
     };
   };
 

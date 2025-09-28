@@ -8,7 +8,7 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 2. bug: tmux/terminal reads C-i as \<tab\>
 3. feature: tmux de-sessionizer that uses either mux stop or tmux kill to end sessions
 4. bug: gpg signing keys should be user specific in common modules
-5. use system-manager to setup resolvconf on arch linux
+5. taskchampion fix
 
 ## Pre Requisites
 ### Install Home Manager CLI
