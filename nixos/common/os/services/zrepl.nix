@@ -8,11 +8,11 @@
           name = "snapjob";
           type = "snap";
           filesystems = {
-            "dpool0/backups" = true;
-            "dpool0/notes" = true;
-            "dpool0/personal/documents" = true;
-            "dpool0/personal/finances" = true;
-            "dpool0/secrets" = true;
+            "dpool1/backups" = true;
+            "dpool1/notes" = true;
+            "dpool1/personal/documents" = true;
+            "dpool1/personal/finances" = true;
+            "dpool1/secrets" = true;
           };
           snapshotting = {
             type = "periodic";
