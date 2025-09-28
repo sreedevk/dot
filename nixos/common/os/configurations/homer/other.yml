@@ -12,8 +12,8 @@ services:
         tag: "adult-media"
         url: "https://whisparr.nullptr.sh"
         target: "_blank"
-        # type: "whisparr"
-        # apikey: "c2acc6c5e0504bc7b081e6ecb2096934"
+        type: "whisparr"
+        apikey: "c2acc6c5e0504bc7b081e6ecb2096934"
 
       - name: "Stash"
         logo: "assets/tools/stash.png"

@@ -107,7 +107,7 @@ services:
 
       - name: "Gotify"
         type: "Gotify"
-        apikey: "Ag5VkfL8I0KmSNp"
+        apikey: "Ak8NUg-cneWv4If"
         logo: "assets/tools/gotify.avif"
         subtitle: "notifications"
         tag: "notifications"
@@ -148,7 +148,7 @@ services:
         url: "https://jellystat.nullptr.sh"
         target: "_blank"
         type: "Jellystat"
-        apikey: "a22638a8-1d99-4cbf-84a6-197a07de1328"
+        apikey: "6ffd7e11-00cc-4db1-8316-a2996db4dd19"
 
       - name: "Aria2"
         logo: "assets/tools/aria2.png"

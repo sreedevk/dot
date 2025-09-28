@@ -64,7 +64,7 @@ services:
         url: "https://lidarr.nullptr.sh"
         target: "_blank"
         type: "Lidarr"
-        apikey: "4a8037aaec4b41dab83877965838661e"
+        apikey: "37c36dc4422e4f25ba356cf27fbd8099"
 
   - name: "Movies & TV"
     icon: "fas fa-film"
@@ -96,7 +96,7 @@ services:
         url: "https://radarr.nullptr.sh"
         target: "_blank"
         type: "Radarr"
-        apikey: "c2acc6c5e0504bc7b081e6ecb2096934"
+        apikey: "647b4305c84d4e36ba7357e74262a3f6"
 
       - name: "Sonarr"
         logo: "assets/tools/sonarr.avif"
@@ -106,7 +106,7 @@ services:
         url: "https://sonarr.nullptr.sh"
         target: "_blank"
         type: "Sonarr"
-        apikey: "19218436c74a4d87b37ca63df385851a"
+        apikey: "c51c7686634c479ebaf40b695322851e"
 
       - name: "Bazarr"
         logo: "assets/tools/bazarr.avif"
@@ -203,7 +203,7 @@ services:
         url: "https://docs.nullptr.sh"
         target: "_blank"
         type: "PaperlessNG"
-        apikey: "4815059d6d2b634705e469f0df2bd80b15f3474d"
+        apikey: "232d2126fc63971c604fc30666c7a81382b949a1"
 
       - name: "Paperless GPT"
         logo: "assets/tools/paperless-gpt.png"
