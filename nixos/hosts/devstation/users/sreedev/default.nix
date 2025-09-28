@@ -327,7 +327,7 @@ in
       substituters = [ "https://cache.nixos.org/" ];
       show-trace = true;
       auto-optimise-store = true;
-      trusted-public-keys = [ ];
+      trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
       fallback = true;
       experimental-features = [
         "nix-command"
