@@ -1,10 +1,7 @@
 { pkgs, opts, ... }:
 {
   networking.firewall.allowedTCPPorts = builtins.map pkgs.lib.strings.toInt (
-    with opts.ports;
-    [
-      taskchampion
-    ]
+    with opts.ports; [ taskchampion ]
   );
 
   systemd.services.taskchampion-sync = {
@@ -14,7 +11,9 @@
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = ''
-        ${pkgs.taskchampion-sync-server}/bin/taskchampion-sync-server --listen "0.0.0.0:${opts.ports.taskchampion}" --data-dir ${opts.paths.app_datafiles}/taskchampion
+        ${pkgs.taskchampion-sync-server}/bin/taskchampion-sync-server \
+          --listen "0.0.0.0:${opts.ports.taskchampion}"               \
+          --data-dir ${opts.paths.app_datafiles}/taskchampion
       '';
       Restart = "always";
     };
