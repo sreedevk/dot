@@ -19,13 +19,6 @@ services:
         url: "https://dockge.nullptr.sh"
         target: "_blank"
 
-      - name: "Watch Your LAN"
-        logo: "assets/tools/watchyourlan.png"
-        subtitle: "lan monitoring"
-        tag: "lan-monitoring"
-        url: "https://wyl.nullptr.sh"
-        target: "_blank"
-
       - name: "Grafana"
         logo: "assets/tools/grafana.avif"
         subtitle: "Data Dashboards"

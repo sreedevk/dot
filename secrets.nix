@@ -61,5 +61,4 @@ in
   "secrets/vpn-loc.age".publicKeys                       = keys;
   "secrets/wallhaven-token.age".publicKeys               = keys;
   "secrets/watchtower_env.age".publicKeys                = keys;
-  "secrets/wyl_env.age".publicKeys                       = keys;
 }

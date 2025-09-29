@@ -48,6 +48,5 @@
     "vpn-loc"                       = { file = ../../../secrets/vpn-loc.age;                       };
     "wallhaven-token"               = { file = ../../../secrets/wallhaven-token.age;               };
     "watchtower_env"                = { file = ../../../secrets/watchtower_env.age;                };
-    "wyl_env"                       = { file = ../../../secrets/wyl_env.age;                       };
   };
 }
