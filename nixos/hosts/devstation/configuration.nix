@@ -1,8 +1,18 @@
 { pkgs
+, lib
 , opts
 , ...
 }:
 {
+  options = with lib; {
+    system-manager = {
+      allowAnyDistro = mkOption {
+        type = types.bool;
+        default = false;
+        description = "allow system-manager to run on any distro";
+      };
+    };
+  };
   config = {
     system-manager.allowAnyDistro = true;
     nixpkgs.hostPlatform = "x86_64-linux";

@@ -158,9 +158,9 @@
             ];
           };
         };
-        nullptrderef1 = {
+        apollo = {
           deployment = {
-            targetHost = "nullptrderef1";
+            targetHost = "apollo";
             targetPort = 22;
             targetUser = "admin";
           };
@@ -169,13 +169,13 @@
             opts = 
               recurmerge [
                 opts
-                (import ./nixos/hosts/nullptrderef1/opts.nix)
+                (import ./nixos/hosts/apollo/opts.nix)
               ];
           };
           boot.isContainer = false;
           time.timeZone = "America/New_York";
           imports = [
-            ./nixos/hosts/nullptrderef1/configuration.nix
+            ./nixos/hosts/apollo/configuration.nix
           ];
         };
       };
@@ -189,7 +189,6 @@
           { host = "apollo";        system = systems.x86;   }
           { host = "devstation";    system = systems.x86;   }
           { host = "devtechnica";   system = systems.x86;   }
-          { host = "nullptrderef1"; system = systems.x86;   }
           { host = "rpi4b";         system = systems.arm64; }
         ];
 
@@ -202,7 +201,6 @@
       # User Level Home Manager Configurations
       homeConfigurations = 
         mkHomes [
-          { user = "admin";   host = "nullptrderef1"; system = systems.x86;   }
           { user = "deploy";  host = "devtechnica";   system = systems.x86;   }
           { user = "pi";      host = "rpi4b";         system = systems.arm64; }
           { user = "admin";   host = "apollo";        system = systems.x86;   }
