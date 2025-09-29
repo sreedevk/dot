@@ -1,4 +1,7 @@
-{ config, ... }:
+{ config
+, opts
+, ...
+}:
 {
   services.mullvad-vpn = {
     enable = true;
@@ -36,7 +39,7 @@
       ${mullvad}/bin/mullvad lockdown-mode set on
       ${mullvad}/bin/mullvad lan set allow
       ${mullvad}/bin/mullvad tunnel set ipv6 off
-      ${mullvad}/bin/mullvad dns set custom "127.0.0.1" "9.9.9.9"
+      ${mullvad}/bin/mullvad dns set custom "${opts.lanAddress}" "9.9.9.9" "149.112.112.112"
       ${mullvad}/bin/mullvad auto-connect set on
     '';
 }
