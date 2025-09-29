@@ -1,6 +1,4 @@
 { ... }:
 {
-  imports = [
-    ./backup.nix
-  ];
+  imports = [ ];
 }
