@@ -162,8 +162,9 @@ services:
 
       - name: "Sabnzbd"
         logo: "assets/tools/sabnzbd.webp"
-        subtitle: "Usenet Client"
         tag: "usenet"
         keywords: "usenet"
         url: "https://sabnzbd.nullptr.sh"
+        type: "SABnzbd"
+        apikey: "c55044c09cf24c578758dad211dc7e5d"
         target: "_blank"
