@@ -105,13 +105,12 @@ services:
     items:
       - name: "qBittorrent"
         logo: "assets/tools/qbittorrent.avif"
-        subtitle: "Torrent Client"
         tag: "torrent"
         url: "https://torrents.nullptr.sh"
         target: "_blank"
-        # type: "qBittorrent"
-        # rateInterval: 2000
-        # torrentInterval: 5000
+        type: "qBittorrent"
+        rateInterval: 2000
+        torrentInterval: 5000
 
       - name: "BitMagnet"
         logo: "assets/tools/bitmagnet.avif"
