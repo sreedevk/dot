@@ -33,13 +33,6 @@ services:
         url: "https://promtail.nullptr.sh/targets"
         target: "_blank"
 
-      - name: "InfluxDB"
-        logo: "assets/tools/influx.avif"
-        subtitle: "Time Series Database"
-        tag: "time-series-db"
-        url: "https://influx.nullptr.sh"
-        target: "_blank"
-
       - name: "Prometheus"
         logo: "assets/tools/prometheus.svg"
         subtitle: "System Metrics Collection"
