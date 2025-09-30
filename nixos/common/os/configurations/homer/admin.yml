@@ -87,7 +87,7 @@ services:
         subtitle: "site-monitoring"
         tag: "site-monitoring"
         url: "https://kuma.nullptr.sh"
-        slug: "nullptrderef1"
+        slug: "apollo"
         target: "_blank"
         type: "UptimeKuma"
 
