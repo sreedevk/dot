@@ -5,7 +5,6 @@
 title: "nullptr.sh"
 subtitle: "home network"
 icon: "fas fa-skull-crossbones"
-# logo: "assets/tools/memos.png"
 defaults:
   layout: list
   colorTheme: dark
@@ -65,16 +64,6 @@ links:
     url: "https://nullptr.sh#other"
 
 services:
-  - name: "Writing"
-    icon: "fas fa-file"
-    items:
-      - name: "Memos"
-        logo: "assets/tools/memos.avif"
-        subtitle: "Notes & Thoughts"
-        tag: "notes"
-        url: "https://memos.nullptr.sh"
-        target: "_blank"
-
   - name: "Tools & Utils"
     icon: "fas fa-computer"
     items:
