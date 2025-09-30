@@ -211,10 +211,3 @@ services:
         tag: "documents"
         url: "https://pg.nullptr.sh"
         target: "_blank"
-
-      - name: Docuseal
-        logo: "assets/tools/docuseal.avif"
-        subtitle: "Document Signing & Verification"
-        tag: "documents"
-        url: "https://docuseal.nullptr.sh"
-        target: "_blank"
