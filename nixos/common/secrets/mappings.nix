@@ -28,7 +28,6 @@
     "miniflux_app_password"         = { file = ../../../secrets/miniflux_app_password.age;         };
     "miniflux_env"                  = { file = ../../../secrets/miniflux_env.age;                  };
     "minio_env"                     = { file = ../../../secrets/minio_env.age;                     };
-    "nullptrderef1_admin_password"  = { file = ../../../secrets/nullptrderef1_admin_password.age;  };
     "openai_api_key"                = { file = ../../../secrets/openai_api_key.age;                };
     "openweather-token"             = { file = ../../../secrets/openweather-token.age;             };
     "paperless_env"                 = { file = ../../../secrets/paperless_env.age;                 };

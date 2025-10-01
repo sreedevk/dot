@@ -266,21 +266,6 @@ in
         identityFile = "~/.ssh/id_ed25519";
       };
 
-      "nullptrderef1" = {
-        hostname = "192.168.1.179";
-        user = "admin";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-      };
-
-      "op7pro-termux" = {
-        hostname = "100.99.63.104";
-        user = "u0_a256";
-        port = 8022;
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-      };
-
       "rocknix-rk3566" = {
         hostname = "100.100.18.78";
         user = "root";

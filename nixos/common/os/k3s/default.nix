@@ -5,7 +5,7 @@
 }:
 let
   node_server_opts =
-    if opts.hostname == "nullptrderef1" then
+    if opts.hostname == "apollo" then
       [ ]
     else
       [ "--server https://${opts.hostname}:${opts.ports.k3s-control-plane}" ];
@@ -36,7 +36,7 @@ in
   services.k3s = {
     enable = false;
     role = "server";
-    clusterInit = opts.hostname == "nullptrderef1";
+    clusterInit = opts.hostname == "apollo";
     extraFlags =
       let
         flags = [

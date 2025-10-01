@@ -1,6 +1,5 @@
 let
   systems = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDaBQM6gItlkowGwo+xC70FX7egJxcLABZhWVDKzKUOC" # root@nullptrderef1
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFyBIuu3f23/kGWoR8QQGfJitNDbff4qHH6qwFWCO6NG" # root@apollo
   ];
 
@@ -9,7 +8,6 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErdYvZ0RfDGze0QzHv8DCcc7Xt7rutKfOKRv44d0UiS" # deploy@devtechnica
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINiYLIEBtoti0D2R5/nuGzXTQaYP7OynXMkAuJBeNit6" # admin@apollo
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP" # sreedev@devstation
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO2pNg6tFrSaQ+oTlGAhboBgQQ+I7S3sXoyM1DfOsI0f" # admin@nullptrderef1
   ];
 
   keys = users ++ systems;
@@ -41,7 +39,6 @@ in
   "secrets/k3s_token.age".publicKeys                     = keys;
   "secrets/miniflux_env.age".publicKeys                  = keys;
   "secrets/minio_env.age".publicKeys                     = keys;
-  "secrets/nullptrderef1_admin_password.age".publicKeys  = keys;
   "secrets/openai_api_key.age".publicKeys                = keys;
   "secrets/openweather-token.age".publicKeys             = keys;
   "secrets/paperless_env.age".publicKeys                 = keys;
