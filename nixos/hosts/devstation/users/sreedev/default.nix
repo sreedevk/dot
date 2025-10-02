@@ -106,10 +106,10 @@ in
         aspellDicts.en-computers # aspell computers dictionary
         aspellDicts.en-science   # aspell science dictionary
         bwfzf                    # bitwarden fzf
-        rbw                      # stateful bitwarden cli
         cava                     # audio visualizer
         claude-code              # coding agent
         cmatrix                  # matrix
+        colmena                  # deployment
         csvlens                  # csv tui viewer
         doxygen                  # source code document generator
         duckdb                   # duck db
@@ -149,6 +149,7 @@ in
         nushell                  # modern shell written in rust
         pandoc                   # document format converter
         qrencode                 # qr code generator
+        rbw                      # stateful bitwarden cli
         s3cmd                    # s3 cli
         sc-im                    # vim like tui spreadsheet
         scdl                     # soundcloud download
