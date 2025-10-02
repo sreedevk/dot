@@ -195,7 +195,8 @@
       # Arch linux system configs
       systemConfigs =
         mkArchSystems [
-          { host = "devstation"; system = systems.x86; }
+          { host = "devstation";  system = systems.x86;  }
+          { host = "devtechnica"; system = systems.x86; }
         ];
 
       # User Level Home Manager Configurations
