@@ -4,18 +4,18 @@
 , ...
 }:
 let
-  inherit (inputs) nixpkgs agenix stylix;
+  inherit (inputs) nixpkgs agenix stylix home-manager colmena system-manager;
 in
 rec {
-  pkgsFor = inputs.nixpkgs.legacyPackages;
-  forEachSystem = f: inputs.nixpkgs.lib.genAttrs (builtins.attrValues systems) (sys: f pkgsFor.${sys});
+  pkgsFor = nixpkgs.legacyPackages;
+  forEachSystem = f: nixpkgs.lib.genAttrs (builtins.attrValues systems) (sys: f pkgsFor.${sys});
 
   recurmerge =
     attrsets: nixpkgs.lib.fold (attrset: acc: nixpkgs.lib.recursiveUpdate attrset acc) { } attrsets;
 
   mkColmenaFromNixOSConfigurations =
     conf:
-    inputs.colmena.lib.makeHive (
+    colmena.lib.makeHive (
       {
         meta = {
           description = "Home Server Deployments";
@@ -43,6 +43,7 @@ rec {
 
       modules = [
         agenix.nixosModules.default
+        home-manager.nixosModules.home-manager
         ../nixos/hosts/${hostname}/configuration.nix
       ];
 
@@ -57,7 +58,7 @@ rec {
 
   mkArchSystem =
     system: hostname:
-    inputs.system-manager.lib.makeSystemConfig {
+    system-manager.lib.makeSystemConfig {
       modules = [
         ../nixos/hosts/${hostname}/configuration.nix
       ];
@@ -72,7 +73,7 @@ rec {
 
   mkHome =
     system: username: host:
-    inputs.home-manager.lib.homeManagerConfiguration {
+    home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
         inherit system;
         overlays = import ../nixos/common/overlays { inherit inputs; };
