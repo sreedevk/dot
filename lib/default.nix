@@ -1,12 +1,14 @@
-{
-  inputs,
-  outputs,
-  opts,
+{ inputs
+, opts
+, systems
+, ...
 }:
 let
   inherit (inputs) nixpkgs agenix stylix;
 in
 rec {
+  pkgsFor = inputs.nixpkgs.legacyPackages;
+  forEachSystem = f: inputs.nixpkgs.lib.genAttrs (builtins.attrValues systems) (sys: f pkgsFor.${sys});
 
   recurmerge =
     attrsets: nixpkgs.lib.fold (attrset: acc: nixpkgs.lib.recursiveUpdate attrset acc) { } attrsets;

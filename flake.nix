@@ -50,12 +50,13 @@
         arm64 = "aarch64-linux";
       };
 
-      inherit (import ./lib { inherit inputs outputs opts; })
+      inherit (import ./lib { inherit inputs outputs opts systems; })
         mkSystems
         mkHomes 
         mkFormatters
         mkArchSystems
         mkColmenaFromNixOSConfigurations
+        forEachSystem
       ;
 
     in
@@ -65,6 +66,15 @@
 
       # Formatters for Nix Files
       formatter = mkFormatters systems;
+
+      # checks
+      checks = forEachSystem (pkgs: {
+        lint = pkgs.runCommand "nixlint" { nativeBuildInputs = with pkgs; [ deadnix statix ]; } ''
+          deadnix --fail ${./.}
+          statix check ${./.}
+          touch $out
+        '';
+      });
 
       # Operating System Level Configurations
       nixosConfigurations = 
