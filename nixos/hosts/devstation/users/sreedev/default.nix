@@ -111,6 +111,7 @@ in
         cmatrix                  # matrix
         colmena                  # deployment
         csvlens                  # csv tui viewer
+        deadnix                  # identify nix dead code
         doxygen                  # source code document generator
         duckdb                   # duck db
         elan                     # lean version manager
