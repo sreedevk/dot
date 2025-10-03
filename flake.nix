@@ -149,13 +149,11 @@
         );
     in
     {
-      # Colmena Deployments
       colmenaHive = inputs.colmena.lib.makeHive {
         meta = {
           nixpkgs = import nixpkgs {
             system = systems.x86;
-            overlays = [
-            ];
+            overlays = import ./nixos/common/overlays { inherit inputs; };
           };
         };
         apollo = {
@@ -176,6 +174,7 @@
           time.timeZone = "America/New_York";
           imports = [
             ./nixos/hosts/apollo/configuration.nix
+            agenix.nixosModules.default
           ];
         };
       };
