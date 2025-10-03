@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   programs.zathura = {
     enable = true;
     extraConfig = ''

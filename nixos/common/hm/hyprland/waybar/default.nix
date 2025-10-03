@@ -1,9 +1,9 @@
 { pkgs, ... }:
 let
   modules = {
-    memory = (import ./modules/memory.nix { inherit pkgs; });
-    gpu = (import ./modules/gpu.nix { inherit pkgs; });
-    dnd = (import ./modules/dnd.nix { inherit pkgs; });
+    memory = import ./modules/memory.nix { inherit pkgs; };
+    gpu    = import ./modules/gpu.nix { inherit pkgs; };
+    dnd    = import ./modules/dnd.nix { inherit pkgs; };
   };
 in
 {

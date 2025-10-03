@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   home.file = {
     ".config/hypr/custom_devs.conf" = {
       enable = true;

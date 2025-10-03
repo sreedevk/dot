@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   home.file = {
     ".config/hypr/cursor.conf" = {
       enable = true;

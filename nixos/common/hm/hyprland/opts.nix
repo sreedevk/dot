@@ -52,7 +52,8 @@ in
     __VK_LAYER_NV_optimus = "NVIDIA_only";
   };
 
-  monitors = opts.monitors;
+  inherit (opts) monitors;
+
   gestures = [
     {
       fingers = "3";

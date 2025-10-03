@@ -34,14 +34,7 @@
   };
 
   outputs =
-    { self
-    , agenix
-    , nixpkgs
-    , stablepkgs
-    , home-manager
-    , stylix
-    , ...
-    } @ inputs:
+    { self, ... } @ inputs:
     let
       inherit (self) outputs;
       opts = import ./nixos/opts.nix;

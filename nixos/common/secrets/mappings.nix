@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   age.secrets = {
     "apollo_admin_password"         = { file = ../../../secrets/apollo_admin_password.age;         };
     "apollo_nginx_env"              = { file = ../../../secrets/apollo_nginx_env.age;              };

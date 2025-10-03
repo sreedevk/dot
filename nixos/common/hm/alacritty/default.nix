@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  theme = (builtins.fromTOML (builtins.readFile ./colors/rose-pine.toml));
+  theme = builtins.fromTOML (builtins.readFile ./colors/rose-pine.toml);
   settings = {
     general = {
       working_directory = "None";

@@ -20,7 +20,7 @@ in
       enable = true;
       text =
         let
-          mkOptional = x: if builtins.isNull (x) then [ ] else [ x ];
+          mkOptional = x: if builtins.isNull x then [ ] else [ x ];
           genGestures =
             gestures:
             let

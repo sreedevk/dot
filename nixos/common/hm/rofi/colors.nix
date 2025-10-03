@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   home.file = {
     ".config/rofi/colors/adapta.rasi" = {
       text = ''

@@ -1,4 +1,4 @@
 { inputs, ... }:
-final: prev: {
-  colmena = inputs.colmena.packages.${prev.system}.colmena;
+_: prev: {
+  inherit (inputs.colmena.packages.${prev.system}) colmena;
 }
