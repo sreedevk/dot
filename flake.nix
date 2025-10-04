@@ -72,14 +72,14 @@
       # Operating System Level Configurations
       nixosConfigurations = 
         mkSystems [
-          { host = "apollo";  system = systems.x86;   }
+          { host = "apollo";  system = systems.x86; }
         ];
 
       # Arch linux system configs
       systemConfigs =
         mkArchSystems [
-          { host = "devstation";  system = systems.x86;  }
-          { host = "devtechnica"; system = systems.x86; }
+          { host = "devstation";  system = systems.x86;   }
+          { host = "devtechnica"; system = systems.x86;   }
           { host = "rpi4b";       system = systems.arm64; }
         ];
 

@@ -94,12 +94,4 @@
   };
 
   news.display = "silent";
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-      allowBroken = true;
-    };
-  };
 }
