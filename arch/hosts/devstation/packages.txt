@@ -74,6 +74,7 @@ libnotify
 libpam-google-authenticator
 libqalculate
 libva-nvidia-driver
+libvirt
 linux
 linux-firmware
 linux-firmware-qlogic
