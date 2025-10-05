@@ -39,6 +39,7 @@ in
   "secrets/k3s_token.age".publicKeys                     = keys;
   "secrets/miniflux_env.age".publicKeys                  = keys;
   "secrets/minio_env.age".publicKeys                     = keys;
+  "secrets/n8n_env.age".publicKeys                       = keys;
   "secrets/openai_api_key.age".publicKeys                = keys;
   "secrets/openweather-token.age".publicKeys             = keys;
   "secrets/paperless_env.age".publicKeys                 = keys;
