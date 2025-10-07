@@ -1,7 +1,4 @@
-{ pkgs
-, opts
-, ...
-}:
+{ pkgs, opts, ... }:
 {
   config = {
     system-manager.allowAnyDistro = true;
@@ -23,9 +20,21 @@
         ];
         http2 = false;
         show-trace = true;
-        substituters = [ "https://cache.nixos.org/" ];
-        trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
-        trusted-substituters = [ "https://cache.nixos.org/" ];
+        substituters = [
+          "https://cache.nixos.org/"
+          "https://nix-community.cachix.org"
+          "https://cuda-maintainers.cachix.org"
+        ];
+        trusted-public-keys = [
+          "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+          "nix-community.cachix.org-1:7G2AG3Y6rK1bVVhYQq+3LZg1AHEa9LIcA8QqczkGq9k="
+          "cuda-maintainers.cachix.org-1:Ji+ZysQ8GqEtvQF3o4O5q6c3y8C3b2q9p5g6s7d8e9k="
+        ];
+        trusted-substituters = [
+          "https://cache.nixos.org/"
+          "https://nix-community.cachix.org"
+          "https://cuda-maintainers.cachix.org"
+        ];
         trusted-users = [ "sreedev" ];
         warn-dirty = true;
       };
