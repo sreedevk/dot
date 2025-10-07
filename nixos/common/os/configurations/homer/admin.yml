@@ -12,6 +12,13 @@ services:
         url: "https://portainer.nullptr.sh"
         target: "_blank"
 
+      - name: "Attic"
+        logo: "assets/tools/nixos.png"
+        subtitle: "Self Hosted Nix Build Cache"
+        tag: "nix-build-cache"
+        url: "https://attic.nullptr.sh"
+        target: "_blank"
+
       - name: "Dockge"
         logo: "assets/tools/dockge.svg"
         subtitle: "Docker Stack Manager"
