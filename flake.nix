@@ -6,6 +6,7 @@
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05&shallow=1";
     agenix.url     = "github:ryantm/agenix";
     colmena.url    = "github:zhaofengli/colmena";
+    attic.url      = "github:zhaofengli/attic";
 
     nur = {
       url                    = "github:nix-community/NUR";

@@ -6,4 +6,5 @@
   (import ./stable.nix  { inherit inputs; })
   (import ./nvidia.nix  { inherit inputs; })
   (import ./colmena.nix { inherit inputs; })
+  (import ./attic.nix   { inherit inputs; })
 ]
