@@ -304,6 +304,8 @@ in
     package = pkgs.nixVersions.nix_2_28;
     settings = {
       allowed-users = [ "${username}" ];
+      download-buffer-size = 4000000000;
+      fallback = true;
       auto-optimise-store = true;
       experimental-features = [
         "nix-command"
@@ -313,10 +315,10 @@ in
       http2 = false;
       show-trace = true;
       substituters = [
+        "https://attic.nullptr.sh/devstation"
         "https://cache.nixos.org/"
         "https://nix-community.cachix.org"
         "https://cuda-maintainers.cachix.org"
-        "https://attic.nullptr.sh/devstation"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -325,10 +327,10 @@ in
         "devstation:FB1QNgS2s/Guv4hZvFMevbbP6ABvsOMygQbBeKnHf4E="
       ];
       trusted-substituters = [
+        "https://attic.nullptr.sh/devstation"
         "https://cache.nixos.org/"
         "https://nix-community.cachix.org"
         "https://cuda-maintainers.cachix.org"
-        "https://attic.nullptr.sh/devstation"
       ];
       trusted-users = [ "${username}" ];
       warn-dirty = true;
