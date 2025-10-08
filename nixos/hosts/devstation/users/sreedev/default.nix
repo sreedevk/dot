@@ -111,6 +111,7 @@ in
         cmatrix                  # matrix
         colmena                  # deployment
         csvlens                  # csv tui viewer
+        recyclarr                # arr trash guides sync
         attic-client             # attic self hosted cache client
         deadnix                  # identify nix dead code
         doxygen                  # source code document generator
