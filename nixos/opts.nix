@@ -3,14 +3,16 @@
     lan = {
       devstation    = "192.168.1.249";
       rpi4b         = "192.168.1.151";
-      devtechnica   = "138.197.225.180";
+      devtechnica   = "5.161.22.238";
       apollo        = "192.168.1.143";
+      rocknix       = "";
     };
     tailscale = {
       devstation    = "100.109.36.108";
-      rpi4b         = "";
       devtechnica   = "";
+      rpi4b         = "";
       apollo        = "100.121.45.124";
+      rocknix       = "100.100.18.78";
     };
   };
 

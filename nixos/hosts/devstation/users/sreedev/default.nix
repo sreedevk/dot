@@ -257,21 +257,21 @@ in
       };
 
       "nullptr.sh" = {
-        hostname = "100.117.8.42";
+        hostname = opts.addresses.tailscale.apollo;
         user = "admin";
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";
       };
 
       "apollo" = {
-        hostname = "192.168.1.143";
+        hostname = opts.addresses.lan.apollo;
         user = "admin";
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";
       };
 
       "rocknix-rk3566" = {
-        hostname = "100.100.18.78";
+        hostname = opts.addresses.tailscale.rocknix;
         user = "root";
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";
@@ -293,7 +293,7 @@ in
       };
 
       "rpi4b" = {
-        hostname = "192.168.1.151";
+        hostname = opts.addresses.lan.rpi4b;
         user = "pi";
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";
