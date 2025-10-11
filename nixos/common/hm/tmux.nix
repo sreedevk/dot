@@ -100,6 +100,10 @@ in
                       "switch-client -t system" \
                       "new-session -d -s system -c '/home/${username}'; switch-client -t system"
 
+      bind C-k run-shell 'current=$(tmux display-message -p "#S"); \
+          tmux switch-client -t system; \
+          tmux kill-session -t "$current"'
+
       # COPY MODE
       bind -T copy-mode-vi v send-keys -X begin-selection
       bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
