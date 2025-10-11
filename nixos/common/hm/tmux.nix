@@ -1,16 +1,16 @@
-{
-  pkgs,
-  opts,
-  config,
-  username,
-  ...
+{ pkgs
+, opts
+, config
+, username
+, ...
 }:
 let
-  sessionizer        = import ./scripts/sessionizer.nix { inherit pkgs; };
-  bwfzf              = import ./scripts/bwfzf.nix { inherit pkgs; };
-  sshfzf             = import ./scripts/sshfzf.nix { inherit pkgs; };
-  time               = import ./scripts/time.nix { inherit pkgs opts; };
-  repoclo            = import ./scripts/repoclo.nix { inherit pkgs; };
+  sessionizer   = import ./scripts/sessionizer.nix   { inherit pkgs;      };
+  desessionizer = import ./scripts/desessionizer.nix { inherit pkgs;      };
+  bwfzf         = import ./scripts/bwfzf.nix         { inherit pkgs;      };
+  sshfzf        = import ./scripts/sshfzf.nix        { inherit pkgs;      };
+  time          = import ./scripts/time.nix          { inherit pkgs opts; };
+  repoclo       = import ./scripts/repoclo.nix       { inherit pkgs;      };
 
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-super-fingers";
@@ -100,9 +100,7 @@ in
                       "switch-client -t system" \
                       "new-session -d -s system -c '/home/${username}'; switch-client -t system"
 
-      bind C-k run-shell 'current=$(tmux display-message -p "#S"); \
-          tmux switch-client -t system; \
-          tmux kill-session -t "$current"'
+      bind C-k run-shell "${desessionizer}/bin/tmux-desessionizer"
 
       # COPY MODE
       bind -T copy-mode-vi v send-keys -X begin-selection
