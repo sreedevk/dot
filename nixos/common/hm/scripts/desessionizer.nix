@@ -10,8 +10,8 @@ pkgs.writeShellScriptBin "tmux-desessionizer" ''
   root_conf="$cwd/.tmuxinator.conf"
   user_conf="$HOME/.config/tmuxinator/$norm_name.yml"
 
-  tmux has-session -t system 2>/dev/null && tmux switch-client -t system || tmux new-session -d -s system
-  tmux switch-client -t system
+  (tmux has-session -t system 2>/dev/null || tmux new-session -d -s system) && \
+    tmux switch-client -t system
 
   if [[ -f "$root_conf" ]]; then
     tmux send-keys -t target_session_name "${pkgs.tmuxinator}/bin/tmuxinator stop" C-m

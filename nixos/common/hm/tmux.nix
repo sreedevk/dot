@@ -6,7 +6,6 @@
 }:
 let
   sessionizer   = import ./scripts/sessionizer.nix   { inherit pkgs;      };
-  desessionizer = import ./scripts/desessionizer.nix { inherit pkgs;      };
   bwfzf         = import ./scripts/bwfzf.nix         { inherit pkgs;      };
   sshfzf        = import ./scripts/sshfzf.nix        { inherit pkgs;      };
   time          = import ./scripts/time.nix          { inherit pkgs opts; };
@@ -99,8 +98,6 @@ in
       bind | if-shell "tmux has-session -t system 2>/dev/null" \
                       "switch-client -t system" \
                       "new-session -d -s system -c '/home/${username}'; switch-client -t system"
-
-      bind C-k run-shell "${desessionizer}/bin/tmux-desessionizer"
 
       # COPY MODE
       bind -T copy-mode-vi v send-keys -X begin-selection
