@@ -231,19 +231,31 @@ return {
     }
   },
   {
+    "antosha417/nvim-lsp-file-operations",
+    lazy = true,
+    event = "BufReadPost",
+    main = "lsp-file-operations",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-neo-tree/neo-tree.nvim",
+    },
+    opts = {},
+  },
+  {
     's1n7ax/nvim-window-picker',
     version = '2.*',
-    config = function()
-      require 'window-picker'.setup({
-        filter_rules = {
-          include_current_win = false,
-          autoselect_one = true,
-          bo = {
-            filetype = { 'neo-tree', "neo-tree-popup", "notify" },
-            buftype = { 'terminal', "quickfix" },
-          },
+    lazy = true,
+    main = 'window-picker',
+    opts =
+    {
+      filter_rules = {
+        include_current_win = false,
+        autoselect_one = true,
+        bo = {
+          filetype = { 'neo-tree', "neo-tree-popup", "notify" },
+          buftype  = { 'terminal', "quickfix" },
         },
-      })
-    end,
+      },
+    }
   },
 }
