@@ -6,7 +6,7 @@ services:
     icon: "fas fa-book"
     items:
       - name: "AudioBookshelf"
-        logo: "assets/tools/audiobookshelf.avif"
+        logo: "assets/tools/audiobookshelf.png"
         subtitle: "Audio Books Streaming"
         tag: "audiobooks"
         keywords: "audiobooks"
@@ -14,7 +14,7 @@ services:
         target: "_blank"
 
       - name: "Kavita"
-        logo: "assets/tools/kavita.avif"
+        logo: "assets/tools/kavita.png"
         subtitle: "Ebook Server"
         tag: "ebooks"
         keywords: "ebooks"
@@ -22,7 +22,7 @@ services:
         target: "_blank"
 
       - name: "Readarr"
-        logo: "assets/tools/readarr.avif"
+        logo: "assets/tools/readarr.png"
         subtitle: "Books Indexing & Searching"
         tag: "books"
         keywords: "books"
@@ -41,7 +41,7 @@ services:
     icon: "fas fa-music"
     items:
       - name: "Navidrome"
-        logo: "assets/tools/navidrome.avif"
+        logo: "assets/tools/navidrome.png"
         subtitle: "Music Server"
         tag: "music"
         keywords: "music"
@@ -57,7 +57,7 @@ services:
         target: "_blank"
 
       - name: "Lidarr"
-        logo: "assets/tools/lidarr.avif"
+        logo: "assets/tools/lidarr.png"
         subtitle: "Music Indexing & Searching"
         tag: "music"
         keywords: "music"
@@ -89,7 +89,7 @@ services:
         target: "_blank"
 
       - name: "Radarr"
-        logo: "assets/tools/radarr.avif"
+        logo: "assets/tools/radarr.png"
         subtitle: "Movie Indexing & Searching"
         tag: "movies"
         keywords: "movies"
@@ -99,7 +99,7 @@ services:
         apikey: "647b4305c84d4e36ba7357e74262a3f6"
 
       - name: "Sonarr"
-        logo: "assets/tools/sonarr.avif"
+        logo: "assets/tools/sonarr.png"
         subtitle: "TV Indexing & Searching"
         tag: "tv"
         keywords: "tv"
@@ -109,7 +109,7 @@ services:
         apikey: "c51c7686634c479ebaf40b695322851e"
 
       - name: "Bazarr"
-        logo: "assets/tools/bazarr.avif"
+        logo: "assets/tools/bazarr.png"
         subtitle: "Subtitles Searching & Indexing"
         tag: "subtitles"
         keywords: "subtitles"
@@ -120,7 +120,7 @@ services:
     icon: "fas fa-camera"
     items:
       - name: "Photoprism"
-        logo: "assets/tools/photoprism.svg"
+        logo: "assets/tools/photoprism.png"
         subtitle: "Image Server"
         tag: "image"
         url: "https://photoprism.nullptr.sh"
@@ -153,14 +153,14 @@ services:
         target: "_blank"
 
       - name: "ArchiveBox"
-        logo: "assets/tools/archive.avif"
+        logo: "assets/tools/archivebox.png"
         subtitle: "Internet Archiver"
         tag: "internet-archiver"
         url: "https://archive.nullptr.sh"
         target: "_blank"
 
       - name: "Vaultwarden"
-        logo: "assets/tools/bitwarden.avif"
+        logo: "assets/tools/bitwarden.png"
         subtitle: "password-manager"
         tag: "password-manager"
         url: "https://vw.nullptr.sh"
@@ -188,7 +188,7 @@ services:
     icon: "fas fa-gamepad"
     items:
       - name: "Romm"
-        logo: "assets/tools/romm.svg"
+        logo: "assets/tools/romm.png"
         subtitle: "Game Rom Manager"
         tag: "roms"
         url: "https://romm.nullptr.sh"
@@ -198,7 +198,7 @@ services:
     icon: "fas fa-file"
     items:
       - name: "Paperless"
-        logo: "assets/tools/paperless-ngx.svg"
+        logo: "assets/tools/paperless-ngx.png"
         tag: "documents"
         url: "https://docs.nullptr.sh"
         target: "_blank"

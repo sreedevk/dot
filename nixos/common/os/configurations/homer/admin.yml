@@ -20,28 +20,28 @@ services:
         target: "_blank"
 
       - name: "Dockge"
-        logo: "assets/tools/dockge.svg"
+        logo: "assets/tools/dockge.png"
         subtitle: "Docker Stack Manager"
         tag: "docker-stacks"
         url: "https://dockge.nullptr.sh"
         target: "_blank"
 
       - name: "Grafana"
-        logo: "assets/tools/grafana.avif"
+        logo: "assets/tools/grafana.png"
         subtitle: "Data Dashboards"
         tag: "data-dashboards"
         url: "https://grafana.nullptr.sh"
         target: "_blank"
 
       - name: "Promtail (Loki Agent)"
-        logo: "assets/tools/loki.avif"
+        logo: "assets/tools/loki.png"
         subtitle: "Log Collector"
         tag: "log-collection"
         url: "https://promtail.nullptr.sh/targets"
         target: "_blank"
 
       - name: "Prometheus"
-        logo: "assets/tools/prometheus.svg"
+        logo: "assets/tools/prometheus.png"
         subtitle: "System Metrics Collection"
         tag: "system-metrics-collection"
         url: "https://prom.nullptr.sh"
@@ -55,7 +55,7 @@ services:
         target: "_blank"
 
       - name: "Nginx Proxy Manager"
-        logo: "assets/tools/nginx.avif"
+        logo: "assets/tools/nginx-proxy-manager.png"
         subtitle: "proxy-manager"
         tag: "network"
         url: "https://nginx.nullptr.sh"
@@ -69,7 +69,7 @@ services:
         target: "_blank"
 
       - name: Olivetin
-        logo: "assets/tools/olivetin.avif"
+        logo: "assets/tools/olivetin.png"
         subtitle: "Command Runner"
         tag: "command runner"
         url: "https://olive.nullptr.sh"
@@ -92,7 +92,7 @@ services:
         type: "UptimeKuma"
 
       - name: "Authentik"
-        logo: "assets/tools/authentik.avif"
+        logo: "assets/tools/authentik.png"
         subtitle: "User Identity Management"
         tag: "user-id-management"
         url: "https://authentik.nullptr.sh"
@@ -101,7 +101,7 @@ services:
       - name: "Gotify"
         type: "Gotify"
         apikey: "Ak8NUg-cneWv4If"
-        logo: "assets/tools/gotify.avif"
+        logo: "assets/tools/gotify.png"
         subtitle: "notifications"
         tag: "notifications"
         url: "https://gotify.nullptr.sh"
@@ -111,7 +111,7 @@ services:
     icon: "fas fa-server"
     items:
       - name: "qBittorrent"
-        logo: "assets/tools/qbittorrent.avif"
+        logo: "assets/tools/qbittorrent.png"
         tag: "torrent"
         url: "https://torrents.nullptr.sh"
         target: "_blank"
@@ -120,7 +120,7 @@ services:
         torrentInterval: 5000
 
       - name: "BitMagnet"
-        logo: "assets/tools/bitmagnet.avif"
+        logo: "assets/tools/bitmagnet.png"
         subtitle: "Torrent Indexer"
         tag: "torrent"
         url: "https://bitmagnet.nullptr.sh"
@@ -134,7 +134,7 @@ services:
         target: "_blank"
 
       - name: "Jellystat"
-        logo: "assets/tools/jellystat.avif"
+        logo: "assets/tools/jellystat.png"
         subtitle: "Jellyfin Statistics"
         tag: "jellyfin-statistics"
         url: "https://jellystat.nullptr.sh"
@@ -158,7 +158,7 @@ services:
         target: "_blank"
 
       - name: "Prowlarr"
-        logo: "assets/tools/prowlarr.avif"
+        logo: "assets/tools/prowlarr.png"
         subtitle: "Indexer Management"
         tag: "indexers"
         keywords: "indexers"
@@ -168,7 +168,7 @@ services:
         apikey: "b41934c4267449c0997a9d5706726578"
 
       - name: "Sabnzbd"
-        logo: "assets/tools/sabnzbd.webp"
+        logo: "assets/tools/sabnzbd.png"
         tag: "usenet"
         keywords: "usenet"
         url: "https://sabnzbd.nullptr.sh"

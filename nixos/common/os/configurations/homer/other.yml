@@ -7,7 +7,7 @@ services:
     items:
 
       - name: "Whisparr"
-        logo: "assets/tools/whisparr.avif"
+        logo: "assets/tools/whisparr.png"
         subtitle: "Adult Media Manager"
         tag: "adult-media"
         url: "https://whisparr.nullptr.sh"

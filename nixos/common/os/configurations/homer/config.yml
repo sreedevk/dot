@@ -68,14 +68,14 @@ services:
     icon: "fas fa-computer"
     items:
       - name: "Stirling PDF"
-        logo: "assets/tools/stirling.svg"
+        logo: "assets/tools/stirling-pdf.png"
         subtitle: "PDF Manipulation Tools"
         tag: "pdf-manipulation"
         url: "https://pdf.nullptr.sh"
         target: "_blank"
 
       - name: "Open WebUI"
-        logo: "assets/tools/ollama.avif"
+        logo: "assets/tools/ollama.png"
         subtitle: "AI Chatbot"
         tag: "artificial-intelligence-chat"
         url: "https://owui.nullptr.sh"
@@ -89,14 +89,14 @@ services:
         target: "_blank"
 
       - name: "Firefly"
-        logo: "assets/tools/firefly.avif"
+        logo: "assets/tools/firefly.png"
         subtitle: "Personal Finance Manager"
         tag: "finance"
         url: "https://firefly.nullptr.sh"
         target: "_blank"
 
       - name: "Firefly Data Importer"
-        logo: "assets/tools/firefly.avif"
+        logo: "assets/tools/firefly.png"
         subtitle: "Personal Finance Data Management"
         tag: "finance"
         url: "https://ffimport.nullptr.sh"
