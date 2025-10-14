@@ -81,6 +81,8 @@ in
         (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
         (config.lib.nixGL.wrapOffload pkgs.obsidian)
         (config.lib.nixGL.wrapOffload pkgs.upscayl)
+        ardour
+        audacity
         dbeaver-bin
         easyeffects
         ffmpegthumbnailer
@@ -105,14 +107,13 @@ in
         aspellDicts.en           # aspell english dictionary
         aspellDicts.en-computers # aspell computers dictionary
         aspellDicts.en-science   # aspell science dictionary
+        attic-client             # attic self hosted cache client
         bwfzf                    # bitwarden fzf
         cava                     # audio visualizer
         claude-code              # coding agent
         cmatrix                  # matrix
         colmena                  # deployment
         csvlens                  # csv tui viewer
-        recyclarr                # arr trash guides sync
-        attic-client             # attic self hosted cache client
         deadnix                  # identify nix dead code
         doxygen                  # source code document generator
         duckdb                   # duck db
@@ -150,9 +151,11 @@ in
         nixfmt                   # nix formatter
         nmap                     # network discovery and security auditing
         nushell                  # modern shell written in rust
+        orca-c                   # Esoteric prog lang to create procedural sequencers 
         pandoc                   # document format converter
         qrencode                 # qr code generator
         rbw                      # stateful bitwarden cli
+        recyclarr                # arr trash guides sync
         s3cmd                    # s3 cli
         sc-im                    # vim like tui spreadsheet
         scdl                     # soundcloud download
