@@ -4,7 +4,7 @@
 , ...
 }:
 let
-  inherit (inputs) nixpkgs agenix stylix home-manager colmena system-manager;
+  inherit (inputs) nixpkgs agenix stylix home-manager colmena system-manager disko;
 in
 rec {
   pkgsFor = nixpkgs.legacyPackages;
@@ -42,9 +42,14 @@ rec {
       inherit system;
 
       modules = [
+        disko.nixosModules.disko
         agenix.nixosModules.default
         home-manager.nixosModules.home-manager
         ../nixos/hosts/${hostname}/configuration.nix
+      ];
+
+      extraModules = [
+        colmena.nixosModules.deploymentOptions
       ];
 
       specialArgs = {
