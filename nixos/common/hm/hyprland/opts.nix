@@ -57,27 +57,11 @@ in
   gestures = [
     {
       fingers = "3";
-      direction = "up";
-      modifier = null; # "mod: ALT";
-      scale = null;
-      action = "workspace";
-      args = "special";
-    }
-    {
-      fingers = "3";
-      direction = "left";
+      direction = "horizontal";
       modifier = null;
       scale = null;
       action = "workspace";
-      args = "e+1";
-    }
-    {
-      fingers = "3";
-      direction = "right";
-      modifier = null;
-      scale = null;
-      action = "workspace";
-      args = "e-1";
+      args = null;
     }
   ];
 
@@ -362,7 +346,7 @@ in
       }
       {
         mod = "SUPER SHIFT";
-        keys = "C";
+        keys = "Equal";
         dispatcher = "movetoworkspace";
         args = "special";
       }
@@ -488,7 +472,7 @@ in
       }
       {
         mod = "SUPER";
-        keys = "C";
+        keys = "Equal";
         dispatcher = "togglespecialworkspace";
         args = "";
       }
@@ -551,6 +535,12 @@ in
         keys = "P";
         dispatcher = "exec";
         args = "${hypr-toggleblur}/bin/hypr-toggleblur";
+      }
+      {
+        mod = "SUPER";
+        keys = "minus";
+        dispatcher = "hyprexpo:expo";
+        args = "toggle";
       }
       {
         mod = "SUPER";

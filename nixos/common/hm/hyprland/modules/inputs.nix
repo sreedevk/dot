@@ -36,10 +36,8 @@ in
                       ]
                       (mkOptional gesture.modifier)
                       (mkOptional gesture.scale)
-                      [
-                        gesture.action
-                        gesture.args
-                      ]
+                      (mkOptional gesture.action)
+                      (mkOptional gesture.args)
                     ]
                   );
                 in
