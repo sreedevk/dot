@@ -83,7 +83,7 @@ services:
         target: "_blank"
 
       - name: "Uptime Kuma"
-        logo: "assets/tools/kuma.svg"
+        logo: "assets/tools/uptime-kuma.png"
         subtitle: "site-monitoring"
         tag: "site-monitoring"
         url: "https://kuma.nullptr.sh"

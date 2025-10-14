@@ -70,7 +70,7 @@ services:
     icon: "fas fa-film"
     items:
       - name: "Jellyfin"
-        logo: "assets/tools/jellyfin.webp"
+        logo: "assets/tools/jellyfin.png"
         subtitle: "Media Streaming Server"
         tag: "streaming"
         keywords: "streaming"
