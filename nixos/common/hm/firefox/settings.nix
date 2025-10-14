@@ -84,7 +84,7 @@
   "browser.toolbars.bookmarks.visibility"                               = "always";
   "browser.uidensity"                                                   = 1;
   "browser.uitour.enabled"                                              = false;
-  "browser.urlbar.autoFill"                                             = false;
+  "browser.urlbar.autoFill"                                             = true;
   "browser.urlbar.groupLabels.enabled"                                  = false;
   "browser.urlbar.placeholderName"                                      = "DuckDuckGo";
   "browser.urlbar.quickactions.enabled"                                 = false;
