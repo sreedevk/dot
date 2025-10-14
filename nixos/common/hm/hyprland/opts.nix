@@ -538,12 +538,6 @@ in
       }
       {
         mod = "SUPER";
-        keys = "minus";
-        dispatcher = "hyprexpo:expo";
-        args = "toggle";
-      }
-      {
-        mod = "SUPER";
         keys = "W";
         dispatcher = "exec";
         args = "uwsm app -t service -- brave-browser.desktop";
