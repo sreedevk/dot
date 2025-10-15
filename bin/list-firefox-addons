@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-nix-env -f "<nur>" -qaP -A repos."rycee".firefox-addons | awk '{print $2}' | fzf
+nix eval --impure --expr 'builtins.attrNames (import <nur> {}).repos.rycee.firefox-addons' --json | jq -r '.[]' | fzf
