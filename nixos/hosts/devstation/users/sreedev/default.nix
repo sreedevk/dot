@@ -80,7 +80,7 @@
         (config.lib.nixGL.wrap pkgs.libreoffice-fresh)
         (config.lib.nixGL.wrap pkgs.lmms)
         (config.lib.nixGL.wrap pkgs.localsend)
-        (config.lib.nixGL.wrap pkgs.mullvad-browser)
+        (config.lib.nixGL.wrap pkgs.tor-browser)
         (config.lib.nixGL.wrap pkgs.nemo-with-extensions)
         (config.lib.nixGL.wrap pkgs.obsidian)
         (config.lib.nixGL.wrap pkgs.openttd)
