@@ -4,10 +4,6 @@
 , username
 , ...
 }:
-let
-  tmux-sessionizer = import (../../../../common/hm/scripts/sessionizer.nix) { inherit pkgs; };
-  bwfzf            = import (../../../../common/hm/scripts/bwfzf.nix)       { inherit pkgs; };
-in
 {
   imports = [
     ../../../../common/hm/alacritty
@@ -99,83 +95,89 @@ in
         wofi
       ];
 
-      cli-packages = with pkgs; [
-        agenix                   # age based nix secrets
-        aria2                    # aria downloader
-        asciinema                # terminal recorder
-        asciinema-agg            # terminal recorder format converter
-        aspell                   # gnu spellchecker
-        aspellDicts.en           # aspell english dictionary
-        aspellDicts.en-computers # aspell computers dictionary
-        aspellDicts.en-science   # aspell science dictionary
-        attic-client             # attic self hosted cache client
-        bwfzf                    # bitwarden fzf
-        cava                     # audio visualizer
-        claude-code              # coding agent
-        cmatrix                  # matrix
-        colmena                  # deployment
-        csvlens                  # csv tui viewer
-        deadnix                  # identify nix dead code
-        doxygen                  # source code document generator
-        duckdb                   # duck db
-        elan                     # lean version manager
-        fasm                     # flat assembler
-        glab                     # gitlab cli
-        glow                     # tui markdown renderer
-        gpg-tui                  # gnupg tui
-        gping                    # ping grapher
-        graphviz                 # graph visualizer
-        hexyl                    # cli hex viewer
-        hledger                  # plain text cli accounting
-        hledger-iadd             # hledger interactively add transactions
-        hledger-ui               # hledger tui
-        hledger-utils            # hledger utils
-        hledger-web              # hledger web ui
-        html-tidy                # HTML validator
-        hyperfine                # benchmarking tool
-        imager                   # Interferometric imaging package
-        instaloader              # instagram downloader
-        ipcalc                   # ip math
-        jira-cli-go              # jira
-        jless                    # json pager
-        just                     # command runner
-        k9s                      # k8s tui
-        kubectl                  # k8s
-        lazydocker               # docker tui
-        ledger                   # cli ledger
-        mc                       # midnight commander file manager
-        mdbook                   # generate books from markdown
-        miller                   # awk, sed, cut, join and sort for csv, tsv, json
-        nasm                     # x86_64 assembler
-        nerd-fonts.iosevka       # iosevka nerd font
-        nerd-fonts.iosevka-term  # iosevka term nerd font
-        nixfmt                   # nix formatter
-        nmap                     # network discovery and security auditing
-        nushell                  # modern shell written in rust
-        orca-c                   # Esoteric prog lang to create procedural sequencers 
-        pandoc                   # document format converter
-        qrencode                 # qr code generator
-        rbw                      # stateful bitwarden cli
-        recyclarr                # arr trash guides sync
-        s3cmd                    # s3 cli
-        sc-im                    # vim like tui spreadsheet
-        scdl                     # soundcloud download
-        silicon                  # code screenshot generator
-        statix                   # nix code linter
-        streamrip                # tidal / soundcloud / deezer downloader cli
-        terminaltexteffects      # cli text effects
-        ticker                   # asset ticker
-        tmux-sessionizer         # tmux sessionizer
-        tmuxinator               # tmuxinator
-        toilet                   # fancy large cli text generator
-        tokei                    # lines of code count
-        tty-clock                # tty clock
-        uiua                     # array oriented programming language
-        uv                       # python package manager
-        visidata                 # terminal multitool for tabular data
-        wiremix                  # tui for pipewire audio control
-        yt-dlp                   # youtube downloader
-      ];
+      cli-packages =
+        let
+          tmux-sessionizer = import (../../../../common/hm/scripts/sessionizer.nix) { inherit pkgs; };
+          bwfzf            = import (../../../../common/hm/scripts/bwfzf.nix)       { inherit pkgs; };
+        in
+        with pkgs;
+        [
+          agenix                   # age based nix secrets
+          aria2                    # aria downloader
+          asciinema                # terminal recorder
+          asciinema-agg            # terminal recorder format converter
+          aspell                   # gnu spellchecker
+          aspellDicts.en           # aspell english dictionary
+          aspellDicts.en-computers # aspell computers dictionary
+          aspellDicts.en-science   # aspell science dictionary
+          attic-client             # attic self hosted cache client
+          bwfzf                    # bitwarden fzf
+          cava                     # audio visualizer
+          claude-code              # coding agent
+          cmatrix                  # matrix
+          colmena                  # deployment
+          csvlens                  # csv tui viewer
+          deadnix                  # identify nix dead code
+          doxygen                  # source code document generator
+          duckdb                   # duck db
+          elan                     # lean version manager
+          fasm                     # flat assembler
+          glab                     # gitlab cli
+          glow                     # tui markdown renderer
+          gpg-tui                  # gnupg tui
+          gping                    # ping grapher
+          graphviz                 # graph visualizer
+          hexyl                    # cli hex viewer
+          hledger                  # plain text cli accounting
+          hledger-iadd             # hledger interactively add transactions
+          hledger-ui               # hledger tui
+          hledger-utils            # hledger utils
+          hledger-web              # hledger web ui
+          html-tidy                # HTML validator
+          hyperfine                # benchmarking tool
+          imager                   # Interferometric imaging package
+          instaloader              # instagram downloader
+          ipcalc                   # ip math
+          jira-cli-go              # jira
+          jless                    # json pager
+          just                     # command runner
+          k9s                      # k8s tui
+          kubectl                  # k8s
+          lazydocker               # docker tui
+          ledger                   # cli ledger
+          mc                       # midnight commander file manager
+          mdbook                   # generate books from markdown
+          miller                   # awk, sed, cut, join and sort for csv, tsv, json
+          nasm                     # x86_64 assembler
+          nerd-fonts.iosevka       # iosevka nerd font
+          nerd-fonts.iosevka-term  # iosevka term nerd font
+          nixfmt                   # nix formatter
+          nmap                     # network discovery and security auditing
+          nushell                  # modern shell written in rust
+          orca-c                   # Esoteric prog lang to create procedural sequencers
+          pandoc                   # document format converter
+          qrencode                 # qr code generator
+          rbw                      # stateful bitwarden cli
+          recyclarr                # arr trash guides sync
+          s3cmd                    # s3 cli
+          sc-im                    # vim like tui spreadsheet
+          scdl                     # soundcloud download
+          silicon                  # code screenshot generator
+          statix                   # nix code linter
+          streamrip                # tidal / soundcloud / deezer downloader cli
+          terminaltexteffects      # cli text effects
+          ticker                   # asset ticker
+          tmux-sessionizer         # tmux sessionizer
+          tmuxinator               # tmuxinator
+          toilet                   # fancy large cli text generator
+          tokei                    # lines of code count
+          tty-clock                # tty clock
+          uiua                     # array oriented programming language
+          uv                       # python package manager
+          visidata                 # terminal multitool for tabular data
+          wiremix                  # tui for pipewire audio control
+          yt-dlp                   # youtube downloader
+        ];
     in
     builtins.concatLists [
       gui-packages

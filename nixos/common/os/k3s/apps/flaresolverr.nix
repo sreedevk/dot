@@ -29,49 +29,66 @@ in
   environment.etc = {
     "k3s/services/flaresolverr.service.yaml" = {
       enable = true;
-      text = ''
-        apiVersion: v1
-        kind: Service
-        metadata:
-          name: flaresolverr-service
-        spec:
-          selector:
-            app: flaresolverr
-          ports:
-            - protocol: TCP
-              name: http
-              port: 8191
-              targetPort: 8191
-              nodePort: 30191
-          type: NodePort
-      '';
+      source = (pkgs.formats.yaml { }).generate "flaresolverr.service.yaml" {
+        apiVersion = "v1";
+        kind = "Service";
+        metadata = {
+          name = "flaresolverr-service";
+        };
+        spec = {
+          selector = {
+            app = "flaresolverr";
+          };
+          ports = [
+            {
+              protocol = "TCP";
+              name = "http";
+              port = 8191;
+              targetPort = 8191;
+              nodePort = 30191;
+            }
+          ];
+          type = "NodePort";
+        };
+      };
     };
 
     "k3s/deployments/flaresolverr.deployment.yaml" = {
       enable = true;
-      text = ''
-        apiVersion: apps/v1
-        kind: Deployment
-        metadata:
-          name: flaresolverr-depl
-          labels:
-            app: flaresolverr
-        spec:
-          replicas: 2
-          selector:
-            matchLabels:
-              app: flaresolverr
-          template:
-            metadata:
-              labels:
-                app: flaresolverr
-            spec:
-              containers:
-              - name: flaresolverr
-                image: ghcr.io/flaresolverr/flaresolverr:latest
-                ports:
-                - containerPort: 8191
-      '';
+      source = (pkgs.formats.yaml { }).generate "flaresolverr.deployment.yaml" {
+        apiVersion = "apps/v1";
+        kind = "Deployment";
+        metadata = {
+          name = "flaresolverr-depl";
+          labels = {
+            app = "flaresolverr";
+          };
+        };
+        spec = {
+          replicas = 2;
+          selector = {
+            matchLabels = {
+              app = "flaresolverr";
+            };
+          };
+          template = {
+            metadata = {
+              labels = {
+                app = "flaresolverr";
+              };
+            };
+          };
+          spec = {
+            containers = [
+              {
+                name = "flaresolverr";
+                image = "ghcr.io/flaresolverr/flaresolverr:latest";
+                ports = [ { containerPort = 8191; } ];
+              }
+            ];
+          };
+        };
+      };
     };
   };
 }
