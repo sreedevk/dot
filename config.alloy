@@ -1,0 +1,25 @@
+discovery.relabel "system" {
+	targets = []
+
+	rule {
+		source_labels = ["__journal__systemd_unit"]
+		target_label  = "unit"
+	}
+}
+
+loki.source.journal "system" {
+	max_age       = "12h0m0s"
+	path          = "/var/log/journal"
+	relabel_rules = discovery.relabel.system.rules
+	forward_to    = [loki.write.default.receiver]
+	labels        = {
+		job = "systemd-journal",
+	}
+}
+
+loki.write "default" {
+	endpoint {
+		url = "http://apollo:3100/loki/api/v1/push"
+	}
+	external_labels = {}
+}

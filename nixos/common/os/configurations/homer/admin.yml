@@ -33,11 +33,11 @@ services:
         url: "https://grafana.nullptr.sh"
         target: "_blank"
 
-      - name: "Promtail (Loki Agent)"
-        logo: "assets/tools/loki.png"
-        subtitle: "Log Collector"
-        tag: "log-collection"
-        url: "https://promtail.nullptr.sh/targets"
+      - name: "Alloy"
+        logo: "assets/tools/alloy.png"
+        subtitle: "Telemetry Collector"
+        tag: "telemetry-collection"
+        url: "https://alloy.nullptr.sh"
         target: "_blank"
 
       - name: "Prometheus"
