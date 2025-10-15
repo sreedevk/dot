@@ -80,6 +80,7 @@ in
         (config.lib.nixGL.wrapOffload pkgs.gimp3-with-plugins)
         (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
         (config.lib.nixGL.wrapOffload pkgs.obsidian)
+        (config.lib.nixGL.wrapOffload pkgs.sonic-pi)
         (config.lib.nixGL.wrapOffload pkgs.upscayl)
         ardour
         audacity
@@ -92,7 +93,6 @@ in
         nemo-with-extensions
         openttd
         pwvucontrol
-        sonic-pi
         sqlitebrowser
         wf-recorder
         wofi
