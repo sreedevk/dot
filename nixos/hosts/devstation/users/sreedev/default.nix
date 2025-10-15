@@ -90,6 +90,7 @@ in
         gnome-calculator
         libreoffice-fresh
         lmms
+        localsend
         nemo-with-extensions
         openttd
         pwvucontrol
