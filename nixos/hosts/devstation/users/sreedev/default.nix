@@ -75,26 +75,26 @@ in
   home.packages =
     let
       gui-packages = with pkgs; [
+        (config.lib.nixGL.wrap pkgs.ardour)
+        (config.lib.nixGL.wrap pkgs.audacity)
+        (config.lib.nixGL.wrap pkgs.dbeaver-bin)
+        (config.lib.nixGL.wrap pkgs.easyeffects)
+        (config.lib.nixGL.wrap pkgs.gnome-calculator)
+        (config.lib.nixGL.wrap pkgs.libreoffice-fresh)
+        (config.lib.nixGL.wrap pkgs.lmms)
+        (config.lib.nixGL.wrap pkgs.localsend)
+        (config.lib.nixGL.wrap pkgs.nemo-with-extensions)
+        (config.lib.nixGL.wrap pkgs.obsidian)
+        (config.lib.nixGL.wrap pkgs.openttd)
+        (config.lib.nixGL.wrap pkgs.pwvucontrol)
         (config.lib.nixGL.wrap pkgs.slack)
+        (config.lib.nixGL.wrap pkgs.sonic-pi)
+        (config.lib.nixGL.wrap pkgs.sqlitebrowser)
         (config.lib.nixGL.wrapOffload pkgs.davinci-resolve)
         (config.lib.nixGL.wrapOffload pkgs.gimp3-with-plugins)
         (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
-        (config.lib.nixGL.wrapOffload pkgs.obsidian)
-        (config.lib.nixGL.wrapOffload pkgs.sonic-pi)
         (config.lib.nixGL.wrapOffload pkgs.upscayl)
-        ardour
-        audacity
-        dbeaver-bin
-        easyeffects
         ffmpegthumbnailer
-        gnome-calculator
-        libreoffice-fresh
-        lmms
-        localsend
-        nemo-with-extensions
-        openttd
-        pwvucontrol
-        sqlitebrowser
         wf-recorder
         wofi
       ];
