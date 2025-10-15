@@ -58,30 +58,6 @@
         export WINIT_X11_SCALE_FACTOR=${opts.desktop.scale}
       '';
     };
-
-    "mimeapps.list" = {
-      enable = true;
-      recursive = false;
-      executable = false;
-      target = ".config/mimeapps.list";
-      text = ''
-        [Default Applications]
-        text/plain=neovim.desktop
-        text/html=neovim.desktop
-        text/unknown=neovim.desktop
-        inode/directory=nemo.desktop
-        x-scheme-handler/http=${opts.desktop.browser.xdg-desktop or ""}
-        x-scheme-handler/https=${opts.desktop.browser.xdg-desktop or ""}
-        x-scheme-handler/about=${opts.desktop.browser.xdg-desktop or ""}
-        x-scheme-handler/unknown=${opts.desktop.browser.xdg-desktop or ""}
-        image/png=nsxiv.desktop
-        image/jpeg=nsxiv.desktop
-        image/gif=nsxiv.desktop
-
-        [Added Associations]
-        application/atom+xml=${opts.desktop.browser.xdg-desktop or ""};
-      '';
-    };
   };
 
   programs = {

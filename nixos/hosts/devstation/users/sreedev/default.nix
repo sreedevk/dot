@@ -48,6 +48,7 @@
     ../../../../common/hm/taskwarrior.nix
     ../../../../common/hm/tmux.nix
     ../../../../common/hm/vim.nix
+    ../../../../common/hm/xdg.nix
     ../../../../common/hm/xresources.nix
     ../../../../common/hm/yazi
     ../../../../common/hm/zathura.nix
