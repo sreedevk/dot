@@ -78,10 +78,10 @@
         (config.lib.nixGL.wrap pkgs.dbeaver-bin)
         (config.lib.nixGL.wrap pkgs.easyeffects)
         (config.lib.nixGL.wrap pkgs.gnome-calculator)
+        (config.lib.nixGL.wrap pkgs.hydrogen)
         (config.lib.nixGL.wrap pkgs.libreoffice-fresh)
         (config.lib.nixGL.wrap pkgs.lmms)
         (config.lib.nixGL.wrap pkgs.localsend)
-        (config.lib.nixGL.wrap pkgs.tor-browser)
         (config.lib.nixGL.wrap pkgs.nemo-with-extensions)
         (config.lib.nixGL.wrap pkgs.obsidian)
         (config.lib.nixGL.wrap pkgs.openttd)
@@ -89,6 +89,7 @@
         (config.lib.nixGL.wrap pkgs.slack)
         (config.lib.nixGL.wrap pkgs.sonic-pi)
         (config.lib.nixGL.wrap pkgs.sqlitebrowser)
+        (config.lib.nixGL.wrap pkgs.tor-browser)
         (config.lib.nixGL.wrapOffload pkgs.davinci-resolve)
         (config.lib.nixGL.wrapOffload pkgs.gimp3-with-plugins)
         (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
@@ -150,6 +151,7 @@
           kubectl                  # k8s
           lazydocker               # docker tui
           ledger                   # cli ledger
+          lm_sensors               # lm_sensors
           mc                       # midnight commander file manager
           mdbook                   # generate books from markdown
           miller                   # awk, sed, cut, join and sort for csv, tsv, json
