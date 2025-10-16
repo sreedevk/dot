@@ -101,11 +101,12 @@
       cli-packages =
         let
           tmux-sessionizer = import (../../../../common/hm/scripts/sessionizer.nix) { inherit pkgs; };
-          bwfzf = import (../../../../common/hm/scripts/bwfzf.nix) { inherit pkgs; };
+          bwfzf            = import (../../../../common/hm/scripts/bwfzf.nix)       { inherit pkgs; };
         in
         with pkgs;
         [
           agenix                   # age based nix secrets
+          aichat                   # cli multi-modal AI chat frontend
           aria2                    # aria downloader
           asciinema                # terminal recorder
           asciinema-agg            # terminal recorder format converter

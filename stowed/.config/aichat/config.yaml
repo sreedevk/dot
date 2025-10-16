@@ -1,0 +1,46 @@
+# see https://github.com/sigoden/aichat/blob/main/config.example.yaml
+
+# ---- llm ----
+# model: openai:gpt-4o             # Specify the LLM to use
+model: ollama:gpt-oss:20b
+temperature: null                # Set default temperature parameter (0, 1)
+top_p: null                      # Set default top-p parameter, with a range of (0, 1) or (0, 2) depending on the model
+
+# ---- behavior ----
+stream: true                     # Controls whether to use the stream-style API.
+save: true                       # Indicates whether to persist the message
+keybindings: vi                  # Choose keybinding style (emacs, vi)
+editor: nvim                     # Specifies the command used to edit input buffer or session. (e.g. vim, emacs, nano).
+
+# ---- function-calling ----
+# Visit https://github.com/sigoden/llm-functions for setup instructions
+function_calling: true           # Enables or disables function calling (Globally).
+mapping_tools:                   # Alias for a tool or toolset
+  fs: 'fs_cat,fs_ls,fs_mkdir,fs_rm,fs_write'
+use_tools: null                  # Which tools to use by default. (e.g. 'fs,web_search')
+
+# ---- prelude ----
+repl_prelude: null               # Set a default role or session for REPL mode (e.g. role:<name>, session:<name>, <session>:<role>)
+cmd_prelude: null                # Set a default role or session for CMD mode (e.g. role:<name>, session:<name>, <session>:<role>)
+agent_prelude: null              # Set a session to use when starting a agent (e.g. temp, default)
+
+# ---- session ----
+# Controls the persistence of the session. if true, auto save; if false, not save; if null, asking the user
+save_session: null
+# Compress session when token count reaches or exceeds this threshold
+compress_threshold: 4000
+# Text prompt used for creating a concise summary of session message
+summarize_prompt: 'Summarize the discussion briefly in 200 words or less to use as a prompt for future context.'
+# Text prompt used for including the summary of the entire session
+summary_prompt: 'This is a summary of the chat history as a recap: '
+
+clients:
+  - type: openai-compatible
+    name: ollama
+    api_base: https://ollama.nullptr.sh/v1
+    api_key:
+    models:
+      - name: gpt-oss:20b
+        max_input_tokens: 128000
+        supports_function_calling: true
+  - type: openai
