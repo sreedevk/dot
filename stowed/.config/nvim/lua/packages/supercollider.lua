@@ -11,7 +11,7 @@ return {
     "SCNvimRecompile",
     "SCNvimHelp",
   },
-  ft = { 'sc' },
+  ft = { 'supercollider' },
   config = function()
     local scnvim = require 'scnvim'
     local map = scnvim.map
@@ -29,8 +29,8 @@ return {
         ['<M-L>'] = map('postwin.clear', { 'n', 'i' }),
         ['<C-k>'] = map('signature.show', { 'n', 'i' }),
         ['<F12>'] = map('sclang.hard_stop', { 'n', 'x', 'i' }),
-        ['<leader>st'] = map('sclang.start'),
-        ['<leader>sk'] = map('sclang.recompile'),
+        ['<leader>scs'] = map('sclang.start'),
+        ['<leader>scr'] = map('sclang.recompile'),
         ['<F1>'] = map_expr('s.boot'),
         ['<F2>'] = map_expr('s.meter'),
       },
