@@ -20,7 +20,7 @@ services:
         keywords: "ebooks"
         url: "https://books.nullptr.sh"
         target: "_blank"
-
+        
       - name: "Readarr"
         logo: "assets/tools/readarr.png"
         subtitle: "Books Indexing & Searching"
@@ -65,6 +65,14 @@ services:
         target: "_blank"
         type: "Lidarr"
         apikey: "37c36dc4422e4f25ba356cf27fbd8099"
+
+      - name: "Beets"
+        logo: "assets/tools/beets.png"
+        subtitle: "Music Metadata Management"
+        tag: "music-metadata-management"
+        keywords: "music"
+        url: "https://beets.nullptr.sh"
+        target: "_blank"
 
   - name: "Movies & TV"
     icon: "fas fa-film"
