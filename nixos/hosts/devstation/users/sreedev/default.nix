@@ -2,11 +2,12 @@
 , config
 , opts
 , username
-, inputs
 , ...
 }:
 {
   imports = [
+
+    # Common Modules
     ../../../../common/hm/alacritty
     ../../../../common/hm/amfora.nix
     ../../../../common/hm/awscli.nix
@@ -34,6 +35,7 @@
     ../../../../common/hm/neovide.nix
     ../../../../common/hm/neovim.nix
     ../../../../common/hm/newsboat.nix
+    ../../../../common/hm/nixpkgs.nix
     ../../../../common/hm/nsxiv.nix
     ../../../../common/hm/obs.nix
     ../../../../common/hm/ocaml.nix
@@ -56,7 +58,12 @@
     ../../../../common/hm/zellij.nix
     ../../../../common/hm/zsh.nix
     ../../../../common/secrets/mappings.nix
-    ./restic.nix
+
+    # Current User Specific
+    ./modules/packages.nix
+    ./modules/restic.nix
+    ./modules/ssh.nix
+
   ];
 
   nixGL = {
@@ -69,128 +76,6 @@
       "nvidia"
     ];
   };
-
-  home.packages =
-    let
-      gui-packages = with pkgs; [
-        (config.lib.nixGL.wrap pkgs.ardour)
-        (config.lib.nixGL.wrap pkgs.audacity)
-        (config.lib.nixGL.wrap pkgs.dbeaver-bin)
-        (config.lib.nixGL.wrap pkgs.easyeffects)
-        (config.lib.nixGL.wrap pkgs.gnome-calculator)
-        (config.lib.nixGL.wrap pkgs.hydrogen)
-        (config.lib.nixGL.wrap pkgs.libreoffice-fresh)
-        (config.lib.nixGL.wrap pkgs.lmms)
-        (config.lib.nixGL.wrap pkgs.localsend)
-        (config.lib.nixGL.wrap pkgs.nemo-with-extensions)
-        (config.lib.nixGL.wrap pkgs.obsidian)
-        (config.lib.nixGL.wrap pkgs.openttd)
-        (config.lib.nixGL.wrap pkgs.pwvucontrol)
-        (config.lib.nixGL.wrap pkgs.slack)
-        (config.lib.nixGL.wrap pkgs.sonic-pi)
-        (config.lib.nixGL.wrap pkgs.sqlitebrowser)
-        (config.lib.nixGL.wrap pkgs.tor-browser)
-        (config.lib.nixGL.wrapOffload pkgs.davinci-resolve)
-        (config.lib.nixGL.wrapOffload pkgs.gimp3-with-plugins)
-        (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
-        (config.lib.nixGL.wrapOffload pkgs.upscayl)
-        ffmpegthumbnailer
-        wf-recorder
-        wofi
-      ];
-
-      cli-packages =
-        let
-          tmux-sessionizer = import (../../../../common/hm/scripts/sessionizer.nix) { inherit pkgs; };
-          bwfzf            = import (../../../../common/hm/scripts/bwfzf.nix)       { inherit pkgs; };
-        in
-        with pkgs;
-        [
-          agenix                     # age based nix secrets
-          aichat                     # cli multi-modal AI chat frontend
-          aria2                      # aria downloader
-          asciinema                  # terminal recorder
-          asciinema-agg              # terminal recorder format converter
-          aspell                     # gnu spellchecker
-          aspellDicts.en             # aspell english dictionary
-          aspellDicts.en-computers   # aspell computers dictionary
-          aspellDicts.en-science     # aspell science dictionary
-          attic-client               # attic self hosted cache client
-          bwfzf                      # bitwarden fzf
-          supercollider-with-plugins # supercollider
-          cava                       # audio visualizer
-          chuck                      # real-time sound synthesis
-          claude-code                # coding agent
-          cmatrix                    # matrix
-          colmena                    # deployment
-          csvlens                    # csv tui viewer
-          deadnix                    # identify nix dead code
-          doxygen                    # source code document generator
-          duckdb                     # duck db
-          elan                       # lean version manager
-          fasm                       # flat assembler
-          glab                       # gitlab cli
-          glow                       # tui markdown renderer
-          gpg-tui                    # gnupg tui
-          gping                      # ping grapher
-          graphviz                   # graph visualizer
-          hexyl                      # cli hex viewer
-          hledger                    # plain text cli accounting
-          hledger-iadd               # hledger interactively add transactions
-          hledger-ui                 # hledger tui
-          hledger-utils              # hledger utils
-          hledger-web                # hledger web ui
-          html-tidy                  # HTML validator
-          hyperfine                  # benchmarking tool
-          imager                     # Interferometric imaging package
-          instaloader                # instagram downloader
-          ipcalc                     # ip math
-          jira-cli-go                # jira
-          jless                      # json pager
-          just                       # command runner
-          k9s                        # k8s tui
-          kubectl                    # k8s
-          lazydocker                 # docker tui
-          ledger                     # cli ledger
-          lm_sensors                 # lm_sensors
-          mc                         # midnight commander file manager
-          mdbook                     # generate books from markdown
-          miller                     # awk, sed, cut, join and sort for csv, tsv, json
-          nasm                       # x86_64 assembler
-          nerd-fonts.iosevka         # iosevka nerd font
-          nerd-fonts.iosevka-term    # iosevka term nerd font
-          nixfmt                     # nix formatter
-          nmap                       # network discovery and security auditing
-          nushell                    # modern shell written in rust
-          orca-c                     # Esoteric prog lang to create procedural sequencers
-          pandoc                     # document format converter
-          qrencode                   # qr code generator
-          rbw                        # stateful bitwarden cli
-          recyclarr                  # arr trash guides sync
-          s3cmd                      # s3 cli
-          sc-im                      # vim like tui spreadsheet
-          scdl                       # soundcloud download
-          silicon                    # code screenshot generator
-          statix                     # nix code linter
-          streamrip                  # tidal / soundcloud / deezer downloader cli
-          terminaltexteffects        # cli text effects
-          ticker                     # asset ticker
-          tmux-sessionizer           # tmux sessionizer
-          tmuxinator                 # tmuxinator
-          toilet                     # fancy large cli text generator
-          tokei                      # lines of code count
-          tty-clock                  # tty clock
-          uiua                       # array oriented programming language
-          uv                         # python package manager
-          visidata                   # terminal multitool for tabular data
-          wiremix                    # tui for pipewire audio control
-          yt-dlp                     # youtube downloader
-        ];
-    in
-    builtins.concatLists [
-      gui-packages
-      cli-packages
-    ];
 
   home.file = {
 
@@ -215,122 +100,28 @@
       '';
     };
 
-    "authorized_keys" = {
-      enable = true;
-      target = ".ssh/authorized_keys.source";
-      executable = false;
-      recursive = false;
-      text = builtins.concatStringsSep "\n" (
-        with opts.publicKeys;
-        [
-          apollo
-          rpi4b
-          terminus
-        ]
-      );
-      onChange = ''
-        cat ~/.ssh/authorized_keys.source > ~/.ssh/authorized_keys
-        chmod 400 ~/.ssh/authorized_keys
-        rm -rf ~/.ssh/authorized_keys.source
-      '';
-    };
-  };
-
-  services.ssh-agent.enable = true;
-  programs.ssh = {
-    enable = true;
-    enableDefaultConfig = false;
-
-    extraOptionOverrides = {
-      StrictHostKeyChecking = "no";
-      LogLevel = "ERROR";
-    };
-
-    matchBlocks = {
-      "*" = {
-        userKnownHostsFile = "/dev/null";
-      };
-
-      "sree.dev" = {
-        hostname = "sree.dev";
-        user = "deploy";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-      };
-
-      "devtechnica.com" = {
-        hostname = "devtechnica.com";
-        user = "deploy";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-      };
-
-      "github.com" = {
-        hostname = "github.com";
-        user = "git";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-      };
-
-      "nullptr.sh" = {
-        hostname = opts.addresses.tailscale.apollo;
-        user = "admin";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-      };
-
-      "apollo" = {
-        hostname = opts.addresses.lan.apollo;
-        user = "admin";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-      };
-
-      "rocknix-rk3566" = {
-        hostname = opts.addresses.tailscale.rocknix;
-        user = "root";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-      };
-
-      "git.devtechnica.com" = {
-        hostname = "git.devtechnica.com";
-        user = "git";
-        port = 222;
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-      };
-
-      "gitlab.com" = {
-        hostname = "gitlab.com";
-        user = "git";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-      };
-
-      "rpi4b" = {
-        hostname = opts.addresses.lan.rpi4b;
-        user = "pi";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
-      };
-    };
   };
 
   nix = {
     package = pkgs.nixVersions.nix_2_28;
+
     settings = {
-      allowed-users = [ "${username}" ];
+
+      allowed-users        = [ "${username}" ];
       download-buffer-size = 4000000000;
-      fallback = true;
-      auto-optimise-store = true;
+      fallback             = true;
+      auto-optimise-store  = true;
+      http2                = false;
+      show-trace           = true;
+      trusted-users        = [ "${username}" ];
+      warn-dirty           = true;
+
       experimental-features = [
         "nix-command"
         "flakes"
         "recursive-nix"
       ];
-      http2 = false;
-      show-trace = true;
+
       substituters = [
         "https://attic.nullptr.sh/devstation"
         "https://cache.nixos.org/"
@@ -339,6 +130,7 @@
         "https://numtide.cachix.org"
         "https://colmena.cachix.org"
       ];
+
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
@@ -347,6 +139,7 @@
         "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
         "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
       ];
+      
       trusted-substituters = [
         "https://attic.nullptr.sh/devstation"
         "https://cache.nixos.org/"
@@ -355,17 +148,8 @@
         "https://numtide.cachix.org"
         "https://colmena.cachix.org"
       ];
-      trusted-users = [ "${username}" ];
-      warn-dirty = true;
+
     };
   };
 
-  nixpkgs = {
-    overlays = import ../../../../common/overlays { inherit inputs; };
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-      allowBroken = true;
-    };
-  };
 }

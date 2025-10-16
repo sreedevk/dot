@@ -11,17 +11,22 @@
     nix = {
       package = pkgs.nixVersions.stable;
       settings = {
+
         allowed-users = [ "sreedev" ];
         download-buffer-size = 4000000000;
         fallback = true;
         auto-optimise-store = true;
+        http2 = false;
+        show-trace = true;
+        trusted-users = [ "sreedev" ];
+        warn-dirty = true;
+
         experimental-features = [
           "nix-command"
           "flakes"
           "recursive-nix"
         ];
-        http2 = false;
-        show-trace = true;
+
         substituters = [
           "https://attic.nullptr.sh/devstation"
           "https://cache.nixos.org/"
@@ -30,6 +35,7 @@
           "https://numtide.cachix.org"
           "https://colmena.cachix.org"
         ];
+
         trusted-public-keys = [
           "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
@@ -38,6 +44,7 @@
           "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
           "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
         ];
+
         trusted-substituters = [
           "https://attic.nullptr.sh/devstation"
           "https://cache.nixos.org/"
@@ -46,8 +53,7 @@
           "https://numtide.cachix.org"
           "https://colmena.cachix.org"
         ];
-        trusted-users = [ "sreedev" ];
-        warn-dirty = true;
+
       };
     };
 
