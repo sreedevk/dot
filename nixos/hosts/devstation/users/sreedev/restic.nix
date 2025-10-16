@@ -49,7 +49,7 @@
 
               # prune and check
               "${pkgs.restic}/bin/restic unlock"
-              "${pkgs.restic}/bin/restic forget --prune --keep-daily 7"
+              "${pkgs.restic}/bin/restic forget --prune --keep-daily 7 --keep-weekly 5 --keep-monthly 6 --keep-yearly 0"
               "${pkgs.restic}/bin/restic check"
             ];
         };
