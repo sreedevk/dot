@@ -1,6 +1,7 @@
 { pkgs
 , config
 , opts
+, username
 , ...
 }:
 {
@@ -28,7 +29,7 @@
           Type = "oneshot";
           Environment = [
             "RESTIC_PASSWORD_FILE=${config.age.secrets.restic_backup_password.path}"
-            "RESTIC_REPOSITORY=sftp:nullptr.sh:/mnt/dpool1/backups/${opts.hostname}/restic-repository"
+            "RESTIC_REPOSITORY=sftp:nullptr.sh:/mnt/dpool1/backups/${username}@${opts.hostname}"
           ];
 
           ExecStart =
