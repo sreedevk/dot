@@ -37,6 +37,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.opt_local.signcolumn = "yes"
+  end,
+})
+
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = "Configurations on LSP Attach",
   callback = function(_)
