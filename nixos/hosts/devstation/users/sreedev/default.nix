@@ -2,6 +2,7 @@
 , config
 , opts
 , username
+, inputs
 , ...
 }:
 {
@@ -356,6 +357,7 @@
   };
 
   nixpkgs = {
+    overlays = import ../../../../common/overlays { inherit inputs; };
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
