@@ -8,10 +8,12 @@
   imports = [
 
     # Common Modules
+    ../../../../common/hm/agenix.nix
     ../../../../common/hm/alacritty
     ../../../../common/hm/amfora.nix
     ../../../../common/hm/awscli.nix
     ../../../../common/hm/base.nix
+    ../../../../common/hm/bash.nix
     ../../../../common/hm/brave.nix
     ../../../../common/hm/btop.nix
     ../../../../common/hm/core-max.nix
@@ -77,7 +79,20 @@
     ];
   };
 
+  home = {
+    enableNixpkgsReleaseCheck = false;
+    homeDirectory = "/home/${username}";
+    stateVersion = "24.11";
+    username = "${username}";
+  };
+
   home.file = {
+
+    ".config" = {
+      enable = true;
+      source = ../../../../../stowed/.config;
+      recursive = true;
+    };
 
     ".zshenv" = {
       enable = true;
