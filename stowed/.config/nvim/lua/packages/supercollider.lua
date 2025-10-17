@@ -19,13 +19,12 @@ return {
 
     scnvim.setup({
       keymaps = {
-        ['<M-e>'] = map('editor.send_line', { 'i', 'n' }),
-        ['<C-e>'] = {
+        ['<M-CR>'] = map('editor.send_line', { 'i', 'n' }),
+        ['<Leader><CR>'] = {
           map('editor.send_block', { 'i', 'n' }),
           map('editor.send_selection', 'x'),
         },
-        ['<CR>'] = map('postwin.toggle'),
-        ['<M-CR>'] = map('postwin.toggle', 'i'),
+        ['<M-e>'] = map('postwin.toggle', { 'i', 'n' }),
         ['<M-L>'] = map('postwin.clear', { 'n', 'i' }),
         ['<C-k>'] = map('signature.show', { 'n', 'i' }),
         ['<F12>'] = map('sclang.hard_stop', { 'n', 'x', 'i' }),
