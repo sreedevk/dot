@@ -59,9 +59,9 @@
     ../../../../common/hm/zathura.nix
     ../../../../common/hm/zellij.nix
     ../../../../common/hm/zsh.nix
-    ../../../../common/secrets/mappings.nix
 
     # Current User Specific
+    ../../secrets.nix
     ./modules/packages.nix
     ./modules/restic.nix
     ./modules/ssh.nix
