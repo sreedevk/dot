@@ -17,6 +17,14 @@ in
     radicle-node
   ];
 
+  home.sessionVariables = {
+    RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})";
+  };
+
+  systemd.user.sessionVariables = {
+    RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})";
+  };
+
   home.file = {
     ".radicle/config.json" = {
       enable = true;

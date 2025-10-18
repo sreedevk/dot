@@ -174,6 +174,16 @@ in
     taskwarrior-tui
   ];
 
+  home.sessionVariables = {
+    TASKWARRIOR_CLIENT_ID = "$(cat ${config.age.secrets.taskwarrior_client_id.path})";
+    TASKWARRIOR_ENCRYPTION_SECRET = "$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})";
+  };
+
+  systemd.user.sessionVariables = {
+    TASKWARRIOR_CLIENT_ID = "$(cat ${config.age.secrets.taskwarrior_client_id.path})";
+    TASKWARRIOR_ENCRYPTION_SECRET = "$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})";
+  };
+
   home.file = {
 
     ".taskrc" = {

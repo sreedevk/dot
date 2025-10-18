@@ -3,7 +3,6 @@ _: {
     "aws-secrets"                   = { file = ../../../secrets/nyc0/aws-secrets.age;                   };
     "baikal_user_password"          = { file = ../../../secrets/nyc0/baikal_user_password.age;          };
     "cargo-token"                   = { file = ../../../secrets/nyc0/cargo-token.age;                   };
-    "digitalocean-token"            = { file = ../../../secrets/nyc0/digitalocean-token.age;            };
     "gh-token"                      = { file = ../../../secrets/nyc0/gh-token.age;                      };
     "ghcr_ro_token"                 = { file = ../../../secrets/nyc0/ghcr_ro_token.age;                 };
     "hugging_face_token"            = { file = ../../../secrets/nyc0/hugging_face_token.age;            };
