@@ -47,7 +47,6 @@
           aspellDicts.en-science     # aspell science dictionary
           attic-client               # attic self hosted cache client
           bwfzf                      # bitwarden fzf
-          supercollider-with-plugins # supercollider
           cava                       # audio visualizer
           chuck                      # real-time sound synthesis
           claude-code                # coding agent

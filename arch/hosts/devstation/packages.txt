@@ -63,6 +63,7 @@ intel-media-driver
 iw
 iwd
 jq
+kexec-tools
 kmon
 less
 lib32-mesa
