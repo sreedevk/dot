@@ -10,7 +10,7 @@
 
 ; clock widget
 (defwindow clock [mon]
-  :monitor  { (math.tointeger mon)}
+  :monitor mon
   :geometry (geometry :x "0%"
                       :y "10%"
                       :width "40%"
