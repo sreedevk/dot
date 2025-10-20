@@ -1,6 +1,5 @@
 { pkgs
 , config
-, opts
 , username
 , ...
 }:
@@ -85,6 +84,8 @@
     stateVersion = "24.11";
     username = "${username}";
   };
+
+  programs.eww.enable = true;
 
   home.file = {
 
