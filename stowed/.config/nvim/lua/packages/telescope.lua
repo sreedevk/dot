@@ -11,6 +11,7 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-symbols.nvim',
     'nvim-treesitter/nvim-treesitter',
+    'davidgranstrom/telescope-scdoc.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
   cmd = "Telescope",
@@ -212,5 +213,6 @@ return {
     pcall(telscp.load_extension, 'zoxide')
     pcall(telscp.load_extension, 'heading')
     pcall(telscp.load_extension, 'live_grep_args')
+    pcall(telscp.load_extension, 'scdoc')
   end
 }
