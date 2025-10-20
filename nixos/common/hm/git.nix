@@ -3,9 +3,6 @@
 , config
 , ...
 }:
-let
-  gpgsign = if opts.git.enable-signing then "true" else "false";
-in
 {
   home.packages = with pkgs; [
     git
@@ -60,7 +57,7 @@ in
         repositoryformatversion = 0;
       };
       commit = {
-        inherit gpgsign;
+        gpgsign = opts.git.enable-signing;
       };
       init = {
         defaultBranch = "main";
@@ -70,30 +67,30 @@ in
         diff = "auto";
         interactive = "auto";
         status = "auto";
-        ui = "true";
+        ui = true;
       };
       rerere = {
-        enabled = "false";
+        enabled = false;
       };
       fetch = {
-        prune = "true";
+        prune = true;
       };
       advice = {
-        detachedHead = "false";
+        detachedHead = false;
       };
       filter = {
         lfs = {
           clean = "git-lfs clean -- %f";
           smudge = "git-lfs smudge -- %f";
           process = "git-lfs filter-process";
-          required = "true";
+          required = true;
         };
       };
       interactive = {
         diffFilter = "${pkgs.delta}/bin/delta --color-only";
       };
       "add.interactive" = {
-        useBuiltin = "false"; # required for git 2.37.0
+        useBuiltin = false; # required for git 2.37.0
       };
       merge = {
         conflictstyle = "zdiff3";
@@ -101,7 +98,7 @@ in
       safe = {
         directory = "/etc/nixos";
       };
-      aliases = {
+      alias = {
         a = "add";
         ap = "add --patch";
         br = "branch";
