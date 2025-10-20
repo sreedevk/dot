@@ -16,56 +16,33 @@ in
     gitleaks
   ];
 
-  programs.git = {
+  programs.delta = {
     enable = true;
-    aliases = {
-      a = "add";
-      ap = "add --patch";
-      br = "branch";
-      ca = "commit --amend";
-      cb = "checkout -b";
-      cl = "clone --recursive -j8";
-      cm = "commit -m";
-      co = "checkout";
-      cp = "cherry-pick";
-      df = "diff";
-      dfs = "diff --staged";
-      fucked = "reset --hard";
-      l = "log";
-      lg = "log --decorate --oneline --graph -n 20";
-      lgc = "log --decorate --oneline --graph -n 20 --no-abbrev";
-      pl = "pull";
-      ps = "push";
-      rb = "rebase";
-      s = "status";
-      st = "status";
-      wt = "worktree";
-      wta = "worktree add";
-      wtr = "worktree remove";
-    };
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        light = false;
-        features = "side-by-side line-numbers decorations";
-        syntax-theme = "Dracula";
-        plus-style = "syntax \"#003800\"";
-        minus-style = "syntax \"#3f0001\"";
-        zero-style = "dim syntax";
-        decorations = {
-          commit-decoration-style = "bold yellow box ul";
-          commit-style = "raw";
-          file-style = "omit";
-          file-decoration-style = "none";
-          hunk-header-decoration-style = "blue box";
-          hunk-header-file-style = "red";
-          hunk-header-line-number-style = "#067a00";
-          hunk-header-style = "file line-number syntax";
-        };
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      light = false;
+      features = "side-by-side line-numbers decorations";
+      syntax-theme = "Dracula";
+      plus-style = "syntax \"#003800\"";
+      minus-style = "syntax \"#3f0001\"";
+      zero-style = "dim syntax";
+      decorations = {
+        commit-decoration-style = "bold yellow box ul";
+        commit-style = "raw";
+        file-style = "omit";
+        file-decoration-style = "none";
+        hunk-header-decoration-style = "blue box";
+        hunk-header-file-style = "red";
+        hunk-header-line-number-style = "#067a00";
+        hunk-header-style = "file line-number syntax";
       };
     };
-    extraConfig = {
+  };
+
+  programs.git = {
+    enable = true;
+    settings = {
       user = {
         email = "sreedev@icloud.com";
         name = "sreedevk";
@@ -123,6 +100,31 @@ in
       };
       safe = {
         directory = "/etc/nixos";
+      };
+      aliases = {
+        a = "add";
+        ap = "add --patch";
+        br = "branch";
+        ca = "commit --amend";
+        cb = "checkout -b";
+        cl = "clone --recursive -j8";
+        cm = "commit -m";
+        co = "checkout";
+        cp = "cherry-pick";
+        df = "diff";
+        dfs = "diff --staged";
+        fucked = "reset --hard";
+        l = "log";
+        lg = "log --decorate --oneline --graph -n 20";
+        lgc = "log --decorate --oneline --graph -n 20 --no-abbrev";
+        pl = "pull";
+        ps = "push";
+        rb = "rebase";
+        s = "status";
+        st = "status";
+        wt = "worktree";
+        wta = "worktree add";
+        wtr = "worktree remove";
       };
     };
     ignores = [
