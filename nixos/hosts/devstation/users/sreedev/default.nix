@@ -94,22 +94,16 @@
       source = ../../../../../stowed/.config;
       recursive = true;
     };
+  };
 
-    ".zshenv" = {
-      enable = true;
-      text = ''
-        export CARGO_REGISTRY_TOKEN="$(cat ${config.age.secrets.cargo-token.path})"
-        export CR_PAT="$(cat ${config.age.secrets.ghcr_ro_token.path})"
-        export GH_TOKEN="$(cat ${config.age.secrets.gh-token.path})"
-        export HUGGING_FACE_TOKEN="$(cat ${config.age.secrets.hugging_face_token.path})"
-        export JIRA_API_TOKEN="$(cat ${config.age.secrets.jira-token.path})"
-        export OPENAI_API_KEY="$(cat ${config.age.secrets.openai_api_key.path})"
-        export OPEN_WEATHER_API_KEY="$(cat ${config.age.secrets.openweather-token.path})"
-        export PASTEBIN_API_KEY="$(cat ${config.age.secrets.pastebin-token.path})"
-        export WALLHAVEN_API_KEY="$(cat ${config.age.secrets.wallhaven-token.path})"
-      '';
-    };
-
+  home.sessionVariables = {
+    CARGO_REGISTRY_TOKEN="$(cat ${config.age.secrets.cargo-token.path})";
+    HUGGING_FACE_TOKEN="$(cat ${config.age.secrets.hugging_face_token.path})";
+    JIRA_API_TOKEN="$(cat ${config.age.secrets.jira-token.path})";
+    OPENAI_API_KEY="$(cat ${config.age.secrets.openai_api_key.path})";
+    OPEN_WEATHER_API_KEY="$(cat ${config.age.secrets.openweather-token.path})";
+    PASTEBIN_API_KEY="$(cat ${config.age.secrets.pastebin-token.path})";
+    WALLHAVEN_API_KEY="$(cat ${config.age.secrets.wallhaven-token.path})";
   };
 
   nix = {

@@ -13,7 +13,6 @@ _: {
       text = ''
         [[ -f ~/.profile ]]  && . ~/.profile
         [[ -f ~/.bashrc  ]]  && . ~/.bashrc
-        [[ -f ~/.zshenv  ]]  && . ~/.zshenv
       '';
     };
   };
