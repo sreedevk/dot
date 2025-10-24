@@ -106,6 +106,14 @@ services:
         type: "Radarr"
         apikey: "647b4305c84d4e36ba7357e74262a3f6"
 
+      - name: "Dispatcharr"
+        logo: "assets/tools/dispatcharr.png"
+        subtitle: "IPTV streams and EPG data"
+        tag: "iptv"
+        keywords: "iptv"
+        url: "https://dispatcharr.nullptr.sh"
+        target: "_blank"
+
       - name: "Sonarr"
         logo: "assets/tools/sonarr.png"
         subtitle: "TV Indexing & Searching"
