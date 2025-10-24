@@ -16,6 +16,7 @@ let
 in
 with builtins;
 {
+
   # nyc0
   "secrets/nyc0/apollo_admin_password.age".publicKeys         = attrValues nyc0;
   "secrets/nyc0/apollo_nginx_env.age".publicKeys              = attrValues nyc0;
@@ -30,6 +31,7 @@ with builtins;
   "secrets/nyc0/cargo-token.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/container_registry_env.age".publicKeys        = attrValues nyc0;
   "secrets/nyc0/dawarich_env.age".publicKeys                  = attrValues nyc0;
+  "secrets/nyc0/dumb_assets_env.age".publicKeys               = attrValues nyc0;
   "secrets/nyc0/fastmail_server_env.age".publicKeys           = attrValues nyc0;
   "secrets/nyc0/firefly_env.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/gh-token.age".publicKeys                      = attrValues nyc0;
@@ -65,4 +67,5 @@ with builtins;
 
   # nyc1
   "secrets/nyc1/farfalle_admin_password.age".publicKeys       = attrValues nyc1;
+
 }
