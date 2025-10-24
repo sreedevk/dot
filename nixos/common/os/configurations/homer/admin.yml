@@ -110,6 +110,7 @@ services:
   - name: "Media Administration"
     icon: "fas fa-server"
     items:
+
       - name: "qBittorrent"
         logo: "assets/tools/qbittorrent.png"
         tag: "torrent"
@@ -118,6 +119,13 @@ services:
         type: "qBittorrent"
         rateInterval: 2000
         torrentInterval: 5000
+
+      - name: "Qui"
+        logo: "assets/tools/qui.png"
+        subtitle: "qBittorrent WebUI"
+        tag: "qbittorrent-webui"
+        url: "https://qui.nullptr.sh"
+        target: "_blank"
 
       - name: "BitMagnet"
         logo: "assets/tools/bitmagnet.png"
