@@ -17,7 +17,8 @@ in
 with builtins;
 {
 
-  # nyc0
+  # SEC nyc0
+
   "secrets/nyc0/apollo_admin_password.age".publicKeys         = attrValues nyc0;
   "secrets/nyc0/apollo_nginx_env.age".publicKeys              = attrValues nyc0;
   "secrets/nyc0/aria2_env.age".publicKeys                     = attrValues nyc0;
@@ -56,6 +57,7 @@ with builtins;
   "secrets/nyc0/radicle_passphrase.age".publicKeys            = attrValues nyc0;
   "secrets/nyc0/restic_backup_password.age".publicKeys        = attrValues nyc0;
   "secrets/nyc0/romm_env.age".publicKeys                      = attrValues nyc0;
+  "secrets/nyc0/sonobarr_env.age".publicKeys                  = attrValues nyc0;
   "secrets/nyc0/tailscale_nginx_env.age".publicKeys           = attrValues nyc0;
   "secrets/nyc0/taskwarrior_client_id.age".publicKeys         = attrValues nyc0;
   "secrets/nyc0/taskwarrior_encryption_secret.age".publicKeys = attrValues nyc0;
@@ -65,7 +67,8 @@ with builtins;
   "secrets/nyc0/wallhaven-token.age".publicKeys               = attrValues nyc0;
   "secrets/nyc0/watchtower_env.age".publicKeys                = attrValues nyc0;
 
-  # nyc1
+  # SEC nyc1
+
   "secrets/nyc1/farfalle_admin_password.age".publicKeys       = attrValues nyc1;
 
 }

@@ -124,6 +124,14 @@ services:
         type: "Sonarr"
         apikey: "c51c7686634c479ebaf40b695322851e"
 
+      - name: "Sonobarr"
+        logo: "assets/tools/sonobarr.png"
+        subtitle: "Music Discovery"
+        tag: "music"
+        keywords: "music"
+        url: "https://sonobarr.nullptr.sh"
+        target: "_blank"
+
       - name: "Bazarr"
         logo: "assets/tools/bazarr.png"
         subtitle: "Subtitles Searching & Indexing"
