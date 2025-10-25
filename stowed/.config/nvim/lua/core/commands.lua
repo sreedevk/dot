@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.opt.signcolumn = 'yes'
     vim.diagnostic.config {
       virtual_lines = false, -- { current_line = true },
-      virtual_text = { current_line = true },
+      virtual_text = false, -- virtual_text = { current_line = true },
     }
 
     local conform_ok, conform = pcall(require, 'conform')
