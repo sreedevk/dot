@@ -25,8 +25,7 @@ alias cw='cliphist --wipe'
 
 # Taskwarrior
 alias tt="taskwarrior-tui"
-alias to="taskopen"
-alias tl="task list"
+alias tl="tasklite"
 
 # Safe Opts
 alias cp="cp -i"
