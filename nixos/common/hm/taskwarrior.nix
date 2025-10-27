@@ -130,6 +130,7 @@ let
       urgency.uda.priority.M.coefficient=${builtins.toString configs.coefficients.uda.M}
       urgency.uda.priority.L.coefficient=${builtins.toString configs.coefficients.uda.L}
       uda.taskwarrior-tui.shortcuts.1=${taskwarrior-tui-taskopenscript}/bin/tt-taskopen
+      report.current.filter=(status:pending and -unplanned)
       ${mkprojectCoefficients configs.coefficients.user.projects}
       ${mktagCoefficients configs.coefficients.user.tags}
 
