@@ -50,8 +50,9 @@ let
     coefficients = {
       user = {
         tags = [
-          { name = "important"; coefficient = 15.0; }
-          { name = "unplanned"; coefficient = -10.0; }
+          { name = "important"; coefficient =  15.0;  }
+          { name = "later";     coefficient = -10.0;  }
+          { name = "somday";    coefficient = -15.0;  }
         ];
         projects = [
           { name = "learn:tech"; coefficient = 5.0; }
@@ -130,7 +131,9 @@ let
       urgency.uda.priority.M.coefficient=${builtins.toString configs.coefficients.uda.M}
       urgency.uda.priority.L.coefficient=${builtins.toString configs.coefficients.uda.L}
       uda.taskwarrior-tui.shortcuts.1=${taskwarrior-tui-taskopenscript}/bin/tt-taskopen
-      report.current.filter=(status:pending and -unplanned)
+      uda.taskwarrior-tui.task-report.next.filter=status:pending -WAITING limit:page -someday
+      uda.taskwarrior-tui.background_process=task sync
+      uda.taskwarrior-tui.background_process_period=60
       ${mkprojectCoefficients configs.coefficients.user.projects}
       ${mktagCoefficients configs.coefficients.user.tags}
 
