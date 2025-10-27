@@ -23,20 +23,10 @@ let
 
   taskwarrior-notifier = pkgs.writeShellScriptBin "taskwarrior-notify-due" ''
     export DISPLAY=:1
-    now=$(date +%s)
-    in_one_hour=$(date -d "+1 hour" +%s)
-    tasks_due_today=$(task due:today -ACTIVE _ids)
-    tasks_due_soon=""
-    for task_id in $tasks_due_today; do
-    	task_due_date="$(task _get $task_id.due)"
-    	task_due_epoch="$(date -d "$task_due_date" +%s)"
-    	task_description="$(task _get $task_id.description)"
-    	if [ "$task_due_epoch" -gt "$now" ] && [ "$task_due_epoch" -le "$in_one_hour" ]; then
-    		tasks_due_soon+="$task_id: $task_description"$'\n'
-    	fi
-    done
+    tasks_due_soon=$(task due:+1h -ACTIVE list --format '{id}: {description}' 2>/dev/null)
+
     if [ -n "$tasks_due_soon" ]; then
-    	notify-send -a "taskwarrior" -u critical -c tasks -w 'You have tasks due in the next hour:'$'\n'"$tasks_due_soon"
+        notify-send -a "taskwarrior" -u critical -c tasks -w 'The following tasks are due in the next hour:'$'\n'"$tasks_due_soon"
     fi
   '';
 
@@ -60,30 +50,30 @@ let
     coefficients = {
       user = {
         tags = [
-          { name = "important"; coefficient = 15.0;  }
+          { name = "important"; coefficient = 15.0; }
           { name = "unplanned"; coefficient = -10.0; }
         ];
         projects = [
-          { name = "learn:tech"; coefficient = 5.0;       }
-          { name = "blog"; coefficient = 5.0;             }
-          { name = "opensource"; coefficient = 5.0;       }
+          { name = "learn:tech"; coefficient = 5.0; }
+          { name = "blog"; coefficient = 5.0; }
+          { name = "opensource"; coefficient = 5.0; }
           { name = "personal:homenet"; coefficient = 5.0; }
-          { name = "work"; coefficient = 8.0;             }
-          { name = "other"; coefficient = 4.0;            }
+          { name = "work"; coefficient = 8.0; }
+          { name = "other"; coefficient = 4.0; }
         ];
       };
 
       system = {
-        due         = 12.0;
-        blocking    = 2.0;
-        scheduled   = 5.0;
-        active      = 4.0;
-        age         = 2.0;
+        due = 12.0;
+        blocking = 2.0;
+        scheduled = 5.0;
+        active = 4.0;
+        age = 2.0;
         annotations = 1.0;
-        tags        = 1.0;
-        project     = 1.0;
-        waiting     = -3.0;
-        blocked     = -5.0;
+        tags = 1.0;
+        project = 1.0;
+        waiting = -3.0;
+        blocked = -5.0;
       };
       uda = {
         H = 6.0;
