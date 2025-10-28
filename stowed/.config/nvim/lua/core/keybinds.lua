@@ -49,6 +49,7 @@ vim.keymap.set("n", "<leader>la", "<cmd>.lua<CR>", { noremap = true, desc = "eva
 vim.keymap.set("n", "<leader><leader>la", "<cmd>source %<CR>", { noremap = true, desc = "eval buffer in nvim lua rt" })
 
 -- Misc {{{1
+vim.keymap.set({ 'v', 'x' }, "<Leader>p", '"_dP', { noremap = true, desc = "paste without yanking delete" })
 vim.keymap.set('t', "<C-\\><C-\\>", "<C-\\><C-n>", { noremap = true, desc = "escape terminal mode" })
 vim.keymap.set({ 'n', 'v' }, ',', ':', { noremap = true, desc = "enter <cmd> mode" })
 vim.keymap.set('n', '<esc>', '<cmd>noh<cr>', { noremap = true, desc = "no highlights" })
