@@ -92,4 +92,13 @@ vim.keymap.set(
   { noremap = true, desc = "insert unix current timestamp" }
 )
 
+vim.keymap.set(
+  { 'n', 'v' },
+  '<Leader>ff',
+  function()
+    vim.lsp.buf.format({ async = true })
+  end,
+  { noremap = true }
+)
+
 -- vim:foldmethod=marker

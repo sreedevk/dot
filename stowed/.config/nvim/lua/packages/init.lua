@@ -7,6 +7,7 @@ return {
   'tpope/vim-repeat',
   'tpope/vim-surround',
   'tpope/vim-vinegar',
+  'neovim/nvim-lspconfig',
 
   { "chrisgrieser/nvim-early-retirement", lazy = true,  config = true,  event = "VeryLazy" },
   { 'petertriho/nvim-scrollbar',          lazy = true,  config = true,  event = "BufReadPost" },

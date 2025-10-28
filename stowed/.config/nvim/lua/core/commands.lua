@@ -13,12 +13,10 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
-  command = "silent! lua vim.highlight.on_yank()"
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "*",
-  command = "setlocal formatoptions-=o"
+  callback = function(event)
+    vim.highlight.on_yank()
+    vim.opt_local.formatoptions:remove({ "o" })
+  end
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -37,51 +35,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "qf",
-  callback = function()
-    vim.opt_local.signcolumn = "yes"
-  end,
-})
-
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = "Configurations on LSP Attach",
   callback = function(_)
-    vim.opt.signcolumn = 'yes'
     vim.diagnostic.config {
       virtual_lines = false, -- { current_line = true },
-      virtual_text = false, -- virtual_text = { current_line = true },
+      virtual_text = false, 
+      -- virtual_text = { current_line = true },
     }
-
-    local conform_ok, conform = pcall(require, 'conform')
-    if conform_ok then
-      vim.keymap.set(
-        { 'n', 'v' },
-        '<Leader>ff',
-        function() conform.format({ async = true, lsp_fallback = true }) end,
-        { noremap = true }
-      )
-    else
-      vim.keymap.set(
-        { 'n', 'v' },
-        '<Leader>ff',
-        function() vim.lsp.buf.format({ async = true }) end,
-        { noremap = true }
-      )
-    end
-
-    -- grn        : rename
-    -- grr        : references
-    -- gri        : goto implementation
-    -- g0         : document symbol
-    -- gra        : code action
-    -- CTRL-S     : signature help
-    -- [d and ]d  : jump b/w diagnostics
-    -- [q, ]q, [Q, ]Q, [CTRL-Q, ]CTRL-Q navigate through the quickfix list
-    -- [l, ]l, [L, ]L, [CTRL-L, ]CTRL-L navigate through the location list
-    -- [t, ]t, [T, ]T, [CTRL-T, ]CTRL-T navigate through the tag matchlist
-    -- [a, ]a, [A, ]A navigate through the argument list
-    -- [b, ]b, [B, ]B navigate through the buffer list
-    -- [<Space>, ]<Space> add an empty line above and below the cursor
   end
 })

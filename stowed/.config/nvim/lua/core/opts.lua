@@ -49,6 +49,7 @@ vim.opt.smartindent     = true
 vim.opt.linebreak       = true
 vim.opt.breakindent     = true
 vim.opt.title           = true
+vim.opt.signcolumn      = 'yes'
 vim.opt.showmatch       = true
 vim.opt.hlsearch        = true
 vim.opt.list            = false
