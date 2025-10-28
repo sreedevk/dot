@@ -50,17 +50,44 @@ let
     coefficients = {
       user = {
         tags = [
-          { name = "important"; coefficient =  15.0;  }
-          { name = "later";     coefficient = -10.0;  }
-          { name = "somday";    coefficient = -15.0;  }
+          {
+            name = "important";
+            coefficient = 15.0;
+          }
+          {
+            name = "later";
+            coefficient = -10.0;
+          }
+          {
+            name = "somday";
+            coefficient = -15.0;
+          }
         ];
         projects = [
-          { name = "learn:tech"; coefficient = 5.0; }
-          { name = "blog"; coefficient = 5.0; }
-          { name = "opensource"; coefficient = 5.0; }
-          { name = "personal:homenet"; coefficient = 5.0; }
-          { name = "work"; coefficient = 8.0; }
-          { name = "other"; coefficient = 4.0; }
+          {
+            name = "learn:tech";
+            coefficient = 5.0;
+          }
+          {
+            name = "blog";
+            coefficient = 5.0;
+          }
+          {
+            name = "opensource";
+            coefficient = 5.0;
+          }
+          {
+            name = "personal:homenet";
+            coefficient = 5.0;
+          }
+          {
+            name = "work";
+            coefficient = 8.0;
+          }
+          {
+            name = "other";
+            coefficient = 4.0;
+          }
         ];
       };
 
@@ -143,61 +170,60 @@ let
 in
 {
 
-  home.packages = with pkgs; [
-    taskwarrior3
-    taskwarrior-tui
-  ];
+  home = {
+    packages = with pkgs; [
+      taskwarrior3
+      taskwarrior-tui
+    ];
+    sessionVariables = {
+      TASKWARRIOR_CLIENT_ID = "$(cat ${config.age.secrets.taskwarrior_client_id.path})";
+      TASKWARRIOR_ENCRYPTION_SECRET = "$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})";
+    };
+    file = {
+      ".taskrc" = {
+        enable = true;
+        text = mkTaskConfig taskwarriorSettings;
+        recursive = false;
+      };
 
-  home.sessionVariables = {
-    TASKWARRIOR_CLIENT_ID = "$(cat ${config.age.secrets.taskwarrior_client_id.path})";
-    TASKWARRIOR_ENCRYPTION_SECRET = "$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})";
+      ".taskopenrc" = {
+        enable = true;
+        text = ''
+          [General]
+          taskbin             = task
+          taskargs
+          no_annotation_hook  = "addnote $ID"
+          task_attributes     = "priority,project,tags,description"
+          --sort:"urgency-,annot"
+          EDITOR = nvim
+          path_ext=/usr/share/taskopen/scripts
+
+          [Actions]
+          files.target=annotations
+          files.labelregex=".*"
+          files.regex="^[\\.\\/~]+.*\\.(.*)"
+          files.command="$EDITOR $FILE"
+          files.modes="batch,any,normal"
+
+          notes.target=annotations
+          notes.labelregex=".*"
+          notes.regex="^Notes(\\..*)?"
+          notes.command="""editnote ~/Data/notebook/tasknotes/$UUID$LAST_MATCH "$TASK_DESCRIPTION" $UUID"""
+          notes.modes="batch,any,normal"
+
+          url.target=annotations
+          url.labelregex=".*"
+          url.regex="((?:www|http|https).*)"
+          url.command="xdg-open $LAST_MATCH"
+          url.modes="batch,any,normal"
+        '';
+      };
+    };
   };
 
   systemd.user.sessionVariables = {
     TASKWARRIOR_CLIENT_ID = "$(cat ${config.age.secrets.taskwarrior_client_id.path})";
     TASKWARRIOR_ENCRYPTION_SECRET = "$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})";
-  };
-
-  home.file = {
-
-    ".taskrc" = {
-      enable = true;
-      text = mkTaskConfig taskwarriorSettings;
-      recursive = false;
-    };
-
-    ".taskopenrc" = {
-      enable = true;
-      text = ''
-        [General]
-        taskbin             = task
-        taskargs
-        no_annotation_hook  = "addnote $ID"
-        task_attributes     = "priority,project,tags,description"
-        --sort:"urgency-,annot"
-        EDITOR = nvim
-        path_ext=/usr/share/taskopen/scripts
-
-        [Actions]
-        files.target=annotations
-        files.labelregex=".*"
-        files.regex="^[\\.\\/~]+.*\\.(.*)"
-        files.command="$EDITOR $FILE"
-        files.modes="batch,any,normal"
-
-        notes.target=annotations
-        notes.labelregex=".*"
-        notes.regex="^Notes(\\..*)?"
-        notes.command="""editnote ~/Data/notebook/tasknotes/$UUID$LAST_MATCH "$TASK_DESCRIPTION" $UUID"""
-        notes.modes="batch,any,normal"
-
-        url.target=annotations
-        url.labelregex=".*"
-        url.regex="((?:www|http|https).*)"
-        url.command="xdg-open $LAST_MATCH"
-        url.modes="batch,any,normal"
-      '';
-    };
   };
 
   systemd.user = {

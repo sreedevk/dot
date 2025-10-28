@@ -1,8 +1,9 @@
-{ pkgs
-, username
-, opts
-, config
-, ...
+{
+  pkgs,
+  username,
+  opts,
+  config,
+  ...
 }:
 let
   radconf = import ./configs.nix;
@@ -12,24 +13,25 @@ let
   '';
 in
 {
-  home.packages = with pkgs; [
-    radicle-httpd
-    radicle-node
-  ];
+  home = {
+    packages = with pkgs; [
+      radicle-httpd
+      radicle-node
+    ];
 
-  home.sessionVariables = {
-    RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})";
+    sessionVariables = {
+      RAD_PASSPHRASE = "$(cat ${config.age.secrets.radicle_passphrase.path})";
+    };
+    file = {
+      ".radicle/config.json" = {
+        enable = true;
+        text = radconf."${username}@${opts.hostname}";
+      };
+    };
   };
 
   systemd.user.sessionVariables = {
-    RAD_PASSPHRASE="$(cat ${config.age.secrets.radicle_passphrase.path})";
-  };
-
-  home.file = {
-    ".radicle/config.json" = {
-      enable = true;
-      text = radconf."${username}@${opts.hostname}";
-    };
+    RAD_PASSPHRASE = "$(cat ${config.age.secrets.radicle_passphrase.path})";
   };
 
   systemd.user = {
