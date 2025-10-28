@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
-  callback = function(event)
+  callback = function(_)
     vim.highlight.on_yank()
     vim.opt_local.formatoptions:remove({ "o" })
   end
@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(_)
     vim.diagnostic.config {
       virtual_lines = false, -- { current_line = true },
-      virtual_text = false, 
+      virtual_text = false,
       -- virtual_text = { current_line = true },
     }
   end
