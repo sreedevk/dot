@@ -54,10 +54,9 @@
         mkSystems
         mkHomes 
         mkFormatters
-        mkArchSystems
+        mkNonNixSystems
         mkColmenaFromNixOSConfigurations
-        forEachSystem
-      ;
+        forEachSystem;
 
     in
     {
@@ -85,7 +84,7 @@
 
       # Arch linux system configs
       systemConfigs =
-        mkArchSystems [
+        mkNonNixSystems [
           { host = "devstation";  system = systems.x86;   }
           { host = "devtechnica"; system = systems.x86;   }
           { host = "rpi4b";       system = systems.arm64; }

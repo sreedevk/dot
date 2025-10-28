@@ -61,7 +61,7 @@ rec {
       };
     };
 
-  mkArchSystem =
+  mkNonNixSystem =
     system: hostname:
     system-manager.lib.makeSystemConfig {
       modules = [
@@ -123,12 +123,12 @@ rec {
       }) list
     );
 
-  mkArchSystems =
+  mkNonNixSystems =
     list:
     builtins.listToAttrs (
       map (x: {
         name = x.host;
-        value = mkArchSystem x.system x.host;
+        value = mkNonNixSystem x.system x.host;
       }) list
     );
 }
