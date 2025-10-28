@@ -5,11 +5,10 @@
 , ...
 }:
 let
-  sessionizer   = import ./scripts/sessionizer.nix   { inherit pkgs;      };
-  bwfzf         = import ./scripts/bwfzf.nix         { inherit pkgs;      };
-  sshfzf        = import ./scripts/sshfzf.nix        { inherit pkgs;      };
-  time          = import ./scripts/time.nix          { inherit pkgs opts; };
-  repoclo       = import ./scripts/repoclo.nix       { inherit pkgs;      };
+  sessionizer   = import ./scripts/sessionizer.nix    { inherit pkgs;      };
+  bwfzf         = import ./scripts/bwfzf.nix          { inherit pkgs;      };
+  sshfzf        = import ./scripts/sshfzf.nix         { inherit pkgs;      };
+  time          = import ./scripts/time.nix           { inherit pkgs opts; };
 
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-super-fingers";
@@ -111,7 +110,6 @@ in
       bind C-p choose-buffer
 
       # WORKFLOWS
-      bind C-c run-shell "tmux neww ${repoclo}/bin/repoclo"
       bind C-e run-shell "tmux neww ${pkgs.neovim}/bin/nvim"
       bind C-f run-shell "tmux neww ${pkgs.yazi}/bin/yazi"
       bind C-g run-shell "tmux neww ${pkgs.lazygit}/bin/lazygit"
