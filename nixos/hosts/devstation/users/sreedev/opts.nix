@@ -1,7 +1,7 @@
 {
   desktop = {
     enable = true;
-    wallpaper = "flowers/a_group_of_pink_flowers_on_a_tree.jpg";
+    wallpaper = "wallhaven-3q9qky.png";
     scale = "1";
   };
 
