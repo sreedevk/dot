@@ -78,7 +78,7 @@ return {
                   default = "gpt-oss:20b",
                 },
               },
-              env = { url = "http://127.0.0.1:11434" },
+              env = { url = "https://ollama.nullptr.sh" },
               parameters = { sync = true, },
             })
           end,

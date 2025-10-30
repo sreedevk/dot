@@ -6,7 +6,6 @@ vim.api.nvim_create_user_command('Q', 'q', {})
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "html", "markdown", "text", "gemtext" },
   callback = function()
-    vim.opt_local.spelllang = "en"
     vim.opt_local.spell = true
   end,
 })

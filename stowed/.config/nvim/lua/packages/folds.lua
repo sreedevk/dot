@@ -16,10 +16,9 @@ return {
     "jghauser/fold-cycle.nvim",
     lazy = true,
     enabled = true,
-    ft = { "markdown" },
     keys = {
-      { '<C-;>',  function() require('fold-cycle').open() end,  desc = "Open Folds",  silent = true },
-      { '<C-M-;>',  function() require('fold-cycle').close() end,  desc = "Open Folds",  silent = true },
+      { '<M-TAB>',  function() require('fold-cycle').open() end,  desc = "Open Folds",  silent = true },
+      { '<M-S-TAB>',  function() require('fold-cycle').close() end,  desc = "Open Folds",  silent = true },
     },
     opts = {
       open_if_max_closed = true,
