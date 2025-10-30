@@ -280,7 +280,7 @@
       intel-media-driver
       libvdpau-va-gl
       vaapiIntel
-      vaapiVdpau
+      libva-vdpau-driver
     ];
   };
 
