@@ -10,6 +10,7 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 4. bug: gpg signing keys should be user specific in common modules
 5. feature: migrate to traefik **HIGH PRIO**
 6. notes sync
+7. add metube custom paths for downloading
 
 ## Pre Requisites
 ### Install Home Manager CLI
