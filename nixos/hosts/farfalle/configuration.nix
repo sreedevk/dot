@@ -96,7 +96,7 @@
     config = {
       allowUnfree = true;
       packageOverrides = pkgs: {
-        vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+        intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
       };
     };
   };
@@ -279,7 +279,7 @@
       intel-compute-runtime
       intel-media-driver
       libvdpau-va-gl
-      vaapiIntel
+      intel-vaapi-driver
       libva-vdpau-driver
     ];
   };
@@ -311,7 +311,7 @@
 
 
   services.udev.packages = [
-    pkgs.vaapiIntel
+    pkgs.intel-vaapi-driver
     pkgs.intel-media-driver
   ];
 
