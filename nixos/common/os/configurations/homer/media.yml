@@ -56,6 +56,14 @@ services:
         url: "https://pinepods.nullptr.sh"
         target: "_blank"
 
+      - name: "Fireshare"
+        logo: "assets/tools/fireshare.png"
+        subtitle: "FireShare Video Gallery"
+        tag: "video-gallery"
+        keywords: "video-gallery"
+        url: "https://fireshare.nullptr.sh"
+        target: "_blank"
+
       - name: "Lidarr"
         logo: "assets/tools/lidarr.png"
         subtitle: "Music Indexing & Searching"

@@ -35,6 +35,7 @@ with builtins;
   "secrets/nyc0/dumb_assets_env.age".publicKeys               = attrValues nyc0;
   "secrets/nyc0/fastmail_server_env.age".publicKeys           = attrValues nyc0;
   "secrets/nyc0/firefly_env.age".publicKeys                   = attrValues nyc0;
+  "secrets/nyc0/fireshare_env.age".publicKeys                 = attrValues nyc0;
   "secrets/nyc0/gh-token.age".publicKeys                      = attrValues nyc0;
   "secrets/nyc0/ghcr_ro_token.age".publicKeys                 = attrValues nyc0;
   "secrets/nyc0/gotify_env.age".publicKeys                    = attrValues nyc0;
