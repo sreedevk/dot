@@ -61,13 +61,6 @@ services:
         url: "https://nginx.nullptr.sh"
         target: "_blank"
 
-      - name: "FileBrowser"
-        logo: "assets/tools/fb.png"
-        subtitle: "file manager"
-        tag: "file-management"
-        url: "https://files.nullptr.sh"
-        target: "_blank"
-
       - name: "NextExplorer"
         logo: "assets/tools/nextexplorer.png"
         subtitle: "File Explorer"

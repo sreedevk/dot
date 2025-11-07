@@ -59,7 +59,6 @@
     dawarich-db               = "5444";
     dawarich-redis            = "6350";
     dockge                    = "5001";
-    filebrowser               = "8980";
     firefly_app               = "10800";
     firefly_db                = "3338";
     firefly_importer          = "4086";
