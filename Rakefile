@@ -4,6 +4,13 @@ namespace :nix do
     sh('nix fmt')
   end
 
+  namespace :deploy do
+    desc "colmena deploy on host apollo"
+    task :apollo do 
+      sh("colmena apply --impure --on apollo")
+    end
+  end
+
   namespace :flake do
     desc "update nix flake.lock"
     task :update do 
