@@ -68,6 +68,13 @@ services:
         url: "https://files.nullptr.sh"
         target: "_blank"
 
+      - name: "NextExplorer"
+        logo: "assets/tools/nextexplorer.png"
+        subtitle: "File Explorer"
+        tag: "file-explorer"
+        url: "https://ne.nullptr.sh"
+        target: "_blank"
+
       - name: Olivetin
         logo: "assets/tools/olivetin.png"
         subtitle: "Command Runner"

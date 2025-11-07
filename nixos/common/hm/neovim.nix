@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 let
   formatters = with pkgs; [
-    typstfmt # typst
+    typstyle # typst
     elmPackages.elm-format # elm
     dockfmt # Dockerfile
   ];
