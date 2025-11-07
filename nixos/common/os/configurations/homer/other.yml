@@ -21,3 +21,10 @@ services:
         tag: "adult-media-org"
         url: "https://stash.nullptr.sh"
         target: "_blank"
+
+      - name: "Stash VR"
+        logo: "assets/tools/stash.png"
+        subtitle: "Stash VR Media Server"
+        tag: "adult-vr-media-server"
+        url: "https://stashvr.nullptr.sh"
+        target: "_blank"
