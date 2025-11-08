@@ -69,6 +69,14 @@ in
           }
         ];
       };
+      audio = {
+        cavaFrameRate = 120;
+        mprisBlacklist = [ ];
+        preferredPlayer = "";
+        visualizerType = "linear";
+        volumeOverdrive = false;
+        volumeStep = 5;
+      };
       notifications = {
         enabled = true;
         doNotDisturb = false;

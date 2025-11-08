@@ -110,6 +110,7 @@ in
       bind C-p choose-buffer
 
       # WORKFLOWS
+      bind C-a run-shell "tmux neww ${pkgs.wiremix}/bin/wiremix"
       bind C-e run-shell "tmux neww ${pkgs.neovim}/bin/nvim"
       bind C-f run-shell "tmux neww ${pkgs.yazi}/bin/yazi"
       bind C-g run-shell "tmux neww ${pkgs.lazygit}/bin/lazygit"
@@ -118,6 +119,7 @@ in
       bind C-r run-shell "tmux neww ${pkgs.newsboat}/bin/newsboat"
       bind C-s run-shell "tmux neww ${sshfzf}/bin/ssh-fzf"
       bind C-t run-shell "tmux neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
+      bind C-w run-shell "tmux neww ${bwfzf}/bin/bwfzf"
       bind C-w run-shell "tmux neww ${bwfzf}/bin/bwfzf"
 
       # MOUSE SUPPORT
