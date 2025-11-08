@@ -4,22 +4,36 @@ vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
 
 vim.api.nvim_create_autocmd("FileType", {
+  desc = "Enable Spellcheck on Text Documents",
   pattern = { "html", "markdown", "text", "gemtext" },
+  group = vim.api.nvim_create_augroup("enable_spell_on_text_docs", {}),
   callback = function()
     vim.opt_local.spell = true
   end,
 })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight Yanked Text for Clarity",
   pattern = "*",
+  group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
   callback = function(_)
-    vim.highlight.on_yank()
+    vim.highlight.on_yank({ timeout = 200, visual = true })
+  end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "Do not add comment leader when using O/o to insert new line",
+  pattern = "*",
+  group = vim.api.nvim_create_augroup("no_auto_comment", {}),
+  callback = function()
     vim.opt_local.formatoptions:remove({ "o" })
   end
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+  desc = "Aux Buffer Conveniences",
   pattern = vim.g.auxbuffers,
+  group = vim.api.nvim_create_augroup("quick_quit_aux_bufs", {}),
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", "<cmd>quit<CR>", { buffer = event.buf, silent = true })
@@ -27,25 +41,37 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { 'gitcommit', 'gitrebase' },
-  callback = function(event)
-    vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>wq<CR>", { buffer = event.buf, silent = true })
-  end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
+  desc = "Open help docs on vertical splits to the right",
   pattern = "help",
   command = "wincmd L"
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  desc = "Configurations on LSP Attach",
+  desc = "Disable LSP Diagnostic Virtual Lines (tiny lsp diagnostics plugin)",
+  group = vim.api.nvim_create_augroup("disable_virtual_line_diagnostics", {}),
   callback = function(_)
     vim.diagnostic.config {
-      virtual_lines = false, -- { current_line = true },
-      virtual_text = false,
-      -- virtual_text = { current_line = true },
+      virtual_lines = false, -- { current_line = true }
+      virtual_text = false,  -- { current_line = true }
     }
+  end
+})
+
+--------- keep cusorline only on active window
+vim.api.nvim_create_augroup("cursorline_only_on_cwindow", { clear = true })
+
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+  desc = "Enable cursorline when entering window/buffer.",
+  group = "cursorline_only_on_cwindow",
+  callback = function()
+    vim.opt_local.cursorline = true
+  end
+})
+
+vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+  desc = "Disable cursorline when leaving window/buffer.",
+  group = "cursorline_only_on_cwindow",
+  callback = function()
+    vim.opt_local.cursorline = false
   end
 })

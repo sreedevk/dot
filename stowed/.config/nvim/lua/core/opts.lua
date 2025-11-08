@@ -17,6 +17,8 @@ vim.g.auxbuffers        = {
   "vim",
   "undotree",
   "neo-tree",
+  'gitcommit',
+  'gitrebase'
 }
 
 vim.g.loaded            = 1
