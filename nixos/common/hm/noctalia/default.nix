@@ -122,6 +122,7 @@ in
           left = [
             {
               id = "ControlCenter";
+              icon = "app-window";
               useDistroLogo = false;
             }
             { id = "WiFi"; }
