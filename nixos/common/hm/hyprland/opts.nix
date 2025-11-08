@@ -474,7 +474,7 @@ in
         mod = "SUPER";
         keys = "C";
         dispatcher = "exec";
-        args = "noctalia ipc call settings toggle";
+        args = "noctalia ipc call controlCenter toggle";
       }
       {
         mod = "SUPER";
@@ -541,6 +541,12 @@ in
         keys = "P";
         dispatcher = "exec";
         args = "${hypr-toggleblur}/bin/hypr-toggleblur";
+      }
+      {
+        mod = "SUPER";
+        keys = "S";
+        dispatcher = "exec";
+        args = "noctalia ipc call settings toggle";
       }
       {
         mod = "SUPER";
