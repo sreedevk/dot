@@ -198,7 +198,7 @@ in
               showCpuUsage = true;
               showCpuTemp = true;
               showMemoryUsage = true;
-              showMemoryAsPercent = true;
+              showMemoryAsPercent = false;
               showNetworkStats = false;
               showDiskUsage = true;
             }
