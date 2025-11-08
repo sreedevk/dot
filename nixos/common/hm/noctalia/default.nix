@@ -1,4 +1,9 @@
-{ config, pkgs, opts, ... }:
+{
+  config,
+  pkgs,
+  opts,
+  ...
+}:
 let
   gpu = import ./modules/gpu.nix { inherit pkgs; };
   noctalia = pkgs.writeShellScriptBin "noctalia" ''
@@ -59,6 +64,17 @@ in
         lowUrgencyDuration = 3;
         normalUrgencyDuration = 8;
         criticalUrgencyDuration = 15;
+      };
+      appLauncher = {
+        enableClipboardHistory = false;
+        position = "center";
+        backgroundOpacity = 1;
+        pinnedExecs = [ ];
+        useApp2Unit = false;
+        sortByMostUsed = true;
+        terminalCommand = "alacritty -e";
+        customLaunchPrefixEnabled = false;
+        customLaunchPrefix = "";
       };
       wallpaper = {
         enabled = true;
@@ -171,13 +187,13 @@ in
         avatarImage = "";
         dimDesktop = true;
         radiusRatio = 0.2;
-        scaleRatio = 1.00;
+        scaleRatio = 1.15;
       };
       ui = {
         fontDefault = "Iosevka Nerd Font";
         fontFixed = "Iosevka Nerd Font";
-        fontDefaultScale = 1.00;
-        fontFixedScale = 1.00;
+        fontDefaultScale = 1.15;
+        fontFixedScale = 1.15;
         tooltipsEnabled = true;
         panelsOverlayLayer = true;
       };
