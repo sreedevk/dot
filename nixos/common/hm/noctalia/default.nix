@@ -193,7 +193,11 @@ in
               showUnreadBadge = true;
               hideWhenZero = true;
             }
-            { id = "Tray"; }
+            {
+              id = "Tray";
+              blacklist = [ ];
+              colorizeIcons = false;
+            }
           ];
         };
       };
