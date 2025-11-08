@@ -24,6 +24,22 @@ in
     enable = true;
     package = config.lib.nixGL.wrap pkgs.noctalia;
     systemd.enable = true;
+    colors = with config.lib.stylix.colors; {
+      mError = "#${base08}";
+      mOnError = "#${base00}";
+      mOnPrimary = "#${base00}";
+      mOnSecondary = "#${base00}";
+      mOnSurface = "#${base04}";
+      mOnSurfaceVariant = "#${base04}";
+      mOnTertiary = "#${base00}";
+      mOutline = "#${base02}";
+      mPrimary = "#${base0B}";
+      mSecondary = "#${base0A}";
+      mShadow = "#${base00}";
+      mSurface = "#${base00}";
+      mSurfaceVariant = "#${base01}";
+      mTertiary = "#${base0D}";
+    };
     settings = {
       dock = {
         enabled = false;
@@ -138,7 +154,7 @@ in
             }
             {
               id = "CustomButton";
-              icon = "none";
+              icon = "cpu-2";
               leftClickExec = "alacritty -e nvtop";
               rightClickExec = "";
               middleClickExec = "";
@@ -150,7 +166,7 @@ in
               formatVertical = "HH mm";
               id = "Clock";
               useMonospacedFont = false;
-              usePrimaryColor = true;
+              usePrimaryColor = false;
               useCustomFont = true;
               customFont = "Iosevka Nerd Font";
             }
