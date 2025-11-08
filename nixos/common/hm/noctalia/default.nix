@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, opts, ... }:
 let
   gpu = import ./modules/gpu.nix { inherit pkgs; };
   noctalia = pkgs.writeShellScriptBin "noctalia" ''
@@ -59,6 +59,24 @@ in
         lowUrgencyDuration = 3;
         normalUrgencyDuration = 8;
         criticalUrgencyDuration = 15;
+      };
+      wallpaper = {
+        enabled = true;
+        overviewEnabled = false;
+        directory = opts.directories.wallpapers;
+        enableMultiMonitorDirectories = false;
+        recursiveSearch = true;
+        setWallpaperOnAllMonitors = true;
+        defaultWallpaper = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
+        fillMode = "crop";
+        fillColor = "#000000";
+        randomEnabled = false;
+        randomIntervalSec = 300;
+        transitionDuration = 1500;
+        transitionType = "random";
+        transitionEdgeSmoothness = 0.05;
+        monitors = [ ];
+        panelPosition = "follow_bar";
       };
       bar = {
         density = "comfortable";

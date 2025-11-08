@@ -98,7 +98,7 @@
           local session="$(detect-session)"
           case "$session" in
             wayland)
-              ${pkgs.swww}/bin/swww img --transition-type wipe --transition-fps 60 --resize stretch --transition-step 60 --transition-duration 2 "$filepath"
+              noctalia ipc call wallpaper set "$filepath" all
               notify-send "wallpaper set to: $filepath" ;;
             x11)
               ${pkgs.feh} --bg-scale "$filepath"
