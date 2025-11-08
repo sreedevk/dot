@@ -122,6 +122,14 @@ services:
         url: "https://dispatcharr.nullptr.sh"
         target: "_blank"
 
+      - name: "Tdarr"
+        logo: "assets/tools/tdarr.png"
+        subtitle: "Media Encoding Manager"
+        tag: "media-encoding"
+        keywords: "media-encoding"
+        url: "https://tdarr.nullptr.sh"
+        target: "_blank"
+
       - name: "Sonarr"
         logo: "assets/tools/sonarr.png"
         subtitle: "TV Indexing & Searching"
