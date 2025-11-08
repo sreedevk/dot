@@ -78,7 +78,7 @@ in
     blur = {
       brightness = "1";
       contrast = "1";
-      enabled = "false";
+      enabled = "true";
       new_optimizations = "true";
       noise = "0.0117";
       passes = "1";
