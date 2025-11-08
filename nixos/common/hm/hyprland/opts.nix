@@ -546,7 +546,7 @@ in
         mod = "SUPER";
         keys = "W";
         dispatcher = "exec";
-        args = "uwsm app -t service -- brave-browser.desktop";
+        args = "noctalia ipc call wallpaper toggle";
       }
       {
         mod = "SUPER";
