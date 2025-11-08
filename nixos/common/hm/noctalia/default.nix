@@ -175,9 +175,9 @@ in
               showCpuUsage = true;
               showCpuTemp = true;
               showMemoryUsage = true;
-              showMemoryAsPercent = false;
+              showMemoryAsPercent = true;
               showNetworkStats = false;
-              showDiskUsage = false;
+              showDiskUsage = true;
             }
             {
               id = "NotificationHistory";
