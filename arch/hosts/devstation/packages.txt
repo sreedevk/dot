@@ -92,6 +92,7 @@ mesa
 mesa-utils
 meson
 mpv
+networkmanager
 ninja
 nmap
 noto-fonts

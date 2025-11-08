@@ -3,6 +3,7 @@
   config = {
     system-manager.allowAnyDistro = true;
     nixpkgs.hostPlatform = "x86_64-linux";
+
     environment.systemPackages = [
       pkgs.ripgrep
       pkgs.fd
@@ -58,6 +59,12 @@
     };
 
     environment.etc = {
+      "NetworkManager/conf.d/wifi_backend.conf" = {
+        text = ''
+          [device]
+          wifi.backend=iwd
+        '';
+      };
       "resolvconf.conf" = {
         text = ''
           name_server_blacklist="127.0.0.1"

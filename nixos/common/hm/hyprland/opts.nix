@@ -240,7 +240,7 @@ in
         mod = "CTRL";
         keys = "Space";
         dispatcher = "exec";
-        args = "${pkgs.dunst}/bin/dunstctl close-all";
+        args = "noctalia ipc call notifications dismissAll";
       }
       {
         mod = "CTRL";
@@ -472,6 +472,12 @@ in
       }
       {
         mod = "SUPER";
+        keys = "C";
+        dispatcher = "exec";
+        args = "noctalia ipc call settings toggle";
+      }
+      {
+        mod = "SUPER";
         keys = "Equal";
         dispatcher = "togglespecialworkspace";
         args = "";
@@ -528,7 +534,7 @@ in
         mod = "SUPER";
         keys = "N";
         dispatcher = "exec";
-        args = "${pkgs.dunst}/bin/dunstctl set-paused toggle";
+        args = "noctalia ipc call notifications toggleDND";
       }
       {
         mod = "SUPER";
@@ -1095,7 +1101,6 @@ in
     "dbus-update-activation-environment --systemd --all"
     "hyprpm reload -n"
     "systemctl --user start hyprpolkitagent"
-    "systemctl --user start dunst"
     "wl-paste --type image --watch cliphist store"
     "wl-paste --type text --watch cliphist store"
     "wlsunset -l 40.7 -L -73.9"

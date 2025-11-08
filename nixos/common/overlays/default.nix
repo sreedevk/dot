@@ -8,4 +8,5 @@
   (import ./colmena.nix      { inherit inputs; })
   (import ./attic.nix        { inherit inputs; })
   (import ./home-manager.nix { inherit inputs; })
+  (import ./noctalia.nix     { inherit inputs; })
 ]

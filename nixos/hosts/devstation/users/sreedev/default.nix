@@ -17,7 +17,6 @@
     ../../../../common/hm/btop.nix
     ../../../../common/hm/core-max.nix
     ../../../../common/hm/droidcam.nix
-    ../../../../common/hm/dunst.nix
     ../../../../common/hm/emacs
     ../../../../common/hm/fastfetch.nix
     ../../../../common/hm/firefox
@@ -37,6 +36,7 @@
     ../../../../common/hm/neovim.nix
     ../../../../common/hm/newsboat.nix
     ../../../../common/hm/nixpkgs.nix
+    ../../../../common/hm/noctalia
     ../../../../common/hm/nsxiv.nix
     ../../../../common/hm/obs.nix
     ../../../../common/hm/ocaml.nix
