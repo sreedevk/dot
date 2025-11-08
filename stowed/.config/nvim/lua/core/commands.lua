@@ -34,6 +34,11 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "help",
+  command = "wincmd L"
+})
+
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = "Configurations on LSP Attach",
   callback = function(_)
