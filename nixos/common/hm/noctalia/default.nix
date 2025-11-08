@@ -132,6 +132,19 @@ in
         widgets = {
           left = [
             {
+              formatHorizontal = "ddd MMMM dd  hh:mm:ss AP t";
+              formatVertical = "HH mm";
+              id = "Clock";
+              useMonospacedFont = false;
+              usePrimaryColor = false;
+              useCustomFont = true;
+              customFont = "Iosevka Nerd Font";
+            }
+            {
+              id = "Spacer";
+              width = 10;
+            }
+            {
               id = "ControlCenter";
               icon = "app-window";
               useDistroLogo = false;
@@ -149,6 +162,10 @@ in
             {
               id = "Volume";
               displayMode = "onhover";
+            }
+            {
+              id = "KeyboardLayout";
+              displayMode = "forceOpen";
             }
           ];
           center = [
@@ -172,15 +189,6 @@ in
               middleClickExec = "";
               textCommand = "${gpu}/bin/gpu";
               textIntervalMs = 3000;
-            }
-            {
-              formatHorizontal = "ddd MMMM dd  hh:mm:ss AP t";
-              formatVertical = "HH mm";
-              id = "Clock";
-              useMonospacedFont = false;
-              usePrimaryColor = false;
-              useCustomFont = true;
-              customFont = "Iosevka Nerd Font";
             }
             {
               id = "SystemMonitor";
