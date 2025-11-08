@@ -18,7 +18,10 @@ in
     "XDG_RUNTIME_DIR=%t"
   ];
 
-  home.packages = [ noctalia ];
+  home.packages = [
+    noctalia
+    pkgs.roboto
+  ];
 
   programs.noctalia-shell = {
     enable = true;
@@ -219,7 +222,7 @@ in
         scaleRatio = 1.15;
       };
       ui = {
-        fontDefault = "Iosevka Nerd Font";
+        fontDefault = "Roboto";
         fontFixed = "Iosevka Nerd Font";
         fontDefaultScale = 1.15;
         fontFixedScale = 1.15;
