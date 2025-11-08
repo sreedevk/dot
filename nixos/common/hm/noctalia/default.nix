@@ -149,23 +149,26 @@ in
               icon = "app-window";
               useDistroLogo = false;
             }
-            { id = "WiFi"; }
-            { id = "Bluetooth"; }
             {
               id = "Brightness";
-              displayMode = "onhover";
+              displayMode = "alwaysShow";
             }
             {
               id = "Microphone";
-              displayMode = "onhover";
+              displayMode = "alwaysShow";
             }
             {
               id = "Volume";
-              displayMode = "onhover";
+              displayMode = "alwaysShow";
             }
             {
               id = "KeyboardLayout";
               displayMode = "forceOpen";
+            }
+            { id = "Bluetooth"; }
+            {
+              id = "WiFi";
+              displayMode = "alwaysShow";
             }
           ];
           center = [
