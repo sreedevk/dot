@@ -7,7 +7,6 @@
       color_theme = "tty";
       truecolor = true;
       force_tty = false;
-      presets = "cpu:1:default,proc:0:default cpu:0:default,mem:0:default,net:0:default cpu:0:block,net:0:tty";
       vim_keys = true;
       rounded_corners = true;
       graph_symbol = "braille";
@@ -17,13 +16,13 @@
       graph_symbol_net = "default";
       graph_symbol_proc = "default";
       shown_boxes = "cpu mem net proc";
-      update_ms = 2000;
+      update_ms = 1000;
       proc_sorting = "user";
       proc_reversed = false;
       proc_tree = true;
       proc_colors = true;
       proc_gradient = false;
-      proc_per_core = false;
+      proc_per_core = true;
       proc_mem_bytes = true;
       proc_cpu_graphs = true;
       proc_info_smaps = false;
@@ -32,7 +31,7 @@
       proc_aggregate = false;
       cpu_graph_upper = "Auto";
       cpu_graph_lower = "Auto";
-      show_gpu_info = "Auto";
+      show_gpu_info = true;
       cpu_invert_lower = true;
       cpu_single_graph = false;
       cpu_bottom = false;
