@@ -11,6 +11,7 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 5. feature: migrate to traefik **HIGH PRIO**
 6. notes sync
 7. add metube custom paths for downloading
+8. deploying to apollo (nixOS) via colmena causes nixGL to fail to recognize the nvidia driver
 
 ## Pre Requisites
 ### Install Home Manager CLI
