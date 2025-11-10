@@ -67,7 +67,7 @@
 
   ];
 
-  nixGL = {
+  targets.genericLinux.nixGL = {
     packages = pkgs.nixgl;
     defaultWrapper = "mesa";
     offloadWrapper = "nvidia";
@@ -97,13 +97,13 @@
   };
 
   home.sessionVariables = {
-    CARGO_REGISTRY_TOKEN="$(cat ${config.age.secrets.cargo-token.path})";
-    HUGGING_FACE_TOKEN="$(cat ${config.age.secrets.hugging_face_token.path})";
-    JIRA_API_TOKEN="$(cat ${config.age.secrets.jira-token.path})";
-    OPENAI_API_KEY="$(cat ${config.age.secrets.openai_api_key.path})";
-    OPEN_WEATHER_API_KEY="$(cat ${config.age.secrets.openweather-token.path})";
-    PASTEBIN_API_KEY="$(cat ${config.age.secrets.pastebin-token.path})";
-    WALLHAVEN_API_KEY="$(cat ${config.age.secrets.wallhaven-token.path})";
+    CARGO_REGISTRY_TOKEN = "$(cat ${config.age.secrets.cargo-token.path})";
+    HUGGING_FACE_TOKEN = "$(cat ${config.age.secrets.hugging_face_token.path})";
+    JIRA_API_TOKEN = "$(cat ${config.age.secrets.jira-token.path})";
+    OPENAI_API_KEY = "$(cat ${config.age.secrets.openai_api_key.path})";
+    OPEN_WEATHER_API_KEY = "$(cat ${config.age.secrets.openweather-token.path})";
+    PASTEBIN_API_KEY = "$(cat ${config.age.secrets.pastebin-token.path})";
+    WALLHAVEN_API_KEY = "$(cat ${config.age.secrets.wallhaven-token.path})";
   };
 
   nix = {
@@ -111,14 +111,14 @@
 
     settings = {
 
-      allowed-users        = [ "${username}" ];
+      allowed-users = [ "${username}" ];
       download-buffer-size = 4000000000;
-      fallback             = true;
-      auto-optimise-store  = true;
-      http2                = false;
-      show-trace           = true;
-      trusted-users        = [ "${username}" ];
-      warn-dirty           = true;
+      fallback = true;
+      auto-optimise-store = true;
+      http2 = false;
+      show-trace = true;
+      trusted-users = [ "${username}" ];
+      warn-dirty = true;
 
       experimental-features = [
         "nix-command"
@@ -143,7 +143,7 @@
         "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
         "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
       ];
-      
+
       trusted-substituters = [
         "https://attic.nullptr.sh/devstation"
         "https://cache.nixos.org/"
