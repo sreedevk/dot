@@ -37,7 +37,7 @@ in
     MOZ_ENABLE_WAYLAND = "1";
     QT_AUTO_SCREEN_SCALE_FACTOR = "${opts.desktop.scale}";
     QT_QPA_PLATFORM = "xcb";
-    QT_SCALE_FACTOR = "1";
+    QT_SCALE_FACTOR = "${opts.desktop.qt_scale_factor}";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     WINIT_X11_SCALE_FACTOR = "${opts.desktop.scale}";
     XCURSOR_SIZE = "28";
