@@ -285,7 +285,20 @@ return {
       "TSJToggle",
     },
     keys = {
-      { '<leader>j', [[<cmd>TSJToggle<cr>]], noremap = true, desc = "TreeSJ" },
+      {
+        '<leader><S-j>',
+        function() require('treesj').toggle({ split = { recursive = true } }) end,
+        noremap = true,
+        desc = "TreeSJ Toggle",
+      },
+      {
+        '<leader>j',
+        function()
+          require('treesj').toggle({ split = { recursive = false } })
+        end,
+        noremap = true,
+        desc = "TreeSJ Toggle (Recursive)",
+      },
     },
     opts = {
       use_default_keymaps = false,
