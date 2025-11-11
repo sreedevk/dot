@@ -56,14 +56,6 @@ services:
         url: "https://pinepods.nullptr.sh"
         target: "_blank"
 
-      - name: "Fireshare"
-        logo: "assets/tools/fireshare.png"
-        subtitle: "FireShare Video Gallery"
-        tag: "video-gallery"
-        keywords: "video-gallery"
-        url: "https://fireshare.nullptr.sh"
-        target: "_blank"
-
       - name: "Lidarr"
         logo: "assets/tools/lidarr.png"
         subtitle: "Music Indexing & Searching"
@@ -223,12 +215,29 @@ services:
   - name: "Video"
     icon: "fas fa-video"
     items:
+
       - name: "Metube"
         logo: "assets/tools/metube.png"
         subtitle: "Youtube Video Downloader"
         tag: "youtube"
         keywords: "youtube"
         url: "https://metube.nullptr.sh"
+        target: "_blank"
+
+      - name: "Pinchflat"
+        logo: "assets/tools/pinchflat.png"
+        subtitle: "Youtube Media Manager"
+        tag: "youtube-media-manager"
+        keywords: "youtube"
+        url: "https://pinchflat.nullptr.sh"
+        target: "_blank"
+
+      - name: "Fireshare"
+        logo: "assets/tools/fireshare.png"
+        subtitle: "FireShare Video Gallery"
+        tag: "video-gallery"
+        keywords: "video-gallery"
+        url: "https://fireshare.nullptr.sh"
         target: "_blank"
 
   - name: "Games"
