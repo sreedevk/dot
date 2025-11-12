@@ -40,7 +40,7 @@
           bullets = true;
           show_link = false;
           max_width = 80;
-          downloads = "''";
+          downloads = "${builtins.getEnv "HOME"}/Downloads";
           underline = true;
           scrollbar = "auto";
           page_max_time = 10;
