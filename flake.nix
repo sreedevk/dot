@@ -2,12 +2,13 @@
   description = "NixOS System Configuration Management Flake for Multiple Hosts";
 
   inputs = {
+
     nixpkgs.url        = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     stablepkgs.url     = "github:nixos/nixpkgs?ref=nixos-25.05&shallow=1";
     agenix.url         = "github:ryantm/agenix";
     colmena.url        = "github:zhaofengli/colmena";
     attic.url          = "github:zhaofengli/attic";
-    nixos-hardware.url = "nixos-hardware";
+    llama-cpp.url      = "github:ggml-org/llama.cpp";
 
     disko = {
       url                    = "github:nix-community/disko";

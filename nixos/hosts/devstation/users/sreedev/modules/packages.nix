@@ -81,6 +81,7 @@
           kubectl                    # k8s
           lazydocker                 # docker tui
           ledger                     # cli ledger
+          llama-cpp                  # llama-cpp
           lm_sensors                 # lm_sensors
           mc                         # midnight commander file manager
           mdbook                     # generate books from markdown

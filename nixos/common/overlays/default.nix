@@ -9,4 +9,5 @@
   (import ./attic.nix        { inherit inputs; })
   (import ./home-manager.nix { inherit inputs; })
   (import ./noctalia.nix     { inherit inputs; })
+  (import ./llama-cpp.nix    { inherit inputs; })
 ]
