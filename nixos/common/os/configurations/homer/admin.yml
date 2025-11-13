@@ -134,6 +134,13 @@ services:
         url: "https://bitmagnet.nullptr.sh"
         target: "_blank"
 
+      - name: "SpotWeb"
+        logo: "assets/tools/spotweb.png"
+        subtitle: "Decentralized Usenet Indexer"
+        tag: "usenet"
+        url: "https://spotweb.nullptr.sh"
+        target: "_blank"
+
       - name: "NZBHydra"
         logo: "assets/tools/nzbhydra.png"
         subtitle: "NZB Search Client"
