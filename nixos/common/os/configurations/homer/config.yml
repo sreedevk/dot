@@ -81,6 +81,13 @@ services:
         url: "https://owui.nullptr.sh"
         target: "_blank"
 
+      - name: "Eclaire"
+        logo: "assets/tools/eclaire.png"
+        subtitle: "AI Personal Data Manager"
+        tag: "ai-personal-data-manager"
+        url: "https://eclaire.nullptr.sh"
+        target: "_blank"
+
       - name: "Searxng"
         logo: "assets/tools/searxng.png"
         subtitle: "Search Engine"
