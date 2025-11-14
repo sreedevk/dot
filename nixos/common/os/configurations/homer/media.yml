@@ -240,6 +240,14 @@ services:
         url: "https://fireshare.nullptr.sh"
         target: "_blank"
 
+      - name: "8mb.local"
+        logo: "assets/tools/8mb-local.png"
+        subtitle: "Video Encoding & Uploads"
+        tag: "video-encoding-decoding"
+        keywords: "video-enc-dec"
+        url: "https://8mb.nullptr.sh"
+        target: "_blank"
+
   - name: "Games"
     icon: "fas fa-gamepad"
     items:
