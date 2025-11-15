@@ -19,8 +19,20 @@ require('lazy').setup({ import = 'packages' }, {
   ui = {
     border = "single"
   },
+  rocks = {
+    enabled = true,
+    root = vim.fn.stdpath("data") .. "/lazy-rocks",
+    server = "https://lumen-oss.github.io/rocks-binaries/",
+    -- use hererocks to install luarocks?
+    -- set to `nil` to use hererocks when luarocks is not found
+    -- set to `true` to always use hererocks
+    -- set to `false` to always use luarocks
+    hererocks = false,
+  },
   performance = {
-    cache = { enabled = false },
+    cache = {
+      enabled = true,
+    },
     rtp = {
       reset = true,
       paths = {},
