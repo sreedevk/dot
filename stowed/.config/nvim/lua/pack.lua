@@ -17,7 +17,8 @@ require('lazy').setup({ import = 'packages' }, {
     notify = false,
   },
   ui = {
-    border = "single"
+    border = "none",
+    pills = true,
   },
   rocks = {
     enabled = true,
