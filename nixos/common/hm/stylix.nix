@@ -1,5 +1,6 @@
 { pkgs, config, ... }:
 {
+  dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   stylix = {
     enable = true;
     autoEnable = false;
@@ -44,7 +45,14 @@
     };
 
     targets = {
-      gtk.enable = true;
+      gtk = {
+        enable = true;
+        flatpakSupport.enable = true;
+      };
+      qt = {
+        enable = true;
+        platform = "qtct";
+      };
       xresources.enable = true;
       mpv.enable = true;
       zathura.enable = true;

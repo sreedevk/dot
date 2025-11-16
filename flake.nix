@@ -51,6 +51,11 @@
       inputs.quickshell.follows = "quickshell";
     };
 
+    mango = {
+      url = "github:DreamMaoMao/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
