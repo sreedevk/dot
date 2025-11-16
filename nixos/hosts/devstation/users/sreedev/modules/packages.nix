@@ -20,6 +20,7 @@
         (config.lib.nixGL.wrap pkgs.sonic-pi)
         (config.lib.nixGL.wrap pkgs.sqlitebrowser)
         (config.lib.nixGL.wrap pkgs.tor-browser)
+        (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
         (config.lib.nixGL.wrapOffload pkgs.davinci-resolve)
         (config.lib.nixGL.wrapOffload pkgs.furnace)
         (config.lib.nixGL.wrapOffload pkgs.gimp3-with-plugins)
