@@ -24,6 +24,7 @@
         (config.lib.nixGL.wrapOffload pkgs.furnace)
         (config.lib.nixGL.wrapOffload pkgs.gimp3-with-plugins)
         (config.lib.nixGL.wrapOffload pkgs.upscayl)
+        (config.lib.nixGL.wrapOffload pkgs.mango)
         ffmpegthumbnailer
         wf-recorder
         wofi
