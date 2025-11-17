@@ -78,7 +78,7 @@ in
     blur = {
       brightness = "1";
       contrast = "1";
-      enabled = "true";
+      enabled = "false";
       new_optimizations = "true";
       noise = "0.0117";
       passes = "1";
@@ -128,6 +128,7 @@ in
     force_default_wallpaper = "0";
     disable_hyprland_logo = "true";
     vrr = "0";
+    vfr = "true";
   };
 
   animations = {
