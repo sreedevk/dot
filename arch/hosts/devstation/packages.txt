@@ -137,6 +137,7 @@ sdl2_mixer
 sdl2_net
 sdl2_ttf
 slurp
+smartmontools
 snd
 sndio
 sniffnet
@@ -149,6 +150,8 @@ supercollider
 tailscale
 texlive-binextra
 thunderbird
+tlp
+tlpui
 ttf-dejavu
 ttf-iosevka-nerd
 ttf-jetbrains-mono

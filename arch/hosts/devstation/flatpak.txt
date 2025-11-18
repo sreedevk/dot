@@ -8,7 +8,6 @@ MangoHud
 Mesa
 Nvidia
 nvidia-580-105-08
-nvidia-580-95-05
 openh264
 Signal
 Supersonic
