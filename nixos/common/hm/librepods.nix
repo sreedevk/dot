@@ -6,7 +6,7 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "kavishdevar";
       repo = "librepods";
-      rev = "master";
+      rev = "linux/rust";
       sha256 = "sha256-vWtBSHYPtrSmYzY25a1RcVUlpaXF2WzNLke7RiST/38=";
     };
     sourceRoot = "source/linux";
