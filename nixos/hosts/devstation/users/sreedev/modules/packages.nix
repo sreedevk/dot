@@ -10,7 +10,6 @@
         (config.lib.nixGL.wrap pkgs.gnome-calculator)
         (config.lib.nixGL.wrap pkgs.hydrogen)
         (config.lib.nixGL.wrap pkgs.jellyflix)
-        (config.lib.nixGL.wrap pkgs.libreoffice-fresh)
         (config.lib.nixGL.wrap pkgs.lmms)
         (config.lib.nixGL.wrap pkgs.localsend)
         (config.lib.nixGL.wrap pkgs.mango)
@@ -29,6 +28,7 @@
         (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
         (config.lib.nixGL.wrapOffload pkgs.upscayl)
         ffmpegthumbnailer
+        libreoffice-fresh
         wf-recorder
         wofi
       ];
