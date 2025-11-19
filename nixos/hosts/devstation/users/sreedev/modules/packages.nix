@@ -9,7 +9,6 @@
         (config.lib.nixGL.wrap pkgs.easyeffects)
         (config.lib.nixGL.wrap pkgs.gnome-calculator)
         (config.lib.nixGL.wrap pkgs.hydrogen)
-        (config.lib.nixGL.wrap pkgs.jellyflix)
         (config.lib.nixGL.wrap pkgs.lmms)
         (config.lib.nixGL.wrap pkgs.localsend)
         (config.lib.nixGL.wrap pkgs.nemo-with-extensions)
@@ -25,6 +24,7 @@
         (config.lib.nixGL.wrapOffload pkgs.furnace)
         (config.lib.nixGL.wrapOffload pkgs.gimp3-with-plugins)
         (config.lib.nixGL.wrapOffload pkgs.jellyfin-media-player)
+        (config.lib.nixGL.wrapOffload pkgs.jellyflix)
         (config.lib.nixGL.wrapOffload pkgs.upscayl)
         ffmpegthumbnailer
         libreoffice-fresh
