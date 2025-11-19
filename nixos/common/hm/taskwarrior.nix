@@ -159,6 +159,7 @@ let
       urgency.uda.priority.L.coefficient=${builtins.toString configs.coefficients.uda.L}
       uda.taskwarrior-tui.shortcuts.1=${taskwarrior-tui-taskopenscript}/bin/tt-taskopen
       uda.taskwarrior-tui.task-report.next.filter=status:pending -WAITING limit:page -someday
+      uda.taskwarrior-tui.task-report.work.filter=status:pending -WAITING limit:page -someday proj:work:tunecore
       uda.taskwarrior-tui.background_process=task sync
       uda.taskwarrior-tui.background_process_period=60
       ${mkprojectCoefficients configs.coefficients.user.projects}
