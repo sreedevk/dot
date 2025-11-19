@@ -4,7 +4,7 @@
 , ...
 }:
 let
-  inherit (inputs) nixpkgs agenix stylix home-manager colmena system-manager disko noctalia;
+  inherit (inputs) nixpkgs agenix stylix home-manager colmena system-manager disko noctalia mango;
 in
 rec {
   pkgsFor = nixpkgs.legacyPackages;
@@ -91,8 +91,9 @@ rec {
       modules = [
         ../nixos/hosts/${host}/users/${username}
         agenix.homeManagerModules.age
-        stylix.homeModules.stylix
+        mango.hmModules.mango
         noctalia.homeModules.default
+        stylix.homeModules.stylix
       ];
 
       extraSpecialArgs = {

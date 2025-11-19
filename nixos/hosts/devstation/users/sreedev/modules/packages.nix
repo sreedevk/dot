@@ -12,7 +12,6 @@
         (config.lib.nixGL.wrap pkgs.jellyflix)
         (config.lib.nixGL.wrap pkgs.lmms)
         (config.lib.nixGL.wrap pkgs.localsend)
-        (config.lib.nixGL.wrap pkgs.mango)
         (config.lib.nixGL.wrap pkgs.nemo-with-extensions)
         (config.lib.nixGL.wrap pkgs.obsidian)
         (config.lib.nixGL.wrap pkgs.onlyoffice-desktopeditors)
