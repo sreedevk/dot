@@ -19,7 +19,7 @@
 
   home.file = {
     ".config/hypr/hyprland.conf" = {
-      enable = false;
+      enable = true;
       text = ''
         source = ~/.config/hypr/monitors.conf
         source = ~/.config/hypr/envs.conf
