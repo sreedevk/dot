@@ -145,11 +145,6 @@ in
               width = 10;
             }
             {
-              id = "ControlCenter";
-              icon = "app-window";
-              useDistroLogo = false;
-            }
-            {
               id = "Brightness";
               displayMode = "alwaysShow";
             }
@@ -168,7 +163,7 @@ in
             { id = "Bluetooth"; }
             {
               id = "WiFi";
-              displayMode = "alwaysShow";
+              displayMode = "onhover";
             }
           ];
           center = [
@@ -180,8 +175,8 @@ in
           ];
           right = [
             {
-              alwaysShowPercentage = false;
               id = "Battery";
+              displayMode = "onhover";
               warningThreshold = 30;
             }
             {
@@ -194,6 +189,10 @@ in
               textIntervalMs = 3000;
             }
             {
+              id = "Spacer";
+              width = 10;
+            }
+            {
               id = "SystemMonitor";
               showCpuUsage = true;
               showCpuTemp = true;
@@ -201,6 +200,10 @@ in
               showMemoryAsPercent = false;
               showNetworkStats = false;
               showDiskUsage = true;
+            }
+            {
+              id = "Spacer";
+              width = 10;
             }
             {
               id = "NotificationHistory";
