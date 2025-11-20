@@ -5,5 +5,6 @@ _: prev: {
     jellyfin-media-player
     obs-studio
     obs-studio-plugins
+    adguard
     ;
 }
