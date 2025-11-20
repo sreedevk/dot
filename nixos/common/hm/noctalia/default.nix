@@ -18,9 +18,11 @@ in
     "XDG_RUNTIME_DIR=%t"
   ];
 
-  home.packages = [
+  home.packages = with pkgs; [
     noctalia
-    pkgs.roboto
+    evolution-data-server
+    matugen
+    roboto
   ];
 
   programs.noctalia-shell = {

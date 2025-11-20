@@ -13,7 +13,6 @@
         (config.lib.nixGL.wrap pkgs.localsend)
         (config.lib.nixGL.wrap pkgs.nemo-with-extensions)
         (config.lib.nixGL.wrap pkgs.obsidian)
-        (config.lib.nixGL.wrap pkgs.onlyoffice-desktopeditors)
         (config.lib.nixGL.wrap pkgs.openttd)
         (config.lib.nixGL.wrap pkgs.pwvucontrol)
         (config.lib.nixGL.wrap pkgs.slack)
