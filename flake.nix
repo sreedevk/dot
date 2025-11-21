@@ -9,7 +9,6 @@
     colmena.url        = "github:zhaofengli/colmena";
     attic.url          = "github:zhaofengli/attic";
     llama-cpp.url      = "github:ggml-org/llama.cpp?ref=b7126";
-    nix-auth.url       = "github:numtide/nix-auth?ref=v0.1.0";
 
     disko = {
       url                    = "github:nix-community/disko";
