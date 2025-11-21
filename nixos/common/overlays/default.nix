@@ -11,4 +11,5 @@
   (import ./noctalia.nix     { inherit inputs; })
   (import ./llama-cpp.nix    { inherit inputs; })
   (import ./mango.nix        { inherit inputs; })
+  (import ./nix-auth.nix     { inherit inputs; })
 ]
