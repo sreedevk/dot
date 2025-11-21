@@ -65,6 +65,12 @@
           wifi.backend=iwd
         '';
       };
+      "NetworkManager/conf.d/20-connectivity.conf" = {
+        text = ''
+          [connectivity]
+          enabled=false
+        '';
+      };
       "resolvconf.conf" = {
         text = ''
           name_server_blacklist="127.0.0.1"
