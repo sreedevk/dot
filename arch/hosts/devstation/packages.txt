@@ -67,6 +67,7 @@ iwd
 jq
 kexec-tools
 kmon
+kvantum-qt5
 less
 lib32-mesa
 lib32-nvidia-utils
@@ -125,6 +126,9 @@ progress
 qjackctl
 qt5-tools
 qt5-wayland
+qt6-connectivity
+qt6-multimedia
+qt6-multimedia-ffmpeg
 qt6-tools
 raylib
 realtime-privileges
