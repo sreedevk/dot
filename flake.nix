@@ -8,7 +8,7 @@
     agenix.url         = "github:ryantm/agenix";
     colmena.url        = "github:zhaofengli/colmena";
     attic.url          = "github:zhaofengli/attic";
-    llama-cpp.url      = "github:ggml-org/llama.cpp";
+    llama-cpp.url      = "github:ggml-org/llama.cpp?ref=b7126";
 
     disko = {
       url                    = "github:nix-community/disko";
@@ -41,17 +41,17 @@
     };
 
     quickshell = {
-      url = "github:outfoxxed/quickshell";
+      url = "github:outfoxxed/quickshell?ref=v0.2.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     mango = {
-      url = "github:DreamMaoMao/mango";
+      url = "github:DreamMaoMao/mango?ref=0.10.5";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia-shell?ref=v3.2.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
