@@ -3,12 +3,12 @@
 
   inputs = {
 
-    nixpkgs.url        = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
-    stablepkgs.url     = "github:nixos/nixpkgs?ref=nixos-25.05&shallow=1";
-    agenix.url         = "github:ryantm/agenix";
-    colmena.url        = "github:zhaofengli/colmena";
-    attic.url          = "github:zhaofengli/attic";
-    llama-cpp.url      = "github:ggml-org/llama.cpp?ref=b7126";
+    nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
+    stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05&shallow=1";
+    agenix.url     = "github:ryantm/agenix";
+    colmena.url    = "github:zhaofengli/colmena";
+    attic.url      = "github:zhaofengli/attic";
+    llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7126";
 
     disko = {
       url                    = "github:nix-community/disko";
@@ -16,7 +16,7 @@
     };
 
     nur = {
-      url                    = "github:nix-community/NUR";
+      url                    = "github:nix-community/NUR?ref=250154e2aa4adc2d35b8ef8ba2924d9cb3675cb3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -26,7 +26,7 @@
     };
 
     stylix = {
-      url                    = "github:danth/stylix";
+      url                    = "github:danth/stylix?ref=cd11c057b054609b8463c20e6065de424b30b89d";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
