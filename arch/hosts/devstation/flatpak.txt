@@ -1,9 +1,13 @@
+Adwaita
 Bitwig
 Codecs
+FFmpeg
 Flatseal
 Freedesktop
 GNOME
 Intel
+Jellyfin
+KDE
 MangoHud
 Mesa
 Nvidia
