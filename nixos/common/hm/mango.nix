@@ -5,7 +5,7 @@
 {
   wayland.windowManager.mango = {
     enable = true;
-    package = (config.lib.nixGL.wrap pkgs.mango);
+    package = config.lib.nixGL.wrap pkgs.mango;
     settings = ''
 
       # More option see https://github.com/DreamMaoMao/mango/wiki/
