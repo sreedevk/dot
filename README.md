@@ -13,6 +13,9 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 7. add metube custom paths for downloading
 8. deploying to apollo (nixOS) via colmena causes nixGL to fail to recognize the nvidia driver
 
+## Distant Dreams
+1. Get rid of the dependency on a static LAN ip address (potentially using DDNS)
+
 ## Pre Requisites
 ### Install Home Manager CLI
 ```bash
