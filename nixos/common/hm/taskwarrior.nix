@@ -235,9 +235,10 @@ in
           Documentation = "info:task man:task(1) https://taskwarrior.org/docs/";
         };
         Service = {
-          Type = "simple";
+          Type = "oneshot";
           EnvironmentFile = config.age.secrets.taskwarrior_env.path;
           ExecStart = "${pkgs.taskwarrior3}/bin/task sync";
+          RemainAfterExit = true;
         };
       };
 
