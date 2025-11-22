@@ -45,11 +45,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mango = {
-      url                    = "github:DreamMaoMao/mango?ref=0.10.5";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     noctalia = {
       url                    = "github:noctalia-dev/noctalia-shell?ref=v3.2.0";
       inputs.nixpkgs.follows = "nixpkgs";

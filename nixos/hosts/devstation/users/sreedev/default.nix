@@ -32,7 +32,6 @@
     ../../../../common/hm/keyboard.nix
     ../../../../common/hm/librepods.nix
     ../../../../common/hm/man.nix
-    ../../../../common/hm/mango.nix
     ../../../../common/hm/mise.nix
     ../../../../common/hm/neovide.nix
     ../../../../common/hm/neovim.nix
