@@ -4,17 +4,14 @@ This repository contains configurations for various programs & Nix(OS).
 This Nix(OS) section of this repository is located in the `nixos` directory. 
 
 ## TODO
-1. improvement: migrate to Traefik
-2. bug: tmux/terminal reads C-i as \<tab\>
-3. feature: tmux de-sessionizer that uses either mux stop or tmux kill to end sessions
-4. bug: gpg signing keys should be user specific in common modules
-5. feature: migrate to traefik **HIGH PRIO**
-6. notes sync
-7. add metube custom paths for downloading
-8. deploying to apollo (nixOS) via colmena causes nixGL to fail to recognize the nvidia driver
+1. bug: tmux/terminal reads C-i as \<tab\>
+2. feature: migrate to traefik **HIGH PRIO**
+3. notes sync
+4. deploying to apollo (nixOS) via colmena causes nixGL to fail to recognize the nvidia driver
 
 ## Distant Dreams
 1. Get rid of the dependency on a static LAN ip address (potentially using DDNS)
+2. improvement: migrate to Traefik
 
 ## Pre Requisites
 ### Install Home Manager CLI
