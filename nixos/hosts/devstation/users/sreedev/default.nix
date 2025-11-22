@@ -30,6 +30,7 @@
     ../../../../common/hm/jujutsu.nix
     ../../../../common/hm/keybase.nix
     ../../../../common/hm/keyboard.nix
+    ../../../../common/hm/kitty
     ../../../../common/hm/librepods.nix
     ../../../../common/hm/man.nix
     ../../../../common/hm/mise.nix
