@@ -8,6 +8,7 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 2. feature: migrate to traefik **HIGH PRIO**
 3. notes sync
 4. deploying to apollo (nixOS) via colmena causes nixGL to fail to recognize the nvidia driver
+5. hyprlock is broken
 
 ## Distant Dreams
 1. Get rid of the dependency on a static LAN ip address (potentially using DDNS)

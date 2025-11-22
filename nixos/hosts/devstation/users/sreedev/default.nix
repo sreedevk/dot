@@ -37,6 +37,7 @@
     ../../../../common/hm/neovide.nix
     ../../../../common/hm/neovim.nix
     ../../../../common/hm/newsboat.nix
+    ../../../../common/hm/niri
     ../../../../common/hm/nixpkgs.nix
     ../../../../common/hm/noctalia
     ../../../../common/hm/nsxiv.nix

@@ -71,6 +71,12 @@
           enabled=false
         '';
       };
+      "systemd/system.conf" = {
+        text = ''
+          [Manager]
+          DefaultTimeoutStopSec=10s
+        '';
+      };
       "resolvconf.conf" = {
         text = ''
           name_server_blacklist="127.0.0.1"

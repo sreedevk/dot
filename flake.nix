@@ -16,7 +16,7 @@
     };
 
     nur = {
-      url                    = "github:nix-community/NUR?ref=250154e2aa4adc2d35b8ef8ba2924d9cb3675cb3";
+      url                    = "github:nix-community/NUR?ref=250154e2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -26,7 +26,7 @@
     };
 
     stylix = {
-      url                    = "github:danth/stylix?ref=cd11c057b054609b8463c20e6065de424b30b89d";
+      url                    = "github:danth/stylix?ref=cd11c057";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -47,6 +47,11 @@
 
     noctalia = {
       url                    = "github:noctalia-dev/noctalia-shell?ref=v3.2.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    niri = {
+      url                    = "github:sodiboo/niri-flake?ref=960b925b";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
