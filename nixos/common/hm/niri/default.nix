@@ -11,6 +11,12 @@
     package = config.lib.nixGL.wrap pkgs.niri;
     settings = {
 
+      input.tablet = {
+        enable = true;
+        left-handed = true;
+        map-to-output = "DP-2";
+      };
+
       spawn-at-startup = [
         {
           argv = [
