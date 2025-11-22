@@ -39,6 +39,7 @@ let
     verbose = builtins.concatStringsSep "," [
       "blank"
       "filter"
+      "sync"
     ];
 
     sync = {
