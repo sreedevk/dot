@@ -41,17 +41,17 @@
     };
 
     quickshell = {
-      url = "github:outfoxxed/quickshell?ref=v0.2.1";
+      url                    = "github:outfoxxed/quickshell?ref=v0.2.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     mango = {
-      url = "github:DreamMaoMao/mango?ref=0.10.5";
+      url                    = "github:DreamMaoMao/mango?ref=0.10.5";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell?ref=v3.2.0";
+      url                    = "github:noctalia-dev/noctalia-shell?ref=v3.2.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
