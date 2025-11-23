@@ -51,7 +51,6 @@ hyprland-guiutils
 hyprland-protocols
 hyprland-qt-support
 hyprlang
-hyprlock
 hyprpicker
 hyprpolkitagent
 hyprutils
