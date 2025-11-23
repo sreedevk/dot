@@ -3,16 +3,7 @@
 , opts
 , ...
 }:
-let
-  node_server_opts =
-    if opts.hostname == "apollo" then
-      [ ]
-    else
-      [ "--server https://${opts.hostname}:${opts.ports.k3s-control-plane}" ];
-in
 {
-  ##### FIREWALL ####
-
   imports = [
     ./apps/flaresolverr.nix
   ];
@@ -27,28 +18,22 @@ in
   );
 
   networking.firewall.allowedUDPPorts = builtins.map pkgs.lib.strings.toInt (
-    with opts.ports;
-    [
-      k3s-inter-node-net
-    ]
+    with opts.ports; [ k3s-inter-node-net ]
   );
 
   services.k3s = {
     enable = false;
     role = "server";
     clusterInit = opts.hostname == "apollo";
-    extraFlags =
-      let
-        flags = [
-          "--token-file=${config.age.secrets.k3s_token.path}"
-          "--write-kubeconfig-mode \"0644\""
-          "--cluster-init"
-          "--disable=servicelb"
-          "--disable=traefik"
-          "--disable=local-storage"
-          "--cluster-init-namespace=default"
-        ];
-      in
-      flags ++ node_server_opts;
+    tokenFile = config.age.secrets.k3s_token.path;
+    serverAddr = "https://${opts.hostname}:${opts.ports.k3s-control-plane}";
+    extraFlags = [
+      # "--disable=local-storage"
+      "--write-kubeconfig-mode 0644"
+      "--cluster-init"
+      "--cluster-init-namespace=default"
+      "--disable=servicelb"
+      "--disable=traefik"
+    ];
   };
 }
