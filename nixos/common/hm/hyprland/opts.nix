@@ -194,6 +194,7 @@ in
       { mod = "SUPER ALT"; keys = "Tab"; dispatcher = "exec"; args = "${hypr-switchlayout}/bin/hypr-switchlayout"; }
       { mod = "SUPER CTRL"; keys = "H"; dispatcher = "changegroupactive"; args = "b"; }
       { mod = "SUPER CTRL"; keys = "L"; dispatcher = "changegroupactive"; args = "f"; }
+      { mod = "SUPER CTRL"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; }
       { mod = "SUPER CTRL"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call lockScreen lock"; }
 
       /* workspace switching */
@@ -237,7 +238,7 @@ in
       { mod = "SUPER"; keys = "A"; dispatcher = "exec"; args = "uwsm app -t service -- pwvucontrol"; }
       { mod = "SUPER"; keys = "B"; dispatcher = "exec"; args = "uwsm app -t service -- ${opts.desktop.browser.xdg-desktop}"; }
       { mod = "SUPER"; keys = "C"; dispatcher = "exec"; args = "noctalia ipc call controlCenter toggle"; }
-      { mod = "SUPER"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; }
+      { mod = "SUPER"; keys = "D"; dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae toggle"; }
       { mod = "SUPER"; keys = "E"; dispatcher = "exec"; args = "uwsm app -t service -- org.mozilla.Thunderbird.desktop"; }
       { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
       { mod = "SUPER"; keys = "G"; dispatcher = "togglegroup"; args = ""; }
