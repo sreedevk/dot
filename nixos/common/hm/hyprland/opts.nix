@@ -575,6 +575,7 @@ in
       { rule = "blur"; addr = "sideleft";                     }
       { rule = "blur"; addr = "sideright";                    }
       { rule = "blur"; addr = "vicinae";                      }
+      { rule = "ignorealpha 0";   addr = "rofi";              }
       { rule = "ignorealpha 0";   addr = "vicinae";           }
       { rule = "ignorealpha 0.5"; addr = "launcher";          }
       { rule = "ignorealpha 0.6"; addr = "bar";               }
@@ -599,6 +600,7 @@ in
       { rule = "noanim"; addr = "noanim";                     }
       { rule = "noanim"; addr = "osk";                        }
       { rule = "noanim"; addr = "overview";                   }
+      { rule = "noanim"; addr = "rofi";                    }
       { rule = "noanim"; addr = "selection";                  }
       { rule = "noanim"; addr = "vicinae";                    }
       { rule = "noanim"; addr = "walker";                     }
