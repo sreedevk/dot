@@ -4,7 +4,7 @@
 , ...
 }:
 let
-  inherit (inputs) nixpkgs agenix stylix home-manager colmena system-manager disko noctalia niri pam;
+  inherit (inputs) nixpkgs agenix stylix home-manager colmena system-manager disko noctalia niri pam vicinae;
 in
 rec {
   pkgsFor = nixpkgs.legacyPackages;
@@ -95,6 +95,7 @@ rec {
         stylix.homeModules.stylix
         niri.homeModules.niri
         pam.homeModules.default
+        vicinae.homeManagerModules.default
       ];
 
       extraSpecialArgs = {

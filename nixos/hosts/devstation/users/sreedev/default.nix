@@ -1,7 +1,8 @@
-{ pkgs
-, config
-, username
-, ...
+{
+  pkgs,
+  config,
+  username,
+  ...
 }:
 {
   imports = [
@@ -136,6 +137,7 @@
         "https://cuda-maintainers.cachix.org"
         "https://numtide.cachix.org"
         "https://colmena.cachix.org"
+        "https://vicinae.cachix.org"
       ];
 
       trusted-public-keys = [
@@ -145,6 +147,7 @@
         "devstation:FB1QNgS2s/Guv4hZvFMevbbP6ABvsOMygQbBeKnHf4E="
         "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
         "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
+        "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
       ];
 
       trusted-substituters = [
@@ -154,6 +157,7 @@
         "https://cuda-maintainers.cachix.org"
         "https://numtide.cachix.org"
         "https://colmena.cachix.org"
+        "https://vicinae.cachix.org"
       ];
 
     };
