@@ -3,14 +3,12 @@
 , config
 , ...
 }:
-let
-  themes = import ../themes.nix;
-in
 {
   programs.kitty = {
     enable = true;
     package = config.lib.nixGL.wrapOffload pkgs.kitty;
-    settings = themes.zitchdog-pine // import ./settings.nix { inherit config lib; };
+    settings = import ./settings.nix { inherit config lib; };
+    themeFile = "SpaceGray_Eighties";
     keybindings = import ./keybindings.nix;
   };
 
