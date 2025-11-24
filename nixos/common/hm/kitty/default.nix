@@ -8,6 +8,12 @@
     enable = true;
     package = config.lib.nixGL.wrapOffload pkgs.kitty;
     settings = import ./settings.nix { inherit config lib; };
+    quickAccessTerminalConfig = {
+      start_as_hidden = false;
+      hide_on_focus_loss = false;
+      background_opacity = 0.85;
+      grab_keyboard = false;
+    };
     themeFile = "SpaceGray_Eighties";
     keybindings = import ./keybindings.nix;
   };
