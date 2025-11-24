@@ -8,12 +8,27 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      (config.lib.nixGL.wrap xdg-desktop-portal-gtk)
-    ];
-    configPackages = [ config.programs.niri.package ];
-    config = { };
+    xdgOpenUsePortal = true;
+    config = {
+      common = {
+        default = [
+          "gtk"
+          "gnome"
+        ];
+      };
+      niri = {
+        default = [
+          "gtk"
+          "gnome"
+        ];
+      };
+    };
   };
+
+  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-wlr
+    pkgs.xdg-desktop-portal-gtk
+  ];
 
   programs.niri = {
     enable = true;

@@ -2,6 +2,7 @@
 [
   inputs.nixgl.overlay
   inputs.nur.overlays.default
+  inputs.niri.overlays.niri
   (import ./agenix.nix       { inherit inputs; })
   (import ./stable.nix       { inherit inputs; })
   (import ./nvidia.nix       { inherit inputs; })
