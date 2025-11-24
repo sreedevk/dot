@@ -6,13 +6,19 @@
 }:
 {
 
-  imports = [ ./uwsm.nix ];
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      (config.lib.nixGL.wrap xdg-desktop-portal-gtk)
+    ];
+    configPackages = [ config.programs.niri.package ];
+    config = { };
+  };
 
   programs.niri = {
     enable = true;
     package = config.lib.nixGL.wrap pkgs.niri;
     settings = {
-
       environment = {
         AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
         EGL_PLATFORM = "wayland";

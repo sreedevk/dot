@@ -13,13 +13,19 @@
       package = pkgs.nixVersions.stable;
       settings = {
 
-        allowed-users = [ "sreedev" ];
+        allowed-users = [
+          "sreedev"
+          "edge"
+        ];
         download-buffer-size = 4000000000;
         fallback = true;
         auto-optimise-store = true;
         http2 = false;
         show-trace = true;
-        trusted-users = [ "sreedev" ];
+        trusted-users = [
+          "sreedev"
+          "edge"
+        ];
         warn-dirty = true;
 
         experimental-features = [
