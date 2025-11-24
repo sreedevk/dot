@@ -27,7 +27,7 @@ in
 
   programs.noctalia-shell = {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.noctalia;
+    package = config.lib.nixGL.wrapOffload pkgs.noctalia;
     systemd.enable = true;
     colors = with config.lib.stylix.colors; {
       mError = "#${base08}";
@@ -180,15 +180,6 @@ in
               id = "Battery";
               displayMode = "onhover";
               warningThreshold = 30;
-            }
-            {
-              id = "CustomButton";
-              icon = "cpu-2";
-              leftClickExec = "alacritty -e nvtop";
-              rightClickExec = "";
-              middleClickExec = "";
-              textCommand = "${gpu}/bin/gpu";
-              textIntervalMs = 3000;
             }
             {
               id = "Spacer";
