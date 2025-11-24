@@ -27,7 +27,7 @@ in
 
   programs.noctalia-shell = {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.noctalia;
+    package = config.lib.nixGL.wrap (config.lib.pamShim.replacePam pkgs.noctalia);
     systemd.enable = true;
     colors = with config.lib.stylix.colors; {
       mError = "#${base08}";

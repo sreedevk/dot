@@ -87,7 +87,7 @@
     username = "${username}";
   };
 
-  programs.eww.enable = true;
+  pamShim.enable = true;
 
   home.file = {
 

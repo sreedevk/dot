@@ -55,6 +55,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    pam = {
+      url                    = "github:Cu3PO42/pam_shim?ref=next";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
