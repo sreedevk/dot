@@ -5,7 +5,6 @@
   ...
 }:
 let
-  gpu = import ./modules/gpu.nix { inherit pkgs; };
   noctalia = pkgs.writeShellScriptBin "noctalia" ''
     QT_QPA_PLATFORM=wayland ${config.programs.noctalia-shell.package}/bin/noctalia-shell $@
   '';
