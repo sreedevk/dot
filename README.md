@@ -11,7 +11,6 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 5. keyboard layout "UNKNOWN" at login
 6. Switch to niri
 7. some dependencies that require secrets start before agenix.service has had the chance to run
-8. bazarr configuration is not persistent
 
 ## Distant Dreams
 1. Get rid of the dependency on a static LAN ip address (potentially using DDNS)
