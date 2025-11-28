@@ -29,6 +29,14 @@ services:
         url: "https://readarr.nullptr.sh"
         target: "_blank"
 
+      - name: "Ephemera"
+        logo: "assets/tools/ephemera.png"
+        subtitle: "Book Archive Search"
+        tag: "books"
+        keywords: "books"
+        url: "https://ephemera.nullptr.sh"
+        target: "_blank"
+
       - name: "Kiwix"
         logo: "assets/tools/kiwix.png"
         subtitle: "ZIM Reader"
