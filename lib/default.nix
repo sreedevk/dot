@@ -11,7 +11,7 @@ rec {
   forEachSystem = f: nixpkgs.lib.genAttrs (builtins.attrValues systems) (sys: f pkgsFor.${sys});
 
   recurmerge =
-    attrsets: nixpkgs.lib.fold (attrset: acc: nixpkgs.lib.recursiveUpdate attrset acc) { } attrsets;
+    attrsets: nixpkgs.lib.foldr (attrset: acc: nixpkgs.lib.recursiveUpdate attrset acc) { } attrsets;
 
   mkColmenaFromNixOSConfigurations =
     conf:
