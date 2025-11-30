@@ -14,7 +14,7 @@
       background_opacity = 0.85;
       grab_keyboard = false;
     };
-    themeFile = "SpaceGray_Eighties";
+    themeFile = "YsDark";
     keybindings = import ./keybindings.nix;
   };
 
