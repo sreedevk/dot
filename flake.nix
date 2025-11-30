@@ -8,7 +8,7 @@
     agenix.url     = "github:ryantm/agenix";
     colmena.url    = "github:zhaofengli/colmena";
     attic.url      = "github:zhaofengli/attic";
-    llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7126";
+    llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7205";
     vicinae.url    = "github:vicinaehq/vicinae?ref=v0.16.10";
 
     disko = {
@@ -52,7 +52,7 @@
     };
 
     niri = {
-      url                    = "github:sodiboo/niri-flake?ref=960b925b";
+      url                    = "github:sodiboo/niri-flake?ref=9e3bbd17";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
