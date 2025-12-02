@@ -68,8 +68,8 @@ services:
     icon: "fas fa-computer"
     items:
 
-      - name: "Stirling PDF"
-        logo: "assets/tools/stirling-pdf.png"
+      - name: "Bento PDF"
+        logo: "assets/tools/bentopdf.png"
         subtitle: "PDF Manipulation Tools"
         tag: "pdf-manipulation"
         url: "https://pdf.nullptr.sh"
