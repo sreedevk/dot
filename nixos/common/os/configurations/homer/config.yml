@@ -75,13 +75,6 @@ services:
         url: "https://pdf.nullptr.sh"
         target: "_blank"
 
-      - name: "FossFlow"
-        logo: "assets/tools/fossflow.png"
-        subtitle: "Isometric Diagram Generator"
-        tag: "isometric-diagrams"
-        url: "https://fossflow.nullptr.sh"
-        target: "_blank"
-
       - name: "Open WebUI"
         logo: "assets/tools/ollama.png"
         subtitle: "AI Chatbot"
