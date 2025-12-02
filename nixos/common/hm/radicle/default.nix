@@ -40,17 +40,24 @@ in
         Unit = {
           Description = "Radicle Node Runner";
           Documentation = "info:rad man:rad(1) https://radicle.xyz/guides/user";
-          After = [ "agenix.service" ];
-          Requires = [ "agenix.service" ];
+          After = [
+            "graphical-session.target"
+          ];
+          Wants = [
+            "graphical-session.target"
+          ];
         };
         Service = {
           Type = "simple";
           ExecStart = "${radnode}/bin/radnode";
           Restart = "on-failure";
-          RestartSec = "10s";
+          RestartSec = "60s";
+          Nice = 19;
         };
         Install = {
-          WantedBy = [ "default.target" ];
+          WantedBy = [
+            "graphical-session.target"
+          ];
         };
       };
     };
