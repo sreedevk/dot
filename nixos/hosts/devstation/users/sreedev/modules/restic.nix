@@ -28,11 +28,9 @@
           Documentation = "info:restic man:restic backup(1)";
           After = [
             "network-online.target"
-            "agenix.service"
           ];
           Wants = [
             "network-online.target"
-            "agenix.service"
           ];
         };
         Service = {
@@ -72,9 +70,9 @@
           Description = "Timer for Restic Backup Process";
         };
         Timer = {
-          OnBootSec = "5min";
-          OnCalendar = "00:05";
+          OnCalendar = "daily";
           RandomizedDelaySec = "5h";
+          Persistent = true;
           Unit = "restic-backup.service";
         };
         Install = {
