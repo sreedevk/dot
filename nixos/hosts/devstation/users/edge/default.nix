@@ -78,7 +78,7 @@
     enableNixpkgsReleaseCheck = false;
     homeDirectory = "/home/${username}";
     stateVersion = "24.11";
-    username = "${username}";
+    username = username;
   };
 
   pamShim.enable = true;
@@ -107,13 +107,17 @@
 
     settings = {
 
-      allowed-users = [ "${username}" ];
+      allowed-users = [
+        username
+      ];
       download-buffer-size = 4000000000;
       fallback = true;
       auto-optimise-store = true;
       http2 = false;
       show-trace = true;
-      trusted-users = [ "${username}" ];
+      trusted-users = [
+        username
+      ];
       warn-dirty = true;
 
       experimental-features = [
