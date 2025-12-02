@@ -78,7 +78,7 @@
     enableNixpkgsReleaseCheck = false;
     homeDirectory = "/home/${username}";
     stateVersion = "24.11";
-    username = username;
+    inherit username;
   };
 
   pamShim.enable = true;
