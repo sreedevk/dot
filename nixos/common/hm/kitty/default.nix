@@ -1,21 +1,24 @@
 { pkgs
-, lib
 , config
 , ...
 }:
 {
+
+  imports = [
+    ./settings.nix
+    ./keybindings.nix
+  ];
+
   programs.kitty = {
     enable = true;
     package = config.lib.nixGL.wrapOffload pkgs.kitty;
-    settings = import ./settings.nix { inherit config lib; };
     quickAccessTerminalConfig = {
       start_as_hidden = false;
       hide_on_focus_loss = false;
       background_opacity = 0.85;
       grab_keyboard = false;
     };
-    themeFile = "YsDark";
-    keybindings = import ./keybindings.nix;
+    themeFile = "rose-pine";
   };
 
   xdg.desktopEntries = {
