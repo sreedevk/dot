@@ -19,13 +19,13 @@ namespace :nix do
 
     desc "check nix flakes & configurations for current system"
     task :check do
-      sh('nix flake check')
+      sh('nix flake check --impure')
     end
 
     namespace :check do
       desc "check nix flakes & configurations for all systems"
       task :all do
-        sh('nix flake check --all-systems')
+        sh('nix flake check --impure --all-systems')
       end
     end
   end
