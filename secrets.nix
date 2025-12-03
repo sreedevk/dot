@@ -46,7 +46,6 @@ with builtins;
   "secrets/nyc0/jira-token.age".publicKeys                    = attrValues nyc0;
   "secrets/nyc0/k3s_token.age".publicKeys                     = attrValues nyc0;
   "secrets/nyc0/miniflux_env.age".publicKeys                  = attrValues nyc0;
-  "secrets/nyc0/minio_env.age".publicKeys                     = attrValues nyc0;
   "secrets/nyc0/n8n_env.age".publicKeys                       = attrValues nyc0;
   "secrets/nyc0/next_explorer_env.age".publicKeys             = attrValues nyc0;
   "secrets/nyc0/openai_api_key.age".publicKeys                = attrValues nyc0;

@@ -47,13 +47,6 @@ services:
         url: "https://prom.nullptr.sh"
         target: "_blank"
 
-      - name: "MinIO"
-        logo: "assets/tools/minio.png"
-        subtitle: "Object Storage"
-        tag: "object-storage"
-        url: "https://minio.nullptr.sh"
-        target: "_blank"
-
       - name: "Nginx Proxy Manager"
         logo: "assets/tools/nginx-proxy-manager.png"
         subtitle: "proxy-manager"
