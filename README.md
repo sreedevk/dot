@@ -12,33 +12,6 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 6. Switch to niri
 7. some dependencies that require secrets start before agenix.service has had the chance to run
 
-```
-    DKMS (dkms-3.3.0) make.log for v4l2loopback-dc/v2.1.3.r4.g1d09ede for kernel 6.17.9-arch1-1 (x86_64)
-    Thu Nov 27 08:40:03 EST 2025
-
-    Building module(s)
-# command: make -j20 KERNELRELEASE=6.17.9-arch1-1 all
-    make -C /lib/modules/6.17.9-arch1-1/build M=/var/lib/dkms/v4l2loopback-dc/v2.1.3.r4.g1d09ede/build modules
-    make[1]: Entering directory '/usr/lib/modules/6.17.9-arch1-1/build'
-    make[2]: Entering directory '/var/lib/dkms/v4l2loopback-dc/v2.1.3.r4.g1d09ede/build'
-      CC [M]  v4l2loopback-dc.o
-    v4l2loopback-dc.c: In function 'v4l2_loopback_init':
-    v4l2loopback-dc.c:2340:3: error: implicit declaration of function 'setup_timer' [-Wimplicit-function-declaration]
-     2340 |   setup_timer(&dev->sustain_timer, sustain_timer_clb, nr);
-          |   ^~~~~~~~~~~
-    make[4]: *** [/usr/lib/modules/6.17.9-arch1-1/build/scripts/Makefile.build:287: v4l2loopback-dc.o] Error 1
-    make[3]: *** [/usr/lib/modules/6.17.9-arch1-1/build/Makefile:2011: .] Error 2
-    make[2]: *** [/usr/lib/modules/6.17.9-arch1-1/build/Makefile:248: __sub-make] Error 2
-    make[2]: Leaving directory '/var/lib/dkms/v4l2loopback-dc/v2.1.3.r4.g1d09ede/build'
-    make[1]: *** [Makefile:248: __sub-make] Error 2
-    make[1]: Leaving directory '/usr/lib/modules/6.17.9-arch1-1/build'
-    make: *** [Makefile:8: all] Error 2
-
-# exit code: 2
-# elapsed time: 00:00:01
-    ----------------------------------------------------------------
-```
-
 ## Distant Dreams
 1. Get rid of the dependency on a static LAN ip address (potentially using DDNS)
 2. improvement: migrate to Traefik
