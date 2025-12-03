@@ -82,6 +82,13 @@ services:
         url: "https://owui.nullptr.sh"
         target: "_blank"
 
+      - name: "Fooocus"
+        logo: "assets/tools/fooocus.png"
+        subtitle: "AI Image Generation"
+        tag: "ai-image-gen"
+        url: "https://fooocus.nullptr.sh"
+        target: "_blank"
+
       - name: "Searxng"
         logo: "assets/tools/searxng.png"
         subtitle: "Search Engine"
