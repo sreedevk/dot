@@ -49,6 +49,7 @@
     ../../../../common/hm/raku.nix
     ../../../../common/hm/rofi
     ../../../../common/hm/starship.nix
+    ../../../../common/hm/steam.nix
     ../../../../common/hm/stylix.nix
     ../../../../common/hm/supervisor
     ../../../../common/hm/taskwarrior.nix
