@@ -78,7 +78,7 @@ in
 
   inputs = {
     kb_layout = "us,apl";
-    kb_variant = "qwerty,dyalog";
+    kb_variant = ",dyalog";
     kb_model = "";
     kb_options = "ctrl:nocaps,compose:ralt,grp:shifts_toggle";
     kb_rules = "";
