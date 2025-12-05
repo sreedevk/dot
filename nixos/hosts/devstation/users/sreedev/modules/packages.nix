@@ -7,6 +7,7 @@
         (config.lib.nixGL.wrap pkgs.audacity)
         (config.lib.nixGL.wrap pkgs.dbeaver-bin)
         (config.lib.nixGL.wrap pkgs.easyeffects)
+        (config.lib.nixGL.wrap pkgs.feishin)
         (config.lib.nixGL.wrap pkgs.gnome-calculator)
         (config.lib.nixGL.wrap pkgs.hydrogen)
         (config.lib.nixGL.wrap pkgs.lmms)
