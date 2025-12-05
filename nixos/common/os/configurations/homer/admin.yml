@@ -120,6 +120,13 @@ services:
         url: "https://qui.nullptr.sh"
         target: "_blank"
 
+      - name: "Autobrr"
+        logo: "assets/tools/autobrr.png"
+        subtitle: "Automatic Torrent Management"
+        tag: "auto-tor-man"
+        url: "https://autobrr.nullptr.sh"
+        target: "_blank"
+
       - name: "BitMagnet"
         logo: "assets/tools/bitmagnet.png"
         subtitle: "Torrent Indexer"

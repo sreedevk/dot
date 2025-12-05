@@ -26,6 +26,7 @@ with builtins;
   "secrets/nyc0/attic_env.age".publicKeys                     = attrValues nyc0;
   "secrets/nyc0/attic_server_config_toml.age".publicKeys      = attrValues nyc0;
   "secrets/nyc0/authentik_env.age".publicKeys                 = attrValues nyc0;
+  "secrets/nyc0/autobrr_env.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/autokuma_env.age".publicKeys                  = attrValues nyc0;
   "secrets/nyc0/aws-secrets.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/baikal_user_password.age".publicKeys          = attrValues nyc0;
