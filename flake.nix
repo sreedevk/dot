@@ -9,7 +9,7 @@
     colmena.url    = "github:zhaofengli/colmena";
     attic.url      = "github:zhaofengli/attic";
     llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7205";
-    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.16.10";
+    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.16.12";
 
     disko = {
       url                    = "github:nix-community/disko";
