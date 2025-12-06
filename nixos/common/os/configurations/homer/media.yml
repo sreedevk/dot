@@ -206,13 +206,6 @@ services:
         url: "https://vw.nullptr.sh"
         target: "_blank"
 
-      - name: "DumbAssets"
-        logo: "assets/tools/dumbassets.png"
-        subtitle: "physical asset manager"
-        tag: "physical-asset-manager"
-        url: "https://da.nullptr.sh"
-        target: "_blank"
-
       - name: "Dawarich"
         logo: "assets/tools/dawarich.png"
         subtitle: "location-tracker"
