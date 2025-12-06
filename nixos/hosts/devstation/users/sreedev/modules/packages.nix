@@ -9,6 +9,8 @@
         (config.lib.nixGL.wrap pkgs.easyeffects)
         (config.lib.nixGL.wrap pkgs.feishin)
         (config.lib.nixGL.wrap pkgs.gnome-calculator)
+        (config.lib.nixGL.wrap pkgs.gpu-screen-recorder)
+        (config.lib.nixGL.wrap pkgs.gpu-screen-recorder-gtk)
         (config.lib.nixGL.wrap pkgs.hydrogen)
         (config.lib.nixGL.wrap pkgs.lmms)
         (config.lib.nixGL.wrap pkgs.localsend)
@@ -27,7 +29,6 @@
         (config.lib.nixGL.wrapOffload pkgs.upscayl)
         ffmpegthumbnailer
         libreoffice-fresh
-        wf-recorder
         wofi
       ];
 
