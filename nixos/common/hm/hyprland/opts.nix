@@ -1132,7 +1132,6 @@ in
   exec-once = [
     "dbus-update-activation-environment --systemd --all"
     "hyprpm reload -n"
-    "systemctl --user start hyprpolkitagent"
     "wl-paste --type image --watch cliphist store"
     "wl-paste --type text --watch cliphist store"
     "wlsunset -l 40.7 -L -73.9"
