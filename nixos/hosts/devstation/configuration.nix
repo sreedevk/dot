@@ -83,6 +83,17 @@
           DefaultTimeoutStopSec=10s
         '';
       };
+      "modprobe.d/droidcam.conf" = {
+        text = ''
+          options v4l2loopback exclusive_caps=1
+        '';
+      };
+      "modules-load.d/droidcam.conf" = {
+        text = ''
+          v4l2loopback
+          snd_aloop
+        '';
+      };
       "resolvconf.conf" = {
         text = ''
           name_server_blacklist="127.0.0.1"
