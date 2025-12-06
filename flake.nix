@@ -17,7 +17,7 @@
     };
 
     nur = {
-      url                    = "github:nix-community/NUR?ref=250154e2";
+      url                    = "github:nix-community/NUR?ref=d30a783";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -27,7 +27,7 @@
     };
 
     stylix = {
-      url                    = "github:danth/stylix?ref=cd11c057";
+      url                    = "github:danth/stylix?ref=3a33245";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -52,7 +52,7 @@
     };
 
     niri = {
-      url                    = "github:sodiboo/niri-flake?ref=9e3bbd17";
+      url                    = "github:sodiboo/niri-flake?ref=935080f";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
