@@ -1,16 +1,9 @@
 general:
-  # Debug mode, only for development. Is overwritten by ${SEARXNG_DEBUG}
   debug: false
-  # displayed name
   instance_name: "SearXNG"
-  # For example: https://example.com/privacy
   privacypolicy_url: false
-  # use true to use your own donation page written in searx/info/en/donate.md
-  # use false to disable the donation link
   donation_url: false
-  # mailto:contact@example.com
   contact_url: false
-  # record stats
   enable_metrics: false
 
 brand:
@@ -19,88 +12,43 @@ brand:
   public_instances: https://searx.space
   wiki_url: https://github.com/searxng/searxng/wiki
   issue_url: https://github.com/searxng/searxng/issues
-  # custom:
-  #   # Custom entries in the footer: [title]: [link]
-  #   links:
-  #     Uptime: https://uptime.searxng.org/history/darmarit-org
-  #     About: "https://searxng.org"
 
 search:
-  # Filter results. 0: None, 1: Moderate, 2: Strict
   safe_search: 0
-  # Existing autocomplete backends: "360search", "baidu", "brave", "dbpedia", "duckduckgo", "google", "yandex",
-  # "mwmbl", "naver", "seznam", "sogou", "startpage", "stract", "swisscows", "quark", "qwant", "wikipedia" -
-  # leave blank to turn it off by default.
-  autocomplete: ""
-  # minimun characters to type before autocompleter starts
+  autocomplete: "duckduckgo"
   autocomplete_min: 4
-  # backend for the favicon near URL in search results.
-  # Available resolvers: "allesedv", "duckduckgo", "google", "yandex" - leave blank to turn it off by default.
-  favicon_resolver: ""
-  # Default search language - leave blank to detect from browser information or
-  # use codes from 'languages.py'
+  favicon_resolver: "duckduckgo"
   default_lang: "auto"
-  # max_page: 0  # if engine supports paging, 0 means unlimited numbers of pages
-  # Available languages
+  max_page: 0
   # languages:
   #   - all
   #   - en
   #   - en-US
-  #   - de
-  #   - it-IT
-  #   - fr
-  #   - fr-BE
-  # ban time in seconds after engine errors
   ban_time_on_fail: 5
-  # max ban time in seconds after engine errors
   max_ban_time_on_fail: 120
   suspended_times:
-    # Engine suspension time after error (in seconds; set to 0 to disable)
-    # For error "Access denied" and "HTTP error [402, 403]"
     SearxEngineAccessDenied: 86400
-    # For error "CAPTCHA"
     SearxEngineCaptcha: 86400
-    # For error "Too many request" and "HTTP error 429"
     SearxEngineTooManyRequests: 3600
-    # Cloudflare CAPTCHA
     cf_SearxEngineCaptcha: 1296000
     cf_SearxEngineAccessDenied: 86400
-    # ReCAPTCHA
     recaptcha_SearxEngineCaptcha: 604800
-
-  # remove format to deny access, use lower case.
-  # formats: [html, csv, json, rss]
   formats:
     - html
     - json
+    - csv
+    - rss
 
 server:
-  # Is overwritten by ${SEARXNG_PORT} and ${SEARXNG_BIND_ADDRESS}
-  port: 8888
-  bind_address: "127.0.0.1"
-  # public URL of the instance, to ensure correct inbound links. Is overwritten
-  # by ${SEARXNG_BASE_URL}.
-  base_url: false  # "http://example.com/location"
-  # rate limit the number of request on the instance, block some bots.
-  # Is overwritten by ${SEARXNG_LIMITER}
-  limiter: false
-  # enable features designed only for public instances.
-  # Is overwritten by ${SEARXNG_PUBLIC_INSTANCE}
-  public_instance: false
-
-  # If your instance owns a /etc/searxng/settings.yml file, then set the following
-  # values there.
-
-  secret_key: "b484e8def645771154b0aec320928eb90ec3142cb3ef2b26f4ba348c8bc10f97"  # Is overwritten by ${SEARXNG_SECRET}
-  # Proxy image results through SearXNG. Is overwritten by ${SEARXNG_IMAGE_PROXY}
-  image_proxy: false
-  # 1.0 and 1.1 are supported
+  port: 8080              # ${SEARXNG_PORT}
+  bind_address: "0.0.0.0" # ${SEARXNG_BIND_ADDRESS}
+  base_url: false         # ${SEARXNG_BASE_URL}.
+  limiter: false          # ${SEARXNG_LIMITER}
+  public_instance: false  # ${SEARXNG_PUBLIC_INSTANCE}
+  secret_key: ""          # ${SEARXNG_SECRET}
+  image_proxy: false      # ${SEARXNG_IMAGE_PROXY}
+  method: "POST"          # ${SEARXNG_METHOD}
   http_protocol_version: "1.0"
-  # POST queries are "more secure!" but are also the source of hard-to-locate
-  # annoyances, which is why GET may be better for end users and their browsers.
-  # see https://github.com/searxng/searxng/pull/3619
-  # Is overwritten by ${SEARXNG_METHOD}
-  method: "POST"
   default_http_headers:
     X-Content-Type-Options: nosniff
     X-Download-Options: noopen
@@ -143,75 +91,31 @@ ui:
   # URL formatting: pretty, full or host
   url_formatting: pretty
 
-# Lock arbitrary settings on the preferences page.
-#
-# preferences:
-#   lock:
-#     - categories
-#     - language
-#     - autocomplete
-#     - favicon
-#     - safesearch
-#     - method
-#     - doi_resolver
-#     - locale
-#     - theme
-#     - results_on_new_tab
-#     - search_on_category_select
-#     - method
-#     - image_proxy
-#     - query_in_title
+preferences:
+  lock:
+    - categories
+    - language
+    - autocomplete
+    - favicon
+    - safesearch
+    - method
+    - doi_resolver
+    - locale
+    - theme
+    - results_on_new_tab
+    - search_on_category_select
+    - method
+    - image_proxy
+    - query_in_title
 
-# communication with search engines
-#
 outgoing:
-  # default timeout in seconds, can be override by engine
   request_timeout: 3.0
-  # the maximum timeout in seconds
-  # max_request_timeout: 10.0
-  # suffix of searxng_useragent, could contain information like an email address
-  # to the administrator
+  max_request_timeout: 10.0
   useragent_suffix: ""
-  # The maximum number of concurrent connections that may be established.
   pool_connections: 100
-  # Allow the connection pool to maintain keep-alive connections below this
-  # point.
   pool_maxsize: 20
-  # See https://www.python-httpx.org/http2/
   enable_http2: true
-  # uncomment below section if you want to use a custom server certificate
-  # see https://www.python-httpx.org/advanced/#changing-the-verification-defaults
-  # and https://www.python-httpx.org/compatibility/#ssl-configuration
-  #  verify: ~/.mitmproxy/mitmproxy-ca-cert.cer
-  #
-  # uncomment below section if you want to use a proxyq see: SOCKS proxies
-  #   https://2.python-requests.org/en/latest/user/advanced/#proxies
-  # are also supported: see
-  #   https://2.python-requests.org/en/latest/user/advanced/#socks
-  #
-  #  proxies:
-  #    all://:
-  #      - http://proxy1:8080
-  #      - http://proxy2:8080
-  #
-  #  using_tor_proxy: true
-  #
-  # Extra seconds to add in order to account for the time taken by the proxy
-  #
-  #  extra_proxy_timeout: 10
-  #
-  # uncomment below section only if you have more than one network interface
-  # which can be the source of outgoing search requests
-  #
-  #  source_ips:
-  #    - 1.1.1.1
-  #    - 1.1.1.2
-  #    - fe80::/126
 
-
-# Plugin configuration, for more details see
-#   https://docs.searxng.org/admin/settings/settings_plugins.html
-#
 plugins:
 
   searx.plugins.calculator.SXNGPlugin:
@@ -247,51 +151,8 @@ plugins:
   searx.plugins.tracker_url_remover.SXNGPlugin:
     active: true
 
-
-# Configuration of the "Hostnames plugin":
-#
-# hostnames:
-#   replace:
-#     '(.*\.)?youtube\.com$': 'yt.example.com'
-#     '(.*\.)?youtu\.be$': 'yt.example.com'
-#     '(.*\.)?reddit\.com$': 'teddit.example.com'
-#     '(.*\.)?redd\.it$': 'teddit.example.com'
-#     '(www\.)?twitter\.com$': 'nitter.example.com'
-#   remove:
-#     - '(.*\.)?facebook.com$'
-#   low_priority:
-#     - '(.*\.)?google(\..*)?$'
-#   high_priority:
-#     - '(.*\.)?wikipedia.org$'
-#
-# Alternatively you can use external files for configuring the "Hostnames plugin":
-#
-# hostnames:
-#  replace: 'rewrite-hosts.yml'
-#
-# Content of 'rewrite-hosts.yml' (place the file in the same directory as 'settings.yml'):
-# '(.*\.)?youtube\.com$': 'yt.example.com'
-# '(.*\.)?youtu\.be$': 'yt.example.com'
-#
-
 checker:
-  # disable checker when in debug mode
   off_when_debug: true
-
-  # use "scheduling: {}" to disable scheduling
-  # scheduling: interval or int
-
-  # to activate the scheduler:
-  # * uncomment "scheduling" section
-  # * add "cache2 = name=searxngcache,items=2000,blocks=2000,blocksize=4096,bitmap=1"
-  #   to your uwsgi.ini
-
-  # scheduling:
-  #   start_after: [300, 1800]  # delay to start the first run of the checker
-  #   every: [86400, 90000]     # how often the checker runs
-
-  # additional tests: only for the YAML anchors (see the engines section)
-  #
   additional_tests:
     rosebud: &test_rosebud
       matrix:
@@ -408,14 +269,6 @@ engines:
     shortcut: ans
     disabled: true
 
-  # - name: annas articles
-  #   engine: annas_archive
-  #   shortcut: aaa
-  #   # https://docs.searxng.org/dev/engines/online/annas_archive.html
-  #   aa_content: 'magazine' # book_fiction, book_unknown, book_nonfiction, book_comic
-  #   aa_ext: 'pdf'  # pdf, epub, ..
-  #   aa_sort: oldest'  # newest, oldest, largest, smallest
-
   - name: apk mirror
     engine: apkmirror
     timeout: 4.0
@@ -474,20 +327,6 @@ engines:
     shortcut: ask
     disabled: true
 
-  # - name: azure
-  #   engine: azure
-  #   shortcut: az
-  #   categories: [it, cloud]
-  #   azure_tenant_id: "your_tenant_id"
-  #   azure_client_id: "your_client_id"
-  #   azure_client_secret: "your_client_secret"
-  #   disabled: true
-
-  # tmp suspended:  dh key too small
-  # - name: base
-  #   engine: base
-  #   shortcut: bs
-
   - name: bandcamp
     engine: bandcamp
     shortcut: bc
@@ -517,7 +356,6 @@ engines:
   - name: wikipedia
     engine: wikipedia
     shortcut: wp
-    # add "list" to the array to get results in the results list
     display_type: ["infobox"]
     categories: [general]
 
@@ -585,9 +423,6 @@ engines:
   - name: media.ccc.de
     engine: ccc_media
     shortcut: c3tv
-    # We don't set language: de here because media.ccc.de is not just
-    # for a German audience. It contains many English videos and many
-    # German videos have English subtitles.
     disabled: true
 
   - name: chefkoch
@@ -595,11 +430,6 @@ engines:
     shortcut: chef
     # to show premium or plus results too:
     # skip_premium: false
-
-  # WARNING: links from chinaso.com voilate users privacy
-  # Before activate these engines its mandatory to read
-  # - https://github.com/searxng/searxng/issues/4694
-  # - https://docs.searxng.org/dev/engines/online/chinaso.html
 
   - name: chinaso news
     engine: chinaso
@@ -628,27 +458,9 @@ engines:
     disabled: true
     inactive: true
 
-  - name: cloudflareai
-    engine: cloudflareai
-    shortcut: cfai
-    # get api token and accont id from https://developers.cloudflare.com/workers-ai/get-started/rest-api/
-    cf_account_id: 'your_cf_accout_id'
-    cf_ai_api: 'your_cf_api'
-    # create your ai gateway by https://developers.cloudflare.com/ai-gateway/get-started/creating-gateway/
-    cf_ai_gateway: 'your_cf_ai_gateway_name'
-    # find the model name from https://developers.cloudflare.com/workers-ai/models/#text-generation
-    cf_ai_model: 'ai_model_name'
-    # custom your preferences
-    # cf_ai_model_display_name: 'Cloudflare AI'
-    # cf_ai_model_assistant: 'prompts_for_assistant_role'
-    # cf_ai_model_system: 'prompts_for_system_role'
-    timeout: 30
-    disabled: true
-
   - name: core.ac.uk
     engine: core
     shortcut: cor
-    # read https://docs.searxng.org/dev/engines/online/core.html
     api_key: ""
     inactive: true
 
@@ -727,13 +539,6 @@ engines:
     disabled: true
     tests: *tests_infobox
 
-  # cloudflare protected
-  # - name: digbt
-  #   engine: digbt
-  #   shortcut: dbt
-  #   timeout: 6.0
-  #   disabled: true
-
   - name: docker hub
     engine: docker_hub
     shortcut: dh
@@ -776,21 +581,6 @@ engines:
       use_official_api: false
       require_api_key: false
       results: HTML
-
-  # - name: elasticsearch
-  #   shortcut: els
-  #   engine: elasticsearch
-  #   base_url: http://localhost:9200
-  #   username: elastic
-  #   password: changeme
-  #   index: my-index
-  #   enable_http: true
-  #   # available options: match, simple_query_string, term, terms, custom
-  #   query_type: match
-  #   # if query_type is set to custom, provide your query here
-  #   # custom_query_json: {"query":{"match_all": {}}}
-  #   # show_metadata: false
-  #   disabled: true
 
   - name: wikidata
     engine: wikidata
@@ -868,13 +658,6 @@ engines:
       require_api_key: false
       results: HTML
 
-  # - name: ebay
-  #   engine: ebay
-  #   shortcut: eb
-  #   base_url: 'https://www.ebay.com'
-  #   disabled: true
-  #   timeout: 5
-
   - name: 1x
     engine: www1x
     shortcut: 1x
@@ -894,11 +677,6 @@ engines:
   - name: flickr
     categories: images
     shortcut: fl
-    # You can use the engine using the official stable API, but you need an API
-    # key, see: https://www.flickr.com/services/apps/create/
-    # engine: flickr
-    # api_key: 'apikey' # required!
-    # Or you can use the html non-stable engine, activated by default
     engine: flickr_noapi
 
   - name: free software directory
@@ -912,14 +690,6 @@ engines:
     about:
       website: https://directory.fsf.org/
       wikidata_id: Q2470288
-
-  # - name: freesound
-  #   engine: freesound
-  #   shortcut: fnd
-  #   disabled: true
-  #   timeout: 15.0
-  # API key required, see: https://freesound.org/docs/api/overview.html
-  #   api_key: MyAPIkey
 
   - name: frinkiac
     engine: frinkiac
@@ -959,35 +729,9 @@ engines:
       website: https://gitlab.com/
       wikidata_id: Q16639197
 
-  # - name: gnome
-  #   engine: gitlab
-  #   base_url: https://gitlab.gnome.org
-  #   shortcut: gn
-  #   about:
-  #     website: https://gitlab.gnome.org
-  #     wikidata_id: Q44316
-
   - name: github
     engine: github
     shortcut: gh
-
-  - name: github code
-    engine: github_code
-    shortcut: ghc
-    disabled: true
-    ghc_auth:
-      # type is one of:
-      # * none
-      # * personal_access_token
-      # * bearer
-      # When none is passed, the token is not requried.
-      type: "none"
-      token: "token"
-    # specify whether to highlight the matching lines to the query
-    ghc_highlight_matching_lines: true
-    ghc_strip_new_lines: true
-    ghc_strip_whitespace: false
-    timeout: 10.0
 
   - name: codeberg
     # https://docs.searxng.org/dev/engines/online/gitea.html
@@ -1011,32 +755,18 @@ engines:
   - name: google
     engine: google
     shortcut: go
-    # additional_tests:
-    #   android: *test_android
 
   - name: google images
     engine: google_images
     shortcut: goi
-    # additional_tests:
-    #   android: *test_android
-    #   dali:
-    #     matrix:
-    #       query: ['Dali Christ']
-    #       lang: ['en', 'de', 'fr', 'zh-CN']
-    #     result_container:
-    #       - ['one_title_contains', 'Salvador']
 
   - name: google news
     engine: google_news
     shortcut: gon
-    # additional_tests:
-    #   android: *test_android
 
   - name: google videos
     engine: google_videos
     shortcut: gov
-    # additional_tests:
-    #   android: *test_android
 
   - name: google scholar
     engine: google_scholar
@@ -1162,16 +892,6 @@ engines:
     shortcut: in
     timeout: 6.0
     disabled: true
-
-  # - name: invidious
-  #   engine: invidious
-  #   # if you want to use invidious with SearXNG you should setup one locally
-  #   # https://github.com/searxng/searxng/issues/2722#issuecomment-2884993248
-  #   base_url:
-  #     - https://invidious.example1.com
-  #     - https://invidious.example2.com
-  #   shortcut: iv
-  #   timeout: 3.0
 
   - name: ipernity
     engine: ipernity
@@ -1348,15 +1068,6 @@ engines:
     disabled: true
     number_of_results: 20
 
-  # https://docs.searxng.org/dev/engines/offline/search-indexer-engines.html#module-searx.engines.meilisearch
-  # - name: meilisearch
-  #   engine: meilisearch
-  #   shortcut: mes
-  #   enable_http: true
-  #   base_url: http://localhost:7700
-  #   index: my-index
-  #   auth_key: Bearer XXXX
-
   - name: microsoft learn
     engine: microsoft_learn
     shortcut: msl
@@ -1365,20 +1076,6 @@ engines:
   - name: mixcloud
     engine: mixcloud
     shortcut: mc
-
-  # MongoDB engine
-  # Required dependency: pymongo
-  # - name: mymongo
-  #   engine: mongodb
-  #   shortcut: md
-  #   exact_match_only: false
-  #   host: '127.0.0.1'
-  #   port: 27017
-  #   enable_http: true
-  #   results_per_page: 20
-  #   database: 'business'
-  #   collection: 'reviews'  # name of the db collection
-  #   key: 'name'  # key in the collection to search for
 
   - name: mozhi
     engine: mozhi
@@ -1506,11 +1203,6 @@ engines:
     shortcut: om
     disabled: true
 
-  # - name: opensemanticsearch
-  #   engine: opensemantic
-  #   shortcut: oss
-  #   base_url: 'http://localhost:8983/solr/opensemanticsearch/'
-
   - name: openstreetmap
     engine: openstreetmap
     shortcut: osm
@@ -1621,37 +1313,10 @@ engines:
     inactive: true
     pixiv_image_proxies:
       - https://pximg.example.org
-      # A proxy is required to load the images. Hosting an image proxy server
-      # for Pixiv:
-      #    --> https://pixivfe.pages.dev/hosting-image-proxy-server/
-      # Proxies from public instances.  Ask the public instances owners if they
-      # agree to receive traffic from SearXNG!
-      #    --> https://codeberg.org/VnPower/PixivFE#instances
-      #    --> https://github.com/searxng/searxng/pull/3192#issuecomment-1941095047
-      # image proxy of https://pixiv.cat
-      # - https://i.pixiv.cat
-      # image proxy of https://www.pixiv.pics
-      # - https://pximg.cocomi.eu.org
-      # image proxy of https://pixivfe.exozy.me
-      # - https://pximg.exozy.me
-      # image proxy of https://pixivfe.ducks.party
-      # - https://pixiv.ducks.party
-      # image proxy of https://pixiv.perennialte.ch
-      # - https://pximg.perennialte.ch
 
   - name: podcastindex
     engine: podcastindex
     shortcut: podcast
-
-  # Required dependency: psychopg2
-  #  - name: postgresql
-  #    engine: postgresql
-  #    database: postgres
-  #    username: postgres
-  #    password: postgres
-  #    limit: 10
-  #    query_str: 'SELECT * from my_table WHERE my_column = %(query)s'
-  #    shortcut : psql
 
   - name: presearch
     engine: presearch
@@ -1766,28 +1431,6 @@ engines:
     categories: [videos, web]
     network: qwant
 
-  # - name: library
-  #   engine: recoll
-  #   shortcut: lib
-  #   base_url: 'https://recoll.example.org/'
-  #   search_dir: ''
-  #   mount_prefix: /export
-  #   dl_prefix: 'https://download.example.org'
-  #   timeout: 30.0
-  #   categories: files
-  #   disabled: true
-
-  # - name: recoll library reference
-  #   engine: recoll
-  #   base_url: 'https://recoll.example.org/'
-  #   search_dir: reference
-  #   mount_prefix: /export
-  #   dl_prefix: 'https://download.example.org'
-  #   shortcut: libr
-  #   timeout: 30.0
-  #   categories: files
-  #   disabled: true
-
   - name: radio browser
     engine: radio_browser
     shortcut: rb
@@ -1826,23 +1469,6 @@ engines:
     engine: rottentomatoes
     shortcut: rt
     disabled: true
-
-  # Required dependency: valkey
-  # - name: myvalkey
-  #   shortcut : rds
-  #   engine: valkey_server
-  #   exact_match_only: false
-  #   host: '127.0.0.1'
-  #   port: 6379
-  #   enable_http: true
-  #   password: ''
-  #   db: 0
-
-  # tmp suspended: bad certificate
-  #  - name: scanr structures
-  #    shortcut: scs
-  #    engine: scanr_structures
-  #    disabled: true
 
   - name: searchmysite
     engine: xpath
@@ -1936,35 +1562,9 @@ engines:
     disabled: true
     inactive: true
 
-  # - name: searx
-  #   engine: searx_engine
-  #   shortcut: se
-  #   instance_urls :
-  #       - http://127.0.0.1:8888/
-  #       - ...
-  #   disabled: true
-
   - name: semantic scholar
     engine: semantic_scholar
     shortcut: se
-
-  # Spotify needs API credentials
-  # - name: spotify
-  #   engine: spotify
-  #   shortcut: stf
-  #   api_client_id: *******
-  #   api_client_secret: *******
-
-  # - name: solr
-  #   engine: solr
-  #   shortcut: slr
-  #   base_url: http://localhost:8983
-  #   collection: collection_name
-  #   sort: '' # sorting: asc or desc
-  #   field_list: '' # comma separated list of field names to display on the UI
-  #   default_fields: '' # default field to query
-  #   query_fields: '' # query fields
-  #   enable_http: true
 
   - name: springer nature
     engine: springer
@@ -2013,25 +1613,6 @@ engines:
       - https://solidtorrents.to
       - https://bitsearch.to
 
-  # For this demo of the sqlite engine download:
-  #   https://liste.mediathekview.de/filmliste-v2.db.bz2
-  # and unpack into searx/data/filmliste-v2.db
-  # Query to test: "!mediathekview concert"
-  #
-  # - name: mediathekview
-  #   engine: sqlite
-  #   shortcut: mediathekview
-  #   categories: [general, videos]
-  #   result_type: MainResult
-  #   database: searx/data/filmliste-v2.db
-  #   query_str:  >-
-  #     SELECT title || ' (' || time(duration, 'unixepoch') || ')' AS title,
-  #            COALESCE( NULLIF(url_video_hd,''), NULLIF(url_video_sd,''), url_video) AS url,
-  #            description AS content
-  #       FROM film
-  #      WHERE title LIKE :wildcard OR description LIKE :wildcard
-  #      ORDER BY duration DESC
-
   - name: tagesschau
     engine: tagesschau
     # when set to false, display URLs from Tagesschau, and not the actual source
@@ -2066,43 +1647,6 @@ engines:
     categories: onions
     enable_http: true
     shortcut: tch
-
-  # TubeArchivist is a self-hosted Youtube archivist software.
-  # https://docs.searxng.org/dev/engines/online/tubearchivist.html
-  #
-  # - name: tubearchivist
-  #   engine: tubearchivist
-  #   shortcut: tuba
-  #   base_url:
-  #   ta_token:
-  #   ta_link_to_mp4: false
-
-  # torznab engine lets you query any torznab compatible indexer.  Using this
-  # engine in combination with Jackett opens the possibility to query a lot of
-  # public and private indexers directly from SearXNG. More details at:
-  # https://docs.searxng.org/dev/engines/online/torznab.html
-  #
-  # - name: Torznab EZTV
-  #   engine: torznab
-  #   shortcut: eztv
-  #   base_url: http://localhost:9117/api/v2.0/indexers/eztv/results/torznab
-  #   enable_http: true  # if using localhost
-  #   api_key: xxxxxxxxxxxxxxx
-  #   show_magnet_links: true
-  #   show_torrent_files: false
-  #   # https://github.com/Jackett/Jackett/wiki/Jackett-Categories
-  #   torznab_categories:  # optional
-  #     - 2000
-  #     - 5000
-
-  # tmp suspended - too slow, too many errors
-  #  - name: urbandictionary
-  #    engine      : xpath
-  #    search_url  : https://www.urbandictionary.com/define.php?term={query}
-  #    url_xpath   : //*[@class="word"]/@href
-  #    title_xpath : //*[@class="def-header"]
-  #    content_xpath: //*[@class="meaning"]
-  #    shortcut: ud
 
   - name: unsplash
     engine: unsplash
@@ -2325,26 +1869,6 @@ engines:
     # See: https://mymemory.translated.net/doc/usagelimits.php
     # api_key: ''
 
-  # Required dependency: mysql-connector-python
-  #  - name: mysql
-  #    engine: mysql_server
-  #    database: mydatabase
-  #    username: user
-  #    password: pass
-  #    limit: 10
-  #    query_str: 'SELECT * from mytable WHERE fieldname=%(query)s'
-  #    shortcut: mysql
-
-  # Required dependency: mariadb
-  #  - name: mariadb
-  #    engine: mariadb_server
-  #    database: mydatabase
-  #    username: user
-  #    password: pass
-  #    limit: 10
-  #    query_str: 'SELECT * from mytable WHERE fieldname=%(query)s'
-  #    shortcut: mdb
-
   - name: 1337x
     engine: 1337x
     shortcut: 1337x
@@ -2359,15 +1883,6 @@ engines:
     shortcut: szn
     engine: seznam
     disabled: true
-
-  # - name: deepl
-  #   engine: deepl
-  #   shortcut: dpl
-  #   # You can use the engine using the official stable API, but you need an API key
-  #   # See: https://www.deepl.com/pro-api?cta=header-pro-api
-  #   api_key: ''  # required!
-  #   timeout: 5.0
-  #   disabled: true
 
   - name: mojeek
     shortcut: mjk
@@ -2687,84 +2202,6 @@ engines:
     about:
       website: https://minecraft.wiki/
       wikidata_id: Q105533483
-
-# Doku engine lets you access to any Doku wiki instance:
-# A public one or a privete/corporate one.
-#  - name: ubuntuwiki
-#    engine: doku
-#    shortcut: uw
-#    base_url: 'https://doc.ubuntu-fr.org'
-
-# Be careful when enabling this engine if you are
-# running a public instance. Do not expose any sensitive
-# information. You can restrict access by configuring a list
-# of access tokens under tokens.
-#  - name: git grep
-#    engine: command
-#    command: ['git', 'grep', '{{QUERY}}']
-#    shortcut: gg
-#    tokens: []
-#    disabled: true
-#    delimiter:
-#        chars: ':'
-#        keys: ['filepath', 'code']
-
-# Be careful when enabling this engine if you are
-# running a public instance. Do not expose any sensitive
-# information. You can restrict access by configuring a list
-# of access tokens under tokens.
-#  - name: locate
-#    engine: command
-#    command: ['locate', '{{QUERY}}']
-#    shortcut: loc
-#    tokens: []
-#    disabled: true
-#    delimiter:
-#        chars: ' '
-#        keys: ['line']
-
-# Be careful when enabling this engine if you are
-# running a public instance. Do not expose any sensitive
-# information. You can restrict access by configuring a list
-# of access tokens under tokens.
-#  - name: find
-#    engine: command
-#    command: ['find', '.', '-name', '{{QUERY}}']
-#    query_type: path
-#    shortcut: fnd
-#    tokens: []
-#    disabled: true
-#    delimiter:
-#        chars: ' '
-#        keys: ['line']
-
-# Be careful when enabling this engine if you are
-# running a public instance. Do not expose any sensitive
-# information. You can restrict access by configuring a list
-# of access tokens under tokens.
-#  - name: pattern search in files
-#    engine: command
-#    command: ['fgrep', '{{QUERY}}']
-#    shortcut: fgr
-#    tokens: []
-#    disabled: true
-#    delimiter:
-#        chars: ' '
-#        keys: ['line']
-
-# Be careful when enabling this engine if you are
-# running a public instance. Do not expose any sensitive
-# information. You can restrict access by configuring a list
-# of access tokens under tokens.
-#  - name: regex search in files
-#    engine: command
-#    command: ['grep', '{{QUERY}}']
-#    shortcut: gr
-#    tokens: []
-#    disabled: true
-#    delimiter:
-#        chars: ' '
-#        keys: ['line']
 
 doi_resolvers:
   oadoi.org: 'https://oadoi.org/'
