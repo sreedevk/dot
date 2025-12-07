@@ -289,7 +289,7 @@ return {
         '<leader><S-j>',
         function() require('treesj').toggle({ split = { recursive = true } }) end,
         noremap = true,
-        desc = "TreeSJ Toggle",
+        desc = "TreeSJ Toggle (Recursive)",
       },
       {
         '<leader>j',
@@ -297,7 +297,7 @@ return {
           require('treesj').toggle({ split = { recursive = false } })
         end,
         noremap = true,
-        desc = "TreeSJ Toggle (Recursive)",
+        desc = "TreeSJ Toggle",
       },
     },
     opts = {
