@@ -12,4 +12,5 @@
   (import ./noctalia.nix     { inherit inputs; })
   (import ./llama-cpp.nix    { inherit inputs; })
   (import ./vicinae.nix      { inherit inputs; })
+  (import ./bongocat.nix     { inherit inputs; })
 ]

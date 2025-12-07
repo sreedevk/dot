@@ -3,12 +3,13 @@
 
   inputs = {
 
+    agenix.url     = "github:ryantm/agenix";
+    attic.url      = "github:zhaofengli/attic";
+    bongocat.url   = "github:saatvik333/wayland-bongocat?ref=v1.3.2";
+    colmena.url    = "github:zhaofengli/colmena";
+    llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7205";
     nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11&shallow=1";
-    agenix.url     = "github:ryantm/agenix";
-    colmena.url    = "github:zhaofengli/colmena";
-    attic.url      = "github:zhaofengli/attic";
-    llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7205";
     vicinae.url    = "github:vicinaehq/vicinae?ref=v0.16.12";
 
     disko = {
