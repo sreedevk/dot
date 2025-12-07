@@ -5,13 +5,12 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 
 ## TODO
 1. bug: tmux/terminal reads C-i as \<tab\>
-2. feature: migrate to traefik **HIGH PRIO**
-3. notes sync
-4. deploying to apollo (nixOS) via colmena causes nixGL to fail to recognize the nvidia driver
-5. keyboard layout "UNKNOWN" at login
-6. Switch to niri
-7. some dependencies that require secrets start before agenix.service has had the chance to run
-8. neovim - neotree search mode is broken
+2. notes sync
+3. deploying to apollo (nixOS) via colmena causes nixGL to fail to recognize the nvidia driver
+4. keyboard layout "UNKNOWN" at login
+5. Switch to niri
+6. some dependencies that require secrets start before agenix.service has had the chance to run
+7. neovim - neotree search mode is broken
 
 ## Distant Dreams
 1. Get rid of the dependency on a static LAN ip address (potentially using DDNS)
