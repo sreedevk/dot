@@ -76,7 +76,7 @@
           command = "tmux ls | wc -l";
           style = "bold yellow";
           description = "active tmux session count";
-          when = "tmux ls";
+          when = "test $(tmux ls | wc -l) -gt 0";
           disabled = false;
           format = "[tmux:($output)]($style) ";
         };
