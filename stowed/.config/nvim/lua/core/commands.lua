@@ -56,22 +56,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     }
   end
 })
-
---------- keep cusorline only on active window
-vim.api.nvim_create_augroup("cursorline_only_on_cwindow", { clear = true })
-
-vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
-  desc = "Enable cursorline when entering window/buffer.",
-  group = "cursorline_only_on_cwindow",
-  callback = function()
-    vim.opt_local.cursorline = true
-  end
-})
-
-vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
-  desc = "Disable cursorline when leaving window/buffer.",
-  group = "cursorline_only_on_cwindow",
-  callback = function()
-    vim.opt_local.cursorline = false
-  end
-})
