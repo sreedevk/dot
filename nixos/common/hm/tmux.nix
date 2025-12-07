@@ -165,6 +165,8 @@ in
       set -g  remain-on-exit off
       set -g  @copy_use_osc52_fallback on
       set -g allow-passthrough on
+      set -g exit-empty off
+      set -g detach-on-destroy off
 
       setw -g allow-rename on
       setw -g automatic-rename on
