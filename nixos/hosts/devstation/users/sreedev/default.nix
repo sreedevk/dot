@@ -13,7 +13,6 @@
     ../../../../common/hm/awscli.nix
     ../../../../common/hm/base.nix
     ../../../../common/hm/bash.nix
-    ../../../../common/hm/bongocat.nix
     ../../../../common/hm/brave.nix
     ../../../../common/hm/btop.nix
     ../../../../common/hm/core-max.nix
