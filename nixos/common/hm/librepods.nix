@@ -21,8 +21,6 @@ let
       kdePackages.qtstyleplugin-kvantum
       kdePackages.qtsvg
       libpulseaudio
-      libsForQt5.qt5ct
-      libsForQt5.qt5.qtquickcontrols2
     ];
     nativeBuildInputs = with pkgs; [
       cmake
