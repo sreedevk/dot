@@ -6,21 +6,28 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "kavishdevar";
       repo = "librepods";
-      rev = "linux/rust";
-      sha256 = "sha256-vWtBSHYPtrSmYzY25a1RcVUlpaXF2WzNLke7RiST/38=";
+      rev = "0e1f784737122913c21b429810d059aadfb4479e";
+      sha256 = "sha256-N0pTQT+zebfsFQXzOOGrTCMyHvEUMkFXpBkU/dgnv6c=";
     };
     sourceRoot = "source/linux";
-    buildInputs = [
-      pkgs.qt6.qtbase
-      pkgs.qt6.qtdeclarative
-      pkgs.qt6.qtconnectivity
-      # pkgs.qt5.qtquickcontrols
-      pkgs.libpulseaudio
+    buildInputs = with pkgs; [
+      dbus
+      egl-wayland
+      kdePackages.qt6ct
+      kdePackages.qtbase
+      kdePackages.qtconnectivity
+      kdePackages.qtdeclarative
+      kdePackages.qtquick3d
+      kdePackages.qtstyleplugin-kvantum
+      kdePackages.qtsvg
+      libpulseaudio
+      libsForQt5.qt5ct
+      libsForQt5.qt5.qtquickcontrols2
     ];
-    nativeBuildInputs = [
-      pkgs.cmake
-      pkgs.pkg-config
-      pkgs.qt6.wrapQtAppsHook
+    nativeBuildInputs = with pkgs; [
+      cmake
+      pkg-config
+      kdePackages.wrapQtAppsHook
     ];
     dontWrapQtApps = true;
     installPhase = ''
