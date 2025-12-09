@@ -6,6 +6,7 @@ autoconf-archive
 base
 base-devel
 bash-completion
+bc
 bind
 bluez-tools
 bluez-utils
@@ -31,7 +32,6 @@ flatpak
 fprintd
 fuse2
 fwupd
-gamescope
 gdb
 ghostty
 git
@@ -83,6 +83,7 @@ libpam-google-authenticator
 libqalculate
 libva-nvidia-driver
 libvirt
+libxcrypt-compat
 linux
 linux-firmware
 linux-firmware-qlogic
@@ -90,6 +91,9 @@ linux-headers
 linux-lts
 linux-lts-docs
 linux-lts-headers
+linux-zen
+linux-zen-docs
+linux-zen-headers
 lld
 lsof
 luarocks
@@ -105,6 +109,7 @@ nmap
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
+nvidia-container-toolkit
 nvidia-dkms
 nvidia-settings
 nvtop
@@ -168,13 +173,13 @@ ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
 ttf-liberation
 ttf-sourcecodepro-nerd
-tuned
 udisks2
 unixodbc
 unzip
 upower
 usbutils
 uwsm
+v4l2loopback-dkms
 vcpkg
 virtualbox
 virtualbox-host-dkms
