@@ -4,8 +4,8 @@ with pkgs.nur.repos.rycee.firefox-addons;
   bitwarden
   consent-o-matic
   darkreader
+  dearrow
   decentraleyes
-  downthemall
   karakeep
   private-grammar-checker-harper
   reddit-enhancement-suite
