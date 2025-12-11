@@ -10,7 +10,7 @@
     llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7205";
     nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11&shallow=1";
-    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.16.12";
+    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.16.14";
 
     disko = {
       url                    = "github:nix-community/disko";
@@ -18,7 +18,7 @@
     };
 
     nur = {
-      url                    = "github:nix-community/NUR?ref=d30a783";
+      url                    = "github:nix-community/NUR?ref=b30c1ba";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -28,7 +28,7 @@
     };
 
     stylix = {
-      url                    = "github:danth/stylix?ref=3a33245";
+      url                    = "github:danth/stylix?ref=cb6bbed";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -48,12 +48,12 @@
     };
 
     noctalia = {
-      url                    = "github:noctalia-dev/noctalia-shell?ref=v3.5.0";
+      url                    = "github:noctalia-dev/noctalia-shell?ref=v3.6.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     niri = {
-      url                    = "github:sodiboo/niri-flake?ref=935080f";
+      url                    = "github:sodiboo/niri-flake?ref=be7806f";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
