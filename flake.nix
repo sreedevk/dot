@@ -7,7 +7,7 @@
     attic.url      = "github:zhaofengli/attic";
     bongocat.url   = "github:saatvik333/wayland-bongocat?ref=v1.3.2";
     colmena.url    = "github:zhaofengli/colmena";
-    llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7205";
+    llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7376";
     nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11&shallow=1";
     vicinae.url    = "github:vicinaehq/vicinae?ref=v0.16.14";
@@ -53,7 +53,7 @@
     };
 
     niri = {
-      url                    = "github:sodiboo/niri-flake?ref=be7806f";
+      url                    = "github:sodiboo/niri-flake?ref=5c6cdc0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
