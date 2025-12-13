@@ -100,6 +100,13 @@ services:
         url: "https://gotify.nullptr.sh"
         target: "_blank"
 
+      - name: "Cleanuparr"
+        logo: "assets/tools/cleanuparr.png"
+        subtitle: "cleanup *arr malware"
+        tag: "malware-cleanup"
+        url: "https://cleanuparr.nullptr.sh"
+        target: "_blank"
+
   - name: "Media Administration"
     icon: "fas fa-server"
     items:
