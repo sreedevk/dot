@@ -64,6 +64,22 @@ services:
         url: "https://pinepods.nullptr.sh"
         target: "_blank"
 
+      - name: "Soulseek"
+        logo: "assets/tools/soulseek.png"
+        subtitle: "file sharing"
+        tag: "file-sharing"
+        keywords: "filesharing"
+        url: "https://slskd.nullptr.sh"
+        target: "_blank"
+
+      - name: "Soulbeet"
+        logo: "assets/tools/soulbeet.png"
+        subtitle: "soulseek+beet"
+        tag: "soulseek-beet"
+        keywords: "soulseek-beet"
+        url: "https://soulbeet.nullptr.sh"
+        target: "_blank"
+
       - name: "Lidarr"
         logo: "assets/tools/lidarr.png"
         subtitle: "Music Indexing & Searching"

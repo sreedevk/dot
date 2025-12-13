@@ -62,6 +62,7 @@ with builtins;
   "secrets/nyc0/romm_env.age".publicKeys                      = attrValues nyc0;
   "secrets/nyc0/searxng_env.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/sonobarr_env.age".publicKeys                  = attrValues nyc0;
+  "secrets/nyc0/soulbeet_env.age".publicKeys                  = attrValues nyc0;
   "secrets/nyc0/stash_vr_env.age".publicKeys                  = attrValues nyc0;
   "secrets/nyc0/tailscale_nginx_env.age".publicKeys           = attrValues nyc0;
   "secrets/nyc0/taskwarrior_client_id.age".publicKeys         = attrValues nyc0;
