@@ -92,7 +92,6 @@
   pamShim.enable = true;
 
   home.file = {
-
     ".config" = {
       enable = true;
       source = ../../../../../stowed/.config;
