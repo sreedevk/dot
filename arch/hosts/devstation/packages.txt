@@ -121,6 +121,7 @@ openssh
 openssl-1.1
 openvpn
 os-prober
+pacutils
 parallel
 perf
 picom
