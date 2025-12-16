@@ -29,6 +29,7 @@
         (config.lib.nixGL.wrapOffload pkgs.upscayl)
         ffmpegthumbnailer
         libreoffice-fresh
+        nwg-look
         wofi
       ];
 
