@@ -111,15 +111,19 @@ in
 
       # WORKFLOWS
       bind C-a run-shell "tmux neww ${pkgs.wiremix}/bin/wiremix"
+      bind C-c new-session
       bind C-e run-shell "tmux neww ${pkgs.neovim}/bin/nvim"
       bind C-f run-shell "tmux neww ${pkgs.yazi}/bin/yazi"
       bind C-g run-shell "tmux neww ${pkgs.lazygit}/bin/lazygit"
       bind C-h run-shell "tmux neww ${config.programs.htop.package}/bin/htop"
       bind C-o run-shell "tmux neww ${sessionizer}/bin/tmux-sessionizer"
+      bind C-q command-prompt -p find-session 'switch-client -t %%'
       bind C-r run-shell "tmux neww ${pkgs.newsboat}/bin/newsboat"
       bind C-s run-shell "tmux neww ${sshfzf}/bin/ssh-fzf"
       bind C-t run-shell "tmux neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
-      bind C-w run-shell "tmux neww ${bwfzf}/bin/bwfzf"
+      bind C-u if-shell "tmux has-session -t system 2>/dev/null" \
+                        "switch-client -t system" \
+                        "new-session -d -s system -c '/home/${username}'; switch-client -t system"
       bind C-w run-shell "tmux neww ${bwfzf}/bin/bwfzf"
 
       # MOUSE SUPPORT
@@ -164,9 +168,12 @@ in
       set -g  set-titles-string "#I:#W"
       set -g  remain-on-exit off
       set -g  @copy_use_osc52_fallback on
-      set -g allow-passthrough on
-      set -g exit-empty off
-      set -g detach-on-destroy off
+      set -g  allow-passthrough on
+      set -g  exit-empty off
+      set -g  detach-on-destroy off
+      set -g  renumber-windows on
+      set -g  monitor-activity on
+      set -g  visual-activity off
 
       setw -g allow-rename on
       setw -g automatic-rename on
