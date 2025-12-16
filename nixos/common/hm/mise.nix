@@ -13,7 +13,7 @@
         settings = {
           auto_install           = false;
           not_found_auto_install = false;
-          quiet                  = true;
+          quiet                  = false;
         };
         tools = {
           bun        = "latest";
