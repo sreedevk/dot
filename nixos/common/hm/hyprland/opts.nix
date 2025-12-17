@@ -477,13 +477,6 @@ in
         dispatcher = "togglespecialworkspace";
         args = "";
       }
-
-      {
-        mod = "SUPER";
-        keys = "A";
-        dispatcher = "exec";
-        args = "uwsm app -t service -- pwvucontrol";
-      }
       {
         mod = "SUPER";
         keys = "B";
