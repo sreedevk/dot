@@ -8,12 +8,6 @@
 
     # Common Modules
 
-    # ../../../../common/hm/ghostty.nix
-    # ../../../../common/hm/ollama.nix
-    # ../../../../common/hm/radicle
-    # ../../../../common/hm/raku.nix
-    # ../../../../common/hm/supervisor
-    # ../../../../common/hm/zellij.nix
     ../../../../common/hm/agenix.nix
     ../../../../common/hm/alacritty
     ../../../../common/hm/amfora.nix
