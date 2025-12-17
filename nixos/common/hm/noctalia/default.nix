@@ -51,76 +51,61 @@ in
       controlCenter = {
         position = "center";
         cards = [
-          {
-            enabled = true;
-            id = "profile-card";
-          }
-          {
-            enabled = true;
-            id = "shortcuts-card";
-          }
-          {
-            enabled = true;
-            id = "audio-card";
-          }
-          {
-            enabled = true;
-            id = "weather-card";
-          }
-          {
-            enabled = true;
-            id = "media-sysmon-card";
-          }
+          { enabled = true; id = "profile-card";      }
+          { enabled = true; id = "shortcuts-card";    }
+          { enabled = true; id = "audio-card";        }
+          { enabled = true; id = "weather-card";      }
+          { enabled = true; id = "media-sysmon-card"; }
         ];
       };
       audio = {
-        cavaFrameRate = 120;
-        mprisBlacklist = [ ];
+        cavaFrameRate   = 120;
+        mprisBlacklist  = [ ];
         preferredPlayer = "";
-        visualizerType = "linear";
+        visualizerType  = "linear";
         volumeOverdrive = false;
-        volumeStep = 5;
+        volumeStep      = 5;
       };
       notifications = {
-        enabled = true;
-        doNotDisturb = false;
-        monitors = [ ];
-        location = "top_right";
-        overlayLayer = true;
-        backgroundOpacity = 1;
-        respectExpireTimeout = false;
-        lowUrgencyDuration = 3;
-        normalUrgencyDuration = 8;
+        enabled                 = true;
+        doNotDisturb            = false;
+        monitors                = [ ];
+        location                = "top_right";
+        overlayLayer            = true;
+        backgroundOpacity       = 1;
+        respectExpireTimeout    = false;
+        lowUrgencyDuration      = 3;
+        normalUrgencyDuration   = 8;
         criticalUrgencyDuration = 15;
       };
       appLauncher = {
-        enableClipboardHistory = false;
-        position = "center";
-        backgroundOpacity = 1;
-        pinnedExecs = [ ];
-        useApp2Unit = false;
-        sortByMostUsed = true;
-        terminalCommand = "alacritty -e";
+        enableClipboardHistory    = false;
+        position                  = "center";
+        backgroundOpacity         = 1;
+        pinnedExecs               = [ ];
+        useApp2Unit               = false;
+        sortByMostUsed            = true;
+        terminalCommand           = "alacritty -e";
         customLaunchPrefixEnabled = false;
-        customLaunchPrefix = "";
+        customLaunchPrefix        = "";
       };
       wallpaper = {
-        enabled = true;
-        overviewEnabled = false;
-        directory = opts.directories.wallpapers;
+        enabled                       = true;
+        overviewEnabled               = false;
+        directory                     = opts.directories.wallpapers;
         enableMultiMonitorDirectories = false;
-        recursiveSearch = true;
-        setWallpaperOnAllMonitors = true;
-        defaultWallpaper = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
-        fillMode = "crop";
-        fillColor = "#000000";
-        randomEnabled = false;
-        randomIntervalSec = 300;
-        transitionDuration = 1500;
-        transitionType = "random";
-        transitionEdgeSmoothness = 0.05;
-        monitors = [ ];
-        panelPosition = "follow_bar";
+        recursiveSearch               = true;
+        setWallpaperOnAllMonitors     = true;
+        defaultWallpaper              = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
+        fillMode                      = "crop";
+        fillColor                     = "#000000";
+        randomEnabled                 = false;
+        randomIntervalSec             = 300;
+        transitionDuration            = 1500;
+        transitionType                = "random";
+        transitionEdgeSmoothness      = 0.05;
+        monitors                      = [ ];
+        panelPosition                 = "follow_bar";
       };
       bar = {
         density = "comfortable";
@@ -190,8 +175,9 @@ in
               showCpuTemp = true;
               showMemoryUsage = true;
               showMemoryAsPercent = false;
-              showNetworkStats = false;
+              showNetworkStats = true;
               showDiskUsage = true;
+              showGpuTemp = true;
             }
             {
               id = "Spacer";
