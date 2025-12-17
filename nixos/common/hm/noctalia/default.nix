@@ -110,7 +110,7 @@ in
       bar = {
         density = "comfortable";
         monitors = [ ];
-        marginVertical = 0.25;
+        marginVertical = 0.20;
         marginHorizontal = 0.25;
         position = "top";
         floating = false;
