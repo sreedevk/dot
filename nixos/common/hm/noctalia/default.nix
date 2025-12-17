@@ -64,59 +64,64 @@ in
         autoHideMs = 2000;
         overlayLayer = true;
         backgroundOpacity = 1;
-        enabledTypes = [ 0 1 2 4 ];
+        enabledTypes = [
+          0
+          1
+          2
+          4
+        ];
         monitors = [
           "eDP-1"
         ];
       };
       audio = {
-        cavaFrameRate   = 120;
-        mprisBlacklist  = [ ];
+        cavaFrameRate = 120;
+        mprisBlacklist = [ ];
         preferredPlayer = "";
-        visualizerType  = "linear";
+        visualizerType = "linear";
         volumeOverdrive = false;
-        volumeStep      = 5;
+        volumeStep = 5;
       };
       notifications = {
-        enabled                 = true;
-        doNotDisturb            = false;
-        monitors                = [ ];
-        location                = "top_right";
-        overlayLayer            = true;
-        backgroundOpacity       = 1;
-        respectExpireTimeout    = false;
-        lowUrgencyDuration      = 3;
-        normalUrgencyDuration   = 8;
+        enabled = true;
+        doNotDisturb = false;
+        monitors = [ ];
+        location = "top_right";
+        overlayLayer = true;
+        backgroundOpacity = 1;
+        respectExpireTimeout = false;
+        lowUrgencyDuration = 3;
+        normalUrgencyDuration = 8;
         criticalUrgencyDuration = 15;
       };
       appLauncher = {
-        enableClipboardHistory    = false;
-        position                  = "center";
-        backgroundOpacity         = 1;
-        pinnedExecs               = [ ];
-        useApp2Unit               = false;
-        sortByMostUsed            = true;
-        terminalCommand           = "alacritty -e";
+        enableClipboardHistory = false;
+        position = "center";
+        backgroundOpacity = 1;
+        pinnedExecs = [ ];
+        useApp2Unit = false;
+        sortByMostUsed = true;
+        terminalCommand = "alacritty -e";
         customLaunchPrefixEnabled = false;
-        customLaunchPrefix        = "";
+        customLaunchPrefix = "";
       };
       wallpaper = {
-        enabled                       = true;
-        overviewEnabled               = false;
-        directory                     = opts.directories.wallpapers;
+        enabled = true;
+        overviewEnabled = false;
+        directory = opts.directories.wallpapers;
         enableMultiMonitorDirectories = false;
-        recursiveSearch               = true;
-        setWallpaperOnAllMonitors     = true;
-        defaultWallpaper              = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
-        fillMode                      = "crop";
-        fillColor                     = "#000000";
-        randomEnabled                 = false;
-        randomIntervalSec             = 300;
-        transitionDuration            = 1500;
-        transitionType                = "random";
-        transitionEdgeSmoothness      = 0.05;
-        monitors                      = [ ];
-        panelPosition                 = "follow_bar";
+        recursiveSearch = true;
+        setWallpaperOnAllMonitors = true;
+        defaultWallpaper = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
+        fillMode = "crop";
+        fillColor = "#000000";
+        randomEnabled = false;
+        randomIntervalSec = 300;
+        transitionDuration = 1500;
+        transitionType = "random";
+        transitionEdgeSmoothness = 0.05;
+        monitors = [ ];
+        panelPosition = "follow_bar";
       };
       bar = {
         density = "comfortable";
@@ -235,6 +240,11 @@ in
       location = {
         monthBeforeDay = true;
         name = "New York, United States";
+      };
+      desktopWidgets = {
+        enabled = true;
+        editMode = false;
+        monitorWidgets = [ ];
       };
       systemMonitor = {
         cpuWarningThreshold = 80;
