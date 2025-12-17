@@ -7,6 +7,11 @@
   imports = [
 
     # Common Modules
+    # ../../../../common/hm/ghostty.nix
+    # ../../../../common/hm/radicle
+    # ../../../../common/hm/raku.nix
+    # ../../../../common/hm/supervisor
+    # ../../../../common/hm/zellij.nix
     ../../../../common/hm/agenix.nix
     ../../../../common/hm/alacritty
     ../../../../common/hm/amfora.nix
@@ -21,7 +26,6 @@
     ../../../../common/hm/fastfetch.nix
     ../../../../common/hm/firefox
     ../../../../common/hm/fontconfig.nix
-    ../../../../common/hm/ghostty.nix
     ../../../../common/hm/git.nix
     ../../../../common/hm/github.nix
     ../../../../common/hm/gpg.nix
@@ -45,13 +49,10 @@
     ../../../../common/hm/ollama.nix
     ../../../../common/hm/opentabletdriver.nix
     ../../../../common/hm/pueue.nix
-    ../../../../common/hm/radicle
-    ../../../../common/hm/raku.nix
     ../../../../common/hm/rofi
     ../../../../common/hm/starship.nix
     ../../../../common/hm/steam.nix
     ../../../../common/hm/stylix.nix
-    ../../../../common/hm/supervisor
     ../../../../common/hm/taskwarrior.nix
     ../../../../common/hm/tmux.nix
     ../../../../common/hm/vicinae.nix
@@ -60,7 +61,6 @@
     ../../../../common/hm/xresources.nix
     ../../../../common/hm/yazi
     ../../../../common/hm/zathura.nix
-    ../../../../common/hm/zellij.nix
     ../../../../common/hm/zsh.nix
 
     # Current User Specific
