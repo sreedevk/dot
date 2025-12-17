@@ -7,7 +7,9 @@
   imports = [
 
     # Common Modules
+
     # ../../../../common/hm/ghostty.nix
+    # ../../../../common/hm/ollama.nix
     # ../../../../common/hm/radicle
     # ../../../../common/hm/raku.nix
     # ../../../../common/hm/supervisor
@@ -46,7 +48,6 @@
     ../../../../common/hm/nsxiv.nix
     ../../../../common/hm/obs.nix
     ../../../../common/hm/ocaml.nix
-    ../../../../common/hm/ollama.nix
     ../../../../common/hm/opentabletdriver.nix
     ../../../../common/hm/pueue.nix
     ../../../../common/hm/rofi
@@ -64,6 +65,7 @@
     ../../../../common/hm/zsh.nix
 
     # Current User Specific
+
     ../../secrets.nix
     ./modules/packages.nix
     ./modules/restic.nix
