@@ -58,6 +58,17 @@ in
           { enabled = true; id = "media-sysmon-card"; }
         ];
       };
+      osd = {
+        enabled = true;
+        location = "top_right";
+        autoHideMs = 2000;
+        overlayLayer = true;
+        backgroundOpacity = 1;
+        enabledTypes = [ 0 1 2 4 ];
+        monitors = [
+          "eDP-1"
+        ];
+      };
       audio = {
         cavaFrameRate   = 120;
         mprisBlacklist  = [ ];
