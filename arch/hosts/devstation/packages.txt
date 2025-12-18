@@ -159,6 +159,7 @@ sndio
 sniffnet
 sof-firmware
 sof-tools
+songrec
 squashfs-tools
 strace
 sudo

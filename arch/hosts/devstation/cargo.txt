@@ -16,7 +16,6 @@ license-generator v1.3.0
 loco v0.16.3
 ncopds v0.1.0
 sea-orm-cli v1.1.17
-songrec v0.4.3
 sqlx-cli v0.8.6
 term-transcript-cli v0.4.0
 uiua v0.16.2
