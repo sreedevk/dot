@@ -19,3 +19,4 @@ sea-orm-cli v1.1.17
 sqlx-cli v0.8.6
 term-transcript-cli v0.4.0
 uiua v0.16.2
+workmux v0.1.54

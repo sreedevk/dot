@@ -1,3 +1,4 @@
+aichat
 alsa-firmware
 alsa-plugins
 alsa-utils
