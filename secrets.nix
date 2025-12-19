@@ -56,7 +56,6 @@ with builtins;
   "secrets/nyc0/pastebin-token.age".publicKeys                = attrValues nyc0;
   "secrets/nyc0/photoprism_env.age".publicKeys                = attrValues nyc0;
   "secrets/nyc0/pinepods_env.age".publicKeys                  = attrValues nyc0;
-  "secrets/nyc0/podgrab_env.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/pushtify_env.age".publicKeys                  = attrValues nyc0;
   "secrets/nyc0/radicle_passphrase.age".publicKeys            = attrValues nyc0;
   "secrets/nyc0/restic_backup_password.age".publicKeys        = attrValues nyc0;

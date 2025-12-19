@@ -81,7 +81,6 @@
     pinepods-app              = "8040";
     pinepods-db               = "5436";
     pinepods-valkey           = "6380";
-    podgrab                   = "8567";
     portainer_misc            = "8024";
     portainer_web             = "9080";
     portainer_web_secure      = "9443";
