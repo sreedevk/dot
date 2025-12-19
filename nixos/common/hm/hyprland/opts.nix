@@ -179,6 +179,7 @@ in
       { mod = "SUPER CTRL"; keys = "L"; dispatcher = "changegroupactive"; args = "f"; }
       { mod = "SUPER CTRL"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; }
       { mod = "SUPER CTRL"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call lockScreen lock"; }
+      { mod = "SUPER";      keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call notifications dismissAll"; }
 
       # workspace switching
       { mod = "SUPER SHIFT"; keys = "0"; dispatcher = "movetoworkspace"; args = "10"; }
