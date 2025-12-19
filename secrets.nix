@@ -71,7 +71,6 @@ with builtins;
   "secrets/nyc0/vpn-acc.age".publicKeys                       = attrValues nyc0;
   "secrets/nyc0/vpn-loc.age".publicKeys                       = attrValues nyc0;
   "secrets/nyc0/wallhaven-token.age".publicKeys               = attrValues nyc0;
-  "secrets/nyc0/watchtower_env.age".publicKeys                = attrValues nyc0;
 
   # SEC nyc1
 
