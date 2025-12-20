@@ -21,7 +21,7 @@ rec {
           description = "Home Server Deployments";
           nixpkgs = import nixpkgs {
             system = "x86_64-linux";
-            overlays = import ../nixos/common/overlays { inherit inputs; };
+            overlays = import ../nixos/common/overlays { inherit inputs opts; };
             config = {
               allowUnfree = true;
               allowBroken = true;
@@ -82,10 +82,20 @@ rec {
 
   mkHome =
     system: username: host:
+    let
+      sysopts = recurmerge [
+        opts
+        (import ../nixos/hosts/${host}/opts.nix)
+        (import ../nixos/hosts/${host}/users/${username}/opts.nix)
+      ];
+    in
     home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
         inherit system;
-        overlays = import ../nixos/common/overlays { inherit inputs; };
+        overlays = import ../nixos/common/overlays {
+          inherit inputs;
+          opts = sysopts;
+        };
       };
 
       modules = [
@@ -105,11 +115,7 @@ rec {
           host
           inputs
           ;
-        opts = recurmerge [
-          opts
-          (import ../nixos/hosts/${host}/opts.nix)
-          (import ../nixos/hosts/${host}/users/${username}/opts.nix)
-        ];
+        opts = sysopts;
       };
     };
 

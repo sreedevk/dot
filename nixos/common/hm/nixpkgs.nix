@@ -1,7 +1,7 @@
-{ inputs, ... }:
+{ inputs, opts, ... }:
 {
   nixpkgs = {
-    overlays = import ../overlays { inherit inputs; };
+    overlays = import ../overlays { inherit inputs opts; };
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;

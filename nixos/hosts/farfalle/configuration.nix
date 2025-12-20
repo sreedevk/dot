@@ -92,7 +92,7 @@
   };
 
   nixpkgs = {
-    overlays = import ../../common/overlays { inherit inputs; };
+    overlays = import ../../common/overlays { inherit inputs opts; };
     config = {
       allowUnfree = true;
       packageOverrides = pkgs: {

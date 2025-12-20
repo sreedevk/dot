@@ -1,11 +1,13 @@
 {
-  hostname    = "devstation";
-  adminUID    = "1000";
-  adminGID    = "1000";
-  lanAddress  = "192.168.1.249";
-  paths       = { };
-  nameservers = [ ];
-  gpuaccel    = "cuda";
+
+  hostname      = "devstation";
+  adminUID      = "1000";
+  adminGID      = "1000";
+  lanAddress    = "192.168.1.249";
+  paths         = { };
+  nameservers   = [ ];
+  gpuaccel      = "cuda";
+  nvidiaVersion = "590.48.01";
 
   monitors = [
     {

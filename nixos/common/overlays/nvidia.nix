@@ -1,7 +1,7 @@
-_:
+{ opts, ... }:
 _: prev: {
   nixgl = prev.nixgl.override {
+    inherit (opts) nvidiaVersion;
     nvidiaURL = "https://us.download.nvidia.com/XFree86/Linux-x86_64";
-    nvidiaVersion = "590.48.01";
   };
 }
