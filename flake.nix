@@ -10,7 +10,7 @@
     llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7376";
     nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11&shallow=1";
-    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.16.14";
+    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.17.0";
 
     disko = {
       url                    = "github:nix-community/disko";
