@@ -6,8 +6,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "kavishdevar";
       repo = "librepods";
-      rev = "e10fe21ba5ef3f86f3dac26421a9f48cf972191e";
-      sha256 = "sha256-N0pTQT+zebfsFQXzOOGrTCMyHvEUMkFXpBkU/dgnv6c=";
+      rev = "5cd7db574a4602e1bb0c485431e70a8e39f9f579";
+      sha256 = "sha256-23G71hLCeUODDgubxGpFsHhLZHSXJ2kjzcxmXyEHJ+o=";
     };
     sourceRoot = "source/linux";
     buildInputs = with pkgs; [
@@ -20,6 +20,7 @@ let
       kdePackages.qtquick3d
       kdePackages.qtstyleplugin-kvantum
       kdePackages.qtsvg
+      kdePackages.qttools
       libpulseaudio
     ];
     nativeBuildInputs = with pkgs; [
