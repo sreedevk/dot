@@ -111,7 +111,7 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 nvidia-container-toolkit
-nvidia-dkms
+nvidia-open-dkms
 nvidia-settings
 openblas
 opencl-nvidia

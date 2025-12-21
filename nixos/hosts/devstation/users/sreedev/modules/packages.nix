@@ -7,9 +7,7 @@
         # (config.lib.nixGL.wrap pkgs.hydrogen)
         # (config.lib.nixGL.wrap pkgs.lmms)
         # (config.lib.nixGL.wrap pkgs.sonic-pi)
-        # (config.lib.nixGL.wrap pkgs.sqlitebrowser)
         # (config.lib.nixGL.wrapOffload pkgs.davinci-resolve)
-        # (config.lib.nixGL.wrapOffload pkgs.jellyflix)
         (config.lib.nixGL.wrap pkgs.audacity)
         (config.lib.nixGL.wrap pkgs.dbeaver-bin)
         (config.lib.nixGL.wrap pkgs.easyeffects)
@@ -82,6 +80,7 @@
           instaloader              # instagram downloader
           ipcalc                   # ip math
           jira-cli-go              # jira
+          jiratui                  # jira tui
           jless                    # json pager
           just                     # command runner
           k9s                      # k8s tui
