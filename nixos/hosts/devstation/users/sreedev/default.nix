@@ -43,6 +43,7 @@
     ../../../../common/hm/obs.nix
     ../../../../common/hm/ocaml.nix
     ../../../../common/hm/opentabletdriver.nix
+    ../../../../common/hm/radicle
     ../../../../common/hm/pueue.nix
     ../../../../common/hm/rofi
     ../../../../common/hm/starship.nix
