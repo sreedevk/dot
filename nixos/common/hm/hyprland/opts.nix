@@ -111,6 +111,7 @@ in
   misc = {
     force_default_wallpaper = "0";
     disable_hyprland_logo = "true";
+    focus_on_activate = "true";
     vrr = "0";
     vfr = "true";
   };
@@ -230,6 +231,7 @@ in
       { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; }
       { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "noctalia ipc call notifications toggleDND"; }
       { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-gamemode-toggle}/bin/gamemode"; }
+      { mod = "SUPER"; keys = "Q"; dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history"; }
       { mod = "SUPER"; keys = "S"; dispatcher = "exec"; args = "noctalia ipc call settings toggle"; }
       { mod = "SUPER"; keys = "W"; dispatcher = "exec"; args = "noctalia ipc call wallpaper toggle"; }
       { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty"; }
