@@ -3,27 +3,12 @@
   home.packages =
     let
       gui-packages = with pkgs; [
-        (config.lib.nixGL.wrap pkgs.ardour)
-        (config.lib.nixGL.wrap pkgs.audacity)
-        (config.lib.nixGL.wrap pkgs.dbeaver-bin)
         (config.lib.nixGL.wrap pkgs.easyeffects)
         (config.lib.nixGL.wrap pkgs.gnome-calculator)
-        (config.lib.nixGL.wrap pkgs.hydrogen)
-        (config.lib.nixGL.wrap pkgs.lmms)
         (config.lib.nixGL.wrap pkgs.localsend)
         (config.lib.nixGL.wrap pkgs.nemo-with-extensions)
-        (config.lib.nixGL.wrap pkgs.obsidian)
-        (config.lib.nixGL.wrap pkgs.openttd)
         (config.lib.nixGL.wrap pkgs.pwvucontrol)
-        (config.lib.nixGL.wrap pkgs.slack)
-        (config.lib.nixGL.wrap pkgs.sonic-pi)
-        (config.lib.nixGL.wrap pkgs.sqlitebrowser)
-        (config.lib.nixGL.wrap pkgs.tor-browser)
-        (config.lib.nixGL.wrapOffload pkgs.davinci-resolve)
-        (config.lib.nixGL.wrapOffload pkgs.furnace)
         (config.lib.nixGL.wrapOffload pkgs.gimp3-with-plugins)
-        (config.lib.nixGL.wrapOffload pkgs.jellyflix)
-        (config.lib.nixGL.wrapOffload pkgs.upscayl)
         ffmpegthumbnailer
         libreoffice-fresh
         wf-recorder

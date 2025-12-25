@@ -43,8 +43,9 @@
     ../../../../common/hm/obs.nix
     ../../../../common/hm/ocaml.nix
     ../../../../common/hm/opentabletdriver.nix
-    ../../../../common/hm/radicle
+    ../../../../common/hm/pamshim.nix
     ../../../../common/hm/pueue.nix
+    ../../../../common/hm/radicle
     ../../../../common/hm/rofi
     ../../../../common/hm/starship.nix
     ../../../../common/hm/steam.nix
@@ -85,8 +86,6 @@
     stateVersion = "24.11";
     inherit username;
   };
-
-  pamShim.enable = true;
 
   home.file = {
     ".config" = {

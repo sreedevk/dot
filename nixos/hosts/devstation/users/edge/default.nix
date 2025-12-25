@@ -1,8 +1,7 @@
-{
-  pkgs,
-  config,
-  username,
-  ...
+{ pkgs
+, config
+, username
+, ...
 }:
 {
   imports = [
@@ -23,7 +22,6 @@
     ../../../../common/hm/github.nix
     ../../../../common/hm/gpg.nix
     ../../../../common/hm/htop.nix
-    ../../../../common/hm/niri
     ../../../../common/hm/jujutsu.nix
     ../../../../common/hm/keybase.nix
     ../../../../common/hm/keyboard.nix
@@ -34,15 +32,15 @@
     ../../../../common/hm/neovide.nix
     ../../../../common/hm/neovim.nix
     ../../../../common/hm/newsboat.nix
+    ../../../../common/hm/niri
     ../../../../common/hm/nixpkgs.nix
     ../../../../common/hm/noctalia
     ../../../../common/hm/nsxiv.nix
     ../../../../common/hm/obs.nix
     ../../../../common/hm/ocaml.nix
     ../../../../common/hm/opentabletdriver.nix
+    ../../../../common/hm/pamshim.nix
     ../../../../common/hm/pueue.nix
-    ../../../../common/hm/raku.nix
-    ../../../../common/hm/rofi
     ../../../../common/hm/starship.nix
     ../../../../common/hm/stylix.nix
     ../../../../common/hm/tmux.nix
@@ -79,8 +77,6 @@
     stateVersion = "24.11";
     inherit username;
   };
-
-  pamShim.enable = true;
 
   home.file = {
 

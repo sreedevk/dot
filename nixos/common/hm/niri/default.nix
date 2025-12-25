@@ -270,9 +270,9 @@
           "Mod+S".action = spawn "noctalia" "ipc" "call" "settings" "toggle";
           "Mod+W".action = spawn "noctalia" "ipc" "call" "wallpaper" "toggle";
           "Mod+O".action = toggle-overview;
-          "Mod+Return".action = spawn "${config.programs.alacritty.package}/bin/alacritty";
-          "Mod+Shift+Return".action = spawn "${config.programs.kitty.package}/bin/kitty";
-          "Mod+KP_Enter".action = spawn "${config.programs.alacritty.package}/bin/alacritty";
+          "Mod+Return".action = spawn "${config.programs.kitty.package}/bin/kitty";
+          "Mod+Shift+Return".action = spawn "${config.programs.kitty.package}/bin/kitty ${pkgs.tmux}/bin/tmux new -A -s system";
+          "Mod+KP_Enter".action = spawn "${config.programs.kitty.package}/bin/kitty";
           "Mod+XF86AudioLowerVolume".action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%-";
           "Mod+XF86AudioRaiseVolume".action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%+";
           "Mod+Shift+S".action = sh ''
