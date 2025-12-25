@@ -51,11 +51,26 @@ in
       controlCenter = {
         position = "center";
         cards = [
-          { enabled = true; id = "profile-card";      }
-          { enabled = true; id = "shortcuts-card";    }
-          { enabled = true; id = "audio-card";        }
-          { enabled = true; id = "weather-card";      }
-          { enabled = true; id = "media-sysmon-card"; }
+          {
+            enabled = true;
+            id = "profile-card";
+          }
+          {
+            enabled = true;
+            id = "shortcuts-card";
+          }
+          {
+            enabled = true;
+            id = "audio-card";
+          }
+          {
+            enabled = true;
+            id = "weather-card";
+          }
+          {
+            enabled = true;
+            id = "media-sysmon-card";
+          }
         ];
       };
       osd = {
@@ -81,6 +96,41 @@ in
         visualizerType = "linear";
         volumeOverdrive = false;
         volumeStep = 5;
+        externalMixer = "pwvucontrol || pavucontrol";
+      };
+      sessionMenu = {
+        enableCountdown = true;
+        countdownDuration = 10000;
+        position = "center";
+        showHeader = true;
+        largeButtonsStyle = false;
+        showNumberLabels = true;
+        powerOptions = [
+          {
+            action = "lock";
+            enabled = true;
+          }
+          {
+            action = "suspend";
+            enabled = true;
+          }
+          {
+            action = "hibernate";
+            enabled = true;
+          }
+          {
+            action = "reboot";
+            enabled = true;
+          }
+          {
+            action = "logout";
+            enabled = true;
+          }
+          {
+            action = "shutdown";
+            enabled = true;
+          }
+        ];
       };
       notifications = {
         enabled = true;
@@ -93,6 +143,20 @@ in
         lowUrgencyDuration = 3;
         normalUrgencyDuration = 8;
         criticalUrgencyDuration = 15;
+        saveToHistory = {
+          low = true;
+          normal = true;
+          critical = true;
+        };
+        sounds = {
+          enabled = true;
+          volume = 0.5;
+          separateSounds = false;
+          criticalSoundFile = "";
+          normalSoundFile = "";
+          lowSoundFile = "";
+          excludedApps = "discord,slack,firefox,chrome,chromium,edge";
+        };
       };
       appLauncher = {
         enableClipboardHistory = false;
@@ -229,6 +293,50 @@ in
         radiusRatio = 0.2;
         scaleRatio = 1.15;
       };
+      brightness = {
+        enableDdcSupport = false;
+      };
+      desktopWidgets = {
+        enabled = true;
+        gridSnap = true;
+        monitorWidgets = [ ];
+      };
+      templates = {
+        gtk = false;
+        qt = false;
+        kcolorscheme = false;
+        alacritty = false;
+        kitty = false;
+        ghostty = false;
+        foot = false;
+        wezterm = false;
+        fuzzel = false;
+        discord = false;
+        pywalfox = false;
+        vicinae = false;
+        walker = false;
+        code = false;
+        spicetify = false;
+        telegram = false;
+        cava = false;
+        yazi = false;
+        emacs = false;
+        niri = false;
+        hyprland = false;
+        mango = false;
+        zed = false;
+        helix = false;
+        enableUserTemplates = false;
+      };
+      nightLight = {
+        enabled = false;
+        forced = false;
+        autoSchedule = true;
+        nightTemp = 4000;
+        dayTemp = 6500;
+        manualSunrise = "06:30";
+        manualSunset = "18:30";
+      };
       ui = {
         fontDefault = "Roboto";
         fontFixed = "Iosevka Nerd Font";
@@ -240,11 +348,15 @@ in
       location = {
         monthBeforeDay = true;
         name = "New York, United States";
-      };
-      desktopWidgets = {
-        enabled = true;
-        editMode = false;
-        monitorWidgets = [ ];
+        weatherEnabled = true;
+        weatherShowEffects = true;
+        useFahrenheit = true;
+        use12hourFormat = true;
+        showWeekNumberInCalendar = false;
+        showCalendarEvents = true;
+        showCalendarWeather = true;
+        analogClockInCalendar = false;
+        firstDayOfWeek = -1;
       };
       systemMonitor = {
         cpuWarningThreshold = 80;
