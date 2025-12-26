@@ -114,6 +114,13 @@ services:
         rateInterval: 2000
         torrentInterval: 5000
 
+      - name: "Cross Seed"
+        logo: "assets/tools/cross-seed.png"
+        subtitle: "torrent cross seeding"
+        tag: "cross-seeding-webui"
+        url: "https://cross.nullptr.sh"
+        target: "_blank"
+
       - name: "Qui"
         logo: "assets/tools/qui.png"
         subtitle: "qBittorrent WebUI"
