@@ -20,13 +20,6 @@ services:
         url: "https://attic.nullptr.sh"
         target: "_blank"
 
-      - name: "Dockge"
-        logo: "assets/tools/dockge.png"
-        subtitle: "Docker Stack Manager"
-        tag: "docker-stacks"
-        url: "https://dockge.nullptr.sh"
-        target: "_blank"
-
       - name: "Grafana"
         logo: "assets/tools/grafana.png"
         subtitle: "Data Dashboards"
