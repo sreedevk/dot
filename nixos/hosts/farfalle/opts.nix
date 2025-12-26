@@ -81,9 +81,6 @@
     pinepods-app              = "8040";
     pinepods-db               = "5436";
     pinepods-valkey           = "6380";
-    portainer_misc            = "8024";
-    portainer_web             = "9080";
-    portainer_web_secure      = "9443";
     prowlarr                  = "9696";
     qbittorrent-p2p           = "6881";
     qbittorrent-web           = "8001";
