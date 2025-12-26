@@ -5,11 +5,19 @@ services:
   - name: "Server Administration (nullptr)"
     icon: "fas fa-server"
     items:
+
       - name: "Portainer"
         logo: "assets/tools/portainer.png"
         subtitle: "Containerization Manager"
         tag: "containerization"
         url: "https://portainer.nullptr.sh"
+        target: "_blank"
+
+      - name: "Arcane"
+        logo: "assets/tools/arcane.png"
+        subtitle: "Containerization Manager"
+        tag: "containerization"
+        url: "https://arcane.nullptr.sh"
         target: "_blank"
 
       - name: "Attic"

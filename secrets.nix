@@ -22,6 +22,7 @@ with builtins;
 
   "secrets/nyc0/apollo_admin_password.age".publicKeys         = attrValues nyc0;
   "secrets/nyc0/apollo_nginx_env.age".publicKeys              = attrValues nyc0;
+  "secrets/nyc0/arcane_env.age".publicKeys                    = attrValues nyc0;
   "secrets/nyc0/aria2_env.age".publicKeys                     = attrValues nyc0;
   "secrets/nyc0/attic_env.age".publicKeys                     = attrValues nyc0;
   "secrets/nyc0/attic_server_config_toml.age".publicKeys      = attrValues nyc0;
