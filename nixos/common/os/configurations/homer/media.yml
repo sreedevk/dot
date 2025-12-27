@@ -2,6 +2,19 @@
 subtitle: "Media"
 message: ~
 services:
+
+  - name: "General"
+    icon: "fas fa-otter"
+    items:
+
+      - name: "Tdarr"
+        logo: "assets/tools/tdarr.png"
+        subtitle: "Media Encoding Manager"
+        tag: "media-encoding"
+        keywords: "media-encoding"
+        url: "https://tdarr.nullptr.sh"
+        target: "_blank"
+
   - name: "Books"
     icon: "fas fa-book"
     items:
@@ -80,6 +93,14 @@ services:
         url: "https://soulbeet.nullptr.sh"
         target: "_blank"
 
+      - name: "Sonobarr"
+        logo: "assets/tools/sonobarr.png"
+        subtitle: "Music Discovery"
+        tag: "music"
+        keywords: "music"
+        url: "https://sonobarr.nullptr.sh"
+        target: "_blank"
+
       - name: "Lidarr"
         logo: "assets/tools/lidarr.png"
         subtitle: "Music Indexing & Searching"
@@ -122,14 +143,6 @@ services:
         type: "Radarr"
         apikey: "647b4305c84d4e36ba7357e74262a3f6"
 
-      - name: "Tdarr"
-        logo: "assets/tools/tdarr.png"
-        subtitle: "Media Encoding Manager"
-        tag: "media-encoding"
-        keywords: "media-encoding"
-        url: "https://tdarr.nullptr.sh"
-        target: "_blank"
-
       - name: "Sonarr"
         logo: "assets/tools/sonarr.png"
         subtitle: "TV Indexing & Searching"
@@ -139,14 +152,6 @@ services:
         target: "_blank"
         type: "Sonarr"
         apikey: "c51c7686634c479ebaf40b695322851e"
-
-      - name: "Sonobarr"
-        logo: "assets/tools/sonobarr.png"
-        subtitle: "Music Discovery"
-        tag: "music"
-        keywords: "music"
-        url: "https://sonobarr.nullptr.sh"
-        target: "_blank"
 
       - name: "Bazarr"
         logo: "assets/tools/bazarr.png"
