@@ -121,6 +121,12 @@ services:
         rateInterval: 2000
         torrentInterval: 5000
 
+      - name: "qBitManage"
+        logo: "assets/tools/qbit-manage.png"
+        tag: "torrent"
+        url: "https://qm.nullptr.sh"
+        target: "_blank"
+
       - name: "Cross Seed"
         logo: "assets/tools/cross-seed.png"
         subtitle: "torrent cross seeding"
