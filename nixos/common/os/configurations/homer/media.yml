@@ -85,14 +85,6 @@ services:
         url: "https://slskd.nullptr.sh"
         target: "_blank"
 
-      - name: "Soulbeet"
-        logo: "assets/tools/soulbeet.png"
-        subtitle: "soulseek+beet"
-        tag: "soulseek-beet"
-        keywords: "soulseek-beet"
-        url: "https://soulbeet.nullptr.sh"
-        target: "_blank"
-
       - name: "Sonobarr"
         logo: "assets/tools/sonobarr.png"
         subtitle: "Music Discovery"
