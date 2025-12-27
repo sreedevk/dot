@@ -186,6 +186,7 @@ vcpkg
 virtualbox
 virtualbox-host-dkms
 vulkan-intel
+waydroid
 webkit2gtk
 webkit2gtk-4.1
 wev

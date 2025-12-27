@@ -39,7 +39,6 @@
     procs            # ps in rust
     progress         # coreutils progress util
     pwgen            # password generator
-    rake             # ruby make
     ripgrep-all      # ripgrep for more formats
     sshfs            # fuse fs over ssh
     tailspin         # fancy tail
