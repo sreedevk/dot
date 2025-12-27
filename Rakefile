@@ -4,6 +4,13 @@ namespace :nix do
     sh('nix fmt')
   end
 
+  namespace :deploy do
+    desc "colmena deploy on host apollo"
+    task :apollo do 
+      sh("colmena apply --impure --on apollo")
+    end
+  end
+
   namespace :flake do
     desc "update nix flake.lock"
     task :update do 
@@ -12,13 +19,13 @@ namespace :nix do
 
     desc "check nix flakes & configurations for current system"
     task :check do
-      sh('nix flake check')
+      sh('nix flake check --impure')
     end
 
     namespace :check do
       desc "check nix flakes & configurations for all systems"
       task :all do
-        sh('nix flake check --all-systems')
+        sh('nix flake check --impure --all-systems')
       end
     end
   end
@@ -44,7 +51,7 @@ namespace :nix do
   namespace :home do
     desc "rebuild home manager configuration"
     task :build do
-      sh("nix build --impure './nixos#homeConfigurations.\"#{`whoami`.strip}\".activationPackage'")
+      sh("home-manager build --impure --flake '.##{`whoami`.strip}@#{`hostname`.strip}' -j 8")
     end
 
     desc "collect garbage"
@@ -79,6 +86,14 @@ namespace :nix do
 end
 
 namespace :arch do
+  namespace :nix do
+    desc "install using system-manager"
+    task :install do
+      sh("sudo $(which system-manager) switch --flake '.##{`hostname`.strip}'")
+      sh("rm -f result")
+    end
+  end
+
   desc "archive packages from arch/aur/flatpak/cargo"
   task :archive do
     sh('./bin/archive-packages')

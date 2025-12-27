@@ -7,6 +7,7 @@ return {
   'tpope/vim-repeat',
   'tpope/vim-surround',
   'tpope/vim-vinegar',
+  'neovim/nvim-lspconfig',
 
   { "chrisgrieser/nvim-early-retirement", lazy = true,  config = true,  event = "VeryLazy" },
   { 'petertriho/nvim-scrollbar',          lazy = true,  config = true,  event = "BufReadPost" },
@@ -141,19 +142,6 @@ return {
   },
 
   {
-    'mluders/comfy-line-numbers.nvim',
-    lazy = true,
-    event = "BufReadPost",
-    opts = {
-      {
-        up_key = 'j',
-        down_key = 'k',
-        hidden_buffer_types = vim.g.auxbuffers
-      }
-    }
-  },
-
-  {
     'mattn/emmet-vim',
     lazy = true,
     keys = {
@@ -216,16 +204,17 @@ return {
   },
 
   {
-    'mbbill/undotree',
+    "XXiaoA/atone.nvim",
     lazy = true,
-    cmd = "UndotreeToggle",
+    cmd = "Atone",
     keys = {
-      { '<Leader>uu', wrap_cmd("UndotreeToggle"), desc = "Toggle Undotree" },
+      { '<Leader>uu', wrap_cmd("Atone toggle"), desc = "Undotree" },
     },
-    init = function()
-      vim.g.undotree_TreeNodeShape = '◉'
-      vim.g.undotree_SetFocusWhenToggle = 1
-    end,
+    opts = {
+      layout = {
+        width = 0.15,
+      }
+    },
   },
 
   {

@@ -1,0 +1,4 @@
+_:
+{
+  pamShim.enable = true;
+}

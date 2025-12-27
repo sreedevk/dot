@@ -1,8 +1,9 @@
-{ pkgs
-, username
-, opts
-, config
-, ...
+{
+  pkgs,
+  username,
+  opts,
+  config,
+  ...
 }:
 let
   radconf = import ./configs.nix;
@@ -12,16 +13,25 @@ let
   '';
 in
 {
-  home.packages = with pkgs; [
-    radicle-httpd
-    radicle-node
-  ];
+  home = {
+    packages = with pkgs; [
+      radicle-httpd
+      radicle-node
+    ];
 
-  home.file = {
-    ".radicle/config.json" = {
-      enable = true;
-      text = radconf."${username}@${opts.hostname}";
+    sessionVariables = {
+      RAD_PASSPHRASE = "$(cat ${config.age.secrets.radicle_passphrase.path})";
     };
+    file = {
+      ".radicle/config.json" = {
+        enable = true;
+        text = radconf."${username}@${opts.hostname}";
+      };
+    };
+  };
+
+  systemd.user.sessionVariables = {
+    RAD_PASSPHRASE = "$(cat ${config.age.secrets.radicle_passphrase.path})";
   };
 
   systemd.user = {
@@ -30,17 +40,24 @@ in
         Unit = {
           Description = "Radicle Node Runner";
           Documentation = "info:rad man:rad(1) https://radicle.xyz/guides/user";
-          After = [ "agenix.service" ];
-          Requires = [ "agenix.service" ];
+          After = [
+            "graphical-session.target"
+          ];
+          Wants = [
+            "graphical-session.target"
+          ];
         };
         Service = {
           Type = "simple";
           ExecStart = "${radnode}/bin/radnode";
           Restart = "on-failure";
-          RestartSec = "10s";
+          RestartSec = "60s";
+          Nice = 19;
         };
         Install = {
-          WantedBy = [ "default.target" ];
+          WantedBy = [
+            "graphical-session.target"
+          ];
         };
       };
     };

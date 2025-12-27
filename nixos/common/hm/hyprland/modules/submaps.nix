@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   home.file = {
     ".config/hypr/submaps.conf" = {
       enable = true;

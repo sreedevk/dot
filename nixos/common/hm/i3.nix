@@ -28,6 +28,20 @@ in
       '';
     };
 
+    ".xsession" = {
+      enable = true;
+      executable = true;
+      recursive = true;
+      text = ''
+        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+        export GDK_SCALE=${opts.desktop.scale}
+        export GDK_DPI_SCALE=${opts.desktop.scale}
+        export QT_AUTO_SCREEN_SCALE_FACTOR=${opts.desktop.qt_scale_factor}
+        export QT_SCALE_FACTOR=${opts.desktop.qt_scale_factor}
+        export WINIT_X11_SCALE_FACTOR=${opts.desktop.scale}
+      '';
+    };
+
     "i3config" = {
       enable = true;
       recursive = false;

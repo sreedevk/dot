@@ -57,7 +57,6 @@ in
 {
   "pi@rpi4b" = builtins.toJSON (genconf "radpi");
   "sreedev@devstation" = builtins.toJSON (genconf "sreedev");
-  "admin@nullptrderef1" = builtins.toJSON (genconf "nullptrderef1");
   "deploy@devtechnica" = builtins.toJSON (genconf "devtk");
   "sreedev@apollo" = builtins.toJSON (genconf "devbox");
 }

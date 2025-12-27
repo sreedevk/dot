@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   home.file = {
     ".config/hypr/animations.conf" = {
       enable = true;

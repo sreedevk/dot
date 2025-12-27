@@ -25,3 +25,11 @@ fi
 if command -v docker &> /dev/null; then
   eval "$(docker completion zsh)"
 fi
+
+if command -v jira &> /dev/null; then
+  eval "$(jira completion zsh)"
+fi
+
+if command -v rbw &> /dev/null; then
+  eval "$(rbw gen-completions zsh)"
+fi

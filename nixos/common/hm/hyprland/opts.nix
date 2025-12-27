@@ -4,23 +4,7 @@
 , ...
 }:
 let
-  hypr-switchlayout = pkgs.writeShellScriptBin "hypr-switchlayout" ''
-    current_layout=$(hyprctl getoption general:layout -j | jq -M .str)
-    if [ "$current_layout" == "\"master\"" ]; then
-      hyprctl keyword general:layout dwindle
-    elif [ "$current_layout" == "\"dwindle\"" ]; then
-      hyprctl keyword general:layout master
-    fi
-  '';
-
-  hypr-toggleblur = pkgs.writeShellScriptBin "hypr-toggleblur" ''
-    current_status=$(hyprctl getoption decoration:blur:enabled -j | jq -M .int)
-    if [ "$current_status" == "1" ]; then
-      hyprctl keyword decoration:blur:enabled false
-    elif [ "$current_status" == "0" ]; then
-      hyprctl keyword decoration:blur:enabled true
-    fi
-  '';
+  hypr-gamemode-toggle = import ./scripts/gamemode.nix { inherit pkgs; };
 in
 {
   envs = {
@@ -36,8 +20,8 @@ in
     LIBVA_DRIVER_NAME = "nvidia";
     MOZ_ENABLE_WAYLAND = "1";
     QT_AUTO_SCREEN_SCALE_FACTOR = "${opts.desktop.scale}";
-    QT_QPA_PLATFORM = "xcb";
-    QT_SCALE_FACTOR = "1";
+    QT_QPA_PLATFORM = "wayland";
+    QT_SCALE_FACTOR = "${opts.desktop.qt_scale_factor}";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     WINIT_X11_SCALE_FACTOR = "${opts.desktop.scale}";
     XCURSOR_SIZE = "28";
@@ -52,78 +36,16 @@ in
     __VK_LAYER_NV_optimus = "NVIDIA_only";
   };
 
-  monitors = [
-    {
-      name = "eDP-1";
-      desc = "AU Optronics 0xF99A";
-      resolution = {
-        x = 1920;
-        y = 1200;
-      };
-      position = {
-        x = 0;
-        y = 1080;
-      };
-      # bitdepth = 10;
-      rate = 60;
-      scale = 1;
-    }
-    {
-      name = "DP-3";
-      desc = "XEC ES-24X3A 0x00000022";
-      resolution = {
-        x = 1920;
-        y = 1080;
-      };
-      position = {
-        x = 0;
-        y = 0;
-      };
-      rate = 100.00;
-      # bitdepth = 10;
-      scale = 1;
-    }
-    {
-      name = "DP-2";
-      desc = "LG Electronics LG Ultra HD 0x00073F78";
-      resolution = {
-        x = 3840;
-        y = 2160;
-      };
-      position = {
-        x = 1920;
-        y = 0;
-      };
-      rate = 60;
-      # bitdepth = 10;
-      scale = 1.6;
-    }
-  ];
+  inherit (opts) monitors;
 
   gestures = [
     {
       fingers = "3";
-      direction = "up";
-      modifier = null; # "mod: ALT";
-      scale = null;
-      action = "workspace";
-      args = "special";
-    }
-    {
-      fingers = "3";
-      direction = "left";
+      direction = "horizontal";
       modifier = null;
       scale = null;
       action = "workspace";
-      args = "e+1";
-    }
-    {
-      fingers = "3";
-      direction = "right";
-      modifier = null;
-      scale = null;
-      action = "workspace";
-      args = "e-1";
+      args = null;
     }
   ];
 
@@ -189,7 +111,9 @@ in
   misc = {
     force_default_wallpaper = "0";
     disable_hyprland_logo = "true";
+    focus_on_activate = "false";
     vrr = "0";
+    vfr = "true";
   };
 
   animations = {
@@ -238,428 +162,107 @@ in
 
   binds = {
     keyboard = [
-      {
-        mod = "";
-        keys = "XF86AudioLowerVolume";
-        dispatcher = "exec";
-        args = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
-      }
-      {
-        mod = "";
-        keys = "XF86AudioMicMute";
-        dispatcher = "exec";
-        args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
-      }
-      {
-        mod = "";
-        keys = "XF86AudioMute";
-        dispatcher = "exec";
-        args = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-      }
-      {
-        mod = "";
-        keys = "XF86AudioNext";
-        dispatcher = "exec";
-        args = "${pkgs.playerctl}/bin/playerctl next";
-      }
-      {
-        mod = "";
-        keys = "XF86AudioPause";
-        dispatcher = "exec";
-        args = "${pkgs.playerctl}/bin/playerctl play-pause";
-      }
-      {
-        mod = "";
-        keys = "XF86AudioPlay";
-        dispatcher = "exec";
-        args = "${pkgs.playerctl}/bin/playerctl play-pause";
-      }
-      {
-        mod = "";
-        keys = "XF86AudioPrev";
-        dispatcher = "exec";
-        args = "${pkgs.playerctl}/bin/playerctl previous";
-      }
-      {
-        mod = "";
-        keys = "XF86AudioRaiseVolume";
-        dispatcher = "exec";
-        args = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
-      }
-      {
-        mod = "";
-        keys = "XF86MonBrightnessDown";
-        dispatcher = "exec";
-        args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-";
-      }
-      {
-        mod = "";
-        keys = "XF86MonBrightnessUp";
-        dispatcher = "exec";
-        args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+";
-      }
-      {
-        mod = "CTRL";
-        keys = "Space";
-        dispatcher = "exec";
-        args = "${pkgs.dunst}/bin/dunstctl close-all";
-      }
-      {
-        mod = "CTRL";
-        keys = "XF86AudioLowerVolume";
-        dispatcher = "exec";
-        args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-";
-      }
-      {
-        mod = "CTRL";
-        keys = "XF86AudioMute";
-        dispatcher = "exec";
-        args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
-      }
-      {
-        mod = "CTRL";
-        keys = "XF86AudioRaiseVolume";
-        dispatcher = "exec";
-        args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+";
-      }
-      {
-        mod = "SUPER ALT";
-        keys = "Tab";
-        dispatcher = "exec";
-        args = "${hypr-switchlayout}/bin/hypr-switchlayout";
-      }
-      {
-        mod = "SUPER CTRL";
-        keys = "0";
-        dispatcher = "exec";
-        args = "hyprlock";
-      }
-      {
-        mod = "SUPER CTRL";
-        keys = "H";
-        dispatcher = "changegroupactive";
-        args = "b";
-      }
-      {
-        mod = "SUPER CTRL";
-        keys = "L";
-        dispatcher = "changegroupactive";
-        args = "f";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "0";
-        dispatcher = "movetoworkspace";
-        args = "10";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "1";
-        dispatcher = "movetoworkspace";
-        args = "1";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "2";
-        dispatcher = "movetoworkspace";
-        args = "2";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "3";
-        dispatcher = "movetoworkspace";
-        args = "3";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "4";
-        dispatcher = "movetoworkspace";
-        args = "4";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "5";
-        dispatcher = "movetoworkspace";
-        args = "5";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "6";
-        dispatcher = "movetoworkspace";
-        args = "6";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "7";
-        dispatcher = "movetoworkspace";
-        args = "7";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "8";
-        dispatcher = "movetoworkspace";
-        args = "8";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "9";
-        dispatcher = "movetoworkspace";
-        args = "9";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "C";
-        dispatcher = "movetoworkspace";
-        args = "special";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "E";
-        dispatcher = "exit";
-        args = "";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "H";
-        dispatcher = "swapwindow";
-        args = "l";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "J";
-        dispatcher = "swapwindow";
-        args = "d";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "K";
-        dispatcher = "swapwindow";
-        args = "u";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "L";
-        dispatcher = "swapwindow";
-        args = "r";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "Q";
-        dispatcher = "killactive";
-        args = "";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "Space";
-        dispatcher = "togglefloating";
-        args = "";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "Tab";
-        dispatcher = "layoutmsg";
-        args = "rollprev";
-      }
-      {
-        mod = "SUPER";
-        keys = "0";
-        dispatcher = "workspace";
-        args = "10";
-      }
-      {
-        mod = "SUPER";
-        keys = "1";
-        dispatcher = "workspace";
-        args = "1";
-      }
-      {
-        mod = "SUPER";
-        keys = "2";
-        dispatcher = "workspace";
-        args = "2";
-      }
-      {
-        mod = "SUPER";
-        keys = "3";
-        dispatcher = "workspace";
-        args = "3";
-      }
-      {
-        mod = "SUPER";
-        keys = "4";
-        dispatcher = "workspace";
-        args = "4";
-      }
-      {
-        mod = "SUPER";
-        keys = "5";
-        dispatcher = "workspace";
-        args = "5";
-      }
-      {
-        mod = "SUPER";
-        keys = "6";
-        dispatcher = "workspace";
-        args = "6";
-      }
-      {
-        mod = "SUPER";
-        keys = "7";
-        dispatcher = "workspace";
-        args = "7";
-      }
-      {
-        mod = "SUPER";
-        keys = "8";
-        dispatcher = "workspace";
-        args = "8";
-      }
-      {
-        mod = "SUPER";
-        keys = "9";
-        dispatcher = "workspace";
-        args = "9";
-      }
-      {
-        mod = "SUPER";
-        keys = "A";
-        dispatcher = "exec";
-        args = "uwsm app -t service -- pwvucontrol";
-      }
-      {
-        mod = "SUPER";
-        keys = "B";
-        dispatcher = "exec";
-        args = "uwsm app -t service -- ${opts.desktop.browser.xdg-desktop}";
-      }
-      {
-        mod = "SUPER";
-        keys = "C";
-        dispatcher = "togglespecialworkspace";
-        args = "";
-      }
-      {
-        mod = "SUPER";
-        keys = "D";
-        dispatcher = "exec";
-        args = "${pkgs.rofi}/bin/rofi -show drun";
-      }
-      {
-        mod = "SUPER";
-        keys = "E";
-        dispatcher = "exec";
-        args = "uwsm app -t service -- org.mozilla.Thunderbird.desktop";
-      }
-      {
-        mod = "SUPER";
-        keys = "F";
-        dispatcher = "fullscreen";
-        args = "";
-      }
-      {
-        mod = "SUPER";
-        keys = "G";
-        dispatcher = "togglegroup";
-        args = "";
-      }
-      {
-        mod = "SUPER";
-        keys = "H";
-        dispatcher = "movefocus";
-        args = "l";
-      }
-      {
-        mod = "SUPER";
-        keys = "J";
-        dispatcher = "movefocus";
-        args = "d";
-      }
-      {
-        mod = "SUPER";
-        keys = "K";
-        dispatcher = "movefocus";
-        args = "u";
-      }
-      {
-        mod = "SUPER";
-        keys = "L";
-        dispatcher = "movefocus";
-        args = "r";
-      }
-      {
-        mod = "SUPER";
-        keys = "N";
-        dispatcher = "exec";
-        args = "${pkgs.dunst}/bin/dunstctl set-paused toggle";
-      }
-      {
-        mod = "SUPER";
-        keys = "P";
-        dispatcher = "exec";
-        args = "${hypr-toggleblur}/bin/hypr-toggleblur";
-      }
-      {
-        mod = "SUPER";
-        keys = "W";
-        dispatcher = "exec";
-        args = "uwsm app -t service -- brave-browser.desktop";
-      }
-      {
-        mod = "SUPER";
-        keys = "Return";
-        dispatcher = "exec";
-        args = "${config.programs.alacritty.package}/bin/alacritty";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "Return";
-        dispatcher = "exec";
-        args = "ghostty";
-      }
-      {
-        mod = "SUPER";
-        keys = "KP_Enter";
-        dispatcher = "exec";
-        args = "${config.programs.alacritty.package}/bin/alacritty";
-      }
-      {
-        mod = "SUPER";
-        keys = "Tab";
-        dispatcher = "layoutmsg";
-        args = "rollnext";
-      }
-      {
-        mod = "SUPER";
-        keys = "XF86AudioLowerVolume";
-        dispatcher = "exec";
-        args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-";
-      }
-      {
-        mod = "SUPER";
-        keys = "XF86AudioRaiseVolume";
-        dispatcher = "exec";
-        args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+";
-      }
-      {
-        mod = "SUPER";
-        keys = "m";
-        dispatcher = "layoutmsg";
-        args = "swapwithmaster master";
-      }
-      {
-        mod = "SUPER";
-        keys = "x";
-        dispatcher = "exec";
-        args = "hyprctl kill";
-      }
+      { mod = ""; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
+      { mod = ""; keys = "XF86AudioMicMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+      { mod = ""; keys = "XF86AudioMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+      { mod = ""; keys = "XF86AudioNext"; dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl next"; }
+      { mod = ""; keys = "XF86AudioPause"; dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl play-pause"; }
+      { mod = ""; keys = "XF86AudioPlay"; dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl play-pause"; }
+      { mod = ""; keys = "XF86AudioPrev"; dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl previous"; }
+      { mod = ""; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
+      { mod = ""; keys = "XF86MonBrightnessDown"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-"; }
+      { mod = ""; keys = "XF86MonBrightnessUp"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+"; }
+      { mod = "CTRL"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call notifications dismissAll"; }
+      { mod = "CTRL"; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"; }
+      { mod = "CTRL"; keys = "XF86AudioMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+      { mod = "CTRL"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+"; }
+      { mod = "SUPER CTRL"; keys = "H"; dispatcher = "changegroupactive"; args = "b"; }
+      { mod = "SUPER CTRL"; keys = "L"; dispatcher = "changegroupactive"; args = "f"; }
+      { mod = "SUPER CTRL"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; }
+      { mod = "SUPER CTRL"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call lockScreen lock"; }
+      { mod = "SUPER";      keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call notifications dismissAll"; }
 
+      # workspace switching
+      { mod = "SUPER SHIFT"; keys = "0"; dispatcher = "movetoworkspace"; args = "10"; }
+      { mod = "SUPER SHIFT"; keys = "1"; dispatcher = "movetoworkspace"; args = "1"; }
+      { mod = "SUPER SHIFT"; keys = "2"; dispatcher = "movetoworkspace"; args = "2"; }
+      { mod = "SUPER SHIFT"; keys = "3"; dispatcher = "movetoworkspace"; args = "3"; }
+      { mod = "SUPER SHIFT"; keys = "4"; dispatcher = "movetoworkspace"; args = "4"; }
+      { mod = "SUPER SHIFT"; keys = "5"; dispatcher = "movetoworkspace"; args = "5"; }
+      { mod = "SUPER SHIFT"; keys = "6"; dispatcher = "movetoworkspace"; args = "6"; }
+      { mod = "SUPER SHIFT"; keys = "7"; dispatcher = "movetoworkspace"; args = "7"; }
+      { mod = "SUPER SHIFT"; keys = "8"; dispatcher = "movetoworkspace"; args = "8"; }
+      { mod = "SUPER SHIFT"; keys = "9"; dispatcher = "movetoworkspace"; args = "9"; }
+      { mod = "SUPER SHIFT"; keys = "Equal"; dispatcher = "movetoworkspace"; args = "12"; }
+      { mod = "SUPER SHIFT"; keys = "Escape"; dispatcher = "movetoworkspace"; args = "special"; }
+      { mod = "SUPER SHIFT"; keys = "Minus"; dispatcher = "movetoworkspace"; args = "11"; }
+
+      { mod = "SUPER SHIFT"; keys = "E"; dispatcher = "exit"; args = ""; }
+      { mod = "SUPER SHIFT"; keys = "H"; dispatcher = "swapwindow"; args = "l"; }
+      { mod = "SUPER SHIFT"; keys = "J"; dispatcher = "swapwindow"; args = "d"; }
+      { mod = "SUPER SHIFT"; keys = "K"; dispatcher = "swapwindow"; args = "u"; }
+      { mod = "SUPER SHIFT"; keys = "L"; dispatcher = "swapwindow"; args = "r"; }
+      { mod = "SUPER SHIFT"; keys = "Q"; dispatcher = "killactive"; args = ""; }
+      { mod = "SUPER SHIFT"; keys = "Space"; dispatcher = "togglefloating"; args = ""; }
+      { mod = "SUPER SHIFT"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollprev"; }
+
+      { mod = "SUPER"; keys = "0"; dispatcher = "workspace"; args = "10"; }
+      { mod = "SUPER"; keys = "1"; dispatcher = "workspace"; args = "1"; }
+      { mod = "SUPER"; keys = "2"; dispatcher = "workspace"; args = "2"; }
+      { mod = "SUPER"; keys = "3"; dispatcher = "workspace"; args = "3"; }
+      { mod = "SUPER"; keys = "4"; dispatcher = "workspace"; args = "4"; }
+      { mod = "SUPER"; keys = "5"; dispatcher = "workspace"; args = "5"; }
+      { mod = "SUPER"; keys = "6"; dispatcher = "workspace"; args = "6"; }
+      { mod = "SUPER"; keys = "7"; dispatcher = "workspace"; args = "7"; }
+      { mod = "SUPER"; keys = "8"; dispatcher = "workspace"; args = "8"; }
+      { mod = "SUPER"; keys = "9"; dispatcher = "workspace"; args = "9"; }
+      { mod = "SUPER"; keys = "Minus"; dispatcher = "workspace"; args = "11"; }
+      { mod = "SUPER"; keys = "Equal"; dispatcher = "workspace"; args = "12"; }
+      { mod = "SUPER"; keys = "Escape"; dispatcher = "togglespecialworkspace"; args = ""; }
+      { mod = "SUPER"; keys = "A"; dispatcher = "exec"; args = "uwsm app -t service -- com.github.marinm.songrec.desktop"; }
+      { mod = "SUPER"; keys = "B"; dispatcher = "exec"; args = "uwsm app -t service -- ${opts.desktop.browser.xdg-desktop}"; }
+      { mod = "SUPER"; keys = "C"; dispatcher = "exec"; args = "noctalia ipc call controlCenter toggle"; }
+      { mod = "SUPER"; keys = "D"; dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae toggle"; }
+      { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
+      { mod = "SUPER"; keys = "G"; dispatcher = "togglegroup"; args = ""; }
+      { mod = "SUPER"; keys = "H"; dispatcher = "movefocus"; args = "l"; }
+      { mod = "SUPER"; keys = "J"; dispatcher = "movefocus"; args = "d"; }
+      { mod = "SUPER"; keys = "K"; dispatcher = "movefocus"; args = "u"; }
+      { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; }
+      { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "noctalia ipc call notifications toggleDND"; }
+      { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-gamemode-toggle}/bin/gamemode"; }
+      { mod = "SUPER"; keys = "Q"; dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history"; }
+      { mod = "SUPER"; keys = "S"; dispatcher = "exec"; args = "noctalia ipc call settings toggle"; }
+      { mod = "SUPER"; keys = "W"; dispatcher = "exec"; args = "noctalia ipc call wallpaper toggle"; }
+      { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty"; }
+      { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; }
+      { mod = "SUPER"; keys = "m"; dispatcher = "layoutmsg"; args = "swapwithmaster master"; }
+      { mod = "SUPER"; keys = "x"; dispatcher = "exec"; args = "hyprctl kill"; }
+      { mod = "SUPER"; keys = "E"; dispatcher = "exec"; args = "uwsm app -t service -- org.mozilla.Thunderbird.desktop"; }
+      {
+        mod = "SUPER";
+        keys = "XF86AudioLowerVolume";
+        dispatcher = "exec";
+        args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-";
+      }
+      {
+        mod = "SUPER";
+        keys = "XF86AudioRaiseVolume";
+        dispatcher = "exec";
+        args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+";
+      }
+      {
+        mod = "SUPER SHIFT";
+        keys = "Return";
+        dispatcher = "exec";
+        args = "${config.programs.kitty.package}/bin/kitty ${pkgs.tmux}/bin/tmux new -A -s system";
+      }
       {
         mod = "SUPER SHIFT";
         keys = "S";
         dispatcher = "exec";
         args = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | wl-copy";
       }
-
       {
         mod = "SUPER CTRL";
         keys = "S";
@@ -971,26 +574,6 @@ in
 
     layer = [
       {
-        rule = "blur";
-        addr = "rofi";
-      }
-      {
-        rule = "ignorezero";
-        addr = "rofi";
-      }
-      {
-        rule = "blur";
-        addr = "notifications";
-      }
-      {
-        rule = "ignorezero";
-        addr = "notifications";
-      }
-      {
-        rule = "ignorezero";
-        addr = "notifications";
-      }
-      {
         rule = "animation slide left";
         addr = "sideleft.*";
       }
@@ -1036,11 +619,19 @@ in
       }
       {
         rule = "blur";
+        addr = "notifications";
+      }
+      {
+        rule = "blur";
         addr = "osk";
       }
       {
         rule = "blur";
         addr = "overview";
+      }
+      {
+        rule = "blur";
+        addr = "rofi";
       }
       {
         rule = "blur";
@@ -1057,6 +648,18 @@ in
       {
         rule = "blur";
         addr = "sideright";
+      }
+      {
+        rule = "blur";
+        addr = "vicinae";
+      }
+      {
+        rule = "ignorealpha 0";
+        addr = "rofi";
+      }
+      {
+        rule = "ignorealpha 0";
+        addr = "vicinae";
       }
       {
         rule = "ignorealpha 0.5";
@@ -1115,6 +718,18 @@ in
         addr = "gtk-layer-shell";
       }
       {
+        rule = "ignorezero";
+        addr = "notifications";
+      }
+      {
+        rule = "ignorezero";
+        addr = "notifications";
+      }
+      {
+        rule = "ignorezero";
+        addr = "rofi";
+      }
+      {
         rule = "noanim";
         addr = "anyrun";
       }
@@ -1140,7 +755,15 @@ in
       }
       {
         rule = "noanim";
+        addr = "rofi";
+      }
+      {
+        rule = "noanim";
         addr = "selection";
+      }
+      {
+        rule = "noanim";
+        addr = "vicinae";
       }
       {
         rule = "noanim";
@@ -1156,8 +779,6 @@ in
   exec-once = [
     "dbus-update-activation-environment --systemd --all"
     "hyprpm reload -n"
-    "systemctl --user start hyprpolkitagent"
-    "systemctl --user start dunst"
     "wl-paste --type image --watch cliphist store"
     "wl-paste --type text --watch cliphist store"
     "wlsunset -l 40.7 -L -73.9"

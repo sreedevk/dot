@@ -12,6 +12,7 @@
     ./inputs.nix
     ./keybinds.nix
     ./monitors.nix
+    ./plugins.nix
     ./rules.nix
     ./submaps.nix
   ];
@@ -35,6 +36,7 @@
         source = ~/.config/hypr/submaps.conf
         source = ~/.config/hypr/general.conf
         source = ~/.config/hypr/gestures.conf
+        source = ~/.config/hypr/plugins.conf
       '';
     };
   };

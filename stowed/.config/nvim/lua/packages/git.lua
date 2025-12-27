@@ -63,11 +63,6 @@ return {
           commit = "https://gitlab.com/${owner}/${repository}/-/commit/${oid}",
           tree = "https://gitlab.com/${owner}/${repository}/-/tree/${branch_name}?ref_type=heads",
         },
-        ["gitea.nullptr.sh"] = {
-          pull_request = "https://gitea.nullptr.sh/${owner}/${repository}/compare/${branch_name}",
-          commit = "https://gitea.nullptr.sh/${owner}/${repository}/commit/${oid}",
-          tree = "https://gitea.nullptr.sh/${owner}/${repository}/src/branch/${branch_name}"
-        },
         ["git.devtechnica.com"] = {
           pull_request = "https://git.devtechnica.com/${owner}/${repository}/compare/${branch_name}",
           commit = "https://git.devtechnica.com/${owner}/${repository}/commit/${oid}",

@@ -1,4 +1,5 @@
 {
+  # https://mozilla.github.io/policy-templates/
   "accessibility.force_disabled"                                        = 1;
   "app.normandy.api_url"                                                = "";
   "app.normandy.enabled"                                                = false;
@@ -83,6 +84,7 @@
   "browser.toolbars.bookmarks.visibility"                               = "always";
   "browser.uidensity"                                                   = 1;
   "browser.uitour.enabled"                                              = false;
+  "browser.urlbar.autoFill"                                             = true;
   "browser.urlbar.groupLabels.enabled"                                  = false;
   "browser.urlbar.placeholderName"                                      = "DuckDuckGo";
   "browser.urlbar.quickactions.enabled"                                 = false;
@@ -130,6 +132,8 @@
   "experiments.enabled"                                                 = false;
   "experiments.manifest.uri"                                            = false;
   "experiments.supported"                                               = false;
+  "extensions.formautofill.addresses.enabled"                           = false;
+  "extensions.formautofill.creditCards.enabled"                         = false;
   "extensions.getAddons.discovery.api_url"                              = "";
   "extensions.getAddons.showPane"                                       = false;
   "extensions.htmlaboutaddons.discover.enabled"                         = false;
@@ -241,6 +245,7 @@
   "security.webauth.webauthn"                                           = true;
   "security.webauth.webauthn_enable_softtoken"                          = true;
   "security.webauth.webauthn_enable_usbtoken"                           = true;
+  "signon.autofillForms"                                                = false;
   "signon.firefoxRelay.feature"                                         = "disabled";
   "signon.formlessCapture.enabled"                                      = false;
   "signon.generation.enabled"                                           = false;
@@ -266,5 +271,4 @@
   "toolkit.telemetry.unified"                                           = false;
   "toolkit.telemetry.updatePing.enabled"                                = false;
   "webchannel.allowObject.urlWhitelist"                                 = "";
-  # https://mozilla.github.io/policy-templates/
 }

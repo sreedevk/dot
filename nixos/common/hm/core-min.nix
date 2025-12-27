@@ -11,6 +11,7 @@
     fzf       # fuzzy finder
     jq        # json query lang
     less      # pager
+    rake      # ruby make
     ripgrep   # faster grep
     rsync     # file sync
     starship  # shell prompt

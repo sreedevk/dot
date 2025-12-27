@@ -24,7 +24,6 @@
       recursive = false;
       text = ''
         [[ -f ~/.profile ]]  && . ~/.profile
-        [[ -f ~/.zshenv  ]]  && . ~/.zshenv
       '';
     };
 

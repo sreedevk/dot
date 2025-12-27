@@ -1,15 +1,22 @@
 bacon v3.16.0
 bacon-ls v0.21.0
-blaze-ssh v0.0.4
+blaze-ssh v0.0.8 (/home/sreedev/Data/repositories/blaze-ssh)
 cargo-audit v0.21.2
 cargo-bloat v0.12.1
-cargo-expand v1.0.114
+cargo-expand v1.0.118
+cargo-generate v0.23.5
 cargo-udeps v0.1.57
 cargo-update v17.0.0
 cargo-watch v8.5.3
 cl-wordle v0.4.0
 deduplicator v0.3.2 (/home/sreedev/Data/repositories/deduplicator)
+fake v4.4.0 (https//github.com/cksac/fake-rs.git#0fd3e7a3)
 flamegraph v0.6.8
 license-generator v1.3.0
+loco v0.16.3
+ncopds v0.1.0
+sea-orm-cli v1.1.17
 sqlx-cli v0.8.6
+term-transcript-cli v0.4.0
 uiua v0.16.2
+workmux v0.1.54

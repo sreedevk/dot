@@ -12,22 +12,37 @@
         {
           name = "nullptr.sh";
           url = "https://nullptr.sh";
+          keyword = "np";
         }
         {
-          name = "bookmarks";
+          name = "Bookmarks";
           url = "https://kk.nullptr.sh";
+          keyword = "kk";
         }
         {
-          name = "hackernews";
+          name = "HackerNews";
           url = "https://news.ycombinator.com/";
+          keyword = "hn";
         }
         {
-          name = "lobsters";
+          name = "Lobsters";
           url = "https://lobste.rs/";
+          keyword = "lb";
         }
         {
           name = "Excalidraw";
           url = "https://excalidraw.com/";
+          keyword = "ex";
+        }
+        {
+          name = "Other";
+          toolbar = false;
+          bookmarks = [
+            {
+              name = "Flix";
+              url = "https://sflix.fi/home";
+            }
+          ];
         }
       ];
     }

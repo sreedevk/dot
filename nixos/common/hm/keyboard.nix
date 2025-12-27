@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   home.keyboard = {
     layout = "us,apl";
     variant = ",dyalog";

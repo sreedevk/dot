@@ -56,8 +56,8 @@ in
         export LIBVA_DRIVER_NAME=nvidia
         export MOZ_ENABLE_WAYLAND=1
         export QT_AUTO_SCREEN_SCALE_FACTOR=${opts.desktop.scale}
-        export QT_QPA_PLATFORM=xcb
-        export QT_SCALE_FACTOR=${opts.desktop.scale}
+        export QT_QPA_PLATFORM=wayland
+        export QT_SCALE_FACTOR=${opts.desktop.qt_scale_factor}
         export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
         export WINIT_X11_SCALE_FACTOR=${opts.desktop.scale}
         export XCURSOR_SIZE=28

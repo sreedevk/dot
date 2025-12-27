@@ -1,0 +1,17 @@
+@import '../../../.cache/wallust/colors.scss';
+
+* {
+   background-color: transparent; 
+}
+
+.day-text {
+  font-family: "Midorima - Personal Use";
+  font-size: 7rem;
+  color: $color15;
+}
+
+.date-text {
+  font-size: 1.8rem;
+  font-family: "Midorima - Personal Use";
+  color: $color13;
+}

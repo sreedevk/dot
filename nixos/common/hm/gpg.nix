@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, opts, ... }:
 {
 
   # will conflict with services.gpg-agent config, so please disable when using services.gpg-agent
@@ -32,7 +32,7 @@
     mutableTrust = true;
     settings = {
       no-greeting = true;
-      default-key = "54E80FA653BDD4DC6700A695B8C402B16E80E17C";
+      default-key = opts.gpg-key-signature;
       pinentry-mode = "loopback";
       default-recipient-self = true;
       force-v3-sigs = true;

@@ -12,5 +12,4 @@
 
 require 'core'
 require 'pack'
-require 'lsp'
 require 'neovide'

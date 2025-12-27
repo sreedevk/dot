@@ -1,16 +1,14 @@
-{
-  pkgs,
-  opts,
-  config,
-  username,
-  ...
+{ pkgs
+, opts
+, config
+, username
+, ...
 }:
 let
-  sessionizer        = import ./scripts/sessionizer.nix { inherit pkgs; };
-  bwfzf              = import ./scripts/bwfzf.nix { inherit pkgs; };
-  sshfzf             = import ./scripts/sshfzf.nix { inherit pkgs; };
-  time               = import ./scripts/time.nix { inherit pkgs opts; };
-  repoclo            = import ./scripts/repoclo.nix { inherit pkgs; };
+  sessionizer   = import ./scripts/sessionizer.nix    { inherit pkgs;      };
+  bwfzf         = import ./scripts/bwfzf.nix          { inherit pkgs;      };
+  sshfzf        = import ./scripts/sshfzf.nix         { inherit pkgs;      };
+  time          = import ./scripts/time.nix           { inherit pkgs opts; };
 
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-super-fingers";
@@ -101,27 +99,32 @@ in
                       "new-session -d -s system -c '/home/${username}'; switch-client -t system"
 
       # COPY MODE
-      bind -T copy-mode-vi v send-keys -X begin-selection
-      bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
-      bind -T copy-mode-vi Escape send-keys -X cancel
-      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'wl-copy'
-      bind -T copy-mode-vi C-g send-keys -X cancel
-      bind -T copy-mode-vi 0 send-keys -X start-of-line
-      bind -T copy-mode-vi $ send-keys -X end-of-line
-      bind p  paste-buffer
-      bind C-p choose-buffer
+      bind -T   copy-mode-vi v      send-keys -X begin-selection
+      bind -T   copy-mode-vi C-v    send-keys -X rectangle-toggle
+      bind -T   copy-mode-vi Escape send-keys -X cancel
+      bind -T   copy-mode-vi y      send-keys -X copy-pipe-and-cancel 'wl-copy'
+      bind -T   copy-mode-vi C-g    send-keys -X cancel
+      bind -T   copy-mode-vi 0      send-keys -X start-of-line
+      bind -T   copy-mode-vi $      send-keys -X end-of-line
+      bind p    paste-buffer
+      bind C-p  choose-buffer
 
       # WORKFLOWS
-      bind C-c run-shell "tmux neww ${repoclo}/bin/repoclo"
-      bind C-e run-shell "tmux neww ${pkgs.neovim}/bin/nvim"
-      bind C-f run-shell "tmux neww ${pkgs.yazi}/bin/yazi"
-      bind C-g run-shell "tmux neww ${pkgs.lazygit}/bin/lazygit"
-      bind C-h run-shell "tmux neww ${config.programs.htop.package}/bin/htop"
-      bind C-o run-shell "tmux neww ${sessionizer}/bin/tmux-sessionizer"
-      bind C-r run-shell "tmux neww ${pkgs.newsboat}/bin/newsboat"
-      bind C-s run-shell "tmux neww ${sshfzf}/bin/ssh-fzf"
-      bind C-t run-shell "tmux neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
-      bind C-w run-shell "tmux neww ${bwfzf}/bin/bwfzf"
+      bind C-a neww ${pkgs.wiremix}/bin/wiremix
+      bind C-c new-session
+      bind C-e neww ${pkgs.neovim}/bin/nvim
+      bind C-f neww ${pkgs.yazi}/bin/yazi
+      bind C-g neww ${pkgs.lazygit}/bin/lazygit
+      bind C-h neww ${config.programs.htop.package}/bin/htop
+      bind C-o neww ${sessionizer}/bin/tmux-sessionizer
+      bind C-q command-prompt -p find-session 'switch-client -t %%'
+      bind C-r neww ${pkgs.newsboat}/bin/newsboat
+      bind C-s neww ${sshfzf}/bin/ssh-fzf
+      bind C-t neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui
+      bind C-u if-shell "tmux has-session -t system 2>/dev/null" \
+                        "switch-client -t system" \
+                        "new-session -d -s system -c '/home/${username}'; switch-client -t system"
+      bind C-w neww ${bwfzf}/bin/bwfzf
 
       # MOUSE SUPPORT
       bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
@@ -165,7 +168,12 @@ in
       set -g  set-titles-string "#I:#W"
       set -g  remain-on-exit off
       set -g  @copy_use_osc52_fallback on
-      set -g allow-passthrough on
+      set -g  allow-passthrough on
+      set -g  exit-empty off
+      set -g  detach-on-destroy off
+      set -g  renumber-windows on
+      set -g  monitor-activity on
+      set -g  visual-activity off
 
       setw -g allow-rename on
       setw -g automatic-rename on

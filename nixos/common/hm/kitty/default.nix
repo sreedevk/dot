@@ -1,17 +1,24 @@
 { pkgs
-, lib
 , config
 , ...
 }:
-let
-  themes = import ../themes.nix;
-in
 {
+
+  imports = [
+    ./settings.nix
+    ./keybindings.nix
+  ];
+
   programs.kitty = {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.kitty;
-    settings = themes.zitchdog-pine // import ./settings.nix { inherit config lib; };
-    keybindings = import ./keybindings.nix;
+    package = config.lib.nixGL.wrapOffload pkgs.kitty;
+    quickAccessTerminalConfig = {
+      start_as_hidden = false;
+      hide_on_focus_loss = false;
+      background_opacity = 0.85;
+      grab_keyboard = false;
+    };
+    themeFile = "rose-pine";
   };
 
   xdg.desktopEntries = {

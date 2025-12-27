@@ -8,9 +8,11 @@ return {
     'crispgm/telescope-heading.nvim',
     'j-hui/fidget.nvim',
     'jvgrootveld/telescope-zoxide',
+    'nvim-telescope/telescope-frecency.nvim',
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-symbols.nvim',
     'nvim-treesitter/nvim-treesitter',
+    'davidgranstrom/telescope-scdoc.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
   cmd = "Telescope",
@@ -28,6 +30,7 @@ return {
     { "<Leader>tr", wrap_cmd("Telescope resume"),                           desc = "Resume Last Telescope Search", noremap = true },
     { '<Leader>zi', wrap_cmd("Telescope zoxide list"),                      desc = "Zoxide Interactive",           noremap = true },
     { '<Leader>th', wrap_cmd("Telescope heading"),                          desc = "Telescope Markdown Headings",  noremap = true },
+    { '<Leader>lf', wrap_cmd("Telescope frecency"),                         desc = "Telescope Frecency",           noremap = true },
     {
       '<Leader>rg',
       function()
@@ -212,5 +215,7 @@ return {
     pcall(telscp.load_extension, 'zoxide')
     pcall(telscp.load_extension, 'heading')
     pcall(telscp.load_extension, 'live_grep_args')
+    pcall(telscp.load_extension, 'scdoc')
+    pcall(telscp.load_extension, 'frecency')
   end
 }

@@ -23,20 +23,10 @@ let
 
   taskwarrior-notifier = pkgs.writeShellScriptBin "taskwarrior-notify-due" ''
     export DISPLAY=:1
-    now=$(date +%s)
-    in_one_hour=$(date -d "+1 hour" +%s)
-    tasks_due_today=$(task due:today -ACTIVE _ids)
-    tasks_due_soon=""
-    for task_id in $tasks_due_today; do
-    	task_due_date="$(task _get $task_id.due)"
-    	task_due_epoch="$(date -d "$task_due_date" +%s)"
-    	task_description="$(task _get $task_id.description)"
-    	if [ "$task_due_epoch" -gt "$now" ] && [ "$task_due_epoch" -le "$in_one_hour" ]; then
-    		tasks_due_soon+="$task_id: $task_description"$'\n'
-    	fi
-    done
+    tasks_due_soon=$(task due:+1h -ACTIVE list --format '{id}: {description}' 2>/dev/null)
+
     if [ -n "$tasks_due_soon" ]; then
-    	notify-send -a "taskwarrior" -u critical -c tasks -w 'You have tasks due in the next hour:'$'\n'"$tasks_due_soon"
+        notify-send -a "taskwarrior" -u critical -c tasks -w 'The following tasks are due in the next hour:'$'\n'"$tasks_due_soon"
     fi
   '';
 
@@ -49,6 +39,7 @@ let
     verbose = builtins.concatStringsSep "," [
       "blank"
       "filter"
+      "sync"
     ];
 
     sync = {
@@ -63,6 +54,14 @@ let
           {
             name = "important";
             coefficient = 15.0;
+          }
+          {
+            name = "later";
+            coefficient = -10.0;
+          }
+          {
+            name = "somday";
+            coefficient = -15.0;
           }
         ];
         projects = [
@@ -160,6 +159,10 @@ let
       urgency.uda.priority.M.coefficient=${builtins.toString configs.coefficients.uda.M}
       urgency.uda.priority.L.coefficient=${builtins.toString configs.coefficients.uda.L}
       uda.taskwarrior-tui.shortcuts.1=${taskwarrior-tui-taskopenscript}/bin/tt-taskopen
+      uda.taskwarrior-tui.task-report.next.filter=status:pending -WAITING limit:page -someday
+      uda.taskwarrior-tui.task-report.work.filter=status:pending -WAITING limit:page -someday proj:work:tunecore
+      uda.taskwarrior-tui.background_process=task sync
+      uda.taskwarrior-tui.background_process_period=60
       ${mkprojectCoefficients configs.coefficients.user.projects}
       ${mktagCoefficients configs.coefficients.user.tags}
 
@@ -169,51 +172,60 @@ let
 in
 {
 
-  home.packages = with pkgs; [
-    taskwarrior3
-    taskwarrior-tui
-  ];
-
-  home.file = {
-
-    ".taskrc" = {
-      enable = true;
-      text = mkTaskConfig taskwarriorSettings;
-      recursive = false;
+  home = {
+    packages = with pkgs; [
+      taskwarrior3
+      taskwarrior-tui
+    ];
+    sessionVariables = {
+      TASKWARRIOR_CLIENT_ID = "$(cat ${config.age.secrets.taskwarrior_client_id.path})";
+      TASKWARRIOR_ENCRYPTION_SECRET = "$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})";
     };
+    file = {
+      ".taskrc" = {
+        enable = true;
+        text = mkTaskConfig taskwarriorSettings;
+        recursive = false;
+      };
 
-    ".taskopenrc" = {
-      enable = true;
-      text = ''
-        [General]
-        taskbin             = task
-        taskargs
-        no_annotation_hook  = "addnote $ID"
-        task_attributes     = "priority,project,tags,description"
-        --sort:"urgency-,annot"
-        EDITOR = nvim
-        path_ext=/usr/share/taskopen/scripts
+      ".taskopenrc" = {
+        enable = true;
+        text = ''
+          [General]
+          taskbin             = task
+          taskargs
+          no_annotation_hook  = "addnote $ID"
+          task_attributes     = "priority,project,tags,description"
+          --sort:"urgency-,annot"
+          EDITOR = nvim
+          path_ext=/usr/share/taskopen/scripts
 
-        [Actions]
-        files.target=annotations
-        files.labelregex=".*"
-        files.regex="^[\\.\\/~]+.*\\.(.*)"
-        files.command="$EDITOR $FILE"
-        files.modes="batch,any,normal"
+          [Actions]
+          files.target=annotations
+          files.labelregex=".*"
+          files.regex="^[\\.\\/~]+.*\\.(.*)"
+          files.command="$EDITOR $FILE"
+          files.modes="batch,any,normal"
 
-        notes.target=annotations
-        notes.labelregex=".*"
-        notes.regex="^Notes(\\..*)?"
-        notes.command="""editnote ~/Data/notebook/tasknotes/$UUID$LAST_MATCH "$TASK_DESCRIPTION" $UUID"""
-        notes.modes="batch,any,normal"
+          notes.target=annotations
+          notes.labelregex=".*"
+          notes.regex="^Notes(\\..*)?"
+          notes.command="""editnote ~/Data/notebook/tasknotes/$UUID$LAST_MATCH "$TASK_DESCRIPTION" $UUID"""
+          notes.modes="batch,any,normal"
 
-        url.target=annotations
-        url.labelregex=".*"
-        url.regex="((?:www|http|https).*)"
-        url.command="xdg-open $LAST_MATCH"
-        url.modes="batch,any,normal"
-      '';
+          url.target=annotations
+          url.labelregex=".*"
+          url.regex="((?:www|http|https).*)"
+          url.command="xdg-open $LAST_MATCH"
+          url.modes="batch,any,normal"
+        '';
+      };
     };
+  };
+
+  systemd.user.sessionVariables = {
+    TASKWARRIOR_CLIENT_ID = "$(cat ${config.age.secrets.taskwarrior_client_id.path})";
+    TASKWARRIOR_ENCRYPTION_SECRET = "$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})";
   };
 
   systemd.user = {
@@ -224,9 +236,10 @@ in
           Documentation = "info:task man:task(1) https://taskwarrior.org/docs/";
         };
         Service = {
-          Type = "simple";
+          Type = "oneshot";
           EnvironmentFile = config.age.secrets.taskwarrior_env.path;
           ExecStart = "${pkgs.taskwarrior3}/bin/task sync";
+          RemainAfterExit = true;
         };
       };
 

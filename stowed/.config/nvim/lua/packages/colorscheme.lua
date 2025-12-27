@@ -1,9 +1,23 @@
 return {
   {
+    "catppuccin/nvim",
+    lazy = false,
+    enabled = true,
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
+      transparent_background = false
+    },
+    init = function()
+      vim.cmd.colorscheme "catppuccin"
+    end
+  },
+  {
     "rose-pine/neovim",
     lazy = true,
     name = "rose-pine",
-    enabled = true,
+    enabled = false,
     priority = 1000,
     opts = {
       highlight_groups = {
@@ -30,20 +44,6 @@ return {
     },
     init = function()
       vim.cmd.colorscheme "rose-pine"
-    end
-  },
-  {
-    "catppuccin/nvim",
-    lazy = true,
-    enabled = false,
-    name = "catppuccin",
-    priority = 1000,
-    opts = {
-      flavour = "mocha", -- latte, frappe, macchiato, mocha
-      transparent_background = false
-    },
-    init = function()
-      vim.cmd.colorscheme "catppuccin"
     end
   },
   {

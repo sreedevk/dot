@@ -6,6 +6,7 @@
 
   home.packages = with pkgs; [
     ast-grep         # code searching
+    below            # time traveling resource monitor
     bingrep          # binary grep
     broot            # interactive file tree
     bsd-finger       # user information lookup
@@ -31,13 +32,13 @@
     nettools         # linux network subsystem control
     nix-prefetch-git # git fetch nix info
     ouch             # unified fs compression util
+    oxker            # docker tui
     p7zip            # p7zip compression
     pass             # passwords store
     pigz             # gzip compression
     procs            # ps in rust
     progress         # coreutils progress util
     pwgen            # password generator
-    rake             # ruby make
     ripgrep-all      # ripgrep for more formats
     sshfs            # fuse fs over ssh
     tailspin         # fancy tail
