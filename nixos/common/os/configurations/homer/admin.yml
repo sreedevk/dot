@@ -27,6 +27,13 @@ services:
         url: "https://grafana.nullptr.sh"
         target: "_blank"
 
+      - name: "Netronome"
+        logo: "assets/tools/netronome.png"
+        subtitle: "Internet Speed Test"
+        tag: "net-speedtest"
+        url: "https://netronome.nullptr.sh"
+        target: "_blank"
+
       - name: "Alloy"
         logo: "assets/tools/alloy.png"
         subtitle: "Telemetry Collector"
