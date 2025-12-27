@@ -60,6 +60,7 @@
           fasm                     # flat assembler
           glab                     # gitlab cli
           glow                     # tui markdown renderer
+          goat                     # Go ASCII Tool
           gpg-tui                  # gnupg tui
           gping                    # ping grapher
           graphviz                 # graph visualizer
