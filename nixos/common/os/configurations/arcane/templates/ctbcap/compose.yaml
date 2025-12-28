@@ -1,0 +1,8 @@
+services:
+  listener:
+    image: kfermercer/ctbcap:latest
+    user: 1000:1000
+    restart: unless-stopped
+    volumes:
+      - /streams/raw:/save
+      - /streams/logs:/log
