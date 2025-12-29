@@ -11,7 +11,7 @@ KDE
 MangoHud
 Mesa
 Nvidia
-nvidia-580-105-08
+nvidia-590-48-01
 openh264
 Signal
 Supersonic
