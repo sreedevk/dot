@@ -5,7 +5,7 @@
       rpi4b         = "192.168.1.151";
       devtechnica   = "5.161.22.238";
       apollo        = "192.168.1.143";
-      rocknix       = "";
+      rocknix       = "192.168.1.184";
     };
     tailscale = {
       devstation    = "100.109.36.108";
