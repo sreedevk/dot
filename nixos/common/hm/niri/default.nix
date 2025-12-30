@@ -7,7 +7,6 @@
 
   home.packages = with pkgs; [
     xwayland-satellite
-    (config.lib.nixGL.wrap pkgs.niri)
   ];
 
   xdg.portal = {
