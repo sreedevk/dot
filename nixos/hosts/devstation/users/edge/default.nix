@@ -63,7 +63,7 @@
   targets.genericLinux.nixGL = {
     packages = pkgs.nixgl;
     defaultWrapper = "mesa";
-    offloadWrapper = "nvidia";
+    offloadWrapper = "mesa";
     vulkan.enable = true;
     installScripts = [
       "mesa"
