@@ -70,6 +70,7 @@ autoload -U  promptinit && promptinit
 autoload -U  compinit && compinit -u
 autoload -Uz bashcompinit && bashcompinit
 autoload     edit-command-line
+autoload     zmv
 
 _comp_options+=(globdots)
 
