@@ -88,59 +88,13 @@
       };
 
       spawn-at-startup = [
-        {
-          sh = "echo $NIRI_SOCKET > ~/.niri-socket";
-        }
-        {
-          argv = [
-            "dbus-update-activation-environment"
-            "--systemd"
-            "--all"
-          ];
-        }
-        {
-          argv = [
-            "systemctl"
-            "--systemd"
-            "--all"
-          ];
-        }
-        {
-          argv = [
-            "wl-paste"
-            "--type"
-            "image"
-            "--watch"
-            "cliphist"
-            "store"
-          ];
-        }
-
-        {
-          argv = [
-            "wl-paste"
-            "--type"
-            "text"
-            "--watch"
-            "cliphist"
-            "store"
-          ];
-        }
-        {
-          argv = [
-            "wlsunset"
-            "-l"
-            "40.7"
-            "-L"
-            "-73.9"
-          ];
-        }
-        {
-          argv = [
-            "xrdb"
-            "~/.Xresources"
-          ];
-        }
+        { sh = "echo $NIRI_SOCKET > ~/.niri-socket"; }
+        { argv = [ "dbus-update-activation-environment" "--systemd" "--all" ]; }
+        { argv = [ "systemctl" "--systemd" "--all" ]; }
+        { argv = [ "wl-paste" "--type" "image" "--watch" "cliphist" "store" ]; }
+        { argv = [ "wl-paste" "--type" "text" "--watch" "cliphist" "store" ]; }
+        { argv = [ "wlsunset" "-l" "40.7" "-L" "-73.9" ]; }
+        { argv = [ "xrdb" "~/.Xresources" ]; }
       ];
 
       window-rules = [
@@ -273,7 +227,7 @@
           "Mod+S".action = spawn "noctalia" "ipc" "call" "settings" "toggle";
           "Mod+W".action = spawn "noctalia" "ipc" "call" "wallpaper" "toggle";
           "Mod+O".action = toggle-overview;
-          "Mod+Return".action = spawn "${config.programs.kitty.package}/bin/kitty";
+          "Mod+Return".action = spawn "${pkgs.kitty}/bin/kitty";
           "Mod+Shift+Return".action =
             spawn "${config.programs.kitty.package}/bin/kitty ${pkgs.tmux}/bin/tmux new -A -s system";
           "Mod+KP_Enter".action = spawn "${config.programs.kitty.package}/bin/kitty";
