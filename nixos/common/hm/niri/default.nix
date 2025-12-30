@@ -265,7 +265,7 @@
 
           "Mod+A".action = spawn "pwvucontrol";
           "Mod+C".action = spawn "noctalia" "ipc" "call" "controlCenter" "toggle";
-          "Mod+D".action = spawn "${pkgs.rofi}/bin/rofi" "-show" "drun";
+          "Mod+D".action = spawn "${pkgs.vicinae}/bin/vicinae" "toggle";
           "Mod+N".action = spawn "noctalia" "ipc" "call" "notifications" "toggleDND";
           "Mod+S".action = spawn "noctalia" "ipc" "call" "settings" "toggle";
           "Mod+W".action = spawn "noctalia" "ipc" "call" "wallpaper" "toggle";
