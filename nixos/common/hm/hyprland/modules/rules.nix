@@ -15,21 +15,15 @@ in
         let
           genLayerRules =
             let
-              genLayerRule = ruleconf: "layerrule = ${ruleconf.rule},${ruleconf.addr}";
+              genLayerRule = ruleconf: "layerrule = ${ruleconf.rule},match:namespace ${ruleconf.addr}";
             in
             ruleconfs: builtins.concatStringsSep "\n" (builtins.map genLayerRule ruleconfs);
 
           genWindowRules =
             let
-              genWindowRule = ruleconf: "windowrule = ${ruleconf.rule},${ruleconf.window_identifiers}";
-            in
-            ruleconfs: builtins.concatStringsSep "\n" (builtins.map genWindowRule ruleconfs);
-
-          genWindowv2Rules =
-            let
               genWindowRule =
                 ruleconf:
-                "windowrulev2 = ${ruleconf.rule},${builtins.concatStringsSep "," ruleconf.window_identifiers}";
+                "windowrule = ${ruleconf.rule},${builtins.concatStringsSep "," ruleconf.window_identifiers}";
             in
             ruleconfs: builtins.concatStringsSep "\n" (builtins.map genWindowRule ruleconfs);
 
@@ -43,7 +37,6 @@ in
         builtins.concatStringsSep "\n" [
           (genLayerRules     hyprconf.rules.layer)
           (genWindowRules    hyprconf.rules.window)
-          (genWindowv2Rules  hyprconf.rules.windowv2)
           (genWorkspaceRules hyprconf.rules.workspace)
         ];
     };

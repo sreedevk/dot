@@ -93,6 +93,7 @@ vim.keymap.set(
   { noremap = true, desc = "insert unix current timestamp" }
 )
 
+-- BUG: DOES NOT WORK IN MULTI LINE MODE
 vim.keymap.set(
   { 'n', 'v' },
   '<Leader>ff',
