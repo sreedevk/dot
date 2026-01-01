@@ -5,8 +5,10 @@ _: prev: {
     ardour
     awscli2
     davinci-resolve
+    imager
     jellyfin-media-player
     obs-studio
     obs-studio-plugins
+    silicon
     ;
 }
