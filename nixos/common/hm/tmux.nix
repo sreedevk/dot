@@ -67,7 +67,7 @@ in
     ];
     prefix = "C-b";
     baseIndex = 1;
-    mouse = true;
+    mouse = false;
     aggressiveResize = true;
     disableConfirmationPrompt = true;
     extraConfig = ''
@@ -163,6 +163,8 @@ in
       set -s  extended-keys on
       set -as terminal-features 'xterm*:extkeys'
       set -ag terminal-overrides ",xterm-256color:RGB"
+      set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+      set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'
       set -g  buffer-limit  20
       set -g  set-titles on
       set -g  set-titles-string "#I:#W"
