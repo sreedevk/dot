@@ -84,7 +84,6 @@
     qbittorrent-p2p           = "6881";
     qbittorrent-web           = "8001";
     radarr                    = "7878";
-    readarr                   = "8787";
     ssh                       = "22";
     tailscale_direct          = "39158";
     tailscale_p2p             = "41641";

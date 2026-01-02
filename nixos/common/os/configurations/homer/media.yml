@@ -34,14 +34,6 @@ services:
         url: "https://books.nullptr.sh"
         target: "_blank"
         
-      - name: "Readarr"
-        logo: "assets/tools/readarr.png"
-        subtitle: "Books Indexing & Searching"
-        tag: "books"
-        keywords: "books"
-        url: "https://readarr.nullptr.sh"
-        target: "_blank"
-
       - name: "Ephemera"
         logo: "assets/tools/ephemera.png"
         subtitle: "Book Archive Search"
