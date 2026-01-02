@@ -33,6 +33,14 @@ services:
         keywords: "ebooks"
         url: "https://books.nullptr.sh"
         target: "_blank"
+
+      - name: "Booklore"
+        logo: "assets/tools/booklore.png"
+        subtitle: "Ebook Server"
+        tag: "ebooks"
+        keywords: "ebooks"
+        url: "https://booklore.nullptr.sh"
+        target: "_blank"
         
       - name: "Ephemera"
         logo: "assets/tools/ephemera.png"
