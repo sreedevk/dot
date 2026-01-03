@@ -5,6 +5,7 @@ _: prev: {
     ardour
     awscli2
     davinci-resolve
+    gurk-rs
     imager
     jellyfin-media-player
     obs-studio

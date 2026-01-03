@@ -195,6 +195,8 @@ in
         position = "top";
         floating = false;
         showCapsule = false;
+
+        useSeparateOpacity = true;
         widgets = {
           left = [
             {
@@ -340,8 +342,8 @@ in
       ui = {
         fontDefault = "Roboto";
         fontFixed = "Iosevka Nerd Font";
-        fontDefaultScale = 1.15;
-        fontFixedScale = 1.15;
+        fontDefaultScale = 1.0;
+        fontFixedScale = 1.0;
         tooltipsEnabled = true;
         panelsOverlayLayer = true;
       };
