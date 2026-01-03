@@ -11,6 +11,8 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 5. Switch to niri
 6. some dependencies that require secrets start before agenix.service has had the chance to run
 7. add a timed service that does an nslookup and if the lookup fails, runs mullvad reconnect
+8. along with having one global VPN, have 2-3 gluetun containers that divide the services into groups and assign 1 gluetun container
+   per group.
 
 ## Distant Dreams
 1. Get rid of the dependency on a static LAN ip address (potentially using DDNS)
