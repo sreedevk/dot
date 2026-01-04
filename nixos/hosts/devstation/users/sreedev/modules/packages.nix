@@ -59,6 +59,7 @@
           elan                     # lean version manager
           fasm                     # flat assembler
           glab                     # gitlab cli
+          glances                  # system stats viewer
           glow                     # tui markdown renderer
           goat                     # Go ASCII Tool
           gpg-tui                  # gnupg tui
