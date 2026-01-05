@@ -4,6 +4,7 @@
     let
       gui-packages = with pkgs; [
         (config.lib.nixGL.wrap pkgs.audacity)
+        (config.lib.nixGL.wrap pkgs.bitwarden-desktop)
         (config.lib.nixGL.wrap pkgs.dbeaver-bin)
         (config.lib.nixGL.wrap pkgs.easyeffects)
         (config.lib.nixGL.wrap pkgs.feishin)
