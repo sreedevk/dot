@@ -13,7 +13,6 @@
         (config.lib.nixGL.wrap pkgs.gpu-screen-recorder-gtk)
         (config.lib.nixGL.wrap pkgs.localsend)
         (config.lib.nixGL.wrap pkgs.nemo-with-extensions)
-        (config.lib.nixGL.wrap pkgs.nicotine-plus)
         (config.lib.nixGL.wrap pkgs.obsidian)
         (config.lib.nixGL.wrap pkgs.openttd)
         (config.lib.nixGL.wrap pkgs.pwvucontrol)
