@@ -127,6 +127,7 @@ in
                         "switch-client -t system" \
                         "new-session -d -s system -c '/home/${username}'; switch-client -t system"
       bind C-w neww ${bwfzf}/bin/bwfzf
+      bind C-v run-shell "wl-paste | tmux load-buffer - ; tmux paste-buffer"
 
       # MOUSE SUPPORT
       bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
