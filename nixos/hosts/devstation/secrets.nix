@@ -11,8 +11,10 @@ _: {
     "openai_api_key"                = { file = ../../../secrets/nyc0/openai_api_key.age;                };
     "openweather-token"             = { file = ../../../secrets/nyc0/openweather-token.age;             };
     "pastebin-token"                = { file = ../../../secrets/nyc0/pastebin-token.age;                };
+    "radarr-api-key"                = { file = ../../../secrets/nyc0/taskwarrior_encryption_secret.age; };
     "radicle_passphrase"            = { file = ../../../secrets/nyc0/radicle_passphrase.age;            };
     "restic_backup_password"        = { file = ../../../secrets/nyc0/restic_backup_password.age;        };
+    "sonarr-api-key"                = { file = ../../../secrets/nyc0/taskwarrior_encryption_secret.age; };
     "taskwarrior_client_id"         = { file = ../../../secrets/nyc0/taskwarrior_client_id.age;         };
     "taskwarrior_encryption_secret" = { file = ../../../secrets/nyc0/taskwarrior_encryption_secret.age; };
     "taskwarrior_env"               = { file = ../../../secrets/nyc0/taskwarrior_env.age;               };

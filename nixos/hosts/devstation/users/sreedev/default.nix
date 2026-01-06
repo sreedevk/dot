@@ -97,12 +97,14 @@
 
   home.sessionVariables = {
     CARGO_REGISTRY_TOKEN = "$(cat ${config.age.secrets.cargo-token.path})";
-    HUGGING_FACE_TOKEN = "$(cat ${config.age.secrets.hugging_face_token.path})";
-    JIRA_API_TOKEN = "$(cat ${config.age.secrets.jira-token.path})";
-    OPENAI_API_KEY = "$(cat ${config.age.secrets.openai_api_key.path})";
+    HUGGING_FACE_TOKEN   = "$(cat ${config.age.secrets.hugging_face_token.path})";
+    JIRA_API_TOKEN       = "$(cat ${config.age.secrets.jira-token.path})";
+    OPENAI_API_KEY       = "$(cat ${config.age.secrets.openai_api_key.path})";
     OPEN_WEATHER_API_KEY = "$(cat ${config.age.secrets.openweather-token.path})";
-    PASTEBIN_API_KEY = "$(cat ${config.age.secrets.pastebin-token.path})";
-    WALLHAVEN_API_KEY = "$(cat ${config.age.secrets.wallhaven-token.path})";
+    PASTEBIN_API_KEY     = "$(cat ${config.age.secrets.pastebin-token.path})";
+    RADARR_API_KEY       = "$(cat ${config.age.secrets.radarr-api-key.path})";
+    SONARR_API_KEY       = "$(cat ${config.age.secrets.sonarr-api-key.path})";
+    WALLHAVEN_API_KEY    = "$(cat ${config.age.secrets.wallhaven-token.path})";
   };
 
   nix = {
