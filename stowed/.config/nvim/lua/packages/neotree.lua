@@ -113,8 +113,8 @@ return {
           ["T"] = "open_tabnew",
           ["w"] = "open_with_window_picker",
           ["C"] = "close_node",
-          ["z"] = "close_all_nodes",
-          ["Z"] = "expand_all_nodes",
+          ["z"] = "close_all_subnodes",
+          ["Z"] = "expand_all_subnodes",
           ["a"] = {
             "add",
             config = {
