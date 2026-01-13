@@ -162,7 +162,7 @@ _: {
             scrollbar:                   false;
             layout:                      vertical;
             reverse:                     false;
-            fixed-height:                true;
+            fixed-height:                false;
             fixed-columns:               true;
 
             spacing:                     5px;
