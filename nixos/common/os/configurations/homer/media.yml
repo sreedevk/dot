@@ -2,11 +2,9 @@
 subtitle: "Media"
 message: ~
 services:
-
   - name: "General"
     icon: "fas fa-otter"
     items:
-
       - name: "Tdarr"
         logo: "assets/tools/tdarr.png"
         subtitle: "Media Encoding Manager"
@@ -33,7 +31,15 @@ services:
         keywords: "ebooks"
         url: "https://booklore.nullptr.sh"
         target: "_blank"
-        
+
+      - name: "LazyLibrarian"
+        logo: "assets/tools/lazylibrarian.png"
+        subtitle: "E-Book Metadata Tracker"
+        tag: "ebooks-metadata-tracker"
+        keywords: "ebooks-metadata-tracker"
+        url: "https://lazylib.nullptr.sh"
+        target: "_blank"
+
       - name: "Kiwix"
         logo: "assets/tools/kiwix.png"
         subtitle: "ZIM Reader"
@@ -147,7 +153,6 @@ services:
         url: "https://photoprism.nullptr.sh"
         target: "_blank"
 
-
   - name: "RSS / Web / Bookmarks"
     icon: "fas fa-file-lines"
     items:
@@ -197,7 +202,6 @@ services:
   - name: "Video"
     icon: "fas fa-video"
     items:
-
       - name: "Metube"
         logo: "assets/tools/metube.png"
         subtitle: "Youtube Video Downloader"
