@@ -52,6 +52,7 @@
           claude-code              # coding agent
           cmatrix                  # matrix
           colmena                  # deployment
+          csvkit                   # CSVKit
           csvlens                  # csv tui viewer
           deadnix                  # identify nix dead code
           doxygen                  # source code document generator
