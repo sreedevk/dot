@@ -18,6 +18,9 @@
   programs.gh-dash = {
     enable = true;
     settings = {
+      repoPaths = {
+        "tunecore/*" = "~/Data/work/repositories/";
+      };
       prSections = [
         {
           title = "My Pull Requests";
