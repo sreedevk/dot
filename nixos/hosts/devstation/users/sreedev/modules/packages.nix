@@ -111,6 +111,7 @@
           statix                   # nix code linter
           streamrip                # tidal / soundcloud / deezer downloader cli
           terminaltexteffects      # cli text effects
+          texliveFull              # pandoc supporting packages for pdf/latex
           ticker                   # asset ticker
           tmux-sessionizer         # tmux sessionizer
           tmuxinator               # tmuxinator
