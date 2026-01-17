@@ -163,89 +163,107 @@ in
 
   binds = {
     keyboard = [
-      { mod = ""; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
-      { mod = ""; keys = "XF86AudioMicMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-      { mod = ""; keys = "XF86AudioMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-      { mod = ""; keys = "XF86AudioNext"; dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl next"; }
+      # Audio Outputs
+      { mod = ""; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";  }
+      { mod = ""; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";  }
+      { mod = ""; keys = "XF86AudioMute";        dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+
+      # Audio Inputs
+      { mod = "";     keys = "XF86AudioMicMute";     dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+      { mod = "CTRL"; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-";  }
+      { mod = "CTRL"; keys = "XF86AudioMute";        dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+      { mod = "CTRL"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+";  }
+
+      # Media Player Controls
+      { mod = ""; keys = "XF86AudioNext";  dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl next";       }
       { mod = ""; keys = "XF86AudioPause"; dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl play-pause"; }
-      { mod = ""; keys = "XF86AudioPlay"; dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl play-pause"; }
-      { mod = ""; keys = "XF86AudioPrev"; dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl previous"; }
-      { mod = ""; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
-      { mod = ""; keys = "XF86MonBrightnessDown"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-"; }
-      { mod = ""; keys = "XF86MonBrightnessUp"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+"; }
-      { mod = "CTRL"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call notifications dismissAll"; }
-      { mod = "CTRL"; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"; }
-      { mod = "CTRL"; keys = "XF86AudioMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-      { mod = "CTRL"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+"; }
-      { mod = "SUPER CTRL"; keys = "H"; dispatcher = "changegroupactive"; args = "b"; }
-      { mod = "SUPER CTRL"; keys = "L"; dispatcher = "changegroupactive"; args = "f"; }
-      { mod = "SUPER CTRL"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; }
-      { mod = "SUPER CTRL"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call lockScreen lock"; }
-      { mod = "SUPER"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call notifications dismissAll"; }
+      { mod = ""; keys = "XF86AudioPlay";  dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl play-pause"; }
+      { mod = ""; keys = "XF86AudioPrev";  dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl previous";   }
 
-      # workspace switching
-      { mod = "SUPER SHIFT"; keys = "0"; dispatcher = "movetoworkspace"; args = "10"; }
-      { mod = "SUPER SHIFT"; keys = "1"; dispatcher = "movetoworkspace"; args = "1"; }
-      { mod = "SUPER SHIFT"; keys = "2"; dispatcher = "movetoworkspace"; args = "2"; }
-      { mod = "SUPER SHIFT"; keys = "3"; dispatcher = "movetoworkspace"; args = "3"; }
-      { mod = "SUPER SHIFT"; keys = "4"; dispatcher = "movetoworkspace"; args = "4"; }
-      { mod = "SUPER SHIFT"; keys = "5"; dispatcher = "movetoworkspace"; args = "5"; }
-      { mod = "SUPER SHIFT"; keys = "6"; dispatcher = "movetoworkspace"; args = "6"; }
-      { mod = "SUPER SHIFT"; keys = "7"; dispatcher = "movetoworkspace"; args = "7"; }
-      { mod = "SUPER SHIFT"; keys = "8"; dispatcher = "movetoworkspace"; args = "8"; }
-      { mod = "SUPER SHIFT"; keys = "9"; dispatcher = "movetoworkspace"; args = "9"; }
-      { mod = "SUPER SHIFT"; keys = "Equal"; dispatcher = "movetoworkspace"; args = "12"; }
-      { mod = "SUPER SHIFT"; keys = "Escape"; dispatcher = "movetoworkspace"; args = "special"; }
-      { mod = "SUPER SHIFT"; keys = "Minus"; dispatcher = "movetoworkspace"; args = "11"; }
+      # Brightness Controls
+      { mod = "";      keys = "XF86MonBrightnessDown"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-"; }
+      { mod = "";      keys = "XF86MonBrightnessUp";   dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+"; }
+      { mod = "SUPER"; keys = "XF86AudioLowerVolume";  dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-"; }
+      { mod = "SUPER"; keys = "XF86AudioRaiseVolume";  dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+"; }
 
-      { mod = "SUPER SHIFT"; keys = "E"; dispatcher = "exit"; args = ""; }
-      { mod = "SUPER SHIFT"; keys = "H"; dispatcher = "swapwindow"; args = "l"; }
-      { mod = "SUPER SHIFT"; keys = "J"; dispatcher = "swapwindow"; args = "d"; }
-      { mod = "SUPER SHIFT"; keys = "K"; dispatcher = "swapwindow"; args = "u"; }
-      { mod = "SUPER SHIFT"; keys = "L"; dispatcher = "swapwindow"; args = "r"; }
-      { mod = "SUPER SHIFT"; keys = "Q"; dispatcher = "killactive"; args = ""; }
-      { mod = "SUPER SHIFT"; keys = "Space"; dispatcher = "togglefloating"; args = ""; }
-      { mod = "SUPER SHIFT"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollprev"; }
+      # Notifications Control
+      { mod = "CTRL";  keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call notifications dismissAll"; } # C-Space
+      { mod = "SUPER"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call notifications dismissAll"; } # Mod-Space
 
-      { mod = "SUPER"; keys = "0"; dispatcher = "workspace"; args = "10"; }
-      { mod = "SUPER"; keys = "1"; dispatcher = "workspace"; args = "1"; }
-      { mod = "SUPER"; keys = "2"; dispatcher = "workspace"; args = "2"; }
-      { mod = "SUPER"; keys = "3"; dispatcher = "workspace"; args = "3"; }
-      { mod = "SUPER"; keys = "4"; dispatcher = "workspace"; args = "4"; }
-      { mod = "SUPER"; keys = "5"; dispatcher = "workspace"; args = "5"; }
-      { mod = "SUPER"; keys = "6"; dispatcher = "workspace"; args = "6"; }
-      { mod = "SUPER"; keys = "7"; dispatcher = "workspace"; args = "7"; }
-      { mod = "SUPER"; keys = "8"; dispatcher = "workspace"; args = "8"; }
-      { mod = "SUPER"; keys = "9"; dispatcher = "workspace"; args = "9"; }
-      { mod = "SUPER"; keys = "Minus"; dispatcher = "workspace"; args = "11"; }
-      { mod = "SUPER"; keys = "Equal"; dispatcher = "workspace"; args = "12"; }
-      { mod = "SUPER"; keys = "Escape"; dispatcher = "togglespecialworkspace"; args = ""; }
-      { mod = "SUPER"; keys = "A"; dispatcher = "exec"; args = "uwsm app -t service -- com.github.marinm.songrec.desktop"; }
-      { mod = "SUPER"; keys = "B"; dispatcher = "exec"; args = "uwsm app -t service -- ${opts.desktop.browser.xdg-desktop}"; }
-      { mod = "SUPER"; keys = "C"; dispatcher = "exec"; args = "noctalia ipc call controlCenter toggle"; }
-      { mod = "SUPER"; keys = "D"; dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae toggle"; }
-      { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
-      { mod = "SUPER"; keys = "G"; dispatcher = "togglegroup"; args = ""; }
-      { mod = "SUPER"; keys = "H"; dispatcher = "movefocus"; args = "l"; }
-      { mod = "SUPER"; keys = "J"; dispatcher = "movefocus"; args = "d"; }
-      { mod = "SUPER"; keys = "K"; dispatcher = "movefocus"; args = "u"; }
-      { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; }
-      { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "noctalia ipc call notifications toggleDND"; }
-      { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-gamemode-toggle}/bin/gamemode"; }
-      { mod = "SUPER"; keys = "Q"; dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history"; }
-      { mod = "SUPER"; keys = "S"; dispatcher = "exec"; args = "noctalia ipc call settings toggle"; }
-      { mod = "SUPER"; keys = "W"; dispatcher = "exec"; args = "noctalia ipc call wallpaper toggle"; }
-      { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty"; }
-      { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; }
-      { mod = "SUPER"; keys = "m"; dispatcher = "layoutmsg"; args = "swapwithmaster master"; }
-      { mod = "SUPER"; keys = "x"; dispatcher = "exec"; args = "hyprctl kill"; }
-      { mod = "SUPER"; keys = "E"; dispatcher = "exec"; args = "uwsm app -t service -- org.mozilla.Thunderbird.desktop"; }
-      { mod = "SUPER"; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-"; }
-      { mod = "SUPER"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+"; }
-      { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty ${pkgs.tmux}/bin/tmux new -A -s system"; }
-      { mod = "SUPER SHIFT"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | wl-copy"; }
-      { mod = "SUPER CTRL"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -o $(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name') - | wl-copy"; }
-      { mod = "SUPER ALT"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -g \"$(hyprctl activewindow -j | jq '(.at | \"\\(.[0]),\\(.[1])\"),(.size | \"\\(.[0])x\\(.[1])\")' | xargs)\" - | wl-copy"; }
+      # Group Navigation (could potentially be removed)
+      { mod = "SUPER CTRL"; keys = "H"; dispatcher = "changegroupactive"; args = "b"; } # C-Mod-H
+      { mod = "SUPER CTRL"; keys = "L"; dispatcher = "changegroupactive"; args = "f"; } # C-Mod-L
+      { mod = "SUPER";      keys = "G"; dispatcher = "togglegroup";       args = "";  } # Mod-G
+
+      # Workspace Navigation
+      { mod = "SUPER"; keys = "0";      dispatcher = "workspace";              args = "10"; } # Mod-0
+      { mod = "SUPER"; keys = "1";      dispatcher = "workspace";              args = "1";  } # Mod-1
+      { mod = "SUPER"; keys = "2";      dispatcher = "workspace";              args = "2";  } # Mod-2
+      { mod = "SUPER"; keys = "3";      dispatcher = "workspace";              args = "3";  } # Mod-3
+      { mod = "SUPER"; keys = "4";      dispatcher = "workspace";              args = "4";  } # Mod-4
+      { mod = "SUPER"; keys = "5";      dispatcher = "workspace";              args = "5";  } # Mod-5
+      { mod = "SUPER"; keys = "6";      dispatcher = "workspace";              args = "6";  } # Mod-6
+      { mod = "SUPER"; keys = "7";      dispatcher = "workspace";              args = "7";  } # Mod-7
+      { mod = "SUPER"; keys = "8";      dispatcher = "workspace";              args = "8";  } # Mod-8
+      { mod = "SUPER"; keys = "9";      dispatcher = "workspace";              args = "9";  } # Mod-9
+      { mod = "SUPER"; keys = "Minus";  dispatcher = "workspace";              args = "11"; } # Mod-11
+      { mod = "SUPER"; keys = "Equal";  dispatcher = "workspace";              args = "12"; } # Mod-12
+      { mod = "SUPER"; keys = "Escape"; dispatcher = "togglespecialworkspace"; args = "";   } # Mod-Esc
+
+      # Window & Layout Controls
+      { mod = "SUPER SHIFT"; keys = "H";      dispatcher = "swapwindow";      args = "l";                     } # S-Mod-H
+      { mod = "SUPER SHIFT"; keys = "J";      dispatcher = "swapwindow";      args = "d";                     } # S-Mod-J
+      { mod = "SUPER SHIFT"; keys = "K";      dispatcher = "swapwindow";      args = "u";                     } # S-Mod-K
+      { mod = "SUPER SHIFT"; keys = "L";      dispatcher = "swapwindow";      args = "r";                     } # S-Mod-L
+      { mod = "SUPER SHIFT"; keys = "Space";  dispatcher = "togglefloating";  args = "";                      } # S-Mod-Space
+      { mod = "SUPER";       keys = "F";      dispatcher = "fullscreen";      args = "";                      } # Mod-F
+      { mod = "SUPER SHIFT"; keys = "Tab";    dispatcher = "layoutmsg";       args = "rollprev";              } # S-Mod-Tab
+      { mod = "SUPER SHIFT"; keys = "Q";      dispatcher = "killactive";      args = "";                      } # S-Mod-Q
+      { mod = "SUPER SHIFT"; keys = "0";      dispatcher = "movetoworkspace"; args = "10";                    } # S-Mod-0
+      { mod = "SUPER SHIFT"; keys = "1";      dispatcher = "movetoworkspace"; args = "1";                     } # S-Mod-1
+      { mod = "SUPER SHIFT"; keys = "2";      dispatcher = "movetoworkspace"; args = "2";                     } # S-Mod-2
+      { mod = "SUPER SHIFT"; keys = "3";      dispatcher = "movetoworkspace"; args = "3";                     } # S-Mod-3
+      { mod = "SUPER SHIFT"; keys = "4";      dispatcher = "movetoworkspace"; args = "4";                     } # S-Mod-4
+      { mod = "SUPER SHIFT"; keys = "5";      dispatcher = "movetoworkspace"; args = "5";                     } # S-Mod-5
+      { mod = "SUPER SHIFT"; keys = "6";      dispatcher = "movetoworkspace"; args = "6";                     } # S-Mod-6
+      { mod = "SUPER SHIFT"; keys = "7";      dispatcher = "movetoworkspace"; args = "7";                     } # S-Mod-7
+      { mod = "SUPER SHIFT"; keys = "8";      dispatcher = "movetoworkspace"; args = "8";                     } # S-Mod-8
+      { mod = "SUPER SHIFT"; keys = "9";      dispatcher = "movetoworkspace"; args = "9";                     } # S-Mod-9
+      { mod = "SUPER SHIFT"; keys = "Equal";  dispatcher = "movetoworkspace"; args = "12";                    } # S-Mod-Equal
+      { mod = "SUPER SHIFT"; keys = "Escape"; dispatcher = "movetoworkspace"; args = "special";               } # S-Mod-Esc
+      { mod = "SUPER SHIFT"; keys = "Minus";  dispatcher = "movetoworkspace"; args = "11";                    } # S-Mod--
+      { mod = "SUPER";       keys = "H";      dispatcher = "movefocus";       args = "l";                     } # Mod-H
+      { mod = "SUPER";       keys = "J";      dispatcher = "movefocus";       args = "d";                     } # Mod-J
+      { mod = "SUPER";       keys = "K";      dispatcher = "movefocus";       args = "u";                     } # Mod-K
+      { mod = "SUPER";       keys = "L";      dispatcher = "movefocus";       args = "r";                     } # Mod-L
+      { mod = "SUPER";       keys = "Tab";    dispatcher = "layoutmsg";       args = "rollnext";              } # Mod-Tab
+      { mod = "SUPER";       keys = "x";      dispatcher = "exec";            args = "hyprctl kill";          } # Mod-x
+      { mod = "SUPER";       keys = "m";      dispatcher = "layoutmsg";       args = "swapwithmaster master"; } # Mod-m
+
+      # Desktop Mode Controls
+      { mod = "SUPER CTRL";  keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call lockScreen lock";    } # C-Mod-Space
+      { mod = "SUPER SHIFT"; keys = "E";     dispatcher = "exit"; args = "";                                     } # S-Mod-E
+      { mod = "SUPER";       keys = "P";     dispatcher = "exec"; args = "${hypr-gamemode-toggle}/bin/gamemode"; } # Mod-P
+
+      # Launchers
+      { mod = "SUPER";       keys = "D";      dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae toggle";                                                } # Mod-D
+      { mod = "SUPER CTRL";  keys = "D";      dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun";                                                  } # C-Mod-D
+      { mod = "SUPER";       keys = "A";      dispatcher = "exec"; args = "uwsm app -t service -- com.github.marinm.songrec.desktop";                          } # Mod-A
+      { mod = "SUPER";       keys = "B";      dispatcher = "exec"; args = "uwsm app -t service -- ${opts.desktop.browser.xdg-desktop}";                        } # Mod-B
+      { mod = "SUPER";       keys = "C";      dispatcher = "exec"; args = "noctalia ipc call controlCenter toggle";                                            } # Mod-C
+      { mod = "SUPER";       keys = "W";      dispatcher = "exec"; args = "noctalia ipc call wallpaper toggle";                                                } # Mod-W
+      { mod = "SUPER";       keys = "Q";      dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history";        } # Mod-Q
+      { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty";                                        } # S-Mod-CR
+      { mod = "SUPER";       keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty ${pkgs.tmux}/bin/tmux new -A -s system"; } # Mod-CR
+
+      # Notifications Control
+      { mod = "SUPER";      keys = "N"; dispatcher = "exec"; args = "noctalia ipc call notifications toggleDND"; } # Mod-N
+      { mod = "SUPER";      keys = "S"; dispatcher = "exec"; args = "noctalia ipc call settings toggle";         } # Mod-S
+
+      # Screen Capture
+      { mod = "SUPER SHIFT"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | wl-copy"; } # S-Mod-S
+      { mod = "SUPER CTRL";  keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -o $(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name') - | wl-copy"; } # C-Mod-S
+      { mod = "SUPER ALT";   keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -g \"$(hyprctl activewindow -j | jq '(.at | \"\\(.[0]),\\(.[1])\"),(.size | \"\\(.[0])x\\(.[1])\")' | xargs)\" - | wl-copy"; } # M-Mod-S
     ];
     mouse = [
       { mod = "SUPER"; button = "mouse:272"; dispatcher = "movewindow"; }
