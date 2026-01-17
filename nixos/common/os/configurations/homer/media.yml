@@ -226,12 +226,12 @@ services:
         url: "https://pinchflat.nullptr.sh"
         target: "_blank"
 
-      - name: "Fireshare"
-        logo: "assets/tools/fireshare.png"
-        subtitle: "FireShare Video Gallery"
-        tag: "video-gallery"
-        keywords: "video-gallery"
-        url: "https://fireshare.nullptr.sh"
+      - name: "MyTube"
+        logo: "assets/tools/mytube.png"
+        subtitle: "Personal Video Gallery"
+        tag: "personal-video-gallery"
+        keywords: "personal-video-gallery"
+        url: "https://mytube.nullptr.sh"
         target: "_blank"
 
       - name: "8mb.local"
