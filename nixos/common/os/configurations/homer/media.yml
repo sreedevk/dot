@@ -32,6 +32,14 @@ services:
         url: "https://booklore.nullptr.sh"
         target: "_blank"
 
+      - name: "Shelfmark"
+        logo: "assets/tools/shelfmark.png"
+        subtitle: "Ebook Downloader"
+        tag: "ebooks"
+        keywords: "ebooks"
+        url: "https://shelfmark.nullptr.sh"
+        target: "_blank"
+
       - name: "LazyLibrarian"
         logo: "assets/tools/lazylibrarian.png"
         subtitle: "E-Book Metadata Tracker"
