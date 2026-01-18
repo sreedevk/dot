@@ -12,9 +12,16 @@
   };
 
   home.sessionPath = [ "${config.xdg.configHome}/emacs/bin" ];
+
   programs.emacs = {
     enable = true;
     package = pkgs.emacs;
+  };
+
+  services.emacs = {
+    enable = true;
+    startWithUserSession = "graphical";
+    client.enable = true;
   };
 
   xdg.configFile = {
