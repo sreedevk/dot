@@ -36,7 +36,6 @@ with builtins;
   "secrets/nyc0/cargo-token.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/container_registry_env.age".publicKeys        = attrValues nyc0;
   "secrets/nyc0/dawarich_env.age".publicKeys                  = attrValues nyc0;
-  "secrets/nyc0/diun_env.age".publicKeys                      = attrValues nyc0;
   "secrets/nyc0/fastmail_server_env.age".publicKeys           = attrValues nyc0;
   "secrets/nyc0/firefly_env.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/ghcr_ro_token.age".publicKeys                 = attrValues nyc0;
