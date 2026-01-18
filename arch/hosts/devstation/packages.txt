@@ -130,7 +130,6 @@ pipewire-libcamera
 pipewire-pulse
 pipewire-v4l2
 polkit-qt6
-polybar
 postgresql-libs
 progress
 python-jinja
