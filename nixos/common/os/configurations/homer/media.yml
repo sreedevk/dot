@@ -226,14 +226,6 @@ services:
         url: "https://pinchflat.nullptr.sh"
         target: "_blank"
 
-      - name: "MyTube"
-        logo: "assets/tools/mytube.png"
-        subtitle: "Personal Video Gallery"
-        tag: "personal-video-gallery"
-        keywords: "personal-video-gallery"
-        url: "https://mytube.nullptr.sh"
-        target: "_blank"
-
       - name: "8mb.local"
         logo: "assets/tools/8mb-local.png"
         subtitle: "Video Encoding & Uploads"
