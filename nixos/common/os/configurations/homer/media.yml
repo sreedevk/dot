@@ -67,6 +67,14 @@ services:
         url: "https://music.nullptr.sh"
         target: "_blank"
 
+      - name: "Koito"
+        logo: "https://icons.nullptr.sh/koito"
+        subtitle: "Music Scrobble Server"
+        tag: "music-scrobble"
+        keywords: "music-scrobble"
+        url: "https://koito.nullptr.sh"
+        target: "_blank"
+
       - name: "PinePods"
         logo: "https://icons.nullptr.sh/pinepods"
         subtitle: "podcasts server"
