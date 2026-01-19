@@ -189,6 +189,14 @@ services:
         type: "Prowlarr"
         apikey: "b41934c4267449c0997a9d5706726578"
 
+      - name: "Posterizarr"
+        logo: "https://icons.external.nullptr.sh/posterizarr"
+        subtitle: "poster management"
+        tag: "posters"
+        keywords: "posters"
+        url: "https://posterizarr.nullptr.sh"
+        target: "_blank"
+
       - name: "Sabnzbd"
         logo: "https://icons.nullptr.sh/sabnzbd"
         tag: "usenet"
