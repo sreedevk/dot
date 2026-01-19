@@ -6,7 +6,7 @@ services:
     icon: "fas fa-otter"
     items:
       - name: "Tdarr"
-        logo: "assets/tools/tdarr.png"
+        logo: "https://icons.nullptr.sh/tdarr"
         subtitle: "Media Encoding Manager"
         tag: "media-encoding"
         keywords: "media-encoding"
@@ -17,7 +17,7 @@ services:
     icon: "fas fa-book"
     items:
       - name: "AudioBookshelf"
-        logo: "assets/tools/audiobookshelf.png"
+        logo: "https://icons.nullptr.sh/audiobookshelf"
         subtitle: "Audio Books Streaming"
         tag: "audiobooks"
         keywords: "audiobooks"
@@ -25,7 +25,7 @@ services:
         target: "_blank"
 
       - name: "Booklore"
-        logo: "assets/tools/booklore.png"
+        logo: "https://icons.nullptr.sh/booklore"
         subtitle: "Ebook Server"
         tag: "ebooks"
         keywords: "ebooks"
@@ -33,7 +33,7 @@ services:
         target: "_blank"
 
       - name: "Shelfmark"
-        logo: "assets/tools/shelfmark.png"
+        logo: "https://icons.nullptr.sh/shelfmark"
         subtitle: "Ebook Downloader"
         tag: "ebooks"
         keywords: "ebooks"
@@ -41,7 +41,7 @@ services:
         target: "_blank"
 
       - name: "LazyLibrarian"
-        logo: "assets/tools/lazylibrarian.png"
+        logo: "https://icons.nullptr.sh/lazylibrarian"
         subtitle: "E-Book Metadata Tracker"
         tag: "ebooks-metadata-tracker"
         keywords: "ebooks-metadata-tracker"
@@ -49,7 +49,7 @@ services:
         target: "_blank"
 
       - name: "Kiwix"
-        logo: "assets/tools/kiwix.png"
+        logo: "https://icons.nullptr.sh/kiwix"
         subtitle: "ZIM Reader"
         tag: "wiki"
         keywords: "wiki"
@@ -60,7 +60,7 @@ services:
     icon: "fas fa-music"
     items:
       - name: "Navidrome"
-        logo: "assets/tools/navidrome.png"
+        logo: "https://icons.nullptr.sh/navidrome"
         subtitle: "Music Server"
         tag: "music"
         keywords: "music"
@@ -68,7 +68,7 @@ services:
         target: "_blank"
 
       - name: "PinePods"
-        logo: "assets/tools/pinepods.png"
+        logo: "https://icons.nullptr.sh/pinepods"
         subtitle: "podcasts server"
         tag: "podcasts"
         keywords: "podcasts"
@@ -76,7 +76,7 @@ services:
         target: "_blank"
 
       - name: "Soulseek"
-        logo: "assets/tools/soulseek.png"
+        logo: "https://icons.nullptr.sh/soulseek"
         subtitle: "file sharing"
         tag: "file-sharing"
         keywords: "filesharing"
@@ -84,7 +84,7 @@ services:
         target: "_blank"
 
       - name: "Sonobarr"
-        logo: "assets/tools/sonobarr.png"
+        logo: "https://icons.nullptr.sh/sonobarr"
         subtitle: "Music Discovery"
         tag: "music"
         keywords: "music"
@@ -92,7 +92,7 @@ services:
         target: "_blank"
 
       - name: "Lidarr"
-        logo: "assets/tools/lidarr.png"
+        logo: "https://icons.nullptr.sh/lidarr"
         subtitle: "Music Indexing & Searching"
         tag: "music"
         keywords: "music"
@@ -105,7 +105,7 @@ services:
     icon: "fas fa-film"
     items:
       - name: "Jellyfin"
-        logo: "assets/tools/jellyfin.png"
+        logo: "https://icons.nullptr.sh/jellyfin"
         subtitle: "Media Streaming Server"
         tag: "streaming"
         keywords: "streaming"
@@ -116,7 +116,7 @@ services:
         libraryType: "series"
 
       - name: "Jellyseerr"
-        logo: "assets/tools/jellyseerr.png"
+        logo: "https://icons.nullptr.sh/jellyseerr"
         subtitle: "Media Discovery"
         tag: "discovery"
         keywords: "discovery"
@@ -124,7 +124,7 @@ services:
         target: "_blank"
 
       - name: "Radarr"
-        logo: "assets/tools/radarr.png"
+        logo: "https://icons.nullptr.sh/radarr"
         subtitle: "Movie Indexing & Searching"
         tag: "movies"
         keywords: "movies"
@@ -134,7 +134,7 @@ services:
         apikey: "647b4305c84d4e36ba7357e74262a3f6"
 
       - name: "Sonarr"
-        logo: "assets/tools/sonarr.png"
+        logo: "https://icons.nullptr.sh/sonarr"
         subtitle: "TV Indexing & Searching"
         tag: "tv"
         keywords: "tv"
@@ -144,7 +144,7 @@ services:
         apikey: "c51c7686634c479ebaf40b695322851e"
 
       - name: "Bazarr"
-        logo: "assets/tools/bazarr.png"
+        logo: "https://icons.nullptr.sh/bazarr"
         subtitle: "Subtitles Searching & Indexing"
         tag: "subtitles"
         keywords: "subtitles"
@@ -155,7 +155,7 @@ services:
     icon: "fas fa-camera"
     items:
       - name: "Photoprism"
-        logo: "assets/tools/photoprism.png"
+        logo: "https://icons.nullptr.sh/photoprism"
         subtitle: "Image Server"
         tag: "image"
         url: "https://photoprism.nullptr.sh"
@@ -165,21 +165,21 @@ services:
     icon: "fas fa-file-lines"
     items:
       - name: "Miniflux"
-        logo: "assets/tools/miniflux.png"
+        logo: "https://icons.nullptr.sh/miniflux"
         subtitle: "RSS Feed Aggregator"
         tag: "rss"
         url: "https://miniflux.nullptr.sh"
         target: "_blank"
 
       - name: "RSS Bridge"
-        logo: "assets/tools/rss-bridge.png"
+        logo: "https://icons.nullptr.sh/rss-bridge"
         subtitle: "RSS Feed Connector"
         tag: "rss"
         url: "https://rssbridge.external.nullptr.sh"
         target: "_blank"
 
       - name: "Karakeep"
-        logo: "assets/tools/karakeep.png"
+        logo: "https://icons.nullptr.sh/karakeep"
         subtitle: "Web & Links Archivers"
         tag: "data+link archiver"
         keywords: "hoarder"
@@ -187,21 +187,21 @@ services:
         target: "_blank"
 
       - name: "ArchiveBox"
-        logo: "assets/tools/archivebox.png"
+        logo: "https://icons.nullptr.sh/archivebox"
         subtitle: "Internet Archiver"
         tag: "internet-archiver"
         url: "https://archive.nullptr.sh"
         target: "_blank"
 
       - name: "Vaultwarden"
-        logo: "assets/tools/bitwarden.png"
+        logo: "https://icons.nullptr.sh/bitwarden"
         subtitle: "password-manager"
         tag: "password-manager"
         url: "https://vw.nullptr.sh"
         target: "_blank"
 
       - name: "Dawarich"
-        logo: "assets/tools/dawarich.png"
+        logo: "https://icons.nullptr.sh/dawarich"
         subtitle: "location-tracker"
         tag: "location-tracker"
         url: "https://dawarich.nullptr.sh"
@@ -211,7 +211,7 @@ services:
     icon: "fas fa-video"
     items:
       - name: "Metube"
-        logo: "assets/tools/metube.png"
+        logo: "https://icons.nullptr.sh/metube"
         subtitle: "Youtube Video Downloader"
         tag: "youtube"
         keywords: "youtube"
@@ -219,7 +219,7 @@ services:
         target: "_blank"
 
       - name: "Pinchflat"
-        logo: "assets/tools/pinchflat.png"
+        logo: "https://icons.nullptr.sh/pinchflat"
         subtitle: "Youtube Media Manager"
         tag: "youtube-media-manager"
         keywords: "youtube"
@@ -227,7 +227,7 @@ services:
         target: "_blank"
 
       - name: "8mb.local"
-        logo: "assets/tools/8mb-local.png"
+        logo: "https://icons.nullptr.sh/8mb-local"
         subtitle: "Video Encoding & Uploads"
         tag: "video-encoding-decoding"
         keywords: "video-enc-dec"
@@ -238,7 +238,7 @@ services:
     icon: "fas fa-gamepad"
     items:
       - name: "Romm"
-        logo: "assets/tools/romm.png"
+        logo: "https://icons.nullptr.sh/romm"
         subtitle: "Game Rom Manager"
         tag: "roms"
         url: "https://romm.nullptr.sh"
@@ -248,7 +248,7 @@ services:
     icon: "fas fa-file"
     items:
       - name: "Paperless"
-        logo: "assets/tools/paperless-ngx.png"
+        logo: "https://icons.nullptr.sh/paperless-ngx"
         tag: "documents"
         url: "https://docs.nullptr.sh"
         target: "_blank"
@@ -256,7 +256,7 @@ services:
         apikey: "232d2126fc63971c604fc30666c7a81382b949a1"
 
       - name: "Paperless GPT"
-        logo: "assets/tools/paperless-gpt.png"
+        logo: "https://icons.nullptr.sh/paperless-ai"
         subtitle: "AI Document Parsing & OCR"
         tag: "documents"
         url: "https://pg.nullptr.sh"
