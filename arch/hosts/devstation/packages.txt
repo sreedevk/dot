@@ -60,6 +60,7 @@ hyprpicker
 hyprpolkitagent
 hyprutils
 hyprwayland-scanner
+i2pd
 impala
 incus
 incus-tools
@@ -116,6 +117,7 @@ nvidia-settings
 openblas
 opencl-nvidia
 opendoas
+openldap
 openresolv
 openssh
 openssl-1.1
