@@ -155,7 +155,7 @@ in
           criticalSoundFile = "";
           normalSoundFile = "${builtins.getEnv "HOME"}/.config/sounds/knock_brush.mp3";
           lowSoundFile = "";
-          excludedApps = "thunderbird,discord,firefox,chrome,chromium,edge";
+          excludedApps = "feishin,thunderbird,discord,firefox,chrome,chromium,edge";
         };
       };
       appLauncher = {
