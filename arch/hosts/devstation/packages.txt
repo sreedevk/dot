@@ -131,6 +131,8 @@ pipewire-alsa
 pipewire-libcamera
 pipewire-pulse
 pipewire-v4l2
+podman
+podman-compose
 polkit-qt6
 postgresql-libs
 progress
