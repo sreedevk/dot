@@ -48,6 +48,11 @@ vim.keymap.set('v', '<Leader>la', ':lua<CR>', { noremap = true, desc = "eval sel
 vim.keymap.set("n", "<leader>la", "<cmd>.lua<CR>", { noremap = true, desc = "eval line in nvim lua rt" })
 vim.keymap.set("n", "<leader><leader>la", "<cmd>source %<CR>", { noremap = true, desc = "eval buffer in nvim lua rt" })
 
+
+-- QuickfixList {{{1
+vim.keymap.set({ "n" }, "<leader>co", "<cmd>copen<cr>",  { noremap = true, desc = "open quickfixlist" })
+vim.keymap.set({ "n" }, "<leader>cc", "<cmd>cclose<cr>", { noremap = true, desc = "close quickfixlist" })
+
 -- Misc {{{1
 vim.keymap.set({ 'v', 'x' }, "<Leader>p", '"_dP', { noremap = true, desc = "paste without yanking delete" })
 vim.keymap.set('t', "<C-\\><C-\\>", "<C-\\><C-n>", { noremap = true, desc = "escape terminal mode" })
@@ -58,7 +63,8 @@ vim.keymap.set('n', '<Leader>rr', '<cmd>e!<CR>', { noremap = true, desc = "reloa
 vim.keymap.set('n', '<Leader>fs', '<cmd>w<CR>', { noremap = true, desc = "save file" })
 vim.keymap.set('n', '<Leader>q', '<cmd>q<CR>', { noremap = true, desc = "quit neovim" })
 vim.keymap.set('n', '<leader><leader>ex', ':r !sh<CR>')
-vim.keymap.set('v', '<Leader>lc', [[<cmd>echo line("'>") - line("'<") + 1<CR>]], { noremap = true, desc = "Count Selected Lines" })
+vim.keymap.set('v', '<Leader>lc', [[<cmd>echo line("'>") - line("'<") + 1<CR>]],
+  { noremap = true, desc = "Count Selected Lines" })
 
 vim.keymap.set(
   { 'n' },

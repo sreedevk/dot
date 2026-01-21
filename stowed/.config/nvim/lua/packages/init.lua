@@ -233,7 +233,7 @@ return {
     lazy = true,
     ft = { "css", "scss", "less" },
     keys = {
-      { '<Leader>co', wrap_cmd("ColorizerToggle"), desc = "Toggle Colorizer", noremap = true }
+      { '<Leader>cr', wrap_cmd("ColorizerToggle"), desc = "Toggle Colorizer", noremap = true }
     },
     cmd = {
       'ColorizerAttachToBuffer',

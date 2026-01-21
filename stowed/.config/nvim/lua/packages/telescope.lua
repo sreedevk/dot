@@ -24,7 +24,7 @@ return {
     { '<leader>fh', require('telescope.builtin').help_tags,                 desc = 'Help Tags List',               noremap = true },
     { '<leader>gc', require('telescope.builtin').git_commits,               desc = 'Git Commit List',              noremap = true },
     { '<Leader>/',  require('telescope.builtin').current_buffer_fuzzy_find, desc = 'Current Buff Fuzzy Find',      noremap = true },
-    { '<Leader>cc', require('telescope.builtin').commands,                  desc = 'Commands List',                noremap = true },
+    { '<Leader>cm', require('telescope.builtin').commands,                  desc = 'Commands List',                noremap = true },
     { "<Leader>'",  require('telescope.builtin').marks,                     desc = 'Marks List',                   noremap = true },
     { "<Leader>sp", require('telescope.builtin').spell_suggest,             desc = 'Suggest Spellings',            noremap = true },
     { "<Leader>tr", wrap_cmd("Telescope resume"),                           desc = "Resume Last Telescope Search", noremap = true },
