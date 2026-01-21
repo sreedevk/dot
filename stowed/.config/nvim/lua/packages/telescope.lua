@@ -176,6 +176,7 @@ return {
           i = {
             ["<C-k>"] = t_actions.move_selection_previous,
             ["<C-j>"] = t_actions.move_selection_next,
+            ["<C-e>"] = t_actions.smart_send_to_qflist + t_actions.open_qflist,
             ["<esc>"] = t_actions.close,
           },
         }
