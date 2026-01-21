@@ -134,6 +134,13 @@ services:
         url: "https://qui.nullptr.sh"
         target: "_blank"
 
+      - name: "Profilarr"
+        logo: "https://icons.external.nullptr.sh/profilarr"
+        subtitle: "arr suite profile management"
+        tag: "profilarr"
+        url: "https://profilarr.nullptr.sh"
+        target: "_blank"
+
       - name: "Autobrr"
         logo: "https://icons.nullptr.sh/autobrr"
         subtitle: "Automatic Torrent Management"
