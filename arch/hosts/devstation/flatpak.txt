@@ -13,7 +13,6 @@ Mesa
 Nvidia
 nvidia-590-48-01
 openh264
-Signal
 Supersonic
 vkBasalt
 Warehouse

@@ -16,6 +16,7 @@
         (config.lib.nixGL.wrap pkgs.obsidian)
         (config.lib.nixGL.wrap pkgs.openttd)
         (config.lib.nixGL.wrap pkgs.pwvucontrol)
+        (config.lib.nixGL.wrap pkgs.signal-desktop)
         (config.lib.nixGL.wrap pkgs.slack)
         (config.lib.nixGL.wrap pkgs.tor-browser)
         (config.lib.nixGL.wrapOffload pkgs.furnace)
