@@ -40,7 +40,7 @@
     apollo        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINiYLIEBtoti0D2R5/nuGzXTQaYP7OynXMkAuJBeNit6";
     devstation    = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP";
     olivetin      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIByeKyDW/vNAU29/sBzbyCH1eDTPMPhYDbhAxnNuv1lu";
-    rpi4b         = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEBWgRn2Ge5N/sE0U8Lqw2OdyeASy/mRzpV2uAD0fiKC";
+    rpi4b         = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAul9ZMOMARHw6iSIFbQKChc/bkFBx5/mZnrer/YsRvV";
     terminus      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKwPdv2zFlfcDbbRvpIYBPh/oRR7MUYjH397Ma+Tu5iB";
   };
 
