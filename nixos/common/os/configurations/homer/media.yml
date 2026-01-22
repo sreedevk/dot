@@ -263,6 +263,12 @@ services:
         type: "PaperlessNG"
         apikey: "232d2126fc63971c604fc30666c7a81382b949a1"
 
+      - name: "Invio"
+        logo: "https://icons.external.nullptr.sh/invio"
+        tag: "invoicing"
+        url: "https://invio.nullptr.sh"
+        target: "_blank"
+
       - name: "Paperless GPT"
         logo: "https://icons.nullptr.sh/paperless-ai"
         subtitle: "AI Document Parsing & OCR"

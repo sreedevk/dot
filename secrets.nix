@@ -43,6 +43,7 @@ with builtins;
   "secrets/nyc0/gotify_env.age".publicKeys                    = attrValues nyc0;
   "secrets/nyc0/hoarder_env.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/hugging_face_token.age".publicKeys            = attrValues nyc0;
+  "secrets/nyc0/invio_env.age".publicKeys                     = attrValues nyc0;
   "secrets/nyc0/jellystat_env.age".publicKeys                 = attrValues nyc0;
   "secrets/nyc0/jira-token.age".publicKeys                    = attrValues nyc0;
   "secrets/nyc0/k3s_token.age".publicKeys                     = attrValues nyc0;
