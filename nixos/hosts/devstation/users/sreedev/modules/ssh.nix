@@ -96,12 +96,20 @@
         identityFile = "~/.ssh/id_ed25519";
       };
 
-      "rpi4b" = {
+      "rpi4b.lan" = {
         hostname = opts.addresses.lan.rpi4b;
         user = "pi";
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";
       };
+
+      "rpi4b" = {
+        hostname = opts.addresses.tailscale.rpi4b;
+        user = "pi";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
     };
   };
 }

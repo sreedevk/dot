@@ -10,7 +10,7 @@
     tailscale = {
       devstation    = "100.109.36.108";
       devtechnica   = "";
-      rpi4b         = "";
+      rpi4b         = "100.116.90.85";
       apollo        = "100.121.45.124";
       rocknix       = "100.100.18.78";
     };
