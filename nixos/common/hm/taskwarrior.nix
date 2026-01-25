@@ -176,6 +176,7 @@ in
     packages = with pkgs; [
       taskwarrior3
       taskwarrior-tui
+      taskopen
     ];
     sessionVariables = {
       TASKWARRIOR_CLIENT_ID = "$(cat ${config.age.secrets.taskwarrior_client_id.path})";

@@ -11,7 +11,6 @@ mullvad-vpn-bin 2025.14-1
 paru 2.1.0-2.1
 paru-debug 2.1.0-2.1
 rose-pine-hyprcursor v0.3.2.r0.d2c0e680-1
-taskopen 2.0.3-1
 upd72020x-fw 1:1.0.0-3
 wd719x-firmware 1-9
 xclicker 1.5.1-1
