@@ -454,11 +454,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769289524,
-        "narHash": "sha256-6Cwtvzrw79cOk1lCzN2aKSVrpgSOSQoYhyMmhXXZjTA=",
+        "lastModified": 1769450270,
+        "narHash": "sha256-pdVm/zJazDUAasTyHFX/Pbrlk9Upjxi0yzgn7GjGe4g=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2539eba97a6df237d75617c25cd2dbef92df3d5b",
+        "rev": "a10c1e8f5ad2589414407f4851c221cb66270257",
         "type": "github"
       },
       "original": {
@@ -772,16 +772,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1769266706,
-        "narHash": "sha256-leon0UiEMUISDQSrjN2xLpAV2xjZQhax5IQoTq7wwTU=",
+        "lastModified": 1769445165,
+        "narHash": "sha256-B4FGmvlV6ei/Y16PFnAJmnVFQFCPZmLdPZ683RUZJjk=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "e1d1a6554ac0bdd910f267990d6ec38cc2d96bdc",
+        "rev": "222d12db394fa9aeb8d6ff8e36352cc7c43f594c",
         "type": "github"
       },
       "original": {
         "owner": "noctalia-dev",
-        "ref": "v4.2.2",
+        "ref": "v4.2.3",
         "repo": "noctalia-shell",
         "type": "github"
       }
@@ -915,11 +915,11 @@
     },
     "stablepkgs": {
       "locked": {
-        "lastModified": 1769089682,
-        "narHash": "sha256-9yA/LIuAVQq0lXelrZPjLuLVuZdm03p8tfmHhnDIkms=",
+        "lastModified": 1769318308,
+        "narHash": "sha256-Mjx6p96Pkefks3+aA+72lu1xVehb6mv2yTUUqmSet6Q=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "078d69f03934859a181e81ba987c2bb033eebfc5",
+        "rev": "1cd347bf3355fce6c64ab37d3967b4a2cb4b878c",
         "type": "github"
       },
       "original": {
@@ -971,11 +971,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769210749,
-        "narHash": "sha256-N/DC/GKiZiYHbDtmB+yzlC4WQZ6Eg1CBKKR3ZF7cLvg=",
+        "lastModified": 1769458153,
+        "narHash": "sha256-QSorVCQjMxNCXwc3Ns78Kr/voPMS0eu1DA9vYDglUeA=",
         "owner": "numtide",
         "repo": "system-manager",
-        "rev": "03e1fff10a0fa7e31e8985641884305f6644c31c",
+        "rev": "d4ec3a64b4e77f980ed9c45efd5d0ef5a2ff3b82",
         "type": "github"
       },
       "original": {
