@@ -44,6 +44,18 @@ in
       mSurfaceVariant = "#${base01}";
       mTertiary = "#${base0D}";
     };
+    plugins = {
+      sources = [
+        {
+          enabled = true;
+          name = "Official Noctalia Plugins";
+          url = "https://github.com/noctalia-dev/noctalia-plugins";
+        }
+      ];
+      states = { };
+      version = 1;
+    };
+    pluginSettings = { };
     settings = {
       dock = {
         enabled = false;
@@ -186,6 +198,24 @@ in
         transitionEdgeSmoothness = 0.05;
         monitors = [ ];
         panelPosition = "follow_bar";
+        showHiddenFiles = false;
+        useSolidColor = false;
+        solidColor = "#1a1a2e";
+        automationEnabled = false;
+        wallpaperChangeMode = "random";
+        hideWallpaperFilenames = false;
+        useWallhaven = true;
+        wallhavenQuery = "landscape";
+        wallhavenSorting = "relevance";
+        wallhavenOrder = "desc";
+        wallhavenCategories = "111";
+        wallhavenPurity = "100";
+        # wallhavenRatios = "";
+        # wallhavenApiKey = "";
+        # wallhavenResolutionMode = "atleast";
+        # wallhavenResolutionWidth = "";
+        # wallhavenResolutionHeight = "";
+        # viewMode = "single";
       };
       bar = {
         density = "comfortable";
