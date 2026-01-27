@@ -61,7 +61,7 @@ in
         enabled = false;
       };
       controlCenter = {
-        position = "center";
+        position = "close_to_bar_button";
         cards = [
           {
             enabled = true;
@@ -169,9 +169,11 @@ in
           lowSoundFile = "";
           excludedApps = "feishin,thunderbird,discord,firefox,chrome,chromium,edge";
         };
+        enableMediaToast = false;
       };
       appLauncher = {
         enableClipboardHistory = false;
+        autoPasteClipboard = false;
         position = "center";
         backgroundOpacity = 1;
         pinnedExecs = [ ];
@@ -323,7 +325,16 @@ in
         avatarImage = "";
         dimDesktop = true;
         radiusRatio = 0.2;
-        scaleRatio = 1.15;
+        scaleRatio = 1.00;
+        enableShadows = true;
+        shadowDirection = "center";
+        shadowOffsetX = 2;
+        shadowOffsetY = 3;
+        compactLockScreen = false;
+        telemetryEnabled = false;
+        enableLockScreenCountdown = true;
+        lockScreenCountdownDuration = 10000;
+        autoStartAuth = true;
       };
       brightness = {
         enableDdcSupport = false;
@@ -376,6 +387,14 @@ in
         fontFixedScale = 1.0;
         tooltipsEnabled = true;
         panelsOverlayLayer = true;
+        wifiDetailsViewMode = "grid";
+        panelBackgroundOpacity = 0.93;
+        panelsAttachedToBar = true;
+        settingsPanelMode = "attached";
+        bluetoothDetailsViewMode = "grid";
+        networkPanelView = "wifi";
+        bluetoothHideUnnamedDevices = false;
+        boxBorderEnabled = false;
       };
       location = {
         monthBeforeDay = true;
@@ -389,6 +408,24 @@ in
         showCalendarWeather = true;
         analogClockInCalendar = false;
         firstDayOfWeek = -1;
+        hideWeatherTimezone = false;
+        hideWeatherCityName = false;
+      };
+      calendar = {
+        cards = [
+          {
+            enabled = true;
+            id = "calendar-header-card";
+          }
+          {
+            enabled = true;
+            id = "calendar-month-card";
+          }
+          {
+            enabled = true;
+            id = "weather-card";
+          }
+        ];
       };
       systemMonitor = {
         cpuWarningThreshold = 80;
@@ -404,6 +441,7 @@ in
         cpuPollingInterval = 3000;
         tempPollingInterval = 3000;
         gpuPollingInterval = 3000;
+        enableDgpuMonitoring = true;
         enableNvidiaGpu = true;
         memPollingInterval = 3000;
         diskPollingInterval = 3000;
