@@ -42,6 +42,10 @@
               name = "Flix";
               url = "https://sflix.fi/home";
             }
+            {
+              name = "TrackerPathways";
+              url = "https://trackerpathways.org/";
+            }
           ];
         }
       ];
