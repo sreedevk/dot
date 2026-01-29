@@ -111,6 +111,7 @@
         mkNonNixSystems [
           { host = "devstation";  system = systems.x86;   }
           { host = "devtechnica"; system = systems.x86;   }
+          { host = "phoenix"; system = systems.x86;   }
           { host = "rpi4b";       system = systems.arm64; }
         ];
 
@@ -121,6 +122,7 @@
           { user = "deploy";  host = "devtechnica";   system = systems.x86;   }
           { user = "pi";      host = "rpi4b";         system = systems.arm64; }
           { user = "sreedev"; host = "devstation";    system = systems.x86;   }
+          { user = "sreedev"; host = "phoenix";       system = systems.x86;   }
           { user = "edge";    host = "devstation";    system = systems.x86;   }
         ];
     };
