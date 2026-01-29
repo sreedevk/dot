@@ -111,6 +111,13 @@
         identityFile = "~/.ssh/id_ed25519";
       };
 
+      "devstation" = {
+        hostname = opts.addresses.tailscale.devstation;
+        user = "sreedev";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
     };
   };
 }
