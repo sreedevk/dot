@@ -169,8 +169,6 @@ supercollider
 tailscale
 texlive-binextra
 thunderbird
-tlp
-tlpui
 ttf-dejavu
 ttf-iosevka-nerd
 ttf-jetbrains-mono
