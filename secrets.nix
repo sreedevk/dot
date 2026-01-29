@@ -3,7 +3,6 @@ let
   nyc0 = {
     "admin@apollo"       = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINiYLIEBtoti0D2R5/nuGzXTQaYP7OynXMkAuJBeNit6";
     "deploy@devtechnica" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErdYvZ0RfDGze0QzHv8DCcc7Xt7rutKfOKRv44d0UiS";
-    "edge@devstation"    = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMYYGlTrRE0AeIIfbGB/4gr0R4vixt1FN1sdAKhMfjtR";
     "pi@rpi4b"           = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAul9ZMOMARHw6iSIFbQKChc/bkFBx5/mZnrer/YsRvV";
     "root@apollo"        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFyBIuu3f23/kGWoR8QQGfJitNDbff4qHH6qwFWCO6NG";
     "sreedev@devstation" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP";
@@ -11,8 +10,8 @@ let
   };
 
   nyc1 = {
-    "admin@farfalle" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFHPwQwv2XR3XFpS2JQYNLz3csxiCHsdxINIjHnt67NB";
-    "root@farfalle"  = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGbo3EcK+VeUo3b9qrAQzQH7dE99yevktzev31CL9btt";
+    # "admin@farfalle" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFHPwQwv2XR3XFpS2JQYNLz3csxiCHsdxINIjHnt67NB";
+    # "root@farfalle"  = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGbo3EcK+VeUo3b9qrAQzQH7dE99yevktzev31CL9btt";
   };
 
 in
@@ -79,6 +78,6 @@ with builtins;
 
   # SEC nyc1
 
-  "secrets/nyc1/farfalle_admin_password.age".publicKeys       = attrValues nyc1;
+  # "secrets/nyc1/farfalle_admin_password.age".publicKeys       = attrValues nyc1;
 
 }
