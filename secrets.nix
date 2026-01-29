@@ -19,7 +19,6 @@ with builtins;
 {
 
   # SEC nyc0
-
   "secrets/nyc0/apollo_admin_password.age".publicKeys         = attrValues nyc0;
   "secrets/nyc0/apollo_nginx_env.age".publicKeys              = attrValues nyc0;
   "secrets/nyc0/arcane_agent_env.age".publicKeys              = attrValues nyc0;
@@ -37,9 +36,13 @@ with builtins;
   "secrets/nyc0/cargo-token.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/container_registry_env.age".publicKeys        = attrValues nyc0;
   "secrets/nyc0/dawarich_env.age".publicKeys                  = attrValues nyc0;
+  "secrets/nyc0/digitalocean-token.age".publicKeys            = attrValues nyc0;
+  "secrets/nyc0/dumb_assets_env.age".publicKeys               = attrValues nyc0;
   "secrets/nyc0/fastmail_server_env.age".publicKeys           = attrValues nyc0;
   "secrets/nyc0/firefly_env.age".publicKeys                   = attrValues nyc0;
+  "secrets/nyc0/gh-token.age".publicKeys                      = attrValues nyc0;
   "secrets/nyc0/ghcr_ro_token.age".publicKeys                 = attrValues nyc0;
+  "secrets/nyc0/gitea_env.age".publicKeys                     = attrValues nyc0;
   "secrets/nyc0/gotify_env.age".publicKeys                    = attrValues nyc0;
   "secrets/nyc0/hoarder_env.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/hugging_face_token.age".publicKeys            = attrValues nyc0;
@@ -48,9 +51,14 @@ with builtins;
   "secrets/nyc0/jira-token.age".publicKeys                    = attrValues nyc0;
   "secrets/nyc0/k3s_token.age".publicKeys                     = attrValues nyc0;
   "secrets/nyc0/koito_env.age".publicKeys                     = attrValues nyc0;
+  "secrets/nyc0/livebook_env.age".publicKeys                  = attrValues nyc0;
+  "secrets/nyc0/miniflux_app_password.age".publicKeys         = attrValues nyc0;
   "secrets/nyc0/miniflux_env.age".publicKeys                  = attrValues nyc0;
+  "secrets/nyc0/minio_env.age".publicKeys                     = attrValues nyc0;
+  "secrets/nyc0/moneroconf.age".publicKeys                    = attrValues nyc0;
   "secrets/nyc0/n8n_env.age".publicKeys                       = attrValues nyc0;
   "secrets/nyc0/next_explorer_env.age".publicKeys             = attrValues nyc0;
+  "secrets/nyc0/nullptrderef1_admin_password.age".publicKeys  = attrValues nyc0;
   "secrets/nyc0/openai_api_key.age".publicKeys                = attrValues nyc0;
   "secrets/nyc0/openweather-token.age".publicKeys             = attrValues nyc0;
   "secrets/nyc0/paperless_env.age".publicKeys                 = attrValues nyc0;
@@ -58,6 +66,7 @@ with builtins;
   "secrets/nyc0/pastebin-token.age".publicKeys                = attrValues nyc0;
   "secrets/nyc0/photoprism_env.age".publicKeys                = attrValues nyc0;
   "secrets/nyc0/pinepods_env.age".publicKeys                  = attrValues nyc0;
+  "secrets/nyc0/podgrab_env.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/pushtify_env.age".publicKeys                  = attrValues nyc0;
   "secrets/nyc0/radarr-api-key.age".publicKeys                = attrValues nyc0;
   "secrets/nyc0/radicle_passphrase.age".publicKeys            = attrValues nyc0;
