@@ -128,7 +128,6 @@
       ];
 
       substituters = [
-        "https://attic.nullptr.sh/devstation"
         "https://cache.nixos.org/"
         "https://nix-community.cachix.org"
         "https://cuda-maintainers.cachix.org"
@@ -141,14 +140,12 @@
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "cuda-maintainers.cachix.org-1:Ji+ZysQ8GqEtvQF3o4O5q6c3y8C3b2q9p5g6s7d8e9k="
-        "devstation:FB1QNgS2s/Guv4hZvFMevbbP6ABvsOMygQbBeKnHf4E="
         "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
         "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
         "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
       ];
 
       trusted-substituters = [
-        "https://attic.nullptr.sh/devstation"
         "https://cache.nixos.org/"
         "https://nix-community.cachix.org"
         "https://cuda-maintainers.cachix.org"
