@@ -103,7 +103,6 @@
       nixosConfigurations = 
         mkSystems [
           { host = "apollo";    system = systems.x86; }
-          { host = "farfalle";  system = systems.x86; }
         ];
 
       # Arch linux system configs

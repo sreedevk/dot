@@ -8,12 +8,6 @@ let
     "sreedev@devstation" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP";
     "sreedev@phoenix"    = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILECZkgjRGtMkXHr44ytGrfpByPZbP2t5WeF6NgetYIO";
   };
-
-  nyc1 = {
-    # "admin@farfalle" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFHPwQwv2XR3XFpS2JQYNLz3csxiCHsdxINIjHnt67NB";
-    # "root@farfalle"  = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGbo3EcK+VeUo3b9qrAQzQH7dE99yevktzev31CL9btt";
-  };
-
 in
 with builtins;
 {
@@ -84,9 +78,4 @@ with builtins;
   "secrets/nyc0/vpn-acc.age".publicKeys                       = attrValues nyc0;
   "secrets/nyc0/vpn-loc.age".publicKeys                       = attrValues nyc0;
   "secrets/nyc0/wallhaven-token.age".publicKeys               = attrValues nyc0;
-
-  # SEC nyc1
-
-  # "secrets/nyc1/farfalle_admin_password.age".publicKeys       = attrValues nyc1;
-
 }
