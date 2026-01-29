@@ -42,7 +42,6 @@
     ../../../../common/hm/nsxiv.nix
     ../../../../common/hm/obs.nix
     ../../../../common/hm/ocaml.nix
-    ../../../../common/hm/ollama.nix
     ../../../../common/hm/opentabletdriver.nix
     ../../../../common/hm/pamshim.nix
     ../../../../common/hm/pueue.nix
