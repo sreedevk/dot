@@ -21,65 +21,70 @@ return {
     build = ":TSUpdate",
     branch = "master",
     config = function()
-      local treesitter = require("nvim-treesitter")
-      local treesitter_mods = {
-        "bash",
-        "c",
-        "cpp",
-        "css",
-        "csv",
-        "desktop",
-        "diff",
-        "dockerfile",
-        "eex",
-        "elixir",
-        "erlang",
-        "fennel",
-        "git_config",
-        "git_rebase",
-        "gitattributes",
-        "gitcommit",
-        "gitignore",
-        "gleam",
-        "haskell",
-        "haskell_persistent",
-        "heex",
-        "html",
-        "http",
-        "hyprlang",
-        "janet_simple",
-        "javascript",
-        "jq",
-        "json",
-        "latex",
-        "ledger",
-        "lua",
-        "make",
-        "markdown",
-        "markdown_inline",
-        "nginx",
-        "nix",
-        "ocaml",
-        "ocaml_interface",
-        "ocamllex",
-        "python",
-        "ruby",
-        "rust",
-        "sql",
-        "ssh_config",
-        "supercollider",
-        "tmux",
-        "todotxt",
-        "toml",
-        "tsv",
-        "typescript",
-        "xml",
-        "yaml",
-        "zathurarc",
-        "zig",
-      }
+      vim.o.foldmethod = 'expr'
+      vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
-      treesitter.setup({
+      vim.treesitter.language.register("bash", "apkbuild")
+      vim.treesitter.language.register("journal", "ledger")
+
+      ---@diagnostic disable-next-line: missing-fields
+      require('nvim-treesitter.configs').setup({
+        ensure_installed = {
+          "bash",
+          "c",
+          "cpp",
+          "css",
+          "csv",
+          "desktop",
+          "diff",
+          "dockerfile",
+          "eex",
+          "elixir",
+          "erlang",
+          "fennel",
+          "git_config",
+          "git_rebase",
+          "gitattributes",
+          "gitcommit",
+          "gitignore",
+          "gleam",
+          "haskell",
+          "haskell_persistent",
+          "heex",
+          "html",
+          "http",
+          "hyprlang",
+          "janet_simple",
+          "javascript",
+          "jq",
+          "json",
+          "latex",
+          "ledger",
+          "lua",
+          "make",
+          "markdown",
+          "markdown_inline",
+          "nginx",
+          "nix",
+          "ocaml",
+          "ocaml_interface",
+          "ocamllex",
+          "python",
+          "ruby",
+          "rust",
+          "sql",
+          "ssh_config",
+          "supercollider",
+          "tmux",
+          "todotxt",
+          "toml",
+          "tsv",
+          "typescript",
+          "xml",
+          "yaml",
+          "zathurarc",
+          "zig",
+        },
         sync_install = false,
         ignore_install = { "comment" },
         auto_install = false,
@@ -186,19 +191,6 @@ return {
             return lang == 'csv' and vim.api.nvim_buf_line_count(bufnr) > 10000
           end,
         }
-      })
-
-      treesitter.install(treesitter_mods)
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = treesitter_mods,
-        callback = function()
-          vim.wo.foldmethod = 'expr'
-          vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-          vim.treesitter.language.register("bash", "apkbuild")
-          vim.treesitter.language.register("journal", "ledger")
-          vim.treesitter.start()
-          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-        end,
       })
     end
   },
