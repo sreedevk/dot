@@ -17,22 +17,8 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    lazy = true,
-    event = "BufReadPost",
-    cmd = {
-      "TSBufEnable",
-      "TSBufDisable",
-      "TSBufToggle",
-      "TSConfigInfo",
-      "TSDisable",
-      "TSEditQuery",
-      "TSEditQueryUserAfter",
-      "TSEnable",
-      "TSInstall",
-      "TSInstallFromGrammar",
-      "TSInstallInfo",
-      "TSInstallSync",
-    },
+    lazy = false,
+    build = ":TSUpdate",
     config = function()
       vim.o.foldmethod = 'expr'
       vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
