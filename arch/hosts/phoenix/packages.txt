@@ -2,7 +2,9 @@ aichat
 alsa-firmware
 alsa-plugins
 alsa-utils
+amd-ucode
 android-tools
+asusctl
 autoconf-archive
 base
 base-devel
@@ -12,6 +14,7 @@ bind
 bluez-tools
 bluez-utils
 boost
+btrfs-progs
 ccache
 clang
 cliphist
@@ -79,7 +82,6 @@ lib32-nvidia-utils
 lib32-vulkan-intel
 lib32-zlib
 libcamera-tools
-libnewt
 libnotify
 libpam-google-authenticator
 libqalculate
@@ -89,6 +91,8 @@ libxcrypt-compat
 linux
 linux-firmware
 linux-firmware-qlogic
+linux-g14
+linux-g14-headers
 linux-headers
 linux-lts
 linux-lts-docs
@@ -99,12 +103,14 @@ linux-zen-headers
 lld
 lsof
 luarocks
+lvm2
 man-pages
 mariadb-clients
 mesa
 mesa-utils
 meson
 mpv
+neovim
 networkmanager
 ninja
 nmap
@@ -134,6 +140,7 @@ podman
 podman-compose
 polkit-qt6
 postgresql-libs
+power-profiles-daemon
 progress
 python-jinja
 python-ply
@@ -148,6 +155,7 @@ raylib
 realtime-privileges
 reflector
 rlwrap
+rog-control-center
 sc3-plugins
 scdoc
 sdl2_image
@@ -164,11 +172,12 @@ sof-tools
 songrec
 squashfs-tools
 strace
-sudo
 supercollider
+supergfxctl
 tailscale
 texlive-binextra
 thunderbird
+tree-sitter-cli
 ttf-dejavu
 ttf-iosevka-nerd
 ttf-jetbrains-mono
