@@ -6,6 +6,7 @@
       devtechnica   = "5.161.22.238";
       apollo        = "192.168.1.143";
       rocknix       = "192.168.1.184";
+      phonix        = "192.168.1.235";
     };
     tailscale = {
       devstation    = "100.109.36.108";
@@ -13,6 +14,7 @@
       rpi4b         = "100.116.90.85";
       apollo        = "100.121.45.124";
       rocknix       = "100.100.18.78";
+      phonix        = "100.96.226.87";
     };
   };
 
@@ -42,6 +44,7 @@
     olivetin      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIByeKyDW/vNAU29/sBzbyCH1eDTPMPhYDbhAxnNuv1lu";
     rpi4b         = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAul9ZMOMARHw6iSIFbQKChc/bkFBx5/mZnrer/YsRvV";
     terminus      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKwPdv2zFlfcDbbRvpIYBPh/oRR7MUYjH397Ma+Tu5iB";
+    phoenix       = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILECZkgjRGtMkXHr44ytGrfpByPZbP2t5WeF6NgetYIO";
   };
 
   timeZone = "America/New_York";

@@ -15,6 +15,7 @@
           apollo
           rpi4b
           terminus
+          phoenix
         ]
       );
       onChange = ''
