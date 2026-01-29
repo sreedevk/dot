@@ -3,30 +3,29 @@
   home.packages =
     let
       gui-packages = with pkgs; [
-        (config.lib.nixGL.wrap pkgs.audacity)
-        (config.lib.nixGL.wrap pkgs.bitwarden-desktop)
-        (config.lib.nixGL.wrap pkgs.dbeaver-bin)
-        (config.lib.nixGL.wrap pkgs.easyeffects)
-        (config.lib.nixGL.wrap pkgs.feishin)
-        (config.lib.nixGL.wrap pkgs.gnome-calculator)
-        (config.lib.nixGL.wrap pkgs.gpu-screen-recorder)
-        (config.lib.nixGL.wrap pkgs.gpu-screen-recorder-gtk)
-        (config.lib.nixGL.wrap pkgs.localsend)
-        (config.lib.nixGL.wrap pkgs.nemo-with-extensions)
-        (config.lib.nixGL.wrap pkgs.obsidian)
-        (config.lib.nixGL.wrap pkgs.openttd)
-        (config.lib.nixGL.wrap pkgs.pwvucontrol)
-        (config.lib.nixGL.wrap pkgs.signal-desktop)
-        (config.lib.nixGL.wrap pkgs.tor-browser)
-        (config.lib.nixGL.wrap pkgs.prismlauncher)
+        (config.lib.nixGL.wrapOffload pkgs.audacity)
+        (config.lib.nixGL.wrapOffload pkgs.bitwarden-desktop)
+        (config.lib.nixGL.wrapOffload pkgs.dbeaver-bin)
+        (config.lib.nixGL.wrapOffload pkgs.easyeffects)
+        (config.lib.nixGL.wrapOffload pkgs.feishin)
+        (config.lib.nixGL.wrapOffload pkgs.gnome-calculator)
+        (config.lib.nixGL.wrapOffload pkgs.gpu-screen-recorder)
+        (config.lib.nixGL.wrapOffload pkgs.gpu-screen-recorder-gtk)
+        (config.lib.nixGL.wrapOffload pkgs.localsend)
+        (config.lib.nixGL.wrapOffload pkgs.nemo-with-extensions)
+        (config.lib.nixGL.wrapOffload pkgs.obsidian)
+        (config.lib.nixGL.wrapOffload pkgs.openttd)
+        (config.lib.nixGL.wrapOffload pkgs.pwvucontrol)
+        (config.lib.nixGL.wrapOffload pkgs.signal-desktop)
+        (config.lib.nixGL.wrapOffload pkgs.tor-browser)
+        (config.lib.nixGL.wrapOffload pkgs.prismlauncher)
         (config.lib.nixGL.wrapOffload pkgs.slack)
         (config.lib.nixGL.wrapOffload pkgs.furnace)
         (config.lib.nixGL.wrapOffload pkgs.gimp3-with-plugins)
         (config.lib.nixGL.wrapOffload pkgs.nvtopPackages.full)
         (config.lib.nixGL.wrapOffload pkgs.upscayl)
-
+        (config.lib.nixGL.wrapOffload pkgs.libreoffice-fresh)
         ffmpegthumbnailer
-        libreoffice-fresh
         nwg-look
         wofi
       ];
