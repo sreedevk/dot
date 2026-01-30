@@ -334,7 +334,7 @@ in
         telemetryEnabled = false;
         enableLockScreenCountdown = true;
         lockScreenCountdownDuration = 10000;
-        autoStartAuth = true;
+        autoStartAuth = false;
       };
       brightness = {
         enableDdcSupport = false;
