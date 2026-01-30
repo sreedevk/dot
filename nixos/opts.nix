@@ -1,4 +1,8 @@
 {
+  attic = {
+    url = null;
+    key = null;
+  };
   addresses = {
     lan = {
       devstation    = "192.168.1.249";
