@@ -164,7 +164,15 @@ return {
     "aaronik/treewalker.nvim",
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     lazy = true,
-    opts = { highlight = true },
+    opts = {
+      highlight = true,
+      notifications = false,
+      select = false,
+      highlight_duration = 300,
+      highlight_group = 'CursorLine',
+      jumplist = true,
+      scope_confined = false,
+    },
     cmd = { 'Treewalker' },
     keys = {
       { '<C-j>',   ':Treewalker Down<CR>',     noremap = true, desc = "Treewalker Down",     silent = true },
