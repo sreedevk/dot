@@ -1,36 +1,5 @@
 return {
   {
-    "MeanderingProgrammer/treesitter-modules.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = {
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<CR>",
-          scope_incremental = "<S-CR>",
-          node_incremental = "<TAB>",
-          node_decremental = "<S-TAB>",
-        },
-      },
-    },
-  },
-  {
-    "chrisgrieser/nvim-various-textobjs",
-    event = "VeryLazy",
-    opts = {
-      keymaps = {
-        useDefaults = true,
-        disabledDefaults = {
-          "r"
-        },
-      },
-      forwardLooking = {
-        small = 5,
-        big = 15,
-      },
-    },
-  },
-  {
     'nvim-treesitter/nvim-treesitter',
     lazy = false,
     build = ":TSUpdate",
@@ -68,20 +37,37 @@ return {
     end
   },
   {
-    'kana/vim-textobj-user',
-    dependencies = { 'kana/vim-operator-user' },
+    "MeanderingProgrammer/treesitter-modules.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    lazy = true,
+    event = "BufReadPost",
+    opts = {
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<CR>",
+          scope_incremental = "<S-CR>",
+          node_incremental = "<TAB>",
+          node_decremental = "<S-TAB>",
+        },
+      },
+    },
   },
   {
-    'glts/vim-textobj-comment',
-    dependencies = {
-      'kana/vim-textobj-user',
-    },
-    init = function()
-      vim.g.textobj_comment_no_default_key_mappings = 1
-    end,
-    keys = {
-      { 'ac', '<Plug>(textobj-comment-a)', mode = { 'x', 'o' } },
-      { 'ic', '<Plug>(textobj-comment-i)', mode = { 'x', 'o' } },
+    "chrisgrieser/nvim-various-textobjs",
+    lazy = true,
+    event = "VeryLazy",
+    opts = {
+      keymaps = {
+        useDefaults = true,
+        disabledDefaults = {
+          "r"
+        },
+      },
+      forwardLooking = {
+        small = 5,
+        big = 15,
+      },
     },
   },
   {
@@ -100,7 +86,7 @@ return {
         enable_close_on_slash = false
       },
       per_filetype = {
-        ["html"] = {
+        ["erb"] = {
           enable_close = false
         }
       }
@@ -110,6 +96,8 @@ return {
     'nvim-treesitter/nvim-treesitter-textobjects',
     dependencies = { "nvim-treesitter/nvim-treesitter", branch = "main" },
     branch = "main",
+    lazy = true,
+    event = "BufReadPost",
     init = function()
       vim.g.no_plugin_maps = true
     end,
@@ -145,8 +133,7 @@ return {
       local move = require("nvim-treesitter-textobjects.move")
       vim.keymap.set({ "n", "x", "o" }, "]m", function() move.goto_next_start("@function.outer", "textobjects") end)
       vim.keymap.set({ "n", "x", "o" }, "]]", function() move.goto_next_start("@class.outer", "textobjects") end)
-      vim.keymap.set({ "n", "x", "o" }, "]o",
-        function() move.goto_next_start({ "@loop.inner", "@loop.outer" }, "textobjects") end)
+      vim.keymap.set({ "n", "x", "o" }, "]o", function() move.goto_next_start({ "@loop.inner", "@loop.outer" }, "textobjects") end)
       vim.keymap.set({ "n", "x", "o" }, "]s", function() move.goto_next_start("@local.scope", "locals") end)
       vim.keymap.set({ "n", "x", "o" }, "]z", function() move.goto_next_start("@fold", "folds") end)
 
