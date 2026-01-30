@@ -248,7 +248,7 @@ in
       # Launchers
       { mod = "SUPER";       keys = "D";      dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae toggle";                                                } # Mod-D
       { mod = "SUPER CTRL";  keys = "D";      dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun";                                                  } # C-Mod-D
-      { mod = "SUPER";       keys = "A";      dispatcher = "exec"; args = "uwsm app -t service -- com.github.marinm.songrec.desktop";                          } # Mod-A
+      { mod = "SUPER";       keys = "A";      dispatcher = "exec"; args = "uwsm app -t service -- re.fossplant.songrec.desktop";                               } # Mod-A
       { mod = "SUPER";       keys = "B";      dispatcher = "exec"; args = "uwsm app -t service -- ${opts.desktop.browser.xdg-desktop}";                        } # Mod-B
       { mod = "SUPER";       keys = "C";      dispatcher = "exec"; args = "noctalia ipc call controlCenter toggle";                                            } # Mod-C
       { mod = "SUPER";       keys = "W";      dispatcher = "exec"; args = "noctalia ipc call wallpaper toggle";                                                } # Mod-W
