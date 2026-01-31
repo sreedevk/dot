@@ -50,7 +50,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
   desc = "Disable LSP Diagnostic Virtual Lines (tiny lsp diagnostics plugin)",
   group = vim.api.nvim_create_augroup("disable_virtual_line_diagnostics", {}),
   callback = function(_)
-    vim.keymap.set("n", "gD", vim.lsp.buf.definition, { desc = "LSP: Go to definition" })
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "LSP: Go to definition" })
+    vim.keymap.set("n", "gD", vim.lsp.buf.implementation, { desc = "LSP: Go to implementation" })
     vim.keymap.set("n", "grt", vim.lsp.buf.type_definition, { desc = "LSP: Type Definition" })
     vim.keymap.set(
       { 'n', 'v' },
