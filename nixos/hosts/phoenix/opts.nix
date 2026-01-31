@@ -2,8 +2,9 @@ rec {
 
   attic = {
     key = "${hostname}:bQvzVZYM3y3HduUA5wJjRrpTV4rMetsEFHXdspBHpyo=";
-    url = "https://attic.external.nullptr.sh/${hostname}";
+    url = "https://attic.nullptr.sh/${hostname}";
   };
+
   hostname      = "phoenix";
   adminUID      = "1000";
   adminGID      = "1000";
