@@ -5,7 +5,6 @@
   };
   addresses = {
     lan = {
-      devstation    = "192.168.1.249";
       rpi4b         = "192.168.1.152";
       devtechnica   = "5.161.22.238";
       apollo        = "192.168.1.143";
@@ -13,10 +12,9 @@
       phonix        = "192.168.1.235";
     };
     tailscale = {
-      devstation    = "100.109.36.108";
       devtechnica   = "";
       rpi4b         = "100.116.90.85";
-      apollo        = "100.121.45.124";
+      apollo        = "100.110.156.47";
       rocknix       = "100.100.18.78";
       phonix        = "100.96.226.87";
     };
