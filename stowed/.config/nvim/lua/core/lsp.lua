@@ -1,8 +1,7 @@
 vim.lsp.enable({
-  "lua_ls",
   "astro",
+  "bacon_ls",
   "clojure_lsp",
-  "tailwindcss",
   "elixirls",
   "elmls",
   "erlangls",
@@ -15,18 +14,20 @@ vim.lsp.enable({
   "jsonls",
   "jsonnet_ls",
   "ltex_plus",
+  "lua_ls",
   "marksman",
-  "nimls",
+  "metals",
   "nil_ls",
+  "nimls",
   "ocamllsp",
   "pylsp",
   "ruby_lsp",
   "rust_analyzer",
-  "metals",
   "scheme_langserver",
+  "tailwindcss",
   "taplo",
-  "ts_ls",
   "tinymist",
+  "ts_ls",
   "yamlls",
   "zls",
 })
@@ -34,9 +35,8 @@ vim.lsp.enable({
 vim.lsp.config('rust_analyzer', {
   settings = {
     ['rust-analyzer'] = {
-      diagnostics = {
-        enable = true, -- disable this when using "bacon_ls" as a diagnostics lsp for rust
-      }
+      checkOnSave = { enable = false },
+      diagnostics = { enable = false } -- disable this when using "bacon_ls" as a diagnostics lsp for rust
     }
   }
 })
