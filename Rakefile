@@ -48,6 +48,13 @@ namespace :nix do
     end
   end
 
+  namespace :system do
+    desc "install system-manager configuration"
+    task :install do
+      sh("nix run 'github:numtide/system-manager' -- switch --flake '.' --sudo")
+    end
+  end
+
   namespace :home do
     desc "rebuild home manager configuration"
     task :build do
