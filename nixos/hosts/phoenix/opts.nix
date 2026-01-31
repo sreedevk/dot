@@ -7,7 +7,6 @@ rec {
   hostname      = "phoenix";
   adminUID      = "1000";
   adminGID      = "1000";
-  lanAddress    = "192.168.1.235";
   paths         = { };
   nameservers   = [ ];
   gpuaccel      = "cuda";

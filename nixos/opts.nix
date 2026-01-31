@@ -1,8 +1,15 @@
 {
+
   attic = {
     url = null;
     key = null;
   };
+
+  domains = {
+    lan       = { apollo = "external.nullptr.sh"; };
+    tailscale = { apollo = "nullptr.sh";          };
+  };
+
   addresses = {
     lan = {
       rpi4b         = "192.168.1.152";
