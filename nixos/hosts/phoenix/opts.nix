@@ -1,7 +1,7 @@
 rec {
 
   attic = {
-    key = "${hostname}:6agAOzMun0l8OwsE7iIo4/NOFES930Z7T2Mu4o8qoVM=";
+    key = "${hostname}:w+x/V+/LIhE68chagv+fv495NaL1OpYsBKUyZqbm0OE=";
     url = "https://attic.nullptr.sh/${hostname}";
   };
 
