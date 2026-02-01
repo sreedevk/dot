@@ -20,7 +20,7 @@
       );
       onChange = ''
         cat ~/.ssh/authorized_keys.source > ~/.ssh/authorized_keys
-        chmod 400 ~/.ssh/authorized_keys
+        chmod 600 ~/.ssh/authorized_keys
         rm -rf ~/.ssh/authorized_keys.source
       '';
     };
