@@ -1,4 +1,3 @@
-aichat
 alsa-firmware
 alsa-plugins
 alsa-utils
@@ -76,6 +75,7 @@ jq
 kexec-tools
 kmon
 kvantum-qt5
+kvantum-theme-materia
 less
 lib32-mesa
 lib32-nvidia-utils
@@ -88,18 +88,11 @@ libqalculate
 libva-nvidia-driver
 libvirt
 libxcrypt-compat
-linux
 linux-firmware
 linux-firmware-qlogic
 linux-g14
 linux-g14-headers
-linux-headers
-linux-lts
 linux-lts-docs
-linux-lts-headers
-linux-zen
-linux-zen-docs
-linux-zen-headers
 lld
 lsof
 luarocks

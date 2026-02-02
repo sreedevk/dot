@@ -3,7 +3,6 @@ Codecs
 FFmpeg
 Flatseal
 GNOME
-Jellyfin
 KDE
 Mesa
 Nvidia

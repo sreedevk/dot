@@ -1,5 +1,6 @@
 bacon v3.22.0
 bacon-ls v0.26.0
+blaze-ssh v0.0.8 (https//github.com/sreedevk/blaze-ssh#98f2e5ee)
 cargo-audit v0.22.0
 cargo-bloat v0.12.1
 cargo-expand v1.0.119
@@ -8,6 +9,7 @@ cargo-udeps v0.1.60
 cargo-update v18.0.0
 cargo-watch v8.5.3
 cl-wordle v0.4.0
+deduplicator v0.3.1
 flamegraph v0.6.11
 license-generator v1.3.0
 loco v0.16.3
