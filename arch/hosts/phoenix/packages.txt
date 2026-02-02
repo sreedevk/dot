@@ -124,7 +124,6 @@ os-prober
 pacutils
 parallel
 perf
-picom
 pipewire-alsa
 pipewire-libcamera
 pipewire-pulse
@@ -138,9 +137,11 @@ progress
 python-jinja
 python-ply
 qjackctl
+qt5ct
 qt5-tools
 qt5-wayland
 qt6-connectivity
+qt6ct
 qt6-multimedia
 qt6-multimedia-ffmpeg
 qt6-tools
