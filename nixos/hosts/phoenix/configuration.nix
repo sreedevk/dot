@@ -4,9 +4,10 @@
     system-manager.allowAnyDistro = true;
     nixpkgs.hostPlatform = "x86_64-linux";
 
-    environment.systemPackages = [
-      pkgs.ripgrep
-      pkgs.fd
+    environment.systemPackages = with pkgs; [
+      fastfetch
+      fd
+      ripgrep
     ];
 
     nix = {
