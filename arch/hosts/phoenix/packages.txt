@@ -147,7 +147,6 @@ qt6-multimedia-ffmpeg
 qt6-tools
 raylib
 realtime-privileges
-reflector
 rlwrap
 rog-control-center
 sc3-plugins
