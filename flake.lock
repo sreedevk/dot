@@ -971,11 +971,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770125147,
-        "narHash": "sha256-Z5pyre003+Da9zhLcVaQ/CVEQljYM4ZfFsmtEaRUero=",
+        "lastModified": 1770077336,
+        "narHash": "sha256-xRrx7OLf35Eg73/tSWLRdPjlX2jWsPApfeM2bP/fTm0=",
         "owner": "numtide",
         "repo": "system-manager",
-        "rev": "072929d02027b1b701bdb2c1cf6de45b8388564a",
+        "rev": "81e1689e286518c8c99b0ce8aef4b09c267548f5",
         "type": "github"
       },
       "original": {
