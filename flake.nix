@@ -38,7 +38,7 @@
     };
 
     system-manager = {
-      url                    = "github:numtide/system-manager";
+      url                    = "github:numtide/system-manager?ref=v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
