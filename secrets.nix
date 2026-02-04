@@ -13,6 +13,7 @@ with builtins;
 
   # SEC nyc0
   "secrets/nyc0/apollo_admin_password.age".publicKeys         = attrValues nyc0;
+  "secrets/nyc0/phoenix_user_password.age".publicKeys         = attrValues nyc0;
   "secrets/nyc0/apollo_nginx_env.age".publicKeys              = attrValues nyc0;
   "secrets/nyc0/arcane_agent_env.age".publicKeys              = attrValues nyc0;
   "secrets/nyc0/arcane_env.age".publicKeys                    = attrValues nyc0;

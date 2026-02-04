@@ -11,6 +11,7 @@ _: {
     "openai_api_key"                = { file = ../../../secrets/nyc0/openai_api_key.age;                };
     "openweather-token"             = { file = ../../../secrets/nyc0/openweather-token.age;             };
     "pastebin-token"                = { file = ../../../secrets/nyc0/pastebin-token.age;                };
+    "phoenix-user-password"         = { file = ../../../secrets/nyc0/phoenix_user_password.age;         };
     "radarr-api-key"                = { file = ../../../secrets/nyc0/radarr-api-key.age;                };
     "radicle_passphrase"            = { file = ../../../secrets/nyc0/radicle_passphrase.age;            };
     "restic_backup_password"        = { file = ../../../secrets/nyc0/restic_backup_password.age;        };

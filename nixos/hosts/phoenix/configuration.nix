@@ -1,4 +1,9 @@
-{ pkgs, opts, ... }:
+{
+  pkgs,
+  opts,
+  config,
+  ...
+}:
 {
   config = {
     system-manager.allowAnyDistro = true;
@@ -9,6 +14,40 @@
       fd
       ripgrep
     ];
+
+    users.users.sreedev = {
+      isNormalUser = true;
+      linger = true;
+      shell = pkgs.zsh;
+      description = "system root user & administrator";
+      hashedPasswordFile = config.age.secrets.phoenix-user-password.path;
+      packages = with pkgs; [ neovim ];
+      extraGroups = [
+        "realtime"
+        "libvirt"
+        "incus-admin"
+        "incus"
+        "audio"
+        "bluetooth"
+        "disk"
+        "docker"
+        "lp"
+        "networkmanager"
+        "scanner"
+        "sshd"
+        "vboxusers"
+        "video"
+        "wheel"
+        "render"
+        "i2c"
+      ];
+      openssh.authorizedKeys.keys = with opts.publicKeys; [
+        apollo
+        rpi4b
+        terminus
+        phoenix
+      ];
+    };
 
     nix = {
       package = pkgs.nixVersions.stable;
