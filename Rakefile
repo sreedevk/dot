@@ -51,7 +51,7 @@ namespace :nix do
   namespace :system do
     desc "install system-manager configuration"
     task :install do
-      sh("nix run 'github:numtide/system-manager' -- switch --flake '.' --sudo")
+      sh("nix run 'github:numtide/system-manager?ref=v1.0.0' -- switch --flake '.' --sudo")
     end
   end
 
@@ -93,14 +93,6 @@ namespace :nix do
 end
 
 namespace :arch do
-  namespace :nix do
-    desc "install using system-manager"
-    task :install do
-      sh("sudo $(which system-manager) switch --flake '.##{`hostname`.strip}'")
-      sh("rm -f result")
-    end
-  end
-
   desc "archive packages from arch/aur/flatpak/cargo"
   task :archive do
     sh('./bin/archive-packages')
