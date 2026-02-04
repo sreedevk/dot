@@ -5,14 +5,14 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 
 ## TODO
 1. bug: tmux/terminal reads C-i as \<tab\>
-2. notes sync
-3. deploying to apollo (nixOS) via colmena causes nixGL to fail to recognize the nvidia driver
-4. keyboard layout "UNKNOWN" at login
-5. Switch to niri
-6. some dependencies that require secrets start before agenix.service has had the chance to run
-7. add a timed service that does an nslookup and if the lookup fails, runs mullvad reconnect
-8. along with having one global VPN, have 2-3 gluetun containers that divide the services into groups and assign 1 gluetun container
+2. Switch to niri
+3. some dependencies that require secrets start before agenix.service has had the chance to run
+4. add a timed service that does an nslookup and if the lookup fails, runs mullvad reconnect
+5. Along with having one global VPN, have 2-3 gluetun containers that divide the services into groups and assign 1 gluetun container
    per group.
+6. system-manager is broken AF, https://github.com/numtide/system-manager/issues/349
+    - it kicks the main user off the wheel group (thanks to userborn)
+    - it sets the root user's shell to nix's bash installation
 
 ## Distant Dreams
 1. Get rid of the dependency on a static LAN ip address (potentially using DDNS)

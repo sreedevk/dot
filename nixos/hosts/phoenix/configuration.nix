@@ -15,6 +15,7 @@
       ripgrep
     ];
 
+    users.users.root.shell = "/bin/bash";
     users.users.sreedev = {
       isNormalUser = true;
       linger = true;
@@ -142,7 +143,7 @@
         text = ''
           name_server_blacklist="127.0.0.1"
           resolv_conf=/etc/resolv.conf
-          name_servers="${opts.addresses.tailscale.apollo} 149.112.112.112 9.9.9.9 149.112.112.112 1.1.1.1 1.0.0.1 2620:fe::fe 2620:fe::9"
+          name_servers="100.100.100.100 149.112.112.112 9.9.9.9 149.112.112.112 1.1.1.1 1.0.0.1 2620:fe::fe 2620:fe::9"
           resolv_conf_options="timeout:0 attempts:1 rotate"
         '';
       };
