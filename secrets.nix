@@ -11,9 +11,7 @@ in
 with builtins;
 {
 
-  # SEC nyc0
   "secrets/nyc0/apollo_admin_password.age".publicKeys         = attrValues nyc0;
-  "secrets/nyc0/phoenix_user_password.age".publicKeys         = attrValues nyc0;
   "secrets/nyc0/apollo_nginx_env.age".publicKeys              = attrValues nyc0;
   "secrets/nyc0/arcane_agent_env.age".publicKeys              = attrValues nyc0;
   "secrets/nyc0/arcane_env.age".publicKeys                    = attrValues nyc0;
@@ -58,6 +56,7 @@ with builtins;
   "secrets/nyc0/paperless_env.age".publicKeys                 = attrValues nyc0;
   "secrets/nyc0/paperless_gpt_env.age".publicKeys             = attrValues nyc0;
   "secrets/nyc0/pastebin-token.age".publicKeys                = attrValues nyc0;
+  "secrets/nyc0/phoenix_user_password.age".publicKeys         = attrValues nyc0;
   "secrets/nyc0/photoprism_env.age".publicKeys                = attrValues nyc0;
   "secrets/nyc0/pinepods_env.age".publicKeys                  = attrValues nyc0;
   "secrets/nyc0/podgrab_env.age".publicKeys                   = attrValues nyc0;
@@ -66,6 +65,7 @@ with builtins;
   "secrets/nyc0/radicle_passphrase.age".publicKeys            = attrValues nyc0;
   "secrets/nyc0/restic_backup_password.age".publicKeys        = attrValues nyc0;
   "secrets/nyc0/romm_env.age".publicKeys                      = attrValues nyc0;
+  "secrets/nyc0/rpi4b_pi_user_password.age".publicKeys        = attrValues nyc0;
   "secrets/nyc0/searxng_env.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/slskd_env.age".publicKeys                     = attrValues nyc0;
   "secrets/nyc0/sonarr-api-key.age".publicKeys                = attrValues nyc0;
@@ -78,4 +78,5 @@ with builtins;
   "secrets/nyc0/vpn-acc.age".publicKeys                       = attrValues nyc0;
   "secrets/nyc0/vpn-loc.age".publicKeys                       = attrValues nyc0;
   "secrets/nyc0/wallhaven-token.age".publicKeys               = attrValues nyc0;
+  # SEC nyc0
 }
