@@ -1,8 +1,7 @@
-{
-  pkgs,
-  opts,
-  config,
-  ...
+{ pkgs
+, opts
+, config
+, ...
 }:
 {
   config = {
@@ -16,56 +15,58 @@
     ];
 
     # FIX: TEMPORARY SOLUTION TO HANDLE USERBORN KICKING nixbld USERS OUT OF nixbld GROUP
-    users.users.nixbld1 = {
-      uid = 30001;
-      group = "nixbld";
-      isSystemUser = true;
-      enable = true;
-    };
-
-    user.groups = {
-      audio.gid       = 995;
-      bluetooth.gid   = 30001;
-      docker.gid      = 967;
-      incus-admin.gid = 965;
-      incus.gid       = 966;
-      libvirt.gid     = 963;
-      nixbld.gid      = 30000;
-      realtime.gid    = 962;
-      render.gid      = 987;
-      video.gid       = 983;
-      wheel.gid       = 998;
-    };
-
-    users.users.root.shell = "/bin/bash";
-    users.users.sreedev = {
-      uid = 1000;
-      group = "sreedev";
-      enable = true;
-      isNormalUser = true;
-      linger = true;
-      shell = pkgs.zsh;
-      description = "system root user & administrator";
-      hashedPasswordFile = config.age.secrets.phoenix-user-password.path;
-      packages = with pkgs; [ neovim ];
-      extraGroups = [
-        "realtime"
-        "libvirt"
-        "incus-admin"
-        "incus"
-        "bluetooth"
-        "docker"
-        "wheel"
-        "audio"
-        "video"
-        "render"
-      ];
-      openssh.authorizedKeys.keys = with opts.publicKeys; [
-        apollo
-        rpi4b
-        terminus
-        phoenix
-      ];
+    users = {
+      groups = {
+        audio.gid = 995;
+        bluetooth.gid = 30001;
+        docker.gid = 967;
+        incus-admin.gid = 965;
+        incus.gid = 966;
+        libvirt.gid = 963;
+        nixbld.gid = 30000;
+        realtime.gid = 962;
+        render.gid = 987;
+        video.gid = 983;
+        wheel.gid = 998;
+      };
+      users = {
+        nixbld1 = {
+          uid = 30001;
+          group = "nixbld";
+          isSystemUser = true;
+          enable = true;
+        };
+        root.shell = "/bin/bash";
+        sreedev = {
+          uid = 1000;
+          group = "sreedev";
+          enable = true;
+          isNormalUser = true;
+          linger = true;
+          shell = pkgs.zsh;
+          description = "system root user & administrator";
+          hashedPasswordFile = config.age.secrets.phoenix-user-password.path;
+          packages = with pkgs; [ neovim ];
+          extraGroups = [
+            "realtime"
+            "libvirt"
+            "incus-admin"
+            "incus"
+            "bluetooth"
+            "docker"
+            "wheel"
+            "audio"
+            "video"
+            "render"
+          ];
+          openssh.authorizedKeys.keys = with opts.publicKeys; [
+            apollo
+            rpi4b
+            terminus
+            phoenix
+          ];
+        };
+      };
     };
 
     nix = {
