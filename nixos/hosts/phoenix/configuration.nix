@@ -15,8 +15,33 @@
       ripgrep
     ];
 
+    # FIX: TEMPORARY SOLUTION TO HANDLE USERBORN KICKING nixbld USERS OUT OF nixbld GROUP
+    users.users.nixbld1 = {
+      uid = 30001;
+      group = "nixbld";
+      isSystemUser = true;
+      enable = true;
+    };
+
+    user.groups = {
+      audio.gid       = 995;
+      bluetooth.gid   = 30001;
+      docker.gid      = 967;
+      incus-admin.gid = 965;
+      incus.gid       = 966;
+      libvirt.gid     = 963;
+      nixbld.gid      = 30000;
+      realtime.gid    = 962;
+      render.gid      = 987;
+      video.gid       = 983;
+      wheel.gid       = 998;
+    };
+
     users.users.root.shell = "/bin/bash";
     users.users.sreedev = {
+      uid = 1000;
+      group = "sreedev";
+      enable = true;
       isNormalUser = true;
       linger = true;
       shell = pkgs.zsh;
@@ -28,19 +53,12 @@
         "libvirt"
         "incus-admin"
         "incus"
-        "audio"
         "bluetooth"
-        "disk"
         "docker"
-        "lp"
-        "networkmanager"
-        "scanner"
-        "sshd"
-        "vboxusers"
-        "video"
         "wheel"
+        "audio"
+        "video"
         "render"
-        "i2c"
       ];
       openssh.authorizedKeys.keys = with opts.publicKeys; [
         apollo
