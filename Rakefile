@@ -9,6 +9,16 @@ namespace :nix do
     task :apollo do 
       sh("colmena apply --impure --on apollo")
     end
+
+    desc "system-manager deploy on rpi4b"
+    task :rpi4b do
+      sh("nix run 'github:numtide/system-manager' -- --target-host rpi4b switch --sudo --flake .#rpi4b")
+    end
+
+    desc "system-manager deploy on rpi4b"
+    task :devtechnica do
+      sh("nix run 'github:numtide/system-manager' -- --target-host sree.dev switch --sudo --flake .#devtechnica")
+    end
   end
 
   namespace :flake do
