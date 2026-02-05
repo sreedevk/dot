@@ -22,9 +22,16 @@ namespace :nix do
   end
 
   namespace :flake do
+    namespace :update do
+    desc "update nix flake.lock and commit lockfile"
+      task :lock do
+        sh('nix flake update --commit-lock-file')
+      end
+    end
+
     desc "update nix flake.lock"
     task :update do 
-      sh('nix flake update --commit-lock-file')
+      sh('nix flake update')
     end
 
     desc "check nix flakes & configurations for current system"
