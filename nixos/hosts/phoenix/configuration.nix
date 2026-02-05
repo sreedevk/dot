@@ -14,6 +14,8 @@
       ripgrep
     ];
 
+    services.userborn.enable = pkgs.lib.mkForce false;
+
     # FIX: TEMPORARY SOLUTION TO HANDLE USERBORN KICKING nixbld USERS OUT OF nixbld GROUP
     users = {
       groups = {
