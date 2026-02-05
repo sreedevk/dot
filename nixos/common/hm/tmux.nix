@@ -67,7 +67,7 @@ in
     ];
     prefix = "C-b";
     baseIndex = 1;
-    mouse = false;
+    mouse = true;
     aggressiveResize = true;
     disableConfirmationPrompt = true;
     extraConfig = ''

@@ -62,6 +62,7 @@
           duckdb                   # duck db
           elan                     # lean version manager
           fasm                     # flat assembler
+          foremost                 # Recover files based on their contents
           glab                     # gitlab cli
           glances                  # system stats viewer
           glow                     # tui markdown renderer
@@ -76,6 +77,7 @@
           hledger-ui               # hledger tui
           hledger-utils            # hledger utils
           hledger-web              # hledger web ui
+          hping                    # ping flooding
           html-tidy                # HTML validator
           hyperfine                # benchmarking tool
           imager                   # Interferometric imaging package
@@ -111,6 +113,7 @@
           sc-im                    # vim like tui spreadsheet
           scdl                     # soundcloud download
           silicon                  # code screenshot generator
+          sqlmap                   # Automatic SQL injection and database takeover tool
           statix                   # nix code linter
           streamrip                # tidal / soundcloud / deezer downloader cli
           terminaltexteffects      # cli text effects
