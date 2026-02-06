@@ -32,6 +32,14 @@ services:
         url: "https://booklore.nullptr.sh"
         target: "_blank"
 
+      - name: "Listenarr"
+        logo: "https://icons.nullptr.sh/listenarr"
+        subtitle: "Audiobooks Indexer"
+        tag: "audiobooks"
+        keywords: "audiobooks"
+        url: "https://listenarr.nullptr.sh"
+        target: "_blank"
+
       - name: "Shelfmark"
         logo: "https://icons.nullptr.sh/shelfmark"
         subtitle: "Ebook Downloader"
