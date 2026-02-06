@@ -1,5 +1,4 @@
 let
-
   nyc0 = {
     "admin@apollo"       = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINiYLIEBtoti0D2R5/nuGzXTQaYP7OynXMkAuJBeNit6";
     "deploy@devtechnica" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErdYvZ0RfDGze0QzHv8DCcc7Xt7rutKfOKRv44d0UiS";
@@ -10,7 +9,6 @@ let
 in
 with builtins;
 {
-
   "secrets/nyc0/apollo_admin_password.age".publicKeys         = attrValues nyc0;
   "secrets/nyc0/apollo_nginx_env.age".publicKeys              = attrValues nyc0;
   "secrets/nyc0/arcane_agent_env.age".publicKeys              = attrValues nyc0;
@@ -28,6 +26,7 @@ with builtins;
   "secrets/nyc0/cargo-token.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/container_registry_env.age".publicKeys        = attrValues nyc0;
   "secrets/nyc0/dawarich_env.age".publicKeys                  = attrValues nyc0;
+  "secrets/nyc0/ddns_config_json.age".publicKeys              = attrValues nyc0;
   "secrets/nyc0/digitalocean-token.age".publicKeys            = attrValues nyc0;
   "secrets/nyc0/dumb_assets_env.age".publicKeys               = attrValues nyc0;
   "secrets/nyc0/fastmail_server_env.age".publicKeys           = attrValues nyc0;
@@ -78,5 +77,4 @@ with builtins;
   "secrets/nyc0/vpn-acc.age".publicKeys                       = attrValues nyc0;
   "secrets/nyc0/vpn-loc.age".publicKeys                       = attrValues nyc0;
   "secrets/nyc0/wallhaven-token.age".publicKeys               = attrValues nyc0;
-  # SEC nyc0
 }
