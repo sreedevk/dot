@@ -1,10 +1,13 @@
 _: {
   home.file = {
-    ".config/hypr/custom_devs.conf" = {
+    ".config/hypr/devices.conf" = {
       enable = true;
       text = ''
+        device  {
+          name = wdht1f01:00-2575:0e00
+        }
         device {
-            name        = epic mouse v1
+            name        = keychron-keychron-q2-pro-mouse
             sensitivity = -0.5
         }
       '';

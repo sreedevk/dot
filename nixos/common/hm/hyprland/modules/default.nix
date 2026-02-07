@@ -32,7 +32,7 @@
         source = ~/.config/hypr/inputs.conf
         source = ~/.config/hypr/rules.conf
         source = ~/.config/hypr/extra.conf
-        source = ~/.config/hypr/custom_devs.conf
+        source = ~/.config/hypr/devices.conf
         source = ~/.config/hypr/submaps.conf
         source = ~/.config/hypr/general.conf
         source = ~/.config/hypr/gestures.conf

@@ -15,6 +15,15 @@ rec {
 
   monitors = [
     {
+      name       = "DP-2";
+      desc       = "LG Electronics LG Ultra HD 0x00073F78";
+      resolution = { x = 3840; y = 2160; };
+      position   = { x = 1920; y = 0; };
+      rate       = 60;
+      scale      = 1.6;
+      # bitdepth = 10;
+    }
+    {
       name       = "eDP-1";
       desc       = "Samsung Display Corp. 0x4177";
       resolution = { x = 3840; y = 2400; };
@@ -30,15 +39,6 @@ rec {
       position   = { x = 0; y = 0; };
       rate       = 100.00;
       scale      = 1;
-      # bitdepth = 10;
-    }
-    {
-      name       = "DP-2";
-      desc       = "LG Electronics LG Ultra HD 0x00073F78";
-      resolution = { x = 3840; y = 2160; };
-      position   = { x = 1920; y = 0; };
-      rate       = 60;
-      scale      = 1.6;
       # bitdepth = 10;
     }
   ];
