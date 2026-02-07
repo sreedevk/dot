@@ -6,19 +6,17 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 ## TODO
 1. bug: tmux/terminal reads C-i as \<tab\>
 2. Switch to niri
-3. some dependencies that require secrets start before agenix.service has had the chance to run
-4. add a timed service that does an nslookup and if the lookup fails, runs mullvad reconnect
-5. Along with having one global VPN, have 2-3 gluetun containers that divide the services into groups and assign 1 gluetun container
-   per group.
-6. system-manager is broken AF, https://github.com/numtide/system-manager/issues/349
+3. add a timed service that does an nslookup and if the lookup fails, runs mullvad reconnect
+4. Along with having one global VPN, have 2-3 gluetun containers that divide the services into groups and assign 1 gluetun container 0 per group.
+5. system-manager is broken AF, https://github.com/numtide/system-manager/issues/349
     - it kicks the main user off the wheel group (thanks to userborn)
     - it sets the root user's shell to nix's bash installation
+6. Complete setting up of ddns-updater [ currently doesn't support private IPs ](https://github.com/qdm12/ddns-updater/issues/809)
 
 ## Distant Dreams
-1. Get rid of the dependency on a static LAN ip address (potentially using DDNS)
-2. improvement: migrate to Traefik
-3. k3s setup on apollo
-4. disko setup on apollo
+1. improvement: migrate to Traefik
+2. k3s setup on apollo
+3. disko setup on apollo
 
 ## Pre Requisites
 ### Install Home Manager CLI

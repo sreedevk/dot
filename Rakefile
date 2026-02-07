@@ -73,6 +73,15 @@ namespace :nix do
   end
 
   namespace :home do
+    namespace :manager do
+      desc "install home-manager && initialize"
+      task :install do
+        sh("nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager")
+        sh("nix-channel --update")
+        sh("nix-shell '<home-manager>' -A install")
+      end
+    end
+
     desc "rebuild home manager configuration"
     task :build do
       sh("home-manager build --impure --flake '.##{`whoami`.strip}@#{`hostname`.strip}' -j 8")
