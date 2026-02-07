@@ -5,6 +5,7 @@ Flatseal
 GNOME
 KDE
 Mesa
+Millisecond
 Nvidia
 nvidia-590-48-01
 openh264

@@ -4,5 +4,4 @@ hyprdynamicmonitors-bin 1.4.0-1
 mullvad-vpn-bin 2025.14-1
 paru 2.1.0-2
 python-dlib 20.0-2
-reflector-rs 1.1.1-1
 rose-pine-hyprcursor v0.3.2.r0.d2c0e680-1

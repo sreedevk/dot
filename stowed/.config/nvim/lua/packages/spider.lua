@@ -3,7 +3,7 @@ return {
     "chrisgrieser/nvim-spider",
     lazy = true,
     opts = {
-      skipInsignificantPunctuation = true,
+      skipInsignificantPunctuation = false,
       subwordMovement = true,
       consistentOperatorPending = true,
       customPatterns = {},

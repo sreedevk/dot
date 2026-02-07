@@ -92,7 +92,6 @@ linux-firmware
 linux-firmware-qlogic
 linux-g14
 linux-g14-headers
-linux-lts-docs
 lld
 lsof
 luarocks
@@ -147,6 +146,7 @@ qt6-multimedia-ffmpeg
 qt6-tools
 raylib
 realtime-privileges
+reflector
 rlwrap
 rog-control-center
 sc3-plugins
