@@ -88,10 +88,13 @@ libqalculate
 libva-nvidia-driver
 libvirt
 libxcrypt-compat
+linux
+linux-docs
 linux-firmware
 linux-firmware-qlogic
 linux-g14
 linux-g14-headers
+linux-headers
 lld
 lsof
 luarocks

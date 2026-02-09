@@ -9,7 +9,7 @@ cargo-udeps v0.1.60
 cargo-update v18.0.0
 cargo-watch v8.5.3
 cl-wordle v0.4.0
-cwry v0.1.0 (/home/sreedev/Data/repositories/cwry/cwry)
+cwry v1.0.3 (/home/sreedev/Data/repositories/cwry)
 deduplicator v0.3.1
 dioxus-cli v0.7.3
 flamegraph v0.6.11
