@@ -11,5 +11,6 @@ _: prev: {
     obs-studio
     obs-studio-plugins
     silicon
+    zls
     ;
 }
