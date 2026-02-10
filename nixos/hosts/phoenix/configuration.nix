@@ -14,7 +14,8 @@
       ripgrep
     ];
 
-    services.userborn.enable = pkgs.lib.mkForce false;
+    # BUG: system-manager above v1.0 will fail if this is not here; 
+    # services.userborn.enable = pkgs.lib.mkForce false;
 
     # FIX: TEMPORARY SOLUTION TO HANDLE USERBORN KICKING nixbld USERS OUT OF nixbld GROUP
     users = {
