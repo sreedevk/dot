@@ -12,6 +12,11 @@
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11&shallow=1";
     vicinae.url    = "github:vicinaehq/vicinae?ref=v0.19.7";
 
+    nix-index-database = {
+      url                    = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     disko = {
       url                    = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
