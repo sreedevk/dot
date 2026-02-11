@@ -173,7 +173,6 @@ supergfxctl
 tailscale
 texlive-binextra
 thunderbird
-tree-sitter-cli
 ttf-dejavu
 ttf-iosevka-nerd
 ttf-jetbrains-mono

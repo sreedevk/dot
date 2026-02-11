@@ -27,7 +27,6 @@ let
 
   neovim_pkgs = with pkgs; [
     nodejs-slim
-    tree-sitter
     typst
   ];
 in
