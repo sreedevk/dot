@@ -26,6 +26,7 @@
         (config.lib.nixGL.wrapOffload pkgs.slack)
         (config.lib.nixGL.wrapOffload pkgs.tor-browser)
         (config.lib.nixGL.wrapOffload pkgs.upscayl)
+        (config.lib.nixGL.wrapOffload pkgs.cobang)
         ffmpegthumbnailer
         nwg-look
         wofi
