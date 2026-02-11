@@ -15,7 +15,7 @@ namespace :nix do
       sh("nix run 'github:numtide/system-manager' -- --target-host rpi4b switch --sudo --flake .#rpi4b")
     end
 
-    desc "system-manager deploy on rpi4b"
+    desc "system-manager deploy on devtechnica"
     task :devtechnica do
       sh("nix run 'github:numtide/system-manager' -- --target-host sree.dev switch --sudo --flake .#devtechnica")
     end
