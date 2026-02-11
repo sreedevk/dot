@@ -115,7 +115,6 @@ in
       bind C-a neww ${pkgs.wiremix}/bin/wiremix
       bind C-c new-session
       bind C-e neww ${pkgs.neovim}/bin/nvim
-      bind C-f neww ${pkgs.yazi}/bin/yazi
       bind C-g neww ${pkgs.lazygit}/bin/lazygit
       bind C-h neww ${config.programs.htop.package}/bin/htop
       bind C-o neww ${sessionizer}/bin/tmux-sessionizer
