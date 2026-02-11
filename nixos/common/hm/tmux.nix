@@ -116,6 +116,7 @@ in
       bind C-c new-session
       bind C-e neww ${pkgs.neovim}/bin/nvim
       bind C-g neww ${pkgs.lazygit}/bin/lazygit
+      bind C-f neww ${pkgs.nnn}/bin/nnn
       bind C-h neww ${config.programs.htop.package}/bin/htop
       bind C-o neww ${sessionizer}/bin/tmux-sessionizer
       bind C-q command-prompt -p find-session 'switch-client -t %%'
