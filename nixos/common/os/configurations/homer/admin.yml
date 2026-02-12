@@ -85,11 +85,18 @@ services:
         target: "_blank"
         type: "UptimeKuma"
 
-      - name: "Authentik"
-        logo: "https://icons.nullptr.sh/authentik"
-        subtitle: "User Identity Management"
-        tag: "user-id-management"
-        url: "https://authentik.nullptr.sh"
+      - name: "PocketID"
+        logo: "https://icons.nullptr.sh/pocket-id"
+        subtitle: "Authentication"
+        tag: "user-auth-management"
+        url: "https://pocketid.nullptr.sh"
+        target: "_blank"
+
+      - name: "TinyAuth"
+        logo: "https://icons.nullptr.sh/tinyauth"
+        subtitle: "Authentication"
+        tag: "user-auth-management"
+        url: "https://tinyauth.nullptr.sh"
         target: "_blank"
 
       - name: "Gotify"
