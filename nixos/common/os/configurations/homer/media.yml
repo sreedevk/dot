@@ -234,14 +234,6 @@ services:
         url: "https://metube.nullptr.sh"
         target: "_blank"
 
-      - name: "Pinchflat"
-        logo: "https://icons.nullptr.sh/pinchflat"
-        subtitle: "Youtube Media Manager"
-        tag: "youtube-media-manager"
-        keywords: "youtube"
-        url: "https://pinchflat.nullptr.sh"
-        target: "_blank"
-
       - name: "8mb.local"
         logo: "https://icons.nullptr.sh/8mb-local"
         subtitle: "Video Encoding & Uploads"
