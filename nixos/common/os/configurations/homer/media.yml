@@ -99,14 +99,6 @@ services:
         url: "https://slskd.nullptr.sh"
         target: "_blank"
 
-      - name: "Sonobarr"
-        logo: "https://icons.nullptr.sh/sonobarr"
-        subtitle: "Music Discovery"
-        tag: "music"
-        keywords: "music"
-        url: "https://sonobarr.nullptr.sh"
-        target: "_blank"
-
       - name: "Lidarr"
         logo: "https://icons.nullptr.sh/lidarr"
         subtitle: "Music Indexing & Searching"
