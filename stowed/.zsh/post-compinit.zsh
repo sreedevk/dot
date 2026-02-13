@@ -33,3 +33,9 @@ fi
 if command -v rbw &> /dev/null; then
   eval "$(rbw gen-completions zsh)"
 fi
+
+if command -v rv &> /dev/null; then
+  eval "$(rv shell init zsh)"
+  eval "$(rv shell completions zsh)"
+fi
+

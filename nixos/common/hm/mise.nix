@@ -25,7 +25,6 @@
           erlang     = "latest";
           gleam      = "latest";
           golang     = "latest";
-          ruby       = "latest";
           zig        = "latest";
         };
       };
