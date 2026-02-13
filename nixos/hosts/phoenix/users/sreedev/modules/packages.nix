@@ -5,6 +5,7 @@
       gui-packages = with pkgs; [
         (config.lib.nixGL.wrapOffload pkgs.audacity)
         (config.lib.nixGL.wrapOffload pkgs.bitwarden-desktop)
+        (config.lib.nixGL.wrapOffload pkgs.cobang)
         (config.lib.nixGL.wrapOffload pkgs.dbeaver-bin)
         (config.lib.nixGL.wrapOffload pkgs.easyeffects)
         (config.lib.nixGL.wrapOffload pkgs.feishin)
@@ -26,7 +27,8 @@
         (config.lib.nixGL.wrapOffload pkgs.slack)
         (config.lib.nixGL.wrapOffload pkgs.tor-browser)
         (config.lib.nixGL.wrapOffload pkgs.upscayl)
-        (config.lib.nixGL.wrapOffload pkgs.cobang)
+        (config.lib.nixGL.wrapOffload pkgs.xpipe)
+        (config.lib.nixGL.wrapOffload pkgs.zed-editor)
         ffmpegthumbnailer
         nwg-look
         wofi
