@@ -30,6 +30,7 @@
         (config.lib.nixGL.wrapOffload pkgs.xpipe)
         (config.lib.nixGL.wrapOffload pkgs.zed-editor)
         ffmpegthumbnailer
+        clipse
         nwg-look
         wofi
       ];
