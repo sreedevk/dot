@@ -68,7 +68,6 @@ incus
 incus-tools
 inetutils
 inotify-tools
-intel-media-driver
 iw
 iwd
 jq
