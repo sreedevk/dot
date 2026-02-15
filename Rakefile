@@ -135,4 +135,10 @@ namespace :scripts do
   task :list_firefox_addons do 
     sh('nix-env -f "<nur>" -qaP -A repos."rycee".firefox-addons | awk "{print $2}" | fzf')
   end
+
+  desc "add nur channel"
+  task :add_nur_channel do
+    sh('nix-channel --add https://github.com/nix-community/NUR/archive/master.tar.gz nur')
+    sh('nix-channel --update -v')
+  end
 end

@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-set -euo pipefail
-
-nix eval --impure --expr 'builtins.attrNames (import <nur> {}).repos.rycee.firefox-addons' --json | jq -r '.[]' | fzf
