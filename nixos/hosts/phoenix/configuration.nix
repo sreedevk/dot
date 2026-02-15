@@ -14,7 +14,7 @@
       ripgrep
     ];
 
-    # BUG: system-manager above v1.0 will fail if this is not here; 
+    # BUG: system-manager above v1.0 will fail if this is not here;
     # services.userborn.enable = pkgs.lib.mkForce false;
 
     # FIX: TEMPORARY SOLUTION TO HANDLE USERBORN KICKING nixbld USERS OUT OF nixbld GROUP
@@ -138,29 +138,47 @@
           wifi.backend=iwd
         '';
       };
+
       "NetworkManager/conf.d/20-connectivity.conf" = {
         text = ''
           [connectivity]
           enabled=false
         '';
       };
+
       "systemd/system.conf" = {
         text = ''
           [Manager]
           DefaultTimeoutStopSec=10s
         '';
       };
+
       "modprobe.d/droidcam.conf" = {
         text = ''
           options v4l2loopback exclusive_caps=1
         '';
       };
+
       "modules-load.d/droidcam.conf" = {
         text = ''
           v4l2loopback
           snd_aloop
         '';
       };
+
+      "xdg/reflector/reflector.conf" = {
+        text = ''
+          --save /etc/pacman.d/mirrorlist
+          --protocol https
+          --country us,fr,de,ca,dk
+          --latest 50 
+          --score 10 
+          --fastest 5 
+          --sort rate
+          --threads 8 
+        '';
+      };
+
       "resolvconf.conf" = {
         text = ''
           name_server_blacklist="127.0.0.1"
@@ -169,6 +187,7 @@
           resolv_conf_options="timeout:0 attempts:1 rotate"
         '';
       };
+
     };
   };
 }
