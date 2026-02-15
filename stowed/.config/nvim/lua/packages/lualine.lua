@@ -16,7 +16,7 @@ return {
 
     lualine.setup {
       options = {
-				theme = "catppuccin", -- tokyonight or rose-pine or auto
+        theme = "catppuccin", -- tokyonight or rose-pine or auto
         component_separators = { left = '', right = '' },
         section_separators = { left = ' ', right = '' },
       },
@@ -47,10 +47,7 @@ return {
         lualine_y = {
           'filetype',
           'filesize',
-          {
-            'encoding',
-            show_bomb = false,
-          }
+          'lsp_status'
         },
         lualine_z = {
           {
@@ -69,7 +66,7 @@ return {
             always_visible = false,
           },
           'location',
-          'progress'
+          'selectioncount'
         },
       },
     }
