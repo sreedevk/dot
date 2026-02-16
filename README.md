@@ -6,13 +6,12 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 ## TODO
 1. bug: tmux/terminal reads C-i as \<tab\>
 2. Switch to niri
-3. add a timed service that does an nslookup and if the lookup fails, runs mullvad reconnect
-4. Along with having one global VPN, have 2-3 gluetun containers that divide the services into groups and assign 1 gluetun container 0 per group.
-5. system-manager is broken AF, https://github.com/numtide/system-manager/issues/349
-    - it kicks the main user off the wheel group (thanks to userborn)
-    - it sets the root user's shell to nix's bash installation
-6. Complete setting up of ddns-updater [ currently doesn't support private IPs ](https://github.com/qdm12/ddns-updater/issues/809)
-7. fix the problem where cw in nvim removes the space at end of line
+3. Along with having one global VPN, have 2-3 gluetun containers that divide the services into groups and assign 1 gluetun container 0 per group.
+4. system-manager is broken AF, https://github.com/numtide/system-manager/issues/349
+   - it kicks the main user off the wheel group (thanks to userborn)
+   - it sets the root user's shell to nix's bash installation
+5. Complete setting up of ddns-updater [ currently doesn't support private IPs ](https://github.com/qdm12/ddns-updater/issues/809)
+0. fix the problem where cw in nvim removes the space at end of line
 
 ## Distant Dreams
 1. improvement: migrate to Traefik
