@@ -12,6 +12,7 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
     - it kicks the main user off the wheel group (thanks to userborn)
     - it sets the root user's shell to nix's bash installation
 6. Complete setting up of ddns-updater [ currently doesn't support private IPs ](https://github.com/qdm12/ddns-updater/issues/809)
+7. fix the problem where cw in nvim removes the space at end of line
 
 ## Distant Dreams
 1. improvement: migrate to Traefik
