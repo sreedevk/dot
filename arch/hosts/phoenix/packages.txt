@@ -153,6 +153,8 @@ rlwrap
 rog-control-center
 sc3-plugins
 scdoc
+scx-scheds
+scx-tools
 sdl2_image
 sdl2_mixer
 sdl2_net
