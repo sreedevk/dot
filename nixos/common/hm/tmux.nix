@@ -141,7 +141,7 @@ in
 
       # MODE KEYS
       set -g status-keys emacs
-      set -g mode-keys   vi
+      set -g mode-keys vi
 
       # CLEAN UP VI MODE
       unbind C-,
@@ -179,6 +179,7 @@ in
       set -g  renumber-windows on
       set -g  monitor-activity on
       set -g  visual-activity off
+      set -g  focus-events on
 
       setw -g allow-rename on
       setw -g automatic-rename on
