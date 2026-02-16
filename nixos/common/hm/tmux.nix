@@ -108,8 +108,8 @@ in
       bind -T   copy-mode-vi $      send-keys -X end-of-line
       bind p       paste-buffer
       bind    C-p  choose-buffer
-      bind -n C-q  copy-mode
-      bind -T copy-mode-vi C-q send-keys -X cancel
+      bind -n C-[  copy-mode
+      bind -T copy-mode-vi C-[ send-keys -X cancel
 
       # WORKFLOWS
       bind C-a neww ${pkgs.wiremix}/bin/wiremix
