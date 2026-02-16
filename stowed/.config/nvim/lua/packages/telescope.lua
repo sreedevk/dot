@@ -4,6 +4,7 @@ return {
   'nvim-telescope/telescope.nvim',
   lazy = true,
   dependencies = {
+    "nvim-telescope/telescope-ui-select.nvim",
     "nvim-telescope/telescope-live-grep-args.nvim",
     'crispgm/telescope-heading.nvim',
     'j-hui/fidget.nvim',
@@ -144,6 +145,9 @@ return {
           '--glob', "!**/node_modules/*",
         },
         extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown {},
+          },
           live_grep_args = {
             auto_quoting = true, -- enable/disable auto-quoting
             mappings = {         -- extend mappings
@@ -218,5 +222,6 @@ return {
     pcall(telscp.load_extension, 'live_grep_args')
     pcall(telscp.load_extension, 'scdoc')
     pcall(telscp.load_extension, 'frecency')
+    pcall(telscp.load_extension, 'ui-select')
   end
 }

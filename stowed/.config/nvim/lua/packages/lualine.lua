@@ -4,6 +4,7 @@ return {
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
   config = function()
     local lualine = require('lualine')
+    local overseer = require('overseer')
 
     local function macro_rec_stats()
       local recording_register = vim.fn.reg_recording()
@@ -29,6 +30,20 @@ return {
           { '%S',        padding = 1 }
         },
         lualine_y = {
+          {
+            "overseer",
+            label = "",     -- Prefix for task counts
+            colored = true, -- Color the task icons and counts
+            symbols = {
+              [overseer.STATUS.FAILURE] = "F:",
+              [overseer.STATUS.CANCELED] = "C:",
+              [overseer.STATUS.SUCCESS] = "S:",
+              [overseer.STATUS.RUNNING] = "R:",
+            },
+            unique = false, -- Unique-ify non-running task count by name
+            status = nil,   -- List of task statuses to display
+            filter = nil,   -- Function to filter out tasks you don't wish to display
+          },
           'filetype',
           'filesize',
         },
