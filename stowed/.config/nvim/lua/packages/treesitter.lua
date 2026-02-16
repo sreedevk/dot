@@ -146,8 +146,8 @@ return {
       vim.keymap.set({ "n", "x", "o" }, "[M", function() move.goto_previous_end("@function.outer", "textobjects") end)
       vim.keymap.set({ "n", "x", "o" }, "[]", function() move.goto_previous_end("@class.outer", "textobjects") end)
 
-      vim.keymap.set({ "n", "x", "o" }, "]q", function() move.goto_next("@conditional.outer", "textobjects") end)
-      vim.keymap.set({ "n", "x", "o" }, "[q", function() move.goto_previous("@conditional.outer", "textobjects") end)
+      vim.keymap.set({ "n", "x", "o" }, "]c", function() move.goto_next("@conditional.outer", "textobjects") end)
+      vim.keymap.set({ "n", "x", "o" }, "[c", function() move.goto_previous("@conditional.outer", "textobjects") end)
 
       local ts_repeat_move = require "nvim-treesitter-textobjects.repeatable_move"
 

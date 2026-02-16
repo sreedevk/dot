@@ -65,6 +65,8 @@ vim.keymap.set('n', '<Leader>q', '<cmd>q<CR>', { noremap = true, desc = "quit ne
 vim.keymap.set('n', '<leader><leader>ex', ':r !sh<CR>')
 vim.keymap.set('n', 'gco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Below' })
 vim.keymap.set('n', 'gcO', 'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Above' })
+vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
+vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
 vim.keymap.set('v', '<Leader>lc', [[<cmd>echo line("'>") - line("'<") + 1<CR>]],
   { noremap = true, desc = "Count Selected Lines" })
 
