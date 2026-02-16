@@ -1,7 +1,7 @@
 local overseer = require 'overseer'
 
 return {
-  name = "Janet Compile",
+  name = "janet compile",
   builder = function()
     return {
       cmd = { 'janet' },
@@ -23,7 +23,6 @@ return {
       metadata = {},
     }
   end,
-  desc = "Janet Compile Jimage",
   tags = { overseer.TAG.BUILD },
   params = {},
   priority = 50,

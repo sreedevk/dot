@@ -1,7 +1,7 @@
 local overseer = require 'overseer'
 
 return {
-  name = "JPM Build",
+  name = "janet jpm build",
   builder = function()
     return {
       cmd = { 'jpm' },
@@ -23,7 +23,6 @@ return {
       metadata = {},
     }
   end,
-  desc = "JPM Build Project",
   tags = { overseer.TAG.BUILD },
   params = {},
   priority = 50,

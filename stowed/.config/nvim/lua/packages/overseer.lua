@@ -43,9 +43,7 @@ return {
       template_dirs = { "overseer.template" },
       templates = {
         "builtin",
-        "nix",
         "janet",
-        "hugo",
         "hledger"
       },
       auto_detect_success_color = true,

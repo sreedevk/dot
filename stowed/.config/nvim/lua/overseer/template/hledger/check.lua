@@ -1,7 +1,7 @@
 local overseer = require 'overseer'
 
 return {
-  name = "HLedger Check",
+  name = "hledger check",
   builder = function()
     return {
       cmd = { 'hledger' },
@@ -23,7 +23,6 @@ return {
       metadata = {},
     }
   end,
-  desc = "HLedger Check",
   tags = { overseer.TAG.BUILD },
   params = {},
   priority = 50,
