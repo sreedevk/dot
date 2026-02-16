@@ -21,7 +21,10 @@ return {
       { '<Leader>rno', '<cmd>OverseerToggle<cr>', desc = "Toggle Command Runner", noremap = true }
     },
     opts = {
-      strategy = "terminal",
+      output = {
+        preserve_output = false,
+        use_terminal = true,
+      },
       template_dirs = { "overseer.template" },
       templates = {
         "builtin",
