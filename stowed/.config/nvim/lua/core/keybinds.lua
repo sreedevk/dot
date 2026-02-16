@@ -63,6 +63,8 @@ vim.keymap.set('n', '<Leader>rr', '<cmd>e!<CR>', { noremap = true, desc = "reloa
 vim.keymap.set('n', '<Leader>fs', '<cmd>w<CR>', { noremap = true, desc = "save file" })
 vim.keymap.set('n', '<Leader>q', '<cmd>q<CR>', { noremap = true, desc = "quit neovim" })
 vim.keymap.set('n', '<leader><leader>ex', ':r !sh<CR>')
+vim.keymap.set('n', 'gco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Below' })
+vim.keymap.set('n', 'gcO', 'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Above' })
 vim.keymap.set('v', '<Leader>lc', [[<cmd>echo line("'>") - line("'<") + 1<CR>]],
   { noremap = true, desc = "Count Selected Lines" })
 
