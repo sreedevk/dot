@@ -108,8 +108,8 @@ in
       bind -T   copy-mode-vi $      send-keys -X end-of-line
       bind p       paste-buffer
       bind    C-p  choose-buffer
-      bind -n C-[  copy-mode
-      bind -T copy-mode-vi C-[ send-keys -X cancel
+      bind    C-q  copy-mode
+      bind -T copy-mode-vi C-q send-keys -X cancel
 
       # WORKFLOWS
       bind C-a neww ${pkgs.wiremix}/bin/wiremix
@@ -119,7 +119,6 @@ in
       bind C-f neww ${pkgs.nnn}/bin/nnn
       bind C-h neww ${config.programs.htop.package}/bin/htop
       bind C-o neww ${sessionizer}/bin/tmux-sessionizer
-      bind C-q command-prompt -p find-session 'switch-client -t %%'
       bind C-r neww ${pkgs.newsboat}/bin/newsboat
       bind C-s neww ${sshfzf}/bin/ssh-fzf
       bind C-t neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui
