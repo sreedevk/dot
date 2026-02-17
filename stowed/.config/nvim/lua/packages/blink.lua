@@ -75,7 +75,17 @@ return {
           'hledger',
           'ripgrep'
         },
+        per_filetype = {
+          sql = { 'dadbod' },
+          lua = { inherit_defaults = true, 'lazydev' }
+        },
         providers = {
+          dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100,
+          },
           hledger = {
             name = 'hledger',
             module = 'blink.compat.source',
