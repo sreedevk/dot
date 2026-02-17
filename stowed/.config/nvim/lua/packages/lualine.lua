@@ -11,7 +11,7 @@ return {
       if recording_register == "" then
         return ""
       else
-        return "rec @ " .. recording_register
+        return "@" .. recording_register
       end
     end
 
@@ -27,7 +27,6 @@ return {
         lualine_c = {},
         lualine_x = {
           { 'macro-rec', fmt = macro_rec_stats, color = { fg = "yellow", gui = "bold" } },
-          { '%S',        padding = 1 }
         },
         lualine_y = {
           {
