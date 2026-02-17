@@ -13,9 +13,9 @@ return {
     cmd = { "Neotree" },
     keys = {
       { "<C-n>",      wrap_cmd("Neotree filesystem reveal toggle"), desc = "Toggle Neotree" },
-      { "<Leader>nf", wrap_cmd("Neotree filesystem reveal toggle"), desc = "Reveal File in Neotree" },
-      { "<Leader>nb", wrap_cmd("Neotree buffers reveal toggle"),    desc = "Reveal Buffers in Neotree" },
-      { "<Leader>nn", wrap_cmd("Neotree current toggle"),           desc = "netrw style full buffer tree" },
+      { "<leader>nf", wrap_cmd("Neotree filesystem reveal toggle"), desc = "Reveal File in Neotree" },
+      { "<leader>nb", wrap_cmd("Neotree buffers reveal toggle"),    desc = "Reveal Buffers in Neotree" },
+      { "<leader>nn", wrap_cmd("Neotree current toggle"),           desc = "netrw style full buffer tree" },
     },
     lazy = true,
     opts = {
@@ -103,7 +103,6 @@ return {
           nowait = true,
         },
         mappings = {
-          ["<space>"] = { "toggle_node", nowait = true, },
           ["<2-LeftMouse>"] = "open",
           ["<cr>"] = "open",
           ["<esc>"] = "revert_preview",
