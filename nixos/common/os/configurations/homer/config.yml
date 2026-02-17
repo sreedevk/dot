@@ -82,6 +82,13 @@ services:
         url: "https://owui.nullptr.sh"
         target: "_blank"
 
+      - name: "Vikunja"
+        logo: "https://icons.nullptr.sh/vikunja"
+        subtitle: "task manager"
+        tag: "task-manager"
+        url: "https://vikunja.nullptr.sh"
+        target: "_blank"
+
       - name: "Searxng"
         logo: "https://icons.nullptr.sh/searxng"
         subtitle: "Search Engine"

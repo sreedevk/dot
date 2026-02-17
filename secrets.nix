@@ -73,6 +73,7 @@ with builtins;
   "secrets/nyc0/taskwarrior_encryption_secret.age".publicKeys = attrValues nyc0;
   "secrets/nyc0/taskwarrior_env.age".publicKeys               = attrValues nyc0;
   "secrets/nyc0/tinyauth_env.age".publicKeys                  = attrValues nyc0;
+  "secrets/nyc0/vikunja_env.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/vpn-acc.age".publicKeys                       = attrValues nyc0;
   "secrets/nyc0/vpn-loc.age".publicKeys                       = attrValues nyc0;
   "secrets/nyc0/wallhaven-token.age".publicKeys               = attrValues nyc0;
