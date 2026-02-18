@@ -22,7 +22,6 @@ let
     tinymist                        # typst
     vscode-langservers-extracted    # json+
     yaml-language-server            # yaml
-    codebook                        # code spellchecker
     zls                             # zig
   ];
 
