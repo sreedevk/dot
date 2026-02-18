@@ -146,6 +146,7 @@ in
       };
       notifications = {
         enabled = true;
+        enableMarkdown = true;
         doNotDisturb = false;
         monitors = [ ];
         location = "top_right";
