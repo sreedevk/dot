@@ -16,6 +16,7 @@ let
     jsonnet-language-server         # jsonnet
     ltex-ls-plus                    # grammar
     lua-language-server             # lua
+    emmet-language-server           # emmet
     marksman                        # markdown
     nil                             # nix
     taplo                           # toml
