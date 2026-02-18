@@ -28,22 +28,27 @@ in
     enable = true;
     package = config.lib.nixGL.wrapOffload (config.lib.pamShim.replacePam pkgs.noctalia);
     systemd.enable = true;
-    colors = with config.lib.stylix.colors; {
-      mError = "#${base08}";
-      mOnError = "#${base00}";
-      mOnPrimary = "#${base00}";
-      mOnSecondary = "#${base00}";
-      mOnSurface = "#${base04}";
-      mOnSurfaceVariant = "#${base04}";
-      mOnTertiary = "#${base00}";
-      mOutline = "#${base02}";
-      mPrimary = "#${base0B}";
-      mSecondary = "#${base0A}";
-      mShadow = "#${base00}";
-      mSurface = "#${base00}";
-      mSurfaceVariant = "#${base01}";
-      mTertiary = "#${base0D}";
-    };
+    colors =
+      let
+        clr = hex: "#${hex}";
+      in
+      with config.lib.stylix.colors;
+      {
+        mError            = clr base08;
+        mOnError          = clr base00;
+        mOnPrimary        = clr base00;
+        mOnSecondary      = clr base00;
+        mOnSurface        = clr base04;
+        mOnSurfaceVariant = clr base04;
+        mOnTertiary       = clr base00;
+        mOutline          = clr base02;
+        mPrimary          = clr base0B;
+        mSecondary        = clr base0A;
+        mShadow           = clr base00;
+        mSurface          = clr base00;
+        mSurfaceVariant   = clr base01;
+        mTertiary         = clr base0D;
+      };
     plugins = {
       sources = [
         {
