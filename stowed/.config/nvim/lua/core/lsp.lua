@@ -16,6 +16,7 @@ vim.lsp.enable({
   "ltex_plus",
   "lua_ls",
   "marksman",
+  "syntax_tree",
   "metals",
   "nil_ls",
   "nimls",
