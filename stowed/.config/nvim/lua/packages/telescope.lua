@@ -14,6 +14,7 @@ return {
     'nvim-telescope/telescope-symbols.nvim',
     'nvim-treesitter/nvim-treesitter',
     'davidgranstrom/telescope-scdoc.nvim',
+    'gbprod/yanky.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
   cmd = "Telescope",

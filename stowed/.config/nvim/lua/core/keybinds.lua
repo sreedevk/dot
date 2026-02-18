@@ -54,7 +54,6 @@ vim.keymap.set({ "n" }, "<leader>co", "<cmd>copen<cr>",  { noremap = true, desc 
 vim.keymap.set({ "n" }, "<leader>cc", "<cmd>cclose<cr>", { noremap = true, desc = "close quickfixlist" })
 
 -- Misc {{{1
-vim.keymap.set({ 'v', 'x' }, "<Leader>p", '"_dP', { noremap = true, desc = "paste without yanking delete" })
 vim.keymap.set('t', "<C-\\><C-\\>", "<C-\\><C-n>", { noremap = true, desc = "escape terminal mode" })
 vim.keymap.set({ 'n', 'v' }, ',', ':', { noremap = true, desc = "enter <cmd> mode" })
 vim.keymap.set('n', '<esc>', '<cmd>noh<cr>', { noremap = true, desc = "no highlights" })
