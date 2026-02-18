@@ -82,11 +82,11 @@ services:
         url: "https://owui.nullptr.sh"
         target: "_blank"
 
-      - name: "Vikunja"
-        logo: "https://icons.nullptr.sh/vikunja"
-        subtitle: "task manager"
+      - name: "TaskTrove"
+        logo: "https://icons.nullptr.sh/tasktrove"
+        subtitle: "Task Managemenet"
         tag: "task-manager"
-        url: "https://vikunja.nullptr.sh"
+        url: "https://tasktrove.nullptr.sh"
         target: "_blank"
 
       - name: "Searxng"
