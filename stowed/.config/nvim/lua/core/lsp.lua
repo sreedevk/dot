@@ -6,6 +6,7 @@ vim.lsp.enable({
   "elmls",
   "erlangls",
   "eslint",
+  "codebook",
   "fennel_ls",
   "gleam",
   "hls",
