@@ -82,13 +82,6 @@ services:
         url: "https://owui.nullptr.sh"
         target: "_blank"
 
-      - name: "TaskTrove"
-        logo: "https://icons.nullptr.sh/tasktrove"
-        subtitle: "Task Managemenet"
-        tag: "task-manager"
-        url: "https://tasktrove.nullptr.sh"
-        target: "_blank"
-
       - name: "Searxng"
         logo: "https://icons.nullptr.sh/searxng"
         subtitle: "Search Engine"
