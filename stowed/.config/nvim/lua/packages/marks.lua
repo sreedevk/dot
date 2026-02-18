@@ -5,8 +5,8 @@ return {
     event = "BufReadPost",
     keys = {
       { '<leader>mm', '<Cmd>MarksListBuf<CR>',      desc = 'list buffer marks',  noremap = true },
-      { '<leader>mg', '<Cmd>MarksQFListGlobal<CR>', desc = 'list global marks',  noremap = true },
-      { '<leader>m0', '<Cmd>BookmarksQFList 0<CR>', desc = 'list bookmarks',     noremap = true },
+      { '<leader>ma', '<Cmd>MarksQFListGlobal<CR>', desc = 'list global marks',  noremap = true },
+      { '<leader>ml', '<Cmd>BookmarksQFList 0<CR>', desc = 'list bookmarks',     noremap = true },
     },
     opts = {
       force_write_shada = false,
