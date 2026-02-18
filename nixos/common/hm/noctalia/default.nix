@@ -62,58 +62,34 @@ in
     };
     pluginSettings = { };
     settings = {
-      dock = {
-        enabled = false;
-      };
+      dock = { enabled = false; };
       controlCenter = {
         position = "close_to_bar_button";
         cards = [
-          {
-            enabled = true;
-            id = "profile-card";
-          }
-          {
-            enabled = true;
-            id = "shortcuts-card";
-          }
-          {
-            enabled = true;
-            id = "audio-card";
-          }
-          {
-            enabled = true;
-            id = "weather-card";
-          }
-          {
-            enabled = true;
-            id = "media-sysmon-card";
-          }
+          { enabled = true; id = "profile-card";      }
+          { enabled = true; id = "shortcuts-card";    }
+          { enabled = true; id = "audio-card";        }
+          { enabled = true; id = "weather-card";      }
+          { enabled = true; id = "media-sysmon-card"; }
         ];
       };
       osd = {
-        enabled = true;
-        location = "top_right";
-        autoHideMs = 2000;
-        overlayLayer = true;
+        enabled           = true;
+        location          = "top_right";
+        autoHideMs        = 2000;
+        overlayLayer      = true;
         backgroundOpacity = 1;
-        enabledTypes = [
-          0
-          1
-          2
-          4
-        ];
-        monitors = [
-          "eDP-1"
-        ];
+        enabledTypes      = [ 0 1 2 4 ];
+        monitors          = [ "eDP-1" ];
       };
       audio = {
-        cavaFrameRate = 120;
-        mprisBlacklist = [ ];
+        cavaFrameRate   = 120;
+        mprisBlacklist  = [ ];
         preferredPlayer = "";
-        visualizerType = "linear";
+        visualizerType  = "linear";
         volumeOverdrive = false;
-        volumeStep = 5;
-        externalMixer = "pwvucontrol || pavucontrol";
+        volumeStep      = 5;
+        externalMixer   = "pwvucontrol || pavucontrol";
       };
       sessionMenu = {
         enableCountdown = true;
@@ -123,30 +99,12 @@ in
         largeButtonsStyle = false;
         showNumberLabels = true;
         powerOptions = [
-          {
-            action = "lock";
-            enabled = true;
-          }
-          {
-            action = "suspend";
-            enabled = true;
-          }
-          {
-            action = "hibernate";
-            enabled = true;
-          }
-          {
-            action = "reboot";
-            enabled = true;
-          }
-          {
-            action = "logout";
-            enabled = true;
-          }
-          {
-            action = "shutdown";
-            enabled = true;
-          }
+          { action = "lock"; enabled = true;      }
+          { action = "suspend"; enabled = true;   }
+          { action = "hibernate"; enabled = true; }
+          { action = "reboot"; enabled = true;    }
+          { action = "logout"; enabled = true;    }
+          { action = "shutdown"; enabled = true;  }
         ];
       };
       notifications = {
@@ -167,27 +125,27 @@ in
           critical = true;
         };
         sounds = {
-          enabled = true;
-          volume = 0.5;
-          separateSounds = false;
+          enabled           = true;
+          volume            = 0.5;
+          separateSounds    = false;
           criticalSoundFile = "";
-          normalSoundFile = "${builtins.getEnv "HOME"}/.config/sounds/knock_brush.mp3";
-          lowSoundFile = "";
-          excludedApps = "feishin,thunderbird,discord,firefox,chrome,chromium,edge";
+          normalSoundFile   = "${builtins.getEnv "HOME"}/.config/sounds/knock_brush.mp3";
+          lowSoundFile      = "";
+          excludedApps      = "feishin,thunderbird,discord,firefox,chrome,chromium,edge";
         };
         enableMediaToast = false;
       };
       appLauncher = {
-        enableClipboardHistory = false;
-        autoPasteClipboard = false;
-        position = "center";
-        backgroundOpacity = 1;
-        pinnedExecs = [ ];
-        useApp2Unit = false;
-        sortByMostUsed = true;
-        terminalCommand = "alacritty -e";
+        enableClipboardHistory    = false;
+        autoPasteClipboard        = false;
+        position                  = "center";
+        backgroundOpacity         = 1;
+        pinnedExecs               = [ ];
+        useApp2Unit               = false;
+        sortByMostUsed            = true;
+        terminalCommand           = "alacritty -e";
         customLaunchPrefixEnabled = false;
-        customLaunchPrefix = "";
+        customLaunchPrefix        = "";
       };
       wallpaper = {
         enabled = true;
