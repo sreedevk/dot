@@ -14,9 +14,6 @@ in
   programs.firefox = {
     enable = true;
     package = config.lib.nixGL.wrapOffload pkgs.firefox-bin;
-    nativeMessagingHosts = with pkgs; [
-      tridactyl-native
-    ];
     profiles = {
 
       main = {
