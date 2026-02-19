@@ -133,7 +133,7 @@ end
 namespace :scripts do
   desc "list firefox addons"
   task :list_firefox_addons do 
-    sh('nix-env -f "<nur>" -qaP -A repos."rycee".firefox-addons | awk "{print $2}" | fzf')
+    sh("nix-env -f '<nixpkgs>' -qaP -A nur.repos.rycee.firefox-addons | awk '{print $2}' | fzf")
   end
 
   desc "add nur channel"
