@@ -10,6 +10,6 @@ with pkgs.nur.repos.rycee.firefox-addons;
   private-grammar-checker-harper
   reddit-enhancement-suite
   sponsorblock
+  tridactyl
   ublock-origin
-  vimium
 ]
