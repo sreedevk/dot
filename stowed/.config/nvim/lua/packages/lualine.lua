@@ -24,7 +24,9 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff' },
-        lualine_c = {},
+        lualine_c = {
+          { function() return vim.fn.pathshorten(vim.fn.getcwd()) end },
+        },
         lualine_x = {
           { 'macro-rec', fmt = macro_rec_stats, color = { fg = "yellow", gui = "bold" } },
         },
