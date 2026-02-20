@@ -12,8 +12,8 @@ return {
       show_close_icon = false,
       show_tab_indicators = true,
       duplicates_across_groups = false,
-      separator_style = "slope", -- "slant" | "slope" | "thick" | "thin"
-      always_show_bufferline = false,
+      separator_style = "thin", -- "slant" | "slope" | "thick" | "thin"
+      always_show_bufferline = true,
       auto_toggle_bufferline = true,
       hover = {
         enabled = false,

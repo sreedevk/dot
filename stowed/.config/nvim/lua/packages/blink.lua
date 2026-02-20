@@ -9,16 +9,11 @@ return {
   {
     'saghen/blink.cmp',
     dependencies = {
-      {
-        'Gelio/cmp-natdat',
-        config = true,
-      },
-      {
-        "mikavilpas/blink-ripgrep.nvim",
-        version = "*",
-      },
+      { 'Gelio/cmp-natdat',              config = true },
+      { "mikavilpas/blink-ripgrep.nvim", version = "*" },
       'kirasok/cmp-hledger',
     },
+    event = { "InsertEnter", "CmdlineEnter" },
     version = '1.*',
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -111,8 +106,14 @@ return {
           },
         },
       },
-      fuzzy = { implementation = "prefer_rust_with_warning" }
+      fuzzy = {
+        implementation = "prefer_rust_with_warning",
+      }
     },
-    opts_extend = { "sources.default" }
+    opts_extend = {
+      "sources.default",
+      "sources.completion.enabled_providers",
+      "sources.compat",
+    }
   }
 }

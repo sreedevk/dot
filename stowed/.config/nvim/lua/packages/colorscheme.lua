@@ -7,7 +7,23 @@ return {
     priority = 1000,
     opts = {
       flavour = "mocha", -- latte, frappe, macchiato, mocha
-      transparent_background = false
+      transparent_background = false,
+      auto_integrations = true,
+      default_integrations = true,
+      integrations = {
+        blink_cmp = true,
+        gitsigns = true,
+        lualine = true,
+        neogit = true,
+        overseer = true,
+        telescope = true,
+        lsp_trouble = true,
+        which_key = true,
+        mini = {
+          enabled = true,
+          indentscope_color = "",
+        },
+      },
     },
     init = function()
       vim.cmd.colorscheme "catppuccin"
@@ -21,16 +37,16 @@ return {
     priority = 1000,
     opts = {
       highlight_groups = {
-        TelescopeBorder         = { fg = "overlay", bg = "overlay"        },
-        TelescopeNormal         = { fg = "subtle",  bg = "overlay"        },
-        TelescopeSelection      = { fg = "text",    bg = "highlight_med"  },
-        TelescopeSelectionCaret = { fg = "love",    bg = "highlight_med"  },
-        TelescopeMultiSelection = { fg = "text",    bg = "highlight_high" },
-        TelescopeTitle          = { fg = "base",    bg = "love"           },
-        TelescopePromptTitle    = { fg = "base",    bg = "pine"           },
-        TelescopePreviewTitle   = { fg = "base",    bg = "iris"           },
-        TelescopePromptNormal   = { fg = "text",    bg = "surface"        },
-        TelescopePromptBorder   = { fg = "surface", bg = "surface"        },
+        TelescopeBorder         = { fg = "overlay", bg = "overlay" },
+        TelescopeNormal         = { fg = "subtle", bg = "overlay" },
+        TelescopeSelection      = { fg = "text", bg = "highlight_med" },
+        TelescopeSelectionCaret = { fg = "love", bg = "highlight_med" },
+        TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
+        TelescopeTitle          = { fg = "base", bg = "love" },
+        TelescopePromptTitle    = { fg = "base", bg = "pine" },
+        TelescopePreviewTitle   = { fg = "base", bg = "iris" },
+        TelescopePromptNormal   = { fg = "text", bg = "surface" },
+        TelescopePromptBorder   = { fg = "surface", bg = "surface" },
       },
       variant = "main",      -- auto, main, moon, or dawn
       dark_variant = "main", -- main, moon, or dawn
