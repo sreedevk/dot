@@ -5,13 +5,8 @@ return {
     build = ":TSUpdate",
     branch = "main",
     config = function()
-      local ts = require 'nvim-treesitter'
-      local parsers = { "bash", "c", "cpp", "css", "csv", "desktop", "diff", "dockerfile", "eex", "elixir", "erlang",
-        "fennel", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "gleam", "haskell",
-        "haskell_persistent", "heex", "html", "http", "hyprlang", "janet_simple", "javascript", "jq", "json", "latex",
-        "ledger", "lua", "make", "markdown", "markdown_inline", "nginx", "nix", "ocaml", "ocaml_interface", "ocamllex",
-        "python", "ruby", "rust", "sql", "ssh_config", "supercollider", "tmux", "todotxt", "toml", "tsv", "typescript",
-        "xml", "yaml", "zathurarc", "zig" }
+      local ts      = require 'nvim-treesitter'
+      local parsers = vim.g.enabled_ts_parsers
 
       local langmaps = {
         { "journal", "ledger" }
