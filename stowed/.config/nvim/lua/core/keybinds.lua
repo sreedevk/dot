@@ -54,6 +54,7 @@ vim.keymap.set({ "n" }, "<leader>co", "<cmd>copen<cr>",  { noremap = true, desc 
 vim.keymap.set({ "n" }, "<leader>cc", "<cmd>cclose<cr>", { noremap = true, desc = "close quickfixlist" })
 
 -- Misc {{{1
+vim.keymap.set('n', '<leader><leader>e', ':', { noremap = true, desc = "command mode" })
 vim.keymap.set('t', "<C-\\><C-\\>", "<C-\\><C-n>", { noremap = true, desc = "escape terminal mode" })
 vim.keymap.set({ 'n', 'v' }, ',', ':', { noremap = true, desc = "enter <cmd> mode" })
 vim.keymap.set('n', '<esc>', '<cmd>noh<cr>', { noremap = true, desc = "no highlights" })
@@ -61,7 +62,6 @@ vim.keymap.set('n', '<Leader>h', '<cmd>noh<CR>', { noremap = true, desc = "no hi
 vim.keymap.set('n', '<Leader>rr', '<cmd>e!<CR>', { noremap = true, desc = "reload buffer from file on disk" })
 vim.keymap.set('n', '<Leader>fs', '<cmd>w<CR>', { noremap = true, desc = "save file" })
 vim.keymap.set('n', '<Leader>q', '<cmd>q<CR>', { noremap = true, desc = "quit neovim" })
-vim.keymap.set('n', '<leader><leader>ex', ':r !sh<CR>')
 vim.keymap.set('n', 'gco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Below' })
 vim.keymap.set('n', 'gcO', 'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Above' })
 vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
