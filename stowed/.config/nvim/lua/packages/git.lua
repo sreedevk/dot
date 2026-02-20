@@ -25,7 +25,6 @@ return {
     lazy = true,
     cmd = "Git",
     keys = {
-      { '<Leader>gb', [[<cmd>Git blame<CR>]],   desc = "Git Blame" },
       { '<Leader>gr', [[:Git rebase -i HEAD~]], desc = "Git Rebase" }
     },
   },
@@ -75,15 +74,35 @@ return {
     'lewis6991/gitsigns.nvim',
     config = true,
     opts = {
+      signs = {
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        changedelete = { text = "▎" },
+        untracked = { text = "▎" },
+      },
       on_attach = function(bufnr)
         local gitsigns = require("gitsigns")
-        local mapping_opts = { noremap = true, buffer = bufnr }
+        local mapping_opts = function(desc)
+          return { noremap = true, buffer = bufnr, desc = desc }
+        end
 
-        vim.keymap.set('n', '<Leader>sh', gitsigns.stage_hunk, mapping_opts)
-        vim.keymap.set('v', '<leader>sh', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
-          mapping_opts)
-        vim.keymap.set('n', '<leader>tb', gitsigns.toggle_current_line_blame, mapping_opts)
-        vim.keymap.set({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+        vim.keymap.set('n', '<Leader>ghs', gitsigns.stage_hunk, mapping_opts("Git Stage Hunk (N)"))
+        vim.keymap.set('v', '<leader>ghs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, mapping_opts("Git Stage Hunk (V)"))
+        vim.keymap.set('n', '<Leader>ghS', gitsigns.undo_stage_hunk, mapping_opts("Git Undo Stage Hunk (N)"))
+        vim.keymap.set('n', '<Leader>ghR', gitsigns.reset_buffer, mapping_opts("Git Reset Buffer"))
+        vim.keymap.set('n', "<leader>ghd", gitsigns.diffthis, mapping_opts("Git Diff This."))
+        vim.keymap.set('n', "<leader>ghp", gitsigns.preview_hunk_inline, mapping_opts("Git Preview Hunk Inline"))
+        vim.keymap.set('n', '<leader>ghB', gitsigns.toggle_current_line_blame, mapping_opts("Git Toggle Current Line Blame"))
+        vim.keymap.set('n', '<leader>ghb', gitsigns.blame_line, mapping_opts("Git Blame Line"))
+        vim.keymap.set('n', '<leader>gb', gitsigns.blame, mapping_opts("Git Blame Buffer"))
+        vim.keymap.set('n', '<leader>ghD', function() gitsigns.diffthis("~") end, mapping_opts("Git Diff This ~"))
+        vim.keymap.set({ 'o', 'x' }, 'ih', ':Gitsigns select_hunk<CR>', mapping_opts("Git Select Hunk"))
+        vim.keymap.set('n', ']H', function() gitsigns.nav_hunk("last") end, mapping_opts("Git First Hunk"))
+        vim.keymap.set('n', '[H', function() gitsigns.nav_hunk("first") end, mapping_opts("Git Last Hunk"))
+        vim.keymap.set('n', ']h', gitsigns.prev_hunk, mapping_opts("Git First Hunk"))
+        vim.keymap.set('n', '[h', gitsigns.next_hunk, mapping_opts("Git Last Hunk"))
       end
     },
   }
