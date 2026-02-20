@@ -123,12 +123,12 @@ services:
         type: "Emby"
         libraryType: "series"
 
-      - name: "Jellyseerr"
-        logo: "https://icons.nullptr.sh/jellyseerr"
+      - name: "Seerr"
+        logo: "https://icons.nullptr.sh/seerr"
         subtitle: "Media Discovery"
         tag: "discovery"
         keywords: "discovery"
-        url: "https://js.nullptr.sh"
+        url: "https://seerr.nullptr.sh"
         target: "_blank"
 
       - name: "Radarr"
