@@ -1,7 +1,16 @@
 return {
-  "cuducos/yaml.nvim",
+  "https://tangled.org/cuducos.me/yaml.nvim",
   lazy = true,
-  ft = { "yaml" },
+  ft = {
+    "yaml",
+    "yaml.docker-compose",
+  },
+  opts = {
+    ft = {
+      "yaml",
+      "yaml.docker-compose",
+    }
+  },
   cmd = {
     "YAMLView",
     "YAMLYank",
