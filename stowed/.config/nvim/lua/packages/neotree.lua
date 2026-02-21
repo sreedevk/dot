@@ -12,10 +12,10 @@ return {
     },
     cmd = { "Neotree" },
     keys = {
-      { "<C-n>",      wrap_cmd("Neotree filesystem reveal toggle"), desc = "Toggle Neotree" },
-      { "<leader>fe", wrap_cmd("Neotree filesystem reveal toggle"), desc = "Toggle Neotree" },
-      { "<leader>be", wrap_cmd("Neotree buffers reveal toggle"),    desc = "Reveal Buffers in Neotree" },
-      { "<leader>nn", wrap_cmd("Neotree current toggle"),           desc = "netrw style full buffer tree" },
+      { "<C-n>",      wrap_cmd("Neotree filesystem reveal toggle"), desc = "filesystem tree toggle" },
+      { "<leader>nn", wrap_cmd("Neotree current toggle"),           desc = "netrw style neotree" },
+      { "<leader>ob", wrap_cmd("Neotree buffers reveal toggle"),    desc = "buffer tree toggle" },
+      { "<leader>op", wrap_cmd("Neotree filesystem reveal toggle"), desc = "filesystem tree toggle" },
     },
     lazy = true,
     opts = {
