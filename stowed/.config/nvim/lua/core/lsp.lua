@@ -5,8 +5,8 @@ vim.lsp.enable({
   "clojure_lsp",
   "elixirls",
   "elmls",
+  "elp", -- erlang
   "emmet_language_server",
-  "erlangls",
   "eslint",
   "fennel_ls",
   "gleam",
