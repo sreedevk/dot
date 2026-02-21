@@ -15,9 +15,9 @@ return {
       "DiffviewRefresh",
     },
     keys = {
-      { "<Leader>do", ":DiffviewOpen",                  desc = "Open Diffview" },
-      { "<Leader>dc", "<cmd>DiffviewClose<CR>",         desc = "Close Diffview" },
-      { "<Leader>dh", "<cmd>DiffviewFileHistory %<CR>", desc = "View Diffview File History" },
+      { "<Leader>gdo", ":DiffviewOpen",                  desc = "Open Diffview" },
+      { "<Leader>gdc", "<cmd>DiffviewClose<CR>",         desc = "Close Diffview" },
+      { "<Leader>gdh", "<cmd>DiffviewFileHistory %<CR>", desc = "View Diffview File History" },
     },
   },
   {
@@ -89,20 +89,21 @@ return {
         end
 
         vim.keymap.set('n', '<Leader>ghs', gitsigns.stage_hunk, mapping_opts("Git Stage Hunk (N)"))
-        vim.keymap.set('v', '<leader>ghs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, mapping_opts("Git Stage Hunk (V)"))
-        vim.keymap.set('n', '<Leader>ghS', gitsigns.undo_stage_hunk, mapping_opts("Git Undo Stage Hunk (N)"))
+        vim.keymap.set('v', '<leader>ghs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
+          mapping_opts("Git Stage Hunk (V)"))
         vim.keymap.set('n', '<Leader>ghR', gitsigns.reset_buffer, mapping_opts("Git Reset Buffer"))
         vim.keymap.set('n', "<leader>ghd", gitsigns.diffthis, mapping_opts("Git Diff This."))
         vim.keymap.set('n', "<leader>ghp", gitsigns.preview_hunk_inline, mapping_opts("Git Preview Hunk Inline"))
-        vim.keymap.set('n', '<leader>ghB', gitsigns.toggle_current_line_blame, mapping_opts("Git Toggle Current Line Blame"))
+        vim.keymap.set('n', '<leader>ghB', gitsigns.toggle_current_line_blame,
+          mapping_opts("Git Toggle Current Line Blame"))
         vim.keymap.set('n', '<leader>ghb', gitsigns.blame_line, mapping_opts("Git Blame Line"))
         vim.keymap.set('n', '<leader>gb', gitsigns.blame, mapping_opts("Git Blame Buffer"))
         vim.keymap.set('n', '<leader>ghD', function() gitsigns.diffthis("~") end, mapping_opts("Git Diff This ~"))
         vim.keymap.set({ 'o', 'x' }, 'ih', ':Gitsigns select_hunk<CR>', mapping_opts("Git Select Hunk"))
         vim.keymap.set('n', ']H', function() gitsigns.nav_hunk("last") end, mapping_opts("Git First Hunk"))
         vim.keymap.set('n', '[H', function() gitsigns.nav_hunk("first") end, mapping_opts("Git Last Hunk"))
-        vim.keymap.set('n', ']h', gitsigns.prev_hunk, mapping_opts("Git First Hunk"))
-        vim.keymap.set('n', '[h', gitsigns.next_hunk, mapping_opts("Git Last Hunk"))
+        vim.keymap.set('n', ']h', function() gitsigns.nav_hunk("prev") end, mapping_opts("Git First Hunk"))
+        vim.keymap.set('n', '[h', function() gitsigns.nav_hunk("next") end, mapping_opts("Git Last Hunk"))
       end
     },
   }
