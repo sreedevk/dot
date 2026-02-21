@@ -176,6 +176,9 @@ return {
     lazy = true,
     event = "BufReadPost",
     dependencies = { "nvim-lua/plenary.nvim" },
+    keys = {
+      { "<Leader>to", [[<cmd>TodoTelescope<CR>]], desc = "#TODO Telescope" },
+    },
     config = true,
   },
 
