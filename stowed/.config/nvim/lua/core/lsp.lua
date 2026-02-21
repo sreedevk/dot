@@ -36,7 +36,11 @@ vim.lsp.config('rust_analyzer', {
   settings = {
     ['rust-analyzer'] = {
       checkOnSave = { enable = false },
-      diagnostics = { enable = false } -- disable this when using "bacon_ls" as a diagnostics lsp for rust
+      diagnostics = { enable = false }, -- disable this when using "bacon_ls" as a diagnostics lsp for rust
+      typing = {
+        tabSize = 2,
+        useTab = false,
+      },
     }
   }
 })
