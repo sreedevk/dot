@@ -3,6 +3,7 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     lazy = true,
+    event = "BufReadPost",
     cmd = {
       "IBLDisableScope",
       "IBLDisable",
@@ -20,19 +21,11 @@ return {
       }
     },
     opts = {
-      enabled = false,
+      enabled = true,
       indent = {
-        highlight = {
-          "CursorColumn",
-          "Whitespace"
-        },
-        char = "",
+        char = { "┊" },
       },
       whitespace = {
-        highlight = {
-          "CursorColumn",
-          "Whitespace"
-        },
         remove_blankline_trail = false
       },
       scope = {
