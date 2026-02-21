@@ -20,9 +20,13 @@ in
             );
 
           genKeyboardBinds =
+            let
+              bindArgAppend = arg: 
+                (if arg == null then "" else ", ${arg}");
+            in
             binds:
             builtins.concatStringsSep "\n" (
-              builtins.map (bind: "bind = ${bind.mod}, ${bind.keys}, ${bind.dispatcher}, ${bind.args}") binds
+              builtins.map (bind: "bind = ${bind.mod}, ${bind.keys}, ${bind.dispatcher}${bindArgAppend bind.args}") binds
             );
         in
         builtins.concatStringsSep "\n" [

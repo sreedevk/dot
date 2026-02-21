@@ -115,6 +115,8 @@ in
     force_default_wallpaper = "0";
     disable_hyprland_logo = "true";
     focus_on_activate = "false";
+    enable_swallow = "true";
+    swallow_regex = "^(Alacritty|kitty)$";
     vrr = "0";
     vfr = "true";
   };
@@ -265,11 +267,11 @@ in
 
       # Notifications Control
       {
-        mod = "CTRL";
-        keys = "Space";
+        mod = "SUPER CTRL";
+        keys = "Escape";
         dispatcher = "exec";
         args = "noctalia ipc call notifications dismissAll";
-      } # C-Space
+      } # Mod-C-Escape
       {
         mod = "SUPER";
         keys = "Space";
@@ -294,7 +296,7 @@ in
         mod = "SUPER";
         keys = "G";
         dispatcher = "togglegroup";
-        args = "";
+        args = null;
       } # Mod-G
 
       # Workspace Navigation
@@ -374,7 +376,7 @@ in
         mod = "SUPER";
         keys = "Escape";
         dispatcher = "togglespecialworkspace";
-        args = "";
+        args = null;
       } # Mod-Esc
 
       # Window & Layout Controls
@@ -406,13 +408,13 @@ in
         mod = "SUPER SHIFT";
         keys = "Space";
         dispatcher = "togglefloating";
-        args = "";
+        args = null;
       } # S-Mod-Space
       {
         mod = "SUPER";
         keys = "F";
         dispatcher = "fullscreen";
-        args = "";
+        args = null;
       } # Mod-F
       {
         mod = "SUPER SHIFT";
@@ -424,7 +426,7 @@ in
         mod = "SUPER SHIFT";
         keys = "Q";
         dispatcher = "killactive";
-        args = "";
+        args = null;
       } # S-Mod-Q
       {
         mod = "SUPER SHIFT";
@@ -558,7 +560,7 @@ in
         mod = "SUPER SHIFT";
         keys = "E";
         dispatcher = "exit";
-        args = "";
+        args = null;
       } # S-Mod-E
       {
         mod = "SUPER";
@@ -632,10 +634,17 @@ in
       } # Mod-N
       {
         mod = "SUPER";
-        keys = "S";
+        keys = "backslash";
         dispatcher = "exec";
         args = "noctalia ipc call settings toggle";
       } # Mod-S
+
+      {
+        mod = "SUPER";
+        keys = "S";
+        dispatcher = "toggleswallow";
+        args = null;
+      } 
 
       # Screen Capture
       {
