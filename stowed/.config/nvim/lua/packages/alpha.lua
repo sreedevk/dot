@@ -39,7 +39,7 @@ return {
   'goolord/alpha-nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
-    vim.keymap.set('n', '<Leader>da', ":Alpha<CR>", { noremap = true })
+    vim.keymap.set('n', '<Leader>al', ":Alpha<CR>", { noremap = true })
 
     local header = {
       type = "text",
