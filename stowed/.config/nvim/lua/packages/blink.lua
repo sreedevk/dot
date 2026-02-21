@@ -55,7 +55,6 @@ return {
             enabled = false,
           },
         },
-        auto_show = false,
         ghost_text = {
           enabled = true,
         },
