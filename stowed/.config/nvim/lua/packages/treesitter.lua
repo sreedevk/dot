@@ -5,8 +5,8 @@ return {
     build = ":TSUpdate",
     branch = "main",
     config = function()
-      local ts      = require 'nvim-treesitter'
-      local parsers = vim.g.enabled_ts_parsers
+      local ts       = require 'nvim-treesitter'
+      local parsers  = vim.g.enabled_ts_parsers
 
       local langmaps = {
         { "journal", "ledger" }
@@ -128,7 +128,8 @@ return {
       local move = require("nvim-treesitter-textobjects.move")
       vim.keymap.set({ "n", "x", "o" }, "]m", function() move.goto_next_start("@function.outer", "textobjects") end)
       vim.keymap.set({ "n", "x", "o" }, "]]", function() move.goto_next_start("@class.outer", "textobjects") end)
-      vim.keymap.set({ "n", "x", "o" }, "]o", function() move.goto_next_start({ "@loop.inner", "@loop.outer" }, "textobjects") end)
+      vim.keymap.set({ "n", "x", "o" }, "]o",
+        function() move.goto_next_start({ "@loop.inner", "@loop.outer" }, "textobjects") end)
       vim.keymap.set({ "n", "x", "o" }, "]s", function() move.goto_next_start("@local.scope", "locals") end)
       vim.keymap.set({ "n", "x", "o" }, "]z", function() move.goto_next_start("@fold", "folds") end)
 
@@ -170,12 +171,13 @@ return {
     },
     cmd = { 'Treewalker' },
     keys = {
-      { '<C-j>',   ':Treewalker Down<CR>',     noremap = true, desc = "Treewalker Down",     silent = true },
-      { '<C-k>',   ':Treewalker Up<CR>',       noremap = true, desc = "Treewalker Up",       silent = true },
-      { '<C-h>',   ':Treewalker Left<CR>',     noremap = true, desc = "Treewalker Left",     silent = true },
-      { '<C-l>',   ':Treewalker Right<CR>',    noremap = true, desc = "Treewalker Right",    silent = true },
-      { '<C-S-j>', ':Treewalker SwapDown<CR>', noremap = true, desc = "Treesitter SwapUp",   silent = true },
-      { '<C-S-k>', ':Treewalker SwapUp<CR>',   noremap = true, desc = "Treesitter SwapDown", silent = true }
+      { '<C-j>',   ':Treewalker Down<CR>',      mode = { 'n', 'v' }, noremap = true, desc = "Treewalker Down",      silent = true },
+      { '<C-k>',   ':Treewalker Up<CR>',        mode = { 'n', 'v' }, noremap = true, desc = "Treewalker Up",        silent = true },
+      { '<C-h>',   ':Treewalker Left<CR>',      mode = { 'n', 'v' }, noremap = true, desc = "Treewalker Left",      silent = true },
+      { '<C-l>',   ':Treewalker Right<CR>',     mode = { 'v', 'n' }, noremap = true, desc = "Treewalker Right",     silent = true },
+
+      { '<C-S-j>', ':Treewalker SwapDown<CR>',  mode = "n",          noremap = true, desc = "Treesitter SwapUp",    silent = true },
+      { '<C-S-k>', ':Treewalker SwapUp<CR>',    mode = "n",          noremap = true, desc = "Treesitter SwapDown",  silent = true },
     },
   },
 
