@@ -58,8 +58,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set({ "n", "x" }, "<leader>clr", vim.lsp.codelens.run, { desc = "LSP: Codelens Run" })
     vim.keymap.set({ "n", "x" }, "<leader>clR", vim.lsp.codelens.refresh, { desc = "LSP: Codelens Refresh" })
 
-    vim.keymap.set({ "n", "x" }, "<leader>clm", vim.lsp.codelens.rename, { desc = "LSP: Rename Buffer" })
-
     vim.keymap.set(
       { 'n', 'v' },
       '<Leader>ff',
