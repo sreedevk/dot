@@ -3,6 +3,22 @@ return {
     'akinsho/git-conflict.nvim',
     version = "*",
     config = true,
+    opts = {
+      -- co — choose ours
+      -- ct — choose theirs
+      -- cb — choose both
+      -- c0 — choose none
+      -- ]x — move to previous conflict
+      -- [x — move to next conflict
+      default_mappings = true,
+      default_commands = true,
+      disable_diagnostics = false,
+      list_opener = 'copen',
+      highlights = {
+        incoming = 'DiffAdd',
+        current = 'DiffText',
+      }
+    }
   },
   {
     "sindrets/diffview.nvim",
