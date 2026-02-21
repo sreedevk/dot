@@ -17,7 +17,7 @@ return {
 
     lualine.setup {
       options = {
-        theme = "catppuccin", -- tokyonight or rose-pine or auto
+        theme = "auto",
         component_separators = { left = '', right = '' },
         section_separators = { left = ' ', right = '' },
       },
