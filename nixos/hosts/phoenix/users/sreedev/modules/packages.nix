@@ -9,11 +9,14 @@
           [
             audacity
             bitwarden-desktop
+            clipse
             cobang
             dbeaver-bin
             easyeffects
             feishin
+            ffmpegthumbnailer
             furnace
+            gf
             gimp3-with-plugins
             gnome-calculator
             gpu-screen-recorder
@@ -23,20 +26,18 @@
             localsend
             nemo-with-extensions
             nvtopPackages.full
+            nwg-look
             obsidian
             openttd
-            prismlauncher
             pavucontrol
+            prismlauncher
             signal-desktop
             slack
             tor-browser
             upscayl
+            wofi
             xpipe
             zed-editor
-            ffmpegthumbnailer
-            clipse
-            nwg-look
-            wofi
           ]
         );
 
