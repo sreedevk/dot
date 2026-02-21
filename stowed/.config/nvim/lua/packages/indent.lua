@@ -23,13 +23,13 @@ return {
     opts = {
       enabled = true,
       indent = {
-        char = { "┊" },
+        char = { "┋" },
       },
       whitespace = {
         remove_blankline_trail = false
       },
       scope = {
-        enabled = true,
+        enabled = false,
       },
     },
   },
