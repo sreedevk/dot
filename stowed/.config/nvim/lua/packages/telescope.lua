@@ -33,6 +33,13 @@ return {
     { '<Leader>th', wrap_cmd("Telescope heading"),                          desc = "Telescope Markdown Headings",  noremap = true },
     { '<Leader>lf', wrap_cmd("Telescope frecency"),                         desc = "Telescope Frecency",           noremap = true },
     {
+      "<leader>p",
+      function()
+        require('telescope').extensions.yank_history.yank_history()
+      end,
+      desc = "Open Yank History",
+    },
+    {
       '<Leader>rg',
       function()
         require('telescope').extensions.live_grep_args.live_grep_args()
@@ -180,7 +187,6 @@ return {
           i = {
             ["<C-k>"] = t_actions.move_selection_previous,
             ["<C-j>"] = t_actions.move_selection_next,
-            ["<C-e>"] = t_actions.smart_send_to_qflist + t_actions.open_qflist,
             ["<esc>"] = t_actions.close,
           },
         }
@@ -223,5 +229,6 @@ return {
     pcall(telscp.load_extension, 'scdoc')
     pcall(telscp.load_extension, 'frecency')
     pcall(telscp.load_extension, 'ui-select')
+    pcall(telscp.load_extension, 'yanky')
   end
 }
