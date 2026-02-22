@@ -1,0 +1,7 @@
+# see https://github.com/sigoden/aichat/blob/main/config.example.yaml
+
+model: ollama:gpt-oss:20b
+clients:
+- type: openai-compatible
+  name: ollama
+  api_base: https://ollama.nullptr.sh/v1
