@@ -1,9 +1,8 @@
-{
-  pkgs,
-  config,
-  username,
-  opts,
-  ...
+{ pkgs
+, config
+, username
+, opts
+, ...
 }:
 {
   imports = [
@@ -64,7 +63,7 @@
     # Current User Specific
 
     ../../secrets.nix
-    ./modules/packages.nix
+    ./modules/packages
     ./modules/restic.nix
     ./modules/ssh.nix
 
