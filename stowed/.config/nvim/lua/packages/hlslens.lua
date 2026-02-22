@@ -61,7 +61,7 @@ return {
       silent = true
     },
     {
-      '<Leader>L',
+      '<Leader>sqf',
       function()
         vim.schedule(function()
           if require('hlslens').exportLastSearchToQuickfix() then
