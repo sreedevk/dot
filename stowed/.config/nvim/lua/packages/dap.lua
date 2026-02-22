@@ -14,9 +14,9 @@ return {
 
           dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open({}) end
           dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close({}) end
-          dap.listeners.before.event_exited["dapui_config"]     = function() dapui.close({}) end
+          dap.listeners.before.event_exited["dapui_config"] = function() dapui.close({}) end
 
-          dap.adapters.gdb                                      = {
+          dap.adapters.gdb = {
             type = "executable",
             command = "gdb",
             args = {
@@ -26,7 +26,7 @@ return {
             }
           }
 
-          dap.adapters["rust-gdb"]                              = {
+          dap.adapters["rust-gdb"] = {
             type = "executable",
             command = "rust-gdb",
             args = {
@@ -36,7 +36,7 @@ return {
             }
           }
 
-          dap.configurations.rust                               = {
+          dap.configurations.rust = {
             {
               name = "Launch",
               type = "rust-gdb",
@@ -73,7 +73,7 @@ return {
             }
           }
 
-          dap.configurations.c                                  = {
+          dap.configurations.c = {
             {
               name = "Launch",
               type = "gdb",
@@ -109,7 +109,7 @@ return {
               cwd = '${workspaceFolder}'
             }
           }
-          dap.configurations.cpp                                = dap.configurations.c
+          dap.configurations.cpp = dap.configurations.c
         end,
         keys = {
           { "<leader>du", function() require("dapui").toggle({}) end, desc = "Dap UI" },
