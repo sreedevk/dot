@@ -644,7 +644,7 @@ in
         keys = "S";
         dispatcher = "toggleswallow";
         args = null;
-      } 
+      }
 
       # Screen Capture
       {
@@ -1160,6 +1160,10 @@ in
     "wl-paste --type text --watch cliphist store"
     "wlsunset -l 40.7 -L -73.9"
     "xrdb ~/.Xresources"
+
+    # TODO: systemctl --user enable --now hyprpolkitagent will work with uwsm,
+    # but not reproducible in current setup
+    "systemctl --user start hyprpolkitagent"
   ];
 
   exec = [ ];
