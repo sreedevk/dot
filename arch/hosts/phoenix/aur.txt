@@ -1,4 +1,4 @@
-droidcam 1:2.1.4-1
+droidcam 1:2.1.5-1
 howdy-git r592.d3ab993-1
 hyprdynamicmonitors-bin 1.4.0-1
 mullvad-vpn-bin 2025.14-1

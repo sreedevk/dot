@@ -195,6 +195,7 @@ waydroid
 webkit2gtk
 webkit2gtk-4.1
 wev
+whois
 wireguard-tools
 wireless_tools
 wireplumber
