@@ -55,7 +55,7 @@ vim.keymap.set({ "n" }, "<leader>cc", "<cmd>cclose<cr>", { noremap = true, desc 
 
 -- Leader Key Role Fix {{{1
 vim.keymap.set('n', ';', '<Nop>')
-vim.keymap.set({'n', 'v'}, ',', ':')
+vim.keymap.set({'n', 'v'}, '<leader><space>', ':', { noremap = true, desc = "Command Mode" })
 vim.keymap.set('n', '<space>l', ';', { noremap = true, desc = "Find Repeat Right (;)" })
 vim.keymap.set('n', '<space>h', ',', { noremap = true, desc = "Find Repeat Left (,)" })
 
