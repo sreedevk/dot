@@ -71,6 +71,7 @@ return {
         return ':noh<CR>'
       end,
       mode = { 'n', 'x' },
+      desc = "Export Last Search to QuickFix",
       expr = true
     }
   },
