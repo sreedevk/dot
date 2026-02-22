@@ -20,10 +20,6 @@ vim.filetype.add {
   },
   filename = {
     ['NEOGIT_COMMIT_EDITMSG'] = 'NeogitCommitMessage',
-    ["docker-compose.yml"]    = "yaml.docker-compose",
-    ["docker-compose.yaml"]   = "yaml.docker-compose",
-    ["compose.yml"]           = "yaml.docker-compose",
-    ["compose.yaml"]          = "yaml.docker-compose",
     ["mix.lock"]              = "elixir"
   },
   pattern = {

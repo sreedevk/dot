@@ -3,12 +3,10 @@ return {
   lazy = true,
   ft = {
     "yaml",
-    "yaml.docker-compose",
   },
   opts = {
     ft = {
       "yaml",
-      "yaml.docker-compose",
     }
   },
   cmd = {
