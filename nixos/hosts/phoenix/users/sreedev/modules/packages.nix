@@ -58,6 +58,7 @@
           aspellDicts.en-computers # aspell computers dictionary
           aspellDicts.en-science   # aspell science dictionary
           attic-client             # attic self hosted cache client
+          browsh                   # Fully-modern text-based browser
           bwfzf                    # bitwarden fzf
           caligula                 # lightweight TUI for disk imaging
           cava                     # audio visualizer
