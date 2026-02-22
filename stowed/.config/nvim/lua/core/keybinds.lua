@@ -50,13 +50,17 @@ vim.keymap.set("n", "<leader><leader>la", "<cmd>source %<CR>", { noremap = true,
 
 
 -- QuickfixList {{{1
-vim.keymap.set({ "n" }, "<leader>co", "<cmd>copen<cr>",  { noremap = true, desc = "open quickfixlist" })
+vim.keymap.set({ "n" }, "<leader>co", "<cmd>copen<cr>", { noremap = true, desc = "open quickfixlist" })
 vim.keymap.set({ "n" }, "<leader>cc", "<cmd>cclose<cr>", { noremap = true, desc = "close quickfixlist" })
+
+-- Leader Key Role Fix {{{1
+vim.keymap.set('n', ';', '<Nop>')
+vim.keymap.set('n', '<space>l', ';')
+vim.keymap.set('n', '<space>h', ',')
 
 -- Misc {{{1
 vim.keymap.set('n', '<leader><leader>e', ':', { noremap = true, desc = "command mode" })
 vim.keymap.set('t', "<C-\\><C-\\>", "<C-\\><C-n>", { noremap = true, desc = "escape terminal mode" })
-vim.keymap.set({ 'n', 'v' }, ',', ':', { noremap = true, desc = "enter <cmd> mode" })
 vim.keymap.set('n', '<esc>', '<cmd>noh<cr>', { noremap = true, desc = "no highlights" })
 vim.keymap.set('n', '<Leader>h', '<cmd>noh<CR>', { noremap = true, desc = "no highlights" })
 vim.keymap.set('n', '<Leader>rr', '<cmd>e!<CR>', { noremap = true, desc = "reload buffer from file on disk" })
