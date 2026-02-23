@@ -17,6 +17,9 @@ return {
       { "<leader>ob", wrap_cmd("Neotree buffers reveal toggle"),    desc = "buffer tree toggle" },
       { "<leader>op", wrap_cmd("Neotree filesystem reveal toggle"), desc = "filesystem tree toggle" },
     },
+    deactivate = function()
+      vim.cmd([[Neotree close]])
+    end,
     lazy = true,
     opts = {
       close_if_last_window = true,
@@ -181,6 +184,10 @@ return {
             ["<C-j>"] = "move_cursor_down",
             ["<up>"] = "move_cursor_up",
             ["<C-k>"] = "move_cursor_up",
+            ["<esc>"] = "close",
+            ["<S-CR>"] = "close_keep_filter",
+            ["<C-CR>"] = "close_clear_filter",
+            ["<C-w>"] = { "<C-S-w>", raw = true },
           },
         }
       },
