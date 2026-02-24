@@ -105,6 +105,15 @@
     RADARR_API_KEY = "$(cat ${config.age.secrets.radarr-api-key.path})";
     SONARR_API_KEY = "$(cat ${config.age.secrets.sonarr-api-key.path})";
     WALLHAVEN_API_KEY = "$(cat ${config.age.secrets.wallhaven-token.path})";
+    _ZO_EXCLUDE_DIRS = builtins.concatStringsSep ":" [
+      "${opts.directories.documents}/*"
+      "${opts.directories.finances}/*"
+      "${opts.directories.notebook}/*"
+      "${opts.directories.downloads}/*"
+      "/mnt/*"
+      "/nix/*"
+      "/opt/*"
+    ];
   };
 
   nix = {
