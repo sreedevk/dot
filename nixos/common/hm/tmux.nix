@@ -1,7 +1,6 @@
 { pkgs
 , opts
 , config
-, username
 , ...
 }:
 let
@@ -96,7 +95,7 @@ in
       bind -r B  switch-client -p
       bind | if-shell "tmux has-session -t system 2>/dev/null" \
                       "switch-client -t system" \
-                      "new-session -d -s system -c '/home/${username}'; switch-client -t system"
+                      "new-session -d -s system -c '${builtins.getEnv "HOME"}'; switch-client -t system"
 
       # COPY MODE
       bind -T   copy-mode-vi v      send-keys -X begin-selection
@@ -124,7 +123,7 @@ in
       bind C-t neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui
       bind C-u if-shell "tmux has-session -t system 2>/dev/null" \
                         "switch-client -t system" \
-                        "new-session -d -s system -c '/home/${username}'; switch-client -t system"
+                        "new-session -d -s system -c '${builtins.getEnv "HOME"}'; switch-client -t system"
       bind C-w neww ${bwfzf}/bin/bwfzf
       bind C-v run-shell "wl-paste | tmux load-buffer - ; tmux paste-buffer"
 
@@ -195,5 +194,15 @@ in
       set -s  escape-time   0
       set -sg repeat-time   300
     '';
+  };
+
+  programs.sesh = {
+    enable = true;
+    package = pkgs.sesh;
+    enableAlias = false;
+    enableTmuxIntegration = false;
+    # tmuxKey = "q";
+    icons = true;
+    settings = { };
   };
 }
