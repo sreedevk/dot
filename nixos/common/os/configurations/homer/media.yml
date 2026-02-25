@@ -190,7 +190,7 @@ services:
         logo: "https://icons.nullptr.sh/karakeep"
         subtitle: "Web & Links Archivers"
         tag: "data+link archiver"
-        keywords: "hoarder"
+        keywords: "karakeep"
         url: "https://kk.nullptr.sh"
         target: "_blank"
 
