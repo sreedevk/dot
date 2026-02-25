@@ -1,16 +1,18 @@
 { inputs, ... }:
 _: prev: {
   inherit (inputs.stablepkgs.legacyPackages.${prev.stdenv.hostPlatform.system})
-    adguard
-    ardour
-    awscli2
-    davinci-resolve
-    gurk-rs
+    jiratui
     imager
-    jellyfin-media-player
-    obs-studio
-    obs-studio-plugins
-    silicon
-    zls
+    iwd
+    beets
+    ;
+
+  inherit (inputs.stablepkgs.legacyPackages.${prev.stdenv.hostPlatform.system}.python313Packages)
+    autodocsumm
+    sphinx
+    sphinx-toolbox
+    sphinx-prompt
+    poetry-core
+    cherrypy
     ;
 }
