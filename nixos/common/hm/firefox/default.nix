@@ -4,11 +4,11 @@
 , ...
 }:
 let
-  extensions    = import ./extensions.nix { inherit pkgs system; };
-  settings      = import ./settings.nix;
-  searchEngines = import ./search-engines.nix;
   bookmarks     = import ./bookmarks.nix;
   containers    = import ./containers.nix;
+  extensions    = import ./extensions.nix { inherit pkgs system; };
+  searchEngines = import ./search-engines.nix;
+  settings      = import ./settings.nix;
 in
 {
   programs.firefox = {
@@ -17,10 +17,12 @@ in
     profiles = {
 
       main = {
+        inherit containers;
+        inherit settings;
+        inherit bookmarks;
         isDefault = true;
         id = 0;
         containersForce = false;
-        inherit containers;
         extensions = {
           packages = extensions;
         };
@@ -30,8 +32,6 @@ in
           privateDefault = "ddg";
           engines = searchEngines;
         };
-        inherit settings;
-        inherit bookmarks;
       };
 
     };
