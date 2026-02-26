@@ -561,206 +561,56 @@ in
     ];
 
     layer = [
-      {
-        rule = "animation slide left";
-        addr = "sideleft.*";
-      }
-      {
-        rule = "animation slide right";
-        addr = "sideright.*";
-      }
-      {
-        rule = "blur on";
-        addr = "bar";
-      }
-      {
-        rule = "blur on";
-        addr = "cheatsheet";
-      }
-      {
-        rule = "blur on";
-        addr = "corner.*";
-      }
-      {
-        rule = "blur on";
-        addr = "dock";
-      }
-      {
-        rule = "blur on";
-        addr = "gtk-layer-shell";
-      }
-      {
-        rule = "blur on";
-        addr = "indicator*";
-      }
-      {
-        rule = "blur on";
-        addr = "indicator.*";
-      }
-      {
-        rule = "blur on";
-        addr = "launcher";
-      }
-      {
-        rule = "blur on";
-        addr = "notifications";
-      }
-      {
-        rule = "blur on";
-        addr = "notifications";
-      }
-      {
-        rule = "blur on";
-        addr = "osk";
-      }
-      {
-        rule = "blur on";
-        addr = "overview";
-      }
-      {
-        rule = "blur on";
-        addr = "rofi";
-      }
-      {
-        rule = "blur on";
-        addr = "session";
-      }
-      {
-        rule = "blur on";
-        addr = "shell:*";
-      }
-      {
-        rule = "blur on";
-        addr = "sideleft";
-      }
-      {
-        rule = "blur on";
-        addr = "sideright";
-      }
-      {
-        rule = "blur on";
-        addr = "vicinae";
-      }
-      {
-        rule = "ignore_alpha 0";
-        addr = "rofi";
-      }
-      {
-        rule = "ignore_alpha 0";
-        addr = "vicinae";
-      }
-      {
-        rule = "ignore_alpha 0.5";
-        addr = "launcher";
-      }
-      {
-        rule = "ignore_alpha 0.6";
-        addr = "bar";
-      }
-      {
-        rule = "ignore_alpha 0.6";
-        addr = "cheatsheet";
-      }
-      {
-        rule = "ignore_alpha 0.6";
-        addr = "corner.*";
-      }
-      {
-        rule = "ignore_alpha 0.6";
-        addr = "dock";
-      }
-      {
-        rule = "ignore_alpha 0.6";
-        addr = "indicator*";
-      }
-      {
-        rule = "ignore_alpha 0.6";
-        addr = "indicator.*";
-      }
-      {
-        rule = "ignore_alpha 0.6";
-        addr = "osk";
-      }
-      {
-        rule = "ignore_alpha 0.6";
-        addr = "overview";
-      }
-      {
-        rule = "ignore_alpha 0.6";
-        addr = "shell:*";
-      }
-      {
-        rule = "ignore_alpha 0.6";
-        addr = "sideleft";
-      }
-      {
-        rule = "ignore_alpha 0.6";
-        addr = "sideright";
-      }
-      {
-        rule = "ignore_alpha 0.69";
-        addr = "notifications";
-      }
-      {
-        rule = "ignore_alpha 0.1";
-        addr = "gtk-layer-shell";
-      }
-      {
-        rule = "ignore_alpha 0.1";
-        addr = "notifications";
-      }
-      {
-        rule = "ignore_alpha 0.1";
-        addr = "notifications";
-      }
-      {
-        rule = "ignore_alpha 0.1";
-        addr = "rofi";
-      }
-      {
-        rule = "no_anim on";
-        addr = "anyrun";
-      }
-      {
-        rule = "no_anim on";
-        addr = "hyprpicker";
-      }
-      {
-        rule = "no_anim on";
-        addr = "indicator.*";
-      }
-      {
-        rule = "no_anim on";
-        addr = "noanim";
-      }
-      {
-        rule = "no_anim on";
-        addr = "osk";
-      }
-      {
-        rule = "no_anim on";
-        addr = "overview";
-      }
-      {
-        rule = "no_anim on";
-        addr = "rofi";
-      }
-      {
-        rule = "no_anim on";
-        addr = "selection";
-      }
-      {
-        rule = "no_anim on";
-        addr = "vicinae";
-      }
-      {
-        rule = "no_anim on";
-        addr = "walker";
-      }
-      {
-        rule = "xray on";
-        addr = ".*";
-      }
+      { rule = "animation slide left"; addr = "sideleft.*"; }
+      { rule = "animation slide right"; addr = "sideright.*"; }
+      { rule = "blur on"; addr = "bar"; }
+      { rule = "blur on"; addr = "cheatsheet"; }
+      { rule = "blur on"; addr = "corner.*"; }
+      { rule = "blur on"; addr = "dock"; }
+      { rule = "blur on"; addr = "gtk-layer-shell"; }
+      { rule = "blur on"; addr = "indicator*"; }
+      { rule = "blur on"; addr = "indicator.*"; }
+      { rule = "blur on"; addr = "launcher"; }
+      { rule = "blur on"; addr = "notifications"; }
+      { rule = "blur on"; addr = "notifications"; }
+      { rule = "blur on"; addr = "osk"; }
+      { rule = "blur on"; addr = "overview"; }
+      { rule = "blur on"; addr = "rofi"; }
+      { rule = "blur on"; addr = "session"; }
+      { rule = "blur on"; addr = "shell:*"; }
+      { rule = "blur on"; addr = "sideleft"; }
+      { rule = "blur on"; addr = "sideright"; }
+      { rule = "blur on"; addr = "vicinae"; }
+      { rule = "ignore_alpha 0"; addr = "rofi"; }
+      { rule = "ignore_alpha 0"; addr = "vicinae"; }
+      { rule = "ignore_alpha 0.5"; addr = "launcher"; }
+      { rule = "ignore_alpha 0.6"; addr = "bar"; }
+      { rule = "ignore_alpha 0.6"; addr = "cheatsheet"; }
+      { rule = "ignore_alpha 0.6"; addr = "corner.*"; }
+      { rule = "ignore_alpha 0.6"; addr = "dock"; }
+      { rule = "ignore_alpha 0.6"; addr = "indicator*"; }
+      { rule = "ignore_alpha 0.6"; addr = "indicator.*"; }
+      { rule = "ignore_alpha 0.6"; addr = "osk"; }
+      { rule = "ignore_alpha 0.6"; addr = "overview"; }
+      { rule = "ignore_alpha 0.6"; addr = "shell:*"; }
+      { rule = "ignore_alpha 0.6"; addr = "sideleft"; }
+      { rule = "ignore_alpha 0.6"; addr = "sideright"; }
+      { rule = "ignore_alpha 0.69"; addr = "notifications"; }
+      { rule = "ignore_alpha 0.1"; addr = "gtk-layer-shell"; }
+      { rule = "ignore_alpha 0.1"; addr = "notifications"; }
+      { rule = "ignore_alpha 0.1"; addr = "notifications"; }
+      { rule = "ignore_alpha 0.1"; addr = "rofi"; }
+      { rule = "no_anim on"; addr = "anyrun"; }
+      { rule = "no_anim on"; addr = "hyprpicker"; }
+      { rule = "no_anim on"; addr = "indicator.*"; }
+      { rule = "no_anim on"; addr = "noanim"; }
+      { rule = "no_anim on"; addr = "osk"; }
+      { rule = "no_anim on"; addr = "overview"; }
+      { rule = "no_anim on"; addr = "rofi"; }
+      { rule = "no_anim on"; addr = "selection"; }
+      { rule = "no_anim on"; addr = "vicinae"; }
+      { rule = "no_anim on"; addr = "walker"; }
+      { rule = "xray on"; addr = ".*"; }
     ];
   };
 
