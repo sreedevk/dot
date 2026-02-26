@@ -16,6 +16,7 @@ return {
       { "<leader>nn", wrap_cmd("Neotree current toggle"),           desc = "netrw style neotree" },
       { "<leader>ob", wrap_cmd("Neotree buffers reveal toggle"),    desc = "buffer tree toggle" },
       { "<leader>op", wrap_cmd("Neotree filesystem reveal toggle"), desc = "filesystem tree toggle" },
+      { "<leader>og", wrap_cmd("Neotree git_status reveal toggle"), desc = "git_status tree toggle" },
     },
     deactivate = function()
       vim.cmd([[Neotree close]])
