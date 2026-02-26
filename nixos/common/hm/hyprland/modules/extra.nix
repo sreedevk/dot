@@ -13,11 +13,13 @@ in
       enable = true;
       text =
         let
-          xwayland = utils.genNested "xwayland" hyprconf.xwayland;
-          dwindle = utils.genNested "dwindle" hyprconf.dwindle;
-          master = utils.genNested "master" hyprconf.master;
-          misc = utils.genNested "misc" hyprconf.misc;
-          parsedconfs = xwayland ++ dwindle ++ master ++ misc;
+          dwindle     = utils.genNested "dwindle" hyprconf.dwindle;
+          master      = utils.genNested "master" hyprconf.master;
+          misc        = utils.genNested "misc" hyprconf.misc;
+          scrolling   = utils.genNested "scrolling" hyprconf.scrolling;
+          xwayland    = utils.genNested "xwayland" hyprconf.xwayland;
+
+          parsedconfs = xwayland ++ dwindle ++ scrolling ++ master ++ misc;
         in
         builtins.concatStringsSep "\n" (pkgs.lib.lists.flatten parsedconfs);
     };
