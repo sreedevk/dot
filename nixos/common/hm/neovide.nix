@@ -2,7 +2,7 @@
 {
   programs.neovide = {
     enable = true;
-    package = (config.lib.nixGL.wrapOffload pkgs.neovide);
+    package = config.lib.nixGL.wrapOffload pkgs.neovide;
     settings = {
       fork = true;
       wsl = false;

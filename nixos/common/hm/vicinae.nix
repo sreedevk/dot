@@ -46,21 +46,23 @@
           open-search-filter = "control+P";
           open-settings = "control+,";
           toggle-action-panel = "control+B";
-          action.copy = "control+shift+C";
-          action.copy-name = "control+shift+.";
-          action.copy-path = "control+shift+,";
-          action.dangerous-remove = "control+shift+X";
-          action.duplicate = "control+D";
-          action.edit = "control+E";
-          action.edit-secondary = "control+shift+E";
-          action.move-down = "control+shift+ARROWDOWN";
-          action.move-up = "control+shift+ARROWUP";
-          action.new = "control+N";
-          action.open = "control+O";
-          action.pin = "control+shift+P";
-          action.refresh = "control+R";
-          action.remove = "control+X";
-          action.save = "control+S";
+          action = {
+            copy             = "control+shift+C";
+            copy-name        = "control+shift+.";
+            copy-path        = "control+shift+,";
+            dangerous-remove = "control+shift+X";
+            duplicate        = "control+D";
+            edit             = "control+E";
+            edit-secondary   = "control+shift+E";
+            move-down        = "control+shift+ARROWDOWN";
+            move-up          = "control+shift+ARROWUP";
+            new              = "control+N";
+            open             = "control+O";
+            pin              = "control+shift+P";
+            refresh          = "control+R";
+            remove           = "control+X";
+            save             = "control+S";
+          };
         };
         favorites = [
           "clipboard:history"
