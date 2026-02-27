@@ -112,11 +112,11 @@ in
   };
 
   scrolling = {
-    # fullscreen_on_one_column = "true";
-    # column_width = "0.75";
-    # focus_fit_method = "0"; # 0 = center; 1 = fit
-    # follow_focus = "true";
-    # direction = "right";
+    fullscreen_on_one_column = "true";
+    column_width = "0.75";
+    focus_fit_method = "0"; # 0 = center; 1 = fit
+    follow_focus = "true";
+    direction = "right";
   };
 
   misc = {
@@ -251,8 +251,10 @@ in
       { mod = "SUPER"; keys = "K"; dispatcher = "movefocus"; args = "u"; } # Mod-K
       { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; } # Mod-L
       { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; } # Mod-Tab
-      { mod = "SUPER"; keys = "x"; dispatcher = "exec"; args = "hyprctl kill"; } # Mod-x
       { mod = "SUPER"; keys = "m"; dispatcher = "layoutmsg"; args = "swapwithmaster master"; } # Mod-m
+      { mod = "SUPER"; keys = "x"; dispatcher = "layoutmsg"; args = "fit all"; } # Mod-x
+      { mod = "SUPER SHIFT"; keys = "comma"; dispatcher = "layoutmsg"; args = "fit tobeg"; } # Mod-x
+      { mod = "SUPER SHIFT"; keys = "period"; dispatcher = "layoutmsg"; args = "fit toend"; } # Mod-x
 
       # Desktop Mode Controls
       { mod = "SUPER CTRL"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call lockScreen lock"; } # C-Mod-Space
@@ -322,6 +324,7 @@ in
         rules = [
           "monitor:desc:${getAttr "desc" (elemAt opts.monitors 2)}"
           "default:true"
+          "layout:scrolling"
         ];
       }
       {
@@ -329,6 +332,7 @@ in
         rules = [
           "monitor:desc:${getAttr "desc" (elemAt opts.monitors 2)}"
           "default:false"
+          "layout:scrolling"
         ];
       }
       {
@@ -336,6 +340,7 @@ in
         rules = [
           "monitor:desc:${getAttr "desc" (elemAt opts.monitors 2)}"
           "default:false"
+          "layout:scrolling"
         ];
       }
     ];
