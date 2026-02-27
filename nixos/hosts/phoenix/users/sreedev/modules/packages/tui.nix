@@ -41,6 +41,7 @@
       gping                    # ping grapher
       graphviz                 # graph visualizer
       gurk-rs                  # signal messenger tui
+      helix                    # post-modern modal text editor
       hexyl                    # cli hex viewer
       hledger                  # plain text cli accounting
       hledger-iadd             # hledger interactively add transactions
