@@ -224,11 +224,13 @@ return {
     "danymat/neogen",
     lazy = true,
     keys = {
-      { '<Leader>ac', function() require("neogen").generate({ type = 'class' }) end, desc = "Annotate Class" },
-      { '<Leader>af', function() require("neogen").generate({ type = 'func' }) end,  desc = "Annotate Function" },
-      { '<Leader>at', function() require("neogen").generate({ type = 'type' }) end,  desc = "Annotate Type " },
+      { "<leader>cn", function() require("neogen").generate() end, desc = "Generate Annotations (Neogen)" },
+      { "<leader>cN", function() require("neogen").generate({ type = "file" }) end, desc = "Generate Annotations (Neogen)" },
     },
-    opts = { snippet_engine = "luasnip" },
+    cmd = 'Neogen',
+    opts = {
+      snippet_engine = "nvim",
+    },
   },
 
   {
