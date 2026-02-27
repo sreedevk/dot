@@ -50,6 +50,22 @@ in
       action = "workspace";
       args = null;
     }
+    {
+      fingers = "2";
+      direction = "pinchin";
+      modifier = null;
+      scale = null;
+      action = "cursorZoom";
+      args = "1.6, mult";
+    }
+    {
+      fingers = "2";
+      direction = "pinchout";
+      modifier = null;
+      scale = null;
+      action = "cursorZoom";
+      args = "0.625, mult";
+    }
   ];
 
   decoration = {
@@ -293,9 +309,11 @@ in
       { mod = "SUPER SHIFT"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | wl-copy"; } # S-Mod-S
       { mod = "SUPER CTRL"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -o $(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name') - | wl-copy"; } # C-Mod-S
       { mod = "SUPER ALT"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -g \"$(hyprctl activewindow -j | jq '(.at | \"\\(.[0]),\\(.[1])\"),(.size | \"\\(.[0])x\\(.[1])\")' | xargs)\" - | wl-copy"; } # M-Mod-S
+      # { mod = "SUPER"; keys = "mouse_down"; dispatcher = "workspace"; args = "e-1"; }
+      # { mod = "SUPER"; keys = "mouse_up"; dispatcher = "workspace"; args = "e+1"; }
     ];
     mouse = [
-      { mod = "SUPER"; button = "mouse:272"; dispatcher = "movewindow"; }
+      { mod = "SUPER"; button = "mouse:272"; dispatcher = "movewindow"; args = null; }
     ];
   };
 
