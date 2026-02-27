@@ -14,7 +14,16 @@
       faviconService = "twenty"; # twenty | google | none
       popToRootOnClose = false;
       rootSearch.searchFiles = false;
-      theme.name = "rose-pine";
+      theme = {
+        light = {
+          name = "rose-pine";
+          icon_theme = "auto";
+        };
+        dark = {
+          name = "rose-pine";
+          icon_theme = "auto";
+        };
+      };
       launcher_window = {
         client_side_decorations = {
           enabled = true;
