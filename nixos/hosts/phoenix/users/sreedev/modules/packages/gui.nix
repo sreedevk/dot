@@ -2,20 +2,14 @@
 {
   home.packages =
     let
-      xGPUPackages = [ ];
+      xGPUPackages = [];
       iGPUPackages =
-        with builtins;
-        map (ipkg: (config.lib.nixGL.wrap ipkg)) (
-          with pkgs;
-          [
-            prismlauncher
-          ]
-        );
+        map (ipkg: (config.lib.nixGL.wrap ipkg)) ([]);
       dGPUPackages =
         with builtins;
         map (ipkg: (config.lib.nixGL.wrapOffload ipkg)) (
           with pkgs;
-          [
+          [ 
             audacity
             bitwarden-desktop
             clipse
