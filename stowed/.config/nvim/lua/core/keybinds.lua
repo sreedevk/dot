@@ -72,7 +72,11 @@ vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
 vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
 vim.keymap.set('v', '<Leader>lc', [[<cmd>echo line("'>") - line("'<") + 1<CR>]],
   { noremap = true, desc = "Count Selected Lines" })
+
+-- Copied from helix
 vim.keymap.set('n', 'U', vim.cmd.redo, { desc = "redo", noremap = true })
+vim.keymap.set('n', 'gh', '<cmd>normal _<cr>', { desc = "beginning of line", noremap = true })
+vim.keymap.set('n', 'gl', '<cmd>normal $<cr>', { desc = "end of line", noremap = true })
 
 vim.keymap.set(
   { 'n' },
