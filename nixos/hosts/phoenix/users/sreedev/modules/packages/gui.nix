@@ -1,41 +1,57 @@
 { config, pkgs, ... }:
 {
   home.packages =
-    with builtins;
-    map (ipkg: (config.lib.nixGL.wrapOffload ipkg)) (
-      with pkgs;
-      [
-        audacity
-        bitwarden-desktop
-        clipse
-        cobang
-        dbeaver-bin
-        easyeffects
-        feishin
-        ffmpegthumbnailer
-        furnace
-        gf
-        gimp3-with-plugins
-        gnome-calculator
-        gpu-screen-recorder
-        gpu-screen-recorder-gtk
-        jellyfin-desktop
-        libreoffice-fresh
-        localsend
-        nemo-with-extensions
-        nvtopPackages.full
-        nwg-look
-        obsidian
-        openttd
-        pavucontrol
-        prismlauncher
-        signal-desktop
-        slack
-        tor-browser
-        upscayl
-        wofi
-        xpipe
-        zed-editor
-      ]
-    );
+    let
+      xGPUPackages = [ ];
+      iGPUPackages =
+        with builtins;
+        map (ipkg: (config.lib.nixGL.wrap ipkg)) (
+          with pkgs;
+          [
+            prismlauncher
+          ]
+        );
+      dGPUPackages =
+        with builtins;
+        map (ipkg: (config.lib.nixGL.wrapOffload ipkg)) (
+          with pkgs;
+          [
+            audacity
+            bitwarden-desktop
+            clipse
+            cobang
+            dbeaver-bin
+            easyeffects
+            feishin
+            ffmpegthumbnailer
+            furnace
+            gf
+            gimp3-with-plugins
+            gnome-calculator
+            gpu-screen-recorder
+            gpu-screen-recorder-gtk
+            jellyfin-desktop
+            libreoffice-fresh
+            localsend
+            nemo-with-extensions
+            nvtopPackages.full
+            nwg-look
+            obsidian
+            openttd
+            pavucontrol
+            signal-desktop
+            slack
+            tor-browser
+            upscayl
+            wofi
+            xpipe
+            zed-editor
+          ]
+        );
+    in
+    builtins.concatLists [
+      iGPUPackages
+      dGPUPackages
+      xGPUPackages
+    ];
 }
