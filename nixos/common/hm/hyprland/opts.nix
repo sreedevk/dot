@@ -265,9 +265,9 @@ in
       { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; } # Mod-L
 
       # Master Layout Keybindings
-      { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; } # Mod-Tab
       { mod = "SUPER"; keys = "m"; dispatcher = "layoutmsg"; args = "swapwithmaster master"; } # Mod-m
-      { mod = "SUPER SHIFT"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollprev"; } # S-Mod-Tab
+      { mod = "SUPER"; keys = "comma"; dispatcher = "layoutmsg"; args = "rollnext"; }
+      { mod = "SUPER"; keys = "period"; dispatcher = "layoutmsg"; args = "rollprev"; }
 
       # Scrolling Layout Keybindings
       { mod = "SUPER"; keys = "x"; dispatcher = "layoutmsg"; args = "fit all"; } # Mod-x
@@ -275,8 +275,8 @@ in
       { mod = "SUPER"; keys = "bracketleft"; dispatcher = "layoutmsg"; args = "fit toend"; } # Mod-[
 
       # Monocle Layout Keybindings
-      { mod = "SUPER"; keys = "comma"; dispatcher = "layoutmsg"; args = "cyclenext"; }
-      { mod = "SUPER"; keys = "period"; dispatcher = "layoutmsg"; args = "cycleprev"; }
+      { mod = "SUPER SHIFT"; keys = "Tab"; dispatcher = "layoutmsg"; args = "cycleprev"; } # S-Mod-Tab
+      { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "cyclenext"; } # Mod-Tab
 
       # Layout Swapper
       { mod = "SUPER CTRL"; keys = "m"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'master'"; }
@@ -309,8 +309,6 @@ in
       { mod = "SUPER SHIFT"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | wl-copy"; } # S-Mod-S
       { mod = "SUPER CTRL"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -o $(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name') - | wl-copy"; } # C-Mod-S
       { mod = "SUPER ALT"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -g \"$(hyprctl activewindow -j | jq '(.at | \"\\(.[0]),\\(.[1])\"),(.size | \"\\(.[0])x\\(.[1])\")' | xargs)\" - | wl-copy"; } # M-Mod-S
-      # { mod = "SUPER"; keys = "mouse_down"; dispatcher = "workspace"; args = "e-1"; }
-      # { mod = "SUPER"; keys = "mouse_up"; dispatcher = "workspace"; args = "e+1"; }
     ];
     mouse = [
       { mod = "SUPER"; button = "mouse:272"; dispatcher = "movewindow"; args = null; }
