@@ -168,7 +168,7 @@ in
     border_size = "2";
     resize_on_border = "false";
     allow_tearing = "false";
-    layout = "master";
+    layout = "scrolling";
     "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
     "col.inactive_border" = "rgba(595959aa)";
   };
@@ -221,8 +221,6 @@ in
       { mod = "SUPER"; keys = "Minus"; dispatcher = "workspace"; args = "11"; } # Mod-11
       { mod = "SUPER"; keys = "Equal"; dispatcher = "workspace"; args = "12"; } # Mod-12
       { mod = "SUPER"; keys = "Escape"; dispatcher = "togglespecialworkspace"; args = null; } # Mod-Esc
-      { mod = "SUPER"; keys = "bracketright"; dispatcher = "layoutmsg"; args = "move +col"; } # Mod-]
-      { mod = "SUPER"; keys = "bracketleft"; dispatcher = "layoutmsg"; args = "move -col"; } # Mod-[
 
       # Window & Layout Controls
       { mod = "SUPER SHIFT"; keys = "H"; dispatcher = "swapwindow"; args = "l"; } # S-Mod-H
@@ -231,7 +229,6 @@ in
       { mod = "SUPER SHIFT"; keys = "L"; dispatcher = "swapwindow"; args = "r"; } # S-Mod-L
       { mod = "SUPER SHIFT"; keys = "Space"; dispatcher = "togglefloating"; args = null; } # S-Mod-Space
       { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = null; } # Mod-F
-      { mod = "SUPER SHIFT"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollprev"; } # S-Mod-Tab
       { mod = "SUPER SHIFT"; keys = "Q"; dispatcher = "killactive"; args = null; } # S-Mod-Q
       { mod = "SUPER SHIFT"; keys = "0"; dispatcher = "movetoworkspace"; args = "10"; } # S-Mod-0
       { mod = "SUPER SHIFT"; keys = "1"; dispatcher = "movetoworkspace"; args = "1"; } # S-Mod-1
@@ -250,11 +247,25 @@ in
       { mod = "SUPER"; keys = "J"; dispatcher = "movefocus"; args = "d"; } # Mod-J
       { mod = "SUPER"; keys = "K"; dispatcher = "movefocus"; args = "u"; } # Mod-K
       { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; } # Mod-L
+
+      # Master Layout Keybindings
       { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; } # Mod-Tab
       { mod = "SUPER"; keys = "m"; dispatcher = "layoutmsg"; args = "swapwithmaster master"; } # Mod-m
+      { mod = "SUPER SHIFT"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollprev"; } # S-Mod-Tab
+
+      # Scrolling Layout Keybindings
       { mod = "SUPER"; keys = "x"; dispatcher = "layoutmsg"; args = "fit all"; } # Mod-x
-      { mod = "SUPER SHIFT"; keys = "comma"; dispatcher = "layoutmsg"; args = "fit tobeg"; } # Mod-x
-      { mod = "SUPER SHIFT"; keys = "period"; dispatcher = "layoutmsg"; args = "fit toend"; } # Mod-x
+      { mod = "SUPER"; keys = "bracketright"; dispatcher = "layoutmsg"; args = "fit tobeg"; } # Mod-]
+      { mod = "SUPER"; keys = "bracketleft"; dispatcher = "layoutmsg"; args = "fit toend"; } # Mod-[
+
+      # Monocle Layout Keybindings
+      { mod = "SUPER"; keys = "comma"; dispatcher = "layoutmsg"; args = "cyclenext"; }
+      { mod = "SUPER"; keys = "period"; dispatcher = "layoutmsg"; args = "cycleprev"; }
+
+      # Layout Swapper
+      { mod = "SUPER CTRL"; keys = "m"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'master'"; }
+      { mod = "SUPER CTRL"; keys = "w"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'scrolling'"; }
+      { mod = "SUPER CTRL"; keys = "o"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'monocle'"; }
 
       # Desktop Mode Controls
       { mod = "SUPER CTRL"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call lockScreen lock"; } # C-Mod-Space
@@ -295,7 +306,6 @@ in
         rules = [
           "monitor:desc:${getAttr "desc" (elemAt opts.monitors 0)}"
           "default:true"
-          "layout:scrolling"
         ];
       }
       {
@@ -324,7 +334,6 @@ in
         rules = [
           "monitor:desc:${getAttr "desc" (elemAt opts.monitors 2)}"
           "default:true"
-          "layout:scrolling"
         ];
       }
       {
@@ -332,7 +341,6 @@ in
         rules = [
           "monitor:desc:${getAttr "desc" (elemAt opts.monitors 2)}"
           "default:false"
-          "layout:scrolling"
         ];
       }
       {
@@ -340,7 +348,6 @@ in
         rules = [
           "monitor:desc:${getAttr "desc" (elemAt opts.monitors 2)}"
           "default:false"
-          "layout:scrolling"
         ];
       }
     ];
