@@ -5,5 +5,6 @@ _: prev: {
     imager
     jiratui
     zls
+    beets
     ;
 }
