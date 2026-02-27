@@ -188,6 +188,7 @@ usbutils
 uwsm
 v4l2loopback-dkms
 vcpkg
+virt-manager
 virtualbox
 virtualbox-host-dkms
 vulkan-intel
