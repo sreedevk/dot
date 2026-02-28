@@ -21,7 +21,7 @@ rec {
       position   = { x = 1920; y = 0; };
       rate       = 60;
       scale      = 1.6;
-      # bitdepth = 10;
+      bitdepth   = 10;
     }
     {
       name       = "eDP-1";
@@ -30,7 +30,7 @@ rec {
       position   = { x = 0; y = 1080; };
       rate       = 60;
       scale      = 2;
-      # bitdepth = 10;
+      bitdepth   = 10;
     }
     {
       name       = "DP-3";
@@ -39,7 +39,7 @@ rec {
       position   = { x = 0; y = 0; };
       rate       = 100.00;
       scale      = 1;
-      # bitdepth = 10;
+      bitdepth   = 10;
     }
   ];
 
