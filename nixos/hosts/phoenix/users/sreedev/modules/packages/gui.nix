@@ -4,7 +4,7 @@
     let
       xGPUPackages = [];
       iGPUPackages =
-        map (ipkg: (config.lib.nixGL.wrap ipkg)) ([]);
+        map (ipkg: (config.lib.nixGL.wrap ipkg)) [];
       dGPUPackages =
         with builtins;
         map (ipkg: (config.lib.nixGL.wrapOffload ipkg)) (
