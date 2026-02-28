@@ -128,15 +128,6 @@ services:
         rateInterval: 2000
         torrentInterval: 5000
 
-      - name: "qBittorrent (i2p)"
-        logo: "https://icons.nullptr.sh/qbittorrent"
-        tag: "torrent"
-        url: "https://tori2p.nullptr.sh"
-        target: "_blank"
-        type: "qBittorrent"
-        rateInterval: 2000
-        torrentInterval: 5000
-
       - name: "qBitManage"
         logo: "https://icons.nullptr.sh/qbit-manage"
         tag: "torrent"
