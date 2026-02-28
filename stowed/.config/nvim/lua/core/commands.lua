@@ -62,7 +62,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       { 'n', 'v' },
       '<Leader>ff',
       function() vim.lsp.buf.format({ async = true }) end,
-      { noremap = true }
+      { desc = "Format Text", noremap = true }
     )
 
     vim.diagnostic.config {

@@ -12,8 +12,8 @@ return {
       },
     },
     keys = {
-      { "gcc", mode = "n" },
-      { "gc",  mode = "v" }
+      { "gcc", mode = "n", desc = "comment out line" },
+      { "gc",  mode = "v", desc = "comment out" }
     },
     opts = {
       options = {

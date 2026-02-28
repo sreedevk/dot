@@ -9,7 +9,8 @@ return {
         require('hlslens').start()
       end,
       noremap = true,
-      silent = true
+      silent = true,
+      desc = "Search nav next instances."
     },
     {
       'N',
@@ -18,7 +19,8 @@ return {
         require('hlslens').start()
       end,
       noremap = true,
-      silent = true
+      silent = true,
+      desc = "Search nav prev instances."
     },
     {
       '*',
@@ -28,7 +30,8 @@ return {
       end,
       mode = 'n',
       noremap = true,
-      silent = true
+      silent = true,
+      desc = "Search cword up."
     },
     {
       '#',
@@ -38,7 +41,8 @@ return {
       end,
       mode = 'n',
       noremap = true,
-      silent = true
+      silent = true,
+      desc = "Search cword down."
     },
     {
       'g*',
@@ -48,7 +52,8 @@ return {
       end,
       mode = 'n',
       noremap = true,
-      silent = true
+      silent = true,
+      desc = "Search cword up (no word bounds)."
     },
     {
       'g#',
@@ -58,7 +63,8 @@ return {
       end,
       mode = 'n',
       noremap = true,
-      silent = true
+      silent = true,
+      desc = "Search cword down (no word bounds)."
     },
     {
       '<Leader>sqf',
