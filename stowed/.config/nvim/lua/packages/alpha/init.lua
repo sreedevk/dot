@@ -4,13 +4,13 @@ return {
   config = function()
     vim.keymap.set('n', '<Leader>al', ":Alpha<CR>", { noremap = true })
 
-    local art = require("core.art")
+    local art = require("packages.alpha.banners")
     local header = {
       type = "text",
-      val = art.majora,
+      val = art.random(),
       opts = {
         position = "center",
-        hl = "AlphaAscii"
+        hl = "DashboardHeader"
       }
     }
 
@@ -65,16 +65,14 @@ return {
     local buttons = {
       type = "group",
       val = {
-        button("e", "New File", ":enew<cr>"),
-        button("z", "Zoxide", ":Telescope zoxide list<CR>"),
-        button("l", "Last Session", pesistance_load_session_with_nocwd),
-        button("o", "Last Session (CWD)", pesistance_load_session_with_cwd),
-        button("f", "Find Files", ":Telescope find_files<CR>"),
-        button("/", "Live Grep", ":Telescope live_grep<CR>"),
-        button("p", "Lazy Dash", ":Lazy show<CR>"),
-        button("g", "Neogit Dash", ":Neogit<CR>"),
-        button("q", "Quit Neovim", ":q<CR>"),
-        button("t", "Terminal", ":terminal<CR>"),
+        button("e", "  New File", ":enew<cr>"),
+        button("z", "  Zoxide", ":Telescope zoxide list<CR>"),
+        button("l", "  Last Session", pesistance_load_session_with_nocwd),
+        button("o", "  Last Session (CWD)", pesistance_load_session_with_cwd),
+        button("f", "  Find Files", ":Telescope find_files<CR>"),
+        button("/", "󰊄  Live Grep", ":Telescope live_grep<CR>"),
+        button("g", "󰊢  Neogit Dash", ":Neogit<CR>"),
+        button("q", "󰅚  Quit Neovim", ":q<CR>"),
       },
       opts = {
         spacing = 0,
@@ -83,14 +81,14 @@ return {
     }
 
     local vim_ver = vim.version()
-    vim_ver = 'Neovim ' .. vim_ver.major .. '.' .. vim_ver.minor .. '.' .. vim_ver.patch
+    vim_ver = '󰀘  Neovim ' .. vim_ver.major .. '.' .. vim_ver.minor .. '.' .. vim_ver.patch
 
     local footer = {
       type = "text",
       val = vim_ver,
       opts = {
         position = "center",
-        hl = "AlphaFooter"
+        hl = "DashboardFooter"
       }
     }
 
