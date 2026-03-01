@@ -30,7 +30,7 @@ rec {
       position   = { x = 0; y = 1080; };
       rate       = 60;
       scale      = 2;
-      bitdepth   = 10;
+      # bitdepth   = 10;
     }
     {
       name       = "DP-3";
