@@ -62,7 +62,6 @@ hyprpicker
 hyprpolkitagent
 hyprutils
 hyprwayland-scanner
-i2pd
 impala
 incus
 incus-tools
