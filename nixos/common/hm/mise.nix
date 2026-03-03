@@ -19,6 +19,7 @@
           bun        = "latest";
           chicken    = "5.4.0";
           clojure    = "latest";
+          crystal    = "latest";
           deno       = "latest";
           elixir     = "latest";
           elm        = "latest";
