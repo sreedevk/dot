@@ -113,8 +113,7 @@ let
 
     terminal = {
       shell = {
-        # args = [ "--login" ];
-        program = "${pkgs.zsh}/bin/zsh";
+        program = "${pkgs.fish}/bin/fish";
       };
     };
 

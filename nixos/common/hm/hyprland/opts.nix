@@ -1,7 +1,8 @@
-{ pkgs
-, config
-, opts
-, ...
+{
+  pkgs,
+  config,
+  opts,
+  ...
 }:
 let
   hypr-gamemode-toggle = import ./scripts/gamemode.nix { inherit pkgs; };
@@ -21,6 +22,8 @@ in
     MOZ_ENABLE_WAYLAND = "1";
     QT_AUTO_SCREEN_SCALE_FACTOR = "${opts.desktop.scale}";
     QT_QPA_PLATFORM = "wayland";
+    QT_QPA_PLATFORMTHEME = "";
+    QT_STYLE_OVERRIDE = "Fusion";
     QT_SCALE_FACTOR = "${opts.desktop.qt_scale_factor}";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     WINIT_X11_SCALE_FACTOR = "${opts.desktop.scale}";
@@ -46,6 +49,22 @@ in
       scale = null;
       action = "workspace";
       args = null;
+    }
+    {
+      fingers = "2";
+      direction = "pinchin";
+      modifier = null;
+      scale = null;
+      action = "cursorZoom";
+      args = "1.6, mult";
+    }
+    {
+      fingers = "2";
+      direction = "pinchout";
+      modifier = null;
+      scale = null;
+      action = "cursorZoom";
+      args = "0.625, mult";
     }
   ];
 
@@ -108,10 +127,20 @@ in
     mfact = "0.70";
   };
 
+  scrolling = {
+    fullscreen_on_one_column = "true";
+    column_width = "0.75";
+    focus_fit_method = "0"; # 0 = center; 1 = fit
+    follow_focus = "true";
+    direction = "right";
+  };
+
   misc = {
     force_default_wallpaper = "0";
     disable_hyprland_logo = "true";
     focus_on_activate = "false";
+    enable_swallow = "true";
+    swallow_regex = "^(Alacritty|kitty)$";
     vrr = "0";
     vfr = "true";
   };
@@ -155,184 +184,185 @@ in
     border_size = "2";
     resize_on_border = "false";
     allow_tearing = "false";
-    layout = "master";
+    layout = "scrolling";
     "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
     "col.inactive_border" = "rgba(595959aa)";
   };
 
   binds = {
     keyboard = [
+      # Audio Outputs
       { mod = ""; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
-      { mod = ""; keys = "XF86AudioMicMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+      { mod = ""; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
       { mod = ""; keys = "XF86AudioMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+
+      # Audio Inputs
+      { mod = ""; keys = "XF86AudioMicMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+      { mod = "CTRL"; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"; }
+      { mod = "CTRL"; keys = "XF86AudioMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+      { mod = "CTRL"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+"; }
+
+      # Media Player Controls
       { mod = ""; keys = "XF86AudioNext"; dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl next"; }
       { mod = ""; keys = "XF86AudioPause"; dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl play-pause"; }
       { mod = ""; keys = "XF86AudioPlay"; dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl play-pause"; }
       { mod = ""; keys = "XF86AudioPrev"; dispatcher = "exec"; args = "${pkgs.playerctl}/bin/playerctl previous"; }
-      { mod = ""; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
+
+      # Brightness Controls
       { mod = ""; keys = "XF86MonBrightnessDown"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-"; }
       { mod = ""; keys = "XF86MonBrightnessUp"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+"; }
-      { mod = "CTRL"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call notifications dismissAll"; }
-      { mod = "CTRL"; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"; }
-      { mod = "CTRL"; keys = "XF86AudioMute"; dispatcher = "exec"; args = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-      { mod = "CTRL"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+"; }
-      { mod = "SUPER CTRL"; keys = "H"; dispatcher = "changegroupactive"; args = "b"; }
-      { mod = "SUPER CTRL"; keys = "L"; dispatcher = "changegroupactive"; args = "f"; }
-      { mod = "SUPER CTRL"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; }
-      { mod = "SUPER CTRL"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call lockScreen lock"; }
-      { mod = "SUPER";      keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call notifications dismissAll"; }
+      { mod = "SUPER"; keys = "XF86AudioLowerVolume"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-"; }
+      { mod = "SUPER"; keys = "XF86AudioRaiseVolume"; dispatcher = "exec"; args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+"; }
 
-      # workspace switching
-      { mod = "SUPER SHIFT"; keys = "0"; dispatcher = "movetoworkspace"; args = "10"; }
-      { mod = "SUPER SHIFT"; keys = "1"; dispatcher = "movetoworkspace"; args = "1"; }
-      { mod = "SUPER SHIFT"; keys = "2"; dispatcher = "movetoworkspace"; args = "2"; }
-      { mod = "SUPER SHIFT"; keys = "3"; dispatcher = "movetoworkspace"; args = "3"; }
-      { mod = "SUPER SHIFT"; keys = "4"; dispatcher = "movetoworkspace"; args = "4"; }
-      { mod = "SUPER SHIFT"; keys = "5"; dispatcher = "movetoworkspace"; args = "5"; }
-      { mod = "SUPER SHIFT"; keys = "6"; dispatcher = "movetoworkspace"; args = "6"; }
-      { mod = "SUPER SHIFT"; keys = "7"; dispatcher = "movetoworkspace"; args = "7"; }
-      { mod = "SUPER SHIFT"; keys = "8"; dispatcher = "movetoworkspace"; args = "8"; }
-      { mod = "SUPER SHIFT"; keys = "9"; dispatcher = "movetoworkspace"; args = "9"; }
-      { mod = "SUPER SHIFT"; keys = "Equal"; dispatcher = "movetoworkspace"; args = "12"; }
-      { mod = "SUPER SHIFT"; keys = "Escape"; dispatcher = "movetoworkspace"; args = "special"; }
-      { mod = "SUPER SHIFT"; keys = "Minus"; dispatcher = "movetoworkspace"; args = "11"; }
+      # Notifications Control
+      { mod = "SUPER CTRL"; keys = "Escape"; dispatcher = "exec"; args = "noctalia ipc call notifications dismissAll"; } # Mod-C-Escape
+      { mod = "SUPER"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call notifications dismissAll"; } # Mod-Space
 
-      { mod = "SUPER SHIFT"; keys = "E"; dispatcher = "exit"; args = ""; }
-      { mod = "SUPER SHIFT"; keys = "H"; dispatcher = "swapwindow"; args = "l"; }
-      { mod = "SUPER SHIFT"; keys = "J"; dispatcher = "swapwindow"; args = "d"; }
-      { mod = "SUPER SHIFT"; keys = "K"; dispatcher = "swapwindow"; args = "u"; }
-      { mod = "SUPER SHIFT"; keys = "L"; dispatcher = "swapwindow"; args = "r"; }
-      { mod = "SUPER SHIFT"; keys = "Q"; dispatcher = "killactive"; args = ""; }
-      { mod = "SUPER SHIFT"; keys = "Space"; dispatcher = "togglefloating"; args = ""; }
-      { mod = "SUPER SHIFT"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollprev"; }
+      # Group Navigation (could potentially be removed)
+      { mod = "SUPER CTRL"; keys = "H"; dispatcher = "changegroupactive"; args = "b"; } # C-Mod-H
+      { mod = "SUPER CTRL"; keys = "L"; dispatcher = "changegroupactive"; args = "f"; } # C-Mod-L
+      { mod = "SUPER"; keys = "G"; dispatcher = "togglegroup"; args = null; } # Mod-G
 
-      { mod = "SUPER"; keys = "0"; dispatcher = "workspace"; args = "10"; }
-      { mod = "SUPER"; keys = "1"; dispatcher = "workspace"; args = "1"; }
-      { mod = "SUPER"; keys = "2"; dispatcher = "workspace"; args = "2"; }
-      { mod = "SUPER"; keys = "3"; dispatcher = "workspace"; args = "3"; }
-      { mod = "SUPER"; keys = "4"; dispatcher = "workspace"; args = "4"; }
-      { mod = "SUPER"; keys = "5"; dispatcher = "workspace"; args = "5"; }
-      { mod = "SUPER"; keys = "6"; dispatcher = "workspace"; args = "6"; }
-      { mod = "SUPER"; keys = "7"; dispatcher = "workspace"; args = "7"; }
-      { mod = "SUPER"; keys = "8"; dispatcher = "workspace"; args = "8"; }
-      { mod = "SUPER"; keys = "9"; dispatcher = "workspace"; args = "9"; }
-      { mod = "SUPER"; keys = "Minus"; dispatcher = "workspace"; args = "11"; }
-      { mod = "SUPER"; keys = "Equal"; dispatcher = "workspace"; args = "12"; }
-      { mod = "SUPER"; keys = "Escape"; dispatcher = "togglespecialworkspace"; args = ""; }
-      { mod = "SUPER"; keys = "A"; dispatcher = "exec"; args = "uwsm app -t service -- com.github.marinm.songrec.desktop"; }
-      { mod = "SUPER"; keys = "B"; dispatcher = "exec"; args = "uwsm app -t service -- ${opts.desktop.browser.xdg-desktop}"; }
-      { mod = "SUPER"; keys = "C"; dispatcher = "exec"; args = "noctalia ipc call controlCenter toggle"; }
-      { mod = "SUPER"; keys = "D"; dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae toggle"; }
-      { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = ""; }
-      { mod = "SUPER"; keys = "G"; dispatcher = "togglegroup"; args = ""; }
-      { mod = "SUPER"; keys = "H"; dispatcher = "movefocus"; args = "l"; }
-      { mod = "SUPER"; keys = "J"; dispatcher = "movefocus"; args = "d"; }
-      { mod = "SUPER"; keys = "K"; dispatcher = "movefocus"; args = "u"; }
-      { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; }
-      { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "noctalia ipc call notifications toggleDND"; }
-      { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-gamemode-toggle}/bin/gamemode"; }
-      { mod = "SUPER"; keys = "Q"; dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history"; }
-      { mod = "SUPER"; keys = "S"; dispatcher = "exec"; args = "noctalia ipc call settings toggle"; }
-      { mod = "SUPER"; keys = "W"; dispatcher = "exec"; args = "noctalia ipc call wallpaper toggle"; }
-      { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty"; }
-      { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "rollnext"; }
-      { mod = "SUPER"; keys = "m"; dispatcher = "layoutmsg"; args = "swapwithmaster master"; }
-      { mod = "SUPER"; keys = "x"; dispatcher = "exec"; args = "hyprctl kill"; }
-      { mod = "SUPER"; keys = "E"; dispatcher = "exec"; args = "uwsm app -t service -- org.mozilla.Thunderbird.desktop"; }
-      {
-        mod = "SUPER";
-        keys = "XF86AudioLowerVolume";
-        dispatcher = "exec";
-        args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%-";
-      }
-      {
-        mod = "SUPER";
-        keys = "XF86AudioRaiseVolume";
-        dispatcher = "exec";
-        args = "${pkgs.brightnessctl}/bin/brightnessctl s 10%+";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "Return";
-        dispatcher = "exec";
-        args = "${config.programs.kitty.package}/bin/kitty ${pkgs.tmux}/bin/tmux new -A -s system";
-      }
-      {
-        mod = "SUPER SHIFT";
-        keys = "S";
-        dispatcher = "exec";
-        args = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | wl-copy";
-      }
-      {
-        mod = "SUPER CTRL";
-        keys = "S";
-        dispatcher = "exec";
-        args = "${pkgs.grim}/bin/grim -o $(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name') - | wl-copy";
-      }
-      {
-        mod = "SUPER ALT";
-        keys = "S";
-        dispatcher = "exec";
-        args = "${pkgs.grim}/bin/grim -g \"$(hyprctl activewindow -j | jq '(.at | \"\\(.[0]),\\(.[1])\"),(.size | \"\\(.[0])x\\(.[1])\")' | xargs)\" - | wl-copy";
-      }
+      # Workspace Navigation
+      { mod = "SUPER"; keys = "0"; dispatcher = "workspace"; args = "10"; } # Mod-0
+      { mod = "SUPER"; keys = "1"; dispatcher = "workspace"; args = "1"; } # Mod-1
+      { mod = "SUPER"; keys = "2"; dispatcher = "workspace"; args = "2"; } # Mod-2
+      { mod = "SUPER"; keys = "3"; dispatcher = "workspace"; args = "3"; } # Mod-3
+      { mod = "SUPER"; keys = "4"; dispatcher = "workspace"; args = "4"; } # Mod-4
+      { mod = "SUPER"; keys = "5"; dispatcher = "workspace"; args = "5"; } # Mod-5
+      { mod = "SUPER"; keys = "6"; dispatcher = "workspace"; args = "6"; } # Mod-6
+      { mod = "SUPER"; keys = "7"; dispatcher = "workspace"; args = "7"; } # Mod-7
+      { mod = "SUPER"; keys = "8"; dispatcher = "workspace"; args = "8"; } # Mod-8
+      { mod = "SUPER"; keys = "9"; dispatcher = "workspace"; args = "9"; } # Mod-9
+      { mod = "SUPER"; keys = "Minus"; dispatcher = "workspace"; args = "11"; } # Mod-11
+      { mod = "SUPER"; keys = "Equal"; dispatcher = "workspace"; args = "12"; } # Mod-12
+      { mod = "SUPER"; keys = "Escape"; dispatcher = "togglespecialworkspace"; args = null; } # Mod-Esc
+
+      # Window & Layout Controls
+      { mod = "SUPER SHIFT"; keys = "H"; dispatcher = "swapwindow"; args = "l"; } # S-Mod-H
+      { mod = "SUPER SHIFT"; keys = "J"; dispatcher = "swapwindow"; args = "d"; } # S-Mod-J
+      { mod = "SUPER SHIFT"; keys = "K"; dispatcher = "swapwindow"; args = "u"; } # S-Mod-K
+      { mod = "SUPER SHIFT"; keys = "L"; dispatcher = "swapwindow"; args = "r"; } # S-Mod-L
+      { mod = "SUPER SHIFT"; keys = "Space"; dispatcher = "togglefloating"; args = null; } # S-Mod-Space
+      { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = null; } # Mod-F
+      { mod = "SUPER SHIFT"; keys = "Q"; dispatcher = "killactive"; args = null; } # S-Mod-Q
+      { mod = "SUPER SHIFT"; keys = "0"; dispatcher = "movetoworkspace"; args = "10"; } # S-Mod-0
+      { mod = "SUPER SHIFT"; keys = "1"; dispatcher = "movetoworkspace"; args = "1"; } # S-Mod-1
+      { mod = "SUPER SHIFT"; keys = "2"; dispatcher = "movetoworkspace"; args = "2"; } # S-Mod-2
+      { mod = "SUPER SHIFT"; keys = "3"; dispatcher = "movetoworkspace"; args = "3"; } # S-Mod-3
+      { mod = "SUPER SHIFT"; keys = "4"; dispatcher = "movetoworkspace"; args = "4"; } # S-Mod-4
+      { mod = "SUPER SHIFT"; keys = "5"; dispatcher = "movetoworkspace"; args = "5"; } # S-Mod-5
+      { mod = "SUPER SHIFT"; keys = "6"; dispatcher = "movetoworkspace"; args = "6"; } # S-Mod-6
+      { mod = "SUPER SHIFT"; keys = "7"; dispatcher = "movetoworkspace"; args = "7"; } # S-Mod-7
+      { mod = "SUPER SHIFT"; keys = "8"; dispatcher = "movetoworkspace"; args = "8"; } # S-Mod-8
+      { mod = "SUPER SHIFT"; keys = "9"; dispatcher = "movetoworkspace"; args = "9"; } # S-Mod-9
+      { mod = "SUPER SHIFT"; keys = "Equal"; dispatcher = "movetoworkspace"; args = "12"; } # S-Mod-Equal
+      { mod = "SUPER SHIFT"; keys = "Escape"; dispatcher = "movetoworkspace"; args = "special"; } # S-Mod-Esc
+      { mod = "SUPER SHIFT"; keys = "Minus"; dispatcher = "movetoworkspace"; args = "11"; } # S-Mod--
+      { mod = "SUPER"; keys = "H"; dispatcher = "movefocus"; args = "l"; } # Mod-H
+      { mod = "SUPER"; keys = "J"; dispatcher = "movefocus"; args = "d"; } # Mod-J
+      { mod = "SUPER"; keys = "K"; dispatcher = "movefocus"; args = "u"; } # Mod-K
+      { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; } # Mod-L
+
+      # Master Layout Keybindings
+      { mod = "SUPER"; keys = "m"; dispatcher = "layoutmsg"; args = "swapwithmaster master"; } # Mod-m
+      { mod = "SUPER"; keys = "comma"; dispatcher = "layoutmsg"; args = "rollnext"; }
+      { mod = "SUPER"; keys = "period"; dispatcher = "layoutmsg"; args = "rollprev"; }
+
+      # Scrolling Layout Keybindings
+      { mod = "SUPER"; keys = "x"; dispatcher = "layoutmsg"; args = "fit all"; } # Mod-x
+      { mod = "SUPER"; keys = "bracketright"; dispatcher = "layoutmsg"; args = "fit tobeg"; } # Mod-]
+      { mod = "SUPER"; keys = "bracketleft"; dispatcher = "layoutmsg"; args = "fit toend"; } # Mod-[
+
+      # Monocle Layout Keybindings
+      { mod = "SUPER SHIFT"; keys = "Tab"; dispatcher = "layoutmsg"; args = "cycleprev"; } # S-Mod-Tab
+      { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "cyclenext"; } # Mod-Tab
+
+      # Layout Swapper
+      { mod = "SUPER CTRL"; keys = "m"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'master'"; }
+      { mod = "SUPER CTRL"; keys = "w"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'scrolling'"; }
+      { mod = "SUPER CTRL"; keys = "o"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'monocle'"; }
+
+      # Desktop Mode Controls
+      { mod = "SUPER CTRL"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call lockScreen lock"; } # C-Mod-Space
+      { mod = "SUPER SHIFT"; keys = "E"; dispatcher = "exit"; args = null; } # S-Mod-E
+      { mod = "SUPER"; keys = "P"; dispatcher = "exec"; args = "${hypr-gamemode-toggle}/bin/gamemode"; } # Mod-P
+
+      # Launchers
+      { mod = "SUPER"; keys = "D"; dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae toggle"; } # Mod-D
+      { mod = "SUPER CTRL"; keys = "D"; dispatcher = "exec"; args = "${pkgs.rofi}/bin/rofi -show drun"; } # C-Mod-D
+      { mod = "SUPER"; keys = "A"; dispatcher = "exec"; args = "uwsm app -t service -- re.fossplant.songrec.desktop"; } # Mod-A
+      { mod = "SUPER"; keys = "B"; dispatcher = "exec"; args = "uwsm app -t service -- ${opts.desktop.browser.xdg-desktop}"; } # Mod-B
+      { mod = "SUPER"; keys = "C"; dispatcher = "exec"; args = "noctalia ipc call controlCenter toggle"; } # Mod-C
+      { mod = "SUPER"; keys = "W"; dispatcher = "exec"; args = "noctalia ipc call wallpaper toggle"; } # Mod-W
+      { mod = "SUPER"; keys = "Q"; dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history"; } # Mod-Q
+      { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty"; } # S-Mod-CR
+      { mod = "SUPER"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty ${pkgs.tmux}/bin/tmux new -A -s system"; } # Mod-CR
+
+      # Notifications Control
+      { mod = "SUPER"; keys = "N"; dispatcher = "exec"; args = "noctalia ipc call notifications toggleDND"; } # Mod-N
+      { mod = "SUPER"; keys = "backslash"; dispatcher = "exec"; args = "noctalia ipc call settings toggle"; } # Mod-S
+
+      { mod = "SUPER"; keys = "S"; dispatcher = "toggleswallow"; args = null; }
+
+      # Screen Capture
+      { mod = "SUPER SHIFT"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | wl-copy"; } # S-Mod-S
+      { mod = "SUPER CTRL"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -o $(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name') - | wl-copy"; } # C-Mod-S
+      { mod = "SUPER ALT"; keys = "S"; dispatcher = "exec"; args = "${pkgs.grim}/bin/grim -g \"$(hyprctl activewindow -j | jq '(.at | \"\\(.[0]),\\(.[1])\"),(.size | \"\\(.[0])x\\(.[1])\")' | xargs)\" - | wl-copy"; } # M-Mod-S
     ];
     mouse = [
-      {
-        mod = "SUPER";
-        button = "mouse:272";
-        dispatcher = "movewindow";
-      }
+      { mod = "SUPER"; button = "mouse:272"; dispatcher = "movewindow"; args = null; }
     ];
   };
 
   rules = {
-    workspace = [
+    workspace = with builtins; [
       {
         workspace_label = "1";
         rules = [
-          "monitor:desc:LG Electronics LG Ultra HD 0x00073F78"
+          "monitor:desc:${getAttr "desc" (elemAt opts.monitors 0)}"
           "default:true"
         ];
       }
       {
         workspace_label = "2";
         rules = [
-          "monitor:desc:LG Electronics LG Ultra HD 0x00073F78"
+          "monitor:desc:${getAttr "desc" (elemAt opts.monitors 0)}"
           "default:false"
         ];
       }
       {
         workspace_label = "3";
         rules = [
-          "monitor:desc:LG Electronics LG Ultra HD 0x00073F78"
+          "monitor:desc:${getAttr "desc" (elemAt opts.monitors 0)}"
           "default:false"
         ];
       }
       {
         workspace_label = "4";
         rules = [
-          "monitor:desc:AU Optronics 0xF99A"
+          "monitor:desc:${getAttr "desc" (elemAt opts.monitors 1)}"
           "default:true"
         ];
       }
       {
         workspace_label = "5";
         rules = [
-          "monitor:desc:XEC ES-24X3A 0x00000022"
+          "monitor:desc:${getAttr "desc" (elemAt opts.monitors 2)}"
           "default:true"
         ];
       }
       {
         workspace_label = "6";
         rules = [
-          "monitor:desc:XEC ES-24X3A 0x00000022"
+          "monitor:desc:${getAttr "desc" (elemAt opts.monitors 2)}"
           "default:false"
         ];
       }
       {
         workspace_label = "7";
         rules = [
-          "monitor:desc:XEC ES-24X3A 0x00000022"
+          "monitor:desc:${getAttr "desc" (elemAt opts.monitors 2)}"
           "default:false"
         ];
       }
@@ -340,449 +370,290 @@ in
 
     window = [
       {
-        rule = "center";
-        window_identifiers = "title:^(Choose wallpaper)(.*)$";
+        rule = "center on";
+        window_identifiers = [ "match:title ^(Choose wallpaper)(.*)$" ];
       }
       {
-        rule = "float";
-        window_identifiers = "title:^(Choose wallpaper)(.*)$";
-      }
-      {
-        rule = "size 1000 600";
-        window_identifiers = "title:^(Choose wallpaper)(.*)$";
-      }
-
-      {
-        rule = "center";
-        window_identifiers = "title:^(Library)(.*)$";
-      }
-      {
-        rule = "float";
-        window_identifiers = "title:^(Library)(.*)$";
+        rule = "float on";
+        window_identifiers = [ "match:title ^(Choose wallpaper)(.*)$" ];
       }
       {
         rule = "size 1000 600";
-        window_identifiers = "title:^(Library)(.*)$";
-      }
-
-      {
-        rule = "center";
-        window_identifiers = "title:^(Open Folder)(.*)$";
+        window_identifiers = [ "match:title ^(Choose wallpaper)(.*)$" ];
       }
       {
-        rule = "float";
-        window_identifiers = "title:^(Open Folder)(.*)$";
+        rule = "center on";
+        window_identifiers = [ "match:title ^(Library)(.*)$" ];
+      }
+      {
+        rule = "float on";
+        window_identifiers = [ "match:title ^(Library)(.*)$" ];
       }
       {
         rule = "size 1000 600";
-        window_identifiers = "title:^(Open Folder)(.*)$";
+        window_identifiers = [ "match:title ^(Library)(.*)$" ];
       }
-
+      {
+        rule = "center on";
+        window_identifiers = [ "match:title ^(Open Folder)(.*)$" ];
+      }
+      {
+        rule = "float on";
+        window_identifiers = [ "match:title ^(Open Folder)(.*)$" ];
+      }
+      {
+        rule = "size 1000 600";
+        window_identifiers = [ "match:title ^(Open Folder)(.*)$" ];
+      }
       {
         rule = "opacity 0.0 override";
-        window_identifiers = "class:^(xwaylandvideobridge)$";
+        window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ];
       }
       {
-        rule = "noanim";
-        window_identifiers = "class:^(xwaylandvideobridge)$";
+        rule = "no_anim on";
+        window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ];
       }
       {
-        rule = "noinitialfocus";
-        window_identifiers = "class:^(xwaylandvideobridge)$";
+        rule = "no_initial_focus on";
+        window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ];
       }
       {
-        rule = "maxsize 1 1";
-        window_identifiers = "class:^(xwaylandvideobridge)$";
+        rule = "max_size 1 1";
+        window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ];
       }
       {
-        rule = "noblur";
-        window_identifiers = "class:^(xwaylandvideobridge)$";
+        rule = "no_blur on";
+        window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ];
       }
       {
-        rule = "nofocus";
-        window_identifiers = "class:^(xwaylandvideobridge)$";
-      }
-
-      {
-        rule = "center";
-        window_identifiers = "title:^(File Upload)(.*)$";
+        rule = "no_focus on";
+        window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ];
       }
       {
-        rule = "float";
-        window_identifiers = "title:^(File Upload)(.*)$";
+        rule = "center on";
+        window_identifiers = [ "match:title ^(File Upload)(.*)$" ];
       }
       {
-        rule = "size 1000 600";
-        window_identifiers = "title:^(File Upload)(.*)$";
-      }
-
-      {
-        rule = "center";
-        window_identifiers = "title:^(Select a File)(.*)$";
-      }
-      {
-        rule = "float";
-        window_identifiers = "title:^(Select a File)(.*)$";
+        rule = "float on";
+        window_identifiers = [ "match:title ^(File Upload)(.*)$" ];
       }
       {
         rule = "size 1000 600";
-        window_identifiers = "title:^(Select a File)(.*)$";
-      }
-
-      {
-        rule = "center";
-        window_identifiers = "title:^(Save As)(.*)$";
+        window_identifiers = [ "match:title ^(File Upload)(.*)$" ];
       }
       {
-        rule = "float";
-        window_identifiers = "title:^(Save As)(.*)$";
+        rule = "center on";
+        window_identifiers = [ "match:title ^(Select a File)(.*)$" ];
       }
       {
-        rule = "size 1000 600";
-        window_identifiers = "title:^(Save As)(.*)$";
-      }
-
-      {
-        rule = "center";
-        window_identifiers = "title:^(Open File)(.*)$";
-      }
-      {
-        rule = "float";
-        window_identifiers = "title:^(Open File)(.*)$";
+        rule = "float on";
+        window_identifiers = [ "match:title ^(Select a File)(.*)$" ];
       }
       {
         rule = "size 1000 600";
-        window_identifiers = "title:^(Open File)(.*)$";
-      }
-    ];
-
-    windowv2 = [
-      {
-        rule = "float";
-        window_identifiers = [ "title:^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" ];
+        window_identifiers = [ "match:title ^(Select a File)(.*)$" ];
       }
       {
-        rule = "nofocus";
+        rule = "center on";
+        window_identifiers = [ "match:title ^(Save As)(.*)$" ];
+      }
+      {
+        rule = "float on";
+        window_identifiers = [ "match:title ^(Save As)(.*)$" ];
+      }
+      {
+        rule = "size 1000 600";
+        window_identifiers = [ "match:title ^(Save As)(.*)$" ];
+      }
+      {
+        rule = "center on";
+        window_identifiers = [ "match:title ^(Open File)(.*)$" ];
+      }
+      {
+        rule = "float on";
+        window_identifiers = [ "match:title ^(Open File)(.*)$" ];
+      }
+      {
+        rule = "size 1000 600";
+        window_identifiers = [ "match:title ^(Open File)(.*)$" ];
+      }
+      {
+        rule = "float on";
+        window_identifiers = [ "match:title ^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" ];
+      }
+      {
+        rule = "suppress_event maximize";
+        window_identifiers = [ "match:class .*" ];
+      }
+      {
+        rule = "float on";
         window_identifiers = [
-          "class:^$"
-          "title:^$"
-          "xwayland:1"
-          "floating:1"
-          "fullscreen:0"
-          "pinned:0"
+          "match:class ^(firefox)$"
+          "match:title ^(Picture-in-Picture)$"
         ];
       }
       {
-        rule = "suppressevent maximize";
-        window_identifiers = [ "class:.*" ];
-      }
-      {
-        rule = "float";
+        rule = "float on";
         window_identifiers = [
-          "class:^(firefox)$"
-          "title:^(Picture-in-Picture)$"
+          "match:class ^(firefox)$"
+          "match:title ^(Library)$"
         ];
       }
       {
-        rule = "float";
-        window_identifiers = [
-          "class:^(firefox)$"
-          "title:^(Library)$"
-        ];
+        rule = "float on";
+        window_identifiers = [ "match:class ^(Signal)$" ];
       }
       {
-        rule = "float";
-        window_identifiers = [ "class:^(Signal)$" ];
-      }
-
-      {
-        rule = "center";
-        window_identifiers = [ "class:^(Rofi)$" ];
+        rule = "center on";
+        window_identifiers = [ "match:class ^(Rofi)$" ];
       }
       {
-        rule = "float";
-        window_identifiers = [ "class:^(Rofi)$" ];
+        rule = "float on";
+        window_identifiers = [ "match:class ^(Rofi)$" ];
       }
       {
         rule = "rounding 10";
-        window_identifiers = [ "class:^(Rofi)$" ];
+        window_identifiers = [ "match:class ^(Rofi)$" ];
       }
-
       {
         rule = "workspace 4 silent";
-        window_identifiers = [ "class:^(Slack)$" ];
+        window_identifiers = [ "match:class ^(Slack)$" ];
       }
       {
         rule = "workspace 2 silent";
-        window_identifiers = [ "class:^(firefox)$" ];
+        window_identifiers = [ "match:class ^(firefox)$" ];
       }
       {
         rule = "workspace 5 silent";
-        window_identifiers = [ "class:^(Brave-browser)$" ];
+        window_identifiers = [ "match:class ^(Brave-browser)$" ];
       }
       {
         rule = "workspace 3 silent";
-        window_identifiers = [ "class:^(thunderbird)$" ];
-      }
-
-      {
-        rule = "float";
-        window_identifiers = [ "title:^(About Mozilla Firefox)$" ];
+        window_identifiers = [ "match:class ^(thunderbird)$" ];
       }
       {
-        rule = "float";
-        window_identifiers = [ "class:^(com.saivert.pwvucontrol)$" ];
+        rule = "float on";
+        window_identifiers = [ "match:title ^(About Mozilla Firefox)$" ];
+      }
+      {
+        rule = "float on";
+        window_identifiers = [ "match:class ^(com.saivert.pwvucontrol)$" ];
       }
       {
         rule = "size 1400 650";
-        window_identifiers = [ "class:^(com.saivert.pwvucontrol)$" ];
+        window_identifiers = [ "match:class ^(com.saivert.pwvucontrol)$" ];
       }
       {
-        rule = "keepaspectratio";
-        window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ];
+        rule = "keep_aspect_ratio on";
+        window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ];
       }
       {
         rule = "move 73% 72%";
-        window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ];
+        window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ];
       }
       {
         rule = "size 25%";
-        window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ];
+        window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ];
       }
       {
-        rule = "float";
-        window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ];
+        rule = "float on";
+        window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ];
       }
       {
-        rule = "pin";
-        window_identifiers = [ "title:^(Picture(-| )in(-| )[Pp]icture)$" ];
+        rule = "pin on";
+        window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ];
       }
       {
-        rule = "immediate";
-        window_identifiers = [ "class:(steam_app)" ];
+        rule = "immediate on";
+        window_identifiers = [ "match:class (steam_app)" ];
       }
       {
-        rule = "noshadow";
-        window_identifiers = [ "floating:0" ];
+        rule = "no_shadow on";
+        window_identifiers = [ "match:float 0" ];
       }
-
       {
-        rule = "tile";
-        window_identifiers = [ "class:^(Nsxiv)$" ];
+        rule = "tile on";
+        window_identifiers = [ "match:class ^(Nsxiv)$" ];
+      }
+      {
+        rule = "no_focus on";
+        window_identifiers = [
+          "match:class ^$"
+          "match:title ^$"
+          "match:xwayland 1"
+          "match:float 1"
+          "match:fullscreen 0"
+          "match:pin 0"
+        ];
       }
     ];
 
     layer = [
-      {
-        rule = "animation slide left";
-        addr = "sideleft.*";
-      }
-      {
-        rule = "animation slide right";
-        addr = "sideright.*";
-      }
-      {
-        rule = "blur";
-        addr = "bar";
-      }
-      {
-        rule = "blur";
-        addr = "cheatsheet";
-      }
-      {
-        rule = "blur";
-        addr = "corner.*";
-      }
-      {
-        rule = "blur";
-        addr = "dock";
-      }
-      {
-        rule = "blur";
-        addr = "gtk-layer-shell";
-      }
-      {
-        rule = "blur";
-        addr = "indicator*";
-      }
-      {
-        rule = "blur";
-        addr = "indicator.*";
-      }
-      {
-        rule = "blur";
-        addr = "launcher";
-      }
-      {
-        rule = "blur";
-        addr = "notifications";
-      }
-      {
-        rule = "blur";
-        addr = "notifications";
-      }
-      {
-        rule = "blur";
-        addr = "osk";
-      }
-      {
-        rule = "blur";
-        addr = "overview";
-      }
-      {
-        rule = "blur";
-        addr = "rofi";
-      }
-      {
-        rule = "blur";
-        addr = "session";
-      }
-      {
-        rule = "blur";
-        addr = "shell:*";
-      }
-      {
-        rule = "blur";
-        addr = "sideleft";
-      }
-      {
-        rule = "blur";
-        addr = "sideright";
-      }
-      {
-        rule = "blur";
-        addr = "vicinae";
-      }
-      {
-        rule = "ignorealpha 0";
-        addr = "rofi";
-      }
-      {
-        rule = "ignorealpha 0";
-        addr = "vicinae";
-      }
-      {
-        rule = "ignorealpha 0.5";
-        addr = "launcher";
-      }
-      {
-        rule = "ignorealpha 0.6";
-        addr = "bar";
-      }
-      {
-        rule = "ignorealpha 0.6";
-        addr = "cheatsheet";
-      }
-      {
-        rule = "ignorealpha 0.6";
-        addr = "corner.*";
-      }
-      {
-        rule = "ignorealpha 0.6";
-        addr = "dock";
-      }
-      {
-        rule = "ignorealpha 0.6";
-        addr = "indicator*";
-      }
-      {
-        rule = "ignorealpha 0.6";
-        addr = "indicator.*";
-      }
-      {
-        rule = "ignorealpha 0.6";
-        addr = "osk";
-      }
-      {
-        rule = "ignorealpha 0.6";
-        addr = "overview";
-      }
-      {
-        rule = "ignorealpha 0.6";
-        addr = "shell:*";
-      }
-      {
-        rule = "ignorealpha 0.6";
-        addr = "sideleft";
-      }
-      {
-        rule = "ignorealpha 0.6";
-        addr = "sideright";
-      }
-      {
-        rule = "ignorealpha 0.69";
-        addr = "notifications";
-      }
-      {
-        rule = "ignorezero";
-        addr = "gtk-layer-shell";
-      }
-      {
-        rule = "ignorezero";
-        addr = "notifications";
-      }
-      {
-        rule = "ignorezero";
-        addr = "notifications";
-      }
-      {
-        rule = "ignorezero";
-        addr = "rofi";
-      }
-      {
-        rule = "noanim";
-        addr = "anyrun";
-      }
-      {
-        rule = "noanim";
-        addr = "hyprpicker";
-      }
-      {
-        rule = "noanim";
-        addr = "indicator.*";
-      }
-      {
-        rule = "noanim";
-        addr = "noanim";
-      }
-      {
-        rule = "noanim";
-        addr = "osk";
-      }
-      {
-        rule = "noanim";
-        addr = "overview";
-      }
-      {
-        rule = "noanim";
-        addr = "rofi";
-      }
-      {
-        rule = "noanim";
-        addr = "selection";
-      }
-      {
-        rule = "noanim";
-        addr = "vicinae";
-      }
-      {
-        rule = "noanim";
-        addr = "walker";
-      }
-      {
-        rule = "xray 1";
-        addr = ".*";
-      }
+      { rule = "animation slide left"; addr = "sideleft.*"; }
+      { rule = "animation slide right"; addr = "sideright.*"; }
+      { rule = "blur on"; addr = "bar"; }
+      { rule = "blur on"; addr = "cheatsheet"; }
+      { rule = "blur on"; addr = "corner.*"; }
+      { rule = "blur on"; addr = "dock"; }
+      { rule = "blur on"; addr = "gtk-layer-shell"; }
+      { rule = "blur on"; addr = "indicator*"; }
+      { rule = "blur on"; addr = "indicator.*"; }
+      { rule = "blur on"; addr = "launcher"; }
+      { rule = "blur on"; addr = "notifications"; }
+      { rule = "blur on"; addr = "notifications"; }
+      { rule = "blur on"; addr = "osk"; }
+      { rule = "blur on"; addr = "overview"; }
+      { rule = "blur on"; addr = "rofi"; }
+      { rule = "blur on"; addr = "session"; }
+      { rule = "blur on"; addr = "shell:*"; }
+      { rule = "blur on"; addr = "sideleft"; }
+      { rule = "blur on"; addr = "sideright"; }
+      { rule = "blur on"; addr = "vicinae"; }
+      { rule = "ignore_alpha 0"; addr = "rofi"; }
+      { rule = "ignore_alpha 0"; addr = "vicinae"; }
+      { rule = "ignore_alpha 0.5"; addr = "launcher"; }
+      { rule = "ignore_alpha 0.6"; addr = "bar"; }
+      { rule = "ignore_alpha 0.6"; addr = "cheatsheet"; }
+      { rule = "ignore_alpha 0.6"; addr = "corner.*"; }
+      { rule = "ignore_alpha 0.6"; addr = "dock"; }
+      { rule = "ignore_alpha 0.6"; addr = "indicator*"; }
+      { rule = "ignore_alpha 0.6"; addr = "indicator.*"; }
+      { rule = "ignore_alpha 0.6"; addr = "osk"; }
+      { rule = "ignore_alpha 0.6"; addr = "overview"; }
+      { rule = "ignore_alpha 0.6"; addr = "shell:*"; }
+      { rule = "ignore_alpha 0.6"; addr = "sideleft"; }
+      { rule = "ignore_alpha 0.6"; addr = "sideright"; }
+      { rule = "ignore_alpha 0.69"; addr = "notifications"; }
+      { rule = "ignore_alpha 0.1"; addr = "gtk-layer-shell"; }
+      { rule = "ignore_alpha 0.1"; addr = "notifications"; }
+      { rule = "ignore_alpha 0.1"; addr = "notifications"; }
+      { rule = "ignore_alpha 0.1"; addr = "rofi"; }
+      { rule = "no_anim on"; addr = "anyrun"; }
+      { rule = "no_anim on"; addr = "hyprpicker"; }
+      { rule = "no_anim on"; addr = "indicator.*"; }
+      { rule = "no_anim on"; addr = "noanim"; }
+      { rule = "no_anim on"; addr = "osk"; }
+      { rule = "no_anim on"; addr = "overview"; }
+      { rule = "no_anim on"; addr = "rofi"; }
+      { rule = "no_anim on"; addr = "selection"; }
+      { rule = "no_anim on"; addr = "vicinae"; }
+      { rule = "no_anim on"; addr = "walker"; }
+      { rule = "xray on"; addr = ".*"; }
     ];
   };
 
   exec-once = [
     "dbus-update-activation-environment --systemd --all"
     "hyprpm reload -n"
+    "clipse -listen"
     "wl-paste --type image --watch cliphist store"
     "wl-paste --type text --watch cliphist store"
     "wlsunset -l 40.7 -L -73.9"
     "xrdb ~/.Xresources"
+
+    # TODO: systemctl --user enable --now hyprpolkitagent will work with uwsm,
+    # but not reproducible in current setup
+    "systemctl --user start hyprpolkitagent"
   ];
 
   exec = [ ];

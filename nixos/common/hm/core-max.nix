@@ -17,7 +17,6 @@
     flac             # flac encoding and decoding
     gperf            # perfect hash function generator
     grex             # regex generator
-    hex              # hexdump in rust
     httpie           # command line http client
     id3v2            # music files id3v2 tag modifier
     imagemagick      # bitmap image manipulation

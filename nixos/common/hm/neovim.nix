@@ -12,12 +12,14 @@ let
     clojure-lsp                     # clojure
     elixir-ls                       # elixir
     elmPackages.elm-language-server # elm
+    emmet-language-server           # emmet
     fennel-ls                       # fennel
     jsonnet-language-server         # jsonnet
     ltex-ls-plus                    # grammar
     lua-language-server             # lua
     marksman                        # markdown
     nil                             # nix
+    tailwindcss-language-server     # tailwindcss
     taplo                           # toml
     tinymist                        # typst
     vscode-langservers-extracted    # json+
@@ -27,7 +29,6 @@ let
 
   neovim_pkgs = with pkgs; [
     nodejs-slim
-    tree-sitter
     typst
   ];
 in

@@ -12,9 +12,16 @@
   };
 
   home.sessionPath = [ "${config.xdg.configHome}/emacs/bin" ];
+
   programs.emacs = {
     enable = true;
     package = pkgs.emacs;
+  };
+
+  services.emacs = {
+    enable = true;
+    startWithUserSession = "graphical";
+    client.enable = true;
   };
 
   xdg.configFile = {
@@ -29,7 +36,8 @@
       enable = true;
       source = builtins.fetchGit {
         url = "https://github.com/doomemacs/doomemacs.git";
-        rev = "e10477d6d1f1cd8c9369daad6b74f7d2e6e9fad9";
+        rev = "470e653f08cfe85bbc02516af65e44d3b9c735b8";
+        ref = "master";
       };
     };
   };

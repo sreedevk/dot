@@ -11,12 +11,6 @@ let
 in
 {
 
-  systemd.user.services.noctalia-shell.Service.Environment = [
-    "QT_QPA_PLATFORM=wayland"
-    "WAYLAND_DISPLAY=wayland-1"
-    "XDG_RUNTIME_DIR=%t"
-  ];
-
   home.packages = with pkgs; [
     noctalia
     evolution-data-server
@@ -26,30 +20,47 @@ in
 
   programs.noctalia-shell = {
     enable = true;
-    package = config.lib.nixGL.wrap (config.lib.pamShim.replacePam pkgs.noctalia);
-    systemd.enable = true;
-    colors = with config.lib.stylix.colors; {
-      mError = "#${base08}";
-      mOnError = "#${base00}";
-      mOnPrimary = "#${base00}";
-      mOnSecondary = "#${base00}";
-      mOnSurface = "#${base04}";
-      mOnSurfaceVariant = "#${base04}";
-      mOnTertiary = "#${base00}";
-      mOutline = "#${base02}";
-      mPrimary = "#${base0B}";
-      mSecondary = "#${base0A}";
-      mShadow = "#${base00}";
-      mSurface = "#${base00}";
-      mSurfaceVariant = "#${base01}";
-      mTertiary = "#${base0D}";
+    package = config.lib.nixGL.wrapOffload (config.lib.pamShim.replacePam pkgs.noctalia);
+    systemd.enable = false;
+    colors =
+      let
+        clr = hex: "#${hex}";
+      in
+      with config.lib.stylix.colors;
+      {
+        mError = clr base08;
+        mOnError = clr base00;
+        mOnPrimary = clr base00;
+        mOnSecondary = clr base00;
+        mOnSurface = clr base04;
+        mOnSurfaceVariant = clr base04;
+        mOnTertiary = clr base00;
+        mOutline = clr base02;
+        mPrimary = clr base0B;
+        mSecondary = clr base0A;
+        mShadow = clr base00;
+        mSurface = clr base00;
+        mSurfaceVariant = clr base01;
+        mTertiary = clr base0D;
+      };
+    plugins = {
+      sources = [
+        {
+          enabled = true;
+          name = "Official Noctalia Plugins";
+          url = "https://github.com/noctalia-dev/noctalia-plugins";
+        }
+      ];
+      states = { };
+      version = 1;
     };
+    pluginSettings = { };
     settings = {
       dock = {
         enabled = false;
       };
       controlCenter = {
-        position = "center";
+        position = "close_to_bar_button";
         cards = [
           {
             enabled = true;
@@ -85,9 +96,7 @@ in
           2
           4
         ];
-        monitors = [
-          "eDP-1"
-        ];
+        monitors = [ "eDP-1" ];
       };
       audio = {
         cavaFrameRate = 120;
@@ -134,6 +143,7 @@ in
       };
       notifications = {
         enabled = true;
+        enableMarkdown = true;
         doNotDisturb = false;
         monitors = [ ];
         location = "top_right";
@@ -153,13 +163,15 @@ in
           volume = 0.5;
           separateSounds = false;
           criticalSoundFile = "";
-          normalSoundFile = "";
+          normalSoundFile = "${builtins.getEnv "HOME"}/.config/sounds/knock_brush.mp3";
           lowSoundFile = "";
-          excludedApps = "discord,slack,firefox,chrome,chromium,edge";
+          excludedApps = "feishin,thunderbird,discord,firefox,chrome,chromium,edge";
         };
+        enableMediaToast = false;
       };
       appLauncher = {
         enableClipboardHistory = false;
+        autoPasteClipboard = false;
         position = "center";
         backgroundOpacity = 1;
         pinnedExecs = [ ];
@@ -186,6 +198,24 @@ in
         transitionEdgeSmoothness = 0.05;
         monitors = [ ];
         panelPosition = "follow_bar";
+        showHiddenFiles = false;
+        useSolidColor = false;
+        solidColor = "#1a1a2e";
+        automationEnabled = false;
+        wallpaperChangeMode = "random";
+        hideWallpaperFilenames = false;
+        useWallhaven = true;
+        wallhavenQuery = "landscape";
+        wallhavenSorting = "relevance";
+        wallhavenOrder = "desc";
+        wallhavenCategories = "111";
+        wallhavenPurity = "100";
+        # wallhavenRatios = "";
+        # wallhavenApiKey = "";
+        # wallhavenResolutionMode = "atleast";
+        # wallhavenResolutionWidth = "";
+        # wallhavenResolutionHeight = "";
+        # viewMode = "single";
       };
       bar = {
         density = "comfortable";
@@ -195,6 +225,8 @@ in
         position = "top";
         floating = false;
         showCapsule = false;
+
+        useSeparateOpacity = true;
         widgets = {
           left = [
             {
@@ -291,7 +323,16 @@ in
         avatarImage = "";
         dimDesktop = true;
         radiusRatio = 0.2;
-        scaleRatio = 1.15;
+        scaleRatio = 1.00;
+        enableShadows = true;
+        shadowDirection = "center";
+        shadowOffsetX = 2;
+        shadowOffsetY = 3;
+        compactLockScreen = false;
+        telemetryEnabled = false;
+        enableLockScreenCountdown = true;
+        lockScreenCountdownDuration = 10000;
+        autoStartAuth = false;
       };
       brightness = {
         enableDdcSupport = false;
@@ -340,10 +381,18 @@ in
       ui = {
         fontDefault = "Roboto";
         fontFixed = "Iosevka Nerd Font";
-        fontDefaultScale = 1.15;
-        fontFixedScale = 1.15;
+        fontDefaultScale = 1.0;
+        fontFixedScale = 1.0;
         tooltipsEnabled = true;
         panelsOverlayLayer = true;
+        wifiDetailsViewMode = "grid";
+        panelBackgroundOpacity = 0.93;
+        panelsAttachedToBar = true;
+        settingsPanelMode = "attached";
+        bluetoothDetailsViewMode = "grid";
+        networkPanelView = "wifi";
+        bluetoothHideUnnamedDevices = false;
+        boxBorderEnabled = false;
       };
       location = {
         monthBeforeDay = true;
@@ -357,6 +406,24 @@ in
         showCalendarWeather = true;
         analogClockInCalendar = false;
         firstDayOfWeek = -1;
+        hideWeatherTimezone = false;
+        hideWeatherCityName = false;
+      };
+      calendar = {
+        cards = [
+          {
+            enabled = true;
+            id = "calendar-header-card";
+          }
+          {
+            enabled = true;
+            id = "calendar-month-card";
+          }
+          {
+            enabled = true;
+            id = "weather-card";
+          }
+        ];
       };
       systemMonitor = {
         cpuWarningThreshold = 80;
@@ -372,6 +439,7 @@ in
         cpuPollingInterval = 3000;
         tempPollingInterval = 3000;
         gpuPollingInterval = 3000;
+        enableDgpuMonitoring = true;
         enableNvidiaGpu = true;
         memPollingInterval = 3000;
         diskPollingInterval = 3000;
@@ -379,6 +447,33 @@ in
         useCustomColors = false;
         warningColor = "";
         criticalColor = "";
+      };
+    };
+  };
+
+  systemd.user = {
+    services = {
+      noctalia-shell = {
+        Unit = {
+          Description = "Noctalia Shell - Wayland desktop shell";
+          Documentation = "https://docs.noctalia.dev";
+          After = [ "graphical-session.target" ];
+          PartOf = [ "graphical-session.target" ];
+        };
+        Service = {
+          Type = "simple";
+          ExecStart = "${config.programs.noctalia-shell.package}/bin/noctalia-shell";
+          RemainAfterExit = true;
+          Environment = [
+            "QT_QPA_PLATFORM=wayland"
+            "WAYLAND_DISPLAY=wayland-1"
+            "XDG_RUNTIME_DIR=%t"
+          ];
+          Restart = "on-failure";
+        };
+        Install = {
+          WantedBy = [ "graphical-session.target" ];
+        };
       };
     };
   };

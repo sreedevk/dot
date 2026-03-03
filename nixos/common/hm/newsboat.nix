@@ -7,6 +7,14 @@
   programs.newsboat = {
     enable = true;
     autoReload = false;
+    autoVacuum = {
+      enable = true;
+      onCalendar = "weekly";
+    };
+    autoFetchArticles = {
+      enable = true;
+      onCalendar = "daily";
+    };
     reloadThreads = 10;
     reloadTime = 120;
     browser = "${opts.desktop.browser.bin}";

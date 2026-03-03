@@ -17,7 +17,6 @@
         };
         tools = {
           bun        = "latest";
-          chezscheme = "9.6.4";
           chicken    = "5.4.0";
           clojure    = "latest";
           deno       = "latest";
@@ -26,12 +25,7 @@
           erlang     = "latest";
           gleam      = "latest";
           golang     = "latest";
-          nim        = "latest";
-          ruby       = "latest";
           zig        = "latest";
-
-          # BUG: PLUGIN BROKEN
-          janet      = "latest";
         };
       };
     };

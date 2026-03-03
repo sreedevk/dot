@@ -17,10 +17,6 @@ let
     };
   };
 
-  taskwarrior-tui-taskopenscript = pkgs.writeShellScriptBin "tt-taskopen" ''
-    taskopen $@
-  '';
-
   taskwarrior-notifier = pkgs.writeShellScriptBin "taskwarrior-notify-due" ''
     export DISPLAY=:1
     tasks_due_soon=$(task due:+1h -ACTIVE list --format '{id}: {description}' 2>/dev/null)
@@ -158,7 +154,6 @@ let
       urgency.uda.priority.H.coefficient=${builtins.toString configs.coefficients.uda.H}
       urgency.uda.priority.M.coefficient=${builtins.toString configs.coefficients.uda.M}
       urgency.uda.priority.L.coefficient=${builtins.toString configs.coefficients.uda.L}
-      uda.taskwarrior-tui.shortcuts.1=${taskwarrior-tui-taskopenscript}/bin/tt-taskopen
       uda.taskwarrior-tui.task-report.next.filter=status:pending -WAITING limit:page -someday
       uda.taskwarrior-tui.task-report.work.filter=status:pending -WAITING limit:page -someday proj:work:tunecore
       uda.taskwarrior-tui.background_process=task sync
@@ -186,39 +181,6 @@ in
         enable = true;
         text = mkTaskConfig taskwarriorSettings;
         recursive = false;
-      };
-
-      ".taskopenrc" = {
-        enable = true;
-        text = ''
-          [General]
-          taskbin             = task
-          taskargs
-          no_annotation_hook  = "addnote $ID"
-          task_attributes     = "priority,project,tags,description"
-          --sort:"urgency-,annot"
-          EDITOR = nvim
-          path_ext=/usr/share/taskopen/scripts
-
-          [Actions]
-          files.target=annotations
-          files.labelregex=".*"
-          files.regex="^[\\.\\/~]+.*\\.(.*)"
-          files.command="$EDITOR $FILE"
-          files.modes="batch,any,normal"
-
-          notes.target=annotations
-          notes.labelregex=".*"
-          notes.regex="^Notes(\\..*)?"
-          notes.command="""editnote ~/Data/notebook/tasknotes/$UUID$LAST_MATCH "$TASK_DESCRIPTION" $UUID"""
-          notes.modes="batch,any,normal"
-
-          url.target=annotations
-          url.labelregex=".*"
-          url.regex="((?:www|http|https).*)"
-          url.command="xdg-open $LAST_MATCH"
-          url.modes="batch,any,normal"
-        '';
       };
     };
   };

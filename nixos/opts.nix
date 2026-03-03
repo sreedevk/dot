@@ -1,18 +1,29 @@
 {
+
+  attic = {
+    url = null;
+    key = null;
+  };
+
+  domains = {
+    lan       = { apollo = "external.nullptr.sh"; };
+    tailscale = { apollo = "nullptr.sh";          };
+  };
+
   addresses = {
     lan = {
-      devstation    = "192.168.1.249";
-      rpi4b         = "192.168.1.151";
+      rpi4b         = "192.168.1.152";
       devtechnica   = "5.161.22.238";
       apollo        = "192.168.1.143";
-      rocknix       = "";
+      rocknix       = "192.168.1.184";
+      phonix        = "192.168.1.235";
     };
     tailscale = {
-      devstation    = "100.109.36.108";
       devtechnica   = "";
-      rpi4b         = "";
-      apollo        = "100.121.45.124";
+      rpi4b         = "100.116.90.85";
+      apollo        = "100.110.156.47";
       rocknix       = "100.100.18.78";
+      phonix        = "100.96.226.87";
     };
   };
 
@@ -38,10 +49,10 @@
 
   publicKeys = {
     apollo        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINiYLIEBtoti0D2R5/nuGzXTQaYP7OynXMkAuJBeNit6";
-    devstation    = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyTIQBuC8gK9HjVViXha1VVTc8mStsrWU1umEM0puuP";
     olivetin      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIByeKyDW/vNAU29/sBzbyCH1eDTPMPhYDbhAxnNuv1lu";
     rpi4b         = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAul9ZMOMARHw6iSIFbQKChc/bkFBx5/mZnrer/YsRvV";
     terminus      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKwPdv2zFlfcDbbRvpIYBPh/oRR7MUYjH397Ma+Tu5iB";
+    phoenix       = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILECZkgjRGtMkXHr44ytGrfpByPZbP2t5WeF6NgetYIO";
   };
 
   timeZone = "America/New_York";

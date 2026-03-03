@@ -56,7 +56,7 @@ let
 in
 {
   "pi@rpi4b" = builtins.toJSON (genconf "radpi");
-  "sreedev@devstation" = builtins.toJSON (genconf "sreedev");
   "deploy@devtechnica" = builtins.toJSON (genconf "devtk");
   "sreedev@apollo" = builtins.toJSON (genconf "devbox");
+  "sreedev@phoenix" = builtins.toJSON (genconf "phoenix");
 }

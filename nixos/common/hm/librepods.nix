@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs
+, config
+, ...
+}:
 let
   librepods = pkgs.stdenv.mkDerivation {
     pname = "librepods";
@@ -6,8 +9,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "kavishdevar";
       repo = "librepods";
-      rev = "5cd7db574a4602e1bb0c485431e70a8e39f9f579";
-      sha256 = "sha256-23G71hLCeUODDgubxGpFsHhLZHSXJ2kjzcxmXyEHJ+o=";
+      rev = "fd33528218b7e1378429c4d773d757e4be36416f";
+      sha256 = "sha256-NhoWMx9M9X2pHMYZCre6We80jl8XV6843J5y37v9Hyg=";
     };
     sourceRoot = "source/linux";
     buildInputs = with pkgs; [
@@ -28,7 +31,6 @@ let
       pkg-config
       kdePackages.wrapQtAppsHook
     ];
-    dontWrapQtApps = true;
     installPhase = ''
       mkdir -p $out/bin
       cp librepods $out/bin/
@@ -36,24 +38,14 @@ let
   };
 in
 {
-  home.packages = [ librepods ];
-  systemd.user = {
-    services = {
-      librepods = {
-        Unit = {
-          Description = "Librepods Airpods Controller";
-          PartOf = "graphical-session.target";
-          After = "graphical-session.target";
-        };
-        Service = {
-          ExecStart = "${librepods}/bin/librepods";
-          Restart = "always";
-          RestartSec = 3;
-        };
-        Install = {
-          WantedBy = [ "graphical-session.target" ];
-        };
-      };
+  xdg.desktopEntries = {
+    librepods = {
+      name = "Librepods";
+      type = "Application";
+      exec = "env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia ${config.lib.nixGL.wrapOffload librepods}/bin/librepods";
+      comment = "librepods autostart";
+      icon = "librepods";
+      terminal = false;
     };
   };
 }

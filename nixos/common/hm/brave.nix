@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  nixgl-brave-pkg = config.lib.nixGL.wrap pkgs.brave;
+  nixgl-brave-pkg = config.lib.nixGL.wrapOffload pkgs.brave;
 in
 {
   home.packages = [ nixgl-brave-pkg ];

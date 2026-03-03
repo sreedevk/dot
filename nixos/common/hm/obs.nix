@@ -2,7 +2,7 @@
 {
   programs.obs-studio = {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.obs-studio;
+    package = config.lib.nixGL.wrapOffload pkgs.obs-studio;
     plugins = with pkgs.obs-studio-plugins; [
       droidcam-obs
       obs-backgroundremoval

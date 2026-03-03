@@ -1,27 +1,18 @@
 { pkgs, config, ... }:
 {
-
-  home.file = {
-    "neovide/config.toml" = {
-      enable = true;
-      recursive = false;
-      executable = false;
-      target = ".config/neovide/config.toml";
-      source = (pkgs.formats.toml { }).generate "config.toml" {
-        fork = true;
-        wsl = false;
-        no-multigrid = false;
-        vsync = true;
-        maximized = false;
-        srgb = true;
-        idle = true;
-        neovim-bin = "${config.programs.neovim.package}/bin/nvim";
-        frame = "full";
-      };
+  programs.neovide = {
+    enable = true;
+    package = config.lib.nixGL.wrapOffload pkgs.neovide;
+    settings = {
+      fork = true;
+      wsl = false;
+      no-multigrid = false;
+      vsync = true;
+      maximized = false;
+      srgb = true;
+      idle = true;
+      neovim-bin = "${config.programs.neovim.package}/bin/nvim";
+      frame = "full";
     };
   };
-
-  home.packages = [
-    (config.lib.nixGL.wrapOffload pkgs.neovide)
-  ];
 }

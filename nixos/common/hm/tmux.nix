@@ -1,7 +1,6 @@
 { pkgs
 , opts
 , config
-, username
 , ...
 }:
 let
@@ -25,7 +24,7 @@ in
   programs.tmux = {
     enable = true;
     shell = "${pkgs.zsh}/bin/zsh";
-    terminal = "xterm-256color";
+    terminal = "tmux-256color";
     historyLimit = 100000;
     plugins = with pkgs; [
       {
@@ -96,7 +95,7 @@ in
       bind -r B  switch-client -p
       bind | if-shell "tmux has-session -t system 2>/dev/null" \
                       "switch-client -t system" \
-                      "new-session -d -s system -c '/home/${username}'; switch-client -t system"
+                      "new-session -d -s system -c '${builtins.getEnv "HOME"}'; switch-client -t system"
 
       # COPY MODE
       bind -T   copy-mode-vi v      send-keys -X begin-selection
@@ -106,25 +105,27 @@ in
       bind -T   copy-mode-vi C-g    send-keys -X cancel
       bind -T   copy-mode-vi 0      send-keys -X start-of-line
       bind -T   copy-mode-vi $      send-keys -X end-of-line
-      bind p    paste-buffer
-      bind C-p  choose-buffer
+      bind p       paste-buffer
+      bind    C-p  choose-buffer
+      bind    C-q  copy-mode
+      bind -T copy-mode-vi C-q send-keys -X cancel
 
       # WORKFLOWS
       bind C-a neww ${pkgs.wiremix}/bin/wiremix
       bind C-c new-session
       bind C-e neww ${pkgs.neovim}/bin/nvim
-      bind C-f neww ${pkgs.yazi}/bin/yazi
       bind C-g neww ${pkgs.lazygit}/bin/lazygit
+      bind C-f neww ${pkgs.nnn}/bin/nnn
       bind C-h neww ${config.programs.htop.package}/bin/htop
       bind C-o neww ${sessionizer}/bin/tmux-sessionizer
-      bind C-q command-prompt -p find-session 'switch-client -t %%'
       bind C-r neww ${pkgs.newsboat}/bin/newsboat
       bind C-s neww ${sshfzf}/bin/ssh-fzf
       bind C-t neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui
       bind C-u if-shell "tmux has-session -t system 2>/dev/null" \
                         "switch-client -t system" \
-                        "new-session -d -s system -c '/home/${username}'; switch-client -t system"
+                        "new-session -d -s system -c '${builtins.getEnv "HOME"}'; switch-client -t system"
       bind C-w neww ${bwfzf}/bin/bwfzf
+      bind C-v run-shell "wl-paste | tmux load-buffer - ; tmux paste-buffer"
 
       # MOUSE SUPPORT
       bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
@@ -138,7 +139,7 @@ in
 
       # MODE KEYS
       set -g status-keys emacs
-      set -g mode-keys   vi
+      set -g mode-keys vi
 
       # CLEAN UP VI MODE
       unbind C-,
@@ -163,6 +164,8 @@ in
       set -s  extended-keys on
       set -as terminal-features 'xterm*:extkeys'
       set -ag terminal-overrides ",xterm-256color:RGB"
+      set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+      set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'
       set -g  buffer-limit  20
       set -g  set-titles on
       set -g  set-titles-string "#I:#W"
@@ -174,6 +177,7 @@ in
       set -g  renumber-windows on
       set -g  monitor-activity on
       set -g  visual-activity off
+      set -g  focus-events on
 
       setw -g allow-rename on
       setw -g automatic-rename on
@@ -190,5 +194,15 @@ in
       set -s  escape-time   0
       set -sg repeat-time   300
     '';
+  };
+
+  programs.sesh = {
+    enable = true;
+    package = pkgs.sesh;
+    enableAlias = false;
+    enableTmuxIntegration = false;
+    # tmuxKey = "q";
+    icons = true;
+    settings = { };
   };
 }

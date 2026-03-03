@@ -1,5 +1,4 @@
 {
-  # https://mozilla.github.io/policy-templates/
   "accessibility.force_disabled"                                        = 1;
   "app.normandy.api_url"                                                = "";
   "app.normandy.enabled"                                                = false;
@@ -92,10 +91,13 @@
   "browser.urlbar.quicksuggest.enabled"                                 = false;
   "browser.urlbar.shortcuts.quickactions"                               = false;
   "browser.urlbar.showSearchSuggestionsFirst"                           = false;
+  "browser.urlbar.suggest.bookmarks"                                    = true;
   "browser.urlbar.suggest.calculator"                                   = true;
+  "browser.urlbar.suggest.history"                                      = true;
   "browser.urlbar.suggest.quickactions"                                 = false;
   "browser.urlbar.suggest.quicksuggest.nonsponsored"                    = false;
   "browser.urlbar.suggest.quicksuggest.sponsored"                       = false;
+  "browser.urlbar.suggest.searches"                                     = false;
   "browser.urlbar.trending.featureGate"                                 = false;
   "browser.urlbar.trimHttps"                                            = false;
   "browser.urlbar.unitConversion.enabled"                               = true;
@@ -271,4 +273,5 @@
   "toolkit.telemetry.unified"                                           = false;
   "toolkit.telemetry.updatePing.enabled"                                = false;
   "webchannel.allowObject.urlWhitelist"                                 = "";
+  # https://mozilla.github.io/policy-templates/
 }
