@@ -2,7 +2,7 @@ return {
   {
     "leath-dub/snipe.nvim",
     keys = {
-      { "<Leader>gg", function() require("snipe").open_buffer_menu() end, desc = "Open Snipe buffer menu" }
+      { "<Leader><tab>", function() require("snipe").open_buffer_menu() end, desc = "Open Snipe buffer menu" }
     },
     opts = {
       ui = {

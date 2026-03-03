@@ -50,9 +50,35 @@ vim.api.nvim_create_autocmd('LspAttach', {
   desc = "Disable LSP Diagnostic Virtual Lines (tiny lsp diagnostics plugin)",
   group = vim.api.nvim_create_augroup("disable_virtual_line_diagnostics", {}),
   callback = function(_)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "LSP: Go to definition" })
+    vim.keymap.set("n", "gD", vim.lsp.buf.implementation, { desc = "LSP: Go to implementation" })
+    vim.keymap.set("n", "grt", vim.lsp.buf.type_definition, { desc = "LSP: Type Definition" })
+    vim.keymap.set({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Action" })
+
+    vim.keymap.set({ "n", "x" }, "<leader>clr", vim.lsp.codelens.run, { desc = "LSP: Codelens Run" })
+    vim.keymap.set({ "n", "x" }, "<leader>clR", vim.lsp.codelens.refresh, { desc = "LSP: Codelens Refresh" })
+
+    vim.keymap.set(
+      { 'n', 'v' },
+      '<Leader>ff',
+      function() vim.lsp.buf.format({ async = true }) end,
+      { desc = "Format Text", noremap = true }
+    )
+
     vim.diagnostic.config {
       virtual_lines = false, -- { current_line = true }
       virtual_text = false,  -- { current_line = true }
     }
   end
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = vim.api.nvim_create_augroup("auto_create_dir", {}),
+  callback = function(event)
+    if event.match:match("^%w%w+:[\\/][\\/]") then
+      return
+    end
+    local file = vim.uv.fs_realpath(event.match) or event.match
+    vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+  end,
 })

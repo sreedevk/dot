@@ -1,26 +1,5 @@
 vim.g.mapleader         = ';'
 
-vim.g.auxbuffers        = {
-  "qf",
-  "help",
-  "man",
-  "notify",
-  "nofile",
-  "lspinfo",
-  "terminal",
-  "prompt",
-  "toggleterm",
-  "startuptime",
-  "tsplayground",
-  "PlenaryTestPopup",
-  "trouble",
-  "vim",
-  "undotree",
-  "neo-tree",
-  'gitcommit',
-  'gitrebase'
-}
-
 vim.g.loaded            = 1
 vim.g.loaded_matchparen = 0
 vim.g.termdebugger      = "rust-gdb"
@@ -194,3 +173,81 @@ vim.opt.spellcapcheck = ''
 vim.opt.spellfile = vim.fn.expand(vim.g.dotfiles .. "/stowed/.config/nvim/spell/en.utf-8.add")
 
 vim.api.nvim_set_hl(0, "CursorLine", { default = true, blend = 50 })
+
+vim.g.enabled_ts_parsers = {
+  "bash",
+  "c",
+  "cpp",
+  "css",
+  "csv",
+  "desktop",
+  "diff",
+  "dockerfile",
+  "eex",
+  "elixir",
+  "erlang",
+  "fennel",
+  "git_config",
+  "git_rebase",
+  "gitattributes",
+  "gitcommit",
+  "gitignore",
+  "gleam",
+  "haskell",
+  "haskell_persistent",
+  "heex",
+  "html",
+  "http",
+  "hyprlang",
+  "janet_simple",
+  "javascript",
+  "jq",
+  "json",
+  "latex",
+  "ledger",
+  "lua",
+  "make",
+  "markdown",
+  "markdown_inline",
+  "nginx",
+  "nix",
+  "ocaml",
+  "ocaml_interface",
+  "ocamllex",
+  "python",
+  "ruby",
+  "rust",
+  "sql",
+  "ssh_config",
+  "supercollider",
+  "tmux",
+  "todotxt",
+  "toml",
+  "tsv",
+  "typescript",
+  "xml",
+  "yaml",
+  "zathurarc",
+  "zig",
+}
+
+vim.g.auxbuffers         = {
+  "qf",
+  "help",
+  "man",
+  "notify",
+  "nofile",
+  "lspinfo",
+  "terminal",
+  "prompt",
+  "toggleterm",
+  "startuptime",
+  "tsplayground",
+  "PlenaryTestPopup",
+  "trouble",
+  "vim",
+  "undotree",
+  "neo-tree",
+  'gitcommit',
+  'gitrebase'
+}

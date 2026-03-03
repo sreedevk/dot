@@ -118,7 +118,7 @@ return {
     },
     prompt = {
       enabled = true,
-      prefix = { { "⚡", "FlashPromptIcon" } },
+      prefix = { { "(f)" } },
       win_config = {
         relative = "editor",
         width = 1,
@@ -134,8 +134,7 @@ return {
     },
   },
   keys = {
-    { "s",          mode = { "n" }, function() require("flash").jump() end,       desc = "Flash" },
-    { "S",          mode = { "n" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-    { "<leader>sf", mode = { "c" }, function() require("flash").toggle() end,     desc = "Toggle Flash Search" }
+    { "s", mode = { "n" }, function() require("flash").jump() end, desc = "jump to char" },
+    { "S", mode = { "n" }, function() require("flash").treesitter() end, desc = "jump selection treesitter" },
   },
 }

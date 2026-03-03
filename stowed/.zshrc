@@ -44,7 +44,7 @@ fi
 
 # HISTORYFILE
 export HISTORY_IGNORE="(ls|cd|pwd|exit|history)"
-export HISTFILE=$HOME/.cache/zhistory
+export HISTFILE="$HOME/.zsh/zsh_history"
 export HISTFILESIZE=10000
 export HISTSIZE=1000
 export SAVEHIST=1000
@@ -70,6 +70,7 @@ autoload -U  promptinit && promptinit
 autoload -U  compinit && compinit -u
 autoload -Uz bashcompinit && bashcompinit
 autoload     edit-command-line
+autoload     zmv
 
 _comp_options+=(globdots)
 
@@ -98,7 +99,6 @@ unsetopt beep
 set -o vi
 
 # KEY BINDINGS
-bindkey -s    '^xo'    'ycd\n'
 bindkey       '^R'    fzf-history-widget
 bindkey       '^A'    beginning-of-line
 bindkey       '^E'    end-of-line

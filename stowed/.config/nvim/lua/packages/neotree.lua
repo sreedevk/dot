@@ -12,11 +12,15 @@ return {
     },
     cmd = { "Neotree" },
     keys = {
-      { "<C-n>",      wrap_cmd("Neotree filesystem reveal toggle"), desc = "Toggle Neotree" },
-      { "<Leader>nf", wrap_cmd("Neotree filesystem reveal toggle"), desc = "Reveal File in Neotree" },
-      { "<Leader>nb", wrap_cmd("Neotree buffers reveal toggle"),    desc = "Reveal Buffers in Neotree" },
-      { "<Leader>nn", wrap_cmd("Neotree current toggle"),           desc = "netrw style full buffer tree" },
+      { "<C-n>",      wrap_cmd("Neotree filesystem reveal toggle"), desc = "filesystem tree toggle" },
+      { "<leader>nn", wrap_cmd("Neotree current toggle"),           desc = "netrw style neotree" },
+      { "<leader>ob", wrap_cmd("Neotree buffers reveal toggle"),    desc = "buffer tree toggle" },
+      { "<leader>op", wrap_cmd("Neotree filesystem reveal toggle"), desc = "filesystem tree toggle" },
+      { "<leader>og", wrap_cmd("Neotree git_status reveal toggle"), desc = "git_status tree toggle" },
     },
+    deactivate = function()
+      vim.cmd([[Neotree close]])
+    end,
     lazy = true,
     opts = {
       close_if_last_window = true,
@@ -103,7 +107,6 @@ return {
           nowait = true,
         },
         mappings = {
-          ["<space>"] = { "toggle_node", nowait = true, },
           ["<2-LeftMouse>"] = "open",
           ["<cr>"] = "open",
           ["<esc>"] = "revert_preview",
@@ -113,8 +116,8 @@ return {
           ["T"] = "open_tabnew",
           ["w"] = "open_with_window_picker",
           ["C"] = "close_node",
-          ["z"] = "close_all_nodes",
-          ["Z"] = "expand_all_nodes",
+          ["z"] = "close_all_subnodes",
+          ["Z"] = "expand_all_subnodes",
           ["a"] = {
             "add",
             config = {
@@ -182,6 +185,10 @@ return {
             ["<C-j>"] = "move_cursor_down",
             ["<up>"] = "move_cursor_up",
             ["<C-k>"] = "move_cursor_up",
+            ["<esc>"] = "close",
+            ["<S-CR>"] = "close_keep_filter",
+            ["<C-CR>"] = "close_clear_filter",
+            ["<C-w>"] = { "<C-S-w>", raw = true },
           },
         }
       },

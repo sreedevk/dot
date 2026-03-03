@@ -33,7 +33,7 @@ fi
 
 # HISTORYFILE
 export HISTORY_IGNORE="(ls|cd|pwd|exit|history)"
-export HISTFILE=$HOME/.cache/zsh/history
+export HISTFILE=$HOME/.bash_history
 export HISTFILESIZE=10000
 export HISTSIZE=1000
 export SAVEHIST=1000
@@ -105,8 +105,6 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias jctl="journalctl -p 3 -xb"
 alias clock="tty-clock -csSbt -C3"
-alias wget="noglob wget"
-alias curl="noglob curl"
 alias z='__zoxide_z'
 alias zz='__zoxide_zi'
 alias cw='cliphist --wipe'

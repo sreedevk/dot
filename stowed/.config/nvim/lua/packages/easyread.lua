@@ -1,7 +1,12 @@
 return {
   'JellyApple102/easyread.nvim',
   lazy = true,
-  cmd = { 'EasyreadToggle', 'EasyreadSaccadeInterval', 'EasyreadSaccadeReset', 'EasyreadUpdateWhileInsert' },
+  cmd = {
+    'EasyreadToggle',
+    'EasyreadSaccadeInterval',
+    'EasyreadSaccadeReset',
+    'EasyreadUpdateWhileInsert',
+  },
   keys = {
     {
       "<Leader>er",

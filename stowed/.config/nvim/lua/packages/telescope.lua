@@ -4,6 +4,7 @@ return {
   'nvim-telescope/telescope.nvim',
   lazy = true,
   dependencies = {
+    "nvim-telescope/telescope-ui-select.nvim",
     "nvim-telescope/telescope-live-grep-args.nvim",
     'crispgm/telescope-heading.nvim',
     'j-hui/fidget.nvim',
@@ -13,6 +14,7 @@ return {
     'nvim-telescope/telescope-symbols.nvim',
     'nvim-treesitter/nvim-treesitter',
     'davidgranstrom/telescope-scdoc.nvim',
+    'gbprod/yanky.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
   cmd = "Telescope",
@@ -22,15 +24,21 @@ return {
     { "<Leader>bl", require('telescope.builtin').buffers,                   desc = 'Buffer List',                  noremap = true },
     { '<Leader>ft', require('telescope.builtin').filetypes,                 desc = 'Filetypes List',               noremap = true },
     { '<leader>fh', require('telescope.builtin').help_tags,                 desc = 'Help Tags List',               noremap = true },
-    { '<leader>gc', require('telescope.builtin').git_commits,               desc = 'Git Commit List',              noremap = true },
     { '<Leader>/',  require('telescope.builtin').current_buffer_fuzzy_find, desc = 'Current Buff Fuzzy Find',      noremap = true },
-    { '<Leader>cc', require('telescope.builtin').commands,                  desc = 'Commands List',                noremap = true },
+    { '<Leader>cm', require('telescope.builtin').commands,                  desc = 'Commands List',                noremap = true },
     { "<Leader>'",  require('telescope.builtin').marks,                     desc = 'Marks List',                   noremap = true },
     { "<Leader>sp", require('telescope.builtin').spell_suggest,             desc = 'Suggest Spellings',            noremap = true },
     { "<Leader>tr", wrap_cmd("Telescope resume"),                           desc = "Resume Last Telescope Search", noremap = true },
     { '<Leader>zi', wrap_cmd("Telescope zoxide list"),                      desc = "Zoxide Interactive",           noremap = true },
     { '<Leader>th', wrap_cmd("Telescope heading"),                          desc = "Telescope Markdown Headings",  noremap = true },
     { '<Leader>lf', wrap_cmd("Telescope frecency"),                         desc = "Telescope Frecency",           noremap = true },
+    {
+      "<leader>p",
+      function()
+        require('telescope').extensions.yank_history.yank_history()
+      end,
+      desc = "Open Yank History",
+    },
     {
       '<Leader>rg',
       function()
@@ -144,6 +152,9 @@ return {
           '--glob', "!**/node_modules/*",
         },
         extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown {},
+          },
           live_grep_args = {
             auto_quoting = true, -- enable/disable auto-quoting
             mappings = {         -- extend mappings
@@ -217,5 +228,7 @@ return {
     pcall(telscp.load_extension, 'live_grep_args')
     pcall(telscp.load_extension, 'scdoc')
     pcall(telscp.load_extension, 'frecency')
+    pcall(telscp.load_extension, 'ui-select')
+    pcall(telscp.load_extension, 'yanky')
   end
 }

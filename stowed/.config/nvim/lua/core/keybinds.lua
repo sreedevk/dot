@@ -48,17 +48,35 @@ vim.keymap.set('v', '<Leader>la', ':lua<CR>', { noremap = true, desc = "eval sel
 vim.keymap.set("n", "<leader>la", "<cmd>.lua<CR>", { noremap = true, desc = "eval line in nvim lua rt" })
 vim.keymap.set("n", "<leader><leader>la", "<cmd>source %<CR>", { noremap = true, desc = "eval buffer in nvim lua rt" })
 
+
+-- QuickfixList {{{1
+vim.keymap.set({ "n" }, "<leader>co", "<cmd>copen<cr>", { noremap = true, desc = "open quickfixlist" })
+vim.keymap.set({ "n" }, "<leader>cc", "<cmd>cclose<cr>", { noremap = true, desc = "close quickfixlist" })
+
+-- Leader Key Role Fix {{{1
+vim.keymap.set('n', ';', '<Nop>', { noremap = true })
+vim.keymap.set('n', '<space>l', ';', { noremap = true, desc = "Find Repeat Right (;)" })
+vim.keymap.set('n', '<space>h', ',', { noremap = true, desc = "Find Repeat Left (,)" })
+
 -- Misc {{{1
-vim.keymap.set({ 'v', 'x' }, "<Leader>p", '"_dP', { noremap = true, desc = "paste without yanking delete" })
+vim.keymap.set('n', '<leader><leader>e', ':', { noremap = true, desc = "command mode" })
 vim.keymap.set('t', "<C-\\><C-\\>", "<C-\\><C-n>", { noremap = true, desc = "escape terminal mode" })
-vim.keymap.set({ 'n', 'v' }, ',', ':', { noremap = true, desc = "enter <cmd> mode" })
 vim.keymap.set('n', '<esc>', '<cmd>noh<cr>', { noremap = true, desc = "no highlights" })
 vim.keymap.set('n', '<Leader>h', '<cmd>noh<CR>', { noremap = true, desc = "no highlights" })
 vim.keymap.set('n', '<Leader>rr', '<cmd>e!<CR>', { noremap = true, desc = "reload buffer from file on disk" })
 vim.keymap.set('n', '<Leader>fs', '<cmd>w<CR>', { noremap = true, desc = "save file" })
 vim.keymap.set('n', '<Leader>q', '<cmd>q<CR>', { noremap = true, desc = "quit neovim" })
-vim.keymap.set('n', '<leader><leader>ex', ':r !sh<CR>')
-vim.keymap.set('v', '<Leader>lc', [[<cmd>echo line("'>") - line("'<") + 1<CR>]], { noremap = true, desc = "Count Selected Lines" })
+vim.keymap.set('n', 'gco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Below' })
+vim.keymap.set('n', 'gcO', 'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Above' })
+vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
+vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
+vim.keymap.set('v', '<Leader>lc', [[<cmd>echo line("'>") - line("'<") + 1<CR>]],
+  { noremap = true, desc = "Count Selected Lines" })
+
+-- Copied from helix
+vim.keymap.set('n', 'U', vim.cmd.redo, { desc = "redo", noremap = true })
+vim.keymap.set('n', 'gh', '<cmd>normal _<cr>', { desc = "beginning of line", noremap = true })
+vim.keymap.set('n', 'gl', '<cmd>normal $<cr>', { desc = "end of line", noremap = true })
 
 vim.keymap.set(
   { 'n' },
@@ -91,15 +109,6 @@ vim.keymap.set(
     vim.api.nvim_put({ " " .. vim.fn.system("date"):gsub("\n", "") }, "c", true, true)
   end,
   { noremap = true, desc = "insert unix current timestamp" }
-)
-
-vim.keymap.set(
-  { 'n', 'v' },
-  '<Leader>ff',
-  function()
-    vim.lsp.buf.format({ async = true })
-  end,
-  { noremap = true }
 )
 
 -- vim:foldmethod=marker

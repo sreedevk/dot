@@ -17,8 +17,11 @@ return {
         group = "󰹍 ",
       },
       plugins = {
+        marks = true,
+        registers = true,
         spelling = {
-          enabled = false,
+          enabled = true,
+          suggestions = 20
         },
       },
     },

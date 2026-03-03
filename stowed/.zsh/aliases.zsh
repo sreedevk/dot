@@ -40,7 +40,6 @@ alias mux='tmuxinator'
 alias t="tmux new -A -s system"
 alias ta="tmux a"
 alias ts="tmux-sessionizer"
-alias zl="zellij"
 
 # git
 alias g='git'

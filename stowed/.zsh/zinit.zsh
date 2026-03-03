@@ -1,5 +1,9 @@
 #!/usr/bin/zsh
 
+# ZOXIDE
+export _ZO_MAXAGE=500
+export _ZO_RESOLVE_SYMLINKS=1
+
 # VI MODE
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 [ -f "/usr/share/fzf/key-bindings.zsh" ] && zvm_after_init_commands+=('source /usr/share/fzf/key-bindings.zsh')

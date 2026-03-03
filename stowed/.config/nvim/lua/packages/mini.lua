@@ -2,11 +2,26 @@ return {
   {
     'echasnovski/mini.comment',
     lazy = true,
-    keys = {
-      { "gcc", mode = "n" },
-      { "gc",  mode = "v" }
+    dependencies = {
+      {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        lazy = true,
+        opts = {
+          enable_autocmd = false,
+        },
+      },
     },
-    config = true
+    keys = {
+      { "gcc", mode = "n", desc = "comment out line" },
+      { "gc",  mode = "v", desc = "comment out" }
+    },
+    opts = {
+      options = {
+        custom_commentstring = function()
+          return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
+        end,
+      },
+    }
   },
   {
     "echasnovski/mini.move",
@@ -32,5 +47,32 @@ return {
     },
     config = true,
     version = false,
+  },
+  {
+    'nvim-mini/mini.cmdline',
+    version = '*',
+    opts = {
+      autocomplete = {
+        enable = true,
+        delay = 0,
+        predicate = nil,
+        map_arrows = true,
+      },
+
+      autocorrect = {
+        enable = false,
+        func = nil,
+      },
+
+      autopeek = {
+        enable = true,
+        n_context = 1,
+        predicate = nil,
+        window = {
+          config = {},
+          statuscolumn = nil,
+        },
+      },
+    }
   },
 }

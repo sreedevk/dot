@@ -1,7 +1,7 @@
 local overseer = require 'overseer'
 
 return {
-  name = "Janet Run",
+  name = "janet run",
   builder = function()
     return {
       cmd = { 'janet' },
@@ -19,7 +19,6 @@ return {
       metadata = {},
     }
   end,
-  desc = "Janet Run Script",
   tags = { overseer.TAG.BUILD },
   params = {},
   priority = 50,

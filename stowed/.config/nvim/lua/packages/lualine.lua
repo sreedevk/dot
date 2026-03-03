@@ -4,19 +4,20 @@ return {
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
   config = function()
     local lualine = require('lualine')
+    local overseer = require('overseer')
 
     local function macro_rec_stats()
       local recording_register = vim.fn.reg_recording()
       if recording_register == "" then
         return ""
       else
-        return "rec @" .. recording_register
+        return "@" .. recording_register
       end
     end
 
     lualine.setup {
       options = {
-				theme = "catppuccin", -- tokyonight or rose-pine or auto
+        theme = "auto",
         component_separators = { left = '', right = '' },
         section_separators = { left = ' ', right = '' },
       },
@@ -24,33 +25,28 @@ return {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff' },
         lualine_c = {
-          {
-            'buffers',
-            mode = 2,
-            use_mode_colors = false,
-            buffers_color = {
-              active = { fg = '#8443e3', gui = 'italic,bold' },
-              inactive = { fg = 'grey' },
-            },
-            symbols = {
-              modified = ' ●',
-              alternate_file = '#',
-              directory = '',
-            },
-          },
+          { function() return vim.fn.pathshorten(vim.fn.getcwd()) end },
         },
         lualine_x = {
-          { 'macro-rec',  fmt = macro_rec_stats, color = { fg = "yellow", gui = "bold" } },
-          { '%S',         padding = 1 },
-          { 'fileformat', padding = 2 },
+          { 'macro-rec', fmt = macro_rec_stats, color = { fg = "yellow", gui = "bold" } },
         },
         lualine_y = {
+          {
+            "overseer",
+            label = "",     -- Prefix for task counts
+            colored = true, -- Color the task icons and counts
+            symbols = {
+              [overseer.STATUS.FAILURE] = "F:",
+              [overseer.STATUS.CANCELED] = "C:",
+              [overseer.STATUS.SUCCESS] = "S:",
+              [overseer.STATUS.RUNNING] = "R:",
+            },
+            unique = false, -- Unique-ify non-running task count by name
+            status = nil,   -- List of task statuses to display
+            filter = nil,   -- Function to filter out tasks you don't wish to display
+          },
           'filetype',
           'filesize',
-          {
-            'encoding',
-            show_bomb = false,
-          }
         },
         lualine_z = {
           {
@@ -69,7 +65,7 @@ return {
             always_visible = false,
           },
           'location',
-          'progress'
+          'selectioncount'
         },
       },
     }
