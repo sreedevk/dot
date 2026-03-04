@@ -6,6 +6,7 @@ return {
       use_builtin_colorizer = true,
       adapters = {
         require("quicktest.adapters.rspec"),
+        require("quicktest.adapters.cargo"),
         require("quicktest.adapters.elixir"),
         require("quicktest.adapters.golang")({
           additional_args = function(_) return { "-race", "-count=1" } end,
