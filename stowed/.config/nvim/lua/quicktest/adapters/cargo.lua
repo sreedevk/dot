@@ -1,5 +1,5 @@
 local Job = require("plenary.job")
-local Cargo = { name = "cargo-test-adapter" }
+local CargoTest = { name = "cargo-test-adapter" }
 
 local function find_cargo_root(start_path)
   local uv = vim.loop
@@ -16,7 +16,7 @@ local function find_cargo_root(start_path)
   return nil
 end
 
-Cargo.get_cwd = function(bufnr)
+CargoTest.get_cwd = function(bufnr)
   local file = vim.api.nvim_buf_get_name(bufnr)
   if file and file ~= "" then
     local dir = vim.fn.fnamemodify(file, ":h")
@@ -52,7 +52,7 @@ local function get_test_name_at_position(bufnr, line)
   return nil
 end
 
-local function get_test_filter_for_file(bufnr, cwd, file)
+local function get_test_filter_for_file(_, cwd, file)
   local rel_path = file:sub(#cwd + 2)
   if not rel_path or rel_path == "" then
     return nil
@@ -86,10 +86,32 @@ local function get_test_filter_for_file(bufnr, cwd, file)
   return nil
 end
 
-Cargo.build_line_run_params = function(bufnr, cursor_pos)
-  local cwd = Cargo.get_cwd(bufnr)
+local function get_test_filter_for_dir(_, cwd, dir)
+  local rel_path = dir:sub(#cwd + 2)
+  if not rel_path or rel_path == "" then
+    return { type = "all" }
+  end
+
+  if rel_path:match("^tests/") then
+    return { type = "all" }
+  end
+
+  if rel_path:match("^src/") then
+    local mod_path = rel_path:gsub("^src/", "")
+    mod_path = mod_path:gsub("/", "::") .. "::"
+    return {
+      type = "unit_dir",
+      value = mod_path,
+    }
+  end
+
+  return { type = "all" }
+end
+
+CargoTest.build_line_run_params = function(bufnr, cursor_pos)
+  local cwd = CargoTest.get_cwd(bufnr)
   local file = vim.api.nvim_buf_get_name(bufnr)
-  local line = cursor_pos[1] -- line number (1-indexed)
+  local line = cursor_pos[1]
 
   local test_name = get_test_name_at_position(bufnr, line)
   local func_names = test_name and { test_name } or {}
@@ -106,8 +128,8 @@ Cargo.build_line_run_params = function(bufnr, cursor_pos)
   }, nil
 end
 
-Cargo.build_file_run_params = function(bufnr, cursor_pos)
-  local cwd = Cargo.get_cwd(bufnr)
+CargoTest.build_file_run_params = function(bufnr, cursor_pos)
+  local cwd = CargoTest.get_cwd(bufnr)
   local file = vim.api.nvim_buf_get_name(bufnr)
 
   local filter = get_test_filter_for_file(bufnr, cwd, file)
@@ -124,7 +146,43 @@ Cargo.build_file_run_params = function(bufnr, cursor_pos)
   }, nil
 end
 
-Cargo.run = function(params, send)
+CargoTest.build_dir_run_params = function(bufnr, cursor_pos)
+  local cwd = CargoTest.get_cwd(bufnr)
+  local file = vim.api.nvim_buf_get_name(bufnr)
+  local dir = vim.fn.fnamemodify(file, ":h")
+
+  local filter = get_test_filter_for_dir(bufnr, cwd, dir)
+
+  return {
+    bufnr = bufnr,
+    cursor_pos = cursor_pos,
+    cwd = cwd,
+    file = file,
+    dir = dir,
+    func_names = {},
+    pos = cursor_pos[1],
+    filter_type = filter and filter.type,
+    filter_value = filter and filter.value,
+  }, nil
+end
+
+CargoTest.build_all_run_params = function(bufnr, cursor_pos)
+  local cwd = CargoTest.get_cwd(bufnr)
+  local file = vim.api.nvim_buf_get_name(bufnr)
+
+  return {
+    bufnr = bufnr,
+    cursor_pos = cursor_pos,
+    cwd = cwd,
+    file = file,
+    func_names = {},
+    pos = cursor_pos[1],
+    filter_type = "all",
+    filter_value = nil,
+  }, nil
+end
+
+CargoTest.run = function(params, send)
   local args = { "test" }
 
   if params.filter_type == "integration" then
@@ -134,6 +192,9 @@ Cargo.run = function(params, send)
     table.insert(args, params.filter_value)
   elseif params.filter_type == "unit_root" then
     table.insert(args, "--lib")
+  elseif params.filter_type == "unit_dir" then
+    table.insert(args, params.filter_value)
+  elseif params.filter_type == "all" then
   elseif params.func_names and #params.func_names > 0 then
     table.insert(args, params.func_names[1])
   end
@@ -151,12 +212,12 @@ Cargo.run = function(params, send)
   return job.pid
 end
 
-Cargo.is_enabled = function(bufnr)
+CargoTest.is_enabled = function(bufnr)
   local bufname = vim.api.nvim_buf_get_name(bufnr)
   if not bufname:match("%.rs$") then return false end
-  local cwd = Cargo.get_cwd(bufnr)
+  local cwd = CargoTest.get_cwd(bufnr)
   local cargo_toml = vim.loop.fs_stat(cwd .. "/Cargo.toml")
   return cargo_toml and cargo_toml.type == "file"
 end
 
-return Cargo
+return CargoTest
