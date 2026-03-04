@@ -39,7 +39,6 @@
             upscayl
             wofi
             xpipe
-            zed-editor
           ]
         );
     in
