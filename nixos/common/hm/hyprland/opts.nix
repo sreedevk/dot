@@ -50,14 +50,14 @@ in
   gestures = [
     {
       fingers = "3";
-      direction = "horizontal";
+      direction = "vertical";
       modifier = null;
       scale = null;
       action = "workspace";
       args = null;
     }
     {
-      fingers = "2";
+      fingers = "4";
       direction = "pinchin";
       modifier = null;
       scale = null;
@@ -65,7 +65,7 @@ in
       args = "1.6, mult";
     }
     {
-      fingers = "2";
+      fingers = "4";
       direction = "pinchout";
       modifier = null;
       scale = null;
