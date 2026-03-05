@@ -6,11 +6,12 @@
 }:
 let
   hypr-gamemode-toggle = import ./scripts/gamemode.nix { inherit pkgs; };
+
   screenshot-area      = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | wl-copy";
   screenshot-monitor   = "${pkgs.grim}/bin/grim -o $(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name') - | wl-copy";
   screenshot-window    = "${pkgs.grim}/bin/grim -g \"$(hyprctl activewindow -j | jq '(.at | \"\\(.[0]),\\(.[1])\"),(.size | \"\\(.[0])x\\(.[1])\")' | xargs)\" - | wl-copy";
-  kitty-with-tmux      =  "${config.programs.kitty.package}/bin/kitty ${pkgs.tmux}/bin/tmux new -A -s system";
-  vicinae-clipboard    =  "${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history";
+  kitty-with-tmux      = "${config.programs.kitty.package}/bin/kitty ${pkgs.tmux}/bin/tmux new -A -s system";
+  vicinae-clipboard    = "${pkgs.vicinae}/bin/vicinae vicinae://extensions/vicinae/clipboard/history";
 in
 {
   envs = {
@@ -348,6 +349,7 @@ in
     ];
 
     layer = [
+
       # vicinae
       { rule = "blur on";          addr = "vicinae"; }
       { rule = "dim_around on";    addr = "vicinae"; }
@@ -356,8 +358,9 @@ in
       { rule = "blur_popups on";   addr = "vicinae"; }
 
       # noctalia-notifications
-      { rule = "ignore_alpha 0.5";  addr = "noctalia-notifications*"; }
-      { rule = "blur on";           addr = "noctalia-notifications*"; }
+      { rule = "ignore_alpha 0";  addr = "noctalia-notifications-.*$"; }
+      { rule = "blur off";        addr = "noctalia-notifications-.*$"; }
+      { rule = "blur_popups off"; addr = "noctalia-notifications-.*$"; }
 
       # noctalia-bar
       { rule = "ignore_alpha 0.5"; addr = "noctalia-background-.*$"; }
@@ -369,7 +372,7 @@ in
       { rule = "blur on";        addr = "rofi"; }
       { rule = "dim_around on";  addr = "rofi"; }
       { rule = "ignore_alpha 0"; addr = "rofi"; }
-      { rule = "no_anim off";    addr = "rofi"; }
+      { rule = "no_anim on";     addr = "rofi"; }
       { rule = "animation fade"; addr = "rofi"; }
 
       { rule = "animation slide left";  addr = "sideleft.*";      }
