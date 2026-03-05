@@ -191,19 +191,24 @@ in
       { mod = "SUPER"; keys = "G"; dispatcher = "togglegroup"; args = null; } # Mod-G
 
       # Workspace Navigation
-      { mod = "SUPER"; keys = "0"; dispatcher = "workspace"; args = "10"; } # Mod-0
-      { mod = "SUPER"; keys = "1"; dispatcher = "workspace"; args = "1"; } # Mod-1
-      { mod = "SUPER"; keys = "2"; dispatcher = "workspace"; args = "2"; } # Mod-2
-      { mod = "SUPER"; keys = "3"; dispatcher = "workspace"; args = "3"; } # Mod-3
-      { mod = "SUPER"; keys = "4"; dispatcher = "workspace"; args = "4"; } # Mod-4
-      { mod = "SUPER"; keys = "5"; dispatcher = "workspace"; args = "5"; } # Mod-5
-      { mod = "SUPER"; keys = "6"; dispatcher = "workspace"; args = "6"; } # Mod-6
-      { mod = "SUPER"; keys = "7"; dispatcher = "workspace"; args = "7"; } # Mod-7
-      { mod = "SUPER"; keys = "8"; dispatcher = "workspace"; args = "8"; } # Mod-8
-      { mod = "SUPER"; keys = "9"; dispatcher = "workspace"; args = "9"; } # Mod-9
-      { mod = "SUPER"; keys = "Minus"; dispatcher = "workspace"; args = "11"; } # Mod-11
-      { mod = "SUPER"; keys = "Equal"; dispatcher = "workspace"; args = "12"; } # Mod-12
+      { mod = "SUPER"; keys = "1"; dispatcher = "workspace"; args = "m~1"; }  # Mod-1
+      { mod = "SUPER"; keys = "2"; dispatcher = "workspace"; args = "m~2"; }  # Mod-2
+      { mod = "SUPER"; keys = "3"; dispatcher = "workspace"; args = "m~3"; }  # Mod-3
+      { mod = "SUPER"; keys = "4"; dispatcher = "workspace"; args = "m~4"; }  # Mod-4
+      { mod = "SUPER"; keys = "5"; dispatcher = "workspace"; args = "m~5"; }  # Mod-5
+      { mod = "SUPER"; keys = "6"; dispatcher = "workspace"; args = "m~6"; }  # Mod-6
+      { mod = "SUPER"; keys = "7"; dispatcher = "workspace"; args = "m~7"; }  # Mod-7
+      { mod = "SUPER"; keys = "8"; dispatcher = "workspace"; args = "m~8"; }  # Mod-8
+      { mod = "SUPER"; keys = "9"; dispatcher = "workspace"; args = "m~9"; }  # Mod-9
+      { mod = "SUPER"; keys = "0"; dispatcher = "workspace"; args = "m~10"; } # Mod-0
+      { mod = "SUPER"; keys = "Minus"; dispatcher = "workspace"; args = "m~11"; } # Mod-11
+      { mod = "SUPER"; keys = "Equal"; dispatcher = "workspace"; args = "m~12"; } # Mod-12
       { mod = "SUPER"; keys = "Escape"; dispatcher = "togglespecialworkspace"; args = null; } # Mod-Esc
+
+      { mod = "SUPER"; keys = "mouse_down"; dispatcher = "workspace"; args = "m-1"; }
+      { mod = "SUPER"; keys = "mouse_up"; dispatcher = "workspace"; args = "m+1"; }
+      { mod = "SUPER"; keys = "mouse_left"; dispatcher = "layoutmsg"; args = "focus l"; }
+      { mod = "SUPER"; keys = "mouse_right"; dispatcher = "layoutmsg"; args = "focus r"; }
 
       # Window & Layout Controls
       { mod = "SUPER SHIFT"; keys = "H"; dispatcher = "swapwindow"; args = "l"; } # S-Mod-H
@@ -213,42 +218,28 @@ in
       { mod = "SUPER SHIFT"; keys = "Space"; dispatcher = "togglefloating"; args = null; } # S-Mod-Space
       { mod = "SUPER"; keys = "F"; dispatcher = "fullscreen"; args = null; } # Mod-F
       { mod = "SUPER SHIFT"; keys = "Q"; dispatcher = "killactive"; args = null; } # S-Mod-Q
-      { mod = "SUPER SHIFT"; keys = "0"; dispatcher = "movetoworkspace"; args = "10"; } # S-Mod-0
-      { mod = "SUPER SHIFT"; keys = "1"; dispatcher = "movetoworkspace"; args = "1"; } # S-Mod-1
-      { mod = "SUPER SHIFT"; keys = "2"; dispatcher = "movetoworkspace"; args = "2"; } # S-Mod-2
-      { mod = "SUPER SHIFT"; keys = "3"; dispatcher = "movetoworkspace"; args = "3"; } # S-Mod-3
-      { mod = "SUPER SHIFT"; keys = "4"; dispatcher = "movetoworkspace"; args = "4"; } # S-Mod-4
-      { mod = "SUPER SHIFT"; keys = "5"; dispatcher = "movetoworkspace"; args = "5"; } # S-Mod-5
-      { mod = "SUPER SHIFT"; keys = "6"; dispatcher = "movetoworkspace"; args = "6"; } # S-Mod-6
-      { mod = "SUPER SHIFT"; keys = "7"; dispatcher = "movetoworkspace"; args = "7"; } # S-Mod-7
-      { mod = "SUPER SHIFT"; keys = "8"; dispatcher = "movetoworkspace"; args = "8"; } # S-Mod-8
-      { mod = "SUPER SHIFT"; keys = "9"; dispatcher = "movetoworkspace"; args = "9"; } # S-Mod-9
-      { mod = "SUPER SHIFT"; keys = "Equal"; dispatcher = "movetoworkspace"; args = "12"; } # S-Mod-Equal
+      { mod = "SUPER SHIFT"; keys = "1"; dispatcher = "movetoworkspace"; args = "m~1"; } # S-Mod-1
+      { mod = "SUPER SHIFT"; keys = "2"; dispatcher = "movetoworkspace"; args = "m~2"; } # S-Mod-2
+      { mod = "SUPER SHIFT"; keys = "3"; dispatcher = "movetoworkspace"; args = "m~3"; } # S-Mod-3
+      { mod = "SUPER SHIFT"; keys = "4"; dispatcher = "movetoworkspace"; args = "m~4"; } # S-Mod-4
+      { mod = "SUPER SHIFT"; keys = "5"; dispatcher = "movetoworkspace"; args = "m~5"; } # S-Mod-5
+      { mod = "SUPER SHIFT"; keys = "6"; dispatcher = "movetoworkspace"; args = "m~6"; } # S-Mod-6
+      { mod = "SUPER SHIFT"; keys = "7"; dispatcher = "movetoworkspace"; args = "m~7"; } # S-Mod-7
+      { mod = "SUPER SHIFT"; keys = "8"; dispatcher = "movetoworkspace"; args = "m~8"; } # S-Mod-8
+      { mod = "SUPER SHIFT"; keys = "9"; dispatcher = "movetoworkspace"; args = "m~9"; } # S-Mod-9
+      { mod = "SUPER SHIFT"; keys = "0"; dispatcher = "movetoworkspace"; args = "m~10"; } # S-Mod-0
+      { mod = "SUPER SHIFT"; keys = "Equal"; dispatcher = "movetoworkspace"; args = "m~12"; } # S-Mod-Equal
+      { mod = "SUPER SHIFT"; keys = "Minus"; dispatcher = "movetoworkspace"; args = "m~11"; } # S-Mod--
       { mod = "SUPER SHIFT"; keys = "Escape"; dispatcher = "movetoworkspace"; args = "special"; } # S-Mod-Esc
-      { mod = "SUPER SHIFT"; keys = "Minus"; dispatcher = "movetoworkspace"; args = "11"; } # S-Mod--
       { mod = "SUPER"; keys = "H"; dispatcher = "movefocus"; args = "l"; } # Mod-H
       { mod = "SUPER"; keys = "J"; dispatcher = "movefocus"; args = "d"; } # Mod-J
       { mod = "SUPER"; keys = "K"; dispatcher = "movefocus"; args = "u"; } # Mod-K
       { mod = "SUPER"; keys = "L"; dispatcher = "movefocus"; args = "r"; } # Mod-L
 
-      # Master Layout Keybindings
-      { mod = "SUPER"; keys = "m"; dispatcher = "layoutmsg"; args = "swapwithmaster master"; } # Mod-m
-      { mod = "SUPER"; keys = "comma"; dispatcher = "layoutmsg"; args = "rollnext"; }
-      { mod = "SUPER"; keys = "period"; dispatcher = "layoutmsg"; args = "rollprev"; }
-
       # Scrolling Layout Keybindings
       { mod = "SUPER"; keys = "x"; dispatcher = "layoutmsg"; args = "fit all"; } # Mod-x
       { mod = "SUPER"; keys = "bracketright"; dispatcher = "layoutmsg"; args = "fit tobeg"; } # Mod-]
       { mod = "SUPER"; keys = "bracketleft"; dispatcher = "layoutmsg"; args = "fit toend"; } # Mod-[
-
-      # Monocle Layout Keybindings
-      { mod = "SUPER SHIFT"; keys = "Tab"; dispatcher = "layoutmsg"; args = "cycleprev"; } # S-Mod-Tab
-      { mod = "SUPER"; keys = "Tab"; dispatcher = "layoutmsg"; args = "cyclenext"; } # Mod-Tab
-
-      # Layout Swapper
-      { mod = "SUPER CTRL"; keys = "m"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'master'"; }
-      { mod = "SUPER CTRL"; keys = "w"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'scrolling'"; }
-      { mod = "SUPER CTRL"; keys = "o"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'monocle'"; }
 
       # Desktop Mode Controls
       { mod = "SUPER CTRL"; keys = "Space"; dispatcher = "exec"; args = "noctalia ipc call lockScreen lock"; } # C-Mod-Space
