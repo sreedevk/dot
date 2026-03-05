@@ -267,7 +267,6 @@ in
 
       # Launchers
       { mod = "SUPER";       keys = "D"; dispatcher = "exec";      args = "${pkgs.vicinae}/bin/vicinae toggle"; }                         # Mod-D
-      { mod = "SUPER CTRL";  keys = "D"; dispatcher = "exec";      args = "${pkgs.rofi}/bin/rofi -show drun";   }                         # C-Mod-D
       { mod = "SUPER";       keys = "A"; dispatcher = "exec";      args = "uwsm app -t service -- re.fossplant.songrec.desktop"; }        # Mod-A
       { mod = "SUPER";       keys = "B"; dispatcher = "exec";      args = "uwsm app -t service -- ${opts.desktop.browser.xdg-desktop}"; } # Mod-B
       { mod = "SUPER";       keys = "C"; dispatcher = "exec";      args = "noctalia ipc call controlCenter toggle"; }                     # Mod-C
@@ -334,10 +333,6 @@ in
 
       { rule = "suppress_event maximize"; window_identifiers = [ "match:class .*" ]; }
 
-      { rule = "center on";   window_identifiers = [ "match:class ^(Rofi)$" ]; }
-      { rule = "float on";    window_identifiers = [ "match:class ^(Rofi)$" ]; }
-      { rule = "rounding 10"; window_identifiers = [ "match:class ^(Rofi)$" ]; }
-
       { rule = "float on"; window_identifiers = [ "match:class ^(firefox)$" "match:title ^(Picture-in-Picture)$" ]; }
       { rule = "float on"; window_identifiers = [ "match:class ^(firefox)$" "match:title ^(Library)$" ]; }
       { rule = "float on"; window_identifiers = [ "match:title ^(About Mozilla Firefox)$" ]; }
@@ -376,13 +371,6 @@ in
       { rule = "blur on";          addr = "noctalia-background-.*$";  }
       { rule = "blur_popups on";   addr = "noctalia-background-.*$"; }
       { rule = "dim_around off";   addr = "noctalia-background-.*$"; }
-
-      # rofi
-      { rule = "blur on";        addr = "rofi"; }
-      { rule = "dim_around on";  addr = "rofi"; }
-      { rule = "ignore_alpha 0"; addr = "rofi"; }
-      { rule = "no_anim on";     addr = "rofi"; }
-      { rule = "animation fade"; addr = "rofi"; }
 
       { rule = "animation slide left";  addr = "sideleft.*";      }
       { rule = "animation slide right"; addr = "sideright.*";     }

@@ -47,7 +47,6 @@
     ../../../../common/hm/pamshim.nix
     ../../../../common/hm/pueue.nix
     ../../../../common/hm/radicle
-    ../../../../common/hm/rofi
     ../../../../common/hm/starship.nix
     ../../../../common/hm/steam.nix
     ../../../../common/hm/stylix.nix
