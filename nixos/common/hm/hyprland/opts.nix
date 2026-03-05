@@ -294,122 +294,361 @@ in
   rules = {
     workspace = [ ];
     window = [
-      { rule = "center on";     window_identifiers = [ "match:title ^(Choose wallpaper)(.*)$" ]; }
-      { rule = "float on";      window_identifiers = [ "match:title ^(Choose wallpaper)(.*)$" ]; }
-      { rule = "size 1000 600"; window_identifiers = [ "match:title ^(Choose wallpaper)(.*)$" ]; }
+      {
+        addr  = [
+          "match:title ^(Choose wallpaper)(.*)$"
+        ];
+        rules = [
+          "center on"
+          "float on"
+          "size 1000 600"
+        ];
+      }
 
-      { rule = "center on";     window_identifiers = [ "match:title ^(Library)(.*)$" ]; }
-      { rule = "float on";      window_identifiers = [ "match:title ^(Library)(.*)$" ]; }
-      { rule = "size 1000 600"; window_identifiers = [ "match:title ^(Library)(.*)$" ]; }
+      {
+        addr  = [
+          "match:title ^(Library)(.*)$"
+        ];
+        rules = [
+          "center on"
+          "float on"
+          "size 1000 600"
+        ];
+      }
 
-      { rule = "center on";      window_identifiers = [ "match:title ^(Open Folder)(.*)$" ]; }
-      { rule = "float on";       window_identifiers = [ "match:title ^(Open Folder)(.*)$" ]; }
-      { rule = "size 1000 600";  window_identifiers = [ "match:title ^(Open Folder)(.*)$" ]; }
+      {
+        addr  = [
+          "match:title ^(Open Folder)(.*)$"
+        ];
+        rules = [
+          "center on"
+          "float on"
+          "size 1000 600"
+        ];
+      }
 
-      { rule = "opacity 0.0 override"; window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ]; }
-      { rule = "no_anim on";           window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ]; }
-      { rule = "no_initial_focus on";  window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ]; }
-      { rule = "max_size 1 1";         window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ]; }
-      { rule = "no_blur on";           window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ]; }
-      { rule = "no_focus on";          window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ]; }
+      {
+        addr  = [
+          "match:class ^(xwaylandvideobridge)$"
+        ];
+        rules = [
+          "opacity 0.0 override"
+          "no_anim on"
+          "no_initial_focus on"
+          "max_size 1 1"
+          "no_blur on"
+          "no_focus on"
+        ];
+      }
 
-      { rule = "center on";     window_identifiers = [ "match:title ^(File Upload)(.*)$" ]; }
-      { rule = "float on";      window_identifiers = [ "match:title ^(File Upload)(.*)$" ]; }
-      { rule = "size 1000 600"; window_identifiers = [ "match:title ^(File Upload)(.*)$" ]; }
+      {
+        addr = [
+          "match:title ^(File Upload)(.*)$"
+        ];
+        rules = [
+          "center on"
+          "float on"
+          "size 1000 600"
+        ];
+      }
 
-      { rule = "center on";     window_identifiers = [ "match:title ^(Select a File)(.*)$" ]; }
-      { rule = "float on";      window_identifiers = [ "match:title ^(Select a File)(.*)$" ]; }
-      { rule = "size 1000 600"; window_identifiers = [ "match:title ^(Select a File)(.*)$" ]; }
+      {
+        addr = [
+          "match:title ^(Select a File)(.*)$"
+        ];
+        rules = [
+          "center on"
+          "float on"
+          "size 1000 600"
+        ];
+      }
 
-      { rule = "center on";     window_identifiers = [ "match:title ^(Save As)(.*)$" ]; }
-      { rule = "float on";      window_identifiers = [ "match:title ^(Save As)(.*)$" ]; }
-      { rule = "size 1000 600"; window_identifiers = [ "match:title ^(Save As)(.*)$" ]; }
+      {
+        addr = [
+          "match:title ^(Save As)(.*)$"
+        ];
+        rules = [
+          "center on"
+          "float on"
+          "size 1000 600"
+        ];
+      }
 
-      { rule = "center on";     window_identifiers = [ "match:title ^(Open File)(.*)$" ]; }
-      { rule = "float on";      window_identifiers = [ "match:title ^(Open File)(.*)$" ]; }
-      { rule = "size 1000 600"; window_identifiers = [ "match:title ^(Open File)(.*)$" ]; }
+      {
+        addr = [
+          "match:title ^(Open File)(.*)$"
+        ];
+        rules = [
+          "center on"
+          "float on"
+          "size 1000 600"
+        ];
+      }
 
-      { rule = "float on";      window_identifiers = [ "match:title ^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" ]; }
+      {
+        addr = [
+          "match:title ^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$"
+        ];
+        rules = [
+          "float on"
+        ];
+      }
 
-      { rule = "suppress_event maximize"; window_identifiers = [ "match:class .*" ]; }
+      {
+        addr  = [
+          "match:class .*"
+        ];
+        rules = [
+          "suppress_event maximize"
+        ];
+      }
 
-      { rule = "float on"; window_identifiers = [ "match:class ^(firefox)$" "match:title ^(Picture-in-Picture)$" ]; }
-      { rule = "float on"; window_identifiers = [ "match:class ^(firefox)$" "match:title ^(Library)$" ]; }
-      { rule = "float on"; window_identifiers = [ "match:title ^(About Mozilla Firefox)$" ]; }
+      {
+        addr  = [
+          "match:class ^(firefox)$"
+          "match:title ^(Picture-in-Picture)$"
+        ];
+        rules = [
+          "float on"
+        ];
+      }
 
-      { rule = "float on";             window_identifiers = [ "match:class ^(com.saivert.pwvucontrol)$" ]; }
-      { rule = "size 1400 650";        window_identifiers = [ "match:class ^(com.saivert.pwvucontrol)$" ]; }
+      {
+        addr = [
+          "match:class ^(firefox)$"
+          "match:title ^(Library)$"
+        ];
+        rules = [
+          "float on"
+        ];
+      }
 
-      { rule = "keep_aspect_ratio on"; window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ]; }
-      { rule = "move 73% 72%";         window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ]; }
-      { rule = "size 25%";             window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ]; }
-      { rule = "float on";             window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ]; }
-      { rule = "pin on";               window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ]; }
+      {
+        addr = [
+          "match:title ^(About Mozilla Firefox)$"
+        ];
+        rules = [
+          "float on"
+        ];
+      }
 
-      { rule = "immediate on"; window_identifiers = [ "match:class (steam_app)" ]; }
-      { rule = "no_shadow on"; window_identifiers = [ "match:float 0" ]; }
-      { rule = "tile on";      window_identifiers = [ "match:class ^(Nsxiv)$" ]; }
-      { rule = "no_focus on";  window_identifiers = [ "match:class ^$" "match:title ^$" "match:xwayland 1" "match:float 1" "match:fullscreen 0" "match:pin 0" ]; }
+      {
+        addr  = [
+          "match:class ^(com.saivert.pwvucontrol)$"
+        ];
+        rules = [
+          "float on"
+          "size 1400 650"
+        ];
+      }
+
+      {
+        addr = [
+          "match:title ^(Picture(-| )in(-| )[Pp]icture)$"
+        ];
+        rules = [
+          "keep_aspect_ratio on"
+        ];
+      }
+
+      {
+        rules = [
+          "move 73% 72%"
+          "size 25%"
+          "float on"
+          "pin on"
+        ];
+        addr = [
+          "match:title ^(Picture(-| )in(-| )[Pp]icture)$"
+        ];
+      }
+
+      {
+        addr = [
+          "match:class (steam_app)"
+        ];
+        rules = [
+          "immediate on"
+        ];
+      }
+
+      {
+        addr = [
+          "match:float 0"
+        ];
+        rules = [
+          "no_shadow on"
+        ];
+      }
+
+      {
+        addr = [
+          "match:class ^(Nsxiv)$"
+        ];
+        rules = [
+          "tile on"
+        ];
+      }
+
+      {
+        addr = [
+          "match:class ^$"
+          "match:title ^$"
+          "match:xwayland 1"
+          "match:float 1"
+          "match:fullscreen 0"
+          "match:pin 0"
+        ];
+        rules = [
+          "no_focus on"
+        ];
+      }
+
     ];
 
     layer = [
+      {
+        addr = "vicinae";
+        rules = [
+          "blur on"
+          "dim_around on"
+          "ignore_alpha 0"
+          "no_anim on"
+          "blur_popups on"
+        ];
+      }
 
-      # vicinae
-      { rule = "blur on";          addr = "vicinae"; }
-      { rule = "dim_around on";    addr = "vicinae"; }
-      { rule = "ignore_alpha 0";   addr = "vicinae"; }
-      { rule = "no_anim on";       addr = "vicinae"; }
-      { rule = "blur_popups on";   addr = "vicinae"; }
+      {
+        addr = "noctalia-notifications-.*$";
+        rules = [
+          "ignore_alpha 0"
+          "blur off"
+          "blur_popups off"
+        ];
+      }
 
-      # noctalia-notifications
-      { rule = "ignore_alpha 0";  addr = "noctalia-notifications-.*$"; }
-      { rule = "blur off";        addr = "noctalia-notifications-.*$"; }
-      { rule = "blur_popups off"; addr = "noctalia-notifications-.*$"; }
+      {
+        addr = "noctalia-background-.*$";
+        rules = [
+          "ignore_alpha 0.5"
+          "blur on"
+          "blur_popups on"
+          "dim_around off"
+        ];
+      }
 
-      # noctalia-bar
-      { rule = "ignore_alpha 0.5"; addr = "noctalia-background-.*$"; }
-      { rule = "blur on";          addr = "noctalia-background-.*$";  }
-      { rule = "blur_popups on";   addr = "noctalia-background-.*$"; }
-      { rule = "dim_around off";   addr = "noctalia-background-.*$"; }
+      {
+        addr = "gtk-layer-shell";
+        rules = [
+          "blur on"
+          "ignore_alpha 0.1"
+        ];
+      }
 
-      { rule = "animation slide left";  addr = "sideleft.*";      }
-      { rule = "animation slide right"; addr = "sideright.*";     }
-      { rule = "blur on";               addr = "bar";             }
-      { rule = "blur on";               addr = "cheatsheet";      }
-      { rule = "ignore_alpha 0.6";      addr = "cheatsheet";      }
-      { rule = "blur on";               addr = "corner.*";        }
-      { rule = "blur on";               addr = "dock";            }
-      { rule = "blur on";               addr = "gtk-layer-shell"; }
-      { rule = "blur on";               addr = "indicator*";      }
-      { rule = "blur on";               addr = "indicator.*";     }
-      { rule = "blur on";               addr = "launcher";        }
-      { rule = "blur on";               addr = "osk";             }
-      { rule = "blur on";               addr = "overview";        }
-      { rule = "blur on";               addr = "session";         }
-      { rule = "blur on";               addr = "shell:*";         }
-      { rule = "blur on";               addr = "sideleft";        }
-      { rule = "blur on";               addr = "sideright";       }
-      { rule = "ignore_alpha 0.5";      addr = "launcher";        }
-      { rule = "ignore_alpha 0.6";      addr = "bar";             }
-      { rule = "ignore_alpha 0.6";      addr = "corner.*";        }
-      { rule = "ignore_alpha 0.6";      addr = "dock";            }
-      { rule = "ignore_alpha 0.6";      addr = "indicator*";      }
-      { rule = "ignore_alpha 0.6";      addr = "indicator.*";     }
-      { rule = "ignore_alpha 0.6";      addr = "osk";             }
-      { rule = "ignore_alpha 0.6";      addr = "overview";        }
-      { rule = "ignore_alpha 0.6";      addr = "shell:*";         }
-      { rule = "ignore_alpha 0.6";      addr = "sideleft";        }
-      { rule = "ignore_alpha 0.6";      addr = "sideright";       }
-      { rule = "ignore_alpha 0.1";      addr = "gtk-layer-shell"; }
-      { rule = "no_anim on";            addr = "anyrun";          }
-      { rule = "no_anim on";            addr = "hyprpicker";      }
-      { rule = "no_anim on";            addr = "indicator.*";     }
-      { rule = "no_anim on";            addr = "noanim";          }
-      { rule = "no_anim on";            addr = "osk";             }
-      { rule = "no_anim on";            addr = "overview";        }
-      { rule = "no_anim on";            addr = "selection";       }
-      { rule = "no_anim on";            addr = "walker";          }
-      { rule = "xray on";               addr = ".*";              }
+      {
+        addr = "cheatsheet";
+        rules = [
+          "blur on"
+          "ignore_alpha 0.6"
+        ];
+      }
+
+      {
+        addr = "indicator.*";
+        rules = [
+          "blur on"
+          "ignore_alpha 0.6"
+        ];
+      }
+
+      {
+        addr = "sideleft.*";
+        rules = [
+          "animation slide left"
+          "blur on"
+          "ignore_alpha 0.6"
+        ];
+      }
+
+      {
+        addr = "sideright";
+        rules = [
+          "blur on"
+          "ignore_alpha 0.6"
+        ];
+      }
+
+      {
+        addr = "sideright.*";
+        rules = [
+          "animation slide right"
+        ];
+      }
+
+      {
+        addr = "launcher";
+        rules = [
+          "blur on"
+          "ignore_alpha 0.5"
+        ];
+      }
+
+      {
+        addr = "overview";
+        rules = [
+          "ignore_alpha 0.6"
+          "no_anim on"
+          "blur on"
+        ];
+      }
+
+      {
+        addr = "bar";
+        rules = [
+          "blur on"
+          "ignore_alpha 0.6"
+        ];
+      }
+
+      {
+        addr = "corner.*";
+        rules = [
+          "blur on"
+          "ignore_alpha 0.6"
+        ];
+      }
+
+      {
+        addr = "osk";
+        rules = [
+          "blur on"
+          "ignore_alpha 0.6"
+          "no_anim on"
+        ];
+      }
+
+      {
+        addr = "dock";
+        rules = [
+          "blur on"
+          "ignore_alpha 0.6"
+        ];
+      }
+
+      {
+        addr = "shell:*";
+        rules = [
+          "blur on"
+          "ignore_alpha 0.6"
+        ];
+      }
+
+      { addr = "session";     rules = [ "blur on" ];    }
+      { addr = "anyrun";      rules = [ "no_anim on" ]; }
+      { addr = "hyprpicker";  rules = [ "no_anim on" ]; }
+      { addr = "indicator.*"; rules = [ "no_anim on" ]; }
+      { addr = "selection";   rules = [ "no_anim on" ]; }
+      { addr = "walker";      rules = [ "no_anim on" ]; }
     ];
   };
 
