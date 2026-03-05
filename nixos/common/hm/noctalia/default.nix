@@ -468,6 +468,7 @@ in
             "QT_QPA_PLATFORM=wayland"
             "WAYLAND_DISPLAY=wayland-1"
             "XDG_RUNTIME_DIR=%t"
+            "NOCTALIA_WALLHAVEN_API_KEY=\"$(cat ${config.age.secrets.wallhaven-token.path})\""
           ];
           Restart = "on-failure";
         };
