@@ -15,7 +15,7 @@ in
         let
           genLayerRules =
             let
-              genLayerRule = ruleconf: "layerrule = ${ruleconf.rule},match:namespace ${ruleconf.addr}";
+              genLayerRule = ruleconf: "layerrule = ${ruleconf.rule}, match:namespace ${ruleconf.addr}";
             in
             ruleconfs: builtins.concatStringsSep "\n" (builtins.map genLayerRule ruleconfs);
 

@@ -75,47 +75,48 @@ in
 
   decoration = {
     shadow = {
-      enabled = "true";
-      range = "4";
-      sharp = "false";
-      render_power = "3";
-      color = "rgba(1a1a1aee)";
+      enabled        = "true";
+      range          = "4";
+      sharp          = "false";
+      render_power   = "3";
+      color          = "rgba(1a1a1aee)";
       color_inactive = "rgba(1a1a1aff)";
     };
 
     blur = {
-      brightness = "1";
-      contrast = "1";
-      enabled = "false";
-      new_optimizations = "true";
-      noise = "0.0117";
-      passes = "1";
-      popups = "false";
-      popups_ignorealpha = "0.0";
+      brightness                = "0.8172";
+      contrast                  = "0.8916";
+      enabled                   = "true";
+      new_optimizations         = "true";
+      noise                     = "0.0117";
+      passes                    = "3";
+      popups                    = "false";
+      popups_ignorealpha        = "0.0";
       input_methods_ignorealpha = "0.0";
-      size = "4";
-      special = "false";
-      vibrancy = "0.1696";
-      xray = "true";
+      size                      = "8";
+      special                   = "true";
+      vibrancy                  = "0.1696";
+      xray                      = "false";
     };
   };
 
   inputs = {
-    kb_layout = "us,apl";
-    kb_variant = ",dyalog";
-    kb_model = "";
-    kb_options = "ctrl:nocaps,compose:ralt,grp:shifts_toggle";
-    kb_rules = "";
-    follow_mouse = "1";
-    sensitivity = "0";
-    touchpad = {
-      natural_scroll = "yes";
+    kb_layout     = "us,apl";
+    kb_variant    = ",dyalog";
+    kb_model      = "";
+    kb_options    = "ctrl:nocaps,compose:ralt,grp:shifts_toggle";
+    kb_rules      = "";
+    follow_mouse  = "1";
+    sensitivity   = "0";
+    accel_profile = "adaptive"; # adaptive, flat
+    touchpad      = {
+      natural_scroll       = "yes";
       disable_while_typing = "true";
       clickfinger_behavior = "true";
     };
     tablet = {
       transform = "2";
-      output = "current";
+      output    = "current";
     };
   };
 
@@ -143,7 +144,7 @@ in
   misc = {
     force_default_wallpaper = "0";
     disable_hyprland_logo = "true";
-    focus_on_activate = "false";
+    focus_on_activate = "true";
     enable_swallow = "true";
     swallow_regex = "^(Alacritty|kitty)$";
     vrr = "0";
@@ -284,235 +285,112 @@ in
   rules = {
     workspace = [ ];
     window = [
-      {
-        rule = "center on";
-        window_identifiers = [ "match:title ^(Choose wallpaper)(.*)$" ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [ "match:title ^(Choose wallpaper)(.*)$" ];
-      }
-      {
-        rule = "size 1000 600";
-        window_identifiers = [ "match:title ^(Choose wallpaper)(.*)$" ];
-      }
-      {
-        rule = "center on";
-        window_identifiers = [ "match:title ^(Library)(.*)$" ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [ "match:title ^(Library)(.*)$" ];
-      }
-      {
-        rule = "size 1000 600";
-        window_identifiers = [ "match:title ^(Library)(.*)$" ];
-      }
-      {
-        rule = "center on";
-        window_identifiers = [ "match:title ^(Open Folder)(.*)$" ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [ "match:title ^(Open Folder)(.*)$" ];
-      }
-      {
-        rule = "size 1000 600";
-        window_identifiers = [ "match:title ^(Open Folder)(.*)$" ];
-      }
-      {
-        rule = "opacity 0.0 override";
-        window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ];
-      }
-      {
-        rule = "no_anim on";
-        window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ];
-      }
-      {
-        rule = "no_initial_focus on";
-        window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ];
-      }
-      {
-        rule = "max_size 1 1";
-        window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ];
-      }
-      {
-        rule = "no_blur on";
-        window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ];
-      }
-      {
-        rule = "no_focus on";
-        window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ];
-      }
-      {
-        rule = "center on";
-        window_identifiers = [ "match:title ^(File Upload)(.*)$" ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [ "match:title ^(File Upload)(.*)$" ];
-      }
-      {
-        rule = "size 1000 600";
-        window_identifiers = [ "match:title ^(File Upload)(.*)$" ];
-      }
-      {
-        rule = "center on";
-        window_identifiers = [ "match:title ^(Select a File)(.*)$" ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [ "match:title ^(Select a File)(.*)$" ];
-      }
-      {
-        rule = "size 1000 600";
-        window_identifiers = [ "match:title ^(Select a File)(.*)$" ];
-      }
-      {
-        rule = "center on";
-        window_identifiers = [ "match:title ^(Save As)(.*)$" ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [ "match:title ^(Save As)(.*)$" ];
-      }
-      {
-        rule = "size 1000 600";
-        window_identifiers = [ "match:title ^(Save As)(.*)$" ];
-      }
-      {
-        rule = "center on";
-        window_identifiers = [ "match:title ^(Open File)(.*)$" ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [ "match:title ^(Open File)(.*)$" ];
-      }
-      {
-        rule = "size 1000 600";
-        window_identifiers = [ "match:title ^(Open File)(.*)$" ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [ "match:title ^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" ];
-      }
-      {
-        rule = "suppress_event maximize";
-        window_identifiers = [ "match:class .*" ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [
-          "match:class ^(firefox)$"
-          "match:title ^(Picture-in-Picture)$"
-        ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [
-          "match:class ^(firefox)$"
-          "match:title ^(Library)$"
-        ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [ "match:class ^(Signal)$" ];
-      }
-      {
-        rule = "center on";
-        window_identifiers = [ "match:class ^(Rofi)$" ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [ "match:class ^(Rofi)$" ];
-      }
-      {
-        rule = "rounding 10";
-        window_identifiers = [ "match:class ^(Rofi)$" ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [ "match:title ^(About Mozilla Firefox)$" ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [ "match:class ^(com.saivert.pwvucontrol)$" ];
-      }
-      {
-        rule = "size 1400 650";
-        window_identifiers = [ "match:class ^(com.saivert.pwvucontrol)$" ];
-      }
-      {
-        rule = "keep_aspect_ratio on";
-        window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ];
-      }
-      {
-        rule = "move 73% 72%";
-        window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ];
-      }
-      {
-        rule = "size 25%";
-        window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ];
-      }
-      {
-        rule = "float on";
-        window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ];
-      }
-      {
-        rule = "pin on";
-        window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ];
-      }
-      {
-        rule = "immediate on";
-        window_identifiers = [ "match:class (steam_app)" ];
-      }
-      {
-        rule = "no_shadow on";
-        window_identifiers = [ "match:float 0" ];
-      }
-      {
-        rule = "tile on";
-        window_identifiers = [ "match:class ^(Nsxiv)$" ];
-      }
-      {
-        rule = "no_focus on";
-        window_identifiers = [
-          "match:class ^$"
-          "match:title ^$"
-          "match:xwayland 1"
-          "match:float 1"
-          "match:fullscreen 0"
-          "match:pin 0"
-        ];
-      }
+      { rule = "center on";     window_identifiers = [ "match:title ^(Choose wallpaper)(.*)$" ]; }
+      { rule = "float on";      window_identifiers = [ "match:title ^(Choose wallpaper)(.*)$" ]; }
+      { rule = "size 1000 600"; window_identifiers = [ "match:title ^(Choose wallpaper)(.*)$" ]; }
+
+      { rule = "center on";     window_identifiers = [ "match:title ^(Library)(.*)$" ]; }
+      { rule = "float on";      window_identifiers = [ "match:title ^(Library)(.*)$" ]; }
+      { rule = "size 1000 600"; window_identifiers = [ "match:title ^(Library)(.*)$" ]; }
+
+      { rule = "center on";      window_identifiers = [ "match:title ^(Open Folder)(.*)$" ]; }
+      { rule = "float on";       window_identifiers = [ "match:title ^(Open Folder)(.*)$" ]; }
+      { rule = "size 1000 600";  window_identifiers = [ "match:title ^(Open Folder)(.*)$" ]; }
+
+      { rule = "opacity 0.0 override"; window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ]; }
+      { rule = "no_anim on";           window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ]; }
+      { rule = "no_initial_focus on";  window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ]; }
+      { rule = "max_size 1 1";         window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ]; }
+      { rule = "no_blur on";           window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ]; }
+      { rule = "no_focus on";          window_identifiers = [ "match:class ^(xwaylandvideobridge)$" ]; }
+
+      { rule = "center on";     window_identifiers = [ "match:title ^(File Upload)(.*)$" ]; }
+      { rule = "float on";      window_identifiers = [ "match:title ^(File Upload)(.*)$" ]; }
+      { rule = "size 1000 600"; window_identifiers = [ "match:title ^(File Upload)(.*)$" ]; }
+
+      { rule = "center on";     window_identifiers = [ "match:title ^(Select a File)(.*)$" ]; }
+      { rule = "float on";      window_identifiers = [ "match:title ^(Select a File)(.*)$" ]; }
+      { rule = "size 1000 600"; window_identifiers = [ "match:title ^(Select a File)(.*)$" ]; }
+
+      { rule = "center on";     window_identifiers = [ "match:title ^(Save As)(.*)$" ]; }
+      { rule = "float on";      window_identifiers = [ "match:title ^(Save As)(.*)$" ]; }
+      { rule = "size 1000 600"; window_identifiers = [ "match:title ^(Save As)(.*)$" ]; }
+
+      { rule = "center on";     window_identifiers = [ "match:title ^(Open File)(.*)$" ]; }
+      { rule = "float on";      window_identifiers = [ "match:title ^(Open File)(.*)$" ]; }
+      { rule = "size 1000 600"; window_identifiers = [ "match:title ^(Open File)(.*)$" ]; }
+
+      { rule = "float on";      window_identifiers = [ "match:title ^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" ]; }
+
+      { rule = "suppress_event maximize"; window_identifiers = [ "match:class .*" ]; }
+
+      { rule = "center on";   window_identifiers = [ "match:class ^(Rofi)$" ]; }
+      { rule = "float on";    window_identifiers = [ "match:class ^(Rofi)$" ]; }
+      { rule = "rounding 10"; window_identifiers = [ "match:class ^(Rofi)$" ]; }
+
+      { rule = "float on"; window_identifiers = [ "match:class ^(firefox)$" "match:title ^(Picture-in-Picture)$" ]; }
+      { rule = "float on"; window_identifiers = [ "match:class ^(firefox)$" "match:title ^(Library)$" ]; }
+      { rule = "float on"; window_identifiers = [ "match:title ^(About Mozilla Firefox)$" ]; }
+
+      { rule = "float on";             window_identifiers = [ "match:class ^(com.saivert.pwvucontrol)$" ]; }
+      { rule = "size 1400 650";        window_identifiers = [ "match:class ^(com.saivert.pwvucontrol)$" ]; }
+
+      { rule = "keep_aspect_ratio on"; window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ]; }
+      { rule = "move 73% 72%";         window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ]; }
+      { rule = "size 25%";             window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ]; }
+      { rule = "float on";             window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ]; }
+      { rule = "pin on";               window_identifiers = [ "match:title ^(Picture(-| )in(-| )[Pp]icture)$" ]; }
+
+      { rule = "immediate on"; window_identifiers = [ "match:class (steam_app)" ]; }
+      { rule = "no_shadow on"; window_identifiers = [ "match:float 0" ]; }
+      { rule = "tile on";      window_identifiers = [ "match:class ^(Nsxiv)$" ]; }
+      { rule = "no_focus on";  window_identifiers = [ "match:class ^$" "match:title ^$" "match:xwayland 1" "match:float 1" "match:fullscreen 0" "match:pin 0" ]; }
     ];
 
     layer = [
+      # vicinae
+      { rule = "blur on";          addr = "vicinae"; }
+      { rule = "dim_around on";    addr = "vicinae"; }
+      { rule = "ignore_alpha 0";   addr = "vicinae"; }
+      { rule = "no_anim on";       addr = "vicinae"; }
+      { rule = "blur_popups on";   addr = "vicinae"; }
+
+      # noctalia-notifications
+      { rule = "ignore_alpha 0.5";  addr = "noctalia-notifications*"; }
+      { rule = "blur on";           addr = "noctalia-notifications*"; }
+
+      # noctalia-bar
+      { rule = "ignore_alpha 0.5"; addr = "noctalia-background-.*$"; }
+      { rule = "blur on";          addr = "noctalia-background-.*$";  }
+      { rule = "blur_popups on";   addr = "noctalia-background-.*$"; }
+      { rule = "dim_around off";   addr = "noctalia-background-.*$"; }
+
+      # rofi
+      { rule = "blur on";        addr = "rofi"; }
+      { rule = "dim_around on";  addr = "rofi"; }
+      { rule = "ignore_alpha 0"; addr = "rofi"; }
+      { rule = "no_anim off";    addr = "rofi"; }
+      { rule = "animation fade"; addr = "rofi"; }
+
       { rule = "animation slide left";  addr = "sideleft.*";      }
       { rule = "animation slide right"; addr = "sideright.*";     }
       { rule = "blur on";               addr = "bar";             }
       { rule = "blur on";               addr = "cheatsheet";      }
+      { rule = "ignore_alpha 0.6";      addr = "cheatsheet";      }
       { rule = "blur on";               addr = "corner.*";        }
       { rule = "blur on";               addr = "dock";            }
       { rule = "blur on";               addr = "gtk-layer-shell"; }
       { rule = "blur on";               addr = "indicator*";      }
       { rule = "blur on";               addr = "indicator.*";     }
       { rule = "blur on";               addr = "launcher";        }
-      { rule = "blur on";               addr = "notifications";   }
-      { rule = "blur on";               addr = "notifications";   }
       { rule = "blur on";               addr = "osk";             }
       { rule = "blur on";               addr = "overview";        }
-      { rule = "blur on";               addr = "rofi";            }
       { rule = "blur on";               addr = "session";         }
       { rule = "blur on";               addr = "shell:*";         }
       { rule = "blur on";               addr = "sideleft";        }
       { rule = "blur on";               addr = "sideright";       }
-      { rule = "blur on";               addr = "vicinae";         }
-      { rule = "ignore_alpha 0";        addr = "rofi";            }
-      { rule = "ignore_alpha 0";        addr = "vicinae";         }
       { rule = "ignore_alpha 0.5";      addr = "launcher";        }
       { rule = "ignore_alpha 0.6";      addr = "bar";             }
-      { rule = "ignore_alpha 0.6";      addr = "cheatsheet";      }
       { rule = "ignore_alpha 0.6";      addr = "corner.*";        }
       { rule = "ignore_alpha 0.6";      addr = "dock";            }
       { rule = "ignore_alpha 0.6";      addr = "indicator*";      }
@@ -522,20 +400,14 @@ in
       { rule = "ignore_alpha 0.6";      addr = "shell:*";         }
       { rule = "ignore_alpha 0.6";      addr = "sideleft";        }
       { rule = "ignore_alpha 0.6";      addr = "sideright";       }
-      { rule = "ignore_alpha 0.69";     addr = "notifications";   }
       { rule = "ignore_alpha 0.1";      addr = "gtk-layer-shell"; }
-      { rule = "ignore_alpha 0.1";      addr = "notifications";   }
-      { rule = "ignore_alpha 0.1";      addr = "notifications";   }
-      { rule = "ignore_alpha 0.1";      addr = "rofi";            }
       { rule = "no_anim on";            addr = "anyrun";          }
       { rule = "no_anim on";            addr = "hyprpicker";      }
       { rule = "no_anim on";            addr = "indicator.*";     }
       { rule = "no_anim on";            addr = "noanim";          }
       { rule = "no_anim on";            addr = "osk";             }
       { rule = "no_anim on";            addr = "overview";        }
-      { rule = "no_anim on";            addr = "rofi";            }
       { rule = "no_anim on";            addr = "selection";       }
-      { rule = "no_anim on";            addr = "vicinae";         }
       { rule = "no_anim on";            addr = "walker";          }
       { rule = "xray on";               addr = ".*";              }
     ];
