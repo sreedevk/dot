@@ -274,6 +274,7 @@ in
       { mod = "SUPER";       keys = "W"; dispatcher = "exec";      args = "noctalia ipc call wallpaper toggle"; }                         # Mod-W
       { mod = "SUPER";       keys = "Q"; dispatcher = "exec";      args = vicinae-clipboard; }                                            # Mod-Q
       { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty"; }                 # S-Mod-CR
+      { mod = "SUPER CTRL";  keys = "Return"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty"; }         # C-Mod-CR
       { mod = "SUPER";       keys = "Return"; dispatcher = "exec"; args = kitty-with-tmux; }                                              # Mod-CR
 
       # Notifications Control
