@@ -204,18 +204,18 @@ in
         automationEnabled = false;
         wallpaperChangeMode = "random";
         hideWallpaperFilenames = false;
-        useWallhaven = true;
+        useWallhaven = false;
         wallhavenQuery = "landscape";
         wallhavenSorting = "relevance";
         wallhavenOrder = "desc";
         wallhavenCategories = "111";
         wallhavenPurity = "100";
-        # wallhavenRatios = "";
+        wallhavenResolutionMode = "atleast";
+        wallhavenResolutionWidth = "3840";
+        wallhavenResolutionHeight = "2160";
+        wallhavenRatios = "16:9";
+        viewMode = "browse"; # single,browse
         # wallhavenApiKey = "";
-        # wallhavenResolutionMode = "atleast";
-        # wallhavenResolutionWidth = "";
-        # wallhavenResolutionHeight = "";
-        # viewMode = "single";
       };
       bar = {
         density = "comfortable";
@@ -468,7 +468,7 @@ in
             "QT_QPA_PLATFORM=wayland"
             "WAYLAND_DISPLAY=wayland-1"
             "XDG_RUNTIME_DIR=%t"
-            "NOCTALIA_WALLHAVEN_API_KEY=\"$(cat ${config.age.secrets.wallhaven-token.path})\""
+            # "NOCTALIA_WALLHAVEN_API_KEY=$(cat ${config.age.secrets.wallhaven-token.path})"
           ];
           Restart = "on-failure";
         };
