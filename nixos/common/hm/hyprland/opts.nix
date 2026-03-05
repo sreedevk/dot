@@ -15,34 +15,34 @@ let
 in
 {
   envs = {
-    AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
-    EGL_PLATFORM = "wayland";
-    ELECTRON_OZONE_PLATFORM_HINT = "auto";
-    GBM_BACKEND = "nvidia-drm";
-    GDK_DPI_SCALE = "${opts.desktop.scale}";
-    GDK_SCALE = "${opts.desktop.scale}";
-    GTK_THEME = "Adwaita:dark";
-    HYPRCURSOR_SIZE = "28";
-    HYPRCURSOR_THEME = "rose-pine-hyprcursor";
-    LIBVA_DRIVER_NAME = "nvidia";
-    MOZ_ENABLE_WAYLAND = "1";
-    QT_AUTO_SCREEN_SCALE_FACTOR = "${opts.desktop.scale}";
-    QT_QPA_PLATFORM = "wayland";
-    QT_QPA_PLATFORMTHEME = "";
-    QT_STYLE_OVERRIDE = "Fusion";
-    QT_SCALE_FACTOR = "${opts.desktop.qt_scale_factor}";
+    AQ_DRM_DEVICES                      = "/dev/dri/card0:/dev/dri/card1";
+    EGL_PLATFORM                        = "wayland";
+    ELECTRON_OZONE_PLATFORM_HINT        = "auto";
+    GBM_BACKEND                         = "nvidia-drm";
+    GDK_DPI_SCALE                       = "${opts.desktop.scale}";
+    GDK_SCALE                           = "${opts.desktop.scale}";
+    GTK_THEME                           = "Adwaita:dark";
+    HYPRCURSOR_SIZE                     = "28";
+    HYPRCURSOR_THEME                    = "rose-pine-hyprcursor";
+    LIBVA_DRIVER_NAME                   = "nvidia";
+    MOZ_ENABLE_WAYLAND                  = "1";
+    QT_AUTO_SCREEN_SCALE_FACTOR         = "${opts.desktop.scale}";
+    QT_QPA_PLATFORM                     = "wayland";
+    QT_QPA_PLATFORMTHEME                = "";
+    QT_STYLE_OVERRIDE                   = "Fusion";
+    QT_SCALE_FACTOR                     = "${opts.desktop.qt_scale_factor}";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    WINIT_X11_SCALE_FACTOR = "${opts.desktop.scale}";
-    XCURSOR_SIZE = "28";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
-    XDG_SESSION_DESKTOP = "Hyprland";
-    XDG_SESSION_TYPE = "wayland";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    __GL_GSYNC_ALLOWED = "1";
-    __GL_VRR_ALLOWED = "1";
-    __NV_PRIME_RENDER_OFFLOAD = "1";
-    __VK_LAYER_NV_optimus = "NVIDIA_only";
+    WINIT_X11_SCALE_FACTOR              = "${opts.desktop.scale}";
+    XCURSOR_SIZE                        = "28";
+    XDG_CURRENT_DESKTOP                 = "Hyprland";
+    XDG_DATA_DIRS                       = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
+    XDG_SESSION_DESKTOP                 = "Hyprland";
+    XDG_SESSION_TYPE                    = "wayland";
+    __GLX_VENDOR_LIBRARY_NAME           = "nvidia";
+    __GL_GSYNC_ALLOWED                  = "1";
+    __GL_VRR_ALLOWED                    = "1";
+    __NV_PRIME_RENDER_OFFLOAD           = "1";
+    __VK_LAYER_NV_optimus               = "NVIDIA_only";
   };
 
   inherit (opts) monitors;
@@ -229,19 +229,27 @@ in
       { mod = "SUPER SHIFT"; keys = "Minus";  dispatcher = "movetoworkspace"; args = "r~11";    } # S-Mod--
       { mod = "SUPER SHIFT"; keys = "Escape"; dispatcher = "movetoworkspace"; args = "special"; } # S-Mod-Esc
 
-      { mod = "SUPER";       keys = "H"; dispatcher = "movefocus";    args = "l"; } # Mod-H
-      { mod = "SUPER";       keys = "J"; dispatcher = "movefocus";    args = "d"; } # Mod-J
-      { mod = "SUPER";       keys = "K"; dispatcher = "movefocus";    args = "u"; } # Mod-K
-      { mod = "SUPER";       keys = "L"; dispatcher = "movefocus";    args = "r"; } # Mod-L
+      # Scrolling Layout Specific
+      { mod = "SUPER";       keys = "H"; dispatcher = "layoutmsg";    args = "focus l"; } # Mod-H
+      { mod = "SUPER";       keys = "L"; dispatcher = "layoutmsg";    args = "focus r"; } # Mod-L
+      { mod = "SUPER";       keys = "J"; dispatcher = "workspace";    args = "r+1"; } # Mod-J
+      { mod = "SUPER";       keys = "K"; dispatcher = "workspace";    args = "r-1"; } # Mod-K
 
+      # Layout Switch
+      { mod = "SUPER";       keys = "m"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'monocle'";   }# Mod-m
+      { mod = "SUPER SHIFT"; keys = "M"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'scrolling'"; }# S-Mod-m
+
+      # Focus Nav
       { mod = "SUPER";       keys = "Tab"; dispatcher = "movefocus";  args = "r"; } # Mod-Tab
       { mod = "SUPER SHIFT"; keys = "Tab"; dispatcher = "movefocus";  args = "l"; } # S-Mod-Tab
 
+      # Window Navigation
       { mod = "SUPER SHIFT"; keys = "H"; dispatcher = "movewindow";   args = "l"; } # S-Mod-H
       { mod = "SUPER SHIFT"; keys = "J"; dispatcher = "movewindow";   args = "d"; } # S-Mod-J
       { mod = "SUPER SHIFT"; keys = "K"; dispatcher = "movewindow";   args = "u"; } # S-Mod-K
       { mod = "SUPER SHIFT"; keys = "L"; dispatcher = "movewindow";   args = "r"; } # S-Mod-L
 
+      # Monitor Navigation
       { mod = "SUPER CTRL";  keys = "H"; dispatcher = "focusmonitor"; args = "l"; } # C-Mod-H
       { mod = "SUPER CTRL";  keys = "L"; dispatcher = "focusmonitor"; args = "r"; } # C-Mod-L
       { mod = "SUPER CTRL";  keys = "J"; dispatcher = "focusmonitor"; args = "d"; } # C-Mod-J
