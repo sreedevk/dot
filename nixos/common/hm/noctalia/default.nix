@@ -213,7 +213,7 @@ in
         wallhavenResolutionMode = "atleast";
         wallhavenResolutionWidth = "3840";
         wallhavenResolutionHeight = "2160";
-        wallhavenRatios = "16:9";
+        wallhavenRatios = "16x9";
         viewMode = "browse"; # single,browse
         # wallhavenApiKey = "";
       };
