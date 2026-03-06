@@ -11,6 +11,23 @@ if status is-interactive
   set XDG_CACHE_HOME $HOME/.cache
   set DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 
+  set VISUAL nvim
+  set EDITOR nvim
+  set SUDO_EDITOR $EDITOR
+  set READER zathura
+  set TERMINAL alacritty
+  set BROWSER brave
+  set DOTFILES $HOME/.dot
+
+  set KEYTIMEOUT 1
+  set TERMINFO /usr/share/terminfo/
+  set MANROFFOPT -c
+  set MANPAGER nvim +Man!
+  set MANPATH $HOME/.nix-profile/share/man:/usr/share/man:/usr/local/share/man:$MANPATH
+  set LANG en_US.UTF-8
+  set TZ America/New_York
+  set CLICOLOR 1
+
   fish_vi_key_bindings
   bind -M insert ctrl-e accept-autosuggestion
   bind -M insert ctrl-a beginning-of-line
@@ -33,11 +50,6 @@ if status is-interactive
   zoxide init fish --no-aliases | source
   fzf --fish | source
 
-  abbr --add la         eza --color=always --all --header --icons --git
-  abbr --add ls         eza --color=always
-  abbr --add ll         eza -l --icons --long --color=always
-  abbr --add lla        eza -la --icons --long --all --color=always
-  abbr --add lt         eza --tree --level=2 --long --icons --git
   abbr --add xo         xdg-open
   abbr --add grep       grep --color=auto
   abbr --add egrep      egrep --color=auto
