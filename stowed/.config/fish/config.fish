@@ -51,9 +51,6 @@ if status is-interactive
   fzf --fish | source
 
   abbr --add xo         xdg-open
-  abbr --add grep       grep --color=auto
-  abbr --add egrep      egrep --color=auto
-  abbr --add fgrep      fgrep --color=auto
   abbr --add jctl       journalctl -p 3 -xb
   abbr --add clock      tty-clock -csSbt -C3
   abbr --add wget       noglob wget
