@@ -13,4 +13,5 @@
   (import ./llama-cpp.nix    { inherit inputs opts; })
   (import ./vicinae.nix      { inherit inputs opts; })
   (import ./bongocat.nix     { inherit inputs opts; })
+  (import ./librepods.nix    { inherit inputs opts; })
 ]
