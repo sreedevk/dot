@@ -136,8 +136,8 @@ in
 
   scrolling = {
     fullscreen_on_one_column = "true";
-    column_width = "0.85";
-    focus_fit_method = "0"; # 0 = center; 1 = fit
+    column_width = "0.90";
+    focus_fit_method = "1"; # 0 = center; 1 = fit
     follow_focus = "true";
     direction = "right";
   };
