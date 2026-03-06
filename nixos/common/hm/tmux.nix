@@ -1,35 +1,36 @@
 { pkgs
-, opts
 , config
 , ...
 }:
 let
-  sessionizer   = import ./scripts/sessionizer.nix    { inherit pkgs;      };
-  bwfzf         = import ./scripts/bwfzf.nix          { inherit pkgs;      };
-  sshfzf        = import ./scripts/sshfzf.nix         { inherit pkgs;      };
-  time          = import ./scripts/time.nix           { inherit pkgs opts; };
+  sessionizer = import ./scripts/sessionizer.nix { inherit pkgs; };
+  bwfzf       = import ./scripts/bwfzf.nix { inherit pkgs; };
+  sshfzf      = import ./scripts/sshfzf.nix { inherit pkgs; };
 
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-super-fingers";
-    version    = "unstable-2023-01-06";
+    version    = "unstable-2026-02-05";
     src        = pkgs.fetchFromGitHub {
       owner  = "artemave";
       repo   = "tmux_super_fingers";
-      rev    = "2c12044984124e74e21a5a87d00f844083e4bdf7";
-      sha256 = "sha256-cPZCV8xk9QpU49/7H8iGhQYK6JwWjviL29eWabuqruc=";
+      rev    = "8a82cf1e0d5a49a49e2d221ab65d2a0e135e613a";
+      sha256 = "0gcxah0f33v75fhhha52awwlcqvlmi659hr33yjncja0w4q79gqh";
     };
   };
 in
 {
   programs.tmux = {
-    enable = true;
-    shell = "${pkgs.zsh}/bin/zsh";
-    terminal = "tmux-256color";
+    enable       = true;
+    shell        = "${pkgs.zsh}/bin/zsh";
+    terminal     = "tmux-256color";
     historyLimit = 100000;
-    plugins = with pkgs; [
+    plugins      = with pkgs; [
       {
-        plugin = tmuxPlugins.rose-pine;
-        extraConfig = "set -g @rose_pine_variant 'main'";
+        plugin = tmuxPlugins.catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_flavor "mocha"
+          set -g @catppuccin_window_status_style "rounded"
+        '';
       }
       {
         plugin = tmux-super-fingers;
@@ -147,16 +148,7 @@ in
 
       # STATUS BAR
       set -g status on
-      set -g status-style bg=default
       set -g status-interval 5
-      set -g status-left-length 30
-      set -g status-right-length 30
-      set -g status-position bottom
-      set -g status-justify centre
-      set -g status-left '#[fg=green]λ: #[fg=cyan]#S'
-      set -g status-right "#[fg=cyan]#(${time}/bin/ttd)"
-      set -g window-status-format "#[fg=blue]#I#[fg=default]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},}}#F"
-      set -g window-status-current-format "#[fg=yellow]#I#[fg=green]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},)}}#[fg=default]#F#[fg=yellow]#[fg=default]"
 
       # MAKE IT PRETTY + SANE DEFAULTS
       set -g  default-command "${pkgs.zsh}/bin/zsh"
@@ -197,7 +189,7 @@ in
   };
 
   programs.sesh = {
-    enable = true;
+    enable = false;
     package = pkgs.sesh;
     enableAlias = false;
     enableTmuxIntegration = false;
