@@ -13,7 +13,6 @@
         "$directory"
         "$status"
         "$git_branch"
-        "$custom"
         "$cmd_duration"
         "$jobs"
         "$character"
@@ -70,16 +69,6 @@
         show_milliseconds = true;
         disabled = false;
         style = "bold italic blue";
-      };
-      custom = {
-        tmux = {
-          command = "tmux list-sessions -F '#S' 2>/dev/null | wc -l | tr -d ' '";
-          style = "bold yellow";
-          description = "active tmux session count";
-          when = "test -n $TMUX";
-          disabled = false;
-          format = "[tmux:$output]($style) ";
-        };
       };
       jobs = {
         threshold = 1;
