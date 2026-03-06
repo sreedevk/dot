@@ -98,17 +98,17 @@ in
                       "new-session -d -s system -c '${builtins.getEnv "HOME"}'; switch-client -t system"
 
       # COPY MODE
-      bind -T   copy-mode-vi v      send-keys -X begin-selection
-      bind -T   copy-mode-vi C-v    send-keys -X rectangle-toggle
-      bind -T   copy-mode-vi Escape send-keys -X cancel
-      bind -T   copy-mode-vi y      send-keys -X copy-pipe-and-cancel 'wl-copy'
-      bind -T   copy-mode-vi C-g    send-keys -X cancel
-      bind -T   copy-mode-vi 0      send-keys -X start-of-line
-      bind -T   copy-mode-vi $      send-keys -X end-of-line
-      bind p       paste-buffer
-      bind    C-p  choose-buffer
-      bind    C-q  copy-mode
-      bind -T copy-mode-vi C-q send-keys -X cancel
+      bind -T copy-mode-vi v      send-keys -X begin-selection
+      bind -T copy-mode-vi C-v    send-keys -X rectangle-toggle
+      bind -T copy-mode-vi Escape send-keys -X cancel
+      bind -T copy-mode-vi y      send-keys -X copy-pipe-and-cancel 'wl-copy'
+      bind -T copy-mode-vi C-g    send-keys -X cancel
+      bind -T copy-mode-vi 0      send-keys -X start-of-line
+      bind -T copy-mode-vi $      send-keys -X end-of-line
+      bind -T copy-mode-vi C-q    send-keys -X cancel
+
+      bind C-p choose-buffer
+      bind C-q copy-mode
 
       # WORKFLOWS
       bind C-a neww ${pkgs.wiremix}/bin/wiremix
