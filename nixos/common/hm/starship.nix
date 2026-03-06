@@ -73,12 +73,12 @@
       };
       custom = {
         tmux = {
-          command = "tmux ls | wc -l";
+          command = "tmux list-sessions -F '#S' 2>/dev/null | wc -l | tr -d ' '";
           style = "bold yellow";
           description = "active tmux session count";
-          when = "test $(tmux ls | wc -l) -gt 0";
+          when = "test -n $TMUX";
           disabled = false;
-          format = "[tmux:($output)]($style) ";
+          format = "[tmux:$output]($style) ";
         };
       };
       jobs = {

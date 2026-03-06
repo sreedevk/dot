@@ -236,8 +236,8 @@ in
       { mod = "SUPER";       keys = "K"; dispatcher = "workspace";    args = "r-1"; } # Mod-K
 
       # Layout Switch
-      { mod = "SUPER";       keys = "m"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'monocle'";   }# Mod-m
-      { mod = "SUPER SHIFT"; keys = "M"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'scrolling'"; }# S-Mod-m
+      { mod = "SUPER";       keys = "M"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'scrolling'"; }# Mod-m
+      { mod = "SUPER SHIFT"; keys = "m"; dispatcher = "exec"; args = "hyprctl keyword general:layout 'monocle'";   }# S-Mod-m
 
       # Focus Nav
       { mod = "SUPER";       keys = "Tab"; dispatcher = "movefocus";  args = "r"; } # Mod-Tab

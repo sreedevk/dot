@@ -27,6 +27,9 @@ alias cw='cliphist --wipe'
 alias tt="taskwarrior-tui"
 alias tl="tasklite"
 
+# termbin
+alias tb="nc termbin.com 9999"
+
 # Safe Opts
 alias cp="cp -i"
 alias mv="mv -i"
