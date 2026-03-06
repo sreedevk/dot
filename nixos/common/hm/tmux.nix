@@ -31,6 +31,8 @@ in
           set -g @catppuccin_flavor "mocha"
           set -g @catppuccin_window_status_style "rounded"
           set -ogq @catppuccin_window_text " #[italics]#{window_name}"
+          set -g status-left-length 100
+          set -g status-left "[#S] "
         '';
       }
       {
