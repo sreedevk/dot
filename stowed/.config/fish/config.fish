@@ -72,4 +72,8 @@ if status is-interactive
   abbr --add d          docker
   abbr --add yt         yt-dlp
   abbr --add zz         zi
+
+  echo 
+  fastfetch
+  echo 
 end
