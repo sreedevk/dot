@@ -79,3 +79,6 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light ajeetdsouza/zoxide
 zinit light hlissner/zsh-autopair
 zinit light wintermi/zsh-mise
+zinit light olets/zsh-abbr
+
+[ -f "$HOME/.zsh/abbr.zsh" ]   && source "$HOME/.zsh/abbr.zsh"
