@@ -47,16 +47,14 @@ if status is-interactive
   rbw gen-completions fish | source
   rv shell init fish | source
   rv shell completions fish | source
-  zoxide init fish --no-aliases | source
+  zoxide init fish | source
   fzf --fish | source
 
   abbr --add xo         xdg-open
   abbr --add jctl       journalctl -p 3 -xb
   abbr --add clock      tty-clock -csSbt -C3
-  abbr --add wget       noglob wget
-  abbr --add curl       noglob curl
-  abbr --add z          __zoxide_z
-  abbr --add zz         __zoxide_zi
+  abbr --add wget       wget
+  abbr --add curl       curl
   abbr --add cw         cliphist --wipe
   abbr --add tt         taskwarrior-tui
   abbr --add tl         tasklite
@@ -73,4 +71,5 @@ if status is-interactive
   abbr --add dc         docker compose
   abbr --add d          docker
   abbr --add yt         yt-dlp
+  abbr --add zz         zi
 end
