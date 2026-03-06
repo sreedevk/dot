@@ -91,6 +91,7 @@
       terminaltexteffects      # cli text effects
       texliveFull              # pandoc supporting packages for pdf/latex
       ticker                   # asset ticker
+      timr-tui                 # tui timers
       tmux-sessionizer         # tmux sessionizer
       tmuxinator               # tmuxinator
       toilet                   # fancy large cli text generator
