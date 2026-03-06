@@ -59,9 +59,9 @@ zle -N edit-command-line
 [ -f "$HOME/.zsh/zinit.zsh" ]  && source "$HOME/.zsh/zinit.zsh"
 
 # LOAD ALIASES & FUNCTIONS
-[ -f "$HOME/.zsh/aliases.zsh" ]   && source "$HOME/.zsh/aliases.zsh"
-[ -f "$HOME/.zsh/functions.zsh" ] && source "$HOME/.zsh/functions.zsh"
-[ -f "$HOME/.zsh/autoloads.zsh" ] && source "$HOME/.zsh/autoloads.zsh"
+[ -f "$HOME/.zsh/aliases.zsh" ]         && source "$HOME/.zsh/aliases.zsh"
+[ -f "$HOME/.zsh/functions.zsh" ]       && source "$HOME/.zsh/functions.zsh"
+[ -f "$HOME/.zsh/before/compinit.zsh" ] && source "$HOME/.zsh/before/compinit.zsh"
 
 # AUTOLOAD MODULES
 zmodload     zsh/complist 
