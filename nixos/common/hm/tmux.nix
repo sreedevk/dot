@@ -1,11 +1,13 @@
 { pkgs
 , config
+, opts
 , ...
 }:
 let
-  sessionizer = import ./scripts/sessionizer.nix { inherit pkgs; };
-  bwfzf       = import ./scripts/bwfzf.nix { inherit pkgs; };
-  sshfzf      = import ./scripts/sshfzf.nix { inherit pkgs; };
+  sessionizer = import ./scripts/sessionizer.nix { inherit pkgs;      };
+  bwfzf       = import ./scripts/bwfzf.nix       { inherit pkgs;      };
+  sshfzf      = import ./scripts/sshfzf.nix      { inherit pkgs;      };
+  time        = import ./scripts/time.nix        { inherit pkgs opts; };
 
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-super-fingers";
@@ -30,6 +32,8 @@ in
         extraConfig = ''
           set -g @catppuccin_flavor "mocha"
           set -g @catppuccin_window_status_style "rounded"
+          set -ogq @catppuccin_window_text " #[italics]#{window_name}"
+          set -ag status-right "#[fg=#{@thm_fg},bg=#{@thm_mantle}] #(${time}/bin/ttd)"
         '';
       }
       {
