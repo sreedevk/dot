@@ -97,7 +97,7 @@ in
       size                      = "8";
       special                   = "true";
       vibrancy                  = "0.1696";
-      xray                      = "false";
+      xray                      = "true";
     };
   };
 
