@@ -4,9 +4,9 @@
 , ...
 }:
 let
+  addons        = import ./addons.nix { inherit pkgs system; };
   bookmarks     = import ./bookmarks.nix;
   containers    = import ./containers.nix;
-  extensions    = import ./extensions.nix { inherit pkgs system; };
   searchEngines = import ./search-engines.nix;
   settings      = import ./settings.nix;
 in
@@ -24,7 +24,7 @@ in
         id = 0;
         containersForce = false;
         extensions = {
-          packages = extensions;
+          packages = addons;
         };
         search = {
           force = true;

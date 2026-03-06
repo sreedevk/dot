@@ -6,6 +6,7 @@ with pkgs.nur.repos.rycee.firefox-addons;
   darkreader
   dearrow
   decentraleyes
+  duckduckgo-privacy-essentials
   karakeep
   private-grammar-checker-harper
   reddit-enhancement-suite
