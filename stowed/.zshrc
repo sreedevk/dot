@@ -74,7 +74,7 @@ autoload     zmv
 
 _comp_options+=(globdots)
 
-[ -f "$HOME/.zsh/post-compinit.zsh" ] && source "$HOME/.zsh/post-compinit.zsh"
+[ -f "$HOME/.zsh/after/compinit.zsh" ] && source "$HOME/.zsh/after/compinit.zsh"
 
 # ZSH OPTS
 setopt   COMPLETE_ALIASES

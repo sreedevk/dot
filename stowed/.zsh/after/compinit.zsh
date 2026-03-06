@@ -39,3 +39,4 @@ if command -v rv &> /dev/null; then
   eval "$(rv shell completions zsh)"
 fi
 
+zinit light Aloxaf/fzf-tab
