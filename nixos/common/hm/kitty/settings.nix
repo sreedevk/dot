@@ -26,7 +26,7 @@
     scrollback_pager = "${config.programs.neovim.package}/bin/nvim -c \"lua require('core.utils'):colorize()\"";
     selection_foreground = "none";
     shell_integration = "disabled";
-    shell = "${pkgs.fish}/bin/fish";
+    shell = "${pkgs.zsh}/bin/zsh";
     tab_bar_align = "left";
     tab_bar_edge = "top";
     touch_scroll_multiplier = 2.0;

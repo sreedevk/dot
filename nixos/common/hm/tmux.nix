@@ -23,7 +23,7 @@ in
 {
   programs.tmux = {
     enable       = true;
-    shell        = "${pkgs.fish}/bin/fish";
+    shell        = "${pkgs.zsh}/bin/zsh";
     terminal     = "tmux-256color";
     historyLimit = 100000;
     plugins      = with pkgs; [
@@ -155,7 +155,7 @@ in
       set -g status-interval 5
 
       # MAKE IT PRETTY + SANE DEFAULTS
-      set -g  default-command "${pkgs.fish}/bin/fish"
+      set -g  default-command "${pkgs.zsh}/bin/zsh"
       set -g  xterm-keys on
       set -s  extended-keys on
       set -as terminal-features 'xterm*:extkeys'
