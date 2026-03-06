@@ -1,5 +1,5 @@
 if status is-interactive
-  set fish_greeting ""
+  set fish_greeting
 
   fish_add_path $HOME/.cargo/bin
   fish_add_path $HOME/.ghcup/bin
@@ -13,6 +13,8 @@ if status is-interactive
   set XDG_CACHE_HOME $HOME/.cache
   set DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 
+  set TERM "xterm-256color"
+
   set VISUAL nvim
   set EDITOR nvim
   set SUDO_EDITOR $EDITOR
@@ -24,13 +26,18 @@ if status is-interactive
   set KEYTIMEOUT 1
   set TERMINFO /usr/share/terminfo/
   set MANROFFOPT -c
-  set MANPAGER nvim +Man!
-  set MANPATH $HOME/.nix-profile/share/man:/usr/share/man:/usr/local/share/man:$MANPATH
+  set -x MANPAGER "nvim +Man!"
+  set -U MANPATH $HOME/.nix-profile/share/man /usr/share/man /usr/local/share/man $MANPATH
   set LANG en_US.UTF-8
   set TZ America/New_York
   set CLICOLOR 1
 
-  fish_vi_key_bindings
+  set -gx FZF_DEFAULT_OPTS "--layout=reverse --exact --border=bold --border=rounded --margin=3% --color=dark"
+
+  function fish_user_key_bindings
+    fish_vi_key_bindings
+  end
+
   bind -M insert ctrl-e accept-autosuggestion
   bind -M insert ctrl-a beginning-of-line
   bind -M insert ctrl-w backward-kill-word

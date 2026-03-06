@@ -515,6 +515,7 @@ in
           "ignore_alpha 0"
           "no_anim on"
           "blur_popups on"
+          "xray on"
         ];
       }
 
