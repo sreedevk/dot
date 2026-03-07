@@ -362,6 +362,7 @@ in
         radiusRatio = 0.2;
         scaleRatio = 1.00;
         enableShadows = true;
+        dimmerOpacity = 0.5;
         shadowDirection = "center";
         shadowOffsetX = 2;
         shadowOffsetY = 3;
@@ -447,7 +448,7 @@ in
         tooltipsEnabled = true;
         panelsOverlayLayer = true;
         wifiDetailsViewMode = "grid";
-        panelBackgroundOpacity = 0.93;
+        panelBackgroundOpacity = 0.50;
         panelsAttachedToBar = true;
         settingsPanelMode = "attached";
         bluetoothDetailsViewMode = "grid";
