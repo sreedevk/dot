@@ -15,6 +15,7 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 7. Map Mod+mousescroll to scroll across tape on scroll mode hyprland
 8. Librepods repoint to old branch - May 16, 2026
 9. Lockscreen wallpaper must be dark AF
+10. when having multiple tabs open in neovim, when opening and closing neogit window, I am not back in the same tab I started in.
 
 ## Distant Dreams
 1. improvement: migrate to Traefik

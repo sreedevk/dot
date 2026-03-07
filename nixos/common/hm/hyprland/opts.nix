@@ -137,9 +137,12 @@ in
   scrolling = {
     fullscreen_on_one_column = "true";
     column_width = "0.90";
-    focus_fit_method = "1"; # 0 = center; 1 = fit
+    focus_fit_method = "0"; # 0 = center; 1 = fit
+    follow_min_visible = "0.4";
     follow_focus = "true";
     direction = "right";
+    # wrap_focus = "false";
+    # wrap_swapcol = "false";
   };
 
   misc = {
@@ -512,8 +515,9 @@ in
         rules = [
           "blur on"
           "dim_around on"
-          "ignore_alpha 0.1"
-          "no_anim on"
+          "ignore_alpha 0.0"
+          "no_anim off"
+          "animation fade"
           "blur_popups on"
           "xray off"
         ];
