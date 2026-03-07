@@ -103,7 +103,7 @@ in
         mprisBlacklist = [ ];
         preferredPlayer = "";
         visualizerType = "linear";
-        volumeOverdrive = false;
+        volumeOverdrive = true;
         volumeStep = 5;
         externalMixer = "pwvucontrol || pavucontrol";
       };
@@ -167,7 +167,9 @@ in
           lowSoundFile = "";
           excludedApps = "feishin,thunderbird,discord,firefox,chrome,chromium,edge";
         };
-        enableMediaToast = false;
+        enableMediaToast = true;
+        enableKeyboardLayoutToast = true;
+        enableBatteryToast = true;
       };
       appLauncher = {
         enableClipboardHistory = false;
@@ -329,6 +331,13 @@ in
         shadowOffsetX = 2;
         shadowOffsetY = 3;
         compactLockScreen = false;
+        lockScreenAnimations = true;
+        lockOnSuspend = true;
+        lockScreenBlur = 0;
+        lockScreenTint = 80;
+        showSessionButtonsOnLockScreen = true;
+        showHibernateOnLockScreen = false;
+        enableLockScreenMediaControls = false;
         telemetryEnabled = false;
         enableLockScreenCountdown = true;
         lockScreenCountdownDuration = 10000;
@@ -341,6 +350,23 @@ in
         enabled = true;
         gridSnap = true;
         monitorWidgets = [ ];
+      };
+      plugins = {
+        autoUpdate = false;
+      };
+      idle = {
+        enabled = true;
+        screenOffTimeout = 600;
+        lockTimeout = 660;
+        suspendTimeout = 1800;
+        fadeDuration = 5;
+        screenOffCommand = "";
+        lockCommand = "";
+        suspendCommand = "";
+        resumeScreenOffCommand = "";
+        resumeLockCommand = "";
+        resumeSuspendCommand = "";
+        customCommands = "[]";
       };
       templates = {
         gtk = false;
