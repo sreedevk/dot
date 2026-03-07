@@ -265,6 +265,12 @@ in
               id = "WiFi";
               displayMode = "onhover";
             }
+            {
+              id = "VPN";
+              displayMode = "onhover";
+              iconColor = "none";
+              textColor = "none";
+            }
           ];
           center = [
             {
@@ -305,7 +311,11 @@ in
             {
               id = "Tray";
               blacklist = [ ];
-              colorizeIcons = false;
+              colorizeIcons = true;
+              pinned = [ ];
+              drawerEnabled = false;
+              hidePassive = false;
+              chevronColor = "none";
             }
           ];
         };
