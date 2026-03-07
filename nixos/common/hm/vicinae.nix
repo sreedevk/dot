@@ -38,7 +38,7 @@
         layer_shell = {
           enabled = true;
           keyboard_interactivity = "exclusive";
-          layer = "top"; # overlay
+          layer = "overlay"; # top
         };
         csd = true;
         opacity = 0.95;
