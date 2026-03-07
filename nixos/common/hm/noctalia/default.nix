@@ -167,7 +167,7 @@ in
           lowSoundFile = "";
           excludedApps = "feishin,thunderbird,discord,firefox,chrome,chromium,edge";
         };
-        enableMediaToast = true;
+        enableMediaToast = false;
         enableKeyboardLayoutToast = true;
         enableBatteryToast = true;
       };
@@ -232,13 +232,23 @@ in
         widgets = {
           left = [
             {
+              id = "Clock";
               formatHorizontal = "ddd MMMM dd  hh:mm:ss AP t";
               formatVertical = "HH mm";
-              id = "Clock";
               useMonospacedFont = false;
               usePrimaryColor = false;
               useCustomFont = true;
               customFont = "Iosevka Nerd Font";
+              clockStyle = "digital";
+            }
+            {
+              id = "Spacer";
+              width = 10;
+            }
+            {
+              id = "Weather";
+              showBackground = true;
+              roundedCorners = true;
             }
             {
               id = "Spacer";
@@ -274,9 +284,24 @@ in
           ];
           center = [
             {
-              hideUnoccupied = false;
               id = "Workspace";
+              hideUnoccupied = true;
               labelMode = "none";
+              followFocusedScreen = false;
+              characterCount = 2;
+              showApplications = true;
+              showLabelsOnlyWhenOccupied = true;
+              colorizeIcons = true;
+              unfocusedIconsOpacity = 1;
+              groupedBorderOpacity = 1;
+              enableScrollWheel = true;
+              iconScale = 0.8;
+              focusedColor = "primary";
+              occupiedColor = "secondary";
+              emptyColor = "secondary";
+              showBadge = true;
+              pillSize = 0.8;
+              fontWeight = "bold";
             }
           ];
           right = [
