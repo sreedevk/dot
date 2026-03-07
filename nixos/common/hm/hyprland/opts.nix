@@ -97,7 +97,7 @@ in
       size                      = "8";
       special                   = "true";
       vibrancy                  = "0.1696";
-      xray                      = "true";
+      xray                      = "false";
     };
   };
 
@@ -512,10 +512,10 @@ in
         rules = [
           "blur on"
           "dim_around on"
-          "ignore_alpha 0"
+          "ignore_alpha 0.1"
           "no_anim on"
           "blur_popups on"
-          "xray on"
+          "xray off"
         ];
       }
 
