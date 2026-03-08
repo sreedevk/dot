@@ -6,7 +6,7 @@ services:
     icon: "fas fa-otter"
     items:
       - name: "Tdarr"
-        logo: "https://icons.nullptr.sh/tdarr"
+        logo: "https://icons.nullptr.sh/tdarr.png"
         subtitle: "Media Encoding Manager"
         tag: "media-encoding"
         keywords: "media-encoding"
@@ -17,7 +17,7 @@ services:
     icon: "fas fa-book"
     items:
       - name: "AudioBookshelf"
-        logo: "https://icons.nullptr.sh/audiobookshelf"
+        logo: "https://icons.nullptr.sh/audiobookshelf.png"
         subtitle: "Audio Books Streaming"
         tag: "audiobooks"
         keywords: "audiobooks"
@@ -25,7 +25,7 @@ services:
         target: "_blank"
 
       - name: "Booklore"
-        logo: "https://icons.nullptr.sh/booklore"
+        logo: "https://icons.nullptr.sh/booklore.png"
         subtitle: "Ebook Server"
         tag: "ebooks"
         keywords: "ebooks"
@@ -33,7 +33,7 @@ services:
         target: "_blank"
 
       - name: "Listenarr"
-        logo: "https://icons.nullptr.sh/listenarr"
+        logo: "https://icons.nullptr.sh/listenarr.png"
         subtitle: "Audiobooks Indexer"
         tag: "audiobooks"
         keywords: "audiobooks"
@@ -41,7 +41,7 @@ services:
         target: "_blank"
 
       - name: "Shelfmark"
-        logo: "https://icons.nullptr.sh/shelfmark"
+        logo: "https://icons.nullptr.sh/shelfmark.png"
         subtitle: "Ebook Downloader"
         tag: "ebooks"
         keywords: "ebooks"
@@ -49,7 +49,7 @@ services:
         target: "_blank"
 
       - name: "LazyLibrarian"
-        logo: "https://icons.nullptr.sh/lazylibrarian"
+        logo: "https://icons.nullptr.sh/lazylibrarian.png"
         subtitle: "E-Book Metadata Tracker"
         tag: "ebooks-metadata-tracker"
         keywords: "ebooks-metadata-tracker"
@@ -57,7 +57,7 @@ services:
         target: "_blank"
 
       - name: "Kiwix"
-        logo: "https://icons.nullptr.sh/kiwix"
+        logo: "https://icons.nullptr.sh/kiwix.png"
         subtitle: "ZIM Reader"
         tag: "wiki"
         keywords: "wiki"
@@ -68,7 +68,7 @@ services:
     icon: "fas fa-music"
     items:
       - name: "Navidrome"
-        logo: "https://icons.nullptr.sh/navidrome"
+        logo: "https://icons.nullptr.sh/navidrome.png"
         subtitle: "Music Server"
         tag: "music"
         keywords: "music"
@@ -76,7 +76,7 @@ services:
         target: "_blank"
 
       - name: "Koito"
-        logo: "https://icons.nullptr.sh/koito"
+        logo: "https://icons.nullptr.sh/koito.png"
         subtitle: "Music Scrobble Server"
         tag: "music-scrobble"
         keywords: "music-scrobble"
@@ -84,7 +84,7 @@ services:
         target: "_blank"
 
       - name: "PinePods"
-        logo: "https://icons.nullptr.sh/pinepods"
+        logo: "https://icons.nullptr.sh/pinepods.png"
         subtitle: "podcasts server"
         tag: "podcasts"
         keywords: "podcasts"
@@ -92,7 +92,7 @@ services:
         target: "_blank"
 
       - name: "Soulseek"
-        logo: "https://icons.nullptr.sh/soulseek"
+        logo: "https://icons.nullptr.sh/soulseek.png"
         subtitle: "file sharing"
         tag: "file-sharing"
         keywords: "filesharing"
@@ -100,7 +100,7 @@ services:
         target: "_blank"
 
       - name: "Lidarr"
-        logo: "https://icons.nullptr.sh/lidarr"
+        logo: "https://icons.nullptr.sh/lidarr.png"
         subtitle: "Music Indexing & Searching"
         tag: "music"
         keywords: "music"
@@ -113,7 +113,7 @@ services:
     icon: "fas fa-film"
     items:
       - name: "Jellyfin"
-        logo: "https://icons.nullptr.sh/jellyfin"
+        logo: "https://icons.nullptr.sh/jellyfin.png"
         subtitle: "Media Streaming Server"
         tag: "streaming"
         keywords: "streaming"
@@ -124,7 +124,7 @@ services:
         libraryType: "series"
 
       - name: "Seerr"
-        logo: "https://icons.nullptr.sh/seerr"
+        logo: "https://icons.nullptr.sh/seerr.png"
         subtitle: "Media Discovery"
         tag: "discovery"
         keywords: "discovery"
@@ -132,7 +132,7 @@ services:
         target: "_blank"
 
       - name: "Radarr"
-        logo: "https://icons.nullptr.sh/radarr"
+        logo: "https://icons.nullptr.sh/radarr.png"
         subtitle: "Movie Indexing & Searching"
         tag: "movies"
         keywords: "movies"
@@ -142,7 +142,7 @@ services:
         apikey: "647b4305c84d4e36ba7357e74262a3f6"
 
       - name: "Sonarr"
-        logo: "https://icons.nullptr.sh/sonarr"
+        logo: "https://icons.nullptr.sh/sonarr.png"
         subtitle: "TV Indexing & Searching"
         tag: "tv"
         keywords: "tv"
@@ -152,7 +152,7 @@ services:
         apikey: "c51c7686634c479ebaf40b695322851e"
 
       - name: "Bazarr"
-        logo: "https://icons.nullptr.sh/bazarr"
+        logo: "https://icons.nullptr.sh/bazarr.png"
         subtitle: "Subtitles Searching & Indexing"
         tag: "subtitles"
         keywords: "subtitles"
@@ -163,7 +163,7 @@ services:
     icon: "fas fa-camera"
     items:
       - name: "Photoprism"
-        logo: "https://icons.nullptr.sh/photoprism"
+        logo: "https://icons.nullptr.sh/photoprism.png"
         subtitle: "Image Server"
         tag: "image"
         url: "https://photoprism.nullptr.sh"
@@ -173,21 +173,21 @@ services:
     icon: "fas fa-file-lines"
     items:
       - name: "Miniflux"
-        logo: "https://icons.nullptr.sh/miniflux"
+        logo: "https://icons.nullptr.sh/miniflux.png"
         subtitle: "RSS Feed Aggregator"
         tag: "rss"
         url: "https://miniflux.nullptr.sh"
         target: "_blank"
 
       - name: "RSS Bridge"
-        logo: "https://icons.nullptr.sh/rss-bridge"
+        logo: "https://icons.nullptr.sh/rss-bridge.png"
         subtitle: "RSS Feed Connector"
         tag: "rss"
         url: "https://rssbridge.external.nullptr.sh"
         target: "_blank"
 
       - name: "Karakeep"
-        logo: "https://icons.nullptr.sh/karakeep"
+        logo: "https://icons.nullptr.sh/karakeep.png"
         subtitle: "Web & Links Archivers"
         tag: "data+link archiver"
         keywords: "karakeep"
@@ -195,21 +195,21 @@ services:
         target: "_blank"
 
       - name: "ArchiveBox"
-        logo: "https://icons.nullptr.sh/archivebox"
+        logo: "https://icons.nullptr.sh/archivebox.png"
         subtitle: "Internet Archiver"
         tag: "internet-archiver"
         url: "https://archive.nullptr.sh"
         target: "_blank"
 
       - name: "Vaultwarden"
-        logo: "https://icons.nullptr.sh/bitwarden"
+        logo: "https://icons.nullptr.sh/bitwarden.png"
         subtitle: "password-manager"
         tag: "password-manager"
         url: "https://vw.nullptr.sh"
         target: "_blank"
 
       - name: "Dawarich"
-        logo: "https://icons.nullptr.sh/dawarich"
+        logo: "https://icons.nullptr.sh/dawarich.png"
         subtitle: "location-tracker"
         tag: "location-tracker"
         url: "https://dawarich.nullptr.sh"
@@ -219,7 +219,7 @@ services:
     icon: "fas fa-video"
     items:
       - name: "Metube"
-        logo: "https://icons.nullptr.sh/metube"
+        logo: "https://icons.nullptr.sh/metube.png"
         subtitle: "Youtube Video Downloader"
         tag: "youtube"
         keywords: "youtube"
@@ -227,7 +227,7 @@ services:
         target: "_blank"
 
       - name: "8mb.local"
-        logo: "https://icons.nullptr.sh/8mb-local"
+        logo: "https://icons.nullptr.sh/8mb-local.png"
         subtitle: "Video Encoding & Uploads"
         tag: "video-encoding-decoding"
         keywords: "video-enc-dec"
@@ -238,7 +238,7 @@ services:
     icon: "fas fa-gamepad"
     items:
       - name: "Romm"
-        logo: "https://icons.nullptr.sh/romm"
+        logo: "https://icons.nullptr.sh/romm.png"
         subtitle: "Game Rom Manager"
         tag: "roms"
         url: "https://romm.nullptr.sh"
@@ -248,7 +248,7 @@ services:
     icon: "fas fa-file"
     items:
       - name: "Paperless"
-        logo: "https://icons.nullptr.sh/paperless-ngx"
+        logo: "https://icons.nullptr.sh/paperless-ngx.png"
         tag: "documents"
         url: "https://docs.nullptr.sh"
         target: "_blank"
@@ -256,13 +256,13 @@ services:
         apikey: "232d2126fc63971c604fc30666c7a81382b949a1"
 
       - name: "Invio"
-        logo: "https://icons.external.nullptr.sh/invio"
+        logo: "https://icons.external.nullptr.sh/invio.png"
         tag: "invoicing"
         url: "https://invio.nullptr.sh"
         target: "_blank"
 
       - name: "Paperless GPT"
-        logo: "https://icons.nullptr.sh/paperless-ai"
+        logo: "https://icons.nullptr.sh/paperless-ai.png"
         subtitle: "AI Document Parsing & OCR"
         tag: "documents"
         url: "https://pg.nullptr.sh"
