@@ -391,7 +391,7 @@ in
         autoUpdate = false;
       };
       idle = {
-        enabled = true;
+        enabled = false;
         screenOffTimeout = 600;
         lockTimeout = 660;
         suspendTimeout = 1800;
