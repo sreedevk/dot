@@ -14,21 +14,24 @@
         "brave-browser.desktop"
       ];
       "text/plain" = [
-        "neovim.desktop"
+        "neovide.desktop"
         "firefox.desktop"
         "brave-browser.desktop"
       ];
       "text/html" = [
         "firefox.desktop"
         "brave-browser.desktop"
+        "neovide.desktop"
         "neovim.desktop"
       ];
       "text/markdown" = [
         "firefox.desktop"
         "brave-browser.desktop"
+        "neovide.desktop"
         "neovim.desktop"
       ];
       "text/unknown" = [
+        "neovide.desktop"
         "neovim.desktop"
         "firefox.desktop"
         "brave-browser.desktop"

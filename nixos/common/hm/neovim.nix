@@ -48,7 +48,7 @@ in
       name = "NeoVim";
       icon = "nvim";
       genericName = "Text Editor";
-      exec = "${config.programs.alacritty.package}/bin/alacritty -e ${config.programs.neovim.package}/bin/nvim %F";
+      exec = "${config.programs.kitty.package}/bin/kitty -e ${config.programs.neovim.package}/bin/nvim %F";
       comment = "Text Editor";
       mimeType = [
         "text/plain"
