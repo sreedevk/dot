@@ -123,7 +123,6 @@ let
   };
 in
 {
-  home.packages = with pkgs; [ fish ];
   programs.alacritty = {
     enable = true;
     package = config.lib.nixGL.wrapOffload pkgs.alacritty;

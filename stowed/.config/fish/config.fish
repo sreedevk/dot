@@ -33,6 +33,8 @@ set CLICOLOR 1
 
 set -gx FZF_DEFAULT_OPTS "--layout=reverse --exact --border=bold --border=rounded --margin=3% --color=dark"
 
+set fzf_preview_dir_cmd eza --all --color=always
+
 function fish_user_key_bindings
   fish_vi_key_bindings
 end
@@ -56,7 +58,6 @@ rbw gen-completions fish | source
 rv shell init fish | source
 rv shell completions fish | source
 zoxide init fish | source
-fzf --fish | source
 
 abbr --add xo         xdg-open
 abbr --add clock      tty-clock -csSbt -C3
@@ -87,6 +88,8 @@ function coln
     echo $input | awk '{print $'$argv[1]'}'
   end
 end
+
+fzf_configure_bindings --directory=\cf --history=\cr --processes=\cp --variables=\cv
 
 if status is-interactive
   echo 
