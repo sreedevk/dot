@@ -269,15 +269,15 @@ in
       { mod = "SUPER";       keys = "P";     dispatcher = "exec"; args = "${hypr-gamemode-toggle}/bin/gamemode"; } # Mod-P
 
       # Launchers
-      { mod = "SUPER";       keys = "D";      dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae toggle";                         } # Mod-D
-      { mod = "SUPER";       keys = "A";      dispatcher = "exec"; args = "uwsm app -t service -- re.fossplant.songrec.desktop";        } # Mod-A
-      { mod = "SUPER";       keys = "B";      dispatcher = "exec"; args = "uwsm app -t service -- ${opts.desktop.browser.xdg-desktop}"; } # Mod-B
-      { mod = "SUPER";       keys = "C";      dispatcher = "exec"; args = "noctalia ipc call controlCenter toggle";                     } # Mod-C
-      { mod = "SUPER";       keys = "W";      dispatcher = "exec"; args = "noctalia ipc call wallpaper toggle";                         } # Mod-W
-      { mod = "SUPER";       keys = "Q";      dispatcher = "exec"; args = vicinae-clipboard;                                            } # Mod-Q
-      { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty";                 } # S-Mod-CR
-      { mod = "SUPER CTRL";  keys = "Return"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty";         } # C-Mod-CR
-      { mod = "SUPER";       keys = "Return"; dispatcher = "exec"; args = kitty-with-tmux;                                              } # Mod-CR
+      { mod = "SUPER";       keys = "A";      dispatcher = "exec"; args = "uwsm app -t service -- re.fossplant.songrec.desktop";            } # Mod-A
+      { mod = "SUPER";       keys = "B";      dispatcher = "exec"; args = "uwsm app -t service -- $(xdg-settings get default-web-browser)"; } # Mod-B
+      { mod = "SUPER";       keys = "C";      dispatcher = "exec"; args = "noctalia ipc call controlCenter toggle";                         } # Mod-C
+      { mod = "SUPER";       keys = "D";      dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae toggle";                             } # Mod-D
+      { mod = "SUPER";       keys = "Q";      dispatcher = "exec"; args = vicinae-clipboard;                                                } # Mod-Q
+      { mod = "SUPER";       keys = "W";      dispatcher = "exec"; args = "noctalia ipc call wallpaper toggle";                             } # Mod-W
+      { mod = "SUPER SHIFT"; keys = "Return"; dispatcher = "exec"; args = "${config.programs.kitty.package}/bin/kitty";                     } # S-Mod-CR
+      { mod = "SUPER CTRL";  keys = "Return"; dispatcher = "exec"; args = "${config.programs.alacritty.package}/bin/alacritty";             } # C-Mod-CR
+      { mod = "SUPER";       keys = "Return"; dispatcher = "exec"; args = kitty-with-tmux;                                                  } # Mod-CR
 
       # Notifications Control
       { mod = "SUPER"; keys = "N";         dispatcher = "exec";          args = "noctalia ipc call notifications toggleDND"; } # Mod-N
