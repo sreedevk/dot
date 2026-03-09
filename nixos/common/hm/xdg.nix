@@ -9,6 +9,10 @@
         "firefox.desktop"
         "brave-browser.desktop"
       ];
+      "application/json" = [
+        "firefox.desktop"
+        "brave-browser.desktop"
+      ];
       "text/plain" = [
         "neovim.desktop"
         "firefox.desktop"
