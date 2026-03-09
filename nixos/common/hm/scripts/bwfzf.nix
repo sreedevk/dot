@@ -4,7 +4,7 @@ pkgs.writeShellScriptBin "bwfzf" ''
 
   item=$(${pkgs.rbw}/bin/rbw list | \
     ${pkgs.gnugrep}/bin/grep -ivE 'nsfw|deleted|archived|deactivated|old' | \
-    ${pkgs.fzf}/bin/fzf) || exit 1
+    ${pkgs.fzf}/bin/fzf --tmux) || exit 1
 
   if [ -n "$item" ]; then
     password=$(${pkgs.rbw}/bin/rbw get "$item")
