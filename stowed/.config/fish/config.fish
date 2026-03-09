@@ -90,6 +90,7 @@ function coln
 end
 
 fzf_configure_bindings --directory=\cf --history=\cr --processes=\cp --variables=\cv
+set fzf_preview_dir_cmd eza --all --color=always
 
 if status is-interactive
   echo 
