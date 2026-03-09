@@ -113,7 +113,7 @@ let
 
     terminal = {
       shell = {
-        program = "${pkgs.fish}/bin/fish";
+        program = "${pkgs.nushell}/bin/nu";
       };
     };
 
