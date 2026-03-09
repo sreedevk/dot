@@ -16,6 +16,7 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 8. Librepods repoint to old branch - May 16, 2026
 9. Lockscreen wallpaper must be dark AF
 10. when having multiple tabs open in neovim, when opening and closing neogit window, I am not back in the same tab I started in.
+11. telescope incremental staged grep
 
 ## Distant Dreams
 1. improvement: migrate to Traefik

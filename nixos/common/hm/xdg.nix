@@ -1,4 +1,8 @@
-{ pkgs, config, lib, ... }:
+{ lib
+, pkgs
+, config
+, ...
+}:
 {
   xdg.mime.enable = true;
   xdg.mimeApps = {
@@ -25,8 +29,8 @@
         "neovim.desktop"
       ];
       "text/markdown" = [
-        "firefox.desktop"
         "brave-browser.desktop"
+        "firefox.desktop"
         "neovide.desktop"
         "neovim.desktop"
       ];
@@ -50,6 +54,9 @@
       "x-scheme-handler/about" = [
         "firefox.desktop"
         "brave-browser.desktop"
+      ];
+      "x-scheme-handler/mailto" = [
+        "org.mozilla.Thunderbird.desktop"
       ];
       "x-scheme-handler/unknown" = [
         "firefox.desktop"
@@ -79,19 +86,26 @@
     };
   };
 
-  xdg.dataFile."mime/packages/markdown.xml".text = ''
-    <?xml version="1.0" encoding="UTF-8"?>
-    <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
-      <mime-type type="text/markdown">
-        <comment>Markdown document</comment>
-        <glob pattern="*.md"/>
-        <glob pattern="*.markdown"/>
-      </mime-type>
-    </mime-info>
-  '';
+  home.file.".local/share/mime/packages/text-markdown.xml" = {
+    text = ''
+      <?xml version="1.0" encoding="UTF-8"?>
+      <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+        <mime-type type="text/markdown">
+          <comment>Markdown document</comment>
+          <glob pattern="*.md"/>
+          <glob pattern="*.markdown"/>
+          <glob pattern="*.mkd"/>
+          <glob pattern="*.mkdn"/>
+          <glob pattern="*.mdwn"/>
+          <glob pattern="*.mdown"/>
+          <glob pattern="*.markdown"/>
+        </mime-type>
+      </mime-info>
+    '';
+  };
 
   home.activation.updateMimeDatabase = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     ${pkgs.shared-mime-info}/bin/update-mime-database \
-      ${config.xdg.dataHome}/mime
+      ${config.home.homeDirectory}/.local/share/mime
   '';
 }

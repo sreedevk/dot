@@ -115,8 +115,8 @@ vim.keymap.set('n', '<leader>xo', function()
   local file = vim.fn.expand('%:p')
   local url = 'file://' .. file
 
-  vim.notify('Opened in browser: ' .. url, vim.log.levels.INFO)
+  vim.notify('opened in browser: ' .. url, vim.log.levels.INFO)
   vim.fn.jobstart({ 'xdg-open', url }, { detach = true })
-end, { desc = 'Open current file in browser', noremap = true, silent = true })
+end, { desc = 'open current file in browser', noremap = true, silent = true })
 
 -- vim:foldmethod=marker
