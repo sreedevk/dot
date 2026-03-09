@@ -36,28 +36,3 @@ export FZF_GIT_SHOW_PREVIEW='case "$group" in
     "commit tag") git show --color=always $word ;;
     *) git show --color=always $word | delta ;;
     esac'
-
-
-zstyle ':completion:'                                menu select 
-zstyle ':completion:'                                matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*' 
-zstyle ':completion:*'                               accept-exact '*(N)'
-zstyle ':completion:*'                               rehash true
-zstyle ':completion:*'                               list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:descriptions'                  format '[%d]'
-zstyle ':completion:*:git-checkout:*'                sort false
-zstyle ':completion:*:*:*:*:processes'               command "ps -u $USER -o pid,user,comm -w -w"
-
-zstyle ':fzf-tab:*'                                  group-colors $FZF_TAB_GROUP_COLORS
-zstyle ':fzf-tab:*'                                  popup-min-size 50 8
-zstyle ':fzf-tab:complete:diff:*'                    popup-min-size 80 12
-zstyle ':fzf-tab:*'                                  switch-group '<' '>'
-zstyle ':fzf-tab:*'                                  use-fzf-default-opts yes
-zstyle ':fzf-tab:*'                                  fzf-min-height 15
-zstyle ':fzf-tab:complete:cd:*'                      fzf-preview 'eza -1 --color=always $realpath'
-zstyle ':fzf-tab:complete:git-(add|diff|restore):*'  fzf-preview 'git diff $word | delta'
-zstyle ':fzf-tab:complete:git-show:*'                fzf-preview $FZF_GIT_SHOW_PREVIEW
-zstyle ':fzf-tab:complete:ls:*'                      fzf-preview '[[ -d ${(Q)realpath} ]] && eza -1 --color=always ${(Q)realpath} || bat --color=always ${(Q)realpath} 2> /dev/null'
-zstyle ':completion:*:*:systemctl:*'                 services  '/etc/systemd/system/*.service' '/usr/lib/systemd/system/*.service' "$HOME/.config/systemd/user/*.service"
-zstyle ':fzf-tab:complete:systemctl-*:*'             fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
-zstyle ':fzf-tab:complete:systemctl-cat:*'           fzf-preview 'SYSTEMD_COLORS=1 systemctl cat -- $word | bat -lini'
-zstyle ':fzf-tab:complete:(kill|ps):argument-rest'   fzf-preview '[[ $group == "[process ID]" ]] && ps --pid=$word -o cmd --no-headers -w -w'

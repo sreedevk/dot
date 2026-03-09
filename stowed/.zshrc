@@ -44,7 +44,7 @@ fi
 
 # HISTORYFILE
 export HISTORY_IGNORE="(ls|cd|pwd|exit|history)"
-export HISTFILE="$HOME/.zsh/zsh_history"
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export HISTFILESIZE=10000
 export HISTSIZE=1000
 export SAVEHIST=1000
@@ -77,22 +77,27 @@ _comp_options+=(globdots)
 [ -f "$HOME/.zsh/after/compinit.zsh" ] && source "$HOME/.zsh/after/compinit.zsh"
 
 # ZSH OPTS
-setopt   COMPLETE_ALIASES
-setopt   PROMPT_SUBST
-setopt   HIST_IGNORE_ALL_DUPS
-setopt   HIST_FIND_NO_DUPS
-setopt   HIST_IGNORE_SPACE
-setopt   HIST_REDUCE_BLANKS 
-setopt   HIST_SAVE_NO_DUPS
-setopt   interactivecomments
-setopt   extendedglob
-setopt   globdots
-setopt   autocd
-setopt   nomatch
-setopt   notify
-setopt   sharehistory
-setopt   appendhistory
-setopt   incappendhistory
+setopt COMPLETE_ALIASES
+setopt PROMPT_SUBST
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+setopt hist_ignore_space
+setopt hist_expire_dups_first
+setopt hist_reduce_blanks 
+setopt hist_save_no_dups
+setopt hist_verify
+setopt interactivecomments
+setopt extendedglob
+setopt globdots
+setopt autocd
+setopt nomatch
+setopt notify
+setopt sharehistory
+setopt append_history
+setopt incappendhistory
+setopt extended_history
+
 unsetopt beep
 
 # Set VI mode
