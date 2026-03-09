@@ -89,6 +89,7 @@
       </mime-type>
     </mime-info>
   '';
+
   home.activation.updateMimeDatabase = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     ${pkgs.shared-mime-info}/bin/update-mime-database \
       ${config.xdg.dataHome}/mime
