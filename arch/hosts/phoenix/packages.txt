@@ -31,6 +31,7 @@ eglexternalplatform
 egl-wayland
 evtest
 exfatprogs
+fish
 flatpak
 fprintd
 fuse2
