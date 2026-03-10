@@ -1,4 +1,5 @@
 use std/config *
+use std/util "path add"
 
 $env.config = {
     show_banner: false
@@ -20,3 +21,5 @@ $env.config.hooks.env_change.PWD ++= [{||
   # If direnv changes the PATH, it will become a string and we need to re-convert it to a list
   $env.PATH = do (env-conversions).path.from_string $env.PATH
 }]
+
+path add $"($nu.home-dir)/.cargo/bin"

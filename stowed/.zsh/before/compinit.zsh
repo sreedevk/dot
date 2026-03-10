@@ -20,12 +20,6 @@ if [ -f "$HOME/.cargo/env" ]; then
   . $HOME/.cargo/env
 fi
 
-# FZF AUTOLOAD
-if [ -f "$HOME/.fzf.zsh" ]; then
-  source "$HOME/.fzf.zsh"
-fi
-
-
 export FZF_TAB_GROUP_COLORS=(
     $'\033[94m' $'\033[32m' $'\033[33m' $'\033[35m' $'\033[31m' $'\033[38;5;27m' $'\033[36m' \
     $'\033[38;5;100m' $'\033[38;5;98m' $'\033[91m' $'\033[38;5;80m' $'\033[92m' \
