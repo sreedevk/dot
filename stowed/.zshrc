@@ -7,8 +7,9 @@ export GHCUP_BIN_PATH="$HOME/.ghcup/bin"
 export LOCAL_BIN_PATH="$HOME/.local/bin"
 export OPT_BIN_PATH="/opt/bin"
 export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+export BUN_BIN_PATH="$HOME/.cache/.bun/bin"
 
-export PATH="$PATH:$LOCAL_BIN_PATH:$OPT_BIN_PATH:$CARGO_BIN_PATH:$GHCUP_BIN_PATH"
+export PATH="$PATH:$LOCAL_BIN_PATH:$OPT_BIN_PATH:$CARGO_BIN_PATH:$GHCUP_BIN_PATH:$BUN_BIN_PATH"
 
 # XDG
 export XDG_DATA_HOME="$HOME/.local/share"

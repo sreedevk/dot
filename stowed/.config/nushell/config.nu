@@ -5,21 +5,13 @@ $env.config = {
     show_banner: false
 }
 
-mkdir ($nu.data-dir | path join "vendor/autoload")
-starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
-
-# Initialize the PWD hook as an empty list if it doesn't exist
-$env.config.hooks.env_change.PWD = $env.config.hooks.env_change.PWD? | default []
-
-$env.config.hooks.env_change.PWD ++= [{||
-  if (which direnv | is-empty) {
-    # If direnv isn't installed, do nothing
-    return
-  }
-
-  direnv export json | from json | default {} | load-env
-  # If direnv changes the PATH, it will become a string and we need to re-convert it to a list
-  $env.PATH = do (env-conversions).path.from_string $env.PATH
-}]
-
 path add $"($nu.home-dir)/.cargo/bin"
+
+use ~/.config/nushell/integrations/starship.nu
+use ~/.config/nushell/integrations/zoxide.nu
+use ~/.config/nushell/integrations/direnv.nu
+use ~/.config/nushell/integrations/mise.nu
+use ~/.config/nushell/integrations/jj.nu
+use ~/.config/nushell/integrations/opam.nu
+use ~/.config/nushell/integrations/pueue.nu
+use ~/.config/nushell/integrations/just.nu
