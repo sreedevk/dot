@@ -66,6 +66,7 @@
       lm_sensors               # lm_sensors
       mc                       # midnight commander file manager
       mdbook                   # generate books from markdown
+      metasploit               # Metasploit Framework - a collection of exploits
       miller                   # awk, sed, cut, join and sort for csv, tsv, json
       nasm                     # x86_64 assembler
       nerd-fonts.iosevka       # iosevka nerd font
