@@ -501,11 +501,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773093840,
-        "narHash": "sha256-u/96NoAyN8BSRuM3ZimGf7vyYgXa3pLx4MYWjokuoH4=",
+        "lastModified": 1773179137,
+        "narHash": "sha256-EdW2bwzlfme0vbMOcStnNmKlOAA05Bp6su2O8VLGT0k=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "bb014746edb2a98d975abde4dd40fa240de4cf86",
+        "rev": "3f98e2bbc661ec0aaf558d8a283d6955f05f1d09",
         "type": "github"
       },
       "original": {
@@ -896,16 +896,16 @@
         "noctalia-qs": "noctalia-qs"
       },
       "locked": {
-        "lastModified": 1772804595,
-        "narHash": "sha256-D4h84+SPOthTClO5fzv37MP176Egh85cKAJbT2lWl5c=",
+        "lastModified": 1773151649,
+        "narHash": "sha256-rcukalgE5YecwqJ5269bo21AO4S6bWxEn/xod8mfUow=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "b455dbb11fb0fbb58d3b334cffe5c2e037b5ae27",
+        "rev": "ed9f64cbb16dca1c4e8bd7baafd358288c9d64c2",
         "type": "github"
       },
       "original": {
         "owner": "noctalia-dev",
-        "ref": "v4.6.4",
+        "ref": "v4.6.6",
         "repo": "noctalia-shell",
         "type": "github"
       }
@@ -1062,11 +1062,11 @@
     },
     "stablepkgs": {
       "locked": {
-        "lastModified": 1772822230,
-        "narHash": "sha256-yf3iYLGbGVlIthlQIk5/4/EQDZNNEmuqKZkQssMljuw=",
+        "lastModified": 1773068389,
+        "narHash": "sha256-vMrm7Pk2hjBRPnCSjhq1pH0bg350Z+pXhqZ9ICiqqCs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "71caefce12ba78d84fe618cf61644dce01cf3a96",
+        "rev": "44bae273f9f82d480273bab26f5c50de3724f52f",
         "type": "github"
       },
       "original": {
@@ -1327,16 +1327,16 @@
         "systems": "systems_6"
       },
       "locked": {
-        "lastModified": 1772720405,
-        "narHash": "sha256-9xE2izQakApB+cgibErwyY3KAlc6F26UhgCw/Tak43c=",
+        "lastModified": 1773097138,
+        "narHash": "sha256-k3rmWZlUYLMOT33AvwZ56eZfjNc6KXH2AN5Fe8LDKFM=",
         "owner": "vicinaehq",
         "repo": "vicinae",
-        "rev": "e550ea4ff6ced8d1747df4608e1612b28a9d48a4",
+        "rev": "3fe7f6985bb9951332a11626d390f935516b8e3b",
         "type": "github"
       },
       "original": {
         "owner": "vicinaehq",
-        "ref": "v0.20.3",
+        "ref": "v0.20.5",
         "repo": "vicinae",
         "type": "github"
       }

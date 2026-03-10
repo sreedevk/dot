@@ -10,7 +10,7 @@
     llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7541";
     nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11&shallow=1";
-    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.20.3";
+    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.20.5";
 
     librepods = {
       url                    = "github:Chrisbattarbee/librepods";
@@ -58,7 +58,7 @@
     };
 
     noctalia = {
-      url                    = "github:noctalia-dev/noctalia-shell?ref=v4.6.4";
+      url                    = "github:noctalia-dev/noctalia-shell?ref=v4.6.6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
