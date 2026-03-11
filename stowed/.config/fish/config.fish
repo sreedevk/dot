@@ -26,7 +26,7 @@ set KEYTIMEOUT 1
 set TERMINFO /usr/share/terminfo/
 set MANROFFOPT -c
 set -x MANPAGER "nvim +Man!"
-set -U MANPATH $HOME/.nix-profile/share/man /usr/share/man /usr/local/share/man $MANPATH
+set MANPATH $HOME/.nix-profile/share/man /usr/share/man /usr/local/share/man $MANPATH
 set LANG en_US.UTF-8
 set TZ America/New_York
 set CLICOLOR 1
@@ -34,6 +34,8 @@ set CLICOLOR 1
 set -gx FZF_DEFAULT_OPTS "--layout=reverse --exact --border=bold --border=rounded --margin=3% --color=dark"
 
 set fzf_preview_dir_cmd eza --all --color=always
+
+status is-interactive; or exit
 
 function fish_user_key_bindings
     fish_vi_key_bindings
@@ -127,8 +129,6 @@ end
 fzf_configure_bindings --directory=\cf --history=\cr --processes=\cp --variables=\cv
 set fzf_preview_dir_cmd eza --all --color=always
 
-if status is-interactive
-    echo
-    fastfetch
-    echo
-end
+echo
+fastfetch
+echo
