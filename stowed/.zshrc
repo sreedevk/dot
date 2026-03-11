@@ -43,6 +43,8 @@ if [ -z "$TMUX" ]; then
     export TERM="xterm-256color"
 fi
 
+mkdir -p $XDG_STATE_HOME/zsh
+
 # HISTORYFILE
 export HISTORY_IGNORE="(ls|cd|pwd|exit|history)"
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
