@@ -14,6 +14,7 @@ let
     elmPackages.elm-language-server # elm
     emmet-language-server           # emmet
     fennel-ls                       # fennel
+    fish-lsp                        # fish
     jsonnet-language-server         # jsonnet
     ltex-ls-plus                    # grammar
     lua-language-server             # lua

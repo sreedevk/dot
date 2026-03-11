@@ -12,7 +12,7 @@ set XDG_STATE_HOME $HOME/.local/state
 set XDG_CACHE_HOME $HOME/.cache
 set DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 
-set TERM "xterm-256color"
+set TERM xterm-256color
 
 set VISUAL nvim
 set EDITOR nvim
@@ -36,7 +36,7 @@ set -gx FZF_DEFAULT_OPTS "--layout=reverse --exact --border=bold --border=rounde
 set fzf_preview_dir_cmd eza --all --color=always
 
 function fish_user_key_bindings
-  fish_vi_key_bindings
+    fish_vi_key_bindings
 end
 
 bind -M insert ctrl-e accept-autosuggestion
@@ -45,38 +45,73 @@ bind -M insert ctrl-w backward-kill-word
 bind -M insert ctrl-r history-prefix-search-backward
 bind -M insert -m default jj force-repaint
 
-starship init fish | source
-direnv hook fish | source
-mise activate fish | source
-jj util completion fish | source
-opam env | source
-pueue completions fish | source
-just --completions fish | source
-docker completion fish | source
-jira completion fish | source
-rbw gen-completions fish | source
-rv shell init fish | source
-rv shell completions fish | source
-zoxide init fish | source
+if command -q starship
+    starship init fish | source
+end
 
-abbr --add xo         xdg-open
-abbr --add clock      tty-clock -csSbt -C3
-abbr --add cw         cliphist --wipe
-abbr --add tt         taskwarrior-tui
-abbr --add tl         tasklite
+if command -q direnv
+    direnv hook fish | source
+end
+
+if command -q mise
+    mise activate fish | source
+end
+
+if command -q jj
+    jj util completion fish | source
+end
+
+if command -q opam
+    opam env | source
+end
+
+if command -q pueue
+    pueue completions fish | source
+end
+
+if command -q just
+    just --completions fish | source
+end
+
+if command -q docker
+    docker completion fish | source
+end
+
+if command -q jira
+    jira completion fish | source
+end
+
+if command -q rbw
+    rbw gen-completions fish | source
+end
+
+if command -q rv
+    rv shell init fish | source
+    rv shell completions fish | source
+end
+
+if command -q zoxide
+    zoxide init fish | source
+end
+
+abbr --add xo xdg-open
+abbr --add clock tty-clock -csSbt -C3
+abbr --add cw cliphist --wipe
+abbr --add tt taskwarrior-tui
+abbr --add tl tasklite
 abbr --add obliterate shred -zvu -n 5
-abbr --add mux        tmuxinator
-abbr --add t          tmux new -A -s system
-abbr --add ta         tmux a
-abbr --add ts         tmux-sessionizer
-abbr --add g          git
-abbr --add gg         jj
-abbr --add dc         docker compose
-abbr --add d          docker
-abbr --add yt         yt-dlp
-abbr --add zz         zi
-abbr --add jctl       journalctl -p 3 -xb
-abbr --add tb         nc termbin.com 9999
+abbr --add mux tmuxinator
+abbr --add t tmux new -A -s system
+abbr --add ta tmux a
+abbr --add ts tmux-sessionizer
+abbr --add g git
+abbr --add gg jj
+abbr --add dc docker compose
+abbr --add d docker
+abbr --add yt yt-dlp
+abbr --add zz zi
+abbr --add jctl journalctl -p 3 -xb
+abbr --add tb nc termbin.com 9999
 
 alias psa="ps auxf"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
@@ -84,16 +119,16 @@ alias psmem='ps auxf | sort -nr -k 4'
 alias pscpu='ps auxf | sort -nr -k 3'
 
 function coln
-  while read -l input
-    echo $input | awk '{print $'$argv[1]'}'
-  end
+    while read -l input
+        echo $input | awk '{print $'$argv[1]'}'
+    end
 end
 
 fzf_configure_bindings --directory=\cf --history=\cr --processes=\cp --variables=\cv
 set fzf_preview_dir_cmd eza --all --color=always
 
 if status is-interactive
-  echo 
-  fastfetch
-  echo 
+    echo
+    fastfetch
+    echo
 end
