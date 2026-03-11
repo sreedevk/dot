@@ -11,9 +11,7 @@ set XDG_CONFIG_HOME $HOME/.config
 set XDG_STATE_HOME $HOME/.local/state
 set XDG_CACHE_HOME $HOME/.cache
 set DOCKER_CONFIG $XDG_CONFIG_HOME/docker
-
 set TERM xterm-256color
-
 set VISUAL nvim
 set EDITOR nvim
 set SUDO_EDITOR $EDITOR
@@ -21,7 +19,6 @@ set READER zathura
 set TERMINAL alacritty
 set BROWSER brave
 set DOTFILES $HOME/.dot
-
 set KEYTIMEOUT 1
 set TERMINFO /usr/share/terminfo/
 set MANROFFOPT -c
@@ -32,8 +29,6 @@ set TZ America/New_York
 set CLICOLOR 1
 
 set -gx FZF_DEFAULT_OPTS "--layout=reverse --exact --border=bold --border=rounded --margin=3% --color=dark"
-
-set fzf_preview_dir_cmd eza --all --color=always
 
 status is-interactive; or exit
 
@@ -128,6 +123,7 @@ end
 
 fzf_configure_bindings --directory=\cf --history=\cr --processes=\cp --variables=\cv
 set fzf_preview_dir_cmd eza --all --color=always
+set fzf_preview_file_cmd bat -n
 
 echo
 fastfetch
