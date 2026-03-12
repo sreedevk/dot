@@ -29,5 +29,8 @@ set TZ America/New_York
 set CLICOLOR 1
 
 if status is-interactive
+    fzf_configure_bindings --directory=\cf --history=\cr --processes=\cp --variables=\cv
+    set fzf_preview_dir_cmd eza --all --color=always
+
     echo && fastfetch && echo
 end
