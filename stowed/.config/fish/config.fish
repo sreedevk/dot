@@ -39,7 +39,6 @@ end
 bind -M insert ctrl-e accept-autosuggestion
 bind -M insert ctrl-a beginning-of-line
 bind -M insert ctrl-w backward-kill-word
-bind -M insert ctrl-r history-prefix-search-backward
 bind -M insert -m default jj force-repaint
 
 if command -q starship
@@ -121,10 +120,4 @@ function coln
     end
 end
 
-fzf_configure_bindings --directory=\cf --history=\cr --processes=\cp --variables=\cv
-set fzf_preview_dir_cmd eza --all --color=always
-set fzf_preview_file_cmd bat -n
-
-echo
-fastfetch
-echo
+echo && fastfetch && echo
