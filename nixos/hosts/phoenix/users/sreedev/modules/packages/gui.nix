@@ -25,6 +25,7 @@
             gpu-screen-recorder
             gpu-screen-recorder-gtk
             jellyfin-desktop
+            krita
             libreoffice-fresh
             localsend
             nemo-with-extensions
