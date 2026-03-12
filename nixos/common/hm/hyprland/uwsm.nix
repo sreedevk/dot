@@ -26,7 +26,7 @@ in
           . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
         fi
 
-        if uwsm check may-start; then
+        if uwsm check may-start > /dev/null 2>&1; then
           exec uwsm start hyprland-uwsm.desktop
         fi
       '';

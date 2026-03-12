@@ -63,10 +63,6 @@ if status is-interactive
         zoxide init fish | source
     end
 
-    # Enables the following keybindings:
-    # CTRL-t = fzf select
-    # CTRL-r = fzf history
-    # ALT-c  = fzf cd
     if command -q fzf
         fzf --fish | source
     end
