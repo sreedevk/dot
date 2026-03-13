@@ -28,7 +28,7 @@
     };
 
     nur = {
-      url                    = "github:nix-community/NUR?ref=fc7ae20";
+      url                    = "github:nix-community/NUR?ref=95c043c";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
