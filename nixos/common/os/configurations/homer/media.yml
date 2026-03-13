@@ -24,6 +24,14 @@ services:
         url: "https://audiobooks.nullptr.sh"
         target: "_blank"
 
+      - name: "Kavita"
+        logo: "https://icons.nullptr.sh/kavita.png"
+        subtitle: "E-Book Server"
+        tag: "ebooks"
+        keywords: "ebooks"
+        url: "https://kavita.nullptr.sh"
+        target: "_blank"
+
       - name: "Booklore"
         logo: "https://icons.nullptr.sh/booklore.png"
         subtitle: "Ebook Server"
