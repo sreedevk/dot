@@ -58,6 +58,7 @@
     ../../../../common/hm/xdg.nix
     ../../../../common/hm/xresources.nix
     ../../../../common/hm/zathura.nix
+    ../../../../common/hm/zellij.nix
     ../../../../common/hm/zsh.nix
 
     # Current User Specific
