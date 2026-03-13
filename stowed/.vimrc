@@ -3,7 +3,7 @@ set runtimepath+=~/.vim,~/.vim/after
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-rooter'
-Plug 'ayu-theme/ayu-vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'bling/vim-airline'
 Plug 'chrisbra/csv.vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -42,7 +42,7 @@ call plug#end()
 
 filetype plugin indent on    " required
 syntax on
-colorscheme ayu
+colorscheme catppuccin_mocha
 
 set tabstop=2
 set shiftwidth=2
