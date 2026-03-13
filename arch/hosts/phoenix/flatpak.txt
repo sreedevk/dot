@@ -3,6 +3,7 @@ adw-gtk3
 Codecs
 FFmpeg
 Flatseal
+Freedesktop
 GNOME
 KDE
 Mesa

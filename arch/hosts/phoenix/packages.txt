@@ -168,6 +168,7 @@ sof-firmware
 sof-tools
 songrec
 squashfs-tools
+ssh-tpm-agent
 strace
 supercollider
 supergfxctl
