@@ -10,7 +10,7 @@
     llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7541";
     nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11&shallow=1";
-    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.20.5";
+    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.20.6";
 
     librepods = {
       url                    = "github:Chrisbattarbee/librepods";
