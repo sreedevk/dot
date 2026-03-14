@@ -268,8 +268,6 @@ in
       { mod = "SUPER SHIFT"; keys = "E";     dispatcher = "exit"; args = null;                                   } # S-Mod-E
       { mod = "SUPER";       keys = "P";     dispatcher = "exec"; args = "${hypr-gamemode-toggle}/bin/gamemode"; } # Mod-P
 
-      # Launchers
-      { mod = "SUPER";       keys = "A";      dispatcher = "exec"; args = "uwsm app -t service -- re.fossplant.songrec.desktop";            } # Mod-A
       { mod = "SUPER";       keys = "B";      dispatcher = "exec"; args = "uwsm app -t service -- $(xdg-settings get default-web-browser)"; } # Mod-B
       { mod = "SUPER";       keys = "C";      dispatcher = "exec"; args = "noctalia ipc call controlCenter toggle";                         } # Mod-C
       { mod = "SUPER";       keys = "D";      dispatcher = "exec"; args = "${pkgs.vicinae}/bin/vicinae toggle";                             } # Mod-D
