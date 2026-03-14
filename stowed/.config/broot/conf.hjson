@@ -1,0 +1,13 @@
+content_search_max_file_size: 10MB
+enable_kitty_keyboard: true
+imports: [
+    verbs.hjson
+    {
+        luma: [
+            dark
+            light
+            unknown
+        ]
+        file: skins/catppuccin-mocha.hjson
+    }
+]
