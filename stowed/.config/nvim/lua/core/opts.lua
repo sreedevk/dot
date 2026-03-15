@@ -232,6 +232,10 @@ vim.g.enabled_ts_parsers = {
 }
 
 vim.g.auxbuffers         = {
+  "DiffviewFiles",
+  "NeogitCommitMessage",
+  "NeogitCommitView",
+  "NeogitLogView",
   "NeogitStatus",
   "NvimTree",
   "OverseerList",
@@ -240,6 +244,7 @@ vim.g.auxbuffers         = {
   "Trouble",
   "gitcommit",
   "gitrebase",
+  "harpoon",
   "help",
   "lspinfo",
   "man",
