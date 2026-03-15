@@ -31,4 +31,19 @@ function M.wrap_cmd(cmd)
   return function() vim.cmd(cmd) end
 end
 
+function M.force_early_retire_buffers()
+  vim.cmd("silent w")
+
+  local current_buf = vim.api.nvim_get_current_buf()
+  local buffers = vim.api.nvim_list_bufs()
+  for _, buf in ipairs(buffers) do
+    if buf ~= current_buf then
+      local filetype = vim.bo[buf].filetype
+      if not vim.tbl_contains(vim.g.auxbuffers, filetype) then
+        pcall(vim.api.nvim_buf_delete, buf, { force = true })
+      end
+    end
+  end
+end
+
 return M
