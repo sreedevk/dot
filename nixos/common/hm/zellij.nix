@@ -2,12 +2,30 @@
 {
   programs.zellij = {
     enable = true;
+    settings = {
+      theme = "catppuccin-macchiato";
+      copy_command = "wl-copy";
+      auto_layout = true;
+      default_shell = "${pkgs.fish}/bin/fish";
+      copy_on_select = false;
+      disable_session_metadata = false;
+      mirror_session = false;
+      mouse_mode = false;
+      on_force_close = "quit";
+      pane_viewport_serialization = false;
+      scroll_buffer_size = 50000;
+      scrollback_editor = "${config.programs.neovim.package}/bin/nvim";
+      session_serialization = true;
+      simplified_ui = true;
+      styled_underlines = false;
+      ui = {
+        pane_frames = {
+          hide_session_name = false;
+          rounded_corners = false;
+        };
+      };
+    };
     extraConfig = ''
-      default_shell "${pkgs.fish}/bin/fish"
-      auto_layout true
-      copy_command "wl-copy"
-      copy_on_select false
-      disable_session_metadata false
       keybinds clear-defaults=true {
       	normal  {
           bind "Ctrl b" { SwitchToMode "tmux"; }
@@ -132,21 +150,6 @@
           bind "x" { CloseFocus; SwitchToMode "Normal"; }
           bind "r" { SwitchToMode "Resize"; }
         }
-      }
-      mirror_session false
-      mouse_mode false
-      on_force_close "quit"
-      pane_viewport_serialization false
-      scroll_buffer_size 50000
-      scrollback_editor "${config.programs.neovim.package}/bin/nvim"
-      session_serialization true
-      simplified_ui true
-      styled_underlines false
-      ui {
-      	pane_frames {
-      		hide_session_name false
-      		rounded_corners false
-      	}
       }
     '';
   };
