@@ -9,7 +9,7 @@ Plug 'chrisbra/csv.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'jdhao/better-escape.vim'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'ledger/vim-ledger'
@@ -73,6 +73,7 @@ set matchpairs=(:),{:},[:],<:>
 set list " show trailing whitespaces
 set ruler
 set cursorline
+set clipboard=unnamedplus
 
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
@@ -92,9 +93,6 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:user_emmet_expandabbr_key = '<C-c>,'
 let g:user_emmet_leader_key = '<C-c>'
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_show_hidden = 1
 let g:deoplete#enable_at_startup = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 0 
@@ -147,6 +145,10 @@ nnoremap <Leader>x <cmd>! chmod +x %<CR>
 nnoremap <leader><leader>s :%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left> 
 nnoremap <Leader>ca <cmd>tabonly<CR>
 nnoremap <Leader>zi <cmd>Zi<CR>
+
+" fzf
+nnoremap <Leader>p <cmd>GFiles<cr>
+nnoremap <Leader>rg <cmd>RG<cr>
 
 nnoremap , :
 vnoremap , :
