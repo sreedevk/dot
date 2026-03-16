@@ -15,6 +15,7 @@
             clipse
             cobang
             dbeaver-bin
+            discord
             easyeffects
             feishin
             ffmpegthumbnailer
