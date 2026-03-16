@@ -185,7 +185,6 @@ return {
     'Wansmer/treesj',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     lazy = true,
-    event = "BufReadPost",
     cmd = {
       "TSJJoin",
       "TSJSplit",
