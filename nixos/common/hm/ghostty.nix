@@ -3,6 +3,7 @@
   programs.ghostty = {
     enable = true;
     package = config.lib.nixGL.wrapOffload pkgs.ghostty;
+    clearDefaultKeybinds = true;
     settings = {
       background-blur = 30;
       background-opacity = 0.9;
@@ -11,9 +12,8 @@
       gtk-single-instance = true;
       initial-command = "tmux new -A -s system";
       mouse-hide-while-typing = true;
-      shell-integration = null;
+      shell-integration = "none";
       window-decoration = false;
-      clearDefaultKeybinds = true;
       keybind = [
         "ctrl+shift+r=reload_config"
         "ctrl+g=scroll_to_top"
