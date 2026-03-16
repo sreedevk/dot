@@ -6,7 +6,6 @@ Plug 'airblade/vim-rooter'
 Plug 'bling/vim-airline'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'chrisbra/csv.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'jdhao/better-escape.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -118,9 +117,10 @@ nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 nnoremap <Leader>fs :w!<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>h :noh<CR>
-nnoremap <Leader>srr :sort<cr>
-nnoremap <Leader>srn :sort n<cr>
-nnoremap <Leader>sru :sort u<cr>
+
+noremap <Leader>srr :sort<cr>
+noremap <Leader>srn :sort n<cr>
+noremap <Leader>sru :sort u<cr>
 
 "terminal
 nnoremap <C-4><C-4> :terminal<CR>
@@ -137,7 +137,7 @@ nnoremap <Leader>gb  :Git blame<CR>
 nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>bb :bnext<CR>
 nnoremap <Leader>bB :bprev<CR>
-nnoremap <Leader>bl :CtrlPBuffer<CR>
+nnoremap <Leader>bl :Buffers<CR>
 
 " spell
 nnoremap <Leader>sp :setlocal spell!<CR>
@@ -152,7 +152,8 @@ nnoremap <Leader>ca <cmd>tabonly<CR>
 nnoremap <Leader>zi <cmd>Zi<CR>
 
 " fzf
-nnoremap <Leader>p <cmd>FZF<cr>
+nnoremap <Leader>p  <cmd>GFiles<cr>
+nnoremap <C-p>      <cmd>FZF<cr>
 nnoremap <Leader>rg <cmd>RG<cr>
 
 nnoremap , :
