@@ -115,16 +115,17 @@ in
       bind C-q copy-mode
 
       # WORKFLOWS
-      bind C-a neww ${pkgs.wiremix}/bin/wiremix
+      bind C-a neww "${pkgs.wiremix}/bin/wiremix"
       bind C-c new-session
-      bind C-e neww ${pkgs.neovim}/bin/nvim
-      bind C-g neww ${pkgs.lazygit}/bin/lazygit
-      bind C-f neww ${pkgs.nnn}/bin/nnn
-      bind C-h neww ${config.programs.htop.package}/bin/htop
-      bind C-o neww ${sessionizer}/bin/tmux-sessionizer
-      bind C-r neww ${pkgs.newsboat}/bin/newsboat
-      bind C-s neww ${sshfzf}/bin/ssh-fzf
-      bind C-t neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui
+      bind C-d neww "${pkgs.gh}/bin/gh dash"
+      bind C-e neww "${pkgs.neovim}/bin/nvim"
+      bind C-g neww "${pkgs.lazygit}/bin/lazygit"
+      bind C-f neww "${pkgs.nnn}/bin/nnn"
+      bind C-h neww "${config.programs.htop.package}/bin/htop"
+      bind C-o neww "${sessionizer}/bin/tmux-sessionizer"
+      bind C-r neww "${pkgs.newsboat}/bin/newsboat"
+      bind C-s neww "${sshfzf}/bin/ssh-fzf"
+      bind C-t neww "${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
       bind C-u if-shell "tmux has-session -t system 2>/dev/null" \
                         "switch-client -t system" \
                         "new-session -d -s system -c '${builtins.getEnv "HOME"}'; switch-client -t system"
