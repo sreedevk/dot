@@ -3,8 +3,8 @@ set runtimepath+=~/.vim,~/.vim/after
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-rooter'
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'bling/vim-airline'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'chrisbra/csv.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
@@ -12,6 +12,7 @@ Plug 'jdhao/better-escape.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-peekaboo'
 Plug 'ledger/vim-ledger'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
@@ -19,6 +20,9 @@ Plug 'nanotee/zoxide.vim'
 Plug 'scrooloose/nerdTree'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
+Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dadbod',
@@ -28,15 +32,12 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar',
 Plug 'vim-ruby/vim-ruby'
-Plug 'tommcdo/vim-exchange'
 
 call plug#end()
 
@@ -111,11 +112,15 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 noremap <C-t> :tabnew <CR>
+
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR> 
 nnoremap <Leader>fs :w!<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>h :noh<CR>
+nnoremap <Leader>srr :sort<cr>
+nnoremap <Leader>srn :sort n<cr>
+nnoremap <Leader>sru :sort u<cr>
 
 "terminal
 nnoremap <C-4><C-4> :terminal<CR>
@@ -147,7 +152,7 @@ nnoremap <Leader>ca <cmd>tabonly<CR>
 nnoremap <Leader>zi <cmd>Zi<CR>
 
 " fzf
-nnoremap <Leader>p <cmd>GFiles<cr>
+nnoremap <Leader>p <cmd>FZF<cr>
 nnoremap <Leader>rg <cmd>RG<cr>
 
 nnoremap , :

@@ -20,4 +20,8 @@ if status is-interactive
     function take --argument number
         head -$number
     end
+
+    function gcm
+        git commit -m "$argv"
+    end
 end
