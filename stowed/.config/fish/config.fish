@@ -23,7 +23,6 @@ set -gx KEYTIMEOUT 1
 set -gx TERMINFO /usr/share/terminfo/
 set -gx MANROFFOPT -c
 set -gx MANPAGER "nvim +Man!"
-set -gx PAGER "bat"
 set MANPATH $HOME/.nix-profile/share/man /usr/share/man /usr/local/share/man $MANPATH
 set -gx LANG en_US.UTF-8
 set -gx TZ America/New_York
