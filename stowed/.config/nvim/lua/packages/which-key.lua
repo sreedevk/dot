@@ -12,10 +12,16 @@ return {
       },
       icons = {
         rules = false,
-        breadcrumb = " ",
-        separator = "󱦰  ",
+        breadcrumb = "»",
+        separator = "󱦰 ",
         group = "󰹍 ",
+        ellipsis = "…",
+        mappings = true,
+        colors = true,
       },
+      filter = function(mapping)
+        return mapping.desc and mapping.desc ~= ""
+      end,
       plugins = {
         marks = true,
         registers = true,
@@ -23,6 +29,15 @@ return {
           enabled = true,
           suggestions = 20
         },
+        presets = {
+          operators = true,
+          motions = true,
+          text_objects = true,
+          windows = true,
+          nav = true,
+          z = true,
+          g = true
+        }
       },
     },
   }
