@@ -14,6 +14,9 @@
           auto_install           = false;
           not_found_auto_install = false;
           quiet                  = false;
+          ruby.compile           = false;
+          erlang.compile         = false;
+          # all_compile            = false;
         };
         tools = {
           bun        = "latest";
@@ -27,6 +30,7 @@
           gleam      = "latest";
           golang     = "latest";
           zig        = "latest";
+          ruby       = "latest";
         };
       };
     };

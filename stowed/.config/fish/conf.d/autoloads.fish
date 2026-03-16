@@ -39,11 +39,6 @@ if status is-interactive
         rbw gen-completions fish | source
     end
 
-    if command -q rv
-        rv shell init fish | source
-        rv shell completions fish | source
-    end
-
     if command -q zoxide
         function __lazy_zoxide
             functions -e __lazy_zoxide z zi
