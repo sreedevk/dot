@@ -56,6 +56,12 @@
       xresources.enable = true;
       mpv.enable = true;
       zathura.enable = true;
+      ghostty = {
+        enable = true;
+        colors.enable = true;
+        fonts.enable = true;
+        opacity.enable = true;
+      };
       firefox = {
         enable = true;
         profileNames = [ "main" ];

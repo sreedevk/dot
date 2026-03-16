@@ -24,6 +24,7 @@
     ../../../../common/hm/firefox
     ../../../../common/hm/fish.nix
     ../../../../common/hm/fontconfig.nix
+    ../../../../common/hm/ghostty.nix
     ../../../../common/hm/git.nix
     ../../../../common/hm/github.nix
     ../../../../common/hm/gpg.nix

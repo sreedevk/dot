@@ -37,7 +37,6 @@ fprintd
 fuse2
 fwupd
 gdb
-ghostty
 git
 git-lfs
 gnome-keyring
