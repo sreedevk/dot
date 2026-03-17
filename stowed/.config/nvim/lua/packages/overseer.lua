@@ -3,7 +3,13 @@ return {
     'stevearc/overseer.nvim',
     keys = {
       { '<Leader>rnn', '<cmd>OverseerRun<cr>',    desc = "Run Command",           noremap = true },
-      { '<Leader>rno', '<cmd>OverseerToggle<cr>', desc = "Toggle Command Runner", noremap = true }
+      { '<Leader>rno', '<cmd>OverseerToggle<cr>', desc = "Toggle Command Runner", noremap = true },
+      {
+        '<Leader><Leader>r',
+        ":OverseerShell ",
+        desc = "Async Run",
+        noremap = true,
+      }
     },
     ---@type overseer.SetupOpts
     opts = {
@@ -44,7 +50,7 @@ return {
       templates = {
         "builtin",
         "janet",
-        "hledger"
+        "hledger",
       },
       auto_detect_success_color = true,
       dap = false,
