@@ -17,4 +17,6 @@ if status is-interactive
     abbr --add zz zi
     abbr --add jctl journalctl -p 3 -xb
     abbr --add tb nc termbin.com 9999
+    abbr --add v nvim
+    abbr --add du dua
 end
