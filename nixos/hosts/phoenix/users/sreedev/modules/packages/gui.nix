@@ -35,6 +35,7 @@
             obsidian
             openttd
             pavucontrol
+            radicle-desktop
             signal-desktop
             slack
             tor-browser

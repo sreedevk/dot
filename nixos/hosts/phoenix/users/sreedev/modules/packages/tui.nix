@@ -80,6 +80,7 @@
       posting                  # modern tui http client
       presenterm               # terminal presentations
       qrencode                 # qr code generator
+      radicle-tui              # radicle-tui
       rbw                      # stateful bitwarden cli
       recyclarr                # arr trash guides sync
       s3cmd                    # s3 cli
