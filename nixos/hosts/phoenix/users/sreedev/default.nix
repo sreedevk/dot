@@ -18,6 +18,7 @@
     ../../../../common/hm/brave.nix
     ../../../../common/hm/btop.nix
     ../../../../common/hm/core-max.nix
+    ../../../../common/hm/direnv.nix
     ../../../../common/hm/droidcam.nix
     ../../../../common/hm/emacs
     ../../../../common/hm/fastfetch.nix

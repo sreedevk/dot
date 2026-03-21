@@ -3,8 +3,8 @@ if status is-interactive
         starship init fish | source
     end
 
-    if command -q direnv
-        direnv hook fish | source
+    if command -q direnv-instant
+        direnv-instant hook fish | source
     end
 
     if command -q mise

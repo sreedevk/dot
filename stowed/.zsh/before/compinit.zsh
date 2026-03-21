@@ -1,8 +1,8 @@
 #!/usr/bin/zsh
 
 # DIRENV LOAD
-if command -v direnv &> /dev/null; then
-  eval "$(direnv hook zsh)"
+if command -v direnv-instant &> /dev/null; then
+  eval "$(direnv-instant hook zsh)"
 fi
 
 # START STARSHIP PROMPT

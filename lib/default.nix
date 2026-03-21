@@ -6,18 +6,19 @@
 }:
 let
   inherit (inputs)
-    nixpkgs
     agenix
-    stylix
-    home-manager
     colmena
-    system-manager
+    direnv-instant
     disko
-    noctalia
+    home-manager
     niri
-    pam
-    vicinae
     nix-index-database
+    nixpkgs
+    noctalia
+    pam
+    stylix
+    system-manager
+    vicinae
     ;
 in
 rec {
@@ -121,6 +122,7 @@ rec {
         pam.homeModules.default
         vicinae.homeManagerModules.default
         nix-index-database.homeModules.default
+        direnv-instant.homeModules.direnv-instant
       ];
 
       extraSpecialArgs = {

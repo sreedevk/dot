@@ -68,7 +68,7 @@ fi
 
 # DIRENV AUTOLOADS
 if [ -f "$(command -v direnv)" ]; then
-  eval "$(direnv hook bash)"
+  eval "$(direnv-instant hook bash)"
 fi
 
 # STARSHIP AUTOLOADS
