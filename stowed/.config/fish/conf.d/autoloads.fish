@@ -8,7 +8,7 @@ if status is-interactive
     end
 
     if command -q mise
-        mise activate fish | source
+        mise activate fish --shims | source
     end
 
     if command -q jj
@@ -16,7 +16,17 @@ if status is-interactive
     end
 
     if command -q opam
-        opam env | source
+        function __lazy_opam
+            functions -e __lazy_opam ocaml ocamlopt ocamlfind dune opam
+            opam env | source
+        end
+
+        for cmd in ocaml ocamlopt ocamlfind dune opam
+            function $cmd --wraps=$cmd
+                __lazy_opam
+                command $cmd $argv
+            end
+        end
     end
 
     if command -q pueue
@@ -54,7 +64,5 @@ if status is-interactive
             __lazy_zoxide
             __zoxide_zi $argv
         end
-
-        zoxide init fish | source
     end
 end
