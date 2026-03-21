@@ -10,7 +10,6 @@ return {
     'saghen/blink.cmp',
     dependencies = {
       { 'Gelio/cmp-natdat',              config = true },
-      { "mikavilpas/blink-ripgrep.nvim", version = "*" },
       'kirasok/cmp-hledger',
     },
     event = { "InsertEnter", "CmdlineEnter" },
@@ -67,7 +66,6 @@ return {
           'natdat',
           'buffer',
           'hledger',
-          'ripgrep'
         },
         per_filetype = {
           sql = { 'dadbod' },
@@ -85,12 +83,6 @@ return {
             module = 'blink.compat.source',
             score_offset = -1,
             opts = {}
-          },
-          ripgrep = {
-            module = "blink-ripgrep",
-            name = "Ripgrep",
-            score_offset = -3,
-            opts = {},
           },
           natdat = {
             name = 'natdat',
