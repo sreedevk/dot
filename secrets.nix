@@ -21,7 +21,7 @@ with builtins;
   "secrets/nyc0/aws-secrets.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/baikal_user_password.age".publicKeys          = attrValues nyc0;
   "secrets/nyc0/bitmagnet_env.age".publicKeys                 = attrValues nyc0;
-  "secrets/nyc0/booklore_env.age".publicKeys                  = attrValues nyc0;
+  "secrets/nyc0/grimmory.age".publicKeys                      = attrValues nyc0;
   "secrets/nyc0/cargo-token.age".publicKeys                   = attrValues nyc0;
   "secrets/nyc0/container_registry_env.age".publicKeys        = attrValues nyc0;
   "secrets/nyc0/dawarich_env.age".publicKeys                  = attrValues nyc0;

@@ -32,12 +32,12 @@ services:
         url: "https://kavita.nullptr.sh"
         target: "_blank"
 
-      - name: "Booklore"
+      - name: "Grimmory"
         logo: "https://icons.nullptr.sh/booklore.png"
         subtitle: "Ebook Server"
         tag: "ebooks"
         keywords: "ebooks"
-        url: "https://booklore.nullptr.sh"
+        url: "https://grimmory.nullptr.sh"
         target: "_blank"
 
       - name: "Listenarr"
