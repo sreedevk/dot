@@ -148,7 +148,7 @@ in
   misc = {
     force_default_wallpaper = "0";
     disable_hyprland_logo = "true";
-    focus_on_activate = "true";
+    focus_on_activate = "false";
     enable_swallow = "true";
     swallow_regex = "^(Alacritty|kitty)$";
     vrr = "0";
