@@ -63,6 +63,9 @@ return {
     'tpope/vim-rails',
     lazy = true,
     ft = { 'ruby' },
+    keys = {
+      { '<Leader>sa', "<cmd>A<cr>", desc = "Switch to Alternative File" }
+    },
     config = function()
       vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPost' }, {
         pattern = { '*.yml' },
