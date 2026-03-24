@@ -7,7 +7,7 @@
   };
 
   stylix = {
-    enable = true;
+    enable = false;
     autoEnable = false;
     enableReleaseChecks = false;
     polarity = "dark";
