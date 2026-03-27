@@ -17,6 +17,7 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 9. Lockscreen wallpaper must be dark AF
 10. when having multiple tabs open in neovim, when opening and closing neogit window, I am not back in the same tab I started in.
 11. telescope incremental staged grep
+11. faster way to start and stop systemd units using tmux + fzf
 
 ## Distant Dreams
 1. improvement: migrate to Traefik
