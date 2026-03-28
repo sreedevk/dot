@@ -30,6 +30,7 @@ set -gx CLICOLOR 1
 
 if status is-interactive
     fzf_configure_bindings --directory=\cf --history=\cr --processes=\cp --variables=\cv
+    set fzf_history_opts --with-nth=4..
     set fzf_preview_dir_cmd eza --all --color=always
 
     if command -q fastfetch
