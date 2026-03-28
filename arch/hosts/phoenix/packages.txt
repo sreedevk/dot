@@ -42,6 +42,7 @@ git-lfs
 gnome-keyring
 gnumeric
 gnuplot
+gpu-screen-recorder
 grim
 grub
 gst-plugin-libcamera
