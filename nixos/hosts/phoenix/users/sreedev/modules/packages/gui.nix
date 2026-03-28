@@ -1,17 +1,4 @@
 { config, pkgs, ... }:
-let
-  gpu-screen-recorder-gtk-wrapped = pkgs.symlinkJoin {
-    name = "gpu-screen-recorder-gtk-wrapped";
-    paths = [ pkgs.gpu-screen-recorder-gtk ];
-    nativeBuildInputs = [ pkgs.makeWrapper ];
-    postBuild = ''
-      wrapProgram $out/bin/gpu-screen-recorder-gtk \
-        --set LIBGL_DRIVERS_PATH /usr/lib/dri \
-        --set __EGL_VENDOR_LIBRARY_DIRS /usr/share/glvnd/egl_vendor.d \
-        --set GBM_BACKENDS_PATH /usr/lib/gbm
-    '';
-  };
-in
 {
   home.packages =
     let
@@ -36,8 +23,6 @@ in
             gf
             gimp3-with-plugins
             gnome-calculator
-            gpu-screen-recorder
-            gpu-screen-recorder-gtk-wrapped
             jellyfin-desktop
             krita
             libreoffice-fresh
