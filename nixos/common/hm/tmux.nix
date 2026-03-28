@@ -3,6 +3,7 @@
 , ...
 }:
 let
+
   sessionizer = import ./scripts/sessionizer.nix { inherit pkgs;      };
   bwfzf       = import ./scripts/bwfzf.nix       { inherit pkgs;      };
   sshfzf      = import ./scripts/sshfzf.nix      { inherit pkgs;      };

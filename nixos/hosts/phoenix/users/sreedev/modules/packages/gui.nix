@@ -2,14 +2,19 @@
 {
   home.packages =
     let
-      xGPUPackages = [];
-      iGPUPackages =
-        map (ipkg: (config.lib.nixGL.wrap ipkg)) [];
+      xGPUPackages = [ ];
+      iGPUPackages = map (ipkg: (config.lib.nixGL.wrap ipkg)) (
+        with pkgs;
+        [
+          gpu-screen-recorder
+          gpu-screen-recorder-gtk
+        ]
+      );
       dGPUPackages =
         with builtins;
         map (ipkg: (config.lib.nixGL.wrapOffload ipkg)) (
           with pkgs;
-          [ 
+          [
             audacity
             bitwarden-desktop
             clipse
@@ -23,8 +28,6 @@
             gf
             gimp3-with-plugins
             gnome-calculator
-            gpu-screen-recorder
-            gpu-screen-recorder-gtk
             jellyfin-desktop
             krita
             libreoffice-fresh
