@@ -16,7 +16,6 @@ let
     nixpkgs
     noctalia
     pam
-    stylix
     system-manager
     vicinae
     ;
@@ -117,7 +116,6 @@ rec {
         ../nixos/hosts/${host}/users/${username}
         agenix.homeManagerModules.age
         noctalia.homeModules.default
-        stylix.homeModules.stylix
         niri.homeModules.niri
         pam.homeModules.default
         vicinae.homeManagerModules.default

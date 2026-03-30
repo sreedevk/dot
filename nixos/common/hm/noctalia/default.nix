@@ -22,27 +22,6 @@ in
     enable = true;
     package = config.lib.nixGL.wrapOffload (config.lib.pamShim.replacePam pkgs.noctalia);
     systemd.enable = false;
-    colors =
-      let
-        clr = hex: "#${hex}";
-      in
-      with config.lib.stylix.colors;
-      {
-        mError = clr base08;
-        mOnError = clr base00;
-        mOnPrimary = clr base00;
-        mOnSecondary = clr base00;
-        mOnSurface = clr base04;
-        mOnSurfaceVariant = clr base04;
-        mOnTertiary = clr base00;
-        mOutline = clr base02;
-        mPrimary = clr base0B;
-        mSecondary = clr base0A;
-        mShadow = clr base00;
-        mSurface = clr base00;
-        mSurfaceVariant = clr base01;
-        mTertiary = clr base0D;
-      };
     plugins = {
       sources = [
         {
@@ -291,7 +270,7 @@ in
               characterCount = 2;
               showApplications = true;
               showLabelsOnlyWhenOccupied = true;
-              colorizeIcons = true;
+              colorizeIcons = false;
               unfocusedIconsOpacity = 1;
               groupedBorderOpacity = 1;
               enableScrollWheel = true;
@@ -351,7 +330,7 @@ in
         manualSunrise = "06:30";
         manualSunset = "18:30";
         matugenSchemeType = "scheme-fruit-salad";
-        predefinedScheme = "Monochrome";
+        predefinedScheme = "Rose Pine";
         schedulingMode = "off";
         useWallpaperColors = false;
       };

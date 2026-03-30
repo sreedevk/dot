@@ -52,7 +52,6 @@
     ../../../../common/hm/radicle
     ../../../../common/hm/starship.nix
     ../../../../common/hm/steam.nix
-    ../../../../common/hm/stylix.nix
     ../../../../common/hm/taskwarrior.nix
     ../../../../common/hm/tmux.nix
     ../../../../common/hm/vicinae.nix
