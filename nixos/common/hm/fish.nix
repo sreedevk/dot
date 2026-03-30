@@ -9,7 +9,7 @@
           owner = "PatrickF1";
           repo  = "fzf.fish";
           rev   = "main";
-          hash  = "sha256-KO2EM2ZneF8QCcL2gJ4ZJBY4q2xmGD7eu3TMWBImjjo=";
+          hash  = "sha256-H7HgYT+okuVXo2SinrSs+hxAKCn4Q4su7oMbebKd/7s=";
         };
       }
     ];
