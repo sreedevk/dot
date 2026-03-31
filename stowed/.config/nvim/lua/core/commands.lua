@@ -46,6 +46,7 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "wincmd L"
 })
 
+
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = "Disable LSP Diagnostic Virtual Lines (tiny lsp diagnostics plugin)",
   group = vim.api.nvim_create_augroup("disable_virtual_line_diagnostics", {}),

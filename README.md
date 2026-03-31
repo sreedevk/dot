@@ -5,8 +5,8 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 
 ## TODO
 1. bug: tmux/terminal reads C-i as \<tab\>
-2. Switch to niri
-3. Along with having one global VPN, have 2-3 gluetun containers that divide the services into groups and assign 1 gluetun container 0 per group.
+2. Switch to niri (won't fix)
+3. Along with having one global VPN, have 2-3 gluetun containers that divide the services into groups and assign 1 gluetun container per group.
 4. system-manager is broken AF, https://github.com/numtide/system-manager/issues/349
    - it kicks the main user off the wheel group (thanks to userborn)
    - it sets the root user's shell to nix's bash installation
