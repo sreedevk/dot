@@ -32,23 +32,6 @@ return {
     end
   },
   {
-    "MeanderingProgrammer/treesitter-modules.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    lazy = true,
-    event = "BufReadPost",
-    opts = {
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-Space>",
-          scope_incremental = "<CR>",
-          node_incremental = "<TAB>",
-          node_decremental = "<BS>",
-        },
-      },
-    },
-  },
-  {
     "chrisgrieser/nvim-various-textobjs",
     lazy = true,
     event = "VeryLazy",
@@ -56,7 +39,9 @@ return {
       keymaps = {
         useDefaults = true,
         disabledDefaults = {
-          "r"
+          "r",
+          "in",
+          "an",
         },
       },
       forwardLooking = {
