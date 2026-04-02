@@ -25,13 +25,22 @@ return {
 
   {
     "anuvyklack/windows.nvim",
-    requires = "anuvyklack/middleclass",
+    requires = {
+      "anuvyklack/middleclass",
+      main = "middleclass"
+    },
     main = "windows",
+    cmd = {
+      'WindowsMaximize',
+      'WindowsMaximizeVertically',
+      'WindowsMaximizeHorizontally',
+      'WindowsEqualize'
+    },
     keys = {
-      { 'n', '<C-w>z', ':WindowsMaximize<cr>',             desc = "split zoom toggle" },
-      { 'n', '<C-w>_', ':WindowsMaximizeVertically<cr>',   desc = "split maximize vert" },
-      { 'n', '<C-w>|', ':WindowsMaximizeHorizontally<cr>', desc = "split maximize horiz" },
-      { 'n', '<C-w>=', ':WindowsEqualize<cr>',             desc = "equalize windows" }
+      { 'n', '<C-w>z', ':WindowsMaximize<cr>',             noremap = true, desc = "split zoom toggle" },
+      { 'n', '<C-w>_', ':WindowsMaximizeVertically<cr>',   noremap = true, desc = "split maximize vert" },
+      { 'n', '<C-w>|', ':WindowsMaximizeHorizontally<cr>', noremap = true, desc = "split maximize horiz" },
+      { 'n', '<C-w>=', ':WindowsEqualize<cr>',             noremap = true, desc = "equalize windows" }
     },
     opts = {}
   },
