@@ -108,16 +108,6 @@ return {
       'CLocate',
     },
   },
-
-  {
-    'chaoren/vim-wordmotion',
-    lazy = false,
-    init = function()
-      vim.g.wordmotion_spaces = { '-', '_', '\\/', '\\.' }
-      vim.g.wordmotion_prefix = "<space>"
-    end,
-  },
-
   {
     "folke/lazydev.nvim",
     ft = "lua",
