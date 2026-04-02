@@ -110,15 +110,6 @@ vim.keymap.set(
   { noremap = true, desc = "change directory to current file's parent" }
 )
 
-vim.keymap.set(
-  { "n" },
-  "<leader>dt",
-  function()
-    vim.api.nvim_put({ " " .. vim.fn.system("date"):gsub("\n", "") }, "c", true, true)
-  end,
-  { noremap = true, desc = "insert unix current timestamp" }
-)
-
 vim.keymap.set('n', '<leader>xo', function()
   local file = vim.fn.expand('%:p')
   local url = 'file://' .. file
