@@ -24,12 +24,16 @@ return {
   },
 
   {
-    'declancm/maximize.nvim',
-    lazy = true,
-    config = true,
+    "anuvyklack/windows.nvim",
+    requires = "anuvyklack/middleclass",
+    main = "windows",
     keys = {
-      { '<C-w>z', function() require('maximize').toggle() end, desc = "Toggle Split Zoom" }
-    }
+      { 'n', '<C-w>z', ':WindowsMaximize<cr>',             desc = "split zoom toggle" },
+      { 'n', '<C-w>_', ':WindowsMaximizeVertically<cr>',   desc = "split maximize vert" },
+      { 'n', '<C-w>|', ':WindowsMaximizeHorizontally<cr>', desc = "split maximize horiz" },
+      { 'n', '<C-w>=', ':WindowsEqualize<cr>',             desc = "equalize windows" }
+    },
+    opts = {}
   },
 
   {
@@ -217,7 +221,7 @@ return {
     "danymat/neogen",
     lazy = true,
     keys = {
-      { "<leader>cn", function() require("neogen").generate() end, desc = "Generate Annotations (Neogen)" },
+      { "<leader>cn", function() require("neogen").generate() end,                  desc = "Generate Annotations (Neogen)" },
       { "<leader>cN", function() require("neogen").generate({ type = "file" }) end, desc = "Generate Annotations (Neogen)" },
     },
     cmd = 'Neogen',
