@@ -9,7 +9,7 @@ return {
   {
     'saghen/blink.cmp',
     dependencies = {
-      { 'Gelio/cmp-natdat',              config = true },
+      { 'Gelio/cmp-natdat', config = true },
       'kirasok/cmp-hledger',
     },
     event = { "InsertEnter", "CmdlineEnter" },
@@ -20,7 +20,9 @@ return {
       keymap = {
         preset = 'none',
         ["<C-k>"] = { 'select_prev', 'fallback' },
+        ["<C-p>"] = { 'select_prev', 'fallback' },
         ["<C-j>"] = { 'select_next', 'fallback' },
+        ["<C-n>"] = { 'select_next', 'fallback' },
         ["<C-b>"] = {
           function(cmp)
             cmp.scroll_documentation_up(4)
