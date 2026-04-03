@@ -82,6 +82,13 @@ services:
         url: "https://owui.nullptr.sh"
         target: "_blank"
 
+      - name: "Tududi"
+        logo: "https://icons.nullptr.sh/tududi.png"
+        subtitle: "TODO & Task Management"
+        tag: "Task Management"
+        url: "https://tududi.nullptr.sh"
+        target: "_blank"
+
       - name: "Searxng"
         logo: "https://icons.nullptr.sh/searxng.png"
         subtitle: "Search Engine"
