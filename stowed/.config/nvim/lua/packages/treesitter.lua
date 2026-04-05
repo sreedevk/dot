@@ -51,28 +51,6 @@ return {
     },
   },
   {
-    'windwp/nvim-ts-autotag',
-    lazy = true,
-    event = "BufReadPost",
-    ft = { "html", "xml", "erb", "heex" },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter"
-    },
-    config = true,
-    opts = {
-      opts = {
-        enable_close = true,
-        enable_rename = true,
-        enable_close_on_slash = false
-      },
-      per_filetype = {
-        ["erb"] = {
-          enable_close = false
-        }
-      }
-    }
-  },
-  {
     'nvim-treesitter/nvim-treesitter-textobjects',
     dependencies = { "nvim-treesitter/nvim-treesitter", branch = "main" },
     branch = "main",
