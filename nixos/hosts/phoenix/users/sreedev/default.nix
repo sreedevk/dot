@@ -12,17 +12,19 @@
     ../../../../common/hm/agenix.nix
     ../../../../common/hm/alacritty
     ../../../../common/hm/amfora.nix
-    ../../../../common/hm/awscli.nix
     ../../../../common/hm/base.nix
     ../../../../common/hm/bash.nix
     ../../../../common/hm/brave.nix
     ../../../../common/hm/btop.nix
     ../../../../common/hm/core-max.nix
+    ../../../../common/hm/direnv.nix
     ../../../../common/hm/droidcam.nix
     ../../../../common/hm/emacs
     ../../../../common/hm/fastfetch.nix
     ../../../../common/hm/firefox
+    ../../../../common/hm/fish.nix
     ../../../../common/hm/fontconfig.nix
+    ../../../../common/hm/ghostty.nix
     ../../../../common/hm/git.nix
     ../../../../common/hm/github.nix
     ../../../../common/hm/gpg.nix
@@ -47,10 +49,8 @@
     ../../../../common/hm/pamshim.nix
     ../../../../common/hm/pueue.nix
     ../../../../common/hm/radicle
-    ../../../../common/hm/rofi
     ../../../../common/hm/starship.nix
     ../../../../common/hm/steam.nix
-    ../../../../common/hm/stylix.nix
     ../../../../common/hm/taskwarrior.nix
     ../../../../common/hm/tmux.nix
     ../../../../common/hm/vicinae.nix
@@ -58,6 +58,7 @@
     ../../../../common/hm/xdg.nix
     ../../../../common/hm/xresources.nix
     ../../../../common/hm/zathura.nix
+    ../../../../common/hm/zellij.nix
     ../../../../common/hm/zsh.nix
 
     # Current User Specific

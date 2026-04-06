@@ -9,6 +9,7 @@ vim.lsp.enable({
   "emmet_language_server",
   "eslint",
   "fennel_ls",
+  "fish_lsp",
   "gleam",
   "hls",
   "html",

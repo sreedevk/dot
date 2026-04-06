@@ -28,6 +28,7 @@ vim.keymap.set('n', '<M-[>', '<cmd>bprev<CR>', { noremap = true, desc = "switch 
 vim.keymap.set('n', '<M-]>', '<cmd>bnext<CR>', { noremap = true, desc = "switch to next buffer" })
 vim.keymap.set('n', '<Leader>cx', '<cmd>! chmod +x %<CR>', { noremap = true, desc = "add +x permission for file" })
 vim.keymap.set('n', '<leader>ssp', '<cmd>set spell!<CR>', { noremap = true, desc = "enable spell check" })
+
 vim.keymap.set(
   { 'n' },
   '<Leader>bo',
@@ -36,6 +37,13 @@ vim.keymap.set(
     noremap = true,
     desc = "close all buffers except current buffer",
   }
+)
+
+vim.keymap.set(
+  'n',
+  '<Leader>bo',
+  require('core.utils').force_early_retire_buffers,
+  { noremap = true, desc = "close all buffers." }
 )
 
 -- Sorting {{{1
@@ -102,13 +110,45 @@ vim.keymap.set(
   { noremap = true, desc = "change directory to current file's parent" }
 )
 
-vim.keymap.set(
-  { "n" },
-  "<leader>dt",
-  function()
-    vim.api.nvim_put({ " " .. vim.fn.system("date"):gsub("\n", "") }, "c", true, true)
-  end,
-  { noremap = true, desc = "insert unix current timestamp" }
-)
+vim.keymap.set('n', '<leader>xo', function()
+  local file = vim.fn.expand('%:p')
+  local url = 'file://' .. file
+
+  vim.notify('opened in browser: ' .. url, vim.log.levels.INFO)
+  vim.fn.jobstart({ 'xdg-open', url }, { detach = true })
+end, { desc = 'open current file in browser', noremap = true, silent = true })
+
+vim.keymap.set({ "n", "x", "o" }, "<A-o>", function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require("vim.treesitter._select").select_parent(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(vim.v.count1)
+  end
+end, { desc = "Select parent treesitter node or outer incremental lsp selections" })
+
+vim.keymap.set("v", "<tab>", function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require("vim.treesitter._select").select_parent(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(vim.v.count1)
+  end
+end, { desc = "Select child treesitter node or inner incremental lsp selections" })
+
+vim.keymap.set({ "n", "x", "o" }, "<A-i>", function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require("vim.treesitter._select").select_child(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(-vim.v.count1)
+  end
+end, { desc = "Select child treesitter node or inner incremental lsp selections" })
+
+
+vim.keymap.set("v", "<S-tab>", function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require("vim.treesitter._select").select_child(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(-vim.v.count1)
+  end
+end, { desc = "Select child treesitter node or inner incremental lsp selections" })
 
 -- vim:foldmethod=marker

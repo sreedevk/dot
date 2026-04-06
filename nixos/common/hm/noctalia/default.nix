@@ -22,27 +22,6 @@ in
     enable = true;
     package = config.lib.nixGL.wrapOffload (config.lib.pamShim.replacePam pkgs.noctalia);
     systemd.enable = false;
-    colors =
-      let
-        clr = hex: "#${hex}";
-      in
-      with config.lib.stylix.colors;
-      {
-        mError = clr base08;
-        mOnError = clr base00;
-        mOnPrimary = clr base00;
-        mOnSecondary = clr base00;
-        mOnSurface = clr base04;
-        mOnSurfaceVariant = clr base04;
-        mOnTertiary = clr base00;
-        mOutline = clr base02;
-        mPrimary = clr base0B;
-        mSecondary = clr base0A;
-        mShadow = clr base00;
-        mSurface = clr base00;
-        mSurfaceVariant = clr base01;
-        mTertiary = clr base0D;
-      };
     plugins = {
       sources = [
         {
@@ -103,7 +82,7 @@ in
         mprisBlacklist = [ ];
         preferredPlayer = "";
         visualizerType = "linear";
-        volumeOverdrive = false;
+        volumeOverdrive = true;
         volumeStep = 5;
         externalMixer = "pwvucontrol || pavucontrol";
       };
@@ -168,6 +147,8 @@ in
           excludedApps = "feishin,thunderbird,discord,firefox,chrome,chromium,edge";
         };
         enableMediaToast = false;
+        enableKeyboardLayoutToast = true;
+        enableBatteryToast = true;
       };
       appLauncher = {
         enableClipboardHistory = false;
@@ -204,18 +185,18 @@ in
         automationEnabled = false;
         wallpaperChangeMode = "random";
         hideWallpaperFilenames = false;
-        useWallhaven = true;
+        useWallhaven = false;
         wallhavenQuery = "landscape";
         wallhavenSorting = "relevance";
         wallhavenOrder = "desc";
         wallhavenCategories = "111";
         wallhavenPurity = "100";
-        # wallhavenRatios = "";
+        wallhavenResolutionMode = "atleast";
+        wallhavenResolutionWidth = "3840";
+        wallhavenResolutionHeight = "2160";
+        wallhavenRatios = "16x9";
+        viewMode = "browse"; # single,browse
         # wallhavenApiKey = "";
-        # wallhavenResolutionMode = "atleast";
-        # wallhavenResolutionWidth = "";
-        # wallhavenResolutionHeight = "";
-        # viewMode = "single";
       };
       bar = {
         density = "comfortable";
@@ -230,13 +211,23 @@ in
         widgets = {
           left = [
             {
+              id = "Clock";
               formatHorizontal = "ddd MMMM dd  hh:mm:ss AP t";
               formatVertical = "HH mm";
-              id = "Clock";
               useMonospacedFont = false;
               usePrimaryColor = false;
               useCustomFont = true;
               customFont = "Iosevka Nerd Font";
+              clockStyle = "digital";
+            }
+            {
+              id = "Spacer";
+              width = 10;
+            }
+            {
+              id = "Weather";
+              showBackground = true;
+              roundedCorners = true;
             }
             {
               id = "Spacer";
@@ -263,12 +254,33 @@ in
               id = "WiFi";
               displayMode = "onhover";
             }
+            {
+              id = "VPN";
+              displayMode = "onhover";
+              iconColor = "none";
+              textColor = "none";
+            }
           ];
           center = [
             {
-              hideUnoccupied = false;
               id = "Workspace";
+              hideUnoccupied = true;
               labelMode = "none";
+              followFocusedScreen = false;
+              characterCount = 2;
+              showApplications = true;
+              showLabelsOnlyWhenOccupied = true;
+              colorizeIcons = false;
+              unfocusedIconsOpacity = 1;
+              groupedBorderOpacity = 1;
+              enableScrollWheel = true;
+              iconScale = 0.8;
+              focusedColor = "primary";
+              occupiedColor = "secondary";
+              emptyColor = "secondary";
+              showBadge = true;
+              pillSize = 0.8;
+              fontWeight = "bold";
             }
           ];
           right = [
@@ -303,7 +315,11 @@ in
             {
               id = "Tray";
               blacklist = [ ];
-              colorizeIcons = false;
+              colorizeIcons = true;
+              pinned = [ ];
+              drawerEnabled = false;
+              hidePassive = false;
+              chevronColor = "none";
             }
           ];
         };
@@ -314,7 +330,7 @@ in
         manualSunrise = "06:30";
         manualSunset = "18:30";
         matugenSchemeType = "scheme-fruit-salad";
-        predefinedScheme = "Monochrome";
+        predefinedScheme = "Rose Pine";
         schedulingMode = "off";
         useWallpaperColors = false;
       };
@@ -325,10 +341,18 @@ in
         radiusRatio = 0.2;
         scaleRatio = 1.00;
         enableShadows = true;
+        dimmerOpacity = 0.5;
         shadowDirection = "center";
         shadowOffsetX = 2;
         shadowOffsetY = 3;
         compactLockScreen = false;
+        lockScreenAnimations = true;
+        lockOnSuspend = true;
+        lockScreenBlur = 0;
+        lockScreenTint = 80;
+        showSessionButtonsOnLockScreen = true;
+        showHibernateOnLockScreen = false;
+        enableLockScreenMediaControls = false;
         telemetryEnabled = false;
         enableLockScreenCountdown = true;
         lockScreenCountdownDuration = 10000;
@@ -341,6 +365,23 @@ in
         enabled = true;
         gridSnap = true;
         monitorWidgets = [ ];
+      };
+      plugins = {
+        autoUpdate = false;
+      };
+      idle = {
+        enabled = false;
+        screenOffTimeout = 600;
+        lockTimeout = 660;
+        suspendTimeout = 1800;
+        fadeDuration = 5;
+        screenOffCommand = "";
+        lockCommand = "";
+        suspendCommand = "";
+        resumeScreenOffCommand = "";
+        resumeLockCommand = "";
+        resumeSuspendCommand = "";
+        customCommands = "[]";
       };
       templates = {
         gtk = false;
@@ -386,7 +427,7 @@ in
         tooltipsEnabled = true;
         panelsOverlayLayer = true;
         wifiDetailsViewMode = "grid";
-        panelBackgroundOpacity = 0.93;
+        panelBackgroundOpacity = 0.50;
         panelsAttachedToBar = true;
         settingsPanelMode = "attached";
         bluetoothDetailsViewMode = "grid";
@@ -468,6 +509,7 @@ in
             "QT_QPA_PLATFORM=wayland"
             "WAYLAND_DISPLAY=wayland-1"
             "XDG_RUNTIME_DIR=%t"
+            # "NOCTALIA_WALLHAVEN_API_KEY=$(cat ${config.age.secrets.wallhaven-token.path})"
           ];
           Restart = "on-failure";
         };

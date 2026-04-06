@@ -24,15 +24,6 @@ return {
   },
 
   {
-    'declancm/maximize.nvim',
-    lazy = true,
-    config = true,
-    keys = {
-      { '<C-w>z', function() require('maximize').toggle() end, desc = "Toggle Split Zoom" }
-    }
-  },
-
-  {
     'rafcamlet/nvim-luapad',
     cmd = { "Luapad", "LuaRun" },
     lazy = true,
@@ -63,6 +54,9 @@ return {
     'tpope/vim-rails',
     lazy = true,
     ft = { 'ruby' },
+    keys = {
+      { '<Leader>sa', "<cmd>A<cr>", desc = "Switch to Alternative File" }
+    },
     config = function()
       vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPost' }, {
         pattern = { '*.yml' },
@@ -224,7 +218,7 @@ return {
     "danymat/neogen",
     lazy = true,
     keys = {
-      { "<leader>cn", function() require("neogen").generate() end, desc = "Generate Annotations (Neogen)" },
+      { "<leader>cn", function() require("neogen").generate() end,                  desc = "Generate Annotations (Neogen)" },
       { "<leader>cN", function() require("neogen").generate({ type = "file" }) end, desc = "Generate Annotations (Neogen)" },
     },
     cmd = 'Neogen',
@@ -247,15 +241,5 @@ return {
       'ColorizerToggle'
     },
     config = true
-  },
-
-  {
-    'jdhao/better-escape.vim',
-    lazy = true,
-    event = { "CursorHold", "CursorHoldI" },
-    init = function()
-      vim.g.better_escape_shortcut = 'jj'
-      vim.g.better_escape_interval = 400
-    end
   },
 }

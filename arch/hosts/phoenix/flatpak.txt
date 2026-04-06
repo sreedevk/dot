@@ -1,0 +1,15 @@
+Adwaita
+adw-gtk3
+Codecs
+FFmpeg
+Flatseal
+Freedesktop
+GNOME
+KDE
+Mesa
+Millisecond
+Nvidia
+nvidia-590-48-01
+openh264
+Prism
+Warehouse

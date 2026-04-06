@@ -12,31 +12,38 @@ in
     ".config/hypr/rules.conf" = {
       enable = true;
       text =
+        with builtins;
         let
           genLayerRules =
             let
-              genLayerRule = ruleconf: "layerrule = ${ruleconf.rule},match:namespace ${ruleconf.addr}";
+              genLayerRule =
+                ruleconf:
+                concatStringsSep "\n" (
+                  map (rule: "layerrule = match:namespace ${ruleconf.addr}, ${rule}") ruleconf.rules
+                );
             in
-            ruleconfs: builtins.concatStringsSep "\n" (builtins.map genLayerRule ruleconfs);
+            ruleconfs: concatStringsSep "\n" (map genLayerRule ruleconfs);
 
           genWindowRules =
             let
               genWindowRule =
                 ruleconf:
-                "windowrule = ${ruleconf.rule},${builtins.concatStringsSep "," ruleconf.window_identifiers}";
+                concatStringsSep "\n" (
+                  map (rule: "windowrule = ${concatStringsSep "," ruleconf.addr},${rule}") ruleconf.rules
+                );
             in
-            ruleconfs: builtins.concatStringsSep "\n" (builtins.map genWindowRule ruleconfs);
+            ruleconfs: concatStringsSep "\n" (map genWindowRule ruleconfs);
 
           genWorkspaceRules =
             let
               genWorkspaceRule =
-                ruleconf: "workspace = ${ruleconf.workspace_label},${builtins.concatStringsSep "," ruleconf.rules}";
+                ruleconf: "workspace = ${ruleconf.workspace_label},${concatStringsSep "," ruleconf.rules}";
             in
-            ruleconfs: builtins.concatStringsSep "\n" (builtins.map genWorkspaceRule ruleconfs);
+            ruleconfs: concatStringsSep "\n" (map genWorkspaceRule ruleconfs);
         in
-        builtins.concatStringsSep "\n" [
-          (genLayerRules     hyprconf.rules.layer)
-          (genWindowRules    hyprconf.rules.window)
+        concatStringsSep "\n" [
+          (genLayerRules hyprconf.rules.layer)
+          (genWindowRules hyprconf.rules.window)
           (genWorkspaceRules hyprconf.rules.workspace)
         ];
     };

@@ -98,13 +98,25 @@
     definedAliases = [ "@wb" ];
   };
 
-  "GitHub" = {
+  "GitHubRepos" = {
     urls = [
       {
         template = "https://github.com/search?q={searchTerms}";
       }
     ];
-    definedAliases = [ "@gh" ];
+    definedAliases = [
+      "@gh"
+      "@ghr"
+    ];
+  };
+
+  "GitHubUsers" = {
+    urls = [
+      {
+        template = "https://github.com/search?type=users&q={searchTerms}";
+      }
+    ];
+    definedAliases = [ "@ghu" ];
   };
 
   "hex.pm" = {

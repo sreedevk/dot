@@ -1,7 +1,8 @@
-{ pkgs
-, opts
-, config
-, ...
+{
+  pkgs,
+  opts,
+  config,
+  ...
 }:
 {
   home.packages = with pkgs; [
@@ -39,6 +40,10 @@
 
   programs.git = {
     enable = true;
+    signing = {
+      format = "openpgp";
+      signByDefault = true;
+    };
     settings = {
       user = {
         email = "sreedev@icloud.com";

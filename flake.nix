@@ -10,7 +10,22 @@
     llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7541";
     nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11&shallow=1";
-    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.17.3";
+    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.20.9";
+
+    direnv-instant = {
+      url                    = "github:Mic92/direnv-instant";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    librepods = {
+      url                    = "github:Chrisbattarbee/librepods";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-index-database = {
+      url                    = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     disko = {
       url                    = "github:nix-community/disko";
@@ -18,17 +33,12 @@
     };
 
     nur = {
-      url                    = "github:nix-community/NUR?ref=fc7ae20";
+      url                    = "github:nix-community/NUR?ref=95c043c";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixgl = {
       url                    = "github:sreedevk/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    stylix = {
-      url                    = "github:danth/stylix?ref=551df12";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -38,7 +48,7 @@
     };
 
     system-manager = {
-      url                    = "github:numtide/system-manager";
+      url                    = "github:numtide/system-manager?ref=v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -48,12 +58,12 @@
     };
 
     noctalia = {
-      url                    = "github:noctalia-dev/noctalia-shell?ref=v3.7.5";
+      url                    = "github:noctalia-dev/noctalia-shell?ref=v4.7.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     niri = {
-      url                    = "github:sodiboo/niri-flake?ref=06b2784";
+      url                    = "github:sodiboo/niri-flake?ref=9c4cb4a";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -101,19 +111,19 @@
 
       # Operating System Level Configurations
       nixosConfigurations = 
-        mkSystems [ ];
+        mkSystems [
+        ];
 
       # Arch linux system configs
       systemConfigs =
         mkNonNixSystems [
-          { host = "devstation";  system = systems.x86;   }
+          { host = "phoenix";     system = systems.x86;   }
         ];
 
       # User Level Home Manager Configurations
       homeConfigurations = 
         mkHomes [
-          { user = "sreedev"; host = "devstation";    system = systems.x86;   }
-          { user = "edge";    host = "devstation";    system = systems.x86;   }
+          { user = "sreedev"; host = "phoenix";       system = systems.x86;   }
         ];
     };
 }

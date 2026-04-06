@@ -1,0 +1,11 @@
+catppuccin-gtk-theme-mocha 1.0.3-1
+droidcam 1:2.1.5-1
+gpu-screen-recorder-gtk 5.7.9-1
+howdy-git r592.d3ab993-1
+hyprdynamicmonitors-bin 1.4.0-1
+mullvad-vpn-bin 2026.1-1
+mullvad-vpn-daemon-bin 2026.1-1
+paru 2.1.0-2
+python-dlib 20.0-2
+rose-pine-hyprcursor v0.3.2.r0.d2c0e680-1
+v4l2loopback-dc-dkms 1:2.1.5-1

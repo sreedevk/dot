@@ -7,8 +7,9 @@ export GHCUP_BIN_PATH="$HOME/.ghcup/bin"
 export LOCAL_BIN_PATH="$HOME/.local/bin"
 export OPT_BIN_PATH="/opt/bin"
 export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+export BUN_BIN_PATH="$HOME/.cache/.bun/bin"
 
-export PATH="$PATH:$LOCAL_BIN_PATH:$OPT_BIN_PATH:$CARGO_BIN_PATH:$GHCUP_BIN_PATH"
+export PATH="$PATH:$LOCAL_BIN_PATH:$OPT_BIN_PATH:$CARGO_BIN_PATH:$GHCUP_BIN_PATH:$BUN_BIN_PATH"
 
 # XDG
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -42,9 +43,11 @@ if [ -z "$TMUX" ]; then
     export TERM="xterm-256color"
 fi
 
+mkdir -p $XDG_STATE_HOME/zsh
+
 # HISTORYFILE
 export HISTORY_IGNORE="(ls|cd|pwd|exit|history)"
-export HISTFILE="$HOME/.zsh/zsh_history"
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export HISTFILESIZE=10000
 export HISTSIZE=1000
 export SAVEHIST=1000
@@ -59,9 +62,9 @@ zle -N edit-command-line
 [ -f "$HOME/.zsh/zinit.zsh" ]  && source "$HOME/.zsh/zinit.zsh"
 
 # LOAD ALIASES & FUNCTIONS
-[ -f "$HOME/.zsh/aliases.zsh" ]   && source "$HOME/.zsh/aliases.zsh"
-[ -f "$HOME/.zsh/functions.zsh" ] && source "$HOME/.zsh/functions.zsh"
-[ -f "$HOME/.zsh/autoloads.zsh" ] && source "$HOME/.zsh/autoloads.zsh"
+[ -f "$HOME/.zsh/aliases.zsh" ]         && source "$HOME/.zsh/aliases.zsh"
+[ -f "$HOME/.zsh/functions.zsh" ]       && source "$HOME/.zsh/functions.zsh"
+[ -f "$HOME/.zsh/before/compinit.zsh" ] && source "$HOME/.zsh/before/compinit.zsh"
 
 # AUTOLOAD MODULES
 zmodload     zsh/complist 
@@ -74,25 +77,30 @@ autoload     zmv
 
 _comp_options+=(globdots)
 
-[ -f "$HOME/.zsh/post-compinit.zsh" ] && source "$HOME/.zsh/post-compinit.zsh"
+[ -f "$HOME/.zsh/after/compinit.zsh" ] && source "$HOME/.zsh/after/compinit.zsh"
 
 # ZSH OPTS
-setopt   COMPLETE_ALIASES
-setopt   PROMPT_SUBST
-setopt   HIST_IGNORE_ALL_DUPS
-setopt   HIST_FIND_NO_DUPS
-setopt   HIST_IGNORE_SPACE
-setopt   HIST_REDUCE_BLANKS 
-setopt   HIST_SAVE_NO_DUPS
-setopt   interactivecomments
-setopt   extendedglob
-setopt   globdots
-setopt   autocd
-setopt   nomatch
-setopt   notify
-setopt   sharehistory
-setopt   appendhistory
-setopt   incappendhistory
+setopt COMPLETE_ALIASES
+setopt PROMPT_SUBST
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+setopt hist_ignore_space
+setopt hist_expire_dups_first
+setopt hist_reduce_blanks 
+setopt hist_save_no_dups
+setopt hist_verify
+setopt interactivecomments
+setopt extendedglob
+setopt globdots
+setopt autocd
+setopt nomatch
+setopt notify
+setopt sharehistory
+setopt append_history
+setopt incappendhistory
+setopt extended_history
+
 unsetopt beep
 
 # Set VI mode

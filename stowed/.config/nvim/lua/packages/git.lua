@@ -25,6 +25,7 @@ return {
     lazy = true,
     cmd = {
       "DiffviewOpen",
+      "DiffviewClose",
       "DiffviewFileHistory",
       "DiffviewFocusFiles",
       "DiffviewToggleFiles",

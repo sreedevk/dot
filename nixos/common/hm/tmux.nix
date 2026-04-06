@@ -1,35 +1,39 @@
 { pkgs
-, opts
 , config
 , ...
 }:
 let
-  sessionizer   = import ./scripts/sessionizer.nix    { inherit pkgs;      };
-  bwfzf         = import ./scripts/bwfzf.nix          { inherit pkgs;      };
-  sshfzf        = import ./scripts/sshfzf.nix         { inherit pkgs;      };
-  time          = import ./scripts/time.nix           { inherit pkgs opts; };
+  sessionizer = import ./scripts/sessionizer.nix { inherit pkgs;      };
+  bwfzf       = import ./scripts/bwfzf.nix       { inherit pkgs;      };
+  sshfzf      = import ./scripts/sshfzf.nix      { inherit pkgs;      };
 
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-super-fingers";
-    version    = "unstable-2023-01-06";
+    version    = "unstable-2026-02-05";
     src        = pkgs.fetchFromGitHub {
       owner  = "artemave";
       repo   = "tmux_super_fingers";
-      rev    = "2c12044984124e74e21a5a87d00f844083e4bdf7";
-      sha256 = "sha256-cPZCV8xk9QpU49/7H8iGhQYK6JwWjviL29eWabuqruc=";
+      rev    = "8a82cf1e0d5a49a49e2d221ab65d2a0e135e613a";
+      sha256 = "0gcxah0f33v75fhhha52awwlcqvlmi659hr33yjncja0w4q79gqh";
     };
   };
 in
 {
   programs.tmux = {
-    enable = true;
-    shell = "${pkgs.zsh}/bin/zsh";
-    terminal = "tmux-256color";
+    enable       = true;
+    shell        = "${pkgs.fish}/bin/fish";
+    terminal     = "tmux-256color";
     historyLimit = 100000;
-    plugins = with pkgs; [
+    plugins      = with pkgs; [
       {
-        plugin = tmuxPlugins.rose-pine;
-        extraConfig = "set -g @rose_pine_variant 'main'";
+        plugin = tmuxPlugins.catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_flavor "mocha"
+          set -g @catppuccin_window_status_style "rounded"
+          set -ogq @catppuccin_window_text " #[italics]#{window_name}"
+          set -g status-left-length 100
+          set -g status-left "[#S] "
+        '';
       }
       {
         plugin = tmux-super-fingers;
@@ -98,29 +102,30 @@ in
                       "new-session -d -s system -c '${builtins.getEnv "HOME"}'; switch-client -t system"
 
       # COPY MODE
-      bind -T   copy-mode-vi v      send-keys -X begin-selection
-      bind -T   copy-mode-vi C-v    send-keys -X rectangle-toggle
-      bind -T   copy-mode-vi Escape send-keys -X cancel
-      bind -T   copy-mode-vi y      send-keys -X copy-pipe-and-cancel 'wl-copy'
-      bind -T   copy-mode-vi C-g    send-keys -X cancel
-      bind -T   copy-mode-vi 0      send-keys -X start-of-line
-      bind -T   copy-mode-vi $      send-keys -X end-of-line
-      bind p       paste-buffer
-      bind    C-p  choose-buffer
-      bind    C-q  copy-mode
-      bind -T copy-mode-vi C-q send-keys -X cancel
+      bind -T copy-mode-vi v      send-keys -X begin-selection
+      bind -T copy-mode-vi C-v    send-keys -X rectangle-toggle
+      bind -T copy-mode-vi Escape send-keys -X cancel
+      bind -T copy-mode-vi y      send-keys -X copy-pipe-and-cancel 'wl-copy'
+      bind -T copy-mode-vi C-g    send-keys -X cancel
+      bind -T copy-mode-vi 0      send-keys -X start-of-line
+      bind -T copy-mode-vi $      send-keys -X end-of-line
+      bind -T copy-mode-vi C-q    send-keys -X cancel
+
+      bind C-p choose-buffer
+      bind C-q copy-mode
 
       # WORKFLOWS
-      bind C-a neww ${pkgs.wiremix}/bin/wiremix
+      bind C-a neww "${pkgs.wiremix}/bin/wiremix"
       bind C-c new-session
-      bind C-e neww ${pkgs.neovim}/bin/nvim
-      bind C-g neww ${pkgs.lazygit}/bin/lazygit
-      bind C-f neww ${pkgs.nnn}/bin/nnn
-      bind C-h neww ${config.programs.htop.package}/bin/htop
-      bind C-o neww ${sessionizer}/bin/tmux-sessionizer
-      bind C-r neww ${pkgs.newsboat}/bin/newsboat
-      bind C-s neww ${sshfzf}/bin/ssh-fzf
-      bind C-t neww ${pkgs.taskwarrior-tui}/bin/taskwarrior-tui
+      bind C-d neww "${pkgs.gh}/bin/gh dash"
+      bind C-e neww "${pkgs.neovim}/bin/nvim"
+      bind C-g neww "${pkgs.lazygit}/bin/lazygit"
+      bind C-f neww "${pkgs.nnn}/bin/nnn"
+      bind C-h neww "${config.programs.htop.package}/bin/htop"
+      bind C-o neww "${sessionizer}/bin/tmux-sessionizer"
+      bind C-r neww "${pkgs.newsboat}/bin/newsboat"
+      bind C-s neww "${sshfzf}/bin/ssh-fzf"
+      bind C-t neww "${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
       bind C-u if-shell "tmux has-session -t system 2>/dev/null" \
                         "switch-client -t system" \
                         "new-session -d -s system -c '${builtins.getEnv "HOME"}'; switch-client -t system"
@@ -147,19 +152,9 @@ in
 
       # STATUS BAR
       set -g status on
-      set -g status-style bg=default
       set -g status-interval 5
-      set -g status-left-length 30
-      set -g status-right-length 30
-      set -g status-position bottom
-      set -g status-justify centre
-      set -g status-left '#[fg=green]λ: #[fg=cyan]#S'
-      set -g status-right "#[fg=cyan]#(${time}/bin/ttd)"
-      set -g window-status-format "#[fg=blue]#I#[fg=default]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},}}#F"
-      set -g window-status-current-format "#[fg=yellow]#I#[fg=green]:#{=-20:?window_name,#{window_name},#{?pane_current_path,#{b:pane_current_path},)}}#[fg=default]#F#[fg=yellow]#[fg=default]"
 
       # MAKE IT PRETTY + SANE DEFAULTS
-      set -g  default-command "${pkgs.zsh}/bin/zsh"
       set -g  xterm-keys on
       set -s  extended-keys on
       set -as terminal-features 'xterm*:extkeys'
@@ -197,7 +192,7 @@ in
   };
 
   programs.sesh = {
-    enable = true;
+    enable = false;
     package = pkgs.sesh;
     enableAlias = false;
     enableTmuxIntegration = false;

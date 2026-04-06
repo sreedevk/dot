@@ -13,6 +13,9 @@
       font.size = 11;
       faviconService = "twenty"; # twenty | google | none
       popToRootOnClose = false;
+      telemetry = {
+        system_info = false;
+      };
       rootSearch.searchFiles = false;
       theme = {
         light = {
@@ -38,7 +41,7 @@
         layer_shell = {
           enabled = true;
           keyboard_interactivity = "exclusive";
-          layer = "top"; # overlay
+          layer = "overlay"; # top
         };
         csd = true;
         opacity = 0.95;
@@ -47,21 +50,21 @@
           open-settings = "control+,";
           toggle-action-panel = "control+B";
           action = {
-            copy             = "control+shift+C";
-            copy-name        = "control+shift+.";
-            copy-path        = "control+shift+,";
+            copy = "control+shift+C";
+            copy-name = "control+shift+.";
+            copy-path = "control+shift+,";
             dangerous-remove = "control+shift+X";
-            duplicate        = "control+D";
-            edit             = "control+E";
-            edit-secondary   = "control+shift+E";
-            move-down        = "control+shift+ARROWDOWN";
-            move-up          = "control+shift+ARROWUP";
-            new              = "control+N";
-            open             = "control+O";
-            pin              = "control+shift+P";
-            refresh          = "control+R";
-            remove           = "control+X";
-            save             = "control+S";
+            duplicate = "control+D";
+            edit = "control+E";
+            edit-secondary = "control+shift+E";
+            move-down = "control+shift+ARROWDOWN";
+            move-up = "control+shift+ARROWUP";
+            new = "control+N";
+            open = "control+O";
+            pin = "control+shift+P";
+            refresh = "control+R";
+            remove = "control+X";
+            save = "control+S";
           };
         };
         favorites = [

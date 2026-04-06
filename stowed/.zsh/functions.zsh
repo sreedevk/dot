@@ -19,6 +19,6 @@ randstr() {
   openssl rand -base64 $((length * 3 / 4)) | tr -d '\n' | cut -c1-$length
 }
 
-open() {
-  xdg-open "$@" >/dev/null 2>&1
+gcm() {
+  git commit -m "$*"
 }

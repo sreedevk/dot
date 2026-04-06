@@ -32,23 +32,6 @@ return {
     end
   },
   {
-    "MeanderingProgrammer/treesitter-modules.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    lazy = true,
-    event = "BufReadPost",
-    opts = {
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<leader>zz",
-          scope_incremental = "<CR>",
-          node_incremental = "<TAB>",
-          node_decremental = "<S-TAB>",
-        },
-      },
-    },
-  },
-  {
     "chrisgrieser/nvim-various-textobjs",
     lazy = true,
     event = "VeryLazy",
@@ -56,7 +39,9 @@ return {
       keymaps = {
         useDefaults = true,
         disabledDefaults = {
-          "r"
+          "r",
+          "in",
+          "an",
         },
       },
       forwardLooking = {
@@ -64,28 +49,6 @@ return {
         big = 15,
       },
     },
-  },
-  {
-    'windwp/nvim-ts-autotag',
-    lazy = true,
-    event = "BufReadPost",
-    ft = { "html", "xml", "erb", "heex" },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter"
-    },
-    config = true,
-    opts = {
-      opts = {
-        enable_close = true,
-        enable_rename = true,
-        enable_close_on_slash = false
-      },
-      per_filetype = {
-        ["erb"] = {
-          enable_close = false
-        }
-      }
-    }
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
@@ -185,7 +148,6 @@ return {
     'Wansmer/treesj',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     lazy = true,
-    event = "BufReadPost",
     cmd = {
       "TSJJoin",
       "TSJSplit",

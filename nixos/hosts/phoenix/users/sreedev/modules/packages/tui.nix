@@ -66,6 +66,7 @@
       lm_sensors               # lm_sensors
       mc                       # midnight commander file manager
       mdbook                   # generate books from markdown
+      metasploit               # Metasploit Framework - a collection of exploits
       miller                   # awk, sed, cut, join and sort for csv, tsv, json
       nasm                     # x86_64 assembler
       nerd-fonts.iosevka       # iosevka nerd font
@@ -79,6 +80,7 @@
       posting                  # modern tui http client
       presenterm               # terminal presentations
       qrencode                 # qr code generator
+      radicle-tui              # radicle-tui
       rbw                      # stateful bitwarden cli
       recyclarr                # arr trash guides sync
       s3cmd                    # s3 cli
@@ -91,6 +93,7 @@
       terminaltexteffects      # cli text effects
       texliveFull              # pandoc supporting packages for pdf/latex
       ticker                   # asset ticker
+      timr-tui                 # tui timers
       tmux-sessionizer         # tmux sessionizer
       tmuxinator               # tmuxinator
       toilet                   # fancy large cli text generator

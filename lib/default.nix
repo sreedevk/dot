@@ -1,10 +1,24 @@
-{ inputs
-, opts
-, systems
-, ...
+{
+  inputs,
+  opts,
+  systems,
+  ...
 }:
 let
-  inherit (inputs) nixpkgs agenix stylix home-manager colmena system-manager disko noctalia niri pam vicinae;
+  inherit (inputs)
+    agenix
+    colmena
+    direnv-instant
+    disko
+    home-manager
+    niri
+    nix-index-database
+    nixpkgs
+    noctalia
+    pam
+    system-manager
+    vicinae
+    ;
 in
 rec {
   pkgsFor = nixpkgs.legacyPackages;
@@ -102,10 +116,11 @@ rec {
         ../nixos/hosts/${host}/users/${username}
         agenix.homeManagerModules.age
         noctalia.homeModules.default
-        stylix.homeModules.stylix
         niri.homeModules.niri
         pam.homeModules.default
         vicinae.homeManagerModules.default
+        nix-index-database.homeModules.default
+        direnv-instant.homeModules.direnv-instant
       ];
 
       extraSpecialArgs = {

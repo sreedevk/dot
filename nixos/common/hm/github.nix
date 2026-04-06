@@ -1,7 +1,8 @@
-{ pkgs
-, opts
-, config
-, ...
+{
+  pkgs,
+  opts,
+  config,
+  ...
 }:
 {
 
@@ -19,11 +20,13 @@
     enable = true;
     settings = {
       repoPaths = {
-        "tunecore/*" = "~/Data/work/repositories/";
+        "tunecore/*"    = "${opts.directories.work}/tunecore/repositories/";
+        "odoo/*"        = "${opts.directories.work}/odoo/repositories/";
+        "sreedevk/*"    = "${opts.directories.repositories}/sreedevk";
       };
       prSections = [
         {
-          title = "My Pull Requests";
+          title = "Self Authored PRs";
           filters = "is:open author:@me";
         }
       ];
@@ -41,12 +44,12 @@
       github_protocol = "ssh";
       prompt = "enabled";
       aliases = {
-        co = "pr checkout";
-        rv = "repo view --web";
+        co  = "pr checkout";
+        rv  = "repo view --web";
         prc = "pr create";
       };
       editor = "nvim";
-      pager = "";
+      pager = "bat";
       http_unix_socket = "";
       browser = "${opts.desktop.browser.bin or ""}";
     };

@@ -1,0 +1,29 @@
+bacon v3.22.0
+bacon-ls v0.26.0
+blaze-ssh v0.0.8 (https//github.com/sreedevk/blaze-ssh#98f2e5ee)
+but v0.0.0 (/home/sreedev/Data/repositories/gitbutler/crates/but)
+cargo-audit v0.22.1
+cargo-bloat v0.12.1
+cargo-expand v1.0.121
+cargo-generate v0.23.7
+cargo-udeps v0.1.60
+cargo-update v18.1.1
+cargo-watch v8.5.3
+cl-wordle v0.4.0
+cwry v1.0.4 (/home/sreedev/Data/repositories/cwry)
+deduplicator v0.3.1
+dioxus-cli v0.7.3
+flamegraph v0.6.11
+gitbutler-cli v0.0.0 (/home/sreedev/Data/repositories/gitbutler/crates/gitbutler-cli)
+license-generator v1.3.0
+loco v0.16.3
+ncopds v0.1.0
+sea-orm-cli v1.1.19
+sqlx-cli v0.8.6
+term-transcript-cli v0.4.0
+trunk v0.21.14
+uiua v0.18.1
+wasm-opt v0.116.1
+wasm-pack v0.14.0
+wasm-tools v1.245.1
+workmux v0.1.124

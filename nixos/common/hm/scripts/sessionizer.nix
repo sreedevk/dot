@@ -5,9 +5,9 @@ pkgs.writeShellScriptBin "tmux-sessionizer" ''
   else
     selected=$(
         {
-            fd . ~/Data/repositories/ ~/Data/labs/ ~/Data/**/repositories/ -td -d1
+            fd --color=never . ~/Data/repositories/ ~/Data/labs/ ~/Data/work/**/repositories/ -td -d1
             zoxide query -l -a
-        } | sed 's|/$||' | awk '!seen[$0]++' | fzf
+        } | sed 's|/$||' | awk '!seen[$0]++' | fzf --tmux
     )
   fi
 

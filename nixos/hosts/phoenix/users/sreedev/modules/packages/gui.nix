@@ -1,5 +1,12 @@
 { config, pkgs, ... }:
 {
+
+  dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+
+  gtk = {
+    gtk4.theme = config.gtk.theme;
+  };
+
   home.packages =
     let
       xGPUPackages = [];
@@ -15,6 +22,7 @@
             clipse
             cobang
             dbeaver-bin
+            discord
             easyeffects
             feishin
             ffmpegthumbnailer
@@ -22,9 +30,8 @@
             gf
             gimp3-with-plugins
             gnome-calculator
-            gpu-screen-recorder
-            gpu-screen-recorder-gtk
             jellyfin-desktop
+            krita
             libreoffice-fresh
             localsend
             nemo-with-extensions
@@ -33,13 +40,13 @@
             obsidian
             openttd
             pavucontrol
+            radicle-desktop
             signal-desktop
             slack
             tor-browser
             upscayl
             wofi
             xpipe
-            zed-editor
           ]
         );
     in

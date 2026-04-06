@@ -9,12 +9,29 @@ namespace :nix do
     task :apollo do 
       sh("colmena apply --impure --on apollo")
     end
+
+    desc "system-manager deploy on rpi4b"
+    task :rpi4b do
+      sh("nix run 'github:numtide/system-manager' -- --target-host rpi4b switch --sudo --flake .#rpi4b")
+    end
+
+    desc "system-manager deploy on devtechnica"
+    task :devtechnica do
+      sh("nix run 'github:numtide/system-manager' -- --target-host sree.dev switch --sudo --flake .#devtechnica")
+    end
   end
 
   namespace :flake do
+    namespace :update do
+    desc "update nix flake.lock and commit lockfile"
+      task :lock do
+        sh('nix flake update --commit-lock-file')
+      end
+    end
+
     desc "update nix flake.lock"
     task :update do 
-      sh('nix flake update --commit-lock-file')
+      sh('nix flake update')
     end
 
     desc "check nix flakes & configurations for current system"
@@ -48,7 +65,23 @@ namespace :nix do
     end
   end
 
+  namespace :system do
+    desc "install system-manager configuration"
+    task :install do
+      sh("nix run 'github:numtide/system-manager?ref=v1.0.0' -- switch --flake '.' --sudo")
+    end
+  end
+
   namespace :home do
+    namespace :manager do
+      desc "install home-manager && initialize"
+      task :install do
+        sh("nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager")
+        sh("nix-channel --update")
+        sh("nix-shell '<home-manager>' -A install")
+      end
+    end
+
     desc "rebuild home manager configuration"
     task :build do
       sh("home-manager build --impure --flake '.##{`whoami`.strip}@#{`hostname`.strip}' -j 8")
@@ -86,14 +119,6 @@ namespace :nix do
 end
 
 namespace :arch do
-  namespace :nix do
-    desc "install using system-manager"
-    task :install do
-      sh("sudo $(which system-manager) switch --flake '.##{`hostname`.strip}'")
-      sh("rm -f result")
-    end
-  end
-
   desc "archive packages from arch/aur/flatpak/cargo"
   task :archive do
     sh('./bin/archive-packages')
@@ -108,6 +133,12 @@ end
 namespace :scripts do
   desc "list firefox addons"
   task :list_firefox_addons do 
-    sh('nix-env -f "<nur>" -qaP -A repos."rycee".firefox-addons | awk "{print $2}" | fzf')
+    sh("nix-env -f '<nixpkgs>' -qaP -A nur.repos.rycee.firefox-addons | awk '{print $2}' | fzf")
+  end
+
+  desc "add nur channel"
+  task :add_nur_channel do
+    sh('nix-channel --add https://github.com/nix-community/NUR/archive/master.tar.gz nur')
+    sh('nix-channel --update -v')
   end
 end

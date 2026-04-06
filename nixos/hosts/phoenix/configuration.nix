@@ -48,7 +48,7 @@
           linger = true;
           shell = pkgs.zsh;
           description = "system root user & administrator";
-          hashedPasswordFile = config.age.secrets.phoenix-user-password.path;
+          hashedPasswordFile = config.age.secrets.phoenix_user_password.path;
           packages = with pkgs; [ neovim ];
           extraGroups = [
             "realtime"

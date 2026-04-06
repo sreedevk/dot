@@ -13,7 +13,7 @@ let
         family = "IosevkaTerm Nerd Font";
         style = "Regular";
       };
-      size = 14.0;
+      size = 18.0;
     };
 
     cursor = {

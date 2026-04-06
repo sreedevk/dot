@@ -182,7 +182,7 @@
   "identity.fxaccounts.enabled"                                         = false;
   "image.mem.decode_bytes_at_a_time"                                    = 32768;
   "layers.acceleration.force-enabled"                                   = true;
-  "layout.css.devPixelsPerPx"                                           = 1.5;
+  "layout.css.devPixelsPerPx"                                           = 1.7;
   "layout.css.grid-template-masonry-value.enabled"                      = true;
   "layout.css.prefers-color-scheme.content-override"                    = 0;
   "layout.word_select.eat_space_to_next_word"                           = false;

@@ -7,8 +7,8 @@ return {
       multi_window = false,
       forward = true,
       wrap = true,
-      mode = "search", ---@type Flash.Pattern.Mode
-      incremental = true,
+      mode = "exact", -- exact,search,fuzzy
+      incremental = false,
       exclude = {
         "notify",
         "cmp_menu",
@@ -87,8 +87,7 @@ return {
         multi_line = true,
         label = { exclude = "hjkliardc" },
         keys = {},
-        char_actions = function(_)
-        end,
+        char_actions = function(_) end,
         search = { wrap = true },
         highlight = { backdrop = true },
         jump = {
@@ -134,7 +133,7 @@ return {
     },
   },
   keys = {
-    { "s", mode = { "n" }, function() require("flash").jump() end, desc = "jump to char" },
+    { "s", mode = { "n" }, function() require("flash").jump() end,       desc = "jump to char" },
     { "S", mode = { "n" }, function() require("flash").treesitter() end, desc = "jump selection treesitter" },
   },
 }
