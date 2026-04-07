@@ -17,6 +17,7 @@ vim.lsp.enable({
   "jsonls",
   "ltex_plus",
   "lua_ls",
+  "glyph",
   "marksman",
   "nil_ls",
   "ocamllsp",
