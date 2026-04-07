@@ -11,7 +11,7 @@ rec {
   paths         = { };
   nameservers   = [ ];
   gpuaccel      = "cuda";
-  nvidiaVersion = "590.48.01";
+  nvidiaVersion = "595.58.03";
 
   monitors = [
     {
