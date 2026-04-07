@@ -15,6 +15,7 @@ vim.opt.clipboard       = { 'unnamedplus' }
 vim.opt.breakat         = [[\ \	;:,!?]]
 vim.opt.breakindentopt  = "shift:2,min:20"
 vim.opt.winbar          = '%f'
+vim.opt.winborder       = 'bold'
 vim.opt.cmdheight       = 0
 vim.opt.cmdwinheight    = 5
 vim.opt.incsearch       = true
