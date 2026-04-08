@@ -41,6 +41,17 @@ vim.lsp.config('rust_analyzer', {
     ['rust-analyzer'] = {
       checkOnSave = { enable = false },
       diagnostics = { enable = false }, -- disable this when using "bacon_ls" as a diagnostics lsp for rust
+      lens = {
+        enable = true,
+        run = { enable = true },
+        implementations = { enable = true },
+        references = {
+          adt = { enable = true },
+          method = { enable = true },
+          trait = { enable = true },
+          enumVariant = { enable = true },
+        },
+      },
       typing = {
         tabSize = 2,
         useTab = false,
