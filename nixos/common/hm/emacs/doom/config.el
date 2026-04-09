@@ -11,6 +11,8 @@
       doom-variable-pitch-font (font-spec :family "IosevkaTerm Nerd Font" :size 32)
       doom-big-font (font-spec :family "IosevkaTerm Nerd Font" :size 64))
 
+(setq nerd-icons-font-family "IosevkaTerm Nerd Font")
+
 (setq text-scale-mode-step 1.05)
 (setq-default line-spacing 1)
 (setq standard-indent 2)
