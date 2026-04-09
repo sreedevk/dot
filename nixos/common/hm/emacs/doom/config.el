@@ -75,3 +75,15 @@
                  (org-remove-inline-images)
                  (org-present-show-cursor)
                  (org-present-read-write)))))
+
+(after! treemacs
+  (define-key evil-treemacs-state-map (kbd "z")
+    (lambda () (interactive)
+      (if (treemacs-is-node-expanded? (treemacs-current-button))
+          (treemacs-toggle-node)
+        (treemacs-goto-parent-node)
+        (when (treemacs-is-node-expanded? (treemacs-current-button))
+          (treemacs-toggle-node)))))
+  (define-key evil-treemacs-state-map (kbd "Z")
+    (lambda () (interactive)
+      (treemacs-toggle-node 4))))
