@@ -1,5 +1,6 @@
 bacon v3.22.0
 bacon-ls v0.26.0
+basalt-tui v0.12.3
 blaze-ssh v0.0.8 (https//github.com/sreedevk/blaze-ssh#98f2e5ee)
 but v0.0.0 (/home/sreedev/Data/repositories/gitbutler/crates/but)
 cargo-audit v0.22.1

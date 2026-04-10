@@ -20,6 +20,7 @@ cliphist
 cmake
 cpio
 cuda
+delfin
 dhcpcd
 distrobox
 dmidecode
@@ -51,6 +52,7 @@ gst-plugins-base
 gst-plugins-good
 gstreamer
 help2man
+hping
 hyprcursor
 hyprgraphics
 hypridle
@@ -104,6 +106,7 @@ mesa
 mesa-utils
 meson
 mpv
+musl
 neovim
 networkmanager
 ninja
@@ -194,7 +197,6 @@ virtualbox
 virtualbox-host-dkms
 vulkan-intel
 waydroid
-webkit2gtk
 webkit2gtk-4.1
 wev
 whois

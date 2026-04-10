@@ -30,7 +30,6 @@
             gf
             gimp3-with-plugins
             gnome-calculator
-            jellyfin-desktop
             krita
             libreoffice-fresh
             localsend
