@@ -20,7 +20,6 @@ cliphist
 cmake
 cpio
 cuda
-delfin
 dhcpcd
 distrobox
 dmidecode

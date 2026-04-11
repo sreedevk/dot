@@ -10,7 +10,6 @@ KDE
 Mesa
 Millisecond
 Nvidia
-nvidia-590-48-01
 nvidia-595-58-03
 openh264
 Prism
