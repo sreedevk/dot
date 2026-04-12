@@ -19,4 +19,9 @@ if status is-interactive
     abbr --add tb nc termbin.com 9999
     abbr --add v nvim
     abbr --add du dua
+
+    # systemd --user 
+    abbr --add sus systemctl --user 
+    abbr --add camstart systemctl --user start droidcam.service
+    abbr --add camstop systemctl --user stop droidcam.service
 end
