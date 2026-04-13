@@ -19,6 +19,7 @@ if status is-interactive
     abbr --add tb nc termbin.com 9999
     abbr --add v nvim
     abbr --add du dua
+    abbr --add wpcli woodpecker-cli
 
     # systemd --user 
     abbr --add sus systemctl --user 

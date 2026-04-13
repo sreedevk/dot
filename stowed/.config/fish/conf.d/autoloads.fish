@@ -11,6 +11,10 @@ if status is-interactive
         mise activate fish --shims | source
     end
 
+    if command -q woodpecker-cli
+        woodpecker-cli completion fish | source
+    end
+
     if command -q jj
         jj util completion fish | source
     end

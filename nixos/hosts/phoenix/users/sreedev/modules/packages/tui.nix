@@ -103,6 +103,7 @@
       uv                       # python package manager
       visidata                 # terminal multitool for tabular data
       wiremix                  # tui for pipewire audio control
+      woodpecker-cli           # woodpecker CI CLI
       yt-dlp                   # youtube downloader
     ];
 }
