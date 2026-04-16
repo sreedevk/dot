@@ -105,5 +105,6 @@
       wiremix                  # tui for pipewire audio control
       woodpecker-cli           # woodpecker CI CLI
       yt-dlp                   # youtube downloader
+      yubikey-manager          # yubikey manager
     ];
 }
