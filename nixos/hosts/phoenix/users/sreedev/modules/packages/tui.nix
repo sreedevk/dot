@@ -71,6 +71,7 @@
       nasm                     # x86_64 assembler
       nerd-fonts.iosevka       # iosevka nerd font
       nerd-fonts.iosevka-term  # iosevka term nerd font
+      nix-init                 # nix package generator from templates
       nixfmt                   # nix formatter
       nmap                     # network discovery and security auditing
       nnn                      # n³ The unorthodox terminal file manager
