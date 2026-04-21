@@ -74,6 +74,7 @@
       nixfmt                   # nix formatter
       nmap                     # network discovery and security auditing
       nnn                      # n³ The unorthodox terminal file manager
+      nurl                     # generate nix fetcher calls from repository urls
       nushell                  # modern shell written in rust
       orca-c                   # Esoteric prog lang to create procedural sequencers
       pandoc                   # document format converter
