@@ -25,7 +25,7 @@ services:
         target: "_blank"
 
       - name: "Grimmory"
-        logo: "https://icons.nullptr.sh/booklore.png"
+        logo: "https://icons.nullptr.sh/grimmory.png"
         subtitle: "Ebook Server"
         tag: "ebooks"
         keywords: "ebooks"
