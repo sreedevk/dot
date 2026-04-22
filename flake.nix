@@ -121,6 +121,7 @@
           { host = "devtechnica"; system = systems.x86;   }
           { host = "phoenix";     system = systems.x86;   }
           { host = "rpi4b";       system = systems.arm64; }
+          { host = "orion";       system = systems.x86; }
         ];
 
       # User Level Home Manager Configurations
@@ -130,6 +131,7 @@
           { user = "deploy";  host = "devtechnica";   system = systems.x86;   }
           { user = "pi";      host = "rpi4b";         system = systems.arm64; }
           { user = "sreedev"; host = "phoenix";       system = systems.x86;   }
+          { user = "u0";      host = "orion";         system = systems.x86;   }
         ];
     };
 }
