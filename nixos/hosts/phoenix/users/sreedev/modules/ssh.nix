@@ -75,6 +75,13 @@
         identityFile = "~/.ssh/id_ed25519";
       };
 
+      "orion" = {
+        hostname = opts.addresses.lan.orion;
+        user = "u0";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
       "rocknix-rk3566" = {
         hostname = opts.addresses.tailscale.rocknix;
         user = "root";

@@ -10,6 +10,11 @@ namespace :nix do
       sh("colmena apply --impure --on apollo")
     end
 
+    desc "colmena deploy on host orion"
+    task :orion do 
+      sh("colmena apply --impure --on orion")
+    end
+
     desc "system-manager deploy on rpi4b"
     task :rpi4b do
       sh("nix run 'github:numtide/system-manager' -- --target-host rpi4b switch --sudo --flake .#rpi4b")

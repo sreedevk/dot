@@ -113,6 +113,7 @@
       nixosConfigurations = 
         mkSystems [
           { host = "apollo"; system = systems.x86; }
+          { host = "orion";  system = systems.x86; }
         ];
 
       # Arch linux system configs
@@ -121,7 +122,6 @@
           { host = "devtechnica"; system = systems.x86;   }
           { host = "phoenix";     system = systems.x86;   }
           { host = "rpi4b";       system = systems.arm64; }
-          { host = "orion";       system = systems.x86; }
         ];
 
       # User Level Home Manager Configurations
