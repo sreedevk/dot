@@ -76,7 +76,7 @@
       };
 
       "orion" = {
-        hostname = opts.addresses.lan.orion;
+        hostname = opts.addresses.tailscale.orion;
         user = "u0";
         identitiesOnly = true;
         identityFile = "~/.ssh/id_ed25519";
