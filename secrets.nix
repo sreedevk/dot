@@ -1,17 +1,16 @@
 let
   nyc0 = {
-    "admin@apollo" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINiYLIEBtoti0D2R5/nuGzXTQaYP7OynXMkAuJBeNit6";
-    "deploy@devtechnica" =
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErdYvZ0RfDGze0QzHv8DCcc7Xt7rutKfOKRv44d0UiS";
-    "pi@rpi4b" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAul9ZMOMARHw6iSIFbQKChc/bkFBx5/mZnrer/YsRvV";
-    "root@apollo" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFyBIuu3f23/kGWoR8QQGfJitNDbff4qHH6qwFWCO6NG";
-    "sreedev@phoenix" =
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILECZkgjRGtMkXHr44ytGrfpByPZbP2t5WeF6NgetYIO";
+    "admin@apollo"       = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINiYLIEBtoti0D2R5/nuGzXTQaYP7OynXMkAuJBeNit6";
+    "deploy@devtechnica" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErdYvZ0RfDGze0QzHv8DCcc7Xt7rutKfOKRv44d0UiS";
+    "pi@rpi4b"           = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAul9ZMOMARHw6iSIFbQKChc/bkFBx5/mZnrer/YsRvV";
+    "root@apollo"        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFyBIuu3f23/kGWoR8QQGfJitNDbff4qHH6qwFWCO6NG";
+    "sreedev@phoenix"    = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILECZkgjRGtMkXHr44ytGrfpByPZbP2t5WeF6NgetYIO";
   };
 
   nyc1 = {
-    "root@orion" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKB3TeebD9H4kDFcAobH2UTMHvVvnZSl3QHwmV7uVMnx";
-    "u0@orion" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINmTKHR03AA/wBWcPdb5mlk4pplZ6tuZUdH6/qBvzKIS";
+    "root@orion"      = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKB3TeebD9H4kDFcAobH2UTMHvVvnZSl3QHwmV7uVMnx";
+    "u0@orion"        = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINmTKHR03AA/wBWcPdb5mlk4pplZ6tuZUdH6/qBvzKIS";
+    "sreedev@phoenix" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILECZkgjRGtMkXHr44ytGrfpByPZbP2t5WeF6NgetYIO";
   };
 
   nyc0_secrets =
@@ -89,6 +88,7 @@ let
   nyc1_secrets =
     with builtins;
     foldl' (acc: elem: acc // { "secrets/nyc1/${elem}.age".publicKeys = attrValues nyc1; }) { } [
+      "arcane_env"
       "orion_admin_password"
       "orion_nginx_env"
       "tailscale_nginx_env"
