@@ -132,6 +132,7 @@
           { user = "pi";      host = "rpi4b";         system = systems.arm64; }
           { user = "sreedev"; host = "phoenix";       system = systems.x86;   }
           { user = "u0";      host = "orion";         system = systems.x86;   }
+          { user = "srkod";   host = "odoo";          system = systems.x86;   }
         ];
     };
 }
