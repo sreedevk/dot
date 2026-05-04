@@ -48,7 +48,7 @@
     };
 
     system-manager = {
-      url                    = "github:numtide/system-manager?ref=v1.0.0";
+      url                    = "github:numtide/system-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -122,6 +122,7 @@
           { host = "devtechnica"; system = systems.x86;   }
           { host = "phoenix";     system = systems.x86;   }
           { host = "rpi4b";       system = systems.arm64; }
+          { host = "odoo";        system = systems.x86;   }
         ];
 
       # User Level Home Manager Configurations

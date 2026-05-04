@@ -15,43 +15,7 @@
     ];
 
     # BUG: system-manager above v1.0 will fail if this is not here;
-    # services.userborn.enable = pkgs.lib.mkForce false;
-
-    # FIX: TEMPORARY SOLUTION TO HANDLE USERBORN KICKING nixbld USERS OUT OF nixbld GROUP
-    users = {
-      users = {
-        root.shell = "/bin/bash";
-        srkod = {
-          uid = 1000;
-          group = "srkod";
-          enable = true;
-          isNormalUser = true;
-          linger = true;
-          shell = pkgs.zsh;
-          description = "system root user & administrator";
-          hashedPasswordFile = config.age.secrets.odoo_user_password.path;
-          packages = with pkgs; [ neovim ];
-          extraGroups = [
-            "realtime"
-            "libvirt"
-            "incus-admin"
-            "incus"
-            "bluetooth"
-            "docker"
-            "wheel"
-            "audio"
-            "video"
-            "render"
-          ];
-          openssh.authorizedKeys.keys = with opts.publicKeys; [
-            apollo
-            rpi4b
-            terminus
-            phoenix
-          ];
-        };
-      };
-    };
+    services.userborn.enable = pkgs.lib.mkForce false;
 
     nix = {
       package = pkgs.nixVersions.stable;
@@ -164,7 +128,7 @@
         text = ''
           name_server_blacklist="127.0.0.1"
           resolv_conf=/etc/resolv.conf
-          name_servers="100.100.100.100 149.112.112.112 9.9.9.9 149.112.112.112 1.1.1.1 1.0.0.1 2620:fe::fe 2620:fe::9"
+          name_servers="9.9.9.9 149.112.112.112 1.1.1.1 1.0.0.1 2620:fe::fe 2620:fe::9"
           resolv_conf_options="timeout:0 attempts:1 rotate"
         '';
       };

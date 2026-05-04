@@ -73,7 +73,7 @@ namespace :nix do
   namespace :system do
     desc "install system-manager configuration"
     task :install do
-      sh("nix run 'github:numtide/system-manager?ref=v1.0.0' -- switch --flake '.' --sudo")
+      sh("nix run 'github:numtide/system-manager' -- switch --flake '.' --sudo")
     end
   end
 

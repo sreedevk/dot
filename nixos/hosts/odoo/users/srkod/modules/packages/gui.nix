@@ -26,7 +26,6 @@
             easyeffects
             feishin
             ffmpegthumbnailer
-            furnace
             gf
             gimp3-with-plugins
             gnome-calculator
@@ -36,16 +35,7 @@
             nemo-with-extensions
             nvtopPackages.full
             nwg-look
-            obsidian
-            openttd
             pavucontrol
-            radicle-desktop
-            signal-desktop
-            slack
-            tor-browser
-            upscayl
-            wofi
-            xpipe
           ]
         );
     in

@@ -2,8 +2,8 @@
   desktop = {
     enable = true;
     wallpaper = "wallhaven-3q9qky.png";
-    scale = "0.8";
-    qt_scale_factor = "0.8";
+    scale = "1";
+    qt_scale_factor = "1";
   };
 
   directories = 
