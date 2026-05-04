@@ -19,26 +19,7 @@
 
     # FIX: TEMPORARY SOLUTION TO HANDLE USERBORN KICKING nixbld USERS OUT OF nixbld GROUP
     users = {
-      groups = {
-        audio.gid = 995;
-        bluetooth.gid = 30001;
-        docker.gid = 967;
-        incus-admin.gid = 965;
-        incus.gid = 966;
-        libvirt.gid = 963;
-        nixbld.gid = 30000;
-        realtime.gid = 962;
-        render.gid = 987;
-        video.gid = 983;
-        wheel.gid = 998;
-      };
       users = {
-        nixbld1 = {
-          uid = 30001;
-          group = "nixbld";
-          isSystemUser = true;
-          enable = true;
-        };
         root.shell = "/bin/bash";
         srkod = {
           uid = 1000;
@@ -48,7 +29,7 @@
           linger = true;
           shell = pkgs.zsh;
           description = "system root user & administrator";
-          hashedPasswordFile = config.age.secrets.phoenix_user_password.path;
+          hashedPasswordFile = config.age.secrets.odoo_user_password.path;
           packages = with pkgs; [ neovim ];
           extraGroups = [
             "realtime"
