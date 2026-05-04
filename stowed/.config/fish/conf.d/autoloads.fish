@@ -12,7 +12,7 @@ if status is-interactive
     end
 
     if command -q woodpecker-cli
-        woodpecker-cli completion fish | source
+        woodpecker-cli completion fish > /dev/null 2>&1 | source
     end
 
     if command -q jj
