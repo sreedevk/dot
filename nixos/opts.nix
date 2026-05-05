@@ -31,10 +31,10 @@
 
   desktop = {
     browser = {
-      bin = "firefox";
-      xdg-desktop = "firefox.desktop";
+      bin = "brave";
+      xdg-desktop = "brave-browser.desktop";
     };
-    enable = false;
+    enable = true;
     wallpaper = null;
     scale = "1";
   };
