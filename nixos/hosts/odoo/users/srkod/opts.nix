@@ -30,10 +30,10 @@
       work = datadir "work";
     };
 
-  gpg-key-signature = "54E80FA653BDD4DC6700A695B8C402B16E80E17C";
+  gpg-key-signature = "9F933C72F8137C98E03395427FCFC21B9FE8BD3E";
 
   git = {
-    enable-signing = false;
+    enable-signing = true;
   };
 
   username = "srkod";
