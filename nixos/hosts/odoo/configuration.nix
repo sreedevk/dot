@@ -18,6 +18,7 @@
     services.userborn.enable = pkgs.lib.mkForce false;
 
     nix = {
+      enable = true;
       package = pkgs.nixVersions.stable;
       settings = {
 
