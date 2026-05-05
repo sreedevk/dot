@@ -1,9 +1,7 @@
-{
-  pkgs,
-  config,
-  username,
-  opts,
-  ...
+{ pkgs
+, username
+, opts
+, ...
 }:
 {
   imports = [
@@ -88,12 +86,6 @@
   };
 
   home.sessionVariables = {
-    # CARGO_REGISTRY_TOKEN = "$(cat ${config.age.secrets.cargo-token.path})";
-    # HUGGING_FACE_TOKEN = "$(cat ${config.age.secrets.hugging_face_token.path})";
-    # OPENAI_API_KEY = "$(cat ${config.age.secrets.openai_api_key.path})";
-    # OPEN_WEATHER_API_KEY = "$(cat ${config.age.secrets.openweather-token.path})";
-    # PASTEBIN_API_KEY = "$(cat ${config.age.secrets.pastebin-token.path})";
-    # WALLHAVEN_API_KEY = "$(cat ${config.age.secrets.wallhaven-token.path})";
     _ZO_EXCLUDE_DIRS = builtins.concatStringsSep ":" [
       "${opts.directories.documents}/*"
       "${opts.directories.finances}/*"
