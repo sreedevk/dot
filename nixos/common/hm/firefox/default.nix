@@ -4,15 +4,16 @@
 , ...
 }:
 let
-  addons        = import ./addons.nix { inherit pkgs system; };
-  bookmarks     = import ./bookmarks.nix;
-  containers    = import ./containers.nix;
+  addons = import ./addons.nix { inherit pkgs system; };
+  bookmarks = import ./bookmarks.nix;
+  containers = import ./containers.nix;
   searchEngines = import ./search-engines.nix;
-  settings      = import ./settings.nix;
+  settings = import ./settings.nix;
 in
 {
   programs.firefox = {
     enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     package = config.lib.nixGL.wrapOffload pkgs.firefox-bin;
     profiles = {
 
