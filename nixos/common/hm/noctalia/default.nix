@@ -437,7 +437,7 @@ in
       };
       location = {
         monthBeforeDay = true;
-        name = "New York, United States";
+        name = "Brussels, Belgium";
         weatherEnabled = true;
         weatherShowEffects = true;
         useFahrenheit = true;
