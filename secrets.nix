@@ -18,6 +18,8 @@ let
 
   odoo = {
     "srkod@odoo" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICTsvMJQtvFu3erZ+hAkMrNRsX1B2ZgiV4w34mMUzHt4";
+    "sreedev@phoenix" =
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILECZkgjRGtMkXHr44ytGrfpByPZbP2t5WeF6NgetYIO";
   };
 
   odoo_secrets =
