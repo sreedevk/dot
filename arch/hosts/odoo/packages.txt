@@ -18,7 +18,6 @@ clang
 cliphist
 cmake
 cpio
-cuda
 dhcpcd
 distrobox
 dmidecode
@@ -163,6 +162,7 @@ supercollider
 tailscale
 texlive-binextra
 thunderbird
+tree-sitter-cli
 ttf-dejavu
 ttf-iosevka-nerd
 ttf-jetbrains-mono
