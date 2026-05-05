@@ -1268,16 +1268,16 @@
         "systems": "systems_7"
       },
       "locked": {
-        "lastModified": 1776331864,
-        "narHash": "sha256-zRoOKeQ4ne7o7mILwb+5PKE75FhoqkG/HizWs7bKrDo=",
+        "lastModified": 1777753133,
+        "narHash": "sha256-aUM+rSGb6liWdSBVABBwUKZXhsr5iUPq2QfnjkIsEVE=",
         "owner": "vicinaehq",
         "repo": "vicinae",
-        "rev": "c0171f85309710db1004a09c1fe98c5e25440cda",
+        "rev": "a0b875caf4accf7e43bca88da0c509f8d9176908",
         "type": "github"
       },
       "original": {
         "owner": "vicinaehq",
-        "ref": "v0.20.13",
+        "ref": "v0.20.15",
         "repo": "vicinae",
         "type": "github"
       }
