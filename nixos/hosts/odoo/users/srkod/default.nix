@@ -44,7 +44,6 @@
     ../../../../common/hm/pamshim.nix
     ../../../../common/hm/pueue.nix
     ../../../../common/hm/starship.nix
-    ../../../../common/hm/steam.nix
     ../../../../common/hm/tmux.nix
     ../../../../common/hm/vicinae.nix
     ../../../../common/hm/vim.nix
