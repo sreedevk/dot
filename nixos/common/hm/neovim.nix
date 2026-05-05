@@ -7,25 +7,25 @@ let
   ];
 
   language_servers = with pkgs; [
-    akkuPackages.scheme-langserver # scheme-langserver
-    astro-language-server # astro
-    clojure-lsp # clojure
-    elixir-ls # elixir
+    akkuPackages.scheme-langserver  # scheme-langserver
+    astro-language-server           # astro
+    clojure-lsp                     # clojure
+    elixir-ls                       # elixir
     elmPackages.elm-language-server # elm
-    emmet-language-server # emmet
-    fennel-ls # fennel
-    fish-lsp # fish
-    jsonnet-language-server # jsonnet
-    ltex-ls-plus # grammar
-    lua-language-server # lua
-    marksman # markdown
-    nil # nix
-    tailwindcss-language-server # tailwindcss
-    taplo # toml
-    tinymist # typst
-    vscode-langservers-extracted # json+
-    yaml-language-server # yaml
-    zls # zig
+    emmet-language-server           # emmet
+    fennel-ls                       # fennel
+    fish-lsp                        # fish
+    jsonnet-language-server         # jsonnet
+    ltex-ls-plus                    # grammar
+    lua-language-server             # lua
+    marksman                        # markdown
+    nil                             # nix
+    tailwindcss-language-server     # tailwindcss
+    taplo                           # toml
+    tinymist                        # typst
+    vscode-langservers-extracted    # json+
+    yaml-language-server            # yaml
+    zls                             # zig
   ];
 
   neovim_pkgs = with pkgs; [
