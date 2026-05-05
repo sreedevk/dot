@@ -7,12 +7,12 @@
 {
 
   systemd.user.sessionVariables = {
-    GH_TOKEN = "$(cat ${config.age.secrets.gh-token.path})";
+    GH_TOKEN = "$(cat ${config.age.secrets.gh_token.path})";
     CR_PAT = "$(cat ${config.age.secrets.ghcr_ro_token.path})";
   };
 
   home.sessionVariables = {
-    GH_TOKEN = "$(cat ${config.age.secrets.gh-token.path})";
+    GH_TOKEN = "$(cat ${config.age.secrets.gh_token.path})";
     CR_PAT = "$(cat ${config.age.secrets.ghcr_ro_token.path})";
   };
 

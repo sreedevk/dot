@@ -1,8 +1,9 @@
-{ pkgs
-, config
-, username
-, opts
-, ...
+{
+  pkgs,
+  config,
+  username,
+  opts,
+  ...
 }:
 {
   imports = [
@@ -24,7 +25,6 @@
     ../../../../common/hm/fish.nix
     ../../../../common/hm/fontconfig.nix
     ../../../../common/hm/ghostty.nix
-    ../../../../common/hm/git.nix
     ../../../../common/hm/gpg.nix
     ../../../../common/hm/htop.nix
     ../../../../common/hm/hyprland
@@ -58,6 +58,7 @@
     ./modules/ssh.nix
     ./modules/tmux.nix
     ./modules/github.nix
+    ./modules/git.nix
 
   ];
 

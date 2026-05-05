@@ -6,14 +6,14 @@ _: with builtins; {
         acc
         // {
           "${elem}" = {
-            file = ../../../secrets/nyc0/${elem}.age;
+            file = ../../../secrets/odoo/${elem}.age;
           };
         }
       )
       { }
       [
-        # "gh-token"
-        # "ghcr_ro_token"
+        "gh_token"
+        "ghcr_ro_token"
         # "openai_api_key"
         # "openweather-token"
         # "radarr-api-key"
