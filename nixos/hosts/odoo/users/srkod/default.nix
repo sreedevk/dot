@@ -40,6 +40,7 @@
     ../../../../common/hm/pamshim.nix
     ../../../../common/hm/pueue.nix
     ../../../../common/hm/starship.nix
+    ../../../../common/hm/taskwarrior
     ../../../../common/hm/vicinae.nix
     ../../../../common/hm/vim.nix
     ../../../../common/hm/xdg.nix
