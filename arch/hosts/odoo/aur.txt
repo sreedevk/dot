@@ -1,2 +1,7 @@
+catppuccin-gtk-theme-mocha 1.0.3-1
+hyprdynamicmonitors-bin 1.4.0-1
+mullvad-vpn-bin 2026.2-1
+mullvad-vpn-daemon-bin 2026.2-1
 paru 2.1.0-2
 paru-debug 2.1.0-2
+rose-pine-hyprcursor v0.3.2.r0.d2c0e680-1
