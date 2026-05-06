@@ -5,12 +5,12 @@
   ...
 }:
 let
-  themes               = (import ./theme.nix);
+  themes               = import ./theme.nix;
   theme                = "${themes.solarized-dark}.theme";
-  taskwarrior-notifier = (import ../scripts/taskwarrior-notify.nix { inherit pkgs; });
+  taskwarrior-notifier = import ../scripts/taskwarrior-notify.nix { inherit pkgs; };
   utils                = import ./utils.nix;
   coefficients         = import ./coefficients;
-  taskConfig           = (utils.mkConfig theme opts coefficients);
+  taskConfig           = utils.mkConfig theme opts coefficients;
 in
 {
 
@@ -21,7 +21,7 @@ in
     ];
 
     sessionVariables =
-      if isNull opts.taskwarrior.sync then
+      if opts.taskwarrior.sync == null then
         { }
       else
         {
@@ -46,7 +46,7 @@ in
   systemd.user = {
     services =
       (
-        if isNull opts.taskwarrior.sync then
+        if opts.taskwarrior.sync == null then
           { }
         else
           {
@@ -80,7 +80,7 @@ in
 
     timers =
       (
-        if isNull opts.taskwarrior.sync then
+        if opts.taskwarrior.sync == null then
           { }
         else
           {
