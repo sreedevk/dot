@@ -652,11 +652,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762738393,
-        "narHash": "sha256-EsXPSBKyGFHfvXPE3ToLHlEFancNcRDcT6Et+RJAouk=",
+        "lastModified": 1778077846,
+        "narHash": "sha256-Ebi4VNnY9/BaqkQr7C6l7YQ1iyrpKCRHO5lmn+lULTA=",
         "owner": "sreedevk",
         "repo": "nixGL",
-        "rev": "0ec019cf8e05ea5013d551efa759c28d9d59ce20",
+        "rev": "f904b476940a84befe76d6088565b7396fce5ef8",
         "type": "github"
       },
       "original": {
