@@ -85,7 +85,7 @@ rec {
       modules = [
         ../nixos/hosts/${hostname}/configuration.nix
       ];
-      extraSpecialArgs = {
+      specialArgs = {
         inherit system;
         opts = recurmerge [
           opts
