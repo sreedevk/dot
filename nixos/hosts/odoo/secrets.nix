@@ -14,10 +14,6 @@ _: with builtins; {
       [
         "gh_token"
         "ghcr_ro_token"
-        # "openai_api_key"
-        # "openweather-token"
-        # "radarr-api-key"
-        # "radicle_passphrase"
         # "restic_backup_password"
         # "taskwarrior_client_id"
         # "taskwarrior_encryption_secret"
