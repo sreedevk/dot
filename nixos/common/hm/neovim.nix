@@ -23,6 +23,7 @@ let
     tailwindcss-language-server     # tailwindcss
     taplo                           # toml
     tinymist                        # typst
+    typescript-language-server      # typescript
     vscode-langservers-extracted    # json+
     yaml-language-server            # yaml
     zls                             # zig
