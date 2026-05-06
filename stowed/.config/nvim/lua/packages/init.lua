@@ -128,14 +128,6 @@ return {
   },
 
   {
-    "psliwka/vim-dirtytalk",
-    build = ":DirtytalkUpdate",
-    config = function()
-      vim.opt.spelllang = { "en", "programming" }
-    end,
-  },
-
-  {
     'mattn/emmet-vim',
     lazy = true,
     keys = {
