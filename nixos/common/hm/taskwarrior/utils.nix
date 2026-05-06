@@ -8,7 +8,13 @@ rec {
       ) coefficients
     );
 
-  mkConfig = theme: opts: coefficients:
+  mkConfig =
+    theme: opts: coefficients:
+    let
+      sync-url = if opts.taskwarrior.sync == null then "" else opts.taskwarrior.sync.serverAddress;
+      sync-client-id = if opts.taskwarrior.sync == null then "" else opts.taskwarrior.sync.clientID;
+      sync-enc-sec = if opts.taskwarrior.sync == null then "" else opts.taskwarrior.sync.encryptionSecret;
+    in
     ''
       # THEME
       include ${theme}
@@ -18,9 +24,9 @@ rec {
       hooks.location=${opts.taskwarrior.hooksLocation}
 
       # SYNC SETTINGS
-      sync.server.url=${opts.taskwarrior.sync.serverAddress}
-      sync.server.client_id=${opts.taskwarrior.sync.clientID}
-      sync.encryption_secret=${opts.taskwarrior.sync.encryptionSecret}
+      sync.server.url=${sync-url}
+      sync.server.client_id=${sync-client-id}
+      sync.encryption_secret=${sync-enc-sec}
 
       # COEFFICIENTS
       urgency.due.coefficient=${builtins.toString coefficients.system.due}

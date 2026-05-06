@@ -5,12 +5,12 @@
   ...
 }:
 let
-  themes               = import ./theme.nix;
-  theme                = "${themes.solarized-dark}.theme";
+  themes = import ./theme.nix;
+  theme = "${themes.solarized-dark}.theme";
   taskwarrior-notifier = import ../scripts/taskwarrior-notify.nix { inherit pkgs; };
-  utils                = import ./utils.nix;
-  coefficients         = import ./coefficients;
-  taskConfig           = utils.mkConfig theme opts coefficients;
+  utils = import ./utils.nix;
+  coefficients = import ./coefficients.nix;
+  taskConfig = utils.mkConfig theme opts coefficients;
 in
 {
 
@@ -21,12 +21,13 @@ in
     ];
 
     sessionVariables =
+      with builtins;
       if opts.taskwarrior.sync == null then
         { }
       else
         {
-          TASKWARRIOR_CLIENT_ID = "$(cat ${config.age.secrets.taskwarrior_client_id.path})";
-          TASKWARRIOR_ENCRYPTION_SECRET = "$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})";
+          TASKWARRIOR_CLIENT_ID = "$(cat ${(getAttr "taskwarrior_client_id" config.age.secrets).path})";
+          TASKWARRIOR_ENCRYPTION_SECRET = "$(cat ${(getAttr "taskwarrior_encryption_secret" config.age.secrets).path})";
         };
 
     file = {
@@ -38,10 +39,15 @@ in
     };
   };
 
-  systemd.user.sessionVariables = {
-    TASKWARRIOR_CLIENT_ID = "$(cat ${config.age.secrets.taskwarrior_client_id.path})";
-    TASKWARRIOR_ENCRYPTION_SECRET = "$(cat ${config.age.secrets.taskwarrior_encryption_secret.path})";
-  };
+  systemd.user.sessionVariables =
+    with builtins;
+    if opts.taskwarrior.sync == null then
+      { }
+    else
+      {
+        TASKWARRIOR_CLIENT_ID = "$(cat ${(getAttr config.age.secrets "taskwarrior_client_id").path})";
+        TASKWARRIOR_ENCRYPTION_SECRET = "$(cat ${(getAttr config.age.secrets "taskwarrior_encryption_secret").path})";
+      };
 
   systemd.user = {
     services =
@@ -57,10 +63,17 @@ in
               };
               Service = {
                 Type = "oneshot";
-                EnvironmentFile = config.age.secrets.taskwarrior_env.path;
                 ExecStart = "${pkgs.taskwarrior3}/bin/task sync";
                 RemainAfterExit = true;
-              };
+              }
+              // (
+                if config.age.secrets ? taskwarrior_env then
+                  {
+                    EnvironmentFile = (builtins.getAttr "taskwarrior_env" config.age.secrets).path;
+                  }
+                else
+                  { }
+              );
             };
           }
       )
@@ -72,9 +85,16 @@ in
           };
           Service = {
             Type = "simple";
-            EnvironmentFile = config.age.secrets.taskwarrior_env.path;
             ExecStart = "${taskwarrior-notifier}/bin/taskwarrior-notify-due";
-          };
+          }
+          // (
+            if config.age.secrets ? taskwarrior_env then
+              {
+                EnvironmentFile = (builtins.getAttr "taskwarrior_env" config.age.secrets).path;
+              }
+            else
+              { }
+          );
         };
       };
 
