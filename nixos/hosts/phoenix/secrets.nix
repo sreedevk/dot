@@ -6,7 +6,7 @@ _: with builtins; {
         acc
         // {
           "${elem}" = {
-            file = ../../../secrets/nyc0/${elem}.age;
+            file = ../../../secrets/phoenix/${elem}.age;
           };
         }
       )
