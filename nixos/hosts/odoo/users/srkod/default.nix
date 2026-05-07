@@ -1,7 +1,8 @@
-{ pkgs
-, username
-, opts
-, ...
+{
+  pkgs,
+  username,
+  opts,
+  ...
 }:
 {
   imports = [
@@ -86,6 +87,7 @@
   };
 
   home.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = 1;
     _ZO_EXCLUDE_DIRS = builtins.concatStringsSep ":" [
       "${opts.directories.documents}/*"
       "${opts.directories.finances}/*"
