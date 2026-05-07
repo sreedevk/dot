@@ -45,8 +45,8 @@ in
       { }
     else
       {
-        TASKWARRIOR_CLIENT_ID = "$(cat ${(getAttr config.age.secrets "taskwarrior_client_id").path})";
-        TASKWARRIOR_ENCRYPTION_SECRET = "$(cat ${(getAttr config.age.secrets "taskwarrior_encryption_secret").path})";
+        TASKWARRIOR_CLIENT_ID = "$(cat ${(getAttr "taskwarrior_client_id" config.age.secrets).path})";
+        TASKWARRIOR_ENCRYPTION_SECRET = "$(cat ${(getAttr "taskwarrior_encryption_secret" config.age.secrets).path})";
       };
 
   systemd.user = {
