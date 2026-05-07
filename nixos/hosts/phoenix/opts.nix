@@ -1,9 +1,4 @@
-rec {
-
-  attic = {
-    key = "${hostname}:w+x/V+/LIhE68chagv+fv495NaL1OpYsBKUyZqbm0OE=";
-    url = "https://attic.nullptr.sh/${hostname}";
-  };
+{
 
   hostname      = "phoenix";
   adminUID      = "1000";

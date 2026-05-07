@@ -46,7 +46,6 @@
     ../../../../common/hm/nsxiv.nix
     ../../../../common/hm/obs.nix
     ../../../../common/hm/ocaml.nix
-    ../../../../common/hm/opentabletdriver.nix
     ../../../../common/hm/pamshim.nix
     ../../../../common/hm/pueue.nix
     ../../../../common/hm/radicle
@@ -74,7 +73,7 @@
   targets.genericLinux.nixGL = {
     packages = pkgs.nixgl;
     defaultWrapper = "mesa";
-    offloadWrapper = "nvidia";
+    offloadWrapper = "mesa";
     vulkan.enable = false;
     installScripts = [
       "mesa"
