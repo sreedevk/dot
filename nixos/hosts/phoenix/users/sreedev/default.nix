@@ -75,7 +75,7 @@
     packages = pkgs.nixgl;
     defaultWrapper = "mesa";
     offloadWrapper = "nvidia";
-    vulkan.enable = true;
+    vulkan.enable = false;
     installScripts = [
       "mesa"
       "nvidia"
