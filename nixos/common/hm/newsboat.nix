@@ -5,7 +5,7 @@
 }:
 {
   programs.newsboat = {
-    enable = true;
+    enable = false;
     autoReload = false;
     autoVacuum = {
       enable = true;
