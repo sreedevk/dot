@@ -160,7 +160,7 @@ M.caco_ascii = {
 function M.random()
   math.randomseed(os.time())
 
-  local elements = { M.caco_dark, M.majora, M.lain, M.nvim }
+  local elements = { M.caco_dark, M.lain, M.nvim }
   local random_index = math.random(1, #elements)
   local art = elements[random_index]
 
