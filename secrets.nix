@@ -6,9 +6,12 @@ let
   phoenix     = import ./secrets/phoenix;
   rpi4b       = import ./secrets/rpi4b;
 in
-apollo      // 
-devtechnica // 
-odoo        // 
-orion       // 
-phoenix     //
-rpi4b
+with builtins;
+foldl' (x: y: x // y) { } [
+  apollo
+  devtechnica
+  odoo
+  orion
+  phoenix
+  rpi4b
+]
