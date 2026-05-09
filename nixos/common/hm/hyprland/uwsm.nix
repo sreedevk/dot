@@ -48,6 +48,7 @@ in
       executable = true;
       text = ''
         export EGL_PLATFORM=wayland
+        export __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS=/usr/share/egl/egl_external_platform.d
         export ELECTRON_OZONE_PLATFORM_HINT=auto
         export GBM_BACKEND=nvidia-drm
         export GDK_DPI_SCALE=${opts.desktop.scale}
