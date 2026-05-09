@@ -65,6 +65,7 @@
 
     ../../secrets.nix
     ./modules/packages
+    ./modules/rbw.nix
     ./modules/restic.nix
     ./modules/ssh.nix
 

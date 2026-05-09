@@ -56,6 +56,7 @@
     ./modules/github.nix
     ./modules/librepods.nix
     ./modules/packages
+    ./modules/rbw.nix
     ./modules/ssh.nix
     ./modules/tmux.nix
 
