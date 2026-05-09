@@ -44,7 +44,6 @@
     ../../../../common/hm/vicinae.nix
     ../../../../common/hm/vim.nix
     ../../../../common/hm/xdg.nix
-    ../../../../common/hm/xresources.nix
     ../../../../common/hm/zathura.nix
     ../../../../common/hm/zellij.nix
     ../../../../common/hm/zsh.nix
@@ -52,12 +51,14 @@
     # Current User Specific
 
     ../../secrets.nix
+    ./modules/firefox
     ./modules/git.nix
     ./modules/github.nix
     ./modules/librepods.nix
     ./modules/packages
     ./modules/ssh.nix
     ./modules/tmux.nix
+    ./modules/xresources.nix
 
   ];
 
