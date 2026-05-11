@@ -126,7 +126,6 @@ in
   };
 
   dwindle = {
-    pseudotile = "true";
     preserve_split = "true";
   };
 
@@ -141,8 +140,6 @@ in
     follow_min_visible = "0.4";
     follow_focus = "true";
     direction = "right";
-    # wrap_focus = "false";
-    # wrap_swapcol = "false";
   };
 
   misc = {
@@ -152,7 +149,6 @@ in
     enable_swallow = "true";
     swallow_regex = "^(Alacritty|kitty)$";
     vrr = "0";
-    vfr = "true";
   };
 
   general = {
@@ -455,7 +451,7 @@ in
       {
         rules = [
           "move 73% 72%"
-          "size 25%"
+          "size 25% 75%"
           "float on"
           "pin on"
         ];
