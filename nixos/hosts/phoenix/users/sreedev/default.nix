@@ -78,7 +78,6 @@
     vulkan.enable = false;
     installScripts = [
       "mesa"
-      "nvidia"
     ];
   };
 
