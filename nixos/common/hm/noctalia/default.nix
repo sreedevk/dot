@@ -348,11 +348,11 @@ in
         compactLockScreen = false;
         lockScreenAnimations = true;
         lockOnSuspend = true;
-        lockScreenBlur = 0;
+        lockScreenBlur = 1;
         lockScreenTint = 80;
         showSessionButtonsOnLockScreen = true;
-        showHibernateOnLockScreen = false;
-        enableLockScreenMediaControls = false;
+        showHibernateOnLockScreen = true;
+        enableLockScreenMediaControls = true;
         telemetryEnabled = false;
         enableLockScreenCountdown = true;
         lockScreenCountdownDuration = 10000;
@@ -370,18 +370,11 @@ in
         autoUpdate = false;
       };
       idle = {
-        enabled = false;
+        enabled = true;
         screenOffTimeout = 600;
         lockTimeout = 660;
         suspendTimeout = 1800;
         fadeDuration = 5;
-        screenOffCommand = "";
-        lockCommand = "";
-        suspendCommand = "";
-        resumeScreenOffCommand = "";
-        resumeLockCommand = "";
-        resumeSuspendCommand = "";
-        customCommands = "[]";
       };
       templates = {
         gtk = false;
