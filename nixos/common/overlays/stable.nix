@@ -6,6 +6,7 @@ _: prev: {
     bitwarden-desktop
     claude-code
     feishin
+    neovim
     imager
     jiratui
     zls
