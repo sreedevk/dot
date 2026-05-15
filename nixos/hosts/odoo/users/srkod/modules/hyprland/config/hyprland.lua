@@ -197,7 +197,7 @@ hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 3, bezier = "m
 -- inputs
 hl.config({
   scrolling = {
-    column_width = 0.90,
+    column_width = 1.00,
     direction = "right",
     focus_fit_method = 0,
     follow_focus = true,
