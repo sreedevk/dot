@@ -98,19 +98,6 @@
         '';
       };
 
-      "modprobe.d/droidcam.conf" = {
-        text = ''
-          options v4l2loopback exclusive_caps=1
-        '';
-      };
-
-      "modules-load.d/droidcam.conf" = {
-        text = ''
-          v4l2loopback
-          snd_aloop
-        '';
-      };
-
       "xdg/reflector/reflector.conf" = {
         text = ''
           --save /etc/pacman.d/mirrorlist
