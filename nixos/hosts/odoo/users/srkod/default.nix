@@ -25,7 +25,6 @@
     ../../../../common/hm/ghostty.nix
     ../../../../common/hm/gpg.nix
     ../../../../common/hm/htop.nix
-    ../../../../common/hm/hyprland
     ../../../../common/hm/jujutsu.nix
     ../../../../common/hm/keyboard.nix
     ../../../../common/hm/kitty
@@ -54,6 +53,7 @@
     ../../secrets.nix
     ./modules/git.nix
     ./modules/github.nix
+    ./modules/hyprland
     ./modules/librepods.nix
     ./modules/packages
     ./modules/rbw.nix
@@ -66,7 +66,7 @@
     packages = pkgs.nixgl;
     defaultWrapper = "mesa";
     offloadWrapper = "mesa";
-    vulkan.enable = true;
+    vulkan.enable = false;
     installScripts = [
       "mesa"
     ];
