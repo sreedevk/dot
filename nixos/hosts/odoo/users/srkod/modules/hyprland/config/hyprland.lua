@@ -1,5 +1,7 @@
 local hl = hl
 
+-- XF86Display
+
 -- Monitors
 hl.monitor({
   output = "desc:Lenovo Group Limited MNE007JA1-3",
