@@ -79,6 +79,7 @@
     rpi4b = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAul9ZMOMARHw6iSIFbQKChc/bkFBx5/mZnrer/YsRvV";
     terminus = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKwPdv2zFlfcDbbRvpIYBPh/oRR7MUYjH397Ma+Tu5iB";
     phoenix = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILECZkgjRGtMkXHr44ytGrfpByPZbP2t5WeF6NgetYIO";
+    odoo = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICTsvMJQtvFu3erZ+hAkMrNRsX1B2ZgiV4w34mMUzHt4";
   };
 
   timeZone = "America/New_York";
