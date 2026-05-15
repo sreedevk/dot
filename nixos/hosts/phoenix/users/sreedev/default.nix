@@ -30,7 +30,6 @@
     ../../../../common/hm/github.nix
     ../../../../common/hm/gpg.nix
     ../../../../common/hm/htop.nix
-    ../../../../common/hm/hyprland
     ../../../../common/hm/jujutsu.nix
     ../../../../common/hm/keybase.nix
     ../../../../common/hm/keyboard.nix
@@ -64,6 +63,8 @@
     # Current User Specific
 
     ../../secrets.nix
+    ./modules/hyprland
+    ./modules/niri
     ./modules/packages
     ./modules/rbw.nix
     ./modules/restic.nix

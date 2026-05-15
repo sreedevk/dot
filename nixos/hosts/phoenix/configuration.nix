@@ -1,6 +1,5 @@
 { pkgs
 , opts
-, config
 , ...
 }:
 {
