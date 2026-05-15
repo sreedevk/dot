@@ -62,6 +62,11 @@
 
   ];
 
+  targets.genericLinux.enable = true;
+  targets.genericLinux.gpu = {
+    enable = true;
+  };
+
   home = {
     enableNixpkgsReleaseCheck = false;
     homeDirectory = "/home/${username}";
