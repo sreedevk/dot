@@ -6,6 +6,7 @@
       allowUnfree = true;
       allowUnfreePredicate = _: true;
       allowBroken = true;
+      nvidia.acceptLicense = true;
     };
   };
 }

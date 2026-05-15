@@ -37,11 +37,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixgl = {
-      url                    = "github:sreedevk/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url                    = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

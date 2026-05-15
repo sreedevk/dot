@@ -2,7 +2,7 @@ local hl = hl
 
 -- Monitors
 hl.monitor({
-  output = "Samsung Display Corp. 0x4177",
+  output = "desc:Samsung Display Corp. 0x4177",
   mode = "3840x2400@60",
   position = "0x0",
   scale = 2,

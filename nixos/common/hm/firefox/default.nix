@@ -1,7 +1,8 @@
-{ pkgs
-, config
-, system
-, ...
+{
+  pkgs,
+  config,
+  system,
+  ...
 }:
 let
   addons = import ./addons.nix { inherit pkgs system; };
@@ -14,7 +15,7 @@ in
   programs.firefox = {
     enable = true;
     configPath = "${config.xdg.configHome}/mozilla/firefox";
-    package = config.lib.nixGL.wrapOffload pkgs.firefox-bin;
+    package = pkgs.firefox-bin;
     profiles = {
 
       main = {

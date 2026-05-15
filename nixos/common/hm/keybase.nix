@@ -1,12 +1,12 @@
-{ pkgs
-, config
-, ...
+{
+  pkgs,
+  ...
 }:
 {
 
   home.packages = with pkgs; [
     keybase
-    (config.lib.nixGL.wrapOffload pkgs.keybase-gui)
+    keybase-gui
   ];
 
   services.keybase.enable = true;

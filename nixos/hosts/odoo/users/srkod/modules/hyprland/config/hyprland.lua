@@ -243,10 +243,6 @@ hl.config({
 })
 
 -- rules
------------------------
----- LAYER RULES ----
------------------------
-
 hl.layer_rule({
   name = "vicinae-layer",
   match = { namespace = "vicinae" },

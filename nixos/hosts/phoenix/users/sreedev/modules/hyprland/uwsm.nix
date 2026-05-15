@@ -49,9 +49,9 @@ in
       executable = true;
       text = ''
         export EGL_PLATFORM=wayland
-        export __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS=/usr/share/egl/egl_external_platform.d
+        # export __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS=/usr/share/egl/egl_external_platform.d
         export ELECTRON_OZONE_PLATFORM_HINT=auto
-        export GBM_BACKEND=nvidia-drm
+        export GBM_BACKENDS_PATH = "/run/opengl-driver/lib/gbm";
         export GDK_DPI_SCALE=${opts.desktop.scale}
         export GDK_SCALE=${opts.desktop.scale}
         export GTK_THEME=Adwaita:dark
@@ -70,6 +70,7 @@ in
         export XDG_SESSION_DESKTOP=Hyprland
         export XDG_SESSION_TYPE=wayland
         export __GLX_VENDOR_LIBRARY_NAME=nvidia
+        export NVD_BACKEND=direct
         export __GL_GSYNC_ALLOWED=1
         export __GL_VRR_ALLOWED=1
         export __NV_PRIME_RENDER_OFFLOAD=1

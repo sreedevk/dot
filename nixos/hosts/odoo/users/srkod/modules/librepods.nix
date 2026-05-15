@@ -8,7 +8,7 @@
     librepods = {
       name = "LibrePods";
       type = "Application";
-      exec = "${config.lib.nixGL.wrapOffload pkgs.librepods}/bin/librepods";
+      exec = "${pkgs.librepods}/bin/librepods";
       comment = "librepods";
       icon = "librepods";
       terminal = false;

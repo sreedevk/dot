@@ -20,7 +20,7 @@ in
 
   programs.noctalia-shell = {
     enable = true;
-    package = config.lib.nixGL.wrapOffload (config.lib.pamShim.replacePam pkgs.noctalia);
+    package = config.lib.pamShim.replacePam pkgs.noctalia;
     systemd.enable = false;
     plugins = {
       sources = [

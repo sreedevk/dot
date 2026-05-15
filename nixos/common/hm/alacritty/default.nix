@@ -125,7 +125,7 @@ in
 {
   programs.alacritty = {
     enable = true;
-    package = config.lib.nixGL.wrapOffload pkgs.alacritty;
+    package = pkgs.alacritty;
     settings = pkgs.lib.attrsets.recursiveUpdate settings theme;
   };
 }

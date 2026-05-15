@@ -1,8 +1,8 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   programs.btop = {
     enable = true;
-    package = config.lib.nixGL.wrapOffload pkgs.btop;
+    package = pkgs.btop;
     settings = {
       color_theme = "tty";
       truecolor = true;

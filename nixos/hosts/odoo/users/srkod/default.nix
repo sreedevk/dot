@@ -62,16 +62,6 @@
 
   ];
 
-  targets.genericLinux.nixGL = {
-    packages = pkgs.nixgl;
-    defaultWrapper = "mesa";
-    offloadWrapper = "mesa";
-    vulkan.enable = false;
-    installScripts = [
-      "mesa"
-    ];
-  };
-
   home = {
     enableNixpkgsReleaseCheck = false;
     homeDirectory = "/home/${username}";

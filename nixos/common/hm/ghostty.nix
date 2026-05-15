@@ -1,8 +1,8 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   programs.ghostty = {
     enable = true;
-    package = config.lib.nixGL.wrapOffload pkgs.ghostty;
+    package = pkgs.ghostty;
     clearDefaultKeybinds = true;
     settings = {
       background-blur = 30;

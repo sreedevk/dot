@@ -1,6 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
-  home.packages = [
-    (config.lib.nixGL.wrapOffload pkgs.nvtopPackages.full)
-  ];
+  home.packages = [ pkgs.nvtopPackages.full ];
 }

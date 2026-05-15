@@ -35,7 +35,7 @@
 
   programs.niri = {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.niri;
+    package = pkgs.niri;
     settings = {
       environment = {
         AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";

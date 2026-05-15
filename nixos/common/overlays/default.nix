@@ -1,9 +1,7 @@
 { inputs, opts, ... }:
 [
-  inputs.nixgl.overlay
   inputs.nur.overlays.default
   inputs.niri.overlays.niri
-  (import ./nvidia.nix       { inherit inputs opts; })
   (import ./agenix.nix       { inherit inputs opts; })
   (import ./stable.nix       { inherit inputs opts; })
   (import ./colmena.nix      { inherit inputs opts; })

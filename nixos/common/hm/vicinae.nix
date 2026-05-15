@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.vicinae = {
-    package = config.lib.nixGL.wrapOffload pkgs.vicinae;
+    package = pkgs.vicinae;
     enable = true;
     systemd = {
       enable = true;

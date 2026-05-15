@@ -1,20 +1,12 @@
-{ pkgs, config, ... }:
-let
-  nixgl-brave-pkg = config.lib.nixGL.wrapOffload pkgs.brave;
-in
+{ pkgs, ... }:
 {
-  home.packages = [ nixgl-brave-pkg ];
+  home.packages = [ pkgs.brave ];
   xdg.desktopEntries = {
     brave-browser = {
       name = "Brave";
       icon = "brave-browser";
       genericName = "Web Browser";
-      exec =
-        if config.targets.genericLinux.nixGL.offloadWrapper == "nvidia" then
-          "env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia ${nixgl-brave-pkg}/bin/brave %U"
-        else
-          "${nixgl-brave-pkg}/bin/brave %U";
-
+      exec = "${pkgs.brave}/bin/brave %U";
       comment = "Access the Internet";
       mimeType = [
         "application/pdf"

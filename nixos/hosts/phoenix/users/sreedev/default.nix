@@ -72,14 +72,14 @@
 
   ];
 
-  targets.genericLinux.nixGL = {
-    packages = pkgs.nixgl;
-    defaultWrapper = "mesa";
-    offloadWrapper = "mesa";
-    vulkan.enable = false;
-    installScripts = [
-      "mesa"
-    ];
+  targets.genericLinux.enable = true;
+  targets.genericLinux.gpu = {
+    enable = true;
+    nvidia = {
+      enable = true;
+      version = "595.71.05";
+      sha256 = "sha256-NiA7iWC35JyKQva6H1hjzeNKBek9KyS3mK8G3YRva4I=";
+    };
   };
 
   home = {

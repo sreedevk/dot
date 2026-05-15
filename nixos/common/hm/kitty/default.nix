@@ -1,7 +1,4 @@
-{ pkgs
-, config
-, ...
-}:
+{ pkgs, ... }:
 {
 
   imports = [
@@ -11,7 +8,7 @@
 
   programs.kitty = {
     enable = true;
-    package = config.lib.nixGL.wrapOffload pkgs.kitty;
+    package = pkgs.kitty;
     quickAccessTerminalConfig = {
       start_as_hidden = false;
       hide_on_focus_loss = false;
