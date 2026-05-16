@@ -20,7 +20,7 @@ in
       target = ".profile";
       executable = true;
       text = ''
-        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+        export XDG_DATA_DIRS="${config.home.profileDirectory}/share:/usr/local/share:/usr/share"
 
         if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
           . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
@@ -64,7 +64,7 @@ in
         export WINIT_X11_SCALE_FACTOR=${opts.desktop.scale}
         export XCURSOR_SIZE=28
         export XDG_CURRENT_DESKTOP=niri
-        export XDG_DATA_DIRS=$HOME/.nix-profile/share:$XDG_DATA_DIRS
+        export XDG_DATA_DIRS="${config.home.profileDirectory}/share:/usr/local/share:/usr/share"
         export XDG_SESSION_DESKTOP=niri
         export XDG_SESSION_TYPE=wayland
         export __GLX_VENDOR_LIBRARY_NAME=nvidia
@@ -111,33 +111,6 @@ in
       debug = {
         render-drm-device = "/dev/dri/renderD128";
       };
-      environment = {
-        AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
-        EGL_PLATFORM = "wayland";
-        ELECTRON_OZONE_PLATFORM_HINT = "auto";
-        GBM_BACKEND = "nvidia-drm";
-        GDK_DPI_SCALE = "${opts.desktop.scale}";
-        GDK_SCALE = "${opts.desktop.scale}";
-        GTK_THEME = "Adwaita:dark";
-        LIBVA_DRIVER_NAME = "nvidia";
-        MOZ_ENABLE_WAYLAND = "1";
-        QT_AUTO_SCREEN_SCALE_FACTOR = "${opts.desktop.scale}";
-        QT_QPA_PLATFORM = "wayland";
-        QT_SCALE_FACTOR = "${opts.desktop.qt_scale_factor}";
-        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-        WINIT_X11_SCALE_FACTOR = "${opts.desktop.scale}";
-        XCURSOR_SIZE = "28";
-        XDG_CURRENT_DESKTOP = "niri";
-        XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
-        XDG_SESSION_DESKTOP = "niri";
-        XDG_SESSION_TYPE = "wayland";
-        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-        __GL_GSYNC_ALLOWED = "1";
-        __GL_VRR_ALLOWED = "1";
-        __NV_PRIME_RENDER_OFFLOAD = "1";
-        __VK_LAYER_NV_optimus = "NVIDIA_only";
-      };
-
       layout = {
         default-column-width = {
           proportion = 1.0;

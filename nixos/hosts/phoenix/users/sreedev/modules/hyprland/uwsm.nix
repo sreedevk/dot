@@ -1,8 +1,4 @@
-{
-  pkgs,
-  opts,
-  ...
-}:
+{ pkgs, opts, config, ... }:
 let
   hyprlaunch = pkgs.writeShellScriptBin "hyprlaunch" ''
     if uwsm check may-start; then
@@ -21,7 +17,7 @@ in
       target = ".profile";
       executable = true;
       text = ''
-        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+        export XDG_DATA_DIRS="${config.home.profileDirectory}/share:/usr/local/share:/usr/share"
 
         if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
           . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
@@ -66,7 +62,7 @@ in
         export WINIT_X11_SCALE_FACTOR=${opts.desktop.scale}
         export XCURSOR_SIZE=28
         export XDG_CURRENT_DESKTOP=Hyprland
-        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+        export XDG_DATA_DIRS="${config.home.profileDirectory}/share:/usr/local/share:/usr/share"
         export XDG_SESSION_DESKTOP=Hyprland
         export XDG_SESSION_TYPE=wayland
         export __GLX_VENDOR_LIBRARY_NAME=nvidia
