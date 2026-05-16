@@ -10,26 +10,6 @@
     xwayland-satellite
   ];
 
-  home.file = {
-    ".profile" = {
-      enable = true;
-      recursive = false;
-      target = ".profile";
-      executable = true;
-      text = ''
-        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
-
-        if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
-          . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-        fi
-
-        if uwsm check may-start > /dev/null 2>&1; then
-          exec uwsm start hyprland-uwsm.desktop
-        fi
-      '';
-    };
-  };
-
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
