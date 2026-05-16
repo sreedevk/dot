@@ -4,7 +4,74 @@
   config,
   ...
 }:
+let
+  niri = pkgs.lib.getExe (
+    pkgs.writeShellScriptBin "niri-instance" ''
+      ${pkgs.niri}/bin/niri --session
+    ''
+  );
+in
 {
+  home.file = {
+    ".profile" = {
+      enable = true;
+      recursive = false;
+      target = ".profile";
+      executable = true;
+      text = ''
+        export XDG_DATA_DIRS="${config.home.profileDirectory}/share:/usr/local/share:/usr/share"
+
+        if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+          . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+        fi
+
+        if uwsm check may-start > /dev/null 2>&1; then
+          exec uwsm start ${niri}
+        fi
+      '';
+    };
+
+    ".config/uwsm/env-niri" = {
+      enable = true;
+      executable = true;
+      text = ''
+        # HYPR* and AQ_* variables
+      '';
+    };
+
+    ".config/uwsm/env" = {
+      enable = true;
+      executable = true;
+      text = ''
+        export QT_STYLE_OVERRIDE=Fusion
+        export EGL_PLATFORM=wayland
+        export NVD_BACKEND=direct
+        export QT_QPA_PLATFORMTHEME=
+        export __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS=/usr/share/egl/egl_external_platform.d
+        export __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/10_nvidia.json
+        export VK_DRIVER_FILES=/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json
+        export LD_LIBRARY_PATH="/run/opengl-driver/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+        export GBM_BACKENDS_PATH=/run/opengl-driver/lib/gbm
+        export ELECTRON_OZONE_PLATFORM_HINT=auto
+        export GBM_BACKEND=nvidia-drm
+        export GDK_DPI_SCALE=${opts.desktop.scale}
+        export GDK_SCALE=${opts.desktop.scale}
+        export GTK_THEME=Adwaita:dark
+        export LIBVA_DRIVER_NAME=nvidia
+        export MOZ_ENABLE_WAYLAND=1
+        export QT_AUTO_SCREEN_SCALE_FACTOR=${opts.desktop.scale}
+        export QT_QPA_PLATFORM=wayland
+        export QT_SCALE_FACTOR=${opts.desktop.qt_scale_factor}
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+        export WINIT_X11_SCALE_FACTOR=${opts.desktop.scale}
+        export XCURSOR_SIZE=28
+        export XDG_CURRENT_DESKTOP=niri
+        export XDG_DATA_DIRS="${config.home.profileDirectory}/share:/usr/local/share:/usr/share"
+        export XDG_SESSION_DESKTOP=niri
+        export XDG_SESSION_TYPE=wayland
+      '';
+    };
+  };
 
   home.packages = with pkgs; [
     xwayland-satellite
