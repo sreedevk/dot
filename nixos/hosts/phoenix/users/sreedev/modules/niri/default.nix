@@ -49,6 +49,9 @@ in
         export NVD_BACKEND=direct
         export QT_QPA_PLATFORMTHEME=
         export __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS=/usr/share/egl/egl_external_platform.d
+        export __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/10_nvidia.json
+        export VK_DRIVER_FILES=/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json
+        export LD_LIBRARY_PATH="/run/opengl-driver/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
         export GBM_BACKENDS_PATH=/run/opengl-driver/lib/gbm
         export ELECTRON_OZONE_PLATFORM_HINT=auto
         export GBM_BACKEND=nvidia-drm
@@ -67,11 +70,6 @@ in
         export XDG_DATA_DIRS="${config.home.profileDirectory}/share:/usr/local/share:/usr/share"
         export XDG_SESSION_DESKTOP=niri
         export XDG_SESSION_TYPE=wayland
-        export __GLX_VENDOR_LIBRARY_NAME=nvidia
-        export __GL_GSYNC_ALLOWED=1
-        export __GL_VRR_ALLOWED=1
-        export __NV_PRIME_RENDER_OFFLOAD=1
-        export __VK_LAYER_NV_optimus=NVIDIA_only
       '';
     };
   };
@@ -131,7 +129,7 @@ in
       input.tablet = {
         enable = true;
         left-handed = true;
-        map-to-output = "DP-2";
+        map-to-output = "eDP-1";
       };
 
       spawn-at-startup = [
