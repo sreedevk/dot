@@ -108,6 +108,9 @@ in
     enable = true;
     package = pkgs.niri;
     settings = {
+      debug = {
+        render-drm-device = "/dev/dri/renderD128";
+      };
       environment = {
         AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
         EGL_PLATFORM = "wayland";
