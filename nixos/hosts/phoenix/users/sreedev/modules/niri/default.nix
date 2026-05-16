@@ -162,56 +162,14 @@ in
       };
 
       spawn-at-startup = [
-        { sh = "echo $NIRI_SOCKET > ~/.niri-socket"; }
-        {
-          argv = [
-            "dbus-update-activation-environment"
-            "--systemd"
-            "--all"
-          ];
-        }
-        {
-          argv = [
-            "systemctl"
-            "--systemd"
-            "--all"
-          ];
-        }
-        {
-          argv = [
-            "wl-paste"
-            "--type"
-            "image"
-            "--watch"
-            "cliphist"
-            "store"
-          ];
-        }
-        {
-          argv = [
-            "wl-paste"
-            "--type"
-            "text"
-            "--watch"
-            "cliphist"
-            "store"
-          ];
-        }
-        {
-          argv = [
-            "wlsunset"
-            "-l"
-            "40.7"
-            "-L"
-            "-73.9"
-          ];
-        }
-        {
-          argv = [
-            "xrdb"
-            "~/.Xresources"
-          ];
-        }
+        { sh = "echo $NIRI_SOCKET > ~/.niri-socket";                 }
+        { sh = "dbus-update-activation-environment --systemd --all"; }
+        { sh = "systemctl --user start hyprpolkitagent"; }
+        { sh = "clipse -listen";                          }
+        { sh = "wl-paste --type image --watch cliphist store";       }
+        { sh = "wl-paste --type text --watch cliphist store";        }
+        { sh = "wlsunset -l 40.7 -L -73.9";                          }
+        { sh = "xrdb ~/.Xresources";                                 }
       ];
 
       window-rules = [
@@ -295,7 +253,7 @@ in
           "Mod+Ctrl+H".action = set-column-width "-10%";
           "Mod+Ctrl+L".action = set-column-width "+10%";
 
-          "Mod+Shift+E".action = quit { skip-confirmation = true; };
+          "Mod+Shift+E".action = spawn "uwsm" "stop";
 
           "Mod+Shift+J".action = move-window-to-workspace-down { focus = true; };
           "Mod+Shift+K".action = move-window-to-workspace-up { focus = true; };
