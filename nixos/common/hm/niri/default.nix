@@ -1,9 +1,78 @@
-{ pkgs
-, opts
-, config
-, ...
-}:
 {
+  pkgs,
+  opts,
+  config,
+  ...
+}:
+let
+  niri = pkgs.lib.getExe (pkgs.writeShellScriptBin "niri-instance" ''
+    ${pkgs.niri}/bin/niri --session
+  '');
+in
+{
+
+  home.file = {
+    ".profile" = {
+      enable = true;
+      recursive = false;
+      target = ".profile";
+      executable = true;
+      text = ''
+        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+
+        if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+          . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+        fi
+
+        if uwsm check may-start > /dev/null 2>&1; then
+          exec uwsm start ${niri}
+        fi
+      '';
+    };
+
+    ".config/uwsm/env-niri" = {
+      enable = true;
+      executable = true;
+      text = ''
+        # HYPR* and AQ_* variables
+      '';
+    };
+
+    ".config/uwsm/env" = {
+      enable = true;
+      executable = true;
+      text = ''
+        export QT_STYLE_OVERRIDE=Fusion
+        export EGL_PLATFORM=wayland
+        export NVD_BACKEND=direct
+        export QT_QPA_PLATFORMTHEME=
+        export __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS=/usr/share/egl/egl_external_platform.d
+        export GBM_BACKENDS_PATH=/run/opengl-driver/lib/gbm
+        export ELECTRON_OZONE_PLATFORM_HINT=auto
+        export GBM_BACKEND=nvidia-drm
+        export GDK_DPI_SCALE=${opts.desktop.scale}
+        export GDK_SCALE=${opts.desktop.scale}
+        export GTK_THEME=Adwaita:dark
+        export LIBVA_DRIVER_NAME=nvidia
+        export MOZ_ENABLE_WAYLAND=1
+        export QT_AUTO_SCREEN_SCALE_FACTOR=${opts.desktop.scale}
+        export QT_QPA_PLATFORM=wayland
+        export QT_SCALE_FACTOR=${opts.desktop.qt_scale_factor}
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+        export WINIT_X11_SCALE_FACTOR=${opts.desktop.scale}
+        export XCURSOR_SIZE=28
+        export XDG_CURRENT_DESKTOP=niri
+        export XDG_DATA_DIRS=$HOME/.nix-profile/share:$XDG_DATA_DIRS
+        export XDG_SESSION_DESKTOP=niri
+        export XDG_SESSION_TYPE=wayland
+        export __GLX_VENDOR_LIBRARY_NAME=nvidia
+        export __GL_GSYNC_ALLOWED=1
+        export __GL_VRR_ALLOWED=1
+        export __NV_PRIME_RENDER_OFFLOAD=1
+        export __VK_LAYER_NV_optimus=NVIDIA_only
+      '';
+    };
+  };
 
   home.packages = with pkgs; [
     xwayland-satellite
@@ -37,33 +106,6 @@
     enable = true;
     package = pkgs.niri;
     settings = {
-      environment = {
-        AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
-        EGL_PLATFORM = "wayland";
-        ELECTRON_OZONE_PLATFORM_HINT = "auto";
-        GBM_BACKEND = "nvidia-drm";
-        GDK_DPI_SCALE = "${opts.desktop.scale}";
-        GDK_SCALE = "${opts.desktop.scale}";
-        GTK_THEME = "Adwaita:dark";
-        LIBVA_DRIVER_NAME = "nvidia";
-        MOZ_ENABLE_WAYLAND = "1";
-        QT_AUTO_SCREEN_SCALE_FACTOR = "${opts.desktop.scale}";
-        QT_QPA_PLATFORM = "wayland";
-        QT_SCALE_FACTOR = "${opts.desktop.qt_scale_factor}";
-        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-        WINIT_X11_SCALE_FACTOR = "${opts.desktop.scale}";
-        XCURSOR_SIZE = "28";
-        XDG_CURRENT_DESKTOP = "niri";
-        XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
-        XDG_SESSION_DESKTOP = "niri";
-        XDG_SESSION_TYPE = "wayland";
-        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-        __GL_GSYNC_ALLOWED = "1";
-        __GL_VRR_ALLOWED = "1";
-        __NV_PRIME_RENDER_OFFLOAD = "1";
-        __VK_LAYER_NV_optimus = "NVIDIA_only";
-      };
-
       layout = {
         default-column-width = {
           proportion = 1.0;
@@ -89,12 +131,55 @@
 
       spawn-at-startup = [
         { sh = "echo $NIRI_SOCKET > ~/.niri-socket"; }
-        { argv = [ "dbus-update-activation-environment" "--systemd" "--all" ]; }
-        { argv = [ "systemctl" "--systemd" "--all" ]; }
-        { argv = [ "wl-paste" "--type" "image" "--watch" "cliphist" "store" ]; }
-        { argv = [ "wl-paste" "--type" "text" "--watch" "cliphist" "store" ]; }
-        { argv = [ "wlsunset" "-l" "40.7" "-L" "-73.9" ]; }
-        { argv = [ "xrdb" "~/.Xresources" ]; }
+        {
+          argv = [
+            "dbus-update-activation-environment"
+            "--systemd"
+            "--all"
+          ];
+        }
+        {
+          argv = [
+            "systemctl"
+            "--systemd"
+            "--all"
+          ];
+        }
+        {
+          argv = [
+            "wl-paste"
+            "--type"
+            "image"
+            "--watch"
+            "cliphist"
+            "store"
+          ];
+        }
+        {
+          argv = [
+            "wl-paste"
+            "--type"
+            "text"
+            "--watch"
+            "cliphist"
+            "store"
+          ];
+        }
+        {
+          argv = [
+            "wlsunset"
+            "-l"
+            "40.7"
+            "-L"
+            "-73.9"
+          ];
+        }
+        {
+          argv = [
+            "xrdb"
+            "~/.Xresources"
+          ];
+        }
       ];
 
       window-rules = [
@@ -115,21 +200,6 @@
       ];
 
       outputs = {
-        "DP-3" = {
-          enable = true;
-          name = "XEC ES-24X3A 0x00000022";
-          position = {
-            x = 0;
-            y = 0;
-          };
-          scale = 1;
-          variable-refresh-rate = "on-demand";
-          mode = {
-            width = 1920;
-            height = 1080;
-            refresh = 100.0;
-          };
-        };
         "eDP-1" = {
           enable = true;
           name = "AU Optronics 0xF99A";
@@ -142,21 +212,6 @@
           mode = {
             width = 1920;
             height = 1200;
-            refresh = 60.0;
-          };
-        };
-        "DP-2" = {
-          enable = true;
-          name = "LG Electronics LG Ultra HD 0x00073F78";
-          position = {
-            x = 1920;
-            y = 0;
-          };
-          scale = 1.6;
-          variable-refresh-rate = "on-demand";
-          mode = {
-            width = 3840;
-            height = 2160;
             refresh = 60.0;
           };
         };

@@ -1,13 +1,34 @@
-{ pkgs
-, opts
-, config
-, ...
+{
+  pkgs,
+  opts,
+  config,
+  ...
 }:
 {
 
   home.packages = with pkgs; [
     xwayland-satellite
   ];
+
+  home.file = {
+    ".profile" = {
+      enable = true;
+      recursive = false;
+      target = ".profile";
+      executable = true;
+      text = ''
+        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+
+        if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+          . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+        fi
+
+        if uwsm check may-start > /dev/null 2>&1; then
+          exec uwsm start hyprland-uwsm.desktop
+        fi
+      '';
+    };
+  };
 
   xdg.portal = {
     enable = true;
@@ -89,12 +110,55 @@
 
       spawn-at-startup = [
         { sh = "echo $NIRI_SOCKET > ~/.niri-socket"; }
-        { argv = [ "dbus-update-activation-environment" "--systemd" "--all" ]; }
-        { argv = [ "systemctl" "--systemd" "--all" ]; }
-        { argv = [ "wl-paste" "--type" "image" "--watch" "cliphist" "store" ]; }
-        { argv = [ "wl-paste" "--type" "text" "--watch" "cliphist" "store" ]; }
-        { argv = [ "wlsunset" "-l" "40.7" "-L" "-73.9" ]; }
-        { argv = [ "xrdb" "~/.Xresources" ]; }
+        {
+          argv = [
+            "dbus-update-activation-environment"
+            "--systemd"
+            "--all"
+          ];
+        }
+        {
+          argv = [
+            "systemctl"
+            "--systemd"
+            "--all"
+          ];
+        }
+        {
+          argv = [
+            "wl-paste"
+            "--type"
+            "image"
+            "--watch"
+            "cliphist"
+            "store"
+          ];
+        }
+        {
+          argv = [
+            "wl-paste"
+            "--type"
+            "text"
+            "--watch"
+            "cliphist"
+            "store"
+          ];
+        }
+        {
+          argv = [
+            "wlsunset"
+            "-l"
+            "40.7"
+            "-L"
+            "-73.9"
+          ];
+        }
+        {
+          argv = [
+            "xrdb"
+            "~/.Xresources"
+          ];
+        }
       ];
 
       window-rules = [

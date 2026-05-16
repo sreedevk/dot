@@ -6,7 +6,7 @@
       name = "Brave";
       icon = "brave-browser";
       genericName = "Web Browser";
-      exec = "${pkgs.brave}/bin/brave %U";
+      exec = "env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only ${pkgs.brave}/bin/brave %U";
       comment = "Access the Internet";
       mimeType = [
         "application/pdf"
