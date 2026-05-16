@@ -186,45 +186,45 @@ in
           sh = spawn "sh" "-c";
         in
         {
-          XF86AudioLowerVolume.action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-";
-          XF86AudioMicMute.action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
-          XF86AudioMute.action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
-          XF86AudioNext.action = spawn "${pkgs.playerctl}/bin/playerctl" "next";
-          XF86AudioPause.action = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
-          XF86AudioPlay.action = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
-          XF86AudioPrev.action = spawn "${pkgs.playerctl}/bin/playerctl" "previous";
-          XF86AudioRaiseVolume.action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";
-
+          XF86AudioLowerVolume.action  = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-";
+          XF86AudioMicMute.action      = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+          XF86AudioMute.action         = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
+          XF86AudioNext.action         = spawn "${pkgs.playerctl}/bin/playerctl" "next";
+          XF86AudioPause.action        = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
+          XF86AudioPlay.action         = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
+          XF86AudioPrev.action         = spawn "${pkgs.playerctl}/bin/playerctl" "previous";
+          XF86AudioRaiseVolume.action  = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";
           XF86MonBrightnessDown.action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%-";
-          XF86MonBrightnessUp.action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%+";
+          XF86MonBrightnessUp.action   = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%+";
 
-          "Ctrl+Space".action = spawn "noctalia" "ipc" "call" "notifications" "dismissAll";
+          "Ctrl+Space".action                = spawn "noctalia" "ipc" "call" "notifications" "dismissAll";
           "Ctrl+XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%-";
-          "Ctrl+XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+          "Ctrl+XF86AudioMute".action        = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
           "Ctrl+XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%+";
 
-          "Mod+H".action = focus-column-or-monitor-left;
-          "Mod+L".action = focus-column-or-monitor-right;
+          "Mod+H".action       = focus-column-or-monitor-left;
+          "Mod+L".action       = focus-column-or-monitor-right;
 
           "Mod+Shift+H".action = move-column-left-or-to-monitor-left;
           "Mod+Shift+L".action = move-column-right-or-to-monitor-right;
 
-          "Mod+K".action = focus-workspace-up;
-          "Mod+J".action = focus-workspace-down;
+          "Mod+K".action       = focus-workspace-up;
+          "Mod+J".action       = focus-workspace-down;
 
-          "Mod+1".action = focus-column 1;
-          "Mod+2".action = focus-column 2;
-          "Mod+3".action = focus-column 3;
-          "Mod+4".action = focus-column 4;
-          "Mod+5".action = focus-column 5;
-          "Mod+6".action = focus-column 6;
-          "Mod+7".action = focus-column 7;
-          "Mod+8".action = focus-column 8;
-          "Mod+9".action = focus-column 9;
-          "Mod+0".action = focus-column 10;
+          "Mod+1".action.focus-workspace = 1;
+          "Mod+2".action.focus-workspace = 2;
+          "Mod+3".action.focus-workspace = 3;
+          "Mod+4".action.focus-workspace = 4;
+          "Mod+5".action.focus-workspace = 5;
+          "Mod+6".action.focus-workspace = 6;
+          "Mod+7".action.focus-workspace = 7;
+          "Mod+8".action.focus-workspace = 8;
+          "Mod+9".action.focus-workspace = 9;
+          "Mod+0".action.focus-workspace = 10;
 
-          "Mod+Ctrl+H".action = set-column-width "-10%";
-          "Mod+Ctrl+L".action = set-column-width "+10%";
+
+          "Mod+bracketleft".action = set-column-width "-10%";
+          "Mod+bracketright".action = set-column-width "+10%";
 
           "Mod+Shift+E".action = spawn "uwsm" "stop";
 
@@ -245,14 +245,12 @@ in
           "Mod+S".action = spawn "noctalia" "ipc" "call" "settings" "toggle";
           "Mod+W".action = spawn "noctalia" "ipc" "call" "wallpaper" "toggle";
           "Mod+O".action = toggle-overview;
-          "Mod+Return".action = spawn "${pkgs.kitty}/bin/kitty";
-          "Mod+Shift+Return".action =
-            spawn "${config.programs.kitty.package}/bin/kitty ${pkgs.tmux}/bin/tmux new -A -s system";
-          "Mod+KP_Enter".action = spawn "${config.programs.kitty.package}/bin/kitty";
+          "Mod+Shift+Return".action = spawn "${pkgs.kitty}/bin/kitty";
+          "Mod+Return".action = spawn "${config.programs.kitty.package}/bin/kitty" "${pkgs.tmux}/bin/tmux" "new" "-A" "-s" "system";
+          "Mod+KP_Enter".action = spawn "${config.programs.kitty.package}/bin/kitty" "${pkgs.tmux}/bin/tmux" "new" "-A" "-s" "system";
           "Mod+XF86AudioLowerVolume".action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%-";
           "Mod+XF86AudioRaiseVolume".action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%+";
-          "Mod+Shift+S".action = sh ''
-            ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | wl-copy
+          "Mod+Shift+S".action = sh '' ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | wl-copy
           '';
         };
     };

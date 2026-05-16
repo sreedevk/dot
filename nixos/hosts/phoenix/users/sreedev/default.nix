@@ -63,8 +63,8 @@
     # Current User Specific
 
     ../../secrets.nix
-    ./modules/hyprland
-    # ./modules/niri
+    # ./modules/hyprland
+    ./modules/niri
     ./modules/packages
     ./modules/rbw.nix
     ./modules/restic.nix
