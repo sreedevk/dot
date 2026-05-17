@@ -35,7 +35,7 @@ export MANROFFOPT="-c"
 export MANPAGER="nvim +Man!"
 export MANPATH="$HOME/.nix-profile/share/man:/usr/share/man:/usr/local/share/man:${MANPATH}"
 export LANG="en_US.UTF-8"
-export TZ='America/New_York'
+export TZ='Europe/Brussels'
 export WORDCHARS=${WORDCHARS/\/}
 export CLICOLOR=1
 

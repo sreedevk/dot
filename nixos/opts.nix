@@ -82,6 +82,6 @@
     odoo = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICTsvMJQtvFu3erZ+hAkMrNRsX1B2ZgiV4w34mMUzHt4";
   };
 
-  timeZone = "America/New_York";
+  timeZone = "Europe/Brussels";
   nvidiaVersion = "";
 }

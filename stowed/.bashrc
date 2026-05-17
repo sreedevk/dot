@@ -24,7 +24,7 @@ export TERMINFO="/usr/share/terminfo/"
 export MANROFFOPT="-c"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export LANG="en_US.UTF-8"
-export TZ='America/New_York'
+export TZ='Europe/Brussels'
 export WORDCHARS=${WORDCHARS/\/}
 
 if [ -z "$TMUX" ]; then
