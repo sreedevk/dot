@@ -104,6 +104,7 @@
       uiua                     # array oriented programming language
       uv                       # python package manager
       visidata                 # terminal multitool for tabular data
+      watchexec                # watchexec
       wiremix                  # tui for pipewire audio control
       woodpecker-cli           # woodpecker CI CLI
       yt-dlp                   # youtube downloader
