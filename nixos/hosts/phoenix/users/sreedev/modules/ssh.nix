@@ -35,7 +35,7 @@
       LogLevel = "ERROR";
     };
 
-    matchBlocks = {
+    settings = {
       "*" = {
         userKnownHostsFile = "/dev/null";
       };
