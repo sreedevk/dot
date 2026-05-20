@@ -14,11 +14,5 @@ _: with builtins; {
       [
         "gh_token"
         "ghcr_ro_token"
-        # "restic_backup_password"
-        # "taskwarrior_client_id"
-        # "taskwarrior_encryption_secret"
-        # "vpn-acc"
-        # "vpn-loc"
-        # "wallhaven-token"
       ];
 }
