@@ -5,8 +5,8 @@
     scale = "1";
     qt_scale_factor = "1";
     browser = {
-      bin = "firefox";
-      xdg-desktop = "firefox.desktop";
+      bin = "brave";
+      xdg-desktop = "brave-browser.desktop";
     };
   };
 
