@@ -1213,16 +1213,16 @@
         "systems": "systems_6"
       },
       "locked": {
-        "lastModified": 1779633919,
-        "narHash": "sha256-6YbH3bbTHDIBTNcWzmRU1nCZPszKHZoOf5Z0uhoqJpI=",
+        "lastModified": 1779830962,
+        "narHash": "sha256-6+pS1QXOJsXDcmmRgnmMWxYY2Qgw7d/++KhnacNlZy8=",
         "owner": "vicinaehq",
         "repo": "vicinae",
-        "rev": "f5b92cc74fea81729f5b62c58521a69aca62a0f9",
+        "rev": "7745e8ed852596a41f4c80756c7cd0a0beeca162",
         "type": "github"
       },
       "original": {
         "owner": "vicinaehq",
-        "ref": "v0.21.1",
+        "ref": "v0.21.2",
         "repo": "vicinae",
         "type": "github"
       }
