@@ -88,6 +88,8 @@ hl.bind("SUPER + W", hl.dsp.exec_cmd("noctalia ipc call wallpaper toggle"))
 hl.bind("SUPER + D", hl.dsp.exec_cmd("vicinae toggle"))
 hl.bind("SUPER + Q", hl.dsp.exec_cmd("vicinae vicinae://extensions/vicinae/clipboard/history"))
 
+hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("noctalia ipc call lockScreen lock"), { locked = true })
+
 hl.bind("SUPER + N", hl.dsp.exec_cmd("noctalia ipc call notifications toggleDND"))
 hl.bind("SUPER + backslash", hl.dsp.exec_cmd("noctalia ipc call settings toggle"))
 hl.bind("SUPER + S", hl.dsp.window.toggle_swallow())
