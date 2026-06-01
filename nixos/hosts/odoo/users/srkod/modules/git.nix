@@ -47,7 +47,7 @@
     settings = {
       user = {
         email = "srkod@odoo.com";
-        name = "sreedevk";
+        name = "Sreedev Kodichath (srkod)";
         signingkey = "7FCFC21B9FE8BD3E";
       };
       core = {
