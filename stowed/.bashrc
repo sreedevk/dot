@@ -66,11 +66,6 @@ if [ -f "$(command -v mise)" ]; then
   eval "$(mise activate bash)"
 fi
 
-# DIRENV AUTOLOADS
-if [ -f "$(command -v direnv)" ]; then
-  eval "$(direnv-instant hook bash)"
-fi
-
 # STARSHIP AUTOLOADS
 if [ -f "$(command -v starship)" ]; then
   eval "$(starship init bash)"
