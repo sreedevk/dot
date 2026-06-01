@@ -13,6 +13,7 @@ let
     elixir-ls                       # elixir
     elmPackages.elm-language-server # elm
     emmet-language-server           # emmet
+    eslint                          # yavascript
     fennel-ls                       # fennel
     fish-lsp                        # fish
     jsonnet-language-server         # jsonnet
@@ -27,6 +28,7 @@ let
     vscode-langservers-extracted    # json+
     yaml-language-server            # yaml
     zls                             # zig
+    libxml2                         # xmllint
   ];
 
   neovim_pkgs = with pkgs; [

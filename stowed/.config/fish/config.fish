@@ -3,6 +3,7 @@ set fish_greeting
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.ghcup/bin
 fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.cache/.bun/bin
 fish_add_path /opt/bin
 
 set -a XDG_DATA_DIRS $HOME/.nix-profile/share
