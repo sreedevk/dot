@@ -3,6 +3,23 @@ vim.api.nvim_create_user_command('Wq', 'wq', {})
 vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
 
+vim.api.nvim_create_autocmd("DirChanged", {
+  callback = function()
+    local current_dir = vim.v.event['cwd']
+    if not current_dir then return end
+
+    local exrc_path = current_dir .. "/.nvim.lua"
+
+    if vim.fn.filereadable(exrc_path) == 1 then
+      local content = vim.secure.read(exrc_path)
+      if type(content) == "string" then
+        local chunk = loadstring(content)
+        if chunk then chunk() end
+      end
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Enable Spellcheck on Text Documents",
   pattern = { "html", "markdown", "text", "gemtext" },
