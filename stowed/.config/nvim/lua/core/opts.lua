@@ -6,6 +6,7 @@ vim.g.termdebugger      = "rust-gdb"
 vim.g.dotfiles          = vim.env.DOTFILES or vim.fn.expand('~/.dot')
 
 vim.opt.ruler           = true
+vim.opt.exrc            = true
 vim.opt.tabstop         = 2
 vim.opt.softtabstop     = 2
 vim.opt.shiftwidth      = 2
