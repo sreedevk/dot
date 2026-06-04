@@ -3,28 +3,34 @@
 , ...
 }:
 let
-  sessionizer = import ../scripts/sessionizer.nix { inherit pkgs;      };
-  bwfzf       = import ../scripts/bwfzf.nix       { inherit pkgs;      };
-  sshfzf      = import ../scripts/sshfzf.nix      { inherit pkgs;      };
+  bwfzf       = import ../scripts/bwfzf.nix { inherit pkgs; };
+  sessionizer = import ../scripts/sessionizer.nix { inherit pkgs; };
+  sshfzf      = import ../scripts/sshfzf.nix { inherit pkgs; };
+  taskfzf     = import ../scripts/taskfzf { inherit pkgs; };
 
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-super-fingers";
-    version    = "unstable-2026-02-05";
-    src        = pkgs.fetchFromGitHub {
-      owner  = "artemave";
-      repo   = "tmux_super_fingers";
-      rev    = "8a82cf1e0d5a49a49e2d221ab65d2a0e135e613a";
+    version = "unstable-2026-02-05";
+    src = pkgs.fetchFromGitHub {
+      owner = "artemave";
+      repo = "tmux_super_fingers";
+      rev = "8a82cf1e0d5a49a49e2d221ab65d2a0e135e613a";
       sha256 = "0gcxah0f33v75fhhha52awwlcqvlmi659hr33yjncja0w4q79gqh";
     };
   };
 in
 {
+
+  home.packages = [
+    taskfzf
+  ];
+
   programs.tmux = {
-    enable       = true;
-    shell        = "${pkgs.fish}/bin/fish";
-    terminal     = "tmux-256color";
+    enable = true;
+    shell = "${pkgs.fish}/bin/fish";
+    terminal = "tmux-256color";
     historyLimit = 100000;
-    plugins      = with pkgs; [
+    plugins = with pkgs; [
       {
         plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
@@ -123,6 +129,7 @@ in
       bind C-f neww "${pkgs.nnn}/bin/nnn"
       bind C-h neww "${config.programs.htop.package}/bin/htop"
       bind C-o neww "${sessionizer}/bin/tmux-sessionizer"
+      bind C-r popup -w 80% -h 60% -E "${taskfzf}/bin/taskfzf"
       bind C-s neww "${sshfzf}/bin/ssh-fzf"
       bind C-t neww "${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
       bind C-u if-shell "tmux has-session -t system 2>/dev/null" \
@@ -130,6 +137,7 @@ in
                         "new-session -d -s system -c '${builtins.getEnv "HOME"}'; switch-client -t system"
       bind C-w neww ${bwfzf}/bin/bwfzf
       bind C-v run-shell "wl-paste | tmux load-buffer - ; tmux paste-buffer"
+
 
       # MOUSE SUPPORT
       bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
