@@ -88,6 +88,9 @@ linux-docs
 linux-firmware
 linux-firmware-qlogic
 linux-headers
+linux-lts
+linux-lts-docs
+linux-lts-headers
 lld
 lsof
 luarocks
@@ -209,6 +212,7 @@ xorg-xrandr
 xorg-xwininfo
 xterm
 xtrans
+yubico-pam
 zarchive
 zip
 zmap
