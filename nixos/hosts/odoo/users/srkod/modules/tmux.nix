@@ -6,7 +6,6 @@ let
   bwfzf       = import ../scripts/bwfzf.nix { inherit pkgs; };
   sessionizer = import ../scripts/sessionizer.nix { inherit pkgs; };
   sshfzf      = import ../scripts/sshfzf.nix { inherit pkgs; };
-  taskfzf     = import ../scripts/taskfzf { inherit pkgs; };
 
   tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-super-fingers";
@@ -20,11 +19,6 @@ let
   };
 in
 {
-
-  home.packages = [
-    taskfzf
-  ];
-
   programs.tmux = {
     enable = true;
     shell = "${pkgs.fish}/bin/fish";
@@ -129,7 +123,6 @@ in
       bind C-f neww "${pkgs.nnn}/bin/nnn"
       bind C-h neww "${config.programs.htop.package}/bin/htop"
       bind C-o neww "${sessionizer}/bin/tmux-sessionizer"
-      bind C-r popup -w 80% -h 60% -E "${taskfzf}/bin/taskfzf"
       bind C-s neww "${sshfzf}/bin/ssh-fzf"
       bind C-t neww "${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
       bind C-u if-shell "tmux has-session -t system 2>/dev/null" \
