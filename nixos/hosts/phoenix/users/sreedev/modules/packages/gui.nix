@@ -25,6 +25,7 @@
     libreoffice-fresh
     localsend
     nemo-with-extensions
+    nvidia-vaapi-driver
     nvtopPackages.full
     nwg-look
     obsidian

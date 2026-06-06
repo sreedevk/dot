@@ -36,6 +36,7 @@ in
         # HYPR* and AQ_* variables
         export HYPRCURSOR_SIZE=28
         export HYPRCURSOR_THEME=rose-pine-hyprcursor
+        export AQ_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1
       '';
     };
 
@@ -46,7 +47,7 @@ in
         export EGL_PLATFORM=wayland
         export __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS=/usr/share/egl/egl_external_platform.d
         export ELECTRON_OZONE_PLATFORM_HINT=auto
-        export GBM_BACKEND=nvidia
+        export GBM_BACKEND=nvidia-drm
         export GBM_BACKENDS_PATH=/run/opengl-driver/lib/gbm
         export GDK_DPI_SCALE=${opts.desktop.scale}
         export GDK_SCALE=${opts.desktop.scale}
@@ -69,7 +70,6 @@ in
         export NVD_BACKEND=direct
         export __GL_GSYNC_ALLOWED=1
         export __GL_VRR_ALLOWED=1
-        export __GLX_VENDOR_LIBRARY_NAME=nvidia
       '';
     };
   };

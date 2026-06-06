@@ -1,6 +1,7 @@
-{ pkgs
-, opts
-, ...
+{
+  pkgs,
+  opts,
+  ...
 }:
 {
   config = {
@@ -77,6 +78,7 @@
 
     environment.etc = {
       "NetworkManager/conf.d/wifi_backend.conf" = {
+        enable = true;
         text = ''
           [device]
           wifi.backend=iwd
@@ -84,6 +86,7 @@
       };
 
       "NetworkManager/conf.d/20-connectivity.conf" = {
+        enable = true;
         text = ''
           [connectivity]
           enabled=false
@@ -91,6 +94,7 @@
       };
 
       "systemd/system.conf" = {
+        enable = true;
         text = ''
           [Manager]
           DefaultTimeoutStopSec=10s
@@ -98,12 +102,14 @@
       };
 
       "modprobe.d/droidcam.conf" = {
+        enable = true;
         text = ''
           options v4l2loopback exclusive_caps=1
         '';
       };
 
       "modules-load.d/droidcam.conf" = {
+        enable = true;
         text = ''
           v4l2loopback
           snd_aloop
@@ -111,6 +117,7 @@
       };
 
       "xdg/reflector/reflector.conf" = {
+        enable = true;
         text = ''
           --save /etc/pacman.d/mirrorlist
           --protocol https
@@ -124,10 +131,11 @@
       };
 
       "resolvconf.conf" = {
+        enable = true;
         text = ''
           name_server_blacklist="127.0.0.1"
           resolv_conf=/etc/resolv.conf
-          name_servers="100.100.100.100 149.112.112.112 9.9.9.9 149.112.112.112 1.1.1.1 1.0.0.1 2620:fe::fe 2620:fe::9"
+          name_servers="9.9.9.9 1.1.1.1 1.0.0.1 149.112.112.112 2620:fe::fe 2620:fe::9"
           resolv_conf_options="timeout:0 attempts:1 rotate"
         '';
       };
