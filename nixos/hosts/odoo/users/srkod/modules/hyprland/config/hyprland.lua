@@ -2,14 +2,31 @@ local hl = hl
 
 -- XF86Display
 
--- Monitors
 hl.monitor({
-  output = "desc:Lenovo Group Limited MNE007JA1-3",
-  mode = "1920x1200@60",
+  output = "desc:LG Electronics LG ULTRAFINE 602NTMXGY347",
+  mode = "preferred",
   position = "0x0",
-  scale = 1,
+  scale = "auto",
   bitdepth = 10,
 })
+
+hl.monitor({
+  output = "desc:LG Electronics LG ULTRAFINE 602NTRLGY358",
+  mode = "preferred",
+  position = "auto-right",
+  scale = "auto",
+  bitdepth = 10,
+})
+
+hl.monitor({
+  output = "desc:Lenovo Group Limited MNE007JA1-3",
+  mode = "preferred",
+  position = "auto-down",
+  scale = "auto",
+  bitdepth = 10,
+})
+
+
 
 hl.monitor({
   output = "",
@@ -208,7 +225,7 @@ hl.config({
   },
   dwindle = {
     preserve_split = true,
-  };
+  },
   master = {
     mfact = 0.70
   },
