@@ -36,7 +36,7 @@
       enable = true;
       source = builtins.fetchGit {
         url = "https://github.com/doomemacs/doomemacs.git";
-        rev = "b3a119823faced6c5768bb9d749dd57d300cacb5";
+        rev = "dba9aa6363b9c0bada796ee3e8e26adb84a9c43a";
         ref = "master";
       };
     };
