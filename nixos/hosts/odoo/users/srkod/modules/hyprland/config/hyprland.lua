@@ -22,7 +22,7 @@ hl.monitor({
   output = "desc:Lenovo Group Limited MNE007JA1-3",
   mode = "preferred",
   position = "auto-down",
-  scale = "auto",
+  scale = 1.0,
   bitdepth = 10,
 })
 
@@ -31,7 +31,7 @@ hl.monitor({
 hl.monitor({
   output = "",
   mode = "preferred",
-  position = "auto-right",
+  position = "auto-up",
   scale = 1,
 })
 
