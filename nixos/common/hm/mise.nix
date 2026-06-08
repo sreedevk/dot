@@ -31,6 +31,7 @@
           golang     = "latest";
           zig        = "latest";
           ruby       = "latest";
+          node       = "latest";
         };
       };
     };

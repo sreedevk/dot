@@ -32,7 +32,7 @@ let
   ];
 
   neovim_pkgs = with pkgs; [
-    nodejs
+    nodejs-slim
     typst
   ];
 in
