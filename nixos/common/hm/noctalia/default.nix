@@ -371,9 +371,9 @@ in
       };
       idle = {
         enabled = true;
-        screenOffTimeout = 600;
-        lockTimeout = 660;
-        suspendTimeout = 1800;
+        screenOffTimeout = 800;
+        lockTimeout = 800;
+        suspendTimeout = 8196;
         fadeDuration = 5;
       };
       templates = {
