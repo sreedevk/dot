@@ -22,6 +22,7 @@
     ../../../../common/hm/droidcam.nix
     ../../../../common/hm/emacs
     ../../../../common/hm/fastfetch.nix
+    ../../../../common/hm/firefox
     ../../../../common/hm/fish.nix
     ../../../../common/hm/fontconfig.nix
     ../../../../common/hm/ghostty.nix

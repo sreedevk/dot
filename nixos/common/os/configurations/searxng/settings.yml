@@ -96,7 +96,6 @@ preferences:
     - categories
     - language
     - autocomplete
-    - favicon
     - safesearch
     - method
     - doi_resolver
