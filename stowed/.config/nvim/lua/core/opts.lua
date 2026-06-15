@@ -260,6 +260,7 @@ vim.g.auxbuffers         = {
   "toggleterm",
   "trouble",
   "tsplayground",
+  "typr",
   "undotree",
   "vim",
 }
