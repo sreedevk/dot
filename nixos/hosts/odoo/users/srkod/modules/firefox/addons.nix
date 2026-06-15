@@ -11,6 +11,7 @@ with pkgs.nur.repos.rycee.firefox-addons;
   private-grammar-checker-harper
   reddit-enhancement-suite
   sponsorblock
+  tampermonkey
   ublock-origin
   vimium
   youtube-shorts-block
