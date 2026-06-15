@@ -17,6 +17,7 @@
       aspellDicts.en-computers # aspell computers dictionary
       aspellDicts.en-science   # aspell science dictionary
       attic-client             # attic self hosted cache client
+      babashka                 # leverage Clojure in places where you would be using bash otherwise.
       browsh                   # Fully-modern text-based browser
       bwfzf                    # bitwarden fzf
       caligula                 # lightweight TUI for disk imaging
