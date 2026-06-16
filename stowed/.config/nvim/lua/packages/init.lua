@@ -24,6 +24,12 @@ return {
   },
 
   {
+    "NotAShelf/direnv.nvim",
+    main = "direnv",
+    opts = {},
+  },
+
+  {
     'rafcamlet/nvim-luapad',
     cmd = { "Luapad", "LuaRun" },
     lazy = true,
