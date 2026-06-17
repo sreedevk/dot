@@ -8,6 +8,7 @@ return {
   'tpope/vim-surround',
   'tpope/vim-vinegar',
   'neovim/nvim-lspconfig',
+  'direnv/direnv.vim',
 
   { "chrisgrieser/nvim-early-retirement", lazy = true,  config = true,  event = "VeryLazy" },
   { 'petertriho/nvim-scrollbar',          lazy = true,  config = true,  event = "BufReadPost" },
@@ -20,12 +21,6 @@ return {
     lazy = true,
     ft = 'typst',
     version = '1.*',
-    opts = {},
-  },
-
-  {
-    "NotAShelf/direnv.nvim",
-    main = "direnv",
     opts = {},
   },
 
