@@ -71,7 +71,8 @@ return {
         },
         per_filetype = {
           sql = { 'dadbod' },
-          lua = { inherit_defaults = true, 'lazydev' }
+          lua = { inherit_defaults = true, 'lazydev' },
+          typr = { inherit_defaults = false },
         },
         providers = {
           dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
