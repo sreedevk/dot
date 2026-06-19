@@ -51,6 +51,13 @@
         identityFile = "~/.ssh/id_ed25519";
       };
 
+      "apollo" = {
+        hostname = opts.addresses.lan.apollo;
+        user = "admin";
+        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519";
+      };
+
       "rpi4b" = {
         hostname = opts.addresses.tailscale.rpi4b;
         user = "pi";
