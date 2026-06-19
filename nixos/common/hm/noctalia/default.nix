@@ -355,7 +355,7 @@ in
         enableLockScreenMediaControls = true;
         telemetryEnabled = false;
         enableLockScreenCountdown = true;
-        lockScreenCountdownDuration = 10000;
+        lockScreenCountdownDuration = 3600;
         autoStartAuth = false;
       };
       brightness = {
@@ -370,7 +370,7 @@ in
         autoUpdate = false;
       };
       idle = {
-        enabled = true;
+        enabled = false;
         screenOffTimeout = 800;
         lockTimeout = 800;
         suspendTimeout = 8196;
