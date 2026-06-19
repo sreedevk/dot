@@ -20,14 +20,12 @@
       data = homedir "Data";
       documents = homedir "Documents";
       downloads = homedir "Downloads";
-      finances = datadir "finances";
       media = homedir "Media";
       notebook = datadir "notebook";
       repositories = datadir "repositories";
       resources = datadir "resources";
       thunderbird = homedir ".thunderbird";
       wallpapers = mediadir "wallpapers";
-      work = datadir "work";
     };
 
   gpg-key-signature = "9F933C72F8137C98E03395427FCFC21B9FE8BD3E";

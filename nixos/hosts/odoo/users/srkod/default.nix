@@ -60,6 +60,7 @@
     ./modules/rbw.nix
     ./modules/ssh.nix
     ./modules/tmux.nix
+    ./modules/restic.nix
 
   ];
 
@@ -87,7 +88,6 @@
     MOZ_ENABLE_WAYLAND = 1;
     _ZO_EXCLUDE_DIRS = builtins.concatStringsSep ":" [
       "${opts.directories.documents}/*"
-      "${opts.directories.finances}/*"
       "${opts.directories.notebook}/*"
       "${opts.directories.downloads}/*"
       "/mnt/*"

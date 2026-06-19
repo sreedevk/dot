@@ -14,5 +14,6 @@ _: with builtins; {
       [
         "gh_token"
         "ghcr_ro_token"
+        "restic_backup_password"
       ];
 }
