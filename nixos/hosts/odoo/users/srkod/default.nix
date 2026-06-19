@@ -33,7 +33,6 @@
     ../../../../common/hm/neovide.nix
     ../../../../common/hm/neovim.nix
     ../../../../common/hm/nixpkgs.nix
-    ../../../../common/hm/noctalia
     ../../../../common/hm/nsxiv.nix
     ../../../../common/hm/ocaml.nix
     ../../../../common/hm/pamshim.nix
@@ -56,11 +55,12 @@
     ./modules/github.nix
     ./modules/hyprland
     ./modules/librepods.nix
+    ./modules/noctalia
     ./modules/packages
     ./modules/rbw.nix
+    ./modules/restic.nix
     ./modules/ssh.nix
     ./modules/tmux.nix
-    ./modules/restic.nix
 
   ];
 
