@@ -61,7 +61,8 @@
 
     # Current User Specific
     ../../secrets.nix
-    ./modules/hyprland
+    # ./modules/hyprland
+    ./modules/niri
     ./modules/noctalia
     ./modules/packages
     ./modules/rbw.nix

@@ -48,8 +48,6 @@ in
         export EGL_PLATFORM=wayland
         export NVD_BACKEND=direct
         export QT_QPA_PLATFORMTHEME=
-        export __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS=/usr/share/egl/egl_external_platform.d
-        export __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/10_nvidia.json
         export VK_DRIVER_FILES=/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json
         export LD_LIBRARY_PATH="/run/opengl-driver/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
         export GBM_BACKENDS_PATH=/run/opengl-driver/lib/gbm
