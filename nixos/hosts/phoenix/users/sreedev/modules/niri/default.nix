@@ -194,6 +194,8 @@ in
           XF86MonBrightnessUp.action   = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%+";
 
           "Ctrl+Space".action                = spawn "noctalia" "ipc" "call" "notifications" "dismissAll";
+          "Mod+Ctrl+Space".action            = spawn "noctalia ipc call lockScreen lock";
+
           "Ctrl+XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%-";
           "Ctrl+XF86AudioMute".action        = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
           "Ctrl+XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%+";
