@@ -41,7 +41,6 @@
     ../../../../common/hm/neovim.nix
     ../../../../common/hm/newsboat.nix
     ../../../../common/hm/nixpkgs.nix
-    ../../../../common/hm/noctalia
     ../../../../common/hm/nsxiv.nix
     ../../../../common/hm/obs.nix
     ../../../../common/hm/ocaml.nix
@@ -61,10 +60,9 @@
     ../../../../common/hm/zsh.nix
 
     # Current User Specific
-
     ../../secrets.nix
     ./modules/hyprland
-    # ./modules/niri
+    ./modules/noctalia
     ./modules/packages
     ./modules/rbw.nix
     ./modules/restic.nix
