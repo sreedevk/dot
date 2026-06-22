@@ -1,7 +1,7 @@
 catppuccin-gtk-theme-mocha 1.0.3-1
 hyprdynamicmonitors-bin 1.4.0-1
-mullvad-vpn-bin 2026.2-1
-mullvad-vpn-daemon-bin 2026.2-1
+mullvad-vpn-bin 2026.3-1
+mullvad-vpn-daemon-bin 2026.3-1
 pamtester 0.1.2-4
 paru 2.1.0-2
 paru-debug 2.1.0-2
