@@ -131,14 +131,14 @@ in
       };
 
       spawn-at-startup = [
-        { sh = "echo $NIRI_SOCKET > ~/.niri-socket";                 }
+        { sh = "echo $NIRI_SOCKET > ~/.niri-socket"; }
         { sh = "dbus-update-activation-environment --systemd --all"; }
         { sh = "systemctl --user start hyprpolkitagent"; }
-        { sh = "clipse -listen";                          }
-        { sh = "wl-paste --type image --watch cliphist store";       }
-        { sh = "wl-paste --type text --watch cliphist store";        }
-        { sh = "wlsunset -l 40.7 -L -73.9";                          }
-        { sh = "xrdb ~/.Xresources";                                 }
+        { sh = "clipse -listen"; }
+        { sh = "wl-paste --type image --watch cliphist store"; }
+        { sh = "wl-paste --type text --watch cliphist store"; }
+        { sh = "wlsunset -l 40.7 -L -73.9"; }
+        { sh = "xrdb ~/.Xresources"; }
       ];
 
       window-rules = [
@@ -164,7 +164,7 @@ in
           name = "Samsung Display Corp. 0x4177";
           position = {
             x = 0;
-            y = 0;
+            y = 2400;
           };
           scale = 2;
           variable-refresh-rate = "on-demand";
@@ -189,31 +189,22 @@ in
             refresh = 60.0;
           };
         };
+        "LG Electronics LG ULTRAFINE 602NTRLGY358" = {
+          enable = true;
+          name = "LG Electronics LG ULTRAFINE 602NTRLGY358";
+          position = {
+            x = 3840;
+            y = 0;
+          };
+          scale = 2;
+          variable-refresh-rate = "on-demand";
+          mode = {
+            width = 3840;
+            height = 2400;
+            refresh = 60.0;
+          };
+        };
       };
-
-# hl.monitor({
-#   output = "desc:",
-#   mode = "preferred",
-#   position = "0x0",
-#   scale = "auto",
-#   bitdepth = 10,
-# })
-#
-# hl.monitor({
-#   output = "desc:LG Electronics LG ULTRAFINE 602NTRLGY358",
-#   mode = "preferred",
-#   position = "auto-right",
-#   scale = "auto",
-#   bitdepth = 10,
-# })
-#
-# hl.monitor({
-#   output = "desc:Lenovo Group Limited MNE007JA1-3",
-#   mode = "preferred",
-#   position = "auto-down",
-#   scale = 1.0,
-#   bitdepth = 10,
-# })
 
       binds =
         with config.lib.niri.actions;
@@ -221,32 +212,32 @@ in
           sh = spawn "sh" "-c";
         in
         {
-          XF86AudioLowerVolume.action  = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-";
-          XF86AudioMicMute.action      = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
-          XF86AudioMute.action         = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
-          XF86AudioNext.action         = spawn "${pkgs.playerctl}/bin/playerctl" "next";
-          XF86AudioPause.action        = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
-          XF86AudioPlay.action         = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
-          XF86AudioPrev.action         = spawn "${pkgs.playerctl}/bin/playerctl" "previous";
-          XF86AudioRaiseVolume.action  = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";
+          XF86AudioLowerVolume.action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-";
+          XF86AudioMicMute.action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+          XF86AudioMute.action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
+          XF86AudioNext.action = spawn "${pkgs.playerctl}/bin/playerctl" "next";
+          XF86AudioPause.action = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
+          XF86AudioPlay.action = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
+          XF86AudioPrev.action = spawn "${pkgs.playerctl}/bin/playerctl" "previous";
+          XF86AudioRaiseVolume.action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";
           XF86MonBrightnessDown.action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%-";
-          XF86MonBrightnessUp.action   = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%+";
+          XF86MonBrightnessUp.action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%+";
 
-          "Ctrl+Space".action                = spawn "noctalia" "ipc" "call" "notifications" "dismissAll";
-          "Mod+Ctrl+Space".action            = spawn "noctalia ipc call lockScreen lock";
+          "Ctrl+Space".action = spawn "noctalia" "ipc" "call" "notifications" "dismissAll";
+          "Mod+Ctrl+Space".action = spawn "noctalia ipc call lockScreen lock";
 
           "Ctrl+XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%-";
-          "Ctrl+XF86AudioMute".action        = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+          "Ctrl+XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
           "Ctrl+XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%+";
 
-          "Mod+H".action       = focus-column-or-monitor-left;
-          "Mod+L".action       = focus-column-or-monitor-right;
+          "Mod+H".action = focus-column-or-monitor-left;
+          "Mod+L".action = focus-column-or-monitor-right;
 
           "Mod+Shift+H".action = move-column-left-or-to-monitor-left;
           "Mod+Shift+L".action = move-column-right-or-to-monitor-right;
 
-          "Mod+K".action       = focus-workspace-up;
-          "Mod+J".action       = focus-workspace-down;
+          "Mod+K".action = focus-workspace-up;
+          "Mod+J".action = focus-workspace-down;
 
           "Mod+1".action.focus-workspace = 1;
           "Mod+2".action.focus-workspace = 2;
@@ -258,7 +249,6 @@ in
           "Mod+8".action.focus-workspace = 8;
           "Mod+9".action.focus-workspace = 9;
           "Mod+0".action.focus-workspace = 10;
-
 
           "Mod+bracketleft".action = set-column-width "-10%";
           "Mod+bracketright".action = set-column-width "+10%";
@@ -283,11 +273,16 @@ in
           "Mod+W".action = spawn "noctalia" "ipc" "call" "wallpaper" "toggle";
           "Mod+O".action = toggle-overview;
           "Mod+Shift+Return".action = spawn "${pkgs.kitty}/bin/kitty";
-          "Mod+Return".action = spawn "${config.programs.kitty.package}/bin/kitty" "${pkgs.tmux}/bin/tmux" "new" "-A" "-s" "system";
-          "Mod+KP_Enter".action = spawn "${config.programs.kitty.package}/bin/kitty" "${pkgs.tmux}/bin/tmux" "new" "-A" "-s" "system";
+          "Mod+Return".action =
+            spawn "${config.programs.kitty.package}/bin/kitty" "${pkgs.tmux}/bin/tmux" "new" "-A" "-s"
+              "system";
+          "Mod+KP_Enter".action =
+            spawn "${config.programs.kitty.package}/bin/kitty" "${pkgs.tmux}/bin/tmux" "new" "-A" "-s"
+              "system";
           "Mod+XF86AudioLowerVolume".action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%-";
           "Mod+XF86AudioRaiseVolume".action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%+";
-          "Mod+Shift+S".action = sh '' ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | wl-copy
+          "Mod+Shift+S".action = sh ''
+            ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | wl-copy
           '';
         };
     };
