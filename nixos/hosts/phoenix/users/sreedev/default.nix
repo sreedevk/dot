@@ -22,7 +22,6 @@
     ../../../../common/hm/droidcam.nix
     ../../../../common/hm/emacs
     ../../../../common/hm/fastfetch.nix
-    ../../../../common/hm/firefox
     ../../../../common/hm/fish.nix
     ../../../../common/hm/fontconfig.nix
     ../../../../common/hm/ghostty.nix
@@ -60,8 +59,9 @@
     ../../../../common/hm/zsh.nix
 
     # Current User Specific
-    ../../secrets.nix
     # ./modules/hyprland
+    ../../secrets.nix
+    ./modules/firefox
     ./modules/niri
     ./modules/noctalia
     ./modules/packages

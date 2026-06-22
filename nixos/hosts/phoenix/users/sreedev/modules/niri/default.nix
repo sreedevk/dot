@@ -159,7 +159,7 @@ in
       ];
 
       outputs = {
-        "eDP-1" = {
+        "Samsung Display Corp. 0x4177" = {
           enable = true;
           name = "Samsung Display Corp. 0x4177";
           position = {
@@ -174,7 +174,46 @@ in
             refresh = 60.0;
           };
         };
+        "LG Electronics LG ULTRAFINE 602NTMXGY347" = {
+          enable = true;
+          name = "LG Electronics LG ULTRAFINE 602NTMXGY347";
+          position = {
+            x = 0;
+            y = 0;
+          };
+          scale = 2;
+          variable-refresh-rate = "on-demand";
+          mode = {
+            width = 3840;
+            height = 2400;
+            refresh = 60.0;
+          };
+        };
       };
+
+# hl.monitor({
+#   output = "desc:",
+#   mode = "preferred",
+#   position = "0x0",
+#   scale = "auto",
+#   bitdepth = 10,
+# })
+#
+# hl.monitor({
+#   output = "desc:LG Electronics LG ULTRAFINE 602NTRLGY358",
+#   mode = "preferred",
+#   position = "auto-right",
+#   scale = "auto",
+#   bitdepth = 10,
+# })
+#
+# hl.monitor({
+#   output = "desc:Lenovo Group Limited MNE007JA1-3",
+#   mode = "preferred",
+#   position = "auto-down",
+#   scale = 1.0,
+#   bitdepth = 10,
+# })
 
       binds =
         with config.lib.niri.actions;
