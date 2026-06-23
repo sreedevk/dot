@@ -28,6 +28,10 @@
           ];
         }
         {
+          name = "Runbot";
+          url = "https://runbot.odoo.com/";
+        }
+        {
           name = "HackerNews";
           url = "https://news.ycombinator.com/";
           keyword = "hn";

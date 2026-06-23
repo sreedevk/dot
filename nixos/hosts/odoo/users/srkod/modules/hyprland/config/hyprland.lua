@@ -7,7 +7,6 @@ hl.monitor({
   mode = "preferred",
   position = "0x0",
   scale = "auto",
-  bitdepth = 10,
 })
 
 hl.monitor({
@@ -15,24 +14,21 @@ hl.monitor({
   mode = "preferred",
   position = "auto-right",
   scale = "auto",
-  bitdepth = 10,
+})
+
+hl.monitor({
+  output = "desc:Samsung Display Corp. 0x4177",
+  mode = "preferred",
+  position = "auto-down",
+  scale = "auto",
 })
 
 hl.monitor({
   output = "desc:Lenovo Group Limited MNE007JA1-3",
   mode = "preferred",
   position = "auto-down",
-  scale = 1.0,
-  bitdepth = 10,
-})
-
-
-
-hl.monitor({
-  output = "",
-  mode = "preferred",
-  position = "auto-up",
   scale = 1,
+  bitdepth = 10,
 })
 
 -- Binds
