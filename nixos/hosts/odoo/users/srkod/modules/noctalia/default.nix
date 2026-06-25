@@ -371,7 +371,7 @@ in
       };
       idle = {
         enabled = true;
-        screenOffTimeout = 800;
+        screenOffTimeout = 3600;
         lockTimeout = 800;
         suspendTimeout = 8196;
         fadeDuration = 5;
