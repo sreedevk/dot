@@ -59,10 +59,10 @@
     ../../../../common/hm/zsh.nix
 
     # Current User Specific
-    # ./modules/hyprland
+    ./modules/hyprland
     ../../secrets.nix
     ./modules/firefox
-    ./modules/niri
+    # ./modules/niri
     ./modules/noctalia
     ./modules/packages
     ./modules/rbw.nix
