@@ -4,9 +4,15 @@ _:
     ".config/rbw/config.json" = {
       text = builtins.toJSON {
         email = "srkod@odoo.com";
+        sso_id = null;
+        base_url = "https://vw.nullptr.sh";
+        identity_url = null;
+        ui_url = null;
+        notifications_url = null;
         lock_timeout = 3600;
         sync_interval = 3600;
         pinentry = "pinentry-curses";
+        client_cert_path = null;
       };
     };
   };
