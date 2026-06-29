@@ -31,6 +31,14 @@ hl.monitor({
   bitdepth = 10,
 })
 
+hl.monitor({
+  output = "desc:Iiyama North America PL2492HN 1178623014581",
+  mode = "preferred",
+  position = "auto-up",
+  scale = 1,
+})
+
+
 -- Binds
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"))
