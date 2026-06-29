@@ -5,7 +5,6 @@ _: prev: {
     beets
     bitwarden-desktop
     claude-code
-    feishin
     neovim
     imager
     jiratui
