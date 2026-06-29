@@ -158,7 +158,10 @@ return {
           live_grep_args = {
             auto_quoting = true, -- enable/disable auto-quoting
             mappings = {         -- extend mappings
-              ["<C-e>"] = lga_actions.to_fuzzy_refine,
+              i = {
+                ["<C-'>"] = lga_actions.quote_prompt(),
+                ["<C-e>"] = lga_actions.to_fuzzy_refine,
+              },
             }
           },
           heading = {
