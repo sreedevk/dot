@@ -54,7 +54,6 @@
     ./modules/git.nix
     ./modules/github.nix
     ./modules/hyprland
-    ./modules/librepods.nix
     ./modules/noctalia
     ./modules/packages
     ./modules/rbw.nix
