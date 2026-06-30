@@ -12,12 +12,12 @@
 
   systemd.user.sessionVariables = {
     RESTIC_PASSWORD_FILE = "${config.age.secrets.restic_backup_password.path}";
-    RESTIC_REPOSITORY = "sftp:nullptr.sh:/mnt/dpool1/backups/${username}@${opts.hostname}";
+    RESTIC_REPOSITORY = "sftp:apollo:/mnt/dpool1/backups/${username}@${opts.hostname}";
   };
 
   home.sessionVariables = {
     RESTIC_PASSWORD_FILE = "${config.age.secrets.restic_backup_password.path}";
-    RESTIC_REPOSITORY = "sftp:nullptr.sh:/mnt/dpool1/backups/${username}@${opts.hostname}";
+    RESTIC_REPOSITORY = "sftp:apollo:/mnt/dpool1/backups/${username}@${opts.hostname}";
   };
 
   systemd.user = {
