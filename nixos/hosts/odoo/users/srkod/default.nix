@@ -50,7 +50,6 @@
     # Current User Specific
 
     ../../secrets.nix
-    ./modules/firefox
     ./modules/git.nix
     ./modules/github.nix
     ./modules/hyprland
