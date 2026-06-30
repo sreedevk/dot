@@ -455,6 +455,12 @@ hl.window_rule({
 })
 
 hl.window_rule({
+  name = "bitwarden-narrow",
+  match = { title = "^(Bitwarden)$" },
+  scrolling_width = 0.2,
+})
+
+hl.window_rule({
   name = "pip-float",
   match = { title = "^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$" },
   float = true,
