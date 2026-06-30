@@ -12,7 +12,7 @@
     quickAccessTerminalConfig = {
       start_as_hidden = false;
       hide_on_focus_loss = false;
-      background_opacity = 0.85;
+      background_opacity = 0.75;
       grab_keyboard = false;
     };
     themeFile = "rose-pine";
