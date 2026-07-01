@@ -4,7 +4,7 @@
 
   home.file = {
     ".config/brave-flags.conf" = {
-      enable = true;
+      enabled = true;
       text = ''
         --disable-print-preview
         --password-store=basic
@@ -17,7 +17,7 @@
       name = "Brave";
       icon = "brave-browser";
       genericName = "Web Browser";
-      exec = "env GBM_BACKEND=nvidia-drm ${pkgs.brave}/bin/brave %U";
+      exec = "${pkgs.brave}/bin/brave %U";
       comment = "Access the Internet";
       mimeType = [
         "application/pdf"
