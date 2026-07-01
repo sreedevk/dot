@@ -7,10 +7,10 @@
     attic.url      = "github:zhaofengli/attic";
     bongocat.url   = "github:saatvik333/wayland-bongocat?ref=v2.0.0";
     colmena.url    = "github:zhaofengli/colmena";
-    llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b7541";
+    llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b9859";
     nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05&shallow=1";
-    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.21.7";
+    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.22.0";
 
     direnv-instant = {
       url                    = "github:Mic92/direnv-instant";
@@ -33,7 +33,7 @@
     };
 
     nur = {
-      url                    = "github:nix-community/NUR?ref=95c043c";
+      url                    = "github:nix-community/NUR?ref=ebb520e";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -48,7 +48,7 @@
     };
 
     quickshell = {
-      url                    = "github:outfoxxed/quickshell?ref=v0.2.1";
+      url                    = "github:outfoxxed/quickshell?ref=v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -58,7 +58,7 @@
     };
 
     niri = {
-      url                    = "github:sodiboo/niri-flake?ref=493ce1e3";
+      url                    = "github:sodiboo/niri-flake?ref=c110481";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
