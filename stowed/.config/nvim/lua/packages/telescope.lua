@@ -15,6 +15,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     'davidgranstrom/telescope-scdoc.nvim',
     'gbprod/yanky.nvim',
+    'ThePrimeagen/harpoon',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
   cmd = "Telescope",
@@ -233,5 +234,6 @@ return {
     pcall(telscp.load_extension, 'frecency')
     pcall(telscp.load_extension, 'ui-select')
     pcall(telscp.load_extension, 'yanky')
+    pcall(telscp.load_extension, 'harpoon')
   end
 }
