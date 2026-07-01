@@ -458,7 +458,7 @@ hl.window_rule({
 hl.window_rule({
   name = "bitwarden-narrow",
   match = { title = "^(Bitwarden)$" },
-  scrolling_width = 0.2,
+  scrolling_width = 0.4,
 })
 
 hl.window_rule({
