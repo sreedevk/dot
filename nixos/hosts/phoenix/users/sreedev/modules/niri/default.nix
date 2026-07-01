@@ -37,6 +37,7 @@ in
       executable = true;
       text = ''
         # HYPR* and AQ_* variables
+        export AQ_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1
       '';
     };
 
@@ -111,6 +112,9 @@ in
         default-column-width = {
           proportion = 1.0;
         };
+        shadow = {
+          enable = false;
+        };
         struts = {
           left = 16;
           right = 16;
@@ -130,15 +134,29 @@ in
         map-to-output = "eDP-1";
       };
 
+      switch-events = with config.lib.niri.actions; {
+        lid-close.action = spawn "noctalia" "msg" "session" "lock";
+      };
+
       spawn-at-startup = [
         { sh = "echo $NIRI_SOCKET > ~/.niri-socket"; }
         { sh = "dbus-update-activation-environment --systemd --all"; }
+        { sh = "systemctl --user start xdg-desktop-portal-gnome.service"; }
         { sh = "systemctl --user start hyprpolkitagent"; }
         { sh = "clipse -listen"; }
         { sh = "wl-paste --type image --watch cliphist store"; }
         { sh = "wl-paste --type text --watch cliphist store"; }
         { sh = "wlsunset -l 40.7 -L -73.9"; }
         { sh = "xrdb ~/.Xresources"; }
+      ];
+
+      layer-rules = [
+        {
+          matches = [
+            { namespace = "^noctalia-backdrop"; }
+          ];
+          place-within-backdrop = true;
+        }
       ];
 
       window-rules = [
@@ -148,6 +166,27 @@ in
           ];
           open-floating = true;
           open-focused = true;
+        }
+        {
+          geometry-corner-radius = {
+            bottom-left = 0.2;
+            bottom-right = 0.2;
+            top-left = 0.2;
+            top-right = 0.2;
+          };
+          clip-to-geometry = true;
+        }
+        {
+          matches = [
+            { app-id = "dev.noctalia.Noctalia.Settings"; }
+          ];
+          open-floating = true;
+          default-column-width = {
+            fixed = 1080;
+          };
+          default-window-height = {
+            fixed = 920;
+          };
         }
         {
           matches = [
@@ -223,18 +262,20 @@ in
           XF86MonBrightnessDown.action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%-";
           XF86MonBrightnessUp.action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%+";
 
-          "Ctrl+Space".action = spawn "noctalia" "ipc" "call" "notifications" "dismissAll";
-          "Mod+Ctrl+Space".action = spawn "noctalia ipc call lockScreen lock";
+          "Ctrl+Space".action = spawn "noctalia" "msg" "notification-clear-active";
+          "Mod+Ctrl+Space".action = spawn "noctalia" "msg" "session" "lock";
 
           "Ctrl+XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%-";
           "Ctrl+XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
           "Ctrl+XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%+";
 
-          "Mod+H".action = focus-column-or-monitor-left;
-          "Mod+L".action = focus-column-or-monitor-right;
+          "Mod+Ctrl+H".action = focus-column-or-monitor-left;
+          "Mod+Ctrl+L".action = focus-column-or-monitor-right;
 
           "Mod+Shift+H".action = move-column-left-or-to-monitor-left;
           "Mod+Shift+L".action = move-column-right-or-to-monitor-right;
+          "Mod+H".action = focus-column-left;
+          "Mod+L".action = focus-column-right;
 
           "Mod+K".action = focus-workspace-up;
           "Mod+J".action = focus-workspace-down;
@@ -250,6 +291,47 @@ in
           "Mod+9".action.focus-workspace = 9;
           "Mod+0".action.focus-workspace = 10;
 
+          "Mod+Shift+1".action.move-window-to-workspace = [
+            { focus = true; }
+            1
+          ];
+          "Mod+Shift+2".action.move-window-to-workspace = [
+            { focus = true; }
+            2
+          ];
+          "Mod+Shift+3".action.move-window-to-workspace = [
+            { focus = true; }
+            3
+          ];
+          "Mod+Shift+4".action.move-window-to-workspace = [
+            { focus = true; }
+            4
+          ];
+          "Mod+Shift+5".action.move-window-to-workspace = [
+            { focus = true; }
+            5
+          ];
+          "Mod+Shift+6".action.move-window-to-workspace = [
+            { focus = true; }
+            6
+          ];
+          "Mod+Shift+7".action.move-window-to-workspace = [
+            { focus = true; }
+            7
+          ];
+          "Mod+Shift+8".action.move-window-to-workspace = [
+            { focus = true; }
+            8
+          ];
+          "Mod+Shift+9".action.move-window-to-workspace = [
+            { focus = true; }
+            9
+          ];
+          "Mod+Shift+0".action.move-window-to-workspace = [
+            { focus = true; }
+            10
+          ];
+
           "Mod+bracketleft".action = set-column-width "-10%";
           "Mod+bracketright".action = set-column-width "+10%";
 
@@ -258,19 +340,16 @@ in
           "Mod+Shift+J".action = move-window-to-workspace-down { focus = true; };
           "Mod+Shift+K".action = move-window-to-workspace-up { focus = true; };
 
-          # TODO: USE THIS TO SWITCH MONITORS
-          # "Mod+Tab".action = focus-column-right-or-first;
-          # "Mod+Shift+Tab".action = focus-column-right-or-first;
-
           "Mod+Shift+Q".action = close-window;
-          "Mod+F".action = toggle-windowed-fullscreen;
+          "Mod+F".action = fullscreen-window;
 
-          "Mod+A".action = spawn "pwvucontrol";
-          "Mod+C".action = spawn "noctalia" "ipc" "call" "controlCenter" "toggle";
+          # "Mod+A".action = spawn "pwvucontrol";
+          "Mod+C".action = spawn "noctalia" "msg" "panel-toggle" "control-center";
           "Mod+D".action = spawn "${pkgs.vicinae}/bin/vicinae" "toggle";
-          "Mod+N".action = spawn "noctalia" "ipc" "call" "notifications" "toggleDND";
-          "Mod+S".action = spawn "noctalia" "ipc" "call" "settings" "toggle";
-          "Mod+W".action = spawn "noctalia" "ipc" "call" "wallpaper" "toggle";
+          "Mod+N".action = spawn "noctalia" "msg" "notification-dnd-toggle";
+          "Mod+S".action = spawn "noctalia" "msg" "settings-toggle";
+
+          # "Mod+W".action = spawn "noctalia" "ipc" "call" "wallpaper" "toggle";
           "Mod+O".action = toggle-overview;
           "Mod+Shift+Return".action = spawn "${pkgs.kitty}/bin/kitty";
           "Mod+Return".action =

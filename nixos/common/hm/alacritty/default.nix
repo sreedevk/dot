@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 let
   theme = builtins.fromTOML (builtins.readFile ./colors/rose-pine.toml);
   settings = {

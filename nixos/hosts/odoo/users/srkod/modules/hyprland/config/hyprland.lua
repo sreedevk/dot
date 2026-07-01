@@ -51,8 +51,8 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"))
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
-hl.bind("SUPER + CTRL + Escape", hl.dsp.exec_cmd("noctalia ipc call notifications dismissAll"))
-hl.bind("SUPER + Space", hl.dsp.exec_cmd("noctalia ipc call notifications dismissAll"))
+hl.bind("SUPER + CTRL + Escape", hl.dsp.exec_cmd("noctalia msg notification-clear-active"))
+hl.bind("SUPER + Space", hl.dsp.exec_cmd("noctalia msg notification-clear-active"))
 
 for i = 1, 12 do
   local key = i <= 9 and tostring(i % 10) or ({ [10] = "0", [11] = "Minus", [12] = "Equal" })[i]
@@ -103,17 +103,17 @@ hl.bind("SUPER + bracketleft", hl.dsp.layout("colresize -0.1"))
 
 hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("uwsm stop"))
 
-hl.bind("SUPER + CTRL + Space", hl.dsp.exec_cmd("noctalia ipc call lockScreen lock"))
-hl.bind("SUPER + C", hl.dsp.exec_cmd("noctalia ipc call controlCenter toggle"))
-hl.bind("SUPER + W", hl.dsp.exec_cmd("noctalia ipc call wallpaper toggle"))
+hl.bind("SUPER + CTRL + Space", hl.dsp.exec_cmd("noctalia msg session lock"))
+hl.bind("SUPER + C", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center"))
+-- hl.bind("SUPER + W", hl.dsp.exec_cmd("noctalia ipc call wallpaper toggle"))
 
 hl.bind("SUPER + D", hl.dsp.exec_cmd("vicinae toggle"))
 hl.bind("SUPER + Q", hl.dsp.exec_cmd("vicinae vicinae://extensions/vicinae/clipboard/history"))
 
-hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("noctalia ipc call lockScreen lock"), { locked = true })
+hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("noctalia msg session lock"), { locked = true })
 
-hl.bind("SUPER + N", hl.dsp.exec_cmd("noctalia ipc call notifications toggleDND"))
-hl.bind("SUPER + backslash", hl.dsp.exec_cmd("noctalia ipc call settings toggle"))
+hl.bind("SUPER + N", hl.dsp.exec_cmd("noctalia msg notification-dnd-toggle"))
+hl.bind("SUPER + backslash", hl.dsp.exec_cmd("noctalia msg settings-toggle"))
 hl.bind("SUPER + S", hl.dsp.window.toggle_swallow())
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
 hl.bind("SUPER + CTRL + S",
