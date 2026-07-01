@@ -1,6 +1,7 @@
 local hl = hl
 
 -- XF86Display
+-- TODO: map XF86Favorites (F12)
 
 hl.monitor({
   output = "desc:LG Electronics LG ULTRAFINE 602NTMXGY347",
