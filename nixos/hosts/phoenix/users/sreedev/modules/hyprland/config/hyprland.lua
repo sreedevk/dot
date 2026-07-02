@@ -105,8 +105,10 @@ hl.bind("SUPER + CTRL + J", hl.dsp.focus({ monitor = "d" }))
 hl.bind("SUPER + CTRL + K", hl.dsp.focus({ monitor = "u" }))
 
 hl.bind("SUPER + x", hl.dsp.layout("fit all"))
-hl.bind("SUPER + bracketright", hl.dsp.layout("fit tobeg"))
-hl.bind("SUPER + bracketleft", hl.dsp.layout("fit toend"))
+
+
+hl.bind("SUPER + bracketright", hl.dsp.layout("colresize +0.1"))
+hl.bind("SUPER + bracketleft", hl.dsp.layout("colresize -0.1"))
 
 hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("uwsm stop"))
 

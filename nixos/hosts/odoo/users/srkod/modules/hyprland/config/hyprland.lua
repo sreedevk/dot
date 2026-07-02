@@ -29,7 +29,6 @@ hl.monitor({
   mode = "preferred",
   position = "auto-down",
   scale = 1,
-  bitdepth = 10,
 })
 
 hl.monitor({
@@ -98,8 +97,9 @@ hl.bind("SUPER + CTRL + J", hl.dsp.focus({ monitor = "d" }))
 hl.bind("SUPER + CTRL + K", hl.dsp.focus({ monitor = "u" }))
 
 hl.bind("SUPER + x", hl.dsp.layout("fit all"))
-hl.bind("SUPER + bracketright", hl.dsp.layout("fit tobeg"))
-hl.bind("SUPER + bracketleft", hl.dsp.layout("fit toend"))
+
+hl.bind("SUPER + bracketright", hl.dsp.layout("colresize +0.1"))
+hl.bind("SUPER + bracketleft", hl.dsp.layout("colresize -0.1"))
 
 hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("uwsm stop"))
 
@@ -163,10 +163,10 @@ hl.config({
       input_methods_ignorealpha = 0.0,
       new_optimizations = true,
       noise = 0.0117,
-      passes = 3,
+      passes = 2,
       popups = false,
       popups_ignorealpha = 0.0,
-      size = 8,
+      size = 4,
       special = true,
       vibrancy = 0.1696,
       xray = false,
@@ -174,7 +174,7 @@ hl.config({
     shadow = {
       color = "rgba(1a1a1aee)",
       color_inactive = "rgba(1a1a1aff)",
-      enabled = true,
+      enabled = false,
       range = 4,
       render_power = 3,
       sharp = false,
@@ -191,37 +191,26 @@ hl.config({
 
 -- Bezier curves
 hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
-hl.curve("md3_standard", { type = "bezier", points = { { 0.2, 0 }, { 0, 1 } } })
 hl.curve("md3_decel", { type = "bezier", points = { { 0.05, 0.7 }, { 0.1, 1 } } })
-hl.curve("md3_accel", { type = "bezier", points = { { 0.3, 0 }, { 0.8, 0.15 } } })
 hl.curve("overshot", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.1 } } })
-hl.curve("crazyshot", { type = "bezier", points = { { 0.1, 1.5 }, { 0.76, 0.92 } } })
-hl.curve("hyprnostretch", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.0 } } })
 hl.curve("menu_decel", { type = "bezier", points = { { 0.1, 1 }, { 0, 1 } } })
 hl.curve("menu_accel", { type = "bezier", points = { { 0.38, 0.04 }, { 1, 0.07 } } })
-hl.curve("easeInOutCirc", { type = "bezier", points = { { 0.85, 0 }, { 0.15, 1 } } })
-hl.curve("easeOutCirc", { type = "bezier", points = { { 0, 0.55 }, { 0.45, 1 } } })
-hl.curve("easeOutExpo", { type = "bezier", points = { { 0.16, 1 }, { 0.3, 1 } } })
-hl.curve("softAcDecel", { type = "bezier", points = { { 0.26, 0.26 }, { 0.15, 1 } } })
-hl.curve("md2", { type = "bezier", points = { { 0.4, 0 }, { 0.2, 1 } } })
 
 -- Animations
-hl.animation({ leaf = "windows", enabled = true, speed = 3, bezier = "md3_decel", style = "popin 60%" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, bezier = "md3_decel", style = "popin 60%" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, bezier = "md3_accel", style = "popin 60%" })
-hl.animation({ leaf = "border", enabled = true, speed = 10, bezier = "default" })
-hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "md3_decel" })
-hl.animation({ leaf = "layersIn", enabled = true, speed = 3, bezier = "menu_decel", style = "slide" })
-hl.animation({ leaf = "layersOut", enabled = true, speed = 1.6, bezier = "menu_accel" })
-hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.2, bezier = "menu_decel" })
-hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.2, bezier = "menu_accel" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 7, bezier = "menu_decel", style = "slidevert" })
-hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 3, bezier = "md3_decel", style = "fade" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 3, bezier = "md3_decel", style = "slide 80%" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 1.0, bezier = "linear", style = "popin 80%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.2, bezier = "linear", style = "slide 80%" })
+hl.animation({ leaf = "border", enabled = true, speed = 7, bezier = "default" })
+hl.animation({ leaf = "fade", enabled = true, speed = 2, bezier = "md3_decel" })
+hl.animation({ leaf = "layers", enabled = true, speed = 1, bezier = "linear", style = "popin" })
+hl.animation({ leaf = "fadeLayers", enabled = false, speed = 1.2, bezier = "menu_decel" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 1.5, bezier = "menu_decel", style = "slidevert" })
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2, bezier = "md3_decel", style = "fade" })
 
 -- inputs
 hl.config({
   scrolling = {
-    column_width = 1.00,
+    column_width = 0.9,
     direction = "right",
     focus_fit_method = 0,
     follow_focus = true,
