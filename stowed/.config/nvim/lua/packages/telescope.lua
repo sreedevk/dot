@@ -136,6 +136,39 @@ return {
           }
         }
       },
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {},
+        },
+        live_grep_args = {
+          auto_quoting = true,
+          mappings = {
+            i = {
+              ["<C-k>"] = lga_actions.quote_prompt(),
+              ["<C-g>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+              ["<C-f>"] = lga_actions.to_fuzzy_refine,
+            },
+          }
+        },
+        heading = {
+          treesitter = false,
+        },
+        zoxide = {
+          mappings = {
+            default = {
+              action = function(selection)
+                vim.cmd.tcd(selection.path)
+              end
+            },
+          }
+        },
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        }
+      },
       defaults = {
         file_ignore_patterns = { "dune.lock" },
         vimgrep_arguments = {
@@ -152,45 +185,13 @@ return {
           '--glob', "!**/.jj/*",
           '--glob', "!**/node_modules/*",
         },
-        extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown {},
-          },
-          live_grep_args = {
-            auto_quoting = true, -- enable/disable auto-quoting
-            mappings = {         -- extend mappings
-              i = {
-                ["<C-'>"] = lga_actions.quote_prompt(),
-                ["<C-e>"] = lga_actions.to_fuzzy_refine,
-              },
-            }
-          },
-          heading = {
-            treesitter = false,
-          },
-          zoxide = {
-            mappings = {
-              default = {
-                action = function(selection)
-                  vim.cmd.tcd(selection.path)
-                end
-              },
-            }
-          },
-          fzf = {
-            fuzzy = true,
-            override_generic_sorter = true,
-            override_file_sorter = true,
-            case_mode = "smart_case",
-          }
-        },
         mappings = {
           n = {
             ["q"] = t_actions.close,
           },
           i = {
-            ["<C-k>"] = t_actions.move_selection_previous,
-            ["<C-j>"] = t_actions.move_selection_next,
+            ["<C-p>"] = t_actions.move_selection_previous,
+            ["<C-n>"] = t_actions.move_selection_next,
             ["<esc>"] = t_actions.close,
           },
         }
