@@ -119,10 +119,11 @@ in
       bind C-c new-session
       bind C-d neww "${pkgs.gh}/bin/gh dash"
       bind C-e neww "${pkgs.neovim}/bin/nvim"
-      bind C-g neww "${pkgs.lazygit}/bin/lazygit"
       bind C-f neww "${pkgs.nnn}/bin/nnn"
+      bind C-g neww "${pkgs.lazygit}/bin/lazygit"
       bind C-h neww "${config.programs.htop.package}/bin/htop"
       bind C-o neww "${sessionizer}/bin/tmux-sessionizer"
+      bind C-r display-popup -E -d "#{pane_current_path}" -w 80% -h 80%
       bind C-s neww "${sshfzf}/bin/ssh-fzf"
       bind C-t neww "${pkgs.taskwarrior-tui}/bin/taskwarrior-tui"
       bind C-u if-shell "tmux has-session -t system 2>/dev/null" \
