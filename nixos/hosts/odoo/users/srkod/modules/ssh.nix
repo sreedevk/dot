@@ -12,6 +12,7 @@
       text = builtins.concatStringsSep "\n" (
         with opts.publicKeys;
         [
+          phoenix
           terminus
         ]
       );
