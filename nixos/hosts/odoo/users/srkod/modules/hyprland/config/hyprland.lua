@@ -32,7 +32,7 @@ hl.monitor({
 })
 
 hl.monitor({
-  output = "desc:Iiyama North America PL2492HN 1178623014581",
+  output = "",
   mode = "preferred",
   position = "auto-up",
   scale = 1,
@@ -51,7 +51,11 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"))
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
-hl.bind("SUPER + CTRL + Escape", hl.dsp.exec_cmd("noctalia msg notification-clear-active"))
+hl.bind("SUPER + Space", hl.dsp.exec_cmd("noctalia msg notification-clear-active"))
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl s 10%-"))
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl s 10%+"))
+hl.bind("SUPER + XF86AudioLowerVolume", hl.dsp.exec_cmd("brightnessctl s 10%-"))
+hl.bind("SUPER + XF86AudioRaiseVolume", hl.dsp.exec_cmd("brightnessctl s 10%+"))
 hl.bind("SUPER + Space", hl.dsp.exec_cmd("noctalia msg notification-clear-active"))
 
 for i = 1, 12 do
@@ -97,6 +101,7 @@ hl.bind("SUPER + CTRL + J", hl.dsp.focus({ monitor = "d" }))
 hl.bind("SUPER + CTRL + K", hl.dsp.focus({ monitor = "u" }))
 
 hl.bind("SUPER + x", hl.dsp.layout("fit all"))
+
 
 hl.bind("SUPER + bracketright", hl.dsp.layout("colresize +0.1"))
 hl.bind("SUPER + bracketleft", hl.dsp.layout("colresize -0.1"))
