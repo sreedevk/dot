@@ -198,45 +198,41 @@ in
       ];
 
       outputs = {
-        "Samsung Display Corp. 0x4177" = {
-          enable = true;
-          name = "Samsung Display Corp. 0x4177";
-          position = {
-            x = 0;
-            y = 2400;
-          };
-          scale = 2;
-          variable-refresh-rate = "on-demand";
-          mode = {
-            width = 3840;
-            height = 2400;
-            refresh = 60.0;
-          };
-        };
         "LG Electronics LG ULTRAFINE 602NTMXGY347" = {
           enable = true;
-          name = "LG Electronics LG ULTRAFINE 602NTMXGY347";
           position = {
             x = 0;
             y = 0;
           };
           scale = 2;
-          variable-refresh-rate = "on-demand";
           mode = {
             width = 3840;
-            height = 2400;
+            height = 2160;
             refresh = 60.0;
           };
         };
+
         "LG Electronics LG ULTRAFINE 602NTRLGY358" = {
           enable = true;
-          name = "LG Electronics LG ULTRAFINE 602NTRLGY358";
           position = {
-            x = 3840;
+            x = 1920;
             y = 0;
           };
           scale = 2;
-          variable-refresh-rate = "on-demand";
+          mode = {
+            width = 3840;
+            height = 2160;
+            refresh = 60.0;
+          };
+        };
+
+        "Samsung Display Corp. 0x4177 Unknown" = {
+          enable = true;
+          position = {
+            x = 0;
+            y = 1080;
+          };
+          scale = 2;
           mode = {
             width = 3840;
             height = 2400;
@@ -269,11 +265,16 @@ in
           "Ctrl+XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
           "Ctrl+XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%+";
 
-          "Mod+Ctrl+H".action = focus-column-or-monitor-left;
-          "Mod+Ctrl+L".action = focus-column-or-monitor-right;
+          "Mod+Ctrl+H".action = focus-monitor-left;
+          "Mod+Ctrl+L".action = focus-monitor-right;
+          "Mod+Ctrl+K".action = focus-monitor-up;
+          "Mod+Ctrl+J".action = focus-monitor-down;
 
           "Mod+Shift+H".action = move-column-left-or-to-monitor-left;
           "Mod+Shift+L".action = move-column-right-or-to-monitor-right;
+          "Mod+Shift+J".action = move-column-to-monitor-down;
+          "Mod+Shift+K".action = move-column-to-monitor-up;
+
           "Mod+H".action = focus-column-left;
           "Mod+L".action = focus-column-right;
 
@@ -336,9 +337,6 @@ in
           "Mod+bracketright".action = set-column-width "+10%";
 
           "Mod+Shift+E".action = spawn "uwsm" "stop";
-
-          "Mod+Shift+J".action = move-window-to-workspace-down { focus = true; };
-          "Mod+Shift+K".action = move-window-to-workspace-up { focus = true; };
 
           "Mod+Shift+Q".action = close-window;
           "Mod+F".action = fullscreen-window;

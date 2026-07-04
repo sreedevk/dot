@@ -12,6 +12,7 @@ let
   );
 in
 {
+
   home.file = {
     ".profile" = {
       enable = true;
@@ -47,13 +48,10 @@ in
         export EGL_PLATFORM=wayland
         export NVD_BACKEND=direct
         export QT_QPA_PLATFORMTHEME=
-        export __EGL_EXTERNAL_PLATFORM_CONFIG_DIRS=/usr/share/egl/egl_external_platform.d
-        export __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/10_nvidia.json
         export VK_DRIVER_FILES=/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json
         export LD_LIBRARY_PATH="/run/opengl-driver/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
         export GBM_BACKENDS_PATH=/run/opengl-driver/lib/gbm
         export ELECTRON_OZONE_PLATFORM_HINT=auto
-        export GBM_BACKEND=nvidia-drm
         export GDK_DPI_SCALE=${opts.desktop.scale}
         export GDK_SCALE=${opts.desktop.scale}
         export GTK_THEME=Adwaita:dark
@@ -105,36 +103,15 @@ in
     enable = true;
     package = pkgs.niri;
     settings = {
-      environment = {
-        AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
-        EGL_PLATFORM = "wayland";
-        ELECTRON_OZONE_PLATFORM_HINT = "auto";
-        GBM_BACKEND = "nvidia-drm";
-        GDK_DPI_SCALE = "${opts.desktop.scale}";
-        GDK_SCALE = "${opts.desktop.scale}";
-        GTK_THEME = "Adwaita:dark";
-        LIBVA_DRIVER_NAME = "nvidia";
-        MOZ_ENABLE_WAYLAND = "1";
-        QT_AUTO_SCREEN_SCALE_FACTOR = "${opts.desktop.scale}";
-        QT_QPA_PLATFORM = "wayland";
-        QT_SCALE_FACTOR = "${opts.desktop.qt_scale_factor}";
-        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-        WINIT_X11_SCALE_FACTOR = "${opts.desktop.scale}";
-        XCURSOR_SIZE = "28";
-        XDG_CURRENT_DESKTOP = "niri";
-        XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
-        XDG_SESSION_DESKTOP = "niri";
-        XDG_SESSION_TYPE = "wayland";
-        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-        __GL_GSYNC_ALLOWED = "1";
-        __GL_VRR_ALLOWED = "1";
-        __NV_PRIME_RENDER_OFFLOAD = "1";
-        __VK_LAYER_NV_optimus = "NVIDIA_only";
+      debug = {
+        render-drm-device = "/dev/dri/renderD128";
       };
-
       layout = {
         default-column-width = {
           proportion = 1.0;
+        };
+        shadow = {
+          enable = false;
         };
         struts = {
           left = 16;
@@ -152,59 +129,31 @@ in
       input.tablet = {
         enable = true;
         left-handed = true;
-        map-to-output = "DP-2";
+        map-to-output = "eDP-1";
+      };
+
+      switch-events = with config.lib.niri.actions; {
+        lid-close.action = spawn "noctalia" "msg" "session" "lock";
       };
 
       spawn-at-startup = [
         { sh = "echo $NIRI_SOCKET > ~/.niri-socket"; }
+        { sh = "dbus-update-activation-environment --systemd --all"; }
+        { sh = "systemctl --user start xdg-desktop-portal-gnome.service"; }
+        { sh = "systemctl --user start hyprpolkitagent"; }
+        { sh = "clipse -listen"; }
+        { sh = "wl-paste --type image --watch cliphist store"; }
+        { sh = "wl-paste --type text --watch cliphist store"; }
+        { sh = "wlsunset -l 40.7 -L -73.9"; }
+        { sh = "xrdb ~/.Xresources"; }
+      ];
+
+      layer-rules = [
         {
-          argv = [
-            "dbus-update-activation-environment"
-            "--systemd"
-            "--all"
+          matches = [
+            { namespace = "^noctalia-backdrop"; }
           ];
-        }
-        {
-          argv = [
-            "systemctl"
-            "--systemd"
-            "--all"
-          ];
-        }
-        {
-          argv = [
-            "wl-paste"
-            "--type"
-            "image"
-            "--watch"
-            "cliphist"
-            "store"
-          ];
-        }
-        {
-          argv = [
-            "wl-paste"
-            "--type"
-            "text"
-            "--watch"
-            "cliphist"
-            "store"
-          ];
-        }
-        {
-          argv = [
-            "wlsunset"
-            "-l"
-            "40.7"
-            "-L"
-            "-73.9"
-          ];
-        }
-        {
-          argv = [
-            "xrdb"
-            "~/.Xresources"
-          ];
+          place-within-backdrop = true;
         }
       ];
 
@@ -217,6 +166,27 @@ in
           open-focused = true;
         }
         {
+          geometry-corner-radius = {
+            bottom-left = 0.2;
+            bottom-right = 0.2;
+            top-left = 0.2;
+            top-right = 0.2;
+          };
+          clip-to-geometry = true;
+        }
+        {
+          matches = [
+            { app-id = "dev.noctalia.Noctalia.Settings"; }
+          ];
+          open-floating = true;
+          default-column-width = {
+            fixed = 1080;
+          };
+          default-window-height = {
+            fixed = 920;
+          };
+        }
+        {
           matches = [
             { title = "^(Select a File)(.*)$"; }
           ];
@@ -226,48 +196,44 @@ in
       ];
 
       outputs = {
-        "DP-3" = {
+        "LG Electronics LG ULTRAFINE 602NTMXGY347" = {
           enable = true;
-          name = "XEC ES-24X3A 0x00000022";
           position = {
             x = 0;
             y = 0;
           };
-          scale = 1;
-          variable-refresh-rate = "on-demand";
+          scale = 2;
           mode = {
-            width = 1920;
-            height = 1080;
-            refresh = 100.0;
-          };
-        };
-        "eDP-1" = {
-          enable = true;
-          name = "AU Optronics 0xF99A";
-          position = {
-            x = 0;
-            y = 1080;
-          };
-          scale = 1;
-          variable-refresh-rate = "on-demand";
-          mode = {
-            width = 1920;
-            height = 1200;
+            width = 3840;
+            height = 2160;
             refresh = 60.0;
           };
         };
-        "DP-2" = {
+
+        "LG Electronics LG ULTRAFINE 602NTRLGY358" = {
           enable = true;
-          name = "LG Electronics LG Ultra HD 0x00073F78";
           position = {
             x = 1920;
             y = 0;
           };
-          scale = 1.6;
-          variable-refresh-rate = "on-demand";
+          scale = 2;
           mode = {
             width = 3840;
             height = 2160;
+            refresh = 60.0;
+          };
+        };
+
+        "Samsung Display Corp. 0x4177 Unknown" = {
+          enable = true;
+          position = {
+            x = 0;
+            y = 1080;
+          };
+          scale = 2;
+          mode = {
+            width = 3840;
+            height = 2400;
             refresh = 60.0;
           };
         };
@@ -287,61 +253,107 @@ in
           XF86AudioPlay.action = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
           XF86AudioPrev.action = spawn "${pkgs.playerctl}/bin/playerctl" "previous";
           XF86AudioRaiseVolume.action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";
-
           XF86MonBrightnessDown.action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%-";
           XF86MonBrightnessUp.action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%+";
 
-          "Ctrl+Space".action = spawn "noctalia" "ipc" "call" "notifications" "dismissAll";
+          "Ctrl+Space".action = spawn "noctalia" "msg" "notification-clear-active";
+          "Mod+Ctrl+Space".action = spawn "noctalia" "msg" "session" "lock";
+
           "Ctrl+XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%-";
           "Ctrl+XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
           "Ctrl+XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%+";
 
-          "Mod+H".action = focus-column-or-monitor-left;
-          "Mod+L".action = focus-column-or-monitor-right;
+          "Mod+Ctrl+H".action = focus-monitor-left;
+          "Mod+Ctrl+L".action = focus-monitor-right;
+          "Mod+Ctrl+K".action = focus-monitor-up;
+          "Mod+Ctrl+J".action = focus-monitor-down;
 
           "Mod+Shift+H".action = move-column-left-or-to-monitor-left;
           "Mod+Shift+L".action = move-column-right-or-to-monitor-right;
+          "Mod+Shift+J".action = move-column-to-monitor-down;
+          "Mod+Shift+K".action = move-column-to-monitor-up;
+
+          "Mod+H".action = focus-column-left;
+          "Mod+L".action = focus-column-right;
 
           "Mod+K".action = focus-workspace-up;
           "Mod+J".action = focus-workspace-down;
 
-          "Mod+1".action = focus-column 1;
-          "Mod+2".action = focus-column 2;
-          "Mod+3".action = focus-column 3;
-          "Mod+4".action = focus-column 4;
-          "Mod+5".action = focus-column 5;
-          "Mod+6".action = focus-column 6;
-          "Mod+7".action = focus-column 7;
-          "Mod+8".action = focus-column 8;
-          "Mod+9".action = focus-column 9;
-          "Mod+0".action = focus-column 10;
+          "Mod+1".action.focus-workspace = 1;
+          "Mod+2".action.focus-workspace = 2;
+          "Mod+3".action.focus-workspace = 3;
+          "Mod+4".action.focus-workspace = 4;
+          "Mod+5".action.focus-workspace = 5;
+          "Mod+6".action.focus-workspace = 6;
+          "Mod+7".action.focus-workspace = 7;
+          "Mod+8".action.focus-workspace = 8;
+          "Mod+9".action.focus-workspace = 9;
+          "Mod+0".action.focus-workspace = 10;
 
-          "Mod+Ctrl+H".action = set-column-width "-10%";
-          "Mod+Ctrl+L".action = set-column-width "+10%";
+          "Mod+Shift+1".action.move-window-to-workspace = [
+            { focus = true; }
+            1
+          ];
+          "Mod+Shift+2".action.move-window-to-workspace = [
+            { focus = true; }
+            2
+          ];
+          "Mod+Shift+3".action.move-window-to-workspace = [
+            { focus = true; }
+            3
+          ];
+          "Mod+Shift+4".action.move-window-to-workspace = [
+            { focus = true; }
+            4
+          ];
+          "Mod+Shift+5".action.move-window-to-workspace = [
+            { focus = true; }
+            5
+          ];
+          "Mod+Shift+6".action.move-window-to-workspace = [
+            { focus = true; }
+            6
+          ];
+          "Mod+Shift+7".action.move-window-to-workspace = [
+            { focus = true; }
+            7
+          ];
+          "Mod+Shift+8".action.move-window-to-workspace = [
+            { focus = true; }
+            8
+          ];
+          "Mod+Shift+9".action.move-window-to-workspace = [
+            { focus = true; }
+            9
+          ];
+          "Mod+Shift+0".action.move-window-to-workspace = [
+            { focus = true; }
+            10
+          ];
 
-          "Mod+Shift+E".action = quit { skip-confirmation = true; };
+          "Mod+bracketleft".action = set-column-width "-10%";
+          "Mod+bracketright".action = set-column-width "+10%";
 
-          "Mod+Shift+J".action = move-window-to-workspace-down { focus = true; };
-          "Mod+Shift+K".action = move-window-to-workspace-up { focus = true; };
-
-          # TODO: USE THIS TO SWITCH MONITORS
-          # "Mod+Tab".action = focus-column-right-or-first;
-          # "Mod+Shift+Tab".action = focus-column-right-or-first;
+          "Mod+Shift+E".action = spawn "uwsm" "stop";
 
           "Mod+Shift+Q".action = close-window;
-          "Mod+F".action = toggle-windowed-fullscreen;
+          "Mod+F".action = fullscreen-window;
 
-          "Mod+A".action = spawn "pwvucontrol";
-          "Mod+C".action = spawn "noctalia" "ipc" "call" "controlCenter" "toggle";
+          # "Mod+A".action = spawn "pwvucontrol";
+          "Mod+C".action = spawn "noctalia" "msg" "panel-toggle" "control-center";
           "Mod+D".action = spawn "${pkgs.vicinae}/bin/vicinae" "toggle";
-          "Mod+N".action = spawn "noctalia" "ipc" "call" "notifications" "toggleDND";
-          "Mod+S".action = spawn "noctalia" "ipc" "call" "settings" "toggle";
-          "Mod+W".action = spawn "noctalia" "ipc" "call" "wallpaper" "toggle";
+          "Mod+N".action = spawn "noctalia" "msg" "notification-dnd-toggle";
+          "Mod+S".action = spawn "noctalia" "msg" "settings-toggle";
+
+          # "Mod+W".action = spawn "noctalia" "ipc" "call" "wallpaper" "toggle";
           "Mod+O".action = toggle-overview;
-          "Mod+Return".action = spawn "${pkgs.kitty}/bin/kitty";
-          "Mod+Shift+Return".action =
-            spawn "${config.programs.kitty.package}/bin/kitty ${pkgs.tmux}/bin/tmux new -A -s system";
-          "Mod+KP_Enter".action = spawn "${config.programs.kitty.package}/bin/kitty";
+          "Mod+Shift+Return".action = spawn "${pkgs.kitty}/bin/kitty";
+          "Mod+Return".action =
+            spawn "${config.programs.kitty.package}/bin/kitty" "${pkgs.tmux}/bin/tmux" "new" "-A" "-s"
+              "system";
+          "Mod+KP_Enter".action =
+            spawn "${config.programs.kitty.package}/bin/kitty" "${pkgs.tmux}/bin/tmux" "new" "-A" "-s"
+              "system";
           "Mod+XF86AudioLowerVolume".action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%-";
           "Mod+XF86AudioRaiseVolume".action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%+";
           "Mod+Shift+S".action = sh ''
