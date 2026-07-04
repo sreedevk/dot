@@ -1,8 +1,9 @@
-{ pkgs
-, config
-, username
-, opts
-, ...
+{
+  pkgs,
+  config,
+  username,
+  opts,
+  ...
 }:
 {
   imports = [
@@ -119,7 +120,7 @@
   };
 
   nix = {
-    package = pkgs.nixVersions.nix_2_28;
+    package = pkgs.nixVersions.nix_2_31;
 
     settings = {
 
