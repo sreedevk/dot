@@ -1,6 +1,7 @@
 Adwaita
 adw-gtk3
 Codecs
+darktable
 FFmpeg
 Flatseal
 Freedesktop
@@ -11,6 +12,7 @@ Mesa
 Millisecond
 Nvidia
 nvidia-595-58-03
+nvidia-610-43-02
 openh264
 Prism
 Warehouse

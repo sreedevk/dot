@@ -38,6 +38,7 @@ fuse2
 fwupd
 gdb
 git
+git-filter-repo
 git-lfs
 gnome-keyring
 gnumeric
@@ -82,6 +83,7 @@ lib32-nvidia-utils
 lib32-vulkan-intel
 lib32-zlib
 libcamera-tools
+libfido2
 libnotify
 libpam-google-authenticator
 libqalculate
@@ -139,6 +141,8 @@ power-profiles-daemon
 progress
 python-jinja
 python-ply
+python-systemd
+python-xlib
 qjackctl
 qt5ct
 qt5-tools
@@ -161,6 +165,7 @@ sdl2_image
 sdl2_mixer
 sdl2_net
 sdl2_ttf
+seahorse
 slurp
 smartmontools
 snd
@@ -173,7 +178,6 @@ squashfs-tools
 ssh-tpm-agent
 strace
 supercollider
-supergfxctl
 tailscale
 texlive-binextra
 thunderbird
@@ -207,6 +211,7 @@ wlroots0.19
 wlsunset
 woff2-font-awesome
 xclip
+xdg-desktop-portal-gnome
 xdg-desktop-portal-hyprland
 xdo
 xdotool
@@ -220,6 +225,7 @@ xorg-xrandr
 xorg-xwininfo
 xterm
 xtrans
+yubico-pam
 zarchive
 zip
 zmap
