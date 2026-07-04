@@ -123,9 +123,14 @@ in
 
       input.keyboard = {
         xkb = {
-          layout = "us";
-          options = "ctrl:nocaps";
+          layout = "us,apl";
+          options = "ctrl:nocaps,compose:ralt,grp:shifts_toggle";
+          variant = ",dyalog";
         };
+      };
+
+      input.focus-follows-mouse = {
+        enable = true;
       };
 
       input.tablet = {
