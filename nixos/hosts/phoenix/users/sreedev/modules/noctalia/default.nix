@@ -49,7 +49,7 @@
         };
         weather = {
           max_length = 180;
-          show_condition = true;
+          show_condition = false;
           show_temperature = true;
         };
         clock = {
@@ -127,15 +127,19 @@
         main = {
           position = "top";
           enabled = true;
+          shadow = false;
+          margin_ends = 0;
+          padding = 14;
+          margin_edge = 0;
+          radius = 0;
           auto_hide = false;
+          widget_spacing = 6;
           reserve_space = true;
           density = "comfortable";
           layer = "top";
           thickness = 34;
           background_opacity = 1.0;
           start = [
-            "clock"
-            "spacer"
             "weather"
             "spacer"
             "brightness"
@@ -151,9 +155,13 @@
             "workspaces"
           ];
           end = [
+            "clock"
+            "spacer"
             "audio-vis"
             "spacer"
-            "sysmon"
+            "cpu-graph"
+            "spacer"
+            "temp"
             "spacer"
             "battery"
             "spacer"
