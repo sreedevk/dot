@@ -119,22 +119,24 @@ in
         };
       };
 
-      input.keyboard = {
-        xkb = {
-          layout = "us,apl";
-          options = "ctrl:nocaps,compose:ralt,grp:shifts_toggle";
-          variant = ",dyalog";
+      input = {
+        keyboard = {
+          xkb = {
+            layout = "us,apl";
+            options = "ctrl:nocaps,compose:ralt,grp:shifts_toggle";
+            variant = ",dyalog";
+          };
         };
-      };
 
-      input.focus-follows-mouse = {
-        enable = true;
-      };
+        focus-follows-mouse = {
+          enable = true;
+        };
 
-      input.tablet = {
-        enable = true;
-        left-handed = true;
-        map-to-output = "eDP-1";
+        tablet = {
+          enable = true;
+          left-handed = true;
+          map-to-output = "eDP-1";
+        };
       };
 
       switch-events = with config.lib.niri.actions; {
