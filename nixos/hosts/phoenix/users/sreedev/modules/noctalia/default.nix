@@ -122,6 +122,44 @@
           color_2 = "secondary";
         };
       };
+      lockscreen_widgets = {
+        enabled = true;
+        widget = {
+          clock_main = {
+            type = "clock";
+            # output = "DP-1";
+            cx = 1600.0;
+            cy = 120.0;
+            box_width = 360.0;
+            box_height = 120.0;
+            rotation = 0.0;
+            settings = {
+              format = "{:%H:%M}";
+            };
+          };
+          audio_main = {
+            type = "fancy_audio_visualizer";
+            # output = "DP-1";
+            cx = 960.0;
+            cy = 540.0;
+            box_width = 0.0;
+            box_height = 0.0;
+            rotation = 0.0;
+            settings = {
+              visualization_mode = "bars_rings";
+              sensitivity = 1.5;
+              rotation_speed = 0.5;
+              bar_width = 0.6;
+              ring_opacity = 0.8;
+              inner_diameter = 0.7;
+              bloom_intensity = 0.5;
+              fade_when_idle = true;
+              primary_color = "primary";
+              secondary_color = "secondary";
+            };
+          };
+        };
+      };
       bar = {
         order = [ "main" ];
         main = {
