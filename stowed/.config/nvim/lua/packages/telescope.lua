@@ -190,8 +190,10 @@ return {
             ["q"] = t_actions.close,
           },
           i = {
-            ["<C-p>"] = t_actions.move_selection_previous,
+            ["<C-a>"] = t_actions.send_to_qflist + t_actions.open_qflist,
             ["<C-n>"] = t_actions.move_selection_next,
+            ["<C-p>"] = t_actions.move_selection_previous,
+            ["<C-s>"] = t_actions.send_selected_to_qflist + t_actions.open_qflist,
             ["<esc>"] = t_actions.close,
           },
         }
