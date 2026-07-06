@@ -5,9 +5,10 @@ _: prev: {
     beets
     bitwarden-desktop
     claude-code
-    neovim
     imager
+    jellyfin-desktop
     jiratui
+    neovim
     zls
     ;
 }
