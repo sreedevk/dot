@@ -181,6 +181,7 @@
             "weather"
             "spacer"
             "brightness"
+            "spacer"
             "volume"
             "spacer"
             "bluetooth"
