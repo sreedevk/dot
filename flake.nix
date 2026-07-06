@@ -5,7 +5,6 @@
 
     agenix.url     = "github:ryantm/agenix";
     attic.url      = "github:zhaofengli/attic";
-    bongocat.url   = "github:saatvik333/wayland-bongocat?ref=v2.0.0";
     colmena.url    = "github:zhaofengli/colmena";
     llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b9859";
     nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
