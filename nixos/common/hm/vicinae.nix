@@ -46,7 +46,7 @@
         csd = true;
         opacity = 0.95;
         keybinds = {
-          open-search-filter = "control+P";
+          open-search-filter = "control+F";
           open-settings = "control+,";
           toggle-action-panel = "control+B";
           action = {
@@ -57,9 +57,9 @@
             duplicate = "control+D";
             edit = "control+E";
             edit-secondary = "control+shift+E";
-            move-down = "control+shift+ARROWDOWN";
-            move-up = "control+shift+ARROWUP";
-            new = "control+N";
+            move-down = "control+N";
+            move-up = "control+P";
+            new = "control+shift+N";
             open = "control+O";
             pin = "control+shift+P";
             refresh = "control+R";
