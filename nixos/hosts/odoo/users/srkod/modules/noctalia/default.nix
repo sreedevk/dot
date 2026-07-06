@@ -17,6 +17,9 @@
     package = config.lib.pamShim.replacePam pkgs.noctalia;
     systemd.enable = false;
     settings = {
+      plugins = {
+        enabled = [ "noctalia/wallhaven" ];
+      };
       theme = {
         mode = "dark";
         source = "builtin";
