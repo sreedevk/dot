@@ -104,6 +104,7 @@ in
     package = pkgs.niri;
     settings = {
       debug = {
+        honor-xdg-activation-with-invalid-serial = true;
         render-drm-device = "/dev/dri/renderD128";
       };
       layout = {
