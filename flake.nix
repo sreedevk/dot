@@ -9,7 +9,7 @@
     llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b9859";
     nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05&shallow=1";
-    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.22.0";
+    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.22.3";
 
     direnv-instant = {
       url                    = "github:Mic92/direnv-instant";
