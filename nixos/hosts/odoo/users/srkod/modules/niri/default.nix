@@ -5,7 +5,7 @@
   ...
 }:
 let
-  niri = pkgs.lib.getExe (
+  niri-instances = pkgs.lib.getExe (
     pkgs.writeShellScriptBin "niri-instance" ''
       ${pkgs.niri}/bin/niri --session
     ''
@@ -27,7 +27,7 @@ in
         fi
 
         if uwsm check may-start > /dev/null 2>&1; then
-          exec uwsm start ${niri}
+          exec uwsm start ${niri-instances}
         fi
       '';
     };
@@ -73,6 +73,7 @@ in
 
   home.packages = with pkgs; [
     xwayland-satellite
+    niri
   ];
 
   xdg.portal = {

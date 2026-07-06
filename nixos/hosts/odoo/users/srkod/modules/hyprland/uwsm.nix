@@ -1,6 +1,7 @@
 {
   pkgs,
   opts,
+  config,
   ...
 }:
 let
@@ -21,7 +22,7 @@ in
       target = ".profile";
       executable = true;
       text = ''
-        export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+        export XDG_DATA_DIRS="${config.home.profileDirectory}/share:/usr/local/share:/usr/share"
 
         if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
           . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
