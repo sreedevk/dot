@@ -231,16 +231,30 @@ in
           };
         };
 
-        "Samsung Display Corp. 0x4177 Unknown" = {
+        "Iiyama North America PL2492HN 1178623014581" = {
+          enable = true;
+          position = {
+            x = 0;
+            y = 0;
+          };
+          scale = 1;
+          mode = {
+            height = 1920;
+            width = 1080;
+            refresh = 60.0;
+          };
+        };
+
+        "Lenovo Group Limited MNE007JA1-3 Unknown" = {
           enable = true;
           position = {
             x = 0;
             y = 1080;
           };
-          scale = 2;
+          scale = 1;
           mode = {
-            width = 3840;
-            height = 2400;
+            width = 1920;
+            height = 1200;
             refresh = 60.0;
           };
         };
