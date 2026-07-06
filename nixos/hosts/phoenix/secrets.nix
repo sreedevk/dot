@@ -21,6 +21,7 @@ _: with builtins; {
         "hugging_face_token"
         "jira-token"
         "miniflux_app_password"
+        "noctalia_state_toml"
         "openai_api_key"
         "openweather-token"
         "pastebin-token"

@@ -14,6 +14,7 @@ _: with builtins; {
       [
         "gh_token"
         "ghcr_ro_token"
+        "noctalia_state_toml"
         "restic_backup_password"
       ];
 }

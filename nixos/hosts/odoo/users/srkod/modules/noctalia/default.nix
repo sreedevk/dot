@@ -12,11 +12,29 @@
     roboto
   ];
 
+  home.sessionVariables = with builtins; {
+    NOCTALIA_STATE_HOME = "$(cat ${(getAttr "noctalia_state_toml" config.age.secrets).path})";
+  };
+
   programs.noctalia = {
     enable = true;
     package = config.lib.pamShim.replacePam pkgs.noctalia;
     systemd.enable = false;
     settings = {
+      calendar = {
+        enabled = true;
+        refresh_minutes = 15;
+        account = {
+          baikal = {
+            type = "caldav";
+            name = "baikal";
+            provider = "custom";
+            server_url = "https://cal.devtechnica.com/dav.php";
+            username = "sreedev";
+            calendars = [ ]; # optional discovered collection ids; empty = all
+          };
+        };
+      };
       plugins = {
         enabled = [ "noctalia/wallhaven" ];
       };
@@ -230,10 +248,11 @@
           Type = "simple";
           ExecStart = "${config.programs.noctalia.package}/bin/noctalia";
           RemainAfterExit = true;
-          Environment = [
+          Environment = with builtins; [
             "QT_QPA_PLATFORM=wayland"
             "WAYLAND_DISPLAY=wayland-1"
             "XDG_RUNTIME_DIR=%t"
+            "NOCTALIA_STATE_HOME=$(cat ${(getAttr "noctalia_state_toml" config.age.secrets).path})"
             # "NOCTALIA_WALLHAVEN_API_KEY=$(cat ${config.age.secrets.wallhaven-token.path})"
           ];
           Restart = "on-failure";
