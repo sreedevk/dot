@@ -12,9 +12,7 @@
     roboto
   ];
 
-  home.sessionVariables = with builtins; {
-    NOCTALIA_STATE_HOME = "$(cat ${(getAttr "noctalia_state_toml" config.age.secrets).path})";
-  };
+  xdg.dataFile."noctalia/state.toml".source = config.age.secrets.noctalia_state_toml.path;
 
   programs.noctalia = {
     enable = true;
@@ -248,12 +246,10 @@
           Type = "simple";
           ExecStart = "${config.programs.noctalia.package}/bin/noctalia";
           RemainAfterExit = true;
-          Environment = with builtins; [
+          Environment = [
             "QT_QPA_PLATFORM=wayland"
             "WAYLAND_DISPLAY=wayland-1"
             "XDG_RUNTIME_DIR=%t"
-            "NOCTALIA_STATE_HOME=$(cat ${(getAttr "noctalia_state_toml" config.age.secrets).path})"
-            # "NOCTALIA_WALLHAVEN_API_KEY=$(cat ${config.age.secrets.wallhaven-token.path})"
           ];
           Restart = "on-failure";
         };
