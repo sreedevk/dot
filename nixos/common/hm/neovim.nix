@@ -17,6 +17,8 @@ let
     fennel-ls                       # fennel
     fish-lsp                        # fish
     jsonnet-language-server         # jsonnet
+    lemminx                         # xml
+    libxml2                         # xmllint
     ltex-ls-plus                    # grammar
     lua-language-server             # lua
     marksman                        # markdown
@@ -28,7 +30,6 @@ let
     vscode-langservers-extracted    # json+
     yaml-language-server            # yaml
     zls                             # zig
-    libxml2                         # xmllint
   ];
 
   neovim_pkgs = with pkgs; [
