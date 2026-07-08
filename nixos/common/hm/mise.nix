@@ -15,8 +15,7 @@
           not_found_auto_install = false;
           quiet                  = false;
           ruby.compile           = false;
-          erlang.compile         = false;
-          # all_compile            = false;
+          erlang.compile         = true;
         };
         tools = {
           bun        = "latest";
