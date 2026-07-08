@@ -190,7 +190,7 @@
           margin_edge = 0;
           radius = 0;
           auto_hide = false;
-          widget_spacing = 6;
+          widget_spacing = 18;
           reserve_space = true;
           density = "comfortable";
           layer = "top";
@@ -198,17 +198,11 @@
           background_opacity = 1.0;
           start = [
             "clock"
-            "spacer"
             "weather"
-            "spacer"
             "brightness"
-            "spacer"
             "volume"
-            "spacer"
             "bluetooth"
-            "spacer"
             "keyboard_layout"
-            "spacer"
             "network"
           ];
           center = [
@@ -216,15 +210,10 @@
           ];
           end = [
             "audio-vis"
-            "spacer"
             "cpu-graph"
-            "spacer"
             "temp"
-            "spacer"
             "battery"
-            "spacer"
             "control-center"
-            "spacer"
             "notifications"
             "tray"
           ];
