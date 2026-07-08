@@ -197,6 +197,8 @@
           thickness = 34;
           background_opacity = 1.0;
           start = [
+            "clock"
+            "spacer"
             "weather"
             "spacer"
             "brightness"
@@ -213,8 +215,6 @@
             "workspaces"
           ];
           end = [
-            "clock"
-            "spacer"
             "audio-vis"
             "spacer"
             "cpu-graph"
