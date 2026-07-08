@@ -966,16 +966,16 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1783009640,
-        "narHash": "sha256-1c6rl+PMI61l3H2a8Ks1qbFGW2psHs0FamJd/Vzq6NY=",
+        "lastModified": 1783456697,
+        "narHash": "sha256-SJP1CkpkGxsuJZQKxaDPLZMUT1HZmyxqR42nCIHfPLM=",
         "owner": "vicinaehq",
         "repo": "vicinae",
-        "rev": "190a8cb85ff7c4537792a2f3893516e8e339cab2",
+        "rev": "b96d953b74c1e1a250d3282f3857c9935aeca3f2",
         "type": "github"
       },
       "original": {
         "owner": "vicinaehq",
-        "ref": "v0.22.3",
+        "ref": "v0.23.0",
         "repo": "vicinae",
         "type": "github"
       }
