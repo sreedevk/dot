@@ -44,7 +44,7 @@
           layer = "overlay"; # top
         };
         csd = true;
-        opacity = 0.95;
+        opacity = 1.00;
         keybinds = {
           open-search-filter = "control+F";
           open-settings = "control+,";
@@ -71,7 +71,7 @@
           "clipboard:history"
         ];
         blur = {
-          enabled = true;
+          enabled = false;
         };
         rounding = 10;
       };
