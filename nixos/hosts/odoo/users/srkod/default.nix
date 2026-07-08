@@ -14,7 +14,6 @@
     ../../../../common/hm/amfora.nix
     ../../../../common/hm/base.nix
     ../../../../common/hm/bash.nix
-    ../../../../common/hm/brave.nix
     ../../../../common/hm/btop.nix
     ../../../../common/hm/core-max.nix
     ../../../../common/hm/direnv.nix
@@ -50,6 +49,7 @@
     # Current User Specific
 
     ../../secrets.nix
+    ./modules/brave.nix
     ./modules/git.nix
     ./modules/github.nix
     ./modules/hyprland

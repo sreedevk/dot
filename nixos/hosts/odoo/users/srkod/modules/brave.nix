@@ -4,7 +4,7 @@
 
   home.file = {
     ".config/brave-flags.conf" = {
-      enabled = true;
+      enable = true;
       text = ''
         --disable-print-preview
         --password-store=basic
