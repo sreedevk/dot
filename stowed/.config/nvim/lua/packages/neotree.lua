@@ -162,6 +162,7 @@ return {
         window = {
           mappings = {
             ["u"] = "navigate_up",
+            ["-"] = "navigate_up",
             ["."] = "set_root",
             ["I"] = "toggle_hidden",
             ["/"] = "fuzzy_finder",
