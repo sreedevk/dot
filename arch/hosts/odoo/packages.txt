@@ -14,6 +14,7 @@ bluez-utils
 boost
 btrfs-progs
 ccache
+ccid
 clang
 cliphist
 cmake
@@ -118,6 +119,7 @@ openvpn
 os-prober
 pacutils
 parallel
+pcsc-tools
 perf
 pipewire-alsa
 pipewire-libcamera
@@ -131,6 +133,7 @@ power-profiles-daemon
 progress
 python-jinja
 python-ply
+python-pyscard
 qjackctl
 qt5ct
 qt5-tools
@@ -165,9 +168,11 @@ squashfs-tools
 ssh-tpm-agent
 strace
 supercollider
+swig
 tailscale
 texlive-binextra
 thunderbird
+tk
 tree-sitter-cli
 ttf-dejavu
 ttf-iosevka-nerd
