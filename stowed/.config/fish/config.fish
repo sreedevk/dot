@@ -26,7 +26,7 @@ set -gx MANROFFOPT -c
 set -gx MANPAGER "nvim +Man!"
 set -gx MANPATH $HOME/.nix-profile/share/man /usr/share/man /usr/local/share/man
 set -gx LANG en_US.UTF-8
-set -gx TZ America/New_York
+set -gx TZ Europe/Brussels
 set -gx CLICOLOR 1
 
 if status is-interactive
