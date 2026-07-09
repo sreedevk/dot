@@ -11,6 +11,11 @@
     stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05&shallow=1";
     vicinae.url    = "github:vicinaehq/vicinae?ref=v0.23.0";
 
+    nix-doom-emacs-unstraightened =  {
+      url = "github:marienz/nix-doom-emacs-unstraightened";
+      inputs.nixpkgs.follows = "";
+    };
+
     direnv-instant = {
       url                    = "github:Mic92/direnv-instant";
       inputs.nixpkgs.follows = "nixpkgs";

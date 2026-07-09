@@ -13,6 +13,7 @@ let
     home-manager
     niri
     nix-index-database
+    nix-doom-emacs-unstraightened
     nixpkgs
     noctalia
     pam
@@ -114,6 +115,7 @@ rec {
 
       modules = [
         ../nixos/hosts/${host}/users/${username}
+        nix-doom-emacs-unstraightened.homeModule
         agenix.homeManagerModules.age
         noctalia.homeModules.default
         niri.homeModules.niri
