@@ -92,6 +92,7 @@
       sqlmap                   # Automatic SQL injection and database takeover tool
       statix                   # nix code linter
       streamrip                # tidal / soundcloud / deezer downloader cli
+      television               # blazingly fast general purpose fuzzy finder tui
       terminaltexteffects      # cli text effects
       texliveFull              # pandoc supporting packages for pdf/latex
       ticker                   # asset ticker
