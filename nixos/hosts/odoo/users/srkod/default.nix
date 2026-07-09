@@ -48,12 +48,13 @@
 
     # Current User Specific
 
+    # ./modules/hyprland
     ../../secrets.nix
     ./modules/brave.nix
     ./modules/firefox
     ./modules/git.nix
     ./modules/github.nix
-    ./modules/hyprland
+    ./modules/niri
     ./modules/noctalia
     ./modules/packages
     ./modules/rbw.nix
