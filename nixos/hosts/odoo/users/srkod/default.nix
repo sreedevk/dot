@@ -50,6 +50,7 @@
 
     ../../secrets.nix
     ./modules/brave.nix
+    ./modules/firefox
     ./modules/git.nix
     ./modules/github.nix
     ./modules/hyprland

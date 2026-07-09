@@ -1,88 +1,48 @@
 { lib
 , pkgs
 , config
+, opts
 , ...
 }:
+let
+  defaultWebBrowser = [
+    opts.desktop.browser.xdg-desktop
+  ];
+in
 {
+
   xdg.mime.enable = true;
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "application/pdf" = [
-        "org.pwmt.zathura.desktop"
-        "firefox.desktop"
-        "brave-browser.desktop"
-      ];
-      "application/json" = [
-        "firefox.desktop"
-        "brave-browser.desktop"
-      ];
-      "text/plain" = [
-        "neovide.desktop"
-        "firefox.desktop"
-        "brave-browser.desktop"
-      ];
-      "text/html" = [
-        "firefox.desktop"
-        "brave-browser.desktop"
+      "application/pdf" = [ "org.pwmt.zathura.desktop" ] ++ defaultWebBrowser;
+      "application/json" = defaultWebBrowser;
+      "text/plain" = [ "neovide.desktop" ] ++ defaultWebBrowser;
+      "text/html" = defaultWebBrowser ++ [
         "neovide.desktop"
         "neovim.desktop"
       ];
-      "text/markdown" = [
-        "brave-browser.desktop"
-        "firefox.desktop"
+      "text/markdown" = defaultWebBrowser ++ [
         "neovide.desktop"
         "neovim.desktop"
       ];
       "text/unknown" = [
         "neovide.desktop"
         "neovim.desktop"
-        "firefox.desktop"
-        "brave-browser.desktop"
-      ];
-      "inode/directory" = [
-        "nemo.desktop"
-      ];
-      "x-scheme-handler/http" = [
-        "firefox.desktop"
-        "brave-browser.desktop"
-      ];
-      "x-scheme-handler/https" = [
-        "firefox.desktop"
-        "brave-browser.desktop"
-      ];
-      "x-scheme-handler/about" = [
-        "firefox.desktop"
-        "brave-browser.desktop"
-      ];
-      "x-scheme-handler/mailto" = [
-        "org.mozilla.Thunderbird.desktop"
-      ];
-      "x-scheme-handler/unknown" = [
-        "firefox.desktop"
-        "brave-browser.desktop"
-      ];
-      "image/png" = [
-        "nsxiv.desktop"
-        "firefox.desktop"
-        "brave-browser.desktop"
-      ];
-      "image/jpeg" = [
-        "nsxiv.desktop"
-        "firefox.desktop"
-        "brave-browser.desktop"
-      ];
-      "image/gif" = [
-        "nsxiv.desktop"
-        "firefox.desktop"
-        "brave-browser.desktop"
-      ];
+      ]
+      ++ defaultWebBrowser;
+      "inode/directory" = [ "nemo.desktop" ];
+      "x-scheme-handler/http" = defaultWebBrowser;
+      "x-scheme-handler/https" = defaultWebBrowser;
+      "x-scheme-handler/about" = defaultWebBrowser;
+      "x-scheme-handler/mailto" = [ "org.mozilla.Thunderbird.desktop" ];
+      "x-scheme-handler/unknown" = defaultWebBrowser;
+      "image/png" = [ "nsxiv.desktop" ] ++ defaultWebBrowser;
+      "image/jpeg" = [ "nsxiv.desktop" ] ++ defaultWebBrowser;
+      "image/gif" = [ "nsxiv.desktop" ] ++ defaultWebBrowser;
     };
     associations.added = {
-      "application/atom+xml" = [
-        "firefox.desktop"
-        "brave-browser.desktop"
-      ];
+      "application/atom+xml" = defaultWebBrowser;
     };
   };
 
