@@ -20,21 +20,20 @@
     options = {
       navigate = true;
       light = false;
-      features = "side-by-side line-numbers decorations";
-      syntax-theme = "Dracula";
-      plus-style = "syntax \"#003800\"";
-      minus-style = "syntax \"#3f0001\"";
+      side-by-side = true;
+      line-numbers = true;
+      syntax-theme = "Catppuccin Frappe";
       zero-style = "dim syntax";
-      decorations = {
-        commit-decoration-style = "bold yellow box ul";
-        commit-style = "raw";
-        file-style = "omit";
-        file-decoration-style = "none";
-        hunk-header-decoration-style = "blue box";
-        hunk-header-file-style = "red";
-        hunk-header-line-number-style = "#067a00";
-        hunk-header-style = "file line-number syntax";
-      };
+      commit-decoration-style = "none";
+      commit-style = "raw";
+      file-style = "bold";
+      file-decoration-style = "none";
+      hunk-header-decoration-style = "none";
+      hunk-header-style = "file line-number syntax";
+      line-numbers-left-format = "{nm:^4} ";
+      line-numbers-right-format = "{np:^4} ";
+      line-numbers-left-style = "dim";
+      line-numbers-right-style = "dim";
     };
   };
 
