@@ -58,7 +58,6 @@
       jira-cli-go              # jira
       jiratui                  # jira tui
       jless                    # json pager
-      just                     # command runner
       k9s                      # k8s tui
       kubectl                  # k8s
       lazydocker               # docker tui

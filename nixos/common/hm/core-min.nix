@@ -1,21 +1,21 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    bat       # better cat
-    dig       # dns query
-    dust      # file disk space usage summary
-    exiftool  # rw exif information
-    eza       # modern ls
-    fd        # modern find
-    fzf       # fuzzy finder
-    jq        # json query lang
-    less      # pager
-    rake      # ruby make
-    ripgrep   # faster grep
-    rsync     # file sync
-    starship  # shell prompt
-    unrar     # rar archives utility
-    wget      # cli downloader
-    zoxide    # faster cd
+    bat      # better cat
+    dig      # dns query
+    dust     # file disk space usage summary
+    exiftool # rw exif information
+    eza      # modern ls
+    fd       # modern find
+    fzf      # fuzzy finder
+    jq       # json query lang
+    just     # command runner
+    less     # pager
+    ripgrep  # faster grep
+    rsync    # file sync
+    starship # shell prompt
+    unrar    # rar archives utility
+    wget     # cli downloader
+    zoxide   # faster cd
   ];
 }
