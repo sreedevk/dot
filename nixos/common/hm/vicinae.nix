@@ -11,12 +11,11 @@
     themes = { };
     settings = {
       font.size = 11;
-      faviconService = "twenty"; # twenty | google | none
-      popToRootOnClose = false;
+      favicon_service = "twenty";
       telemetry = {
         system_info = false;
       };
-      rootSearch.searchFiles = false;
+      search_files_in_root = false;
       theme = {
         light = {
           name = "rose-pine";
@@ -45,28 +44,6 @@
         };
         csd = true;
         opacity = 1.00;
-        keybinds = {
-          open-search-filter = "control+F";
-          open-settings = "control+,";
-          toggle-action-panel = "control+B";
-          action = {
-            copy = "control+shift+C";
-            copy-name = "control+shift+.";
-            copy-path = "control+shift+,";
-            dangerous-remove = "control+shift+X";
-            duplicate = "control+D";
-            edit = "control+E";
-            edit-secondary = "control+shift+E";
-            move-down = "control+N";
-            move-up = "control+P";
-            new = "control+shift+N";
-            open = "control+O";
-            pin = "control+shift+P";
-            refresh = "control+R";
-            remove = "control+X";
-            save = "control+S";
-          };
-        };
         favorites = [
           "clipboard:history"
         ];
@@ -74,6 +51,12 @@
           enabled = false;
         };
         rounding = 10;
+      };
+      keybinding = "emacs";
+      keybinds = {
+        "action.new" = "control+shift+N";
+        "open-search-filter" = "control+F";
+        "toggle-action-panel" = "control+B";
       };
     };
   };

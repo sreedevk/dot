@@ -319,6 +319,7 @@ in
         "Mod+S".action                                = spawn "noctalia" "msg" "panel-toggle" "control-center";
         "Mod+D".action                                = spawn "${pkgs.vicinae}/bin/vicinae" "toggle";
         "Mod+N".action                                = spawn "noctalia" "msg" "notification-dnd-toggle";
+        "Mod+Q".action                                = spawn "vicinae" "vicinae://launch/clipboard/history";
         "Mod+C".action                                = spawn "noctalia" "msg" "settings-toggle";
         "Mod+W".action                                = spawn "noctalia" "msg" "panel-toggle" "wallpaper";
         "Mod+Ctrl+W".action                           = spawn "noctalia" "msg" "panel-toggle" "noctalia/wallhaven:browser";
