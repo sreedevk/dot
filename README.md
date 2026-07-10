@@ -7,27 +7,14 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 > This repo does not build as-is. This is a filtered public mirror of my private Nix configuration, published for reference and to share how I've set things up. It is not meant to be cloned and built directly. Certain paths are deliberately excluded from this repo's history, like secrets (agenix .age files), private host configurations, and other machine-specific bits. As a result, flake outputs will reference files that simply aren't here, and nixos-rebuild / nix build will fail on missing paths or unresolved references.
 
 ## TODO
-1. bug: tmux/terminal reads C-i as \<tab\>
-2. Switch to niri
-3. Along with having one global VPN, have 2-3 gluetun containers that divide the services into groups and assign 1 gluetun container 0 per group.
-4. system-manager is broken AF, https://github.com/numtide/system-manager/issues/349
-   - it kicks the main user off the wheel group (thanks to userborn)
-   - it sets the root user's shell to nix's bash installation
-5. Complete setting up of ddns-updater [ currently doesn't support private IPs ](https://github.com/qdm12/ddns-updater/issues/809)
-6. fix the problem where cw in nvim removes the space at end of line
-8. Librepods repoint to old branch - May 16, 2026
-9. Lockscreen wallpaper must be dark AF
-10. when having multiple tabs open in neovim, when opening and closing neogit window, I am not back in the same tab I started in.
-11. telescope incremental staged grep
-12. faster way to start and stop systemd units using tmux + fzf
-13. Add an fzf+tmux option to pick a just/rake task and run it in a new window & persist the window after the run. also add options to re-run the same action if possible
-14. when a github repo has a different remote for pull and a different remote for push, we gotta setup gh cli to work properly
-15. niri screensharing fix
-
-## Distant Dreams
-1. improvement: migrate to Traefik
-2. k3s setup on apollo
-3. disko setup on apollo
+1. [FIX] common: tmux/terminal reads C-i as \<tab\>
+2. [IMP] apollo,orion: gluetun based split up of container networks.
+3. [IMP] apollo,orion: setup ddns-updater [ currently doesn't support private IPs ](https://github.com/qdm12/ddns-updater/issues/809)
+4. [FIX] common: when a github repo has a different remote for pull and a different remote for push, gh cli needs to be setup properly
+5. [FIX] phoenix,odoo: niri screensharing for discord
+1. [IMP] apollo,orion: migrate to Traefik
+2. [IMP] apollo: k3s setup with network storage
+3. [IMP] apollo: setup disko nix
 
 ## Pre Requisites
 ### Install Home Manager CLI
