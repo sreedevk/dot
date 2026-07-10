@@ -11,6 +11,29 @@ let
 in
 {
 
+  xdg.configFile = {
+    "user-dirs.dirs" = {
+      enable = true;
+      force = true;
+      text = ''
+        XDG_DESKTOP_DIR="$HOME/Desktop"
+        XDG_DOWNLOAD_DIR="$HOME/Downloads"
+        XDG_TEMPLATES_DIR="$HOME/"
+        XDG_PUBLICSHARE_DIR="$HOME/"
+        XDG_DOCUMENTS_DIR="$HOME/Documents"
+        XDG_MUSIC_DIR="$HOME/"
+        XDG_PICTURES_DIR="$HOME/"
+        XDG_VIDEOS_DIR="$HOME/"
+      '';
+    };
+    "user-dirs.locale" = {
+      enable = true;
+      text = ''
+        en_US
+      '';
+    };
+  };
+
   xdg.mime.enable = true;
   xdg.mimeApps = {
     enable = true;
