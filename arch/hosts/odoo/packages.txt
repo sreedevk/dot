@@ -53,18 +53,6 @@ gstreamer
 help2man
 hping
 hplip
-hyprcursor
-hyprgraphics
-hypridle
-hyprland
-hyprland-guiutils
-hyprland-protocols
-hyprland-qt-support
-hyprlang
-hyprpicker
-hyprpolkitagent
-hyprutils
-hyprwayland-scanner
 impala
 incus
 incus-tools
@@ -204,7 +192,7 @@ wlroots0.19
 wlsunset
 woff2-font-awesome
 xclip
-xdg-desktop-portal-hyprland
+xdg-desktop-portal-gnome
 xdo
 xdotool
 xf86-video-vesa

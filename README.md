@@ -12,7 +12,6 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
    - it sets the root user's shell to nix's bash installation
 5. Complete setting up of ddns-updater [ currently doesn't support private IPs ](https://github.com/qdm12/ddns-updater/issues/809)
 6. fix the problem where cw in nvim removes the space at end of line
-7. Map Mod+mousescroll to scroll across tape on scroll mode hyprland
 8. Librepods repoint to old branch - May 16, 2026
 9. Lockscreen wallpaper must be dark AF
 10. when having multiple tabs open in neovim, when opening and closing neogit window, I am not back in the same tab I started in.

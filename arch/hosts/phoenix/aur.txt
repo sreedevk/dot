@@ -3,7 +3,6 @@ droidcam 1:2.1.5-1
 envycontrol 3.5.2-2
 gpu-screen-recorder-gtk 5.7.9-1
 howdy-git r592.d3ab993-1
-hyprdynamicmonitors-bin 1.4.0-1
 libsoup 2.74.3-4
 mullvad-vpn-bin 2026.3-1
 mullvad-vpn-daemon-bin 2026.3-1

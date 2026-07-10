@@ -48,7 +48,6 @@
 
     # Current User Specific
 
-    # ./modules/hyprland
     ../../secrets.nix
     ./modules/brave.nix
     ./modules/firefox

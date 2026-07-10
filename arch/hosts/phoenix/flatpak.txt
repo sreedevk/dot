@@ -12,6 +12,7 @@ Mesa
 Millisecond
 Nvidia
 nvidia-610-43-02
+nvidia-610-43-03
 openh264
 Prism
 Warehouse
