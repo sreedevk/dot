@@ -20,7 +20,7 @@ in
       target = ".profile";
       executable = true;
       text = ''
-        export XDG_DATA_DIRS="${config.home.profileDirectory}/share:/usr/local/share:/usr/share"
+        export XDG_DATA_DIRS="${config.home.profileDirectory}/share:/usr/local/share:/usr/share:$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share"
 
         if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
           . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
@@ -66,7 +66,7 @@ in
         export WINIT_X11_SCALE_FACTOR=${opts.desktop.scale}
         export XCURSOR_SIZE=28
         export XDG_CURRENT_DESKTOP=niri
-        export XDG_DATA_DIRS="${config.home.profileDirectory}/share:/usr/local/share:/usr/share"
+        export XDG_DATA_DIRS="${config.home.profileDirectory}/share:/usr/local/share:/usr/share:$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share"
         export XDG_SESSION_DESKTOP=niri
         export XDG_SESSION_TYPE=wayland
       '';
