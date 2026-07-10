@@ -200,7 +200,6 @@ vim.g.enabled_ts_parsers = {
   "heex",
   "html",
   "http",
-  "hyprlang",
   "janet_simple",
   "javascript",
   "jq",

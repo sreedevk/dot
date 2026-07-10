@@ -36,7 +36,7 @@ in
       enable = true;
       executable = true;
       text = ''
-        # HYPR* and AQ_* variables
+        # AQ_* variables
       '';
     };
 
@@ -149,7 +149,6 @@ in
         { sh = "echo $NIRI_SOCKET > ~/.niri-socket"; }
         { sh = "dbus-update-activation-environment --systemd --all"; }
         { sh = "systemctl --user start xdg-desktop-portal-gnome.service"; }
-        { sh = "systemctl --user start hyprpolkitagent"; }
         { sh = "clipse -listen"; }
         { sh = "wl-paste --type image --watch cliphist store"; }
         { sh = "wl-paste --type text --watch cliphist store"; }
