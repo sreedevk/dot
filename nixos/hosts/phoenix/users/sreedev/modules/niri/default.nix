@@ -267,13 +267,13 @@ in
           XF86AudioLowerVolume.action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-";
           XF86AudioMicMute.action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
           XF86AudioMute.action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
-          XF86AudioNext.action = spawn "${pkgs.playerctl}/bin/playerctl" "next";
-          XF86AudioPause.action = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
-          XF86AudioPlay.action = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";
-          XF86AudioPrev.action = spawn "${pkgs.playerctl}/bin/playerctl" "previous";
+          XF86AudioNext.action = spawn "noctalia" "msg" "media" "next";
+          XF86AudioPause.action = spawn "noctalia" "msg" "media" "toggle";
+          XF86AudioPlay.action = spawn "noctalia" "msg" "media" "toggle";
+          XF86AudioPrev.action = spawn "noctalia" "msg" "media" "previous";
           XF86AudioRaiseVolume.action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";
-          XF86MonBrightnessDown.action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%-";
-          XF86MonBrightnessUp.action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%+";
+          XF86MonBrightnessUp.action = spawn "noctalia" "msg" "brightness-up" "current" "10%";
+          XF86MonBrightnessDown.action = spawn "noctalia" "msg" "brightness-down" "current" "10%";
 
           "Ctrl+Space".action = spawn "noctalia" "msg" "notification-clear-active";
           "Mod+Ctrl+Space".action = spawn "noctalia" "msg" "session" "lock";
@@ -286,6 +286,10 @@ in
           "Mod+Ctrl+L".action = focus-monitor-right;
           "Mod+Ctrl+K".action = focus-monitor-up;
           "Mod+Ctrl+J".action = focus-monitor-down;
+
+          # Monitors turn off and on
+          "Mod+Ctrl+I".action = spawn "noctalia" "msg" "dpms-on";
+          "Mod+Ctrl+O".action = spawn "noctalia" "msg" "dpms-off";
 
           "Mod+Shift+H".action = move-column-left-or-to-monitor-left;
           "Mod+Shift+L".action = move-column-right-or-to-monitor-right;
@@ -373,11 +377,11 @@ in
           "Mod+KP_Enter".action =
             spawn "${config.programs.kitty.package}/bin/kitty" "${pkgs.tmux}/bin/tmux" "new" "-A" "-s"
               "system";
-          "Mod+XF86AudioLowerVolume".action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%-";
-          "Mod+XF86AudioRaiseVolume".action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "10%+";
-          "Mod+Shift+S".action = sh ''
-            ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | wl-copy
-          '';
+          "Mod+XF86AudioRaiseVolume".action = spawn "noctalia" "msg" "brightness-up" "current" "10%";
+          "Mod+XF86AudioLowerVolume".action = spawn "noctalia" "msg" "brightness-down" "current" "10%";
+          "Mod+Shift+S".action = spawn "noctalia" "msg" "screenshot-region";
+          "Mod+Shift+W".action = spawn "noctalia" "msg" "screenshot-region";
+          "Print".action = spawn "noctalia" "msg" "screenshot-fullscreen";
         };
     };
   };
