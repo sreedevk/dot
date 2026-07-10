@@ -4,10 +4,10 @@ envycontrol 3.5.2-2
 gpu-screen-recorder-gtk 5.7.9-1
 howdy-git r592.d3ab993-1
 hyprdynamicmonitors-bin 1.4.0-1
-jellyfin-desktop-git 1:0.r1037.225af09-1
 libsoup 2.74.3-4
 mullvad-vpn-bin 2026.3-1
 mullvad-vpn-daemon-bin 2026.3-1
+nordvpn-bin 5.2.0-1
 pamtester 0.1.2-4
 paru 2.1.0-2
 python-dlib 20.0.1-1
