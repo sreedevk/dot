@@ -108,8 +108,16 @@ in
     settings = {
       debug = {
         honor-xdg-activation-with-invalid-serial = true;
-        render-drm-device = "/dev/dri/renderD128";
+        render-drm-device = "/dev/dri/renderD129";
       };
+
+      environment = {
+        __NV_PRIME_RENDER_OFFLOAD = "1";
+        __VK_LAYER_NV_optimus = "NVIDIA_only";
+        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+        __EGL_VENDOR_LIBRARY_FILENAMES = "/run/opengl-driver/share/glvnd/egl_vendor.d/10_nvidia.json";
+      };
+
       layout = {
         default-column-width = {
           proportion = 1.0;
