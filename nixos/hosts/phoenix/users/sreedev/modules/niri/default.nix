@@ -365,6 +365,7 @@ in
         "Mod+N".action = spawn "noctalia" "msg" "notification-dnd-toggle";
         "Mod+C".action = spawn "noctalia" "msg" "settings-toggle";
         "Mod+W".action = spawn "noctalia" "msg" "panel-toggle" "wallpaper";
+        "Mod+Ctrl+W".action = spawn "noctalia" "msg" "panel-toggle" "noctalia/wallhaven:browser";
 
         "Mod+O".action = toggle-overview;
         "Mod+Shift+Return".action = spawn "${pkgs.kitty}/bin/kitty";

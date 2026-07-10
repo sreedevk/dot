@@ -41,9 +41,28 @@
         source = "builtin";
         builtin = "Catppuccin";
       };
+      backdrop = {
+        enabled = true;
+        blur_intensity = 0.5; # 0.0 = no blur, 1.0 = maximum blur
+        tint_intensity = 0.3; # 0.0 = no tint, 1.0 = fully opaque tint
+      };
       wallpaper = {
         enabled = true;
+        fill_mode = "crop"; # center | crop | fit | stretch | repeat | span
+        transition = [
+          "fade"
+          "wipe"
+          "disc"
+          "stripes"
+          "zoom"
+          "honeycomb"
+        ];
+        transition_duration = 900;
+        edge_smoothness = 0.3;
+        transition_on_startup = false;
         default.path = "${opts.directories.wallpapers}/${opts.desktop.wallpaper}";
+        directory = opts.directories.wallpapers;
+        per_monitor_directories = false;
       };
       location = {
         auto_locate = true;
