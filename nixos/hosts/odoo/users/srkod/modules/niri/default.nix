@@ -263,128 +263,75 @@ in
       };
 
       binds = with config.lib.niri.actions; {
-        XF86MonBrightnessUp.action = spawn "noctalia" "msg" "brightness-up" "current" "10%";
-        XF86MonBrightnessDown.action = spawn "noctalia" "msg" "brightness-down" "current" "10%";
-
-        XF86AudioLowerVolume.action = spawn "noctalia" "msg" "volume-down";
-        XF86AudioRaiseVolume.action = spawn "noctalia" "msg" "volume-up";
-        XF86AudioMute.action = spawn "noctalia" "msg" "volume-mute";
-        "Ctrl+XF86AudioLowerVolume".action = spawn "noctalia" "msg" "volume-down";
-        "Ctrl+XF86AudioMute".action = spawn "noctalia" "msg" "volume-mute";
-        "Ctrl+XF86AudioRaiseVolume".action = spawn "noctalia" "msg" "volume-up";
-
-        XF86AudioMicMute.action = spawn "noctalia" "msg" "mic-mute";
-
-        XF86AudioNext.action = spawn "noctalia" "msg" "media" "next";
-        XF86AudioPause.action = spawn "noctalia" "msg" "media" "toggle";
-        XF86AudioPlay.action = spawn "noctalia" "msg" "media" "toggle";
-        XF86AudioPrev.action = spawn "noctalia" "msg" "media" "previous";
-
-        "Ctrl+Space".action = spawn "noctalia" "msg" "notification-clear-active";
-        "Mod+Ctrl+Space".action = spawn "noctalia" "msg" "session" "lock";
-
-        "Mod+Ctrl+H".action = focus-monitor-left;
-        "Mod+Ctrl+L".action = focus-monitor-right;
-        "Mod+Ctrl+K".action = focus-monitor-up;
-        "Mod+Ctrl+J".action = focus-monitor-down;
-
-        # Monitors turn off and on
-        "Mod+Ctrl+I".action = spawn "noctalia" "msg" "dpms-on";
-        "Mod+Ctrl+O".action = spawn "noctalia" "msg" "dpms-off";
-
-        "Mod+Shift+H".action = move-column-left-or-to-monitor-left;
-        "Mod+Shift+L".action = move-column-right-or-to-monitor-right;
-        "Mod+Shift+J".action = move-column-to-monitor-down;
-        "Mod+Shift+K".action = move-column-to-monitor-up;
-
-        "Mod+H".action = focus-column-left;
-        "Mod+L".action = focus-column-right;
-
-        "Mod+K".action = focus-workspace-up;
-        "Mod+J".action = focus-workspace-down;
-
-        "Mod+1".action.focus-workspace = 1;
-        "Mod+2".action.focus-workspace = 2;
-        "Mod+3".action.focus-workspace = 3;
-        "Mod+4".action.focus-workspace = 4;
-        "Mod+5".action.focus-workspace = 5;
-        "Mod+6".action.focus-workspace = 6;
-        "Mod+7".action.focus-workspace = 7;
-        "Mod+8".action.focus-workspace = 8;
-        "Mod+9".action.focus-workspace = 9;
-        "Mod+0".action.focus-workspace = 10;
-
-        "Mod+Shift+1".action.move-window-to-workspace = [
-          { focus = true; }
-          1
-        ];
-        "Mod+Shift+2".action.move-window-to-workspace = [
-          { focus = true; }
-          2
-        ];
-        "Mod+Shift+3".action.move-window-to-workspace = [
-          { focus = true; }
-          3
-        ];
-        "Mod+Shift+4".action.move-window-to-workspace = [
-          { focus = true; }
-          4
-        ];
-        "Mod+Shift+5".action.move-window-to-workspace = [
-          { focus = true; }
-          5
-        ];
-        "Mod+Shift+6".action.move-window-to-workspace = [
-          { focus = true; }
-          6
-        ];
-        "Mod+Shift+7".action.move-window-to-workspace = [
-          { focus = true; }
-          7
-        ];
-        "Mod+Shift+8".action.move-window-to-workspace = [
-          { focus = true; }
-          8
-        ];
-        "Mod+Shift+9".action.move-window-to-workspace = [
-          { focus = true; }
-          9
-        ];
-        "Mod+Shift+0".action.move-window-to-workspace = [
-          { focus = true; }
-          10
-        ];
-
-        "Mod+bracketleft".action = set-column-width "-10%";
-        "Mod+bracketright".action = set-column-width "+10%";
-
-        "Mod+Shift+E".action = spawn "uwsm" "stop";
-
-        "Mod+Shift+Q".action = close-window;
-        "Mod+F".action = fullscreen-window;
-
-        # "Mod+A".action = spawn "pwvucontrol";
-        "Mod+S".action = spawn "noctalia" "msg" "panel-toggle" "control-center";
-        "Mod+D".action = spawn "${pkgs.vicinae}/bin/vicinae" "toggle";
-        "Mod+N".action = spawn "noctalia" "msg" "notification-dnd-toggle";
-        "Mod+C".action = spawn "noctalia" "msg" "settings-toggle";
-        "Mod+W".action = spawn "noctalia" "msg" "panel-toggle" "wallpaper";
-        "Mod+Ctrl+W".action = spawn "noctalia" "msg" "panel-toggle" "noctalia/wallhaven:browser";
-
-
-        "Mod+O".action = toggle-overview;
-        "Mod+Shift+Return".action = spawn "${pkgs.kitty}/bin/kitty";
-        "Mod+Return".action =
-          spawn "${config.programs.kitty.package}/bin/kitty" "${pkgs.tmux}/bin/tmux" "new" "-A" "-s"
-            "system";
-        "Mod+KP_Enter".action =
-          spawn "${config.programs.kitty.package}/bin/kitty" "${pkgs.tmux}/bin/tmux" "new" "-A" "-s"
-            "system";
-        "Mod+XF86AudioRaiseVolume".action = spawn "noctalia" "msg" "brightness-up" "current" "10%";
-        "Mod+XF86AudioLowerVolume".action = spawn "noctalia" "msg" "brightness-down" "current" "10%";
-        "Mod+Shift+S".action = spawn "noctalia" "msg" "screenshot-region";
-        "Mod+Shift+W".action = spawn "noctalia" "msg" "screenshot-region";
-        "Print".action = spawn "noctalia" "msg" "screenshot-fullscreen";
+        XF86MonBrightnessUp.action                    = spawn "noctalia" "msg" "brightness-up" "current" "10%";
+        XF86MonBrightnessDown.action                  = spawn "noctalia" "msg" "brightness-down" "current" "10%";
+        XF86AudioLowerVolume.action                   = spawn "noctalia" "msg" "volume-down";
+        XF86AudioRaiseVolume.action                   = spawn "noctalia" "msg" "volume-up";
+        XF86AudioMute.action                          = spawn "noctalia" "msg" "volume-mute";
+        "Ctrl+XF86AudioLowerVolume".action            = spawn "noctalia" "msg" "volume-down";
+        "Ctrl+XF86AudioMute".action                   = spawn "noctalia" "msg" "volume-mute";
+        "Ctrl+XF86AudioRaiseVolume".action            = spawn "noctalia" "msg" "volume-up";
+        XF86AudioMicMute.action                       = spawn "noctalia" "msg" "mic-mute";
+        XF86AudioNext.action                          = spawn "noctalia" "msg" "media" "next";
+        XF86AudioPause.action                         = spawn "noctalia" "msg" "media" "toggle";
+        XF86AudioPlay.action                          = spawn "noctalia" "msg" "media" "toggle";
+        XF86AudioPrev.action                          = spawn "noctalia" "msg" "media" "previous";
+        "Ctrl+Space".action                           = spawn "noctalia" "msg" "notification-clear-active";
+        "Mod+Ctrl+Space".action                       = spawn "noctalia" "msg" "session" "lock";
+        "Mod+Ctrl+H".action                           = focus-monitor-left;
+        "Mod+Ctrl+L".action                           = focus-monitor-right;
+        "Mod+Ctrl+K".action                           = focus-monitor-up;
+        "Mod+Ctrl+J".action                           = focus-monitor-down;
+        "Mod+Ctrl+I".action                           = spawn "noctalia" "msg" "dpms-on";
+        "Mod+Ctrl+O".action                           = spawn "noctalia" "msg" "dpms-off";
+        "Mod+Shift+H".action                          = move-column-left-or-to-monitor-left;
+        "Mod+Shift+L".action                          = move-column-right-or-to-monitor-right;
+        "Mod+Shift+J".action                          = move-column-to-monitor-down;
+        "Mod+Shift+K".action                          = move-column-to-monitor-up;
+        "Mod+H".action                                = focus-column-left;
+        "Mod+L".action                                = focus-column-right;
+        "Mod+K".action                                = focus-workspace-up;
+        "Mod+J".action                                = focus-workspace-down;
+        "Mod+1".action.focus-workspace                = 1;
+        "Mod+2".action.focus-workspace                = 2;
+        "Mod+3".action.focus-workspace                = 3;
+        "Mod+4".action.focus-workspace                = 4;
+        "Mod+5".action.focus-workspace                = 5;
+        "Mod+6".action.focus-workspace                = 6;
+        "Mod+7".action.focus-workspace                = 7;
+        "Mod+8".action.focus-workspace                = 8;
+        "Mod+9".action.focus-workspace                = 9;
+        "Mod+0".action.focus-workspace                = 10;
+        "Mod+Shift+1".action.move-window-to-workspace = [ { focus = true; } 1 ];
+        "Mod+Shift+2".action.move-window-to-workspace = [ { focus = true; } 2 ];
+        "Mod+Shift+3".action.move-window-to-workspace = [ { focus = true; } 3 ];
+        "Mod+Shift+4".action.move-window-to-workspace = [ { focus = true; } 4 ];
+        "Mod+Shift+5".action.move-window-to-workspace = [ { focus = true; } 5 ];
+        "Mod+Shift+6".action.move-window-to-workspace = [ { focus = true; } 6 ];
+        "Mod+Shift+7".action.move-window-to-workspace = [ { focus = true; } 7 ];
+        "Mod+Shift+8".action.move-window-to-workspace = [ { focus = true; } 8 ];
+        "Mod+Shift+9".action.move-window-to-workspace = [ { focus = true; } 9 ];
+        "Mod+Shift+0".action.move-window-to-workspace = [ { focus = true; } 10 ];
+        "Mod+bracketleft".action                      = set-column-width "-10%";
+        "Mod+bracketright".action                     = set-column-width "+10%";
+        "Mod+Shift+E".action                          = spawn "uwsm" "stop";
+        "Mod+Shift+Q".action                          = close-window;
+        "Mod+F".action                                = fullscreen-window;
+        "Mod+S".action                                = spawn "noctalia" "msg" "panel-toggle" "control-center";
+        "Mod+D".action                                = spawn "${pkgs.vicinae}/bin/vicinae" "toggle";
+        "Mod+N".action                                = spawn "noctalia" "msg" "notification-dnd-toggle";
+        "Mod+C".action                                = spawn "noctalia" "msg" "settings-toggle";
+        "Mod+W".action                                = spawn "noctalia" "msg" "panel-toggle" "wallpaper";
+        "Mod+Ctrl+W".action                           = spawn "noctalia" "msg" "panel-toggle" "noctalia/wallhaven:browser";
+        "Mod+O".action                                = toggle-overview;
+        "Mod+Shift+Return".action                     = spawn "${pkgs.kitty}/bin/kitty";
+        "Mod+Return".action                           = spawn "${config.programs.kitty.package}/bin/kitty" "${pkgs.tmux}/bin/tmux" "new" "-A" "-s" "system";
+        "Mod+KP_Enter".action                         = spawn "${config.programs.kitty.package}/bin/kitty" "${pkgs.tmux}/bin/tmux" "new" "-A" "-s" "system";
+        "Mod+XF86AudioRaiseVolume".action             = spawn "noctalia" "msg" "brightness-up" "current" "10%";
+        "Mod+XF86AudioLowerVolume".action             = spawn "noctalia" "msg" "brightness-down" "current" "10%";
+        "Mod+Shift+S".action                          = spawn "noctalia" "msg" "screenshot-region";
+        "Mod+Shift+W".action                          = spawn "noctalia" "msg" "screenshot-region";
+        "Print".action                                = spawn "noctalia" "msg" "screenshot-fullscreen";
       };
     };
   };
