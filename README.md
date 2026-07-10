@@ -19,6 +19,8 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 11. telescope incremental staged grep
 12. faster way to start and stop systemd units using tmux + fzf
 13. Add an fzf+tmux option to pick a just/rake task and run it in a new window & persist the window after the run. also add options to re-run the same action if possible
+14. when a github repo has a different remote for pull and a different remote for push, we gotta setup gh cli to work properly
+15. niri screensharing fix
 
 ## Distant Dreams
 1. improvement: migrate to Traefik

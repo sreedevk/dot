@@ -148,16 +148,19 @@
     "doomdir": {
       "flake": false,
       "locked": {
-        "path": "doomdir",
-        "type": "path"
+        "lastModified": 1783603851,
+        "narHash": "sha256-PXn0v4NR75U7/FpkaZ9GD6HPepVY5vVT48tMd1tMgdQ=",
+        "owner": "marienz",
+        "repo": "nix-doom-emacs-unstraightened",
+        "rev": "4c63e8a411f815bd2473e5ced94dc4b8bf31d240",
+        "type": "github"
       },
       "original": {
-        "path": "doomdir",
-        "type": "path"
-      },
-      "parent": [
-        "nix-doom-emacs-unstraightened"
-      ]
+        "owner": "marienz",
+        "ref": "doomdir",
+        "repo": "nix-doom-emacs-unstraightened",
+        "type": "github"
+      }
     },
     "doomemacs": {
       "flake": false,
@@ -201,11 +204,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783480927,
-        "narHash": "sha256-S5bOGxxrYcFRVIIxqaEsjSwyIQjTjdjX3hCeAMAWiq0=",
+        "lastModified": 1783594576,
+        "narHash": "sha256-MBj5rWdvqGJftQ1GLaH7gI9MWZhD7TW/Lwjwc2D0LkQ=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "5f712bbd17df232fb4900e8fc236516c4d854d84",
+        "rev": "381117114ff001e4ab8a4c3b9996a628866380cf",
         "type": "github"
       },
       "original": {
@@ -434,11 +437,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783550008,
-        "narHash": "sha256-qbbZUk9IG9dLNwCPwdPBs6I5clxwugRpP+1YU+GPK20=",
+        "lastModified": 1783618078,
+        "narHash": "sha256-F43DGcBoIO8xOZFAfodg3jy0VghB9NGdb6xbTYAIx1A=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f4d01c1d87c7c2ec909549165d5a8338f1bd3315",
+        "rev": "144f4e36d0186195037da9fce80a727108978070",
         "type": "github"
       },
       "original": {
@@ -536,11 +539,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1783506694,
-        "narHash": "sha256-G4O/7kEhl7bgBSz5FMyrDGUygJSiFFhMslKBjWWALl8=",
+        "lastModified": 1783604036,
+        "narHash": "sha256-zBIrginoEy/uWoYd6qkkFs9xlU5/kFl8x4yZIQoBnC4=",
         "owner": "marienz",
         "repo": "nix-doom-emacs-unstraightened",
-        "rev": "d303e5297a3be204797204ad2c2aa99a0523304b",
+        "rev": "7f9a2e3bbbeae545790a270ccc2dfb38494d9f53",
         "type": "github"
       },
       "original": {
