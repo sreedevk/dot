@@ -7,25 +7,15 @@ default:
 nix-format:
     nix fmt
 
-# colmena deploy on host apollo
+# colmena deploy
 [group('nix')]
-nix-deploy-apollo:
-    colmena apply --impure --on apollo
+nix-deploy host:
+    colmena apply --impure --on {{ host }}
 
-# colmena deploy on host orion
+# system-manager deploy
 [group('nix')]
-nix-deploy-orion:
-    colmena apply --impure --on orion
-
-# system-manager deploy on rpi4b
-[group('nix')]
-nix-deploy-rpi4b:
-    nix run 'github:numtide/system-manager' -- --target-host rpi4b switch --sudo --flake .#rpi4b
-
-# system-manager deploy on devtechnica
-[group('nix')]
-nix-deploy-devtechnica:
-    nix run 'github:numtide/system-manager' -- --target-host sree.dev switch --sudo --flake .#devtechnica
+sm-deploy host:
+    nix run 'github:numtide/system-manager' -- --target-host rpi4b switch --sudo --flake '.#{{ host }}'
 
 # update nix flake.lock and commit lockfile
 [group('nix')]
