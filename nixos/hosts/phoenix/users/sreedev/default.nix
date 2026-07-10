@@ -47,7 +47,6 @@
     ../../../../common/hm/pueue.nix
     ../../../../common/hm/radicle
     ../../../../common/hm/starship.nix
-    ../../../../common/hm/steam.nix
     ../../../../common/hm/taskwarrior
     ../../../../common/hm/tmux.nix
     ../../../../common/hm/vicinae.nix

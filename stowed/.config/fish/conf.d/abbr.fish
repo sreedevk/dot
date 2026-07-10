@@ -20,6 +20,7 @@ if status is-interactive
     abbr --add v nvim
     abbr --add du dua
     abbr --add wpcli woodpecker-cli
+    abbr --add j just
 
     # systemd --user 
     abbr --add sus systemctl --user 
