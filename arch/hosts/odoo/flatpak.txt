@@ -1,5 +1,0 @@
-Adwaita
-Codecs
-Jellyfin
-KDE
-Mesa

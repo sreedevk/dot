@@ -104,18 +104,6 @@ nix-home-install-offline-backup:
 
 # --- arch ---
 
-# archive packages from arch/aur/flatpak/cargo
-[group('arch')]
-arch-archive:
-    ./bin/archive-packages
-
-# restore packages from arch/aur/flatpak/cargo
-[group('arch')]
-arch-restore:
-    ./bin/restore-packages
-
-# --- scripts ---
-
 # list firefox addons
 [group('scripts')]
 scripts-list-firefox-addons:
@@ -146,3 +134,18 @@ prepare_for_publishing: clone_for_publishing
 [group('publishing')]
 publish: prepare_for_publishing
   cd /tmp/dot_public && git push origin main --force && rm -rf /tmp/dot_public
+
+# install declared packages that are missing
+[group('arch')]
+arch-sync:
+    metapac sync
+
+# list explicitly-installed packages not in any group file
+[group('arch')]
+arch-unmanaged:
+    metapac unmanaged
+
+# update packages across all enabled backends
+[group('arch')]
+arch-update:
+    metapac update

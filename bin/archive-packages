@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-
-set -e 
-
-comm -23 <(pacman -Qqe | sort) <(pacman -Qqm | sort) > ~/.dot/arch/hosts/$(hostname)/packages.txt
-pacman -Qm > ~/.dot/arch/hosts/$(hostname)/aur.txt
-cargo install --list | grep ':' | sed 's/://g' > ~/.dot/arch/hosts/$(hostname)/cargo.txt
-flatpak list | awk '{print $1}' | sort -u > ~/.dot/arch/hosts/$(hostname)/flatpak.txt

@@ -61,6 +61,7 @@
     ../../secrets.nix
     ./modules/firefox
     ./modules/flatpak.nix
+    ./modules/metapac.nix
     ./modules/niri
     ./modules/noctalia
     ./modules/packages
