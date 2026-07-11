@@ -1,7 +1,7 @@
 <h2 align="center">Nix(OS) Configurations</h2>
 
 This repository contains configurations for various programs & Nix(OS).
-This Nix(OS) section of this repository is located in the `nixos` directory. 
+This Nix(OS) section of this repository is located in the `nixos` directory.
 
 > ⚠️ Reference only.
 > This repo does not build as-is. This is a filtered public mirror of my private Nix configuration, published for reference and to share how I've set things up. It is not meant to be cloned and built directly. Certain paths are deliberately excluded from this repo's history, like secrets (agenix .age files), private host configurations, and other machine-specific bits. As a result, flake outputs will reference files that simply aren't here, and nixos-rebuild / nix build will fail on missing paths or unresolved references.
@@ -17,7 +17,27 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 3. [IMP] apollo: setup disko nix
 
 ## Pre Requisites
+
+### Install just
+All repository tasks are defined in the `justfile` and run with [just](https://just.systems).
+
+```bash
+nix profile add nixpkgs#just
+```
+
+Run `just` with no arguments to list every available recipe:
+
+```bash
+just
+```
+
 ### Install Home Manager CLI
+```bash
+just nix-home-manager-install
+```
+
+Which runs:
+
 ```bash
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
@@ -38,8 +58,8 @@ docker compose run --remove-orphans check
 ## File Structure
 ### nixos/hosts
 
-- The `nixos/hosts` contains the `configuration.nix` files for each of my machines that runs NixOS. 
-- Each host is assigned a separate folder. 
+- The `nixos/hosts` contains the `configuration.nix` files for each of my machines that runs NixOS.
+- Each host is assigned a separate folder.
 - The creation of users is managed by the `configuration.nix` but all the user related configuration is handled by `home-manager`. The common link between the created user and configured user is just the username & hostname ("\<username\>@\<hostname\>".
 
 ### nixos/hosts/\<host\>/users
@@ -62,24 +82,33 @@ docker compose run --remove-orphans check
 - the `secrets` directory contains all the age encrypted files managed by agenix for both home-manager & nixos modules.
 
 ### flake.nix
-This is the entry point for both the `home-manager` & `NixOS`. 
+This is the entry point for both the `home-manager` & `NixOS`.
 
 #### Flake Operations
+
+##### Formatting the Configuration
+```bash
+just nix-format
+```
 
 ##### Updating Flake.lock
 Since we are using a `nixos/flake.lock` file, we need to update the flake inputs using the command below.
 
 ```bash
-rake nix:flake:update
+# UPDATE FLAKE INPUTS
+just nix-flake-update
+
+# UPDATE FLAKE INPUTS AND COMMIT THE LOCKFILE
+just nix-flake-update-lock
 ```
 
 ##### Checking Flake Integrity
 ```bash
 # CHECK CURRENT SYSTEM
-rake nix:flake:check
+just nix-flake-check
 
 # CHECK ALL SYSTEMS
-rake nix:flake:check:all
+just nix-flake-check-all
 ```
 
 #### NixOS Operations
@@ -87,10 +116,16 @@ rake nix:flake:check:all
 
 ```bash
 # USING REMOTE CACHE
-rake nix:os:install
+just nix-os-install
 
 # WITHOUT USING REMOTE CACHE
-rake nix:os:install:offline
+just nix-os-install-offline
+```
+
+##### Garbage Collection
+
+```bash
+just nix-os-gc
 ```
 
 #### Home-Manager Operations
@@ -98,14 +133,69 @@ rake nix:os:install:offline
 
 ```bash
 # USING REMOTE CACHE
-rake nix:home:install
+just nix-home-install
 
 # USING REMOTE CACHE AND BACKUP CONFLICTING FILE OVERWRITES
-rake nix:home:install:backup
+just nix-home-install-backup
 
-# WITHOUT USING REMOTE CACHE 
-rake nix:home:install:offline
+# WITHOUT USING REMOTE CACHE
+just nix-home-install-offline
 
 # WITHOUT USING REMOTE CACHE AND BACKUP CONFLICTING FILE OVERWRITES
-rake nix:home:install:offline:backup
+just nix-home-install-offline-backup
+```
+
+##### Building Without Switching
+
+```bash
+just nix-home-build
+```
+
+##### Garbage Collection
+
+```bash
+just nix-home-gc
+```
+
+#### Remote Deployment
+##### Colmena Hosts
+
+```bash
+just nix-deploy apollo
+just nix-deploy orion
+```
+
+##### System Manager Hosts
+
+```bash
+just sm-deploy rpi4b
+just sm-deploy devtechnica
+```
+
+##### Installing System Manager Configuration Locally
+
+```bash
+just nix-system-install
+```
+
+## Arch Linux Operations
+
+Package lists for arch/aur/flatpak/cargo are archived to and restored from this repository.
+
+```bash
+# ARCHIVE INSTALLED PACKAGES
+just arch-archive
+
+# RESTORE PACKAGES FROM ARCHIVE
+just arch-restore
+```
+
+## Scripts
+
+```bash
+# FUZZY SEARCH AVAILABLE FIREFOX ADDONS
+just scripts-list-firefox-addons
+
+# ADD THE NUR CHANNEL
+just scripts-add-nur-channel
 ```
