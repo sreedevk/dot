@@ -16,6 +16,8 @@
         system_info = false;
       };
       search_files_in_root = false;
+      pop_to_root_on_close = true;
+      close_on_focus_loss = true;
       theme = {
         light = {
           name = "rose-pine";
