@@ -133,13 +133,47 @@ just arch-sync
 
 Re-login so that the session environment (`XDG_DATA_DIRS`, flatpak exports, uwsm env) is picked up.
 
-## Using Docker Compose to Check Configs
+## Continuous Integration
+
+CI runs on a self-hosted [Woodpecker](https://woodpecker-ci.org) instance against the private repository. The GitHub repository is a filtered public mirror and deliberately does not build, so nothing is run against it.
+
+Pipelines live in `.woodpecker/`, which Woodpecker resolves automatically — each file is an independent pipeline with its own trigger conditions.
+
+### .woodpecker/check.yaml
+Runs on every push and pull request.
+
+- **format** runs `nix fmt` and fails if it changed anything, so unformatted code cannot land.
+- **flake-check**  runs `nix flake check --impure --all-systems`.
+
+### .woodpecker/build.yaml
+Runs on pushes to `main`. Builds each host's configuration as a matrix, so a broken package or eval error is caught before it reaches a machine rather than during a deploy.
+
+### Caching
+
+Each step runs in a fresh container, so without a persistent store every run re-fetches nixpkgs from scratch. Either mount a host directory over `/nix` (requires the repository to be marked **trusted** in Woodpecker's project settings, since volume mounts are an escalated capability), or point the agents at a binary cache.
+
+## Checking Configs Locally
 
 ```bash
 docker compose run --remove-orphans check
 ```
 
 ## File Structure
+
+### arch
+- Native `/etc` files and other system-level configuration for Arch hosts, placed by `system-manager`.
+- Package declarations do **not** live here — those are in each host's `metapac.nix`.
+
+### stowed
+- Dotfiles that are symlinked recursively into `$HOME` by home-manager.
+- The name is historical; GNU stow is not used and never was in the current setup.
+
+### lib
+- Shared Nix helper functions used across the flake outputs.
+
+### .envrc
+- direnv entrypoint for the repository's development shell.
+
 ### nixos/hosts
 
 - The `nixos/hosts` contains the `configuration.nix` files for each of my machines that runs NixOS.
@@ -277,6 +311,28 @@ just hm-deploy devtechnica sreedev
 ```bash
 just nix-system-install
 ```
+
+##### Cross Compiling for aarch64 Targets
+
+Deploying to `rpi4b` from an `x86_64` host requires building `aarch64-linux` derivations. Even a fully cached config still has to *run* trivial builders (generated unit files, `writeText` derivations) on the target architecture, so substitution alone is not enough.
+
+`qemu-user-static` and `qemu-user-static-binfmt` are declared in the metapac arch group. Confirm the handler is registered with the `F` (fix binary) flag, which is what makes the interpreter available inside the Nix build sandbox:
+
+```bash
+cat /proc/sys/fs/binfmt_misc/qemu-aarch64
+```
+
+Then add the platform to `/etc/nix/nix.conf` and restart the daemon:
+
+```
+extra-platforms = aarch64-linux
+```
+
+```bash
+sudo systemctl restart nix-daemon
+```
+
+Nix will now transparently emulate `aarch64-linux` builds, and `just sm-deploy rpi4b` works from an x86_64 host.
 
 ## Arch Linux Operations
 

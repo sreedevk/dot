@@ -1,0 +1,18 @@
+when:
+  - event: [tag, manual]
+
+variables:
+  - &nix_image nixos/nix:latest
+  - &nix_env
+    NIX_CONFIG: |
+      experimental-features = nix-command flakes
+      accept-flake-config = true
+      warn-dirty = false
+    NIXPKGS_ALLOW_UNFREE: "1"
+
+steps:
+  - name: flake-check
+    image: *nix_image
+    environment: *nix_env
+    commands:
+      - nix flake check --impure --all-systems --no-build

@@ -1,8 +1,15 @@
 services:
   check:
-    container_name: check
-    build: .
+    image: nixos/nix:latest
+    working_dir: /repo
     volumes:
-      - .:/home/nixuser/.dot
-    working_dir: /home/nixuser/.dot
-    command: nix flake check . --all-systems
+      - .:/repo
+      - nix-store:/nix
+    environment:
+      NIX_CONFIG: |
+        experimental-features = nix-command flakes
+        accept-flake-config = true
+    command: nix flake check --impure --all-systems
+
+volumes:
+  nix-store:
