@@ -4,6 +4,10 @@
     wallpaper = "wallhaven-3q9qky.png";
     scale = "1";
     qt_scale_factor = "1.2";
+    browser = {
+      bin = "firefox";
+      xdg-desktop = "firefox.desktop";
+    };
   };
 
   directories =
