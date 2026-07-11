@@ -17,6 +17,14 @@ nix-deploy host:
 sm-deploy host:
     nix run 'github:numtide/system-manager' -- --target-host {{ host }} switch --sudo --flake '.#{{ host }}'
 
+[group('nix')]
+hm-deploy user host:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    out=$(nix build ".#homeConfigurations.{{ user }}@{{ host }}.activationPackage" --impure --no-link --print-out-paths)
+    nix copy --to "ssh://{{ host }}" "$out"
+    ssh {{ host }} "$out/activate"
+
 # update nix flake.lock and commit lockfile
 [group('nix')]
 nix-flake-update-lock:
