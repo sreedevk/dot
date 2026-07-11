@@ -47,7 +47,7 @@
         identityFile = "~/.ssh/id_ed25519";
       };
 
-      "devtechnica.com" = {
+      "devtechnica.com devtechnica" = {
         hostname = "devtechnica.com";
         user = "deploy";
         identitiesOnly = true;

@@ -15,7 +15,7 @@ nix-deploy host:
 # system-manager deploy
 [group('nix')]
 sm-deploy host:
-    nix run 'github:numtide/system-manager' -- --target-host rpi4b switch --sudo --flake '.#{{ host }}'
+    nix run 'github:numtide/system-manager' -- --target-host {{ host }} switch --sudo --flake '.#{{ host }}'
 
 # update nix flake.lock and commit lockfile
 [group('nix')]

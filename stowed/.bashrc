@@ -39,6 +39,10 @@ export HISTSIZE=1000
 export SAVEHIST=1000
 export HISTCONTROL=erasedups:ignoredups:ignorespace
 
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
 # NON INTERACTIVE MODE EARLY RETURN
 [[ $- != *i* ]] && return
 
