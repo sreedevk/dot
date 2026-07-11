@@ -48,12 +48,12 @@
     ../../../../common/hm/zsh.nix
 
     # Current User Specific
-
     ../../secrets.nix
     ./modules/brave.nix
     ./modules/firefox
     ./modules/git.nix
     ./modules/github.nix
+    ./modules/metapac.nix
     ./modules/niri
     ./modules/noctalia
     ./modules/packages
