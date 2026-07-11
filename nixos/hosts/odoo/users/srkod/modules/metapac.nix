@@ -38,12 +38,6 @@
                 url = "https://dl.flathub.org/repo/";
               };
             }
-            {
-              name = "user:flathub";
-              options = {
-                url = "https://dl.flathub.org/repo/";
-              };
-            }
           ];
           packages = [
             {
@@ -64,40 +58,15 @@
                 remote = "flathub";
               };
             }
-            {
-              name = "system:org.darktable.Darktable";
-              options = {
-                remote = "flathub";
-              };
-            }
-            {
-              name = "system:org.jellyfin.JellyfinDesktop";
-              options = {
-                remote = "flathub";
-              };
-            }
-            {
-              name = "system:org.prismlauncher.PrismLauncher";
-              options = {
-                remote = "flathub";
-              };
-            }
-            {
-              name = "user:com.github.Matoking.protontricks";
-              options = {
-                remote = "flathub";
-              };
-            }
           ];
         };
         arch = {
           packages = [
-            "android-tools"
-            "amd-ucode"
             "alsa-firmware"
             "alsa-plugins"
             "alsa-utils"
-            "asusctl"
+            "amd-ucode"
+            "android-tools"
             "autoconf-archive"
             "base"
             "base-devel"
@@ -108,12 +77,14 @@
             "bluez-utils"
             "boost"
             "btrfs-progs"
+            "catppuccin-gtk-theme-mocha"
             "ccache"
+            "ccid"
             "clang"
             "cliphist"
             "cmake"
             "cpio"
-            "cuda"
+            "cups"
             "dhcpcd"
             "distrobox"
             "dmidecode"
@@ -121,8 +92,8 @@
             "docker-buildx"
             "docker-compose"
             "efibootmgr"
-            "eglexternalplatform"
             "egl-wayland"
+            "eglexternalplatform"
             "evtest"
             "exfatprogs"
             "fish"
@@ -132,7 +103,6 @@
             "fwupd"
             "gdb"
             "git"
-            "git-filter-repo"
             "git-lfs"
             "gnome-keyring"
             "gnumeric"
@@ -147,6 +117,7 @@
             "gstreamer"
             "help2man"
             "hping"
+            "hplip"
             "impala"
             "incus"
             "incus-tools"
@@ -160,34 +131,20 @@
             "kvantum-qt5"
             "kvantum-theme-materia"
             "less"
-            "lib32-gdk-pixbuf2"
-            "lib32-libpipewire"
-            "lib32-libpulse"
-            "lib32-libvdpau"
-            "lib32-libxi"
-            "lib32-libxrandr"
-            "lib32-libxrender"
-            "lib32-libxtst"
-            "lib32-mesa"
-            "lib32-mesa-utils"
-            "lib32-nvidia-utils"
-            "lib32-vulkan-intel"
-            "lib32-zlib"
             "libcamera-tools"
-            "libfido2"
             "libnotify"
             "libpam-google-authenticator"
             "libqalculate"
-            "libva-nvidia-driver"
             "libvirt"
             "libxcrypt-compat"
             "linux"
             "linux-docs"
             "linux-firmware"
             "linux-firmware-qlogic"
-            "linux-g14"
-            "linux-g14-headers"
             "linux-headers"
+            "linux-lts"
+            "linux-lts-docs"
+            "linux-lts-headers"
             "lld"
             "lsof"
             "luarocks"
@@ -198,6 +155,7 @@
             "mesa-utils"
             "meson"
             "mpv"
+            "mullvad-vpn-bin"
             "musl"
             "neovim"
             "networkmanager"
@@ -206,11 +164,7 @@
             "noto-fonts"
             "noto-fonts-cjk"
             "noto-fonts-emoji"
-            "nvidia-container-toolkit"
-            "nvidia-open-dkms"
-            "nvidia-settings"
             "openblas"
-            "opencl-nvidia"
             "opendoas"
             "openldap"
             "openresolv"
@@ -218,7 +172,11 @@
             "openvpn"
             "os-prober"
             "pacutils"
+            "pamtester"
             "parallel"
+            "paru"
+            "paru-debug"
+            "pcsc-tools"
             "perf"
             "pipewire-alsa"
             "pipewire-libcamera"
@@ -232,24 +190,21 @@
             "progress"
             "python-jinja"
             "python-ply"
-            "python-systemd"
-            "python-xlib"
-            "qemu-user-static"
-            "qemu-user-static-binfmt"
+            "python-pyscard"
             "qjackctl"
-            "qt5ct"
             "qt5-tools"
             "qt5-wayland"
+            "qt5ct"
             "qt6-connectivity"
-            "qt6ct"
             "qt6-multimedia"
             "qt6-multimedia-ffmpeg"
             "qt6-tools"
+            "qt6ct"
             "raylib"
             "realtime-privileges"
             "reflector"
             "rlwrap"
-            "rog-control-center"
+            "rose-pine-hyprcursor"
             "sc3-plugins"
             "scdoc"
             "scx-scheds"
@@ -269,12 +224,14 @@
             "songrec"
             "squashfs-tools"
             "ssh-tpm-agent"
-            "steam"
             "strace"
             "supercollider"
+            "swig"
             "tailscale"
             "texlive-binextra"
             "thunderbird"
+            "tk"
+            "tree-sitter-cli"
             "ttf-dejavu"
             "ttf-iosevka-nerd"
             "ttf-jetbrains-mono"
@@ -324,16 +281,6 @@
             "zmap"
             "zsh"
             "zsh-completions"
-            "catppuccin-gtk-theme-mocha"
-            "droidcam"
-            "envycontrol"
-            "gpu-screen-recorder-gtk"
-            "howdy-git"
-            "mullvad-vpn-bin"
-            "pamtester"
-            "supergfxctl"
-            "v4l2loopback-dc-dkms"
-            "webkit2gtk"
           ];
         };
         bun = {
@@ -341,6 +288,7 @@
             "eslint"
             "jiti"
             "prettier"
+            "rtlcss"
           ];
         };
         cargo = {
@@ -365,9 +313,6 @@
             "term-transcript-cli"
             "trunk"
             "uiua"
-            "wasm-opt"
-            "wasm-pack"
-            "wasm-tools"
             "workmux"
           ];
         };

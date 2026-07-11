@@ -79,6 +79,7 @@
       nurl                     # generate nix fetcher calls from repository urls
       orca-c                   # Esoteric prog lang to create procedural sequencers
       pandoc                   # document format converter
+      paru                     # arch package manager
       posting                  # modern tui http client
       presenterm               # terminal presentations
       qrencode                 # qr code generator
