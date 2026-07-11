@@ -27,7 +27,7 @@
       };
     };
 
-    "metapac/groups/arch.toml" = {
+    "metapac/groups/main.toml" = {
       enable = true;
       source = (pkgs.formats.toml { }).generate "metapac.config.toml" {
         flatpak = {
