@@ -6,6 +6,7 @@ FFmpeg
 Flatseal
 Freedesktop
 GNOME
+i386
 Jellyfin
 KDE
 Mesa
@@ -15,4 +16,5 @@ nvidia-610-43-02
 nvidia-610-43-03
 openh264
 Prism
+Protontricks
 Warehouse

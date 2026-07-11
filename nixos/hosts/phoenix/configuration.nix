@@ -29,6 +29,7 @@
         auto-optimise-store = true;
         http2 = false;
         show-trace = true;
+        extra-platforms = [ "aarch64-linux" ];
         trusted-users = [
           "sreedev"
         ];
