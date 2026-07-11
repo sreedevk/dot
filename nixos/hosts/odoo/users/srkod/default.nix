@@ -31,7 +31,6 @@
     ../../../../common/hm/mise.nix
     ../../../../common/hm/neovide.nix
     ../../../../common/hm/neovim.nix
-    ../../../../common/hm/newsboat.nix
     ../../../../common/hm/nixpkgs.nix
     ../../../../common/hm/nsxiv.nix
     ../../../../common/hm/ocaml.nix

@@ -122,7 +122,6 @@ in
       bind C-f neww "${pkgs.nnn}/bin/nnn"
       bind C-g neww "${pkgs.lazygit}/bin/lazygit"
       bind C-h neww "${config.programs.htop.package}/bin/htop"
-      bind C-n neww "${pkgs.newsboat}/bin/newsboat"
       bind C-o neww "${sessionizer}/bin/tmux-sessionizer"
       bind C-r display-popup -E -d "#{pane_current_path}" -w 80% -h 80%
       bind C-s neww "${sshfzf}/bin/ssh-fzf"
