@@ -37,85 +37,85 @@
 
     settings = {
       "*" = {
-        userKnownHostsFile = "/dev/null";
+        UserKnownHostsFile = "/dev/null";
       };
 
       "sree.dev" = {
-        hostname = "sree.dev";
-        user = "deploy";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        Hostname = "sree.dev";
+        User = "deploy";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "devtechnica.com devtechnica" = {
-        hostname = "devtechnica.com";
-        user = "deploy";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        Hostname = "devtechnica.com";
+        User = "deploy";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "github.com" = {
-        hostname = "github.com";
-        user = "git";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        Hostname = "github.com";
+        User = "git";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "nullptr.sh" = {
-        hostname = opts.addresses.tailscale.apollo;
-        user = "admin";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        Hostname = opts.addresses.tailscale.apollo;
+        User = "admin";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "apollo" = {
-        hostname = opts.addresses.lan.apollo;
-        user = "admin";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        Hostname = opts.addresses.lan.apollo;
+        User = "admin";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "orion" = {
-        hostname = opts.addresses.tailscale.orion;
-        user = "u0";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        Hostname = opts.addresses.tailscale.orion;
+        User = "u0";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "rocknix-rk3566" = {
-        hostname = opts.addresses.tailscale.rocknix;
-        user = "root";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        Hostname = opts.addresses.tailscale.rocknix;
+        User = "root";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "git.devtechnica.com" = {
-        hostname = "git.devtechnica.com";
-        user = "git";
-        port = 222;
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        Hostname = "git.devtechnica.com";
+        User = "git";
+        Port = 222;
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "gitlab.com" = {
-        hostname = "gitlab.com";
-        user = "git";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        Hostname = "gitlab.com";
+        User = "git";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "rpi4b.lan" = {
-        hostname = opts.addresses.lan.rpi4b;
-        user = "pi";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        Hostname = opts.addresses.lan.rpi4b;
+        User = "pi";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "rpi4b" = {
-        hostname = opts.addresses.tailscale.rpi4b;
-        user = "pi";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        Hostname = opts.addresses.tailscale.rpi4b;
+        User = "pi";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
     };
   };

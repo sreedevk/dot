@@ -35,50 +35,50 @@
 
     settings = {
       "*" = {
-        userKnownHostsFile = "/dev/null";
+        UserKnownHostsFile = "/dev/null";
       };
 
       "github.com" = {
-        hostname = "github.com";
-        user = "git";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        HostName = "github.com";
+        User = "git";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "nullptr.sh" = {
-        hostname = opts.addresses.tailscale.apollo;
-        user = "admin";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        HostName = opts.addresses.tailscale.apollo;
+        User = "admin";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "apollo" = {
-        hostname = opts.addresses.lan.apollo;
-        user = "admin";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        HostName = opts.addresses.lan.apollo;
+        User = "admin";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "rpi4b" = {
-        hostname = opts.addresses.tailscale.rpi4b;
-        user = "pi";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        HostName = opts.addresses.tailscale.rpi4b;
+        User = "pi";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "git.devtechnica.com" = {
-        hostname = "git.devtechnica.com";
-        user = "git";
+        HostName = "git.devtechnica.com";
+        User = "git";
         port = 222;
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
 
       "gitlab.com" = {
-        hostname = "gitlab.com";
-        user = "git";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        HostName = "gitlab.com";
+        User = "git";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
     };
   };
