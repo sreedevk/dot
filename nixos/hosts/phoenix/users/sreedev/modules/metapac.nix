@@ -345,203 +345,32 @@
         };
         cargo = {
           packages = [
-            {
-              name = "basalt-tui";
-              options = {
-                version = "0.12.3";
-                features = [ ];
-              };
-            }
-            {
-              name = "blaze-ssh";
-              options = {
-                version = "0.0.8";
-                git = "https://github.com/sreedevk/blaze-ssh";
-                features = [ ];
-              };
-            }
-            {
-              name = "but";
-              options = {
-                version = "0.0.0";
-                features = [ ];
-              };
-            }
-            {
-              name = "cargo-audit";
-              options = {
-                version = "0.22.1";
-                features = [ ];
-              };
-            }
-            {
-              name = "cargo-bloat";
-              options = {
-                version = "0.12.1";
-                features = [ ];
-              };
-            }
-            {
-              name = "cargo-expand";
-              options = {
-                version = "1.0.121";
-                features = [ ];
-              };
-            }
-            {
-              name = "cargo-generate";
-              options = {
-                version = "0.23.7";
-                features = [ ];
-              };
-            }
-            {
-              name = "cargo-udeps";
-              options = {
-                version = "0.1.60";
-                features = [ ];
-              };
-            }
-            {
-              name = "cargo-update";
-              options = {
-                version = "18.1.1";
-                features = [ ];
-              };
-            }
-            {
-              name = "cargo-watch";
-              options = {
-                version = "8.5.3";
-                features = [ ];
-              };
-            }
-            {
-              name = "cl-wordle";
-              options = {
-                version = "0.4.0";
-                features = [ ];
-              };
-            }
-            {
-              name = "cwry";
-              options = {
-                version = "1.0.4";
-                features = [ ];
-              };
-            }
-            {
-              name = "deduplicator";
-              options = {
-                version = "0.3.1";
-                features = [ ];
-              };
-            }
-            {
-              name = "dioxus-cli";
-              options = {
-                version = "0.7.3";
-                features = [ ];
-              };
-            }
-            {
-              name = "flamegraph";
-              options = {
-                version = "0.6.11";
-                features = [ ];
-              };
-            }
-            {
-              name = "gitbutler-cli";
-              options = {
-                version = "0.0.0";
-                features = [ ];
-              };
-            }
-            {
-              name = "license-generator";
-              options = {
-                version = "1.3.0";
-                features = [ ];
-              };
-            }
-            {
-              name = "loco";
-              options = {
-                version = "0.16.3";
-                features = [ ];
-              };
-            }
-            {
-              name = "ncopds";
-              options = {
-                version = "0.1.0";
-                features = [ ];
-              };
-            }
-            {
-              name = "sea-orm-cli";
-              options = {
-                version = "1.1.19";
-                features = [ ];
-              };
-            }
-            {
-              name = "sqlx-cli";
-              options = {
-                version = "0.8.6";
-                features = [ ];
-              };
-            }
-            {
-              name = "term-transcript-cli";
-              options = {
-                version = "0.4.0";
-                features = [ ];
-              };
-            }
-            {
-              name = "trunk";
-              options = {
-                version = "0.21.14";
-                features = [ ];
-              };
-            }
-            {
-              name = "uiua";
-              options = {
-                version = "0.18.1";
-                features = [ ];
-              };
-            }
-            {
-              name = "wasm-opt";
-              options = {
-                version = "0.116.1";
-                features = [ ];
-              };
-            }
-            {
-              name = "wasm-pack";
-              options = {
-                version = "0.14.0";
-                features = [ ];
-              };
-            }
-            {
-              name = "wasm-tools";
-              options = {
-                version = "1.245.1";
-                features = [ ];
-              };
-            }
-            {
-              name = "workmux";
-              options = {
-                version = "0.1.124";
-                features = [ ];
-              };
-            }
+            "basalt-tui"
+            "but"
+            "cargo-audit"
+            "cargo-bloat"
+            "cargo-expand"
+            "cargo-generate"
+            "cargo-udeps"
+            "cargo-update"
+            "cargo-watch"
+            "cl-wordle"
+            "deduplicator"
+            "dioxus-cli"
+            "flamegraph"
+            "gitbutler-cli"
+            "license-generator"
+            "loco"
+            "ncopds"
+            "sea-orm-cli"
+            "sqlx-cli"
+            "term-transcript-cli"
+            "trunk"
+            "uiua"
+            "wasm-opt"
+            "wasm-pack"
+            "wasm-tools"
+            "workmux"
           ];
         };
       };
