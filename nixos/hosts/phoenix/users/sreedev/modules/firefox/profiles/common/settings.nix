@@ -42,6 +42,7 @@
   "browser.link.open_newwindow"                                         = true;
   "browser.menu.showViewImageInfo"                                      = true;
   "browser.ml.chat.enabled"                                             = false;
+  "browser.newtab.preload"                                              = false;
   "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons"    = false;
   "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features"  = false;
   "browser.newtabpage.activity-stream.default.sites"                    = "";
@@ -84,6 +85,7 @@
   "browser.uidensity"                                                   = 1;
   "browser.uitour.enabled"                                              = false;
   "browser.urlbar.autoFill"                                             = true;
+  "browser.urlbar.focusOnNewTab"                                        = false;
   "browser.urlbar.groupLabels.enabled"                                  = false;
   "browser.urlbar.placeholderName"                                      = "DuckDuckGo";
   "browser.urlbar.quickactions.enabled"                                 = false;

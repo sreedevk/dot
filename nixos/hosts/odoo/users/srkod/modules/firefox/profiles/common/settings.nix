@@ -42,6 +42,7 @@
   "browser.link.open_newwindow"                                         = true;
   "browser.menu.showViewImageInfo"                                      = true;
   "browser.ml.chat.enabled"                                             = false;
+  "browser.newtab.preload"                                              = false;
   "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons"    = false;
   "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features"  = false;
   "browser.newtabpage.activity-stream.default.sites"                    = "";
@@ -84,6 +85,7 @@
   "browser.uidensity"                                                   = 1;
   "browser.uitour.enabled"                                              = false;
   "browser.urlbar.autoFill"                                             = true;
+  "browser.urlbar.focusOnNewTab"                                        = false;
   "browser.urlbar.groupLabels.enabled"                                  = false;
   "browser.urlbar.placeholderName"                                      = "DuckDuckGo";
   "browser.urlbar.quickactions.enabled"                                 = false;
@@ -182,7 +184,7 @@
   "identity.fxaccounts.enabled"                                         = false;
   "image.mem.decode_bytes_at_a_time"                                    = 32768;
   "layers.acceleration.force-enabled"                                   = true;
-  "layout.css.devPixelsPerPx"                                           = 1.2;
+  "layout.css.devPixelsPerPx"                                           = 1.8;
   "layout.css.grid-template-masonry-value.enabled"                      = true;
   "layout.css.prefers-color-scheme.content-override"                    = 0;
   "layout.word_select.eat_space_to_next_word"                           = false;
