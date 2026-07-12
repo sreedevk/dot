@@ -1,6 +1,11 @@
 when:
   - event: [tag, manual]
 
+matrix:
+  SYSTEM:
+    - x86_64-linux
+    - aarch64-linux
+
 variables:
   - &nix_image nixos/nix:latest
   - &nix_env
@@ -11,8 +16,8 @@ variables:
     NIXPKGS_ALLOW_UNFREE: "1"
 
 steps:
-  - name: flake-check
+  - name: flake-check-${SYSTEM}
     image: *nix_image
     environment: *nix_env
     commands:
-      - nix flake check --impure --all-systems --no-build
+      - nix flake check --impure --no-build --system "${SYSTEM}"
