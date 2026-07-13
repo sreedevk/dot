@@ -22,7 +22,7 @@
         };
         cargo = {
           locked = false;
-          binstall = false;
+          binstall = true;
         };
       };
     };
@@ -296,6 +296,7 @@
             "basalt-tui"
             "but"
             "cargo-audit"
+            "cargo-binstall"
             "cargo-bloat"
             "cargo-expand"
             "cargo-generate"
@@ -308,6 +309,7 @@
             "license-generator"
             "loco"
             "ncopds"
+            "odoo-lsp"
             "sea-orm-cli"
             "sqlx-cli"
             "term-transcript-cli"

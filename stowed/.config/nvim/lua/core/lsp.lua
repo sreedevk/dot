@@ -22,6 +22,7 @@ vim.lsp.enable({
   "marksman",
   "nil_ls",
   "ocamllsp",
+  "odoo_lsp",
   "pylsp",
   "pyright",
   "ruby_lsp",
