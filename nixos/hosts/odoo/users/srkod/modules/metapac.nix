@@ -38,6 +38,12 @@
                 url = "https://dl.flathub.org/repo/";
               };
             }
+            {
+              name = "user:flathub";
+              options = {
+                url = "https://dl.flathub.org/repo/";
+              };
+            }
           ];
           packages = [
             {
@@ -54,6 +60,12 @@
             }
             {
               name = "system:io.github.gaheldev.Millisecond";
+              options = {
+                remote = "flathub";
+              };
+            }
+            {
+              name = "system:org.jellyfin.JellyfinDesktop";
               options = {
                 remote = "flathub";
               };
@@ -315,6 +327,8 @@
             "term-transcript-cli"
             "trunk"
             "uiua"
+            "wasm-pack"
+            "wasm-tools"
             "workmux"
           ];
         };
