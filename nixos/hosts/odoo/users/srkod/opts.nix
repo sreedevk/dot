@@ -10,6 +10,13 @@
     };
   };
 
+  taskwarrior.sync = {
+    serverAddress = "https://tasks.nullptr.sh";
+    clientID = "$TASKWARRIOR_CLIENT_ID";
+    encryptionSecret = "$TASKWARRIOR_ENCRYPTION_SECRET";
+    frequency = "30min";
+  };
+
   directories =
     let
       homedir = subpath: "${builtins.getEnv "HOME"}/${subpath}";
