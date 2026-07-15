@@ -259,6 +259,20 @@ in
             refresh = 60.0;
           };
         };
+
+        "Dell Inc. DELL P2419HC 8Q9MJ73" = {
+          enable = true;
+          position = {
+            x = 0;
+            y = 0;
+          };
+          scale = 1;
+          mode = {
+            width = 1920;
+            height = 1200;
+            refresh = 60.0;
+          };
+        };
       };
 
       binds = with config.lib.niri.actions; {
