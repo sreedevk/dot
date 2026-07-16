@@ -105,7 +105,7 @@
           show_label = true;
         };
         workspaces = {
-          minimal = true;
+          style = "minimal";
           hide_when_empty = true;
         };
         spacer = {
