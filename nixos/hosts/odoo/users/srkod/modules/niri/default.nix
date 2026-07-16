@@ -305,6 +305,7 @@ in
         "Mod+L".action                                = focus-column-right;
         "Mod+K".action                                = focus-workspace-up;
         "Mod+J".action                                = focus-workspace-down;
+        "Mod+M".action                                = spawn "noctalia" "msg" "bar-toggle";
         "Mod+1".action.focus-workspace                = 1;
         "Mod+2".action.focus-workspace                = 2;
         "Mod+3".action.focus-workspace                = 3;
