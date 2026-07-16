@@ -19,6 +19,15 @@
     package = config.lib.pamShim.replacePam pkgs.noctalia;
     systemd.enable = false;
     settings = {
+      lockscreen = {
+        enabled = true;
+        fingerprint = true;
+        allow_empty_password = false;
+        blurred_desktop = true;
+        blur_intensity = 0.5;
+        tint_intensity = 0.3;
+        monitors = [ ];
+      };
       calendar = {
         enabled = true;
         refresh_minutes = 15;
