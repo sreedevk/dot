@@ -162,11 +162,9 @@ docker compose run --remove-orphans check
 
 ### arch
 - Native `/etc` files and other system-level configuration for Arch hosts, placed by `system-manager`.
-- Package declarations do **not** live here — those are in each host's `metapac.nix`.
 
 ### stowed
 - Dotfiles that are symlinked recursively into `$HOME` by home-manager.
-- The name is historical; GNU stow is not used and never was in the current setup.
 
 ### lib
 - Shared Nix helper functions used across the flake outputs.
