@@ -13,7 +13,6 @@ _: with builtins; {
       { }
       [
         "attic_server_config_toml"
-        "aws-secrets"
         "baikal_user_password"
         "cargo-token"
         "gh-token"

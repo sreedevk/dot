@@ -13,7 +13,6 @@
     ../../../../common/hm/agenix.nix
     ../../../../common/hm/alacritty
     ../../../../common/hm/amfora.nix
-    ../../../../common/hm/awscli.nix
     ../../../../common/hm/base.nix
     ../../../../common/hm/bash.nix
     ../../../../common/hm/brave.nix
