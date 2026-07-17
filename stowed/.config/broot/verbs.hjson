@@ -34,11 +34,11 @@ verbs: [
     }
 
     {
-        key: ctrl-k
+        key: ctrl-p
         execution: ":line_up"
     }
     {
-        key: ctrl-j
+        key: ctrl-n
         execution: ":line_down"
     }
     {
