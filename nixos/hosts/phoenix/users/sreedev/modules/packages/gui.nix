@@ -32,6 +32,7 @@
     openttd
     pavucontrol
     radicle-desktop
+    sageWithDoc
     signal-desktop
     slack
     tor-browser
