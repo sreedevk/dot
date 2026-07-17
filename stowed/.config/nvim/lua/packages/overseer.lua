@@ -40,6 +40,17 @@ return {
         preserve_output = true,
         use_terminal = false,
       },
+      component_aliases = {
+        default = {
+          { "display_duration",   detail_level = 2 },
+          "on_output_summarize",
+          "on_exit_set_status",
+          "on_complete_notify",
+          "on_complete_dispose",
+          { "on_output_quickfix", set_diagnostics = true },
+          "on_result_diagnostics",
+        },
+      },
       task_list = {
         render = function(task)
           return require("overseer.render").format_standard(task)
