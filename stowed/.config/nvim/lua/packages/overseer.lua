@@ -60,6 +60,7 @@ return {
           ["<CR>"] = "keymap.run_action",
           ["dd"] = { "keymap.run_action", opts = { action = "dispose" }, desc = "dispose task" },
           ["r"] = { "keymap.run_action", opts = { action = "restart" }, desc = "restart task" },
+          ["x"] = { "keymap.run_action", opts = { action = "stop" }, desc = "stop task" },
           ["<C-e>"] = { "keymap.run_action", opts = { action = "edit" }, desc = "Edit task" },
           ["o"] = "keymap.open",
           ["v"] = { "keymap.open", opts = { dir = "vsplit" }, desc = "open task output in vsplit" },
