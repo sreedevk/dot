@@ -43,11 +43,11 @@
           ExecStart =
             let
               backupdirs = builtins.concatStringsSep " " [
-                opts.directories.thunderbird
                 opts.directories.finances
-                opts.directories.work
-                opts.directories.resources
                 opts.directories.notebook
+                opts.directories.repositories
+                opts.directories.resources
+                opts.directories.thunderbird
               ];
             in
             [
