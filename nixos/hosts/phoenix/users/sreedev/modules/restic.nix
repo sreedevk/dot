@@ -25,7 +25,7 @@
       restic-backup = {
         Unit = {
           Description = "Restic Backup Process to Apollo Server";
-          Documentation = "info:restic man:restic backup(1)";
+          Documentation = "info:restic man:restic-backup(1)";
           After = [
             "network-online.target"
           ];
@@ -39,7 +39,7 @@
             "RESTIC_PASSWORD_FILE=${config.age.secrets.restic_backup_password.path}"
             "RESTIC_REPOSITORY=sftp:nullptr.sh:/mnt/dpool1/backups/${username}@${opts.hostname}"
           ];
-
+          SuccessExitStatus = 3;
           ExecStart =
             let
               backupdirs = builtins.concatStringsSep " " [
