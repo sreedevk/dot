@@ -75,6 +75,7 @@ in
 
   home.packages = with pkgs; [
     niri
+    wl-mirror
     xwayland-satellite
   ];
 
