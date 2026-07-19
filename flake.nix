@@ -3,13 +3,14 @@
 
   inputs = {
 
-    agenix.url     = "github:ryantm/agenix";
-    attic.url      = "github:zhaofengli/attic";
-    colmena.url    = "github:zhaofengli/colmena";
-    llama-cpp.url  = "github:ggml-org/llama.cpp?ref=b9859";
-    nixpkgs.url    = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
-    stablepkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05&shallow=1";
-    vicinae.url    = "github:vicinaehq/vicinae?ref=v0.23.0";
+    agenix.url         = "github:ryantm/agenix";
+    attic.url          = "github:zhaofengli/attic";
+    colmena.url        = "github:zhaofengli/colmena";
+    llama-cpp.url      = "github:ggml-org/llama.cpp?ref=b9859";
+    nixpkgs.url        = "github:nixos/nixpkgs?ref=nixos-unstable&shallow=1";
+    stablepkgs.url     = "github:nixos/nixpkgs?ref=nixos-26.05&shallow=1";
+    nixpkgs-master.url = "github:nixos/nixpkgs?ref=master&shallow=1";
+    vicinae.url        = "github:vicinaehq/vicinae?ref=v0.23.0";
 
     nix-doom-emacs-unstraightened =  {
       url = "github:marienz/nix-doom-emacs-unstraightened";
