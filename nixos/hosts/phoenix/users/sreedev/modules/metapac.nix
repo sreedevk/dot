@@ -180,7 +180,6 @@
             "inotify-tools"
             "iw"
             "iwd"
-            "jellium-desktop-git"
             "jq"
             "kexec-tools"
             "kmon"
