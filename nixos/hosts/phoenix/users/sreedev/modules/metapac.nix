@@ -5,6 +5,26 @@
   ];
 
   xdg.configFile = {
+    "paru/paru.conf" = {
+      enable = true;
+      text = ''
+        [options]
+        PgpFetch
+        Devel
+        Provides
+        DevelSuffixes = -git -cvs -svn -bzr -darcs -always -hg -fossil
+        BottomUp
+        CombinedUpgrade
+        UpgradeMenu
+        NewsOnUpgrade
+        SudoLoop
+        CleanAfter
+        RemoveMake
+
+        [bin]
+        FileManager = ls
+      '';
+    };
     "metapac/config.toml" = {
       enable = true;
       source = (pkgs.formats.toml { }).generate "metapac.config.toml" {
