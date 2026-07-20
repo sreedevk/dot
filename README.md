@@ -9,12 +9,11 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 ## TODO
 1. [FIX] common: tmux/terminal reads C-i as \<tab\>
 2. [IMP] apollo,orion: gluetun based split up of container networks.
-3. [FIX] common: when a github repo has a different remote for pull and a different remote for push, gh cli needs to be setup properly
-4. [FIX] phoenix,odoo: niri screensharing for discord
-5. [IMP] apollo,orion: migrate to Traefik
-6. [IMP] apollo: k3s setup with network storage
-7. [IMP] apollo: setup disko nix
-8. [IMP] apollo: fix internal container communication dependency on static ip addr
+3. [FIX] phoenix,odoo: niri screensharing for discord
+4. [IMP] apollo,orion: migrate to Traefik
+5. [IMP] apollo: k3s setup with network storage
+6. [IMP] apollo: setup disko nix
+7. [IMP] apollo: fix internal container communication dependency on static ip addr
 
 ## Pre Requisites
 
