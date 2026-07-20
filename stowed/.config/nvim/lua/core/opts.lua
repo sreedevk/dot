@@ -221,14 +221,12 @@ vim.g.enabled_ts_parsers = {
   "sql",
   "ssh_config",
   "supercollider",
-  "tmux",
   "todotxt",
   "toml",
   "tsv",
   "typescript",
   "xml",
   "yaml",
-  "zathurarc",
   "zig",
 }
 
