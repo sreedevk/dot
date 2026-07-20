@@ -1,2 +1,9 @@
-.ruby-lsp
 /result
+/.*
+
+!/.gitignore
+!/.gitsigners
+!/.justfile
+!/.mailmap
+!/.envrc
+!/.woodpecker

@@ -12,6 +12,16 @@ nix-format:
 nix-deploy host:
     colmena apply --impure --on {{ host }}
 
+# deploy a microvm guest: build its runner here, copy to its host, restart the guest
+[group('nix')]
+microvm-deploy vm host="apollo":
+    #!/usr/bin/env bash
+    set -euo pipefail
+    runner=$(nix build --impure --no-link --print-out-paths ".#nixosConfigurations.{{ vm }}.config.microvm.declaredRunner")
+    nix copy --to "ssh://{{ host }}" "$runner"
+    ssh {{ host }} "sudo ln -sfn '$runner' /var/lib/microvms/{{ vm }}/current && sudo systemctl restart 'microvm@{{ vm }}'"
+    echo "deployed {{ vm }} to {{ host }}"
+
 # system-manager deploy
 [group('nix')]
 sm-deploy host:

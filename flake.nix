@@ -31,6 +31,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    microvm = {
+      url                    = "github:astro/microvm.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nur = {
       url                    = "github:nix-community/NUR?ref=ebb520e";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -104,10 +109,11 @@
       });
 
       # Operating System Level Configurations
-      nixosConfigurations = 
+      nixosConfigurations =
         mkSystems [
           { host = "apollo"; system = systems.x86; }
           { host = "orion";  system = systems.x86; }
+          { host = "lyra";   system = systems.x86; }
         ];
 
       # Arch linux system configs

@@ -111,6 +111,13 @@
         IdentityFile = "~/.ssh/id_ed25519";
       };
 
+      "lyra.lan" = {
+        Hostname = opts.addresses.lan.lyra;
+        User = "admin";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
+      };
+
       "rpi4b" = {
         Hostname = opts.addresses.tailscale.rpi4b;
         User = "pi";

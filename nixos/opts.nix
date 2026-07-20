@@ -22,6 +22,7 @@
       rocknix = "192.168.1.184";
       phonix = "192.168.1.235";
       orion = "192.168.1.229";
+      lyra = "192.168.1.170";
     };
     tailscale = {
       devtechnica = "";
@@ -70,6 +71,7 @@
     rpi4b = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAul9ZMOMARHw6iSIFbQKChc/bkFBx5/mZnrer/YsRvV";
     terminus = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKwPdv2zFlfcDbbRvpIYBPh/oRR7MUYjH397Ma+Tu5iB";
     phoenix = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILECZkgjRGtMkXHr44ytGrfpByPZbP2t5WeF6NgetYIO";
+    lyra = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGJfleIJF7fqRKAPzCyTHn9SFknHS+Y8X5RhEj61jxLn";
     odoo = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICTsvMJQtvFu3erZ+hAkMrNRsX1B2ZgiV4w34mMUzHt4";
   };
 
