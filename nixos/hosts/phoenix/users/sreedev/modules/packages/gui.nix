@@ -21,6 +21,7 @@
     gf
     gimp3-with-plugins
     gnome-calculator
+    handy
     krita
     libreoffice-fresh
     localsend
