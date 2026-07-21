@@ -140,6 +140,7 @@ filter_private_history:
   --path nixos/hosts/rpi4b/ \
   --path nixos/hosts/devtechnica/ \
   --path nixos/hosts/lyra/ \
+  --path nixos/hosts/vega/ \
   --invert-paths
 
 # prepare cloned repository for publishing

@@ -114,6 +114,7 @@
           { host = "apollo"; system = systems.x86; }
           { host = "orion";  system = systems.x86; }
           { host = "lyra";   system = systems.x86; }
+          { host = "vega";   system = systems.arm64; }
         ];
 
       # Arch linux system configs
