@@ -46,7 +46,7 @@
     settings = {
       user = {
         email = "sreedev@icloud.com";
-        name = "sreedevk";
+        name = "Sreedev Kodichath";
         signingkey = "B8C402B16E80E17C";
       };
       core = {
