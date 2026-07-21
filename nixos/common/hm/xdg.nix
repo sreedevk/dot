@@ -1,8 +1,9 @@
-{ lib
-, pkgs
-, config
-, opts
-, ...
+{
+  lib,
+  pkgs,
+  config,
+  opts,
+  ...
 }:
 let
   defaultWebBrowser = [
@@ -10,62 +11,62 @@ let
   ];
 in
 {
-
-  xdg.configFile = {
-    "user-dirs.dirs" = {
+  xdg = {
+    configFile = {
+      "user-dirs.dirs" = {
+        enable = true;
+        force = true;
+        text = ''
+          XDG_DESKTOP_DIR="$HOME/Desktop"
+          XDG_DOWNLOAD_DIR="$HOME/Downloads"
+          XDG_TEMPLATES_DIR="$HOME/"
+          XDG_PUBLICSHARE_DIR="$HOME/"
+          XDG_DOCUMENTS_DIR="$HOME/Documents"
+          XDG_MUSIC_DIR="$HOME/"
+          XDG_PICTURES_DIR="$HOME/"
+          XDG_VIDEOS_DIR="$HOME/"
+        '';
+      };
+      "user-dirs.locale" = {
+        enable = true;
+        text = ''
+          en_US
+        '';
+      };
+    };
+    mime.enable = true;
+    mimeApps = {
       enable = true;
-      force = true;
-      text = ''
-        XDG_DESKTOP_DIR="$HOME/Desktop"
-        XDG_DOWNLOAD_DIR="$HOME/Downloads"
-        XDG_TEMPLATES_DIR="$HOME/"
-        XDG_PUBLICSHARE_DIR="$HOME/"
-        XDG_DOCUMENTS_DIR="$HOME/Documents"
-        XDG_MUSIC_DIR="$HOME/"
-        XDG_PICTURES_DIR="$HOME/"
-        XDG_VIDEOS_DIR="$HOME/"
-      '';
-    };
-    "user-dirs.locale" = {
-      enable = true;
-      text = ''
-        en_US
-      '';
-    };
-  };
-
-  xdg.mime.enable = true;
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "application/pdf" = [ "org.pwmt.zathura.desktop" ] ++ defaultWebBrowser;
-      "application/json" = defaultWebBrowser;
-      "text/plain" = [ "neovide.desktop" ] ++ defaultWebBrowser;
-      "text/html" = defaultWebBrowser ++ [
-        "neovide.desktop"
-        "neovim.desktop"
-      ];
-      "text/markdown" = defaultWebBrowser ++ [
-        "neovide.desktop"
-        "neovim.desktop"
-      ];
-      "text/unknown" = [
-        "neovide.desktop"
-        "neovim.desktop"
-      ]
-      ++ defaultWebBrowser;
-      "inode/directory" = [ "nemo.desktop" ];
-      "x-scheme-handler/http" = defaultWebBrowser;
-      "x-scheme-handler/https" = defaultWebBrowser;
-      "x-scheme-handler/about" = defaultWebBrowser;
-      "x-scheme-handler/mailto" = [ "org.mozilla.Thunderbird.desktop" ];
-      "x-scheme-handler/unknown" = defaultWebBrowser;
-      "image/png" = [ "nsxiv.desktop" ] ++ defaultWebBrowser;
-      "image/jpeg" = [ "nsxiv.desktop" ] ++ defaultWebBrowser;
-      "image/gif" = [ "nsxiv.desktop" ] ++ defaultWebBrowser;
-    };
-    associations.added = {
-      "application/atom+xml" = defaultWebBrowser;
+      defaultApplications = {
+        "application/pdf" = [ "org.pwmt.zathura.desktop" ] ++ defaultWebBrowser;
+        "application/json" = defaultWebBrowser;
+        "text/plain" = [ "neovide.desktop" ] ++ defaultWebBrowser;
+        "text/html" = defaultWebBrowser ++ [
+          "neovide.desktop"
+          "neovim.desktop"
+        ];
+        "text/markdown" = defaultWebBrowser ++ [
+          "neovide.desktop"
+          "neovim.desktop"
+        ];
+        "text/unknown" = [
+          "neovide.desktop"
+          "neovim.desktop"
+        ]
+        ++ defaultWebBrowser;
+        "inode/directory" = [ "nemo.desktop" ];
+        "x-scheme-handler/http" = defaultWebBrowser;
+        "x-scheme-handler/https" = defaultWebBrowser;
+        "x-scheme-handler/about" = defaultWebBrowser;
+        "x-scheme-handler/mailto" = [ "org.mozilla.Thunderbird.desktop" ];
+        "x-scheme-handler/unknown" = defaultWebBrowser;
+        "image/png" = [ "nsxiv.desktop" ] ++ defaultWebBrowser;
+        "image/jpeg" = [ "nsxiv.desktop" ] ++ defaultWebBrowser;
+        "image/gif" = [ "nsxiv.desktop" ] ++ defaultWebBrowser;
+      };
+      associations.added = {
+        "application/atom+xml" = defaultWebBrowser;
+      };
     };
   };
 
