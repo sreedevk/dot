@@ -133,7 +133,14 @@ clone_for_publishing:
 # filter private history from the cloned repository
 [group('publishing')]
 filter_private_history:
-  git filter-repo --path secrets/ --path nixos/hosts/apollo --path nixos/hosts/orion/ --path nixos/hosts/rpi4b/ --path nixos/hosts/devtechnica/ --invert-paths
+  git filter-repo \
+  --path secrets/ \
+  --path nixos/hosts/apollo \
+  --path nixos/hosts/orion/ \
+  --path nixos/hosts/rpi4b/ \
+  --path nixos/hosts/devtechnica/ \
+  --path nixos/hosts/lyra/ \
+  --invert-paths
 
 # prepare cloned repository for publishing
 [group('publishing')]
