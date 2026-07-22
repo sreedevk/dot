@@ -223,6 +223,8 @@
             "python-jinja"
             "python-ply"
             "python-pyscard"
+            "qemu-user-static"
+            "qemu-user-static-binfmt"
             "qjackctl"
             "qt5-tools"
             "qt5-wayland"
