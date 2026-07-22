@@ -384,6 +384,7 @@
             "sea-orm-cli"
             "sqlx-cli"
             "term-transcript-cli"
+            "topcoat-cli"
             "trunk"
             "uiua"
             "wasm-opt"
