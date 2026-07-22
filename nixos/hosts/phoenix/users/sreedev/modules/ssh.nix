@@ -118,7 +118,6 @@
         IdentityFile = "~/.ssh/id_ed25519";
       };
 
-      # vega is a microvm on rpi4b, reached through its forwarded port (2222 -> 22).
       "vega.lan" = {
         Hostname = opts.addresses.lan.rpi4b;
         User = "admin";
