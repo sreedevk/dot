@@ -15,6 +15,10 @@ if status is-interactive
         woodpecker-cli completion fish > /dev/null 2>&1 | source
     end
 
+    if command -q niri
+      niri completions fish | source
+    end
+
     if command -q jj
         jj util completion fish | source
     end
