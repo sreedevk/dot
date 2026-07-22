@@ -72,8 +72,9 @@ in
   };
 
   home.packages = with pkgs; [
-    xwayland-satellite
     niri
+    wl-mirror
+    xwayland-satellite
   ];
 
   xdg.portal = {
