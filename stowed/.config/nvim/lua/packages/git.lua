@@ -56,6 +56,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "sindrets/diffview.nvim",
+      "m00qek/baleia.nvim",
       "nvim-telescope/telescope.nvim",
     },
     opts = {
