@@ -91,13 +91,19 @@ return {
     },
     {
       '<Leader>fw',
+      mode = "n",
       function()
-        require('telescope.builtin').grep_string({
-          search = vim.fn.expand('<cword>'),
-        })
+        require("telescope-live-grep-args.shortcuts").grep_word_under_cursor()
       end,
       desc = 'Find CWord'
     },
+    {
+      '<Leader>fw',
+      mode = "v",
+      function()
+        require("telescope-live-grep-args.shortcuts").grep_visual_selection()
+      end
+    }
   },
   config = function()
     local t_actions = require("telescope.actions")
@@ -142,6 +148,21 @@ return {
         },
         live_grep_args = {
           auto_quoting = true,
+          vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--ignore-vcs',
+            '--no-require-git',
+            '--hidden',
+            '--glob', "!**/.git/*",
+            '--glob', "!**/.jj/*",
+            '--glob', "!**/node_modules/*",
+          },
           mappings = {
             i = {
               ["<C-k>"] = lga_actions.quote_prompt(),
@@ -180,6 +201,7 @@ return {
           '--column',
           '--smart-case',
           '--ignore-vcs',
+          '--no-require-git',
           '--hidden',
           '--glob', "!**/.git/*",
           '--glob', "!**/.jj/*",
