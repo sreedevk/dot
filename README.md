@@ -14,6 +14,7 @@ This Nix(OS) section of this repository is located in the `nixos` directory.
 5. [IMP] apollo: k3s setup with network storage
 6. [IMP] apollo: setup disko nix
 7. [IMP] apollo: fix internal container communication dependency on static ip addr
+7. [IMP] common: find ways to explore the files modified by the last commit easily
 
 ## Pre Requisites
 
