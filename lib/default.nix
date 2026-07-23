@@ -87,7 +87,7 @@ rec {
         ../nixos/hosts/${hostname}/configuration.nix
       ];
       specialArgs = {
-        inherit system;
+        inherit system inputs;
         opts = recurmerge [
           opts
           (import ../nixos/hosts/${hostname}/opts.nix)
