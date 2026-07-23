@@ -346,8 +346,8 @@ in
         "Mod+XF86AudioRaiseVolume".action             = spawn "noctalia" "msg" "brightness-up" "current" "10%";
         "Mod+XF86AudioLowerVolume".action             = spawn "noctalia" "msg" "brightness-down" "current" "10%";
         "Mod+Shift+S".action                          = spawn "noctalia" "msg" "screenshot-region";
-        "Mod+Shift+W".action                          = spawn "noctalia" "msg" "screenshot-region";
-        "Print".action                                = spawn "noctalia" "msg" "screenshot-fullscreen";
+        "XF86SelectiveScreenshot".action              = spawn "noctalia" "msg" "screenshot-region";
+        "Print".action                                = spawn "noctalia" "msg" "screenshot-fullscreen" "pick";
       };
     };
   };
